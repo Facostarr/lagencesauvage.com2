@@ -1,0 +1,12 @@
+{
+  "name": "lagence-sauvage-website",
+  "version": "2.0.0",
+  "description": "Site web L'Agence Sauvage - Conforme charte graphique",
+  "scripts": {
+    "dev": "npx http-server public -p 3000",
+    "build": "echo 'No build needed for static site'"
+  },
+  "keywords": ["ia", "automatisation", "tpe", "pme"],
+  "author": "L'Agence Sauvage",
+  "license": "ISC"
+}
