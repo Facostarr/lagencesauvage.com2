@@ -1,12 +1,26 @@
 {
-  "name": "lagence-sauvage-website",
+  "name": "lagencesauvage-website",
   "version": "2.0.0",
-  "description": "Site web L'Agence Sauvage - Conforme charte graphique",
+  "description": "L'Agence Sauvage - Site Web avec intégration Notion",
+  "main": "index.html",
   "scripts": {
-    "dev": "npx http-server public -p 3000",
-    "build": "echo 'No build needed for static site'"
+    "dev": "vercel dev",
+    "build": "echo 'Build complete'",
+    "deploy": "vercel --prod"
   },
-  "keywords": ["ia", "automatisation", "tpe", "pme"],
+  "dependencies": {
+    "@notionhq/client": "^2.2.15"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "notion",
+    "form",
+    "lead-capture",
+    "vercel"
+  ],
   "author": "L'Agence Sauvage",
-  "license": "ISC"
+  "license": "MIT"
 }
