@@ -3,14 +3,5 @@
     "api/**/*.js": {
       "maxDuration": 10
     }
-  },
-  "env": {
-    "NOTION_API_KEY": "@ntn_n9190421861SXxATWxHuVxr9Ug2aBzqz7P7yAuCUpcrczx",
-    "NOTION_DATABASE_ID": "@notion-database-id",
-    "TWILIO_ACCOUNT_SID": "@twilio-account-sid",
-    "TWILIO_AUTH_TOKEN": "@twilio-auth-token",
-    "TWILIO_PHONE_FROM": "@twilio-phone-from",
-    "NOTIFICATION_EMAIL": "lagencesauvage@gmail.com",
-    "NOTIFICATION_PHONE": "+33686502030"
   }
 }
