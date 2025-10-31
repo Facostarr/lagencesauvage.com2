@@ -726,8 +726,8 @@ details:focus-visible {
 }
 
 /* ============================================
-   LOGO STYLES - Version ajustée (50% plus grand)
-   Remplace les anciens styles par ceux-ci dans assets/css/styles.css
+   LOGO STYLES - Version 2X PLUS GRAND
+   Remplace les styles du logo dans assets/css/styles.css
    ============================================ */
 
 .header__logo {
@@ -742,10 +742,9 @@ details:focus-visible {
 
 .logo-img {
   display: block;
-  /* Ton logo fait 60mm x 50mm - on utilise width pour contrôler la taille */
-  width: 462px; /* 300% plus grand que la config précédente (était ~154px) */
+  width: 400px; /* 2x plus grand (était 200px) */
   height: auto; /* Conserve les proportions du SVG */
-  max-width: 300%;
+  max-width: 100%;
   transition: opacity 0.3s ease;
 }
 
@@ -756,21 +755,21 @@ details:focus-visible {
 /* Responsive Tablet */
 @media (max-width: 768px) {
   .logo-img {
-    width: 369px; /* 300% plus grand (était ~123px) */
+    width: 320px; /* 2x plus grand (était 160px) */
   }
 }
 
 /* Responsive Mobile */
 @media (max-width: 480px) {
   .logo-img {
-    width: 300px; /* 300% plus grand (était ~100px) */
+    width: 260px; /* 2x plus grand (était 130px) */
   }
 }
 
 /* Très petits écrans */
 @media (max-width: 360px) {
   .logo-img {
-    width: 246px; /* 300% plus grand (était ~85px) */
+    width: 220px; /* 2x plus grand (était 110px) */
   }
 }
 
@@ -789,34 +788,6 @@ details:focus-visible {
 /* Dark mode support (optionnel) */
 @media (prefers-color-scheme: dark) {
   .logo-img {
-    /* Le logo garde ses couleurs originales même en dark mode */
     filter: brightness(1.1);
   }
 }
-
-/* ============================================
-   ALTERNATIVE : Si tu veux encore plus grand
-   ============================================ */
-
-/* Décommente ces lignes si 200px n'est pas assez grand :
-
-.logo-img {
-  width: 220px;  /* 40% plus grand
-}
-
-@media (max-width: 768px) {
-  .logo-img {
-    width: 180px;
-  }
-}
-
-@media (max-width: 480px) {
-  .logo-img {
-    width: 150px;
-  }
-}
-
-*/
-
-
-
