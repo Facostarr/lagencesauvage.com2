@@ -726,14 +726,14 @@ details:focus-visible {
 }
 
 /* ============================================
-   LOGO STYLES - Version 2X PLUS GRAND
-   Remplace les styles du logo dans assets/css/styles.css
+   LOGO STYLES - Version 2X PLUS GRAND (FORCÉE)
+   Remplace le CSS précédent par celui-ci
    ============================================ */
 
 .header__logo {
-  display: inline-block;
+  display: inline-block !important;
   transition: transform 0.3s ease;
-  line-height: 0; /* Évite les espaces blancs sous l'image */
+  line-height: 0 !important;
 }
 
 .header__logo:hover {
@@ -741,10 +741,10 @@ details:focus-visible {
 }
 
 .logo-img {
-  display: block;
-  width: 400px; /* 2x plus grand (était 200px) */
-  height: auto; /* Conserve les proportions du SVG */
-  max-width: 100%;
+  display: block !important;
+  width: 400px !important; /* 2x plus grand */
+  height: auto !important;
+  max-width: 100% !important;
   transition: opacity 0.3s ease;
 }
 
@@ -755,25 +755,25 @@ details:focus-visible {
 /* Responsive Tablet */
 @media (max-width: 768px) {
   .logo-img {
-    width: 320px; /* 2x plus grand (était 160px) */
+    width: 320px !important;
   }
 }
 
 /* Responsive Mobile */
 @media (max-width: 480px) {
   .logo-img {
-    width: 260px; /* 2x plus grand (était 130px) */
+    width: 260px !important;
   }
 }
 
 /* Très petits écrans */
 @media (max-width: 360px) {
   .logo-img {
-    width: 220px; /* 2x plus grand (était 110px) */
+    width: 220px !important;
   }
 }
 
-/* Accessibilité - Réduire les animations si demandé */
+/* Accessibilité */
 @media (prefers-reduced-motion: reduce) {
   .header__logo,
   .logo-img {
@@ -785,7 +785,7 @@ details:focus-visible {
   }
 }
 
-/* Dark mode support (optionnel) */
+/* Dark mode support */
 @media (prefers-color-scheme: dark) {
   .logo-img {
     filter: brightness(1.1);
