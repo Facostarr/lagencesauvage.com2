@@ -745,7 +745,7 @@ details:focus-visible {
   /* Ton logo fait 60mm x 50mm - on utilise width pour contrôler la taille */
   width: 462px; /* 300% plus grand que la config précédente (était ~154px) */
   height: auto; /* Conserve les proportions du SVG */
-  max-width: 100%;
+  max-width: 300%;
   transition: opacity 0.3s ease;
 }
 
@@ -817,5 +817,6 @@ details:focus-visible {
 }
 
 */
+
 
 
