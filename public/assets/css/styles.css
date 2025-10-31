@@ -781,14 +781,14 @@ details:focus-visible {
 /* Responsive Mobile */
 @media (max-width: 480px) {
   .logo-img {
-    width: 160px !important;
+    width: 100px !important;
   }
 }
 
 /* Très petits écrans */
 @media (max-width: 360px) {
   .logo-img {
-    width: 140px !important;
+    width: 80px !important;
   }
 }
 
@@ -810,4 +810,5 @@ details:focus-visible {
     filter: brightness(1.1);
   }
 }
+
 
