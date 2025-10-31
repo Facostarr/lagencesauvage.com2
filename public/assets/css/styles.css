@@ -726,8 +726,8 @@ details:focus-visible {
 }
 
 /* ============================================
-   LOGO STYLES - Pour ton logo original
-   Ajouter ces styles à la fin de assets/css/styles.css
+   LOGO STYLES - Version ajustée (30% plus grand)
+   Remplace les anciens styles par ceux-ci dans assets/css/styles.css
    ============================================ */
 
 .header__logo {
@@ -742,10 +742,9 @@ details:focus-visible {
 
 .logo-img {
   display: block;
-  /* Le SVG original fait 210mm x 297mm (format A4) mais le contenu 
-     visible est beaucoup plus petit. On contrôle la taille ici */
-  height: 70px; /* Taille par défaut - un peu plus grand que l'ancien logo */
-  width: auto; /* Conserve les proportions du SVG */
+  /* Ton logo fait 60mm x 50mm - on utilise width pour contrôler la taille */
+  width: 200px; /* 30% plus grand que la config précédente (était ~154px) */
+  height: auto; /* Conserve les proportions du SVG */
   max-width: 100%;
   transition: opacity 0.3s ease;
 }
@@ -757,21 +756,21 @@ details:focus-visible {
 /* Responsive Tablet */
 @media (max-width: 768px) {
   .logo-img {
-    height: 60px; /* Légèrement plus petit sur tablette */
+    width: 160px; /* 30% plus grand (était ~123px) */
   }
 }
 
 /* Responsive Mobile */
 @media (max-width: 480px) {
   .logo-img {
-    height: 50px; /* Optimisé pour petits écrans */
+    width: 130px; /* 30% plus grand (était ~100px) */
   }
 }
 
 /* Très petits écrans */
 @media (max-width: 360px) {
   .logo-img {
-    height: 45px;
+    width: 110px; /* 30% plus grand (était ~85px) */
   }
 }
 
@@ -795,5 +794,26 @@ details:focus-visible {
   }
 }
 
+/* ============================================
+   ALTERNATIVE : Si tu veux encore plus grand
+   ============================================ */
 
+/* Décommente ces lignes si 200px n'est pas assez grand :
 
+.logo-img {
+  width: 220px;  /* 40% plus grand
+}
+
+@media (max-width: 768px) {
+  .logo-img {
+    width: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-img {
+    width: 150px;
+  }
+}
+
+*/
