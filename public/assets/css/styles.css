@@ -742,7 +742,7 @@ details:focus-visible {
 
 .logo-img {
   display: block !important;
-  width: 400px !important; /* 2x plus grand */
+  width: 300px !important; /* 2x plus grand */
   height: auto !important;
   max-width: 100% !important;
   transition: opacity 0.3s ease;
@@ -791,3 +791,4 @@ details:focus-visible {
     filter: brightness(1.1);
   }
 }
+
