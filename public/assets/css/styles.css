@@ -34,6 +34,7 @@
   
   /* Typographie */
   --font-base: Arial, Helvetica, sans-serif;
+  --font-logo: 'Anton', sans-serif; /* ✨ NOUVELLE EXCEPTION CHARTE */
   
   /* Transitions */
   --transition-base: 0.3s ease;
@@ -61,10 +62,12 @@ body {
 
 /* === 3. TYPOGRAPHIE === */
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 700;
+  font-family: var(--font-logo); /* ✨ ANTON sur tous les titres */
+  font-weight: 400; /* Anton est déjà bold par nature */
   line-height: 1.2;
   color: var(--forest-green);
   margin-bottom: var(--space-md);
+  letter-spacing: 0.02em; /* Légère respiration pour Anton */
 }
 
 h1 {
@@ -133,11 +136,12 @@ strong {
 /* === 5. HEADER & NAVIGATION === */
 .header {
   background: var(--white);
-  padding: var(--space-md) 0;
+  padding: 0.75rem 0; /* ✅ RÉDUIT (55mm → 40mm environ) */
   position: sticky;
   top: 0;
   z-index: 1000;
   box-shadow: 0 2px 8px rgba(34, 79, 60, 0.1);
+  height: 110px; /* ✅ Hauteur fixe ~40mm */
 }
 
 .header__container {
@@ -147,15 +151,17 @@ strong {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 100%; /* ✅ Pour centrage vertical */
 }
 
 .header__logo {
   display: flex;
   align-items: center;
+  font-family: var(--font-logo); /* ✨ ANTON sur le logo */
 }
 
 .header__logo img {
-  height: 60px; /* ✅ LOGO AGRANDI (était trop petit) */
+  height: 60px;
   width: auto;
   transition: transform var(--transition-base);
 }
@@ -174,6 +180,7 @@ strong {
 .nav__link {
   color: var(--forest-green);
   font-weight: 600;
+  font-size: 1.125rem; /* ✅ AGRANDI (était 1rem) */
   padding: var(--space-xs) var(--space-sm);
   transition: color var(--transition-base);
 }
@@ -254,12 +261,12 @@ strong {
   padding: var(--space-sm) var(--space-lg);
   border-radius: 8px;
   font-weight: 600;
+  font-size: 1.0625rem; /* ✅ LÉGÈREMENT AGRANDI pour harmonie nav */
   text-align: center;
   cursor: pointer;
   border: none;
   transition: all var(--transition-base);
   font-family: var(--font-base);
-  font-size: 1rem;
 }
 
 .btn-primary {
@@ -414,6 +421,7 @@ strong {
   font-size: 2.5rem;
   color: var(--electric-green);
   margin-bottom: var(--space-xs);
+  font-family: var(--font-logo); /* ✨ ANTON sur les stats */
 }
 
 .stat span {
@@ -478,6 +486,7 @@ strong {
   justify-content: center;
   font-size: 1.5rem;
   font-weight: 700;
+  font-family: var(--font-logo); /* ✨ ANTON sur les numéros */
   margin: 0 auto var(--space-md);
 }
 
@@ -656,6 +665,17 @@ details:focus-visible {
   h2 { font-size: 2rem; }
   h3 { font-size: 1.5rem; }
   
+  /* Header mobile */
+  .header {
+    height: 70px; /* ✅ Réduit aussi sur mobile */
+    padding: 0.5rem 0;
+  }
+  
+  /* Navigation mobile */
+  .nav__link {
+    font-size: 1.0625rem; /* ✅ Maintient taille agrandie sur mobile */
+  }
+  
   /* Layout mobile */
   .grid-2,
   .grid-3,
@@ -674,7 +694,7 @@ details:focus-visible {
   
   .nav__menu {
     position: fixed;
-    top: 76px;
+    top: 70px; /* ✅ Ajusté à la nouvelle hauteur header */
     left: 0;
     right: 0;
     background: var(--white);
@@ -722,18 +742,17 @@ details:focus-visible {
   .cta-section {
     display: none;
   }
-
 }
 
 /* ============================================
-   LOGO STYLES - Version 2X PLUS GRAND (FORCÉE)
-   Remplace le CSS précédent par celui-ci
+   LOGO STYLES - Version optimisée avec Anton
    ============================================ */
 
 .header__logo {
   display: inline-block !important;
   transition: transform 0.3s ease;
   line-height: 0 !important;
+  font-family: var(--font-logo); /* ✨ ANTON sur le logo */
 }
 
 .header__logo:hover {
@@ -742,7 +761,7 @@ details:focus-visible {
 
 .logo-img {
   display: block !important;
-  width: 200px !important; /* 1x plus grand */
+  width: 200px !important;
   height: auto !important;
   max-width: 100% !important;
   transition: opacity 0.3s ease;
@@ -755,21 +774,21 @@ details:focus-visible {
 /* Responsive Tablet */
 @media (max-width: 768px) {
   .logo-img {
-    width: 320px !important;
+    width: 180px !important; /* ✅ Ajusté pour header plus compact */
   }
 }
 
 /* Responsive Mobile */
 @media (max-width: 480px) {
   .logo-img {
-    width: 260px !important;
+    width: 160px !important;
   }
 }
 
 /* Très petits écrans */
 @media (max-width: 360px) {
   .logo-img {
-    width: 220px !important;
+    width: 140px !important;
   }
 }
 
@@ -791,5 +810,3 @@ details:focus-visible {
     filter: brightness(1.1);
   }
 }
-
-
