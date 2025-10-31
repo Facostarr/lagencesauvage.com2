@@ -726,7 +726,7 @@ details:focus-visible {
 }
 
 /* ============================================
-   LOGO STYLES - Version ajustée (30% plus grand)
+   LOGO STYLES - Version ajustée (50% plus grand)
    Remplace les anciens styles par ceux-ci dans assets/css/styles.css
    ============================================ */
 
@@ -743,7 +743,7 @@ details:focus-visible {
 .logo-img {
   display: block;
   /* Ton logo fait 60mm x 50mm - on utilise width pour contrôler la taille */
-  width: 400px; /* 30% plus grand que la config précédente (était ~154px) */
+  width: 462px; /* 300% plus grand que la config précédente (était ~154px) */
   height: auto; /* Conserve les proportions du SVG */
   max-width: 100%;
   transition: opacity 0.3s ease;
@@ -756,21 +756,21 @@ details:focus-visible {
 /* Responsive Tablet */
 @media (max-width: 768px) {
   .logo-img {
-    width: 300px; /* 30% plus grand (était ~123px) */
+    width: 369px; /* 300% plus grand (était ~123px) */
   }
 }
 
 /* Responsive Mobile */
 @media (max-width: 480px) {
   .logo-img {
-    width: 200px; /* 30% plus grand (était ~100px) */
+    width: 300px; /* 300% plus grand (était ~100px) */
   }
 }
 
 /* Très petits écrans */
 @media (max-width: 360px) {
   .logo-img {
-    width: 170px; /* 30% plus grand (était ~85px) */
+    width: 246px; /* 300% plus grand (était ~85px) */
   }
 }
 
@@ -817,4 +817,5 @@ details:focus-visible {
 }
 
 */
+
 
