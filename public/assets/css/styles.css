@@ -725,4 +725,73 @@ details:focus-visible {
 
 }
 
+/* ============================================
+   LOGO STYLES - Pour ton logo original
+   Ajouter ces styles à la fin de assets/css/styles.css
+   ============================================ */
+
+.header__logo {
+  display: inline-block;
+  transition: transform 0.3s ease;
+  line-height: 0; /* Évite les espaces blancs sous l'image */
+}
+
+.header__logo:hover {
+  transform: scale(1.05);
+}
+
+.logo-img {
+  display: block;
+  /* Le SVG original fait 210mm x 297mm (format A4) mais le contenu 
+     visible est beaucoup plus petit. On contrôle la taille ici */
+  height: 70px; /* Taille par défaut - un peu plus grand que l'ancien logo */
+  width: auto; /* Conserve les proportions du SVG */
+  max-width: 100%;
+  transition: opacity 0.3s ease;
+}
+
+.logo-img:hover {
+  opacity: 0.9;
+}
+
+/* Responsive Tablet */
+@media (max-width: 768px) {
+  .logo-img {
+    height: 60px; /* Légèrement plus petit sur tablette */
+  }
+}
+
+/* Responsive Mobile */
+@media (max-width: 480px) {
+  .logo-img {
+    height: 50px; /* Optimisé pour petits écrans */
+  }
+}
+
+/* Très petits écrans */
+@media (max-width: 360px) {
+  .logo-img {
+    height: 45px;
+  }
+}
+
+/* Accessibilité - Réduire les animations si demandé */
+@media (prefers-reduced-motion: reduce) {
+  .header__logo,
+  .logo-img {
+    transition: none;
+  }
+  
+  .header__logo:hover {
+    transform: none;
+  }
+}
+
+/* Dark mode support (optionnel) */
+@media (prefers-color-scheme: dark) {
+  .logo-img {
+    /* Le logo garde ses couleurs originales même en dark mode */
+    filter: brightness(1.1);
+  }
+}
 
