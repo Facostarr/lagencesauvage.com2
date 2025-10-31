@@ -10,7 +10,7 @@
   --burnt-orange: #c96839;
   
   /* Couleurs d'Accent */
-  --electric-orange: #FF9C00;
+  --electric-orange: #ff9c00;
   
   /* Couleurs Neutres */
   --cream: #f2ede1;
@@ -724,3 +724,4 @@ details:focus-visible {
   }
 
 }
+
