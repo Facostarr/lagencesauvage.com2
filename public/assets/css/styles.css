@@ -573,7 +573,7 @@ details[open] summary {
 }
 
 .footer-col a {
-  color: var(--mauve);
+  color: var(--cream);
   opacity: 0.8;
   transition: opacity var(--transition-base);
 }
