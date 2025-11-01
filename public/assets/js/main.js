@@ -1,3 +1,40 @@
+// ============================================
+// CHARGEMENT AUTOMATIQUE DU SCRIPT ANALYTICS
+// ============================================
+(function() {
+  // Charger analytics.html dans toutes les pages
+  fetch('/includes/analytics.html')
+    .then(response => response.text())
+    .then(html => {
+      // Créer un élément temporaire pour parser le HTML
+      const temp = document.createElement('div');
+      temp.innerHTML = html;
+      
+      // Extraire tous les scripts et les ajouter au head
+      const scripts = temp.querySelectorAll('script');
+      scripts.forEach(script => {
+        const newScript = document.createElement('script');
+        
+        // Copier les attributs (src, async, etc.)
+        Array.from(script.attributes).forEach(attr => {
+          newScript.setAttribute(attr.name, attr.value);
+        });
+        
+        // Copier le contenu du script
+        if (script.textContent) {
+          newScript.textContent = script.textContent;
+        }
+        
+        // Ajouter au head
+        document.head.appendChild(newScript);
+      });
+      
+      console.log('✅ Plausible Analytics chargé avec succès');
+    })
+    .catch(error => {
+      console.error('❌ Erreur lors du chargement de analytics:', error);
+    });
+})();
 // =============================================================================
 // MAIN.JS - L'Agence Sauvage
 // Gestion du formulaire de contact et navigation mobile
