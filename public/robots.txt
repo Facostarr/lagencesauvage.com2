@@ -1,0 +1,50 @@
+# robots.txt - L'Agence Sauvage
+# Dernière mise à jour : Novembre 2025
+
+# ============================================
+# RÈGLES POUR TOUS LES ROBOTS
+# ============================================
+
+User-agent: *
+Allow: /
+
+# Bloquer l'indexation des assets (CSS, JS)
+# Ces fichiers n'ont pas de valeur SEO
+Disallow: /assets/css/
+Disallow: /assets/js/
+
+# Bloquer les fichiers système
+Disallow: /site.webmanifest
+Disallow: /*.json$
+
+# ============================================
+# SITEMAPS
+# ============================================
+
+# Sitemap principal (pages statiques)
+Sitemap: https://www.lagencesauvage.com/sitemap.xml
+
+# Sitemap blog (à activer quand le blog sera lancé)
+# Sitemap: https://www.lagencesauvage.com/sitemap-blog.xml
+
+# ============================================
+# RÈGLES SPÉCIFIQUES PAR ROBOT
+# ============================================
+
+# GoogleBot (Google)
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# BingBot (Microsoft Bing)
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 0
+
+# ============================================
+# NOTES
+# ============================================
+# - Toutes les pages HTML sont indexables
+# - Les images sont indexables (bon pour Google Images)
+# - Les favicons et manifests sont bloqués
+# - Crawl-delay à 0 = exploration rapide (site léger)
