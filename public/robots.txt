@@ -7,15 +7,13 @@
 
 User-agent: *
 Allow: /
+# Éviter l’indexation de pages avec paramètres de tracking
+Disallow: /*?*utm_
+Disallow: /*?*fbclid=
+# Laissez les assets nécessaires au rendu
+Allow: /assets/css/
+Allow: /assets/js/
 
-# Bloquer l'indexation des assets (CSS, JS)
-# Ces fichiers n'ont pas de valeur SEO
-Disallow: /assets/css/
-Disallow: /assets/js/
-
-# Bloquer les fichiers système
-Disallow: /site.webmanifest
-Disallow: /*.json$
 
 # ============================================
 # SITEMAPS
@@ -34,13 +32,49 @@ Sitemap: https://www.lagencesauvage.com/sitemap.xml
 # GoogleBot (Google)
 User-agent: Googlebot
 Allow: /
-Crawl-delay: 0
 
 # BingBot (Microsoft Bing)
 User-agent: Bingbot
 Allow: /
-Crawl-delay: 0
 
+# =========================
+# BOTS IA / LLM (explicite)
+# =========================
+# OpenAI
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+
+# Google (contrôle d’usage IA)
+User-agent: Google-Extended
+Allow: /
+
+# Microsoft Bing
+User-agent: Bingbot
+Allow: /
+# Optionnel: petit délai pour Bing (Google ignore cette directive)
+Crawl-delay: 2
+
+# Apple
+User-agent: Applebot
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+
+# Common Crawl (source de jeux de données)
+User-agent: CCBot
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+# Anthropic (Claude)
+User-agent: anthropic-ai
+Allow: /
 # ============================================
 # NOTES
 # ============================================
