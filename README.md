@@ -37,7 +37,4 @@ Site web officiel de L'Agence Sauvage, conforme à la charte graphique "Intellig
 
 Déployé automatiquement sur Vercel à chaque push.
 
-## Contact
 
-Email: contact@lagencesauvage.com
-Tél: +33 6 86 50 20 30
