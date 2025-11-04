@@ -265,8 +265,8 @@ async function sendEmailNotification(leadData) {
     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
     
     const msg = {
-      to: 'contact@lagencesauvage.com', // Votre email
-      from: process.env.SENDGRID_FROM_EMAIL || 'notifications@lagencesauvage.com',
+      to: 'franck@lagencesauvage.com', // Votre email
+      from: process.env.SENDGRID_FROM_EMAIL || 'hello@lagencesauvage.com',
       subject: `🎯 Nouveau lead : ${name} (${company})`,
       text: `
 Nouveau lead reçu depuis le site web !
