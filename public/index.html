@@ -1,223 +1,572 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Blog de L'Agence Sauvage - Articles sur l'IA, l'automation et la transformation digitale des TPE/PME">
-    <title>Blog - L'Agence Sauvage</title>
-    <link rel="stylesheet" href="../assets/css/styles.css">
-    <link rel="stylesheet" href="assets/blog.css">
-    
-    <!-- SEO -->
-    <meta property="og:title" content="Blog - L'Agence Sauvage">
-    <meta property="og:description" content="Articles sur l'IA, l'automation et la transformation digitale des TPE/PME">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.lagencesauvage.com/blog">
-    
-    <!-- Plausible Analytics -->
-    <script defer data-domain="lagencesauvage.com" src="https://plausible.io/js/script.js"></script>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="9FanKLJe_YJI9k2RIKka-95n0m76C558lVgHhioSJ7" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- ✨ SEO META TAGS - OPTIMISÉS -->
+  <title>L'Agence Sauvage | IA pour TPE/PME dès 500€/mois | Automatisation Marketing & Ventes</title>
+  <meta name="description" content="Agence IA pour TPE/PME en France : automatisation marketing, ventes et opérations dès 500€/mois. Solutions d'intelligence artificielle accessibles avec validation humaine. Audit gratuit en Île-de-France.">
+  <meta name="keywords" content="agence IA, intelligence artificielle TPE PME, automatisation marketing, automatisation ventes, IA accessible, agent conversationnel, chatbot IA, automation business, prospection LinkedIn IA, Paris, Île-de-France">
+  <meta name="author" content="L'Agence Sauvage">
+  <meta name="robots" content="index, follow">
+  
+  <!-- ✨ CANONICAL TAG -->
+  <link rel="canonical" href="https://www.lagencesauvage.com/">
+  
+  <!-- ✨ OPEN GRAPH (Facebook, LinkedIn) -->
+  <meta property="og:title" content="L'Agence Sauvage | Les bénéfices de l'IA pour le prix d'un stagiaire">
+  <meta property="og:description" content="Automatisez votre marketing, vos ventes et vos opérations avec l'IA à partir de 500€/mois. Validation humaine garantie. Audit gratuit de 30 min.">
+  <meta property="og:image" content="https://www.lagencesauvage.com/assets/images/logo-slogan-humoristique.png">
+  <meta property="og:image:alt" content="L'Agence Sauvage - Intelligence Artificielle pour TPE/PME">
+  <meta property="og:url" content="https://www.lagencesauvage.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="L'Agence Sauvage">
+  
+  <!-- ✨ TWITTER CARD -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="L'Agence Sauvage | IA pour TPE/PME dès 500€/mois">
+  <meta name="twitter:description" content="Automatisez votre marketing et vos ventes avec l'IA. Solutions accessibles pour TPE/PME. Audit gratuit.">
+  <meta name="twitter:image" content="https://www.lagencesauvage.com/assets/images/logo-slogan-humoristique.png">
+  <meta name="twitter:image:alt" content="L'Agence Sauvage - Intelligence Artificielle pour TPE/PME">
+  
+  <!-- ✨ FAVICON COMPLET - Multi-plateformes -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+ 
+  <!-- ✨ GOOGLE FONTS - Anton pour logo et titres -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  
+  <!-- ✨ SCHEMA.ORG - ENRICHI (Organization + Service + FAQPage) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.lagencesauvage.com/#organization",
+        "name": "L'Agence Sauvage",
+        "legalName": "L'AGENCE SAUVAGE",
+        "url": "https://www.lagencesauvage.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.lagencesauvage.com/assets/images/logo-lagencesauvage-original.svg",
+          "width": 250,
+          "height": 60
+        },
+        "image": "https://www.lagencesauvage.com/assets/images/Logo avec Slogan Humoristique.png",
+        "description": "Agence spécialisée en intelligence artificielle pour TPE/PME - Solutions d'automatisation marketing, ventes et opérations accessibles dès 500€/mois",
+        "email": "hello@lagencesauvage.com",
+        "telephone": "+33185097592",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "FR",
+          "addressRegion": "Île-de-France",
+          "addressLocality": "Paris"
+        },
+        "areaServed": [
+          {
+            "@type": "Country",
+            "name": "France"
+          },
+          {
+            "@type": "State",
+            "name": "Île-de-France"
+          }
+        ],
+        "sameAs": [
+          "https://www.linkedin.com/company/lagencesauvage"
+        ],
+        "priceRange": "€€",
+        "foundingDate": "2024",
+        "slogan": "Les bénéfices de l'IA, au prix d'un stagiaire"
+      },
+      {
+        "@type": "Service",
+        "@id": "https://www.lagencesauvage.com/#service",
+        "serviceType": "Intelligence Artificielle et Automatisation",
+        "provider": {
+          "@id": "https://www.lagencesauvage.com/#organization"
+        },
+        "name": "Solutions IA pour TPE/PME",
+        "description": "Automatisation du marketing, des ventes et des opérations avec l'intelligence artificielle. Agents conversationnels, chatbots, prospection LinkedIn automatisée, génération de contenu, rapports automatisés.",
+        "areaServed": {
+          "@type": "Country",
+          "name": "France"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "500",
+          "priceCurrency": "EUR",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "500",
+            "priceCurrency": "EUR",
+            "unitText": "par mois"
+          },
+          "availability": "https://schema.org/InStock",
+          "url": "https://www.lagencesauvage.com/#audit-gratuit"
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Services IA",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Audit IA Gratuit",
+                "description": "Analyse de votre situation et identification de 3 opportunités d'automatisation"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Automatisation Marketing",
+                "description": "Prospection LinkedIn, génération de contenu, calendrier éditorial"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Agents Conversationnels",
+                "description": "Chatbots et agents IA sur-mesure intégrés à votre CRM"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Automatisation Opérationnelle",
+                "description": "Rapports automatisés, extraction de données, dashboards KPI"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://www.lagencesauvage.com/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "C'est trop beau pour être vrai, non ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Non. L'IA nous permet de réduire drastiquement nos coûts de production. On répercute ces économies sur nos prix. Notre business model est simple : volume + automatisation = rentabilité même à ces tarifs."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Dois-je changer tous mes outils actuels ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Absolument pas. On s'adapte à votre stack technologique existant (CRM, Google Workspace, Slack, etc.). Si besoin, on recommande des outils, mais jamais d'obligation."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quelle est la différence avec utiliser ChatGPT directement ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "ChatGPT est un outil généraliste. Nous créons des systèmes IA spécialisés pour votre métier, intégrés à vos processus, avec validation humaine. C'est comme comparer un marteau à une maison clé en main."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Combien de temps avant de voir des résultats ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "La première automatisation est généralement déployée en 2-4 semaines. Vous commencez à économiser du temps dès la première semaine de mise en œuvre."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.lagencesauvage.com/#website",
+        "url": "https://www.lagencesauvage.com",
+        "name": "L'Agence Sauvage",
+        "publisher": {
+          "@id": "https://www.lagencesauvage.com/#organization"
+        },
+        "inLanguage": "fr-FR"
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://www.lagencesauvage.com/#webpage",
+        "url": "https://www.lagencesauvage.com",
+        "name": "L'Agence Sauvage | Les bénéfices de l'IA pour le prix d'un stagiaire",
+        "description": "Automatisez votre marketing, vos ventes et vos opérations avec l'IA à partir de 500€/mois. Validation humaine garantie.",
+        "isPartOf": {
+          "@id": "https://www.lagencesauvage.com/#website"
+        },
+        "about": {
+          "@id": "https://www.lagencesauvage.com/#organization"
+        },
+        "inLanguage": "fr-FR"
+      }
+    ]
+  }
+  </script>
 </head>
+
 <body>
-    <!-- Skip Link -->
-    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+  <!-- Skip Link -->
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
 
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <nav class="nav" aria-label="Navigation principale">
-                <a href="/" class="nav__logo" aria-label="Retour à l'accueil">
-                    <svg width="60" height="60" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="200" height="200" fill="#f2ede1" rx="20"/>
-                        <text x="50%" y="35%" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#224f3c">L'AGENCE</text>
-                        <text x="50%" y="65%" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#c96839">SAUVAGE</text>
-                    </svg>
-                </a>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header__container">
+      <a href="/" class="header__logo">
+  <img src="/assets/images/logo-lagencesauvage-original.svg" 
+       alt="L'Agence Sauvage - Intelligence Artificielle pour TPE/PME" 
+       class="logo-img"
+       loading="eager">
+</a>
+      
+      <button class="nav__toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      
+      <nav class="nav" aria-label="Menu principal">
+        <ul class="nav__menu">
+          <li><a href="/services.html" class="nav__link">Services</a></li>
+          <li><a href="/realisations.html" class="nav__link">Réalisations</a></li>
+          <li><a href="/ressources.html" class="nav__link">Ressources</a></li>
+          <li><a href="/about.html" class="nav__link">À propos</a></li>
+          <li><a href="#audit-gratuit" class="btn btn-primary">Audit gratuit</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-                <button class="nav__toggle" aria-label="Ouvrir le menu" aria-expanded="false">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="container">
+      <h1>Les bénéfices de l'IA,<br>au prix d'un stagiaire</h1>
+      <p class="subtitle">
+        Automatisez votre marketing, vos ventes et vos opérations sans recruter.<br>
+        À partir de <strong>500€/mois</strong>. Validation humaine garantie.
+      </p>
+      
+      <div class="cta-primary">
+        <a href="#audit-gratuit" class="btn btn-primary btn-lg">
+          Obtenez votre audit IA gratuit (30 min)
+        </a>
+        <p class="trust-signal">✓ Sans engagement • ✓ Audit complet et téléchargeable offert • ✓ Réponse en 24h</p>
+      </div>
+    </div>
+  </section>
 
-                <ul class="nav__menu">
-                    <li><a href="/services.html" class="nav__link">Services</a></li>
-                    <li><a href="/realisations.html" class="nav__link">Réalisations</a></li>
-                    <li><a href="/blog" class="nav__link nav__link--active">Blog</a></li>
-                    <li><a href="/ressources.html" class="nav__link">Ressources</a></li>
-                    <li><a href="/about.html" class="nav__link">À propos</a></li>
-                    <li><a href="/#contact" class="btn btn-primary btn-small">Audit gratuit</a></li>
-                </ul>
-            </nav>
+  <!-- MAIN CONTENT -->
+  <main id="main-content">
+    <!-- SECTION PROBLÈME -->
+    <section class="section">
+      <div class="container">
+        <h2 class="text-center mb-xl">Vous êtes dirigeant de TPE/PME et...</h2>
+        <div class="grid grid-2">
+          <div class="problem-card">
+            <div class="icon">✗</div>
+            <p>Vous n'avez pas les moyens d'embaucher ?</p>
+          </div>
+          <div class="problem-card">
+            <div class="icon">✗</div>
+            <p>Vous avez testé ChatGPT mais ne savez pas comment l'intégrer dans votre business</p>
+          </div>
+          <div class="problem-card">
+            <div class="icon">✗</div>
+            <p>Vous savez qu'il est primordial pour votre société d'inclure de l'IA pour rester compétitif</p>
+          </div>
+          <div class="problem-card">
+            <div class="icon">✗</div>
+            <p>Vous perdez 15h/semaine sur des tâches répétitives (saisie data, relances impayés, suivi clients)</p>
+          </div>
         </div>
-    </header>
+      </div>
+    </section>
 
-    <!-- Main Content -->
-    <main id="main-content">
-        <!-- Hero Section -->
-        <section class="blog-hero">
-            <div class="container">
-                <h1 class="blog-hero__title">Blog</h1>
-                <p class="blog-hero__subtitle">
-                    Découvrez nos articles sur l'IA, l'automation et la transformation digitale des TPE/PME
-                </p>
-            </div>
-        </section>
-
-        <!-- Search & Filters -->
-        <section class="blog-filters">
-            <div class="container">
-                <div class="blog-filters__wrapper">
-                    <!-- Search Bar -->
-                    <div class="search-bar">
-                        <input 
-                            type="text" 
-                            id="searchInput" 
-                            class="search-bar__input" 
-                            placeholder="Rechercher un article..."
-                            aria-label="Rechercher un article"
-                        >
-                        <svg class="search-bar__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <path d="m21 21-4.35-4.35"></path>
-                        </svg>
-                    </div>
-
-                    <!-- Category Filters -->
-                    <div class="category-filters">
-                        <button class="category-filter active" data-category="all">Tous</button>
-                        <button class="category-filter" data-category="IA & Automation">IA & Automation</button>
-                        <button class="category-filter" data-category="Marketing">Marketing</button>
-                        <button class="category-filter" data-category="Stratégie">Stratégie</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Articles Grid -->
-        <section class="blog-articles">
-            <div class="container">
-                <div id="articlesGrid" class="articles-grid">
-                    <!-- Article 1 : L'Art du Prompt -->
-                    <article class="article-card" data-category="IA & Automation" data-tags="Prompt Engineering,GPT-4,Entrepreneurs">
-                        <div class="article-card__image">
-                            <div class="article-card__image-placeholder">
-                                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#7dc242" stroke-width="2">
-                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                                    <path d="M8 10h.01M12 10h.01M16 10h.01"></path>
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="article-card__content">
-                            <div class="article-card__meta">
-                                <span class="article-card__category">IA & Automation</span>
-                                <span class="article-card__date">12 novembre 2025</span>
-                            </div>
-                            <h2 class="article-card__title">
-                                <a href="/blog/art-du-prompt.html">L'Art du Prompt : Le Guide Complet pour les Entrepreneurs</a>
-                            </h2>
-                            <p class="article-card__description">
-                                Découvrez comment maîtriser l'art du prompt pour exploiter tout le potentiel de l'IA dans votre business. Techniques avancées, exemples concrets et erreurs à éviter.
-                            </p>
-                            <div class="article-card__tags">
-                                <span class="tag">Prompt Engineering</span>
-                                <span class="tag">GPT-4</span>
-                                <span class="tag">Entrepreneurs</span>
-                            </div>
-                            <a href="/blog/art-du-prompt.html" class="article-card__link">
-                                Lire l'article
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </article>
-
-                    <!-- Placeholder pour futurs articles -->
-                    <div class="article-card article-card--coming-soon">
-                        <div class="article-card__content">
-                            <h3 style="color: var(--forest-green); margin-bottom: 1rem;">Plus d'articles à venir...</h3>
-                            <p style="color: var(--stone-gray);">
-                                Nous publions régulièrement des articles sur l'IA, l'automation et la transformation digitale.
-                            </p>
-                            <a href="/#contact" class="btn btn-primary" style="margin-top: 1.5rem;">
-                                Recevoir les nouveaux articles
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- No Results Message -->
-                <div id="noResults" class="no-results" style="display: none;">
-                    <p>Aucun article ne correspond à votre recherche.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA Section -->
-        <section class="cta-section">
-            <div class="container">
-                <div class="cta-box">
-                    <h2 style="font-size: 2rem; margin-bottom: 1rem; color: var(--white);">
-                        Prêt à transformer votre TPE/PME avec l'IA ?
-                    </h2>
-                    <p style="font-size: 1.1rem; margin-bottom: 2rem; color: var(--cream); opacity: 0.9;">
-                        Obtenez un audit gratuit de 30 minutes pour identifier vos opportunités d'automatisation
-                    </p>
-                    <a href="/#contact" class="btn btn-secondary">
-                        Obtenir mon audit gratuit
-                    </a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer__content">
-                <div class="footer__column">
-                    <h3 class="footer__title">L'Agence Sauvage</h3>
-                    <p class="footer__text">
-                        L'IA pour votre TPE/PME, au prix d'un stagiaire
-                    </p>
-                </div>
-
-                <div class="footer__column">
-                    <h3 class="footer__title">Navigation</h3>
-                    <ul class="footer__links">
-                        <li><a href="/services.html">Services</a></li>
-                        <li><a href="/realisations.html">Réalisations</a></li>
-                        <li><a href="/blog">Blog</a></li>
-                        <li><a href="/ressources.html">Ressources</a></li>
-                        <li><a href="/about.html">À propos</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer__column">
-                    <h3 class="footer__title">Contact</h3>
-                    <ul class="footer__links">
-                        <li><a href="mailto:contact@lagencesauvage.com">contact@lagencesauvage.com</a></li>
-                        <li><a href="tel:+33686502030">+33 6 86 50 20 30</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer__column">
-                    <h3 class="footer__title">Légal</h3>
-                    <ul class="footer__links">
-                        <li><a href="/mentions-legales.html">Mentions légales</a></li>
-                        <li><a href="/privacy.html">Politique de confidentialité</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="footer__bottom">
-                <p>&copy; 2025 L'Agence Sauvage. Tous droits réservés.</p>
-            </div>
+    <!-- SECTION SOLUTION -->
+    <section class="section" style="background: white;">
+      <div class="container">
+        <h2 class="text-center mb-xl">Avec L'Agence Sauvage, vous obtenez</h2>
+        <div class="grid grid-4">
+          <div class="benefit-card">
+            <h3>💰 Prix d'un stagiaire</h3>
+            <p><strong> A partir de 500€/mois</strong> pour une équipe IA complète</p>
+            <small style="color: var(--stone-gray);">contre 5000-15000€/mois avec un recrutement classique</small>
+          </div>
+          
+          <div class="benefit-card">
+            <h3>✓ Qualité garantie</h3>
+            <p><strong>Validation humaine systématique</strong> à chaque étape critique</p>
+            <small style="color: var(--stone-gray);">Pas de contenu générique</small>
+          </div>
+          
+          <div class="benefit-card">
+            <h3>🚀 Zéro compétence technique requise</h3>
+            <p><strong>Clé en main</strong> avec formation de votre équipe</p>
+            <small style="color: var(--stone-gray);">On s'occupe de tout, de A à Z</small>
+          </div>
+          
+          <div class="benefit-card">
+            <h3>✓ Augmentez votre productivité</h3>
+            <p><strong>Diminuez le stress du dirigeant</strong></p>
+          <small style="color: var(--stone-gray);">On s'occupe des contraintes répétitives</small>
+          </div>
         </div>
-    </footer>
+      </div>
+    </section>
 
-    <!-- Scripts -->
-    <script src="../assets/js/main.js"></script>
-    <script src="assets/blog.js"></script>
+    <!-- SECTION PREUVE SOCIALE -->
+    <section class="section">
+      <div class="container">
+        <h2 class="text-center mb-xl">Ils nous font confiance</h2>
+        <div class="grid grid-3">
+          <div class="testimonial-card">
+            <p>"En 3 mois, nous avons automatisé notre prospection LinkedIn et augmenté nos leads qualifiés de 47%. Le ROI est immédiat."</p>
+            <cite>
+              <strong>Pierre D.</strong><br>
+              CEO, Startup SaaS B2B • 12 employés
+            </cite>
+          </div>
+          
+          <div class="testimonial-card">
+            <p>"L'Agence Sauvage nous a fait gagner 15h/semaine sur la gestion administrative. On peut enfin se concentrer sur notre cœur de métier."</p>
+            <cite>
+              <strong>Sophie M.</strong><br>
+              Fondatrice, E-commerce • 8 employés
+            </cite>
+          </div>
+          
+          <div class="testimonial-card">
+            <p>"Le meilleur rapport qualité-prix du marché. On paie le prix d'un stagiaire pour une expertise de senior."</p>
+            <cite>
+              <strong>Marc L.</strong><br>
+              Directeur Marketing, PME Services • 35 employés
+            </cite>
+          </div>
+        </div>
+        
+        <div class="grid grid-3 mt-xl">
+          <div class="stat">
+            <strong>+47%</strong>
+            <span>Leads qualifiés en moyenne</span>
+          </div>
+          <div class="stat">
+            <strong>8x ROI</strong>
+            <span>Retour sur investissement en 6 mois</span>
+          </div>
+          <div class="stat">
+            <strong>15h/sem</strong>
+            <span>Économisées par employé</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION RÉSULTATS -->
+    <section class="section" style="background: white;">
+      <div class="container">
+        <h2 class="text-center">Ce que vous obtiendrez concrètement</h2>
+        <p class="text-center mb-xl" style="color: var(--stone-gray);">On ne vous vend pas des "solutions IA". On vous livre des résultats directement mesurables.</p>
+        
+        <div class="grid grid-2">
+          <div class="card">
+            <h3>🎯 Augmenter votre visibilité sur LinkedIn</h3>
+            <p>Imaginez un collaborateur </p>
+            <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+              <li>✓ Agents conversationnels sur-mesure</li>
+              <li>✓ Intégration avec votre CRM</li>
+              <li>✓ Suivi et optimisation continue</li>
+            </ul>
+          </div>
+          
+          <div class="card">
+            <h3>📊 Automatisez vos rapports et analytics</h3>
+            <p>Génération automatique de vos KPIs, dashboards et rapports hebdomadaires</p>
+            <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+              <li>✓ Extraction de données multi-sources</li>
+              <li>✓ Dashboards automatisés</li>
+              <li>✓ Rapports hebdomadaires personnalisés</li>
+            </ul>
+          </div>
+          
+          <div class="card">
+            <h3>✍️ Créez du contenu 10x plus vite</h3>
+            <p>Posts LinkedIn, articles de blog, newsletter ou emails marketing... validés par un humain</p>
+            <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+              <li>✓ Avec de nouveaux contenus réguliers, votre visibilité sera décuplée </li>
+              <li>✓ Ton de voix personnalisé à votre marque</li>
+              <li>✓ Calendrier éditorial clé en main</li>
+            </ul>
+          </div>
+          
+          <div class="card">
+            <h3>⚙️ Éliminez les tâches répétitives</h3>
+            <p>Saisie de données, relances clients, reporting... totalement automatisés</p>
+            <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+              <li>✓ Automatisation de vos processus</li>
+              <li>✓ Intégration avec vos outils existants</li>
+              <li>✓ Maintenance et optimisation continues</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION CTA AUDIT GRATUIT -->
+    <section id="audit-gratuit" class="cta-section section">
+      <div class="container">
+        <h2>Commencez par un audit IA gratuit (30 min)</h2>
+        <p style="font-size: 1.125rem; margin-bottom: 2rem;">On analyse votre situation actuelle et on identifie 3 cas applicables immédiatement.</p>
+        
+        <form class="audit-form" id="auditForm">
+          <input type="text" name="name" placeholder="Votre prénom" required aria-label="Votre prénom">
+          <input type="email" name="email" placeholder="Email professionnel" required aria-label="Email professionnel">
+          <input type="tel" name="phone" placeholder="Téléphone (optionnel)" aria-label="Téléphone">
+          <input type="text" name="company" placeholder="Nom de votre entreprise" required aria-label="Nom de votre entreprise">
+          <select name="company_size" required aria-label="Taille de l'entreprise">
+            <option value="">Taille de l'entreprise</option>
+            <option value="1-5">1-5 employés</option>
+            <option value="6-20">6-20 employés</option>
+            <option value="21-50">21-50 employés</option>
+            <option value="50+">50+ employés</option>
+          </select>
+          <textarea name="challenge" placeholder="Votre principal défi actuel (optionnel)" rows="3" aria-label="Votre principal défi"></textarea>
+          
+          <button type="submit" class="btn btn-secondary btn-lg">Obtenir mon audit gratuit</button>
+          <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 0.5rem;">🔒 Vos données sont protégées. Pas de spam.</p>
+          
+          <div id="formFeedback" class="form-feedback" style="display: none;"></div>
+        </form>
+      </div>
+    </section>
+
+    <!-- SECTION HOW IT WORKS -->
+    <section class="section" style="background: white;">
+      <div class="container">
+        <h2 class="text-center mb-xl">Comment ça marche ?</h2>
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <h3>Audit gratuit (30 min)</h3>
+            <p>On analyse votre situation et identifie 3 opportunités concrètes d'automatisation IA</p>
+          </div>
+          
+          <div class="step">
+            <div class="step-number">2</div>
+            <h3>Proposition personnalisée (48h)</h3>
+            <p>Plan d'action détaillé avec estimation de ROI.</p>
+          </div>
+          
+          <div class="step">
+            <div class="step-number">3</div>
+            <h3>Mise en œuvre (2-4 semaines)</h3>
+            <p>On déploie la première automatisation, forme votre équipe et assure le suivi.</p>
+          </div>
+        </div>
+        <div class="text-center mt-lg">
+          <a href="/processus.html" class="btn btn-secondary">Voir le processus complet →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION FAQ RAPIDE -->
+    <section class="section">
+      <div class="container" style="max-width: 800px;">
+        <h2 class="text-center mb-lg">Questions fréquentes</h2>
+        
+        <details>
+          <summary>C'est trop beau pour être vrai, non ?</summary>
+          <p>Non. L'IA nous permet de réduire drastiquement nos coûts de production. On répercute ces économies sur nos prix. Notre business model est simple : volume + automatisation = rentabilité même à ces tarifs.</p>
+        </details>
+        
+        <details>
+          <summary>Dois-je changer tous mes outils actuels ?</summary>
+          <p>Absolument pas. On s'adapte à votre stack technologique existant (CRM, Google Workspace, Slack, etc.). Si besoin, on recommande des outils, mais jamais d'obligation.</p>
+        </details>
+        
+        <details>
+          <summary>Quelle est la différence avec utiliser ChatGPT directement ?</summary>
+          <p>ChatGPT est un outil généraliste. Nous créons des systèmes IA spécialisés pour votre métier, intégrés à vos processus, avec validation humaine. C'est comme comparer un marteau à une maison clé en main.</p>
+        </details>
+        
+        <details>
+          <summary>Combien de temps avant de voir des résultats ?</summary>
+          <p>La première automatisation est généralement déployée en 2-4 semaines. Vous commencez à économiser du temps dès la première semaine de mise en œuvre.</p>
+        </details>
+        
+        <div class="text-center mt-lg">
+          <a href="/faq.html" style="color: var(--burnt-orange); font-weight: 600;">Voir toutes les questions →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-col">
+        <h4>L'Agence Sauvage</h4>
+        <p style="opacity: 0.8;">L'IA accessible pour les entreprises.<br>Budget stagiaire, performance Sauvage !</p>
+        <p style="margin-top: 1rem; opacity: 0.8;">
+    </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="/services.html">Tous nos services</a></li>
+          <li><a href="/services.html#audit-ia">Audit IA</a></li>
+          <li><a href="/services.html#automatisation">Automatisation</a></li>
+          <li><a href="/services.html#agents-ia">Agents conversationnels</a></li>
+          <li><a href="/services.html#abonnement">Abonnement mensuel</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Ressources</h4>
+        <ul>
+          <li><a href="/ressources.html">Blog</a></li>
+          <li><a href="/realisations.html">Cas clients</a></li>
+          <li><a href="/faq.html">FAQ</a></li>
+          <li><a href="/processus.html">Notre processus</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p style="opacity: 0.8;">
+          Email: <a href="mailto:hello@lagencesauvage.com">hello@lagencesauvage.com</a><br>
+          Tél: <a href="tel:+33185097592">+33 1 85 09 75 92</a><br>
+          Paris, France
+        </p>
+        <p style="margin-top: 1rem;">
+          <a href="https://www.linkedin.com/company/lagencesauvage" target="_blank" rel="noopener">LinkedIn</a>
+        </p>
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.2); opacity: 0.6;">
+      <p>&copy; 2025 L'Agence Sauvage. Tous droits réservés.</p>
+      <p style="margin-top: 0.5rem;">
+        <a href="/mentions-legales.html">Mentions légales</a> • 
+        <a href="/privacy.html">Politique de confidentialité</a> • 
+        <a href="/cgv.html">CGV</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="/assets/js/main.js"></script>
 </body>
 </html>
