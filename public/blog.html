@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blog L'Agence Sauvage : IA, Automatisation et Business pour TPE/PME. Guides pratiques, cas clients et astuces pour booster votre productivité.">
+    <meta name="keywords" content="IA, automatisation, TPE, PME, n8n, Claude, business, marketing, productivité">
+    <title>Blog - L'Agence Sauvage | IA & Automatisation pour TPE/PME</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    
+    <style>
+        /* === BLOG-SPECIFIC STYLES === */
+        
+        /* Hero Section */
+        .blog-hero {
+            background: linear-gradient(135deg, var(--forest-green) 0%, var(--warm-brown) 100%);
+            color: var(--white);
+            padding: var(--space-3xl) 0 var(--space-2xl);
+            text-align: center;
+            margin-top: 68px; /* Header height offset */
+        }
+
+        .blog-hero h1 {
+            font-family: var(--font-logo);
+            font-size: 3.5rem;
+            margin-bottom: var(--space-sm);
+            letter-spacing: 1px;
+        }
+
+        .blog-hero p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Filters Section */
+        .filters-section {
+            background: var(--white);
+            padding: var(--space-lg);
+            border-radius: 12px;
+            margin: calc(var(--space-xl) * -1) auto var(--space-xl);
+            max-width: 1100px;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 8px 24px rgba(34, 79, 60, 0.15);
+        }
+
+        .search-bar {
+            margin-bottom: var(--space-lg);
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: var(--space-md);
+            border: 2px solid var(--stone-gray);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: var(--font-base);
+            transition: border-color 0.3s ease;
+        }
+
+        .search-bar input:focus {
+            outline: none;
+            border-color: var(--orange-accent);
+        }
+
+        .search-bar input::placeholder {
+            color: var(--stone-gray);
+        }
+
+        .filter-row {
+            display: flex;
+            gap: var(--space-lg);
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .filter-group {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .filter-group h3 {
+            font-family: var(--font-logo);
+            font-size: 1rem;
+            margin-bottom: var(--space-sm);
+            color: var(--forest-green);
+            letter-spacing: 0.5px;
+        }
+
+        .filter-tags {
+            display: flex;
+            gap: var(--space-sm);
+            flex-wrap: wrap;
+        }
+
+        .filter-tag {
+            padding: var(--space-xs) var(--space-md);
+            background: var(--cream);
+            border: 2px solid var(--forest-green);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .filter-tag:hover,
+        .filter-tag.active {
+            background: var(--forest-green);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* Articles Grid */
+        .articles-container {
+            margin-bottom: var(--space-3xl);
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: var(--space-xl);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .article-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(34, 79, 60, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 28px rgba(34, 79, 60, 0.2);
+        }
+
+        .article-image {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(135deg, var(--orange-accent), var(--burnt-orange-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .article-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .article-card:hover .article-image::before {
+            opacity: 1;
+        }
+
+        .article-content {
+            padding: var(--space-lg);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: var(--space-sm);
+            align-items: center;
+            margin-bottom: var(--space-sm);
+            font-size: 0.85rem;
+            color: var(--stone-gray);
+        }
+
+        .article-category {
+            background: var(--orange-accent);
+            color: var(--white);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .article-title {
+            font-family: var(--font-logo);
+            font-size: 1.5rem;
+            margin-bottom: var(--space-sm);
+            color: var(--forest-green);
+            line-height: 1.3;
+            letter-spacing: 0.5px;
+        }
+
+        .article-excerpt {
+            color: var(--stone-gray);
+            margin-bottom: var(--space-md);
+            line-height: 1.6;
+            flex: 1;
+        }
+
+        .article-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: var(--space-sm);
+            border-top: 1px solid var(--cream);
+        }
+
+        .article-tags {
+            display: flex;
+            gap: var(--space-xs);
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: var(--cream);
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            color: var(--warm-brown);
+            font-weight: 600;
+        }
+
+        .read-more {
+            color: var(--orange-accent);
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            transition: gap 0.3s ease;
+        }
+
+        .read-more:hover {
+            gap: 8px;
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .page-btn {
+            padding: var(--space-sm) var(--space-md);
+            background: var(--white);
+            color: var(--forest-green);
+            border: 2px solid var(--forest-green);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 700;
+            font-family: var(--font-base);
+        }
+
+        .page-btn:hover,
+        .page-btn.active {
+            background: var(--forest-green);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .page-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: var(--space-3xl) var(--space-lg);
+            color: var(--stone-gray);
+        }
+
+        .empty-state-icon {
+            font-size: 4rem;
+            margin-bottom: var(--space-md);
+        }
+
+        .empty-state h3 {
+            font-family: var(--font-logo);
+            font-size: 1.5rem;
+            color: var(--forest-green);
+            margin-bottom: var(--space-sm);
+        }
+
+        /* Newsletter CTA */
+        .newsletter-cta {
+            background: var(--forest-green);
+            color: var(--white);
+            padding: var(--space-2xl);
+            border-radius: 12px;
+            text-align: center;
+            margin: var(--space-3xl) 0;
+        }
+
+        .newsletter-cta h2 {
+            font-family: var(--font-logo);
+            font-size: 2rem;
+            margin-bottom: var(--space-sm);
+            letter-spacing: 1px;
+        }
+
+        .newsletter-cta p {
+            font-size: 1.1rem;
+            margin-bottom: var(--space-lg);
+            opacity: 0.9;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: var(--space-sm);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: var(--space-md);
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .newsletter-form button {
+            padding: var(--space-md) var(--space-lg);
+            background: var(--orange-accent);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background: var(--orange-accent-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Loading State */
+        .loading {
+            text-align: center;
+            padding: var(--space-3xl);
+            font-size: 1.5rem;
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            border: 5px solid var(--cream);
+            border-top-color: var(--orange-accent);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .blog-hero {
+                padding: var(--space-2xl) 0 var(--space-lg);
+            }
+
+            .blog-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .articles-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-lg);
+            }
+
+            .filter-row {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .filter-group {
+                width: 100%;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .filters-section {
+                margin: 0 var(--space-md) var(--space-xl);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip Link -->
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container header__container">
+            <a href="/" class="logo" aria-label="L'Agence Sauvage - Retour à l'accueil">
+                <svg width="60" height="60" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="100" cy="100" r="90" fill="#c96839" opacity="0.2"/>
+                    <rect x="60" y="60" width="80" height="80" rx="12" fill="#224f3c" opacity="0.3"/>
+                    <polygon points="100,40 130,90 70,90" fill="#c96839"/>
+                    <circle cx="100" cy="120" r="20" fill="#224f3c"/>
+                </svg>
+                <div class="logo__text">
+                    <span class="logo__agence">L'AGENCE</span>
+                    <span class="logo__sauvage">SAUVAGE</span>
+                </div>
+            </a>
+
+            <button class="nav__toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="nav" aria-label="Menu principal">
+                <ul class="nav__menu">
+                    <li><a href="/services.html" class="nav__link">Services</a></li>
+                    <li><a href="/realisations.html" class="nav__link">Réalisations</a></li>
+                    <li><a href="/ressources.html" class="nav__link">Ressources</a></li>
+                    <li><a href="/blog.html" class="nav__link nav__link--active">Blog</a></li>
+                    <li><a href="/about.html" class="nav__link">À propos</a></li>
+                    <li><a href="/#contact" class="btn btn--primary btn--small">Audit gratuit</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="blog-hero">
+        <div class="container">
+            <h1>📚 BLOG</h1>
+            <p>IA, Automatisation & Business pour propulser votre TPE/PME</p>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <main id="main-content">
+        <div class="container">
+            <!-- FILTERS & SEARCH -->
+            <section class="filters-section">
+                <div class="search-bar">
+                    <input 
+                        type="search" 
+                        id="searchInput"
+                        placeholder="🔍 Rechercher un article par titre ou mot-clé..."
+                        aria-label="Rechercher un article"
+                    />
+                </div>
+                
+                <div class="filter-row">
+                    <div class="filter-group">
+                        <h3>CATÉGORIES</h3>
+                        <div class="filter-tags" id="categoryFilters">
+                            <span class="filter-tag active" data-category="all">Tous</span>
+                            <span class="filter-tag" data-category="ia-automation">IA & Automatisation</span>
+                            <span class="filter-tag" data-category="marketing">Marketing</span>
+                            <span class="filter-tag" data-category="business">Business</span>
+                            <span class="filter-tag" data-category="guides">Guides Pratiques</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ARTICLES GRID -->
+            <section class="articles-container">
+                <div id="articlesGrid" class="articles-grid">
+                    <!-- Articles will be loaded here dynamically -->
+                    <!-- For now, static demo content -->
+                    
+                    <article class="article-card" data-category="ia-automation">
+                        <div class="article-image">🤖</div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">IA & Automatisation</span>
+                                <span>• 12 nov 2025</span>
+                            </div>
+                            <h2 class="article-title">Comment automatiser votre prospection LinkedIn avec l'IA</h2>
+                            <p class="article-excerpt">
+                                Découvrez comment générer 100+ prospects qualifiés par semaine avec des messages personnalisés grâce à l'intelligence artificielle...
+                            </p>
+                            <div class="article-footer">
+                                <div class="article-tags">
+                                    <span class="tag">#LinkedIn</span>
+                                    <span class="tag">#n8n</span>
+                                    <span class="tag">#TPE</span>
+                                </div>
+                                <a href="#" class="read-more">Lire →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="article-card" data-category="business">
+                        <div class="article-image">💰</div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">Business</span>
+                                <span>• 11 nov 2025</span>
+                            </div>
+                            <h2 class="article-title">ROI de l'IA : Comment calculer le retour sur investissement</h2>
+                            <p class="article-excerpt">
+                                Guide complet pour mesurer l'impact financier de vos automatisations IA. Métriques clés et exemples concrets...
+                            </p>
+                            <div class="article-footer">
+                                <div class="article-tags">
+                                    <span class="tag">#ROI</span>
+                                    <span class="tag">#KPI</span>
+                                    <span class="tag">#Budget</span>
+                                </div>
+                                <a href="#" class="read-more">Lire →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="article-card" data-category="marketing">
+                        <div class="article-image">✍️</div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">Marketing</span>
+                                <span>• 10 nov 2025</span>
+                            </div>
+                            <h2 class="article-title">Créer du contenu 10x plus vite avec l'IA (guide 2025)</h2>
+                            <p class="article-excerpt">
+                                De la génération d'idées à la publication : workflow complet pour produire du contenu de qualité en un temps record...
+                            </p>
+                            <div class="article-footer">
+                                <div class="article-tags">
+                                    <span class="tag">#Content</span>
+                                    <span class="tag">#Claude</span>
+                                    <span class="tag">#SEO</span>
+                                </div>
+                                <a href="#" class="read-more">Lire →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="article-card" data-category="guides">
+                        <div class="article-image">📊</div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">Guides Pratiques</span>
+                                <span>• 9 nov 2025</span>
+                            </div>
+                            <h2 class="article-title">Dashboard IA pour TPE : Suivez vos KPIs en temps réel</h2>
+                            <p class="article-excerpt">
+                                Créez votre tableau de bord personnalisé qui agrège toutes vos données business en un seul endroit...
+                            </p>
+                            <div class="article-footer">
+                                <div class="article-tags">
+                                    <span class="tag">#Analytics</span>
+                                    <span class="tag">#Dashboard</span>
+                                    <span class="tag">#Data</span>
+                                </div>
+                                <a href="#" class="read-more">Lire →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="article-card" data-category="ia-automation">
+                        <div class="article-image">🎯</div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">IA & Automatisation</span>
+                                <span>• 8 nov 2025</span>
+                            </div>
+                            <h2 class="article-title">Agent conversationnel : 5 cas d'usage pour les TPE/PME</h2>
+                            <p class="article-excerpt">
+                                FAQ automatique, qualification de leads, support client... Découvrez comment les chatbots IA peuvent transformer votre business...
+                            </p>
+                            <div class="article-footer">
+                                <div class="article-tags">
+                                    <span class="tag">#Chatbot</span>
+                                    <span class="tag">#Support</span>
+                                    <span class="tag">#Automation</span>
+                                </div>
+                                <a href="#" class="read-more">Lire →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="article-card" data-category="guides">
+                        <div class="article-image">⚙️</div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">Guides Pratiques</span>
+                                <span>• 7 nov 2025</span>
+                            </div>
+                            <h2 class="article-title">n8n vs Zapier vs Make : Quel outil d'automatisation choisir ?</h2>
+                            <p class="article-excerpt">
+                                Comparatif détaillé des 3 plateformes d'automatisation les plus populaires. Prix, fonctionnalités, cas d'usage...
+                            </p>
+                            <div class="article-footer">
+                                <div class="article-tags">
+                                    <span class="tag">#n8n</span>
+                                    <span class="tag">#Zapier</span>
+                                    <span class="tag">#NoCode</span>
+                                </div>
+                                <a href="#" class="read-more">Lire →</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Empty State (hidden by default) -->
+                <div id="emptyState" class="empty-state" style="display: none;">
+                    <div class="empty-state-icon">🔍</div>
+                    <h3>Aucun article trouvé</h3>
+                    <p>Essayez de modifier vos critères de recherche ou de filtrage.</p>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <button class="page-btn" disabled>&laquo; Précédent</button>
+                    <button class="page-btn active">1</button>
+                    <button class="page-btn">2</button>
+                    <button class="page-btn">3</button>
+                    <button class="page-btn">Suivant &raquo;</button>
+                </div>
+            </section>
+
+            <!-- NEWSLETTER CTA -->
+            <section class="newsletter-cta">
+                <h2>RESTEZ INFORMÉ</h2>
+                <p>Recevez nos meilleurs articles et guides pratiques directement dans votre boîte mail.</p>
+                <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Merci ! Fonctionnalité newsletter à venir.');">
+                    <input type="email" placeholder="Votre email" required>
+                    <button type="submit">S'abonner</button>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer__container">
+            <div class="footer__grid">
+                <div class="footer__column">
+                    <h3 class="footer__title">L'Agence Sauvage</h3>
+                    <p class="footer__description">
+                        L'IA accessible pour les entreprises.<br>
+                        Budget stagiaire, performance Sauvage !
+                    </p>
+                </div>
+
+                <div class="footer__column">
+                    <h3 class="footer__title">Services</h3>
+                    <ul class="footer__links">
+                        <li><a href="/services.html">Tous nos services</a></li>
+                        <li><a href="/services.html#audit">Audit IA</a></li>
+                        <li><a href="/services.html#automation">Automatisation</a></li>
+                        <li><a href="/services.html#agents">Agents conversationnels</a></li>
+                        <li><a href="/services.html#abonnement">Abonnement mensuel</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__column">
+                    <h3 class="footer__title">Ressources</h3>
+                    <ul class="footer__links">
+                        <li><a href="/blog.html">Blog</a></li>
+                        <li><a href="/realisations.html">Cas clients</a></li>
+                        <li><a href="/faq.html">FAQ</a></li>
+                        <li><a href="/processus.html">Notre processus</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__column">
+                    <h3 class="footer__title">Contact</h3>
+                    <ul class="footer__links">
+                        <li>Email: <a href="mailto:hello@lagencesauvage.com">hello@lagencesauvage.com</a></li>
+                        <li>Tél: <a href="tel:+33185097592">+33 1 85 09 75 92</a></li>
+                        <li>Paris, France</li>
+                        <li><a href="https://www.linkedin.com/company/lagencesauvage" target="_blank">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <p>&copy; 2025 L'Agence Sauvage. Tous droits réservés.</p>
+                <div class="footer__legal">
+                    <a href="/mentions-legales.html">Mentions légales</a>
+                    <a href="/privacy.html">Politique de confidentialité</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/assets/js/main.js"></script>
+    <script>
+        // Blog-specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('searchInput');
+            const categoryFilters = document.querySelectorAll('.filter-tag');
+            const articles = document.querySelectorAll('.article-card');
+            const emptyState = document.getElementById('emptyState');
+            const articlesGrid = document.getElementById('articlesGrid');
+            
+            let currentCategory = 'all';
+            let currentSearch = '';
+
+            // Category filter
+            categoryFilters.forEach(filter => {
+                filter.addEventListener('click', function() {
+                    // Remove active class from all
+                    categoryFilters.forEach(f => f.classList.remove('active'));
+                    // Add active class to clicked
+                    this.classList.add('active');
+                    
+                    currentCategory = this.dataset.category;
+                    filterArticles();
+                });
+            });
+
+            // Search filter
+            searchInput.addEventListener('input', function(e) {
+                currentSearch = e.target.value.toLowerCase();
+                filterArticles();
+            });
+
+            function filterArticles() {
+                let visibleCount = 0;
+
+                articles.forEach(article => {
+                    const category = article.dataset.category;
+                    const title = article.querySelector('.article-title').textContent.toLowerCase();
+                    const excerpt = article.querySelector('.article-excerpt').textContent.toLowerCase();
+                    
+                    const matchesCategory = currentCategory === 'all' || category === currentCategory;
+                    const matchesSearch = currentSearch === '' || 
+                                        title.includes(currentSearch) || 
+                                        excerpt.includes(currentSearch);
+                    
+                    if (matchesCategory && matchesSearch) {
+                        article.style.display = 'flex';
+                        visibleCount++;
+                    } else {
+                        article.style.display = 'none';
+                    }
+                });
+
+                // Show/hide empty state
+                if (visibleCount === 0) {
+                    articlesGrid.style.display = 'none';
+                    emptyState.style.display = 'block';
+                } else {
+                    articlesGrid.style.display = 'grid';
+                    emptyState.style.display = 'none';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
