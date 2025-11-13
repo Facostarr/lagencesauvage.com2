@@ -32,6 +32,7 @@
             font-size: 3.5rem;
             margin-bottom: var(--space-sm);
             letter-spacing: 1px;
+            color: var(--cream); /* Titre en crème */
         }
 
         .blog-hero p {
@@ -39,6 +40,7 @@
             opacity: 0.9;
             max-width: 700px;
             margin: 0 auto;
+            color: var(--cream); /* Sous-titre en crème */
         }
 
         /* Filters Section */
@@ -105,17 +107,18 @@
         .filter-tag {
             padding: var(--space-xs) var(--space-md);
             background: var(--cream);
-            border: 2px solid var(--forest-green);
+            border: 2px solid var(--orange-accent);
             border-radius: 20px;
             cursor: pointer;
             transition: all 0.3s ease;
             font-size: 0.9rem;
             font-weight: 600;
+            color: var(--orange-accent);
         }
 
         .filter-tag:hover,
         .filter-tag.active {
-            background: var(--forest-green);
+            background: var(--orange-accent);
             color: var(--white);
             transform: translateY(-2px);
         }
@@ -268,7 +271,7 @@
             padding: var(--space-sm) var(--space-md);
             background: var(--white);
             color: var(--forest-green);
-            border: 2px solid var(--forest-green);
+            border: 2px solid var(--orange-accent);
             border-radius: 8px;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -278,7 +281,7 @@
 
         .page-btn:hover,
         .page-btn.active {
-            background: var(--forest-green);
+            background: var(--orange-accent);
             color: var(--white);
             transform: translateY(-2px);
         }
@@ -322,12 +325,14 @@
             font-size: 2rem;
             margin-bottom: var(--space-sm);
             letter-spacing: 1px;
+            color: var(--cream);
         }
 
         .newsletter-cta p {
             font-size: 1.1rem;
             margin-bottom: var(--space-lg);
             opacity: 0.9;
+            color: var(--cream);
         }
 
         .newsletter-form {
@@ -424,16 +429,7 @@
     <header class="header">
         <div class="container header__container">
             <a href="/" class="logo" aria-label="L'Agence Sauvage - Retour à l'accueil">
-                <svg width="60" height="60" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="100" cy="100" r="90" fill="#c96839" opacity="0.2"/>
-                    <rect x="60" y="60" width="80" height="80" rx="12" fill="#224f3c" opacity="0.3"/>
-                    <polygon points="100,40 130,90 70,90" fill="#c96839"/>
-                    <circle cx="100" cy="120" r="20" fill="#224f3c"/>
-                </svg>
-                <div class="logo__text">
-                    <span class="logo__agence">L'AGENCE</span>
-                    <span class="logo__sauvage">SAUVAGE</span>
-                </div>
+                <img src="/assets/images/logo-lagencesauvage-original.svg" alt="L'Agence Sauvage" height="60">
             </a>
 
             <button class="nav__toggle" aria-label="Ouvrir le menu" aria-expanded="false">
@@ -677,7 +673,6 @@
                         <li><a href="/services.html">Tous nos services</a></li>
                         <li><a href="/services.html#audit">Audit IA</a></li>
                         <li><a href="/services.html#automation">Automatisation</a></li>
-                        <li><a href="/services.html#agents">Agents conversationnels</a></li>
                         <li><a href="/services.html#abonnement">Abonnement mensuel</a></li>
                     </ul>
                 </div>
@@ -695,10 +690,10 @@
                 <div class="footer__column">
                     <h3 class="footer__title">Contact</h3>
                     <ul class="footer__links">
-                        <li>Email: <a href="mailto:hello@lagencesauvage.com">hello@lagencesauvage.com</a></li>
+                        <li>Email:<br><a href="mailto:hello@lagencesauvage.com">hello@lagencesauvage.com</a></li>
                         <li>Tél: <a href="tel:+33185097592">+33 1 85 09 75 92</a></li>
                         <li>Paris, France</li>
-                        <li><a href="https://www.linkedin.com/company/lagencesauvage" target="_blank">LinkedIn</a></li>
+                        <li><br><a href="https://www.linkedin.com/company/lagencesauvage" target="_blank" rel="noopener">LinkedIn</a></li>
                     </ul>
                 </div>
             </div>
