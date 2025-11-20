@@ -13,6 +13,7 @@
   --orange-accent: #c96839;
 
   /* Couleurs Neutres */
+  --mauve: #A288A6;
   --stone-gray: #8c8982;
   --warm-brown: #57412f;
   --cream: #f2ede1;
@@ -56,7 +57,7 @@ body {
   font-size: 1rem;
   line-height: 1.6;
   color: var(--forest-green);
-  background: var(--cream);
+  background: var(--mauve);
 }
 
 /* === 3. TYPOGRAPHIE === */
