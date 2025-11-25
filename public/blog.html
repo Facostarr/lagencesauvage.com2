@@ -427,17 +427,20 @@
 
     <!-- HEADER -->
     <header class="header">
-        <div class="container header__container">
-            <a href="/" class="logo" aria-label="L'Agence Sauvage - Retour à l'accueil">
-                <img src="/assets/images/logo-lagencesauvage-original.svg" alt="L'Agence Sauvage" height="60">
+        <div class="header__container">
+            <a href="/" class="header__logo">
+                <img src="/assets/images/logo-lagencesauvage-original.svg" 
+                     alt="L'Agence Sauvage - Intelligence Artificielle pour TPE/PME" 
+                     class="logo-img"
+                     loading="eager">
             </a>
-
+            
             <button class="nav__toggle" aria-label="Ouvrir le menu" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
-
+            
             <nav class="nav" aria-label="Menu principal">
                 <ul class="nav__menu">
                     <li><a href="/services.html" class="nav__link">Services</a></li>
@@ -445,7 +448,7 @@
                     <li><a href="/ressources.html" class="nav__link">Ressources</a></li>
                     <li><a href="/blog.html" class="nav__link nav__link--active">Blog</a></li>
                     <li><a href="/about.html" class="nav__link">À propos</a></li>
-                    <li><a href="/#contact" class="btn btn--primary btn--small">Audit gratuit</a></li>
+                    <li><a href="#audit-gratuit" class="btn btn-primary">Audit gratuit</a></li>
                 </ul>
             </nav>
         </div>
@@ -657,59 +660,54 @@
 
     <!-- FOOTER -->
     <footer class="footer">
-        <div class="container footer__container">
-            <div class="footer__grid">
-                <div class="footer__column">
-                    <h3 class="footer__title">L'Agence Sauvage</h3>
-                    <p class="footer__description">
-                        L'IA accessible pour les entreprises.<br>
-                        Budget stagiaire, performance Sauvage !
-                    </p>
-                </div>
-
-                <div class="footer__column">
-                    <h3 class="footer__title">Services</h3>
-                    <ul class="footer__links">
-                        <li><a href="/services.html">Tous nos services</a></li>
-                        <li><a href="/services.html#audit">Audit IA</a></li>
-                        <li><a href="/services.html#automation">Automatisation</a></li>
-                        <li><a href="/services.html#abonnement">Abonnement mensuel</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer__column">
-                    <h3 class="footer__title">Ressources</h3>
-                    <ul class="footer__links">
-                        <li><a href="/blog.html">Blog</a></li>
-                        <li><a href="/realisations.html">Cas clients</a></li>
-                        <li><a href="/faq.html">FAQ</a></li>
-                        <li><a href="/processus.html">Notre processus</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer__column">
-                    <h3 class="footer__title">Contact</h3>
-                    <ul class="footer__links">
-                        <li>Email:<br><a href="mailto:hello@lagencesauvage.com">hello@lagencesauvage.com</a></li>
-                        <li>Tél: <a href="tel:+33185097592">+33 1 85 09 75 92</a></li>
-                        <li>Paris, France</li>
-                        <li><br><a href="https://www.linkedin.com/company/lagencesauvage" target="_blank" rel="noopener">LinkedIn</a></li>
-                    </ul>
-                </div>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>L'Agence Sauvage</h4>
+                <p style="opacity: 0.8;">L'IA accessible pour les entreprises.<br>Budget stagiaire, performance Sauvage !</p>
+                <p style="margin-top: 1rem; opacity: 0.8;">
             </div>
-
-            <div class="footer__bottom">
-                <p>&copy; 2025 L'Agence Sauvage. Tous droits réservés.</p>
-                <div class="footer__legal">
-                    <a href="/mentions-legales.html">Mentions légales</a>
-                    <a href="/privacy.html">Politique de confidentialité</a>
-                </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="/services.html">Tous nos services</a></li>
+                    <li><a href="/services.html#audit-ia">Audit IA</a></li>
+                    <li><a href="/services.html#automatisation">Automatisation</a></li>
+                    <li><a href="/services.html#agents-ia">Agents conversationnels</a></li>
+                    <li><a href="/services.html#abonnement">Abonnement mensuel</a></li>
+                </ul>
             </div>
+            <div class="footer-col">
+                <h4>Ressources</h4>
+                <ul>
+                    <li><a href="/ressources.html">Blog</a></li>
+                    <li><a href="/realisations.html">Cas clients</a></li>
+                    <li><a href="/faq.html">FAQ</a></li>
+                    <li><a href="/processus.html">Notre processus</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <p style="opacity: 0.8;">
+                    Email: <a href="/cdn-cgi/l/email-protection#bed6dbd2d2d1fed2dfd9dbd0dddbcddfcbc8dfd9db90ddd1d3"><span class="__cf_email__" data-cfemail="462e232a2a29062a272123282523352733302721236825292b">[email&#160;protected]</span></a><br>
+                    Tél: <a href="tel:+33185097592">+33 1 85 09 75 92</a><br>
+                    Paris, France
+                </p>
+                <p style="margin-top: 1rem;">
+                    <a href="https://www.linkedin.com/company/lagencesauvage" target="_blank" rel="noopener">LinkedIn</a>
+                </p>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.2); opacity: 0.6;">
+            <p>&copy; 2025 L'Agence Sauvage. Tous droits réservés.</p>
+            <p style="margin-top: 0.5rem;">
+                <a href="/mentions-legales.html">Mentions légales</a> • 
+                <a href="/privacy.html">Politique de confidentialité</a>
+            </p>
         </div>
     </footer>
 
     <!-- Scripts -->
-    <script src="/assets/js/main.js"></script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="/assets/js/main.js"></script>
     <script>
         // Blog-specific JavaScript
         document.addEventListener('DOMContentLoaded', function() {
@@ -765,13 +763,4 @@
                 // Show/hide empty state
                 if (visibleCount === 0) {
                     articlesGrid.style.display = 'none';
-                    emptyState.style.display = 'block';
-                } else {
-                    articlesGrid.style.display = 'grid';
-                    emptyState.style.display = 'none';
-                }
-            }
-        });
-    </script>
-</body>
-</html>
+              
