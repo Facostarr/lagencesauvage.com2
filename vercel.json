@@ -1,7 +1,8 @@
 {
-  "functions": {
-    "api/**/*.js": {
-      "maxDuration": 10
-    }
-  }
+  "buildCommand": "curl -L https://github.com/gohugoio/hugo/releases/download/v0.139.0/hugo_extended_0.139.0_Linux-64bit.tar.gz | tar xz && ./hugo --minify",
+  "outputDirectory": "public",
+  "framework": null,
+  "rewrites": [
+    { "source": "/blog", "destination": "/blog/" }
+  ]
 }

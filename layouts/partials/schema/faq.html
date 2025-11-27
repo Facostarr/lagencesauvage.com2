@@ -1,0 +1,26 @@
+{{/* =============================================================================
+   Schema.org FAQPage
+   Généré automatiquement si le contenu contient des FAQ
+   ============================================================================= */}}
+
+{{ if .Params.faq }}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {{ range $index, $faq := .Params.faq }}
+        {{ if $index }},{{ end }}
+        {
+            "@type": "Question",
+            "name": "{{ $faq.question }}",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "{{ $faq.answer }}"
+            }
+        }
+        {{ end }}
+    ]
+}
+</script>
+{{ end }}

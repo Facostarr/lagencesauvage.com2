@@ -1,0 +1,51 @@
+{{/* =============================================================================
+   Footer - Identique au design existant du site
+   ============================================================================= */}}
+
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-col">
+            <h4>L'Agence Sauvage</h4>
+            <p style="opacity: 0.8;">L'IA accessible pour les entreprises.<br>Budget stagiaire, performance Sauvage !</p>
+        </div>
+        <div class="footer-col">
+            <h4>Services</h4>
+            <ul>
+                <li><a href="/services.html">Tous nos services</a></li>
+                <li><a href="/services.html#audit-ia">Audit IA</a></li>
+                <li><a href="/services.html#automatisation">Automatisation</a></li>
+                <li><a href="/services.html#agents-ia">Agents conversationnels</a></li>
+                <li><a href="/services.html#abonnement">Abonnement mensuel</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Ressources</h4>
+            <ul>
+                <li><a href="/blog/">Blog</a></li>
+                <li><a href="/realisations.html">Cas clients</a></li>
+                <li><a href="/faq.html">FAQ</a></li>
+                <li><a href="/processus.html">Notre processus</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Contact</h4>
+            <p style="opacity: 0.8;">
+                Email: <a href="mailto:{{ .Site.Params.contact.email }}">{{ .Site.Params.contact.email }}</a><br>
+                Tél: <a href="tel:{{ .Site.Params.contact.phone | replaceRE " " "" }}">{{ .Site.Params.contact.phone }}</a><br>
+                {{ .Site.Params.contact.address }}
+            </p>
+            {{ if .Site.Params.social.linkedin }}
+            <p style="margin-top: 1rem;">
+                <a href="{{ .Site.Params.social.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>
+            </p>
+            {{ end }}
+        </div>
+    </div>
+    <div style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.2); opacity: 0.6;">
+        <p>&copy; {{ now.Year }} L'Agence Sauvage. Tous droits réservés.</p>
+        <p style="margin-top: 0.5rem;">
+            <a href="/mentions-legales.html">Mentions légales</a> • 
+            <a href="/privacy.html">Politique de confidentialité</a>
+        </p>
+    </div>
+</footer>

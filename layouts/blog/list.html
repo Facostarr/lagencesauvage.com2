@@ -1,0 +1,205 @@
+{{ define "main" }}
+{{/* =============================================================================
+   Liste des articles du blog
+   Design cohérent avec le site, fond crème
+   ============================================================================= */}}
+
+<!-- Hero Section Blog -->
+<section class="blog-hero">
+    <div class="container">
+        <h1>BLOG</h1>
+        <p>{{ .Site.Params.blog.description }}</p>
+    </div>
+</section>
+
+<!-- Contenu principal -->
+<div class="blog-main">
+    <div class="container">
+        
+        <!-- Barre de recherche et filtres -->
+        <section class="filters-section">
+            <div class="search-bar">
+                <input type="text" 
+                       id="searchInput" 
+                       placeholder="🔍 Rechercher un article..." 
+                       aria-label="Rechercher un article">
+            </div>
+            
+            <div class="filter-row">
+                <div class="filter-group">
+                    <h3>CATÉGORIES</h3>
+                    <div class="filter-tags" id="categoryFilters">
+                        <button class="filter-tag active" data-category="all">Tous</button>
+                        {{ range .Site.Taxonomies.categories }}
+                        <button class="filter-tag" data-category="{{ .Page.Title | urlize }}">{{ .Page.Title }}</button>
+                        {{ end }}
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Grille des articles -->
+        <section class="articles-container">
+            <div class="articles-grid" id="articlesGrid">
+                {{ $paginator := .Paginate (where .Pages "Type" "blog") .Site.Params.blog.postsPerPage }}
+                {{ range $paginator.Pages }}
+                <article class="article-card" 
+                         data-category="{{ if .Params.categories }}{{ index .Params.categories 0 | urlize }}{{ else }}non-classe{{ end }}"
+                         data-title="{{ .Title | lower }}"
+                         data-content="{{ .Summary | plainify | lower }}">
+                    
+                    <!-- Image ou Emoji -->
+                    <div class="article-image">
+                        {{ if .Params.image }}
+                        <img src="{{ .Params.image }}" 
+                             alt="{{ .Params.imageAlt | default .Title }}" 
+                             loading="lazy">
+                        {{ else }}
+                        <span class="article-emoji">{{ .Params.emoji | default "📄" }}</span>
+                        {{ end }}
+                    </div>
+                    
+                    <div class="article-content">
+                        <!-- Meta -->
+                        <div class="article-meta">
+                            {{ if .Params.categories }}
+                            <span class="article-category">{{ index .Params.categories 0 }}</span>
+                            {{ end }}
+                            <span>• {{ .Date.Format "2 Jan 2006" }}</span>
+                            {{ if .Site.Params.blog.showReadingTime }}
+                            <span>• {{ .ReadingTime }} min</span>
+                            {{ end }}
+                        </div>
+                        
+                        <!-- Titre -->
+                        <h2 class="article-title">{{ .Title }}</h2>
+                        
+                        <!-- Extrait -->
+                        <p class="article-excerpt">
+                            {{ .Summary | plainify | truncate 150 }}
+                        </p>
+                        
+                        <!-- Footer -->
+                        <div class="article-footer">
+                            {{ if .Params.tags }}
+                            <div class="article-tags">
+                                {{ range first 3 .Params.tags }}
+                                <span class="tag">#{{ . }}</span>
+                                {{ end }}
+                            </div>
+                            {{ end }}
+                            <a href="{{ .Permalink }}" class="read-more" aria-label="Lire l'article : {{ .Title }}">Lire →</a>
+                        </div>
+                    </div>
+                </article>
+                {{ end }}
+            </div>
+
+            <!-- État vide -->
+            <div id="emptyState" class="empty-state" style="display: none;">
+                <div class="empty-state-icon">🔍</div>
+                <h3>Aucun article trouvé</h3>
+                <p>Essayez de modifier vos critères de recherche ou de filtrage.</p>
+            </div>
+
+            <!-- Pagination -->
+            {{ if gt $paginator.TotalPages 1 }}
+            <nav class="pagination" aria-label="Pagination des articles">
+                {{ if $paginator.HasPrev }}
+                <a href="{{ $paginator.Prev.URL }}" class="page-btn">« Précédent</a>
+                {{ else }}
+                <span class="page-btn disabled">« Précédent</span>
+                {{ end }}
+                
+                {{ range $paginator.Pagers }}
+                {{ if eq . $paginator }}
+                <span class="page-btn active">{{ .PageNumber }}</span>
+                {{ else }}
+                <a href="{{ .URL }}" class="page-btn">{{ .PageNumber }}</a>
+                {{ end }}
+                {{ end }}
+                
+                {{ if $paginator.HasNext }}
+                <a href="{{ $paginator.Next.URL }}" class="page-btn">Suivant »</a>
+                {{ else }}
+                <span class="page-btn disabled">Suivant »</span>
+                {{ end }}
+            </nav>
+            {{ end }}
+        </section>
+
+        <!-- Newsletter CTA -->
+        <section class="newsletter-cta">
+            <h2>RESTEZ INFORMÉ</h2>
+            <p>Recevez nos meilleurs articles et guides pratiques directement dans votre boîte mail.</p>
+            <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Merci ! Fonctionnalité newsletter à venir.');">
+                <input type="email" placeholder="Votre email" required aria-label="Votre adresse email">
+                <button type="submit">S'abonner</button>
+            </form>
+        </section>
+    </div>
+</div>
+{{ end }}
+
+{{ define "scripts" }}
+<script>
+// Recherche et filtrage des articles
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('searchInput');
+    const categoryFilters = document.querySelectorAll('.filter-tag');
+    const articles = document.querySelectorAll('.article-card');
+    const emptyState = document.getElementById('emptyState');
+    const articlesGrid = document.getElementById('articlesGrid');
+    
+    let currentCategory = 'all';
+    let currentSearch = '';
+
+    // Filtrage par catégorie
+    categoryFilters.forEach(filter => {
+        filter.addEventListener('click', function() {
+            categoryFilters.forEach(f => f.classList.remove('active'));
+            this.classList.add('active');
+            currentCategory = this.dataset.category;
+            filterArticles();
+        });
+    });
+
+    // Recherche textuelle
+    searchInput.addEventListener('input', function(e) {
+        currentSearch = e.target.value.toLowerCase();
+        filterArticles();
+    });
+
+    function filterArticles() {
+        let visibleCount = 0;
+
+        articles.forEach(article => {
+            const category = article.dataset.category;
+            const title = article.dataset.title;
+            const content = article.dataset.content;
+            
+            const matchesCategory = currentCategory === 'all' || category === currentCategory;
+            const matchesSearch = currentSearch === '' || 
+                                title.includes(currentSearch) || 
+                                content.includes(currentSearch);
+            
+            if (matchesCategory && matchesSearch) {
+                article.style.display = 'flex';
+                visibleCount++;
+            } else {
+                article.style.display = 'none';
+            }
+        });
+
+        // Afficher/cacher l'état vide
+        if (visibleCount === 0) {
+            articlesGrid.style.display = 'none';
+            emptyState.style.display = 'block';
+        } else {
+            articlesGrid.style.display = 'grid';
+            emptyState.style.display = 'none';
+        }
+    }
+});
+</script>
+{{ end }}

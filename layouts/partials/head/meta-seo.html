@@ -1,0 +1,90 @@
+{{/* =============================================================================
+   Meta Tags SEO & Open Graph
+   Optimisé pour Google, ChatGPT, Perplexity, Gemini
+   ============================================================================= */}}
+
+{{/* Variables */}}
+{{ $title := .Title | default .Site.Title }}
+{{ $description := .Description | default .Summary | default .Site.Params.description | truncate 160 }}
+{{ $image := .Params.image | default .Site.Params.defaultImage }}
+{{ $imageAlt := .Params.imageAlt | default $title }}
+{{ $keywords := .Params.keywords | default .Site.Params.keywords }}
+{{ $author := .Params.author | default .Site.Params.defaultAuthor.name }}
+{{ $canonical := .Params.canonical | default .Permalink }}
+
+{{/* Titre optimisé */}}
+{{ if .IsHome }}
+<title>{{ .Site.Title }}</title>
+{{ else }}
+<title>{{ $title }} | {{ .Site.Title }}</title>
+{{ end }}
+
+{{/* Meta description - Crucial pour SEO et GEO */}}
+<meta name="description" content="{{ $description }}">
+
+{{/* Keywords */}}
+{{ if $keywords }}
+<meta name="keywords" content="{{ if reflect.IsSlice $keywords }}{{ delimit $keywords ", " }}{{ else }}{{ $keywords }}{{ end }}">
+{{ end }}
+
+{{/* Auteur */}}
+<meta name="author" content="{{ $author }}">
+
+{{/* Robots */}}
+{{ if .Params.noindex }}
+<meta name="robots" content="noindex, nofollow">
+{{ else }}
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+{{ end }}
+
+{{/* Dates - Important pour GEO (fraîcheur du contenu) */}}
+{{ if .Date }}
+<meta property="article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+{{ end }}
+{{ if .Lastmod }}
+<meta property="article:modified_time" content="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">
+{{ end }}
+
+{{/* Open Graph */}}
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $description }}">
+<meta property="og:url" content="{{ $canonical }}">
+<meta property="og:site_name" content="{{ .Site.Title }}">
+<meta property="og:locale" content="{{ .Site.LanguageCode | default "fr_FR" }}">
+{{ if .IsPage }}
+<meta property="og:type" content="article">
+{{ else }}
+<meta property="og:type" content="website">
+{{ end }}
+{{ if $image }}
+<meta property="og:image" content="{{ $image | absURL }}">
+<meta property="og:image:alt" content="{{ $imageAlt }}">
+{{ end }}
+
+{{/* Twitter Card */}}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ $title }}">
+<meta name="twitter:description" content="{{ $description }}">
+{{ if $image }}
+<meta name="twitter:image" content="{{ $image | absURL }}">
+{{ end }}
+
+{{/* Article spécifique */}}
+{{ if and (eq .Section "blog") .IsPage }}
+<meta property="article:author" content="{{ $author }}">
+{{ if .Params.categories }}
+{{ range first 1 .Params.categories }}
+<meta property="article:section" content="{{ . }}">
+{{ end }}
+{{ end }}
+{{ if .Params.tags }}
+{{ range .Params.tags }}
+<meta property="article:tag" content="{{ . }}">
+{{ end }}
+{{ end }}
+{{ end }}
+
+{{/* Langue */}}
+<meta property="og:locale" content="fr_FR">
+<link rel="alternate" hreflang="fr" href="{{ $canonical }}">
+<link rel="alternate" hreflang="x-default" href="{{ $canonical }}">
