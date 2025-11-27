@@ -12,7 +12,7 @@ tags:
   - "Productivité"
 readingTime: 8
 emoji: "📉"
-draft: True
+draft: false
 ---
 
 ## Introduction
@@ -100,5 +100,6 @@ Il n'a jamais été aussi peu coûteux d'être aussi intelligent. Pour les entre
 ***
 
 *Sources : [AI Index Report 2025, Stanford University]([The 2025 AI Index Report | Stanford HAI](https://hai.stanford.edu/ai-index/2025-ai-index-report)).*
+
 
 
