@@ -1,0 +1,57 @@
+{{/* =============================================================================
+   Schema.org Organization
+   Permet aux moteurs IA de comprendre l'entreprise
+   ============================================================================= */}}
+{{ if .Site.Params.organization }}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "{{ .Site.BaseURL }}#organization",
+    "name": "{{ .Site.Params.organization.name }}",
+    "legalName": "{{ .Site.Params.organization.legalName }}",
+    "url": "{{ .Site.Params.organization.url }}",
+    "logo": {
+        "@type": "ImageObject",
+        "url": "{{ .Site.Params.organization.logo }}",
+        "width": 512,
+        "height": 512
+    },
+    "image": "{{ .Site.Params.organization.logo }}",
+    "description": "{{ .Site.Params.organization.description }}",
+    "slogan": "{{ .Site.Params.organization.slogan }}",
+    "foundingDate": "{{ .Site.Params.organization.foundingDate }}",
+    "areaServed": "{{ .Site.Params.organization.areaServed }}",
+    "priceRange": "{{ .Site.Params.organization.priceRange }}",
+    "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "{{ .Site.Params.organization.address.addressLocality }}",
+        "addressRegion": "{{ .Site.Params.organization.address.addressRegion }}",
+        "addressCountry": "{{ .Site.Params.organization.address.addressCountry }}"
+    },
+    "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "{{ .Site.Params.contact.phone }}",
+        "email": "{{ .Site.Params.contact.email }}",
+        "contactType": "customer service",
+        "availableLanguage": "French"
+    },
+    "sameAs": [
+        {{ if .Site.Params.social.linkedin }}"{{ .Site.Params.social.linkedin }}"{{ end }}
+    ],
+    "knowsAbout": [
+        "Intelligence Artificielle",
+        "Automatisation",
+        "Marketing Digital",
+        "TPE PME",
+        "n8n",
+        "Agents conversationnels",
+        "Chatbots"
+    ],
+    "serviceArea": {
+        "@type": "Country",
+        "name": "France"
+    }
+}
+</script>
+{{ end }}

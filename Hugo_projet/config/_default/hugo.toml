@@ -1,0 +1,89 @@
+# =============================================================================
+# L'AGENCE SAUVAGE - Configuration Hugo
+# Optimisé SEO + GEO (Generative Engine Optimization)
+# =============================================================================
+
+baseURL = "https://www.lagencesauvage.com"
+languageCode = "fr-FR"
+defaultContentLanguage = "fr"
+title = "L'Agence Sauvage | IA & Automatisation pour TPE/PME"
+
+# URLs avec extension .html comme demandé
+uglyURLs = true
+
+# Désactiver les pages inutiles
+disableKinds = ["taxonomy", "term"]
+
+# Activer les taxonomies pour catégories et tags
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+# Configuration des permalinks
+[permalinks]
+  blog = "/blog/:filename.html"
+  categories = "/blog/categories/:slug/"
+  tags = "/blog/tags/:slug/"
+
+# Génération du sitemap
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5
+  filename = "sitemap-blog.xml"
+
+# Configuration des outputs
+[outputs]
+  home = ["HTML"]
+  section = ["HTML", "RSS"]
+  page = ["HTML"]
+
+# Format des dates en français
+[frontmatter]
+  date = ["date", "publishDate"]
+  lastmod = ["lastmod", ":git", "date"]
+
+# Markdown - Rendu optimisé
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+    [markup.goldmark.extensions]
+      typographer = true
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 4
+    ordered = false
+  [markup.highlight]
+    codeFences = true
+    lineNos = false
+    style = "monokai"
+
+# Minification pour la performance
+[minify]
+  disableCSS = false
+  disableHTML = false
+  disableJS = false
+  disableJSON = false
+  disableSVG = false
+  disableXML = false
+  minifyOutput = true
+
+# Build
+[build]
+  writeStats = false
+
+# Caching des assets
+[caches]
+  [caches.assets]
+    dir = ":resourceDir/_gen"
+    maxAge = "720h"
+  [caches.images]
+    dir = ":resourceDir/_gen"
+    maxAge = "720h"
+
+# Sécurité
+[security]
+  [security.exec]
+    allow = ["^dart-sass-embedded$", "^go$", "^npx$", "^postcss$"]
+  [security.funcs]
+    getenv = ["^HUGO_", "^CI$"]

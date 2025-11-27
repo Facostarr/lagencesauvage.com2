@@ -1,0 +1,222 @@
+{{ define "main" }}
+{{/* =============================================================================
+   Article de blog individuel
+   Optimisé pour SEO traditionnel + GEO (moteurs IA)
+   ============================================================================= */}}
+
+<article class="blog-article" itemscope itemtype="https://schema.org/Article">
+    
+    <!-- Hero de l'article -->
+    <header class="article-hero">
+        <div class="container">
+            <!-- Fil d'Ariane - Important pour SEO -->
+            <nav class="breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span class="separator">›</span>
+                <a href="/blog/">Blog</a>
+                <span class="separator">›</span>
+                <span class="current">{{ .Title | truncate 50 }}</span>
+            </nav>
+            
+            <!-- Catégorie -->
+            {{ if .Params.categories }}
+            <div class="article-category-badge">
+                {{ index .Params.categories 0 }}
+            </div>
+            {{ end }}
+            
+            <!-- Titre H1 - Crucial pour SEO -->
+            <h1 class="article-hero-title" itemprop="headline">{{ .Title }}</h1>
+            
+            <!-- Meta informations - Important pour E-E-A-T -->
+            <div class="article-hero-meta">
+                <div class="meta-author" itemprop="author" itemscope itemtype="https://schema.org/Organization">
+                    <span class="author-avatar">🏢</span>
+                    <div class="author-info">
+                        <span class="author-name" itemprop="name">{{ .Params.author | default .Site.Params.defaultAuthor.name }}</span>
+                        <span class="author-title">{{ .Params.expertise | default .Site.Params.defaultAuthor.expertise }}</span>
+                    </div>
+                </div>
+                
+                <div class="meta-details">
+                    <time datetime="{{ .Date.Format "2006-01-02" }}" itemprop="datePublished">
+                        📅 {{ .Date.Format "2 janvier 2006" }}
+                    </time>
+                    {{ if ne (.Date.Format "2006-01-02") (.Lastmod.Format "2006-01-02") }}
+                    <span class="meta-updated">
+                        (Mis à jour : <time datetime="{{ .Lastmod.Format "2006-01-02" }}" itemprop="dateModified">{{ .Lastmod.Format "2 janvier 2006" }}</time>)
+                    </span>
+                    {{ end }}
+                    <span class="meta-reading">⏱️ {{ .ReadingTime }} min de lecture</span>
+                    <span class="meta-words">📝 {{ .WordCount }} mots</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenu principal -->
+    <div class="article-body">
+        <div class="container article-container">
+            
+            <!-- Sidebar gauche - Table des matières (desktop) -->
+            {{ if .Site.Params.blog.showToc }}
+            {{ if .TableOfContents }}
+            <aside class="article-toc" aria-label="Table des matières">
+                <div class="toc-sticky">
+                    <h2 class="toc-title">📑 Sommaire</h2>
+                    <nav class="toc-content">
+                        {{ .TableOfContents }}
+                    </nav>
+                </div>
+            </aside>
+            {{ end }}
+            {{ end }}
+            
+            <!-- Contenu de l'article -->
+            <div class="article-content" itemprop="articleBody">
+                
+                {{/* Introduction/Summary - Zone "speakable" pour les IA */}}
+                {{ if .Params.summary }}
+                <div class="article-intro key-takeaway" role="doc-abstract">
+                    <p class="article-summary"><strong>En résumé :</strong> {{ .Params.summary }}</p>
+                </div>
+                {{ end }}
+                
+                {{/* Contenu principal */}}
+                {{ .Content }}
+                
+                {{/* Section FAQ si définie dans le front matter */}}
+                {{ if .Params.faq }}
+                <section class="article-faq" itemscope itemtype="https://schema.org/FAQPage">
+                    <h2>❓ Questions fréquentes</h2>
+                    {{ range .Params.faq }}
+                    <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                        <summary itemprop="name">{{ .question }}</summary>
+                        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <p itemprop="text">{{ .answer }}</p>
+                        </div>
+                    </details>
+                    {{ end }}
+                </section>
+                {{ partial "schema/faq.html" . }}
+                {{ end }}
+            </div>
+            
+            <!-- Sidebar droite - Partage et infos -->
+            <aside class="article-sidebar" aria-label="Actions et informations">
+                <div class="sidebar-sticky">
+                    
+                    <!-- Partage social -->
+                    {{ if .Site.Params.blog.showShare }}
+                    <div class="share-box">
+                        <h3>📤 Partager</h3>
+                        <div class="share-buttons">
+                            <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ .Permalink | urlize }}" 
+                               target="_blank" 
+                               rel="noopener noreferrer"
+                               class="share-btn share-linkedin"
+                               aria-label="Partager sur LinkedIn">
+                                LinkedIn
+                            </a>
+                            <a href="https://twitter.com/intent/tweet?url={{ .Permalink | urlize }}&text={{ .Title | urlize }}" 
+                               target="_blank" 
+                               rel="noopener noreferrer"
+                               class="share-btn share-twitter"
+                               aria-label="Partager sur Twitter">
+                                Twitter
+                            </a>
+                            <button class="share-btn share-copy" 
+                                    onclick="navigator.clipboard.writeText('{{ .Permalink }}'); this.textContent='✓ Copié !';"
+                                    aria-label="Copier le lien">
+                                🔗 Copier
+                            </button>
+                        </div>
+                    </div>
+                    {{ end }}
+                    
+                    <!-- Tags -->
+                    {{ if .Params.tags }}
+                    <div class="tags-box">
+                        <h3>🏷️ Tags</h3>
+                        <div class="tags-list">
+                            {{ range .Params.tags }}
+                            <a href="/blog/tags/{{ . | urlize }}/" class="tag-link">#{{ . }}</a>
+                            {{ end }}
+                        </div>
+                    </div>
+                    {{ end }}
+                    
+                    <!-- CTA -->
+                    <div class="cta-box">
+                        <h3>🚀 Besoin d'aide ?</h3>
+                        <p>Discutons de votre projet d'automatisation IA.</p>
+                        <a href="/#audit-gratuit" class="btn btn-primary">Audit gratuit</a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <!-- Footer de l'article -->
+    <footer class="article-footer-section">
+        <div class="container">
+            
+            <!-- Auteur - E-E-A-T -->
+            <div class="author-box">
+                <div class="author-avatar-large">🏢</div>
+                <div class="author-bio">
+                    <h3>À propos de {{ .Params.author | default .Site.Params.defaultAuthor.name }}</h3>
+                    <p>{{ .Site.Params.organization.description }}</p>
+                    <a href="/about.html" class="author-link">En savoir plus →</a>
+                </div>
+            </div>
+            
+            <!-- Articles connexes -->
+            {{ if .Site.Params.blog.showRelated }}
+            {{ $related := .Site.RegularPages.Related . | first 3 }}
+            {{ if $related }}
+            <section class="related-articles">
+                <h2>📚 Articles similaires</h2>
+                <div class="related-grid">
+                    {{ range $related }}
+                    <a href="{{ .Permalink }}" class="related-card">
+                        <span class="related-emoji">{{ .Params.emoji | default "📄" }}</span>
+                        <h3>{{ .Title }}</h3>
+                        <span class="related-meta">{{ .Date.Format "2 Jan 2006" }} • {{ .ReadingTime }} min</span>
+                    </a>
+                    {{ end }}
+                </div>
+            </section>
+            {{ end }}
+            {{ end }}
+            
+            <!-- Navigation articles précédent/suivant -->
+            <nav class="article-navigation" aria-label="Navigation entre articles">
+                {{ with .PrevInSection }}
+                <a href="{{ .Permalink }}" class="nav-prev">
+                    <span class="nav-label">← Article précédent</span>
+                    <span class="nav-title">{{ .Title | truncate 50 }}</span>
+                </a>
+                {{ end }}
+                
+                {{ with .NextInSection }}
+                <a href="{{ .Permalink }}" class="nav-next">
+                    <span class="nav-label">Article suivant →</span>
+                    <span class="nav-title">{{ .Title | truncate 50 }}</span>
+                </a>
+                {{ end }}
+            </nav>
+        </div>
+    </footer>
+</article>
+
+<!-- CTA final -->
+<section class="final-cta">
+    <div class="container">
+        <h2>Prêt à automatiser votre entreprise ?</h2>
+        <p>Découvrez comment l'IA peut transformer votre quotidien en moins de 30 minutes.</p>
+        <a href="/#audit-gratuit" class="btn btn-primary btn-lg">Réserver mon audit gratuit</a>
+    </div>
+</section>
+
+{{ end }}

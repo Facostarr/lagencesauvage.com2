@@ -1,0 +1,65 @@
+# =============================================================================
+# L'AGENCE SAUVAGE - Déploiement automatique Hugo → Vercel
+# Déclenché à chaque push sur main
+# =============================================================================
+
+name: Build & Deploy Hugo Blog
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'content/**'
+      - 'layouts/**'
+      - 'static/**'
+      - 'config/**'
+      - 'hugo.toml'
+  workflow_dispatch:  # Permet le déclenchement manuel
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      # 1. Récupérer le code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Nécessaire pour .Lastmod basé sur git
+
+      # 2. Installer Hugo
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: 'latest'
+          extended: true
+
+      # 3. Build le site
+      - name: Build Hugo site
+        run: hugo --minify --gc
+
+      # 4. Vérifier le build
+      - name: Check build output
+        run: |
+          echo "📁 Contenu du dossier public:"
+          ls -la public/
+          echo ""
+          echo "📁 Contenu blog:"
+          ls -la public/blog/ || echo "Pas de dossier blog"
+          echo ""
+          echo "📊 Statistiques:"
+          echo "- Fichiers HTML: $(find public -name '*.html' | wc -l)"
+          echo "- Taille totale: $(du -sh public | cut -f1)"
+
+      # 5. Upload artifact pour Vercel
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: hugo-build
+          path: public/
+          retention-days: 1
+
+  # Note: Vercel se connecte automatiquement à GitHub
+  # Ce workflow génère juste les fichiers Hugo
+  # Vercel détecte le push et déploie automatiquement

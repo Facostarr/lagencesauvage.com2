@@ -1,0 +1,87 @@
+# =============================================================================
+# Paramètres du site - SEO & GEO Optimisés
+# =============================================================================
+
+# Informations de base
+description = "L'Agence Sauvage : IA accessible pour TPE/PME. Automatisation, agents conversationnels et marketing IA. Budget stagiaire, performance Sauvage !"
+keywords = ["IA TPE PME", "automatisation", "agents IA", "n8n", "marketing automation", "intelligence artificielle entreprise"]
+author = "L'Agence Sauvage"
+
+# Images par défaut
+defaultImage = "/assets/images/og-default.jpg"
+logo = "/assets/images/logo-lagencesauvage-original.svg"
+favicon = "/favicon-32x32.png"
+
+# Réseaux sociaux
+[social]
+  linkedin = "https://www.linkedin.com/company/lagencesauvage"
+  twitter = ""
+
+# Contact
+[contact]
+  email = "contact@lagencesauvage.com"
+  phone = "+33 1 85 09 75 92"
+  address = "Paris, France"
+
+# Organisation (Schema.org)
+[organization]
+  name = "L'Agence Sauvage"
+  legalName = "L'Agence Sauvage"
+  url = "https://www.lagencesauvage.com"
+  logo = "https://www.lagencesauvage.com/assets/images/logo-lagencesauvage-original.svg"
+  foundingDate = "2025"
+  description = "Agence spécialisée en intelligence artificielle et automatisation pour les TPE/PME françaises. Nous rendons l'IA accessible avec des solutions à budget maîtrisé."
+  slogan = "L'IA accessible pour les entreprises. Budget stagiaire, performance Sauvage !"
+  areaServed = "France"
+  priceRange = "€€"
+  
+  # Adresse
+  [organization.address]
+    streetAddress = ""
+    addressLocality = "Paris"
+    addressRegion = "Île-de-France"
+    postalCode = ""
+    addressCountry = "FR"
+
+# Auteur par défaut des articles
+[defaultAuthor]
+  name = "L'Agence Sauvage"
+  url = "https://www.lagencesauvage.com/about.html"
+  expertise = "Spécialiste IA & Automatisation pour TPE/PME"
+
+# Configuration du blog
+[blog]
+  title = "Blog"
+  description = "Guides pratiques, cas clients et astuces IA & Automatisation pour booster la productivité de votre TPE/PME."
+  postsPerPage = 9
+  showReadingTime = true
+  showToc = true
+  showDate = true
+  showLastmod = true
+  showAuthor = true
+  showShare = true
+  showRelated = true
+
+# SEO avancé
+[seo]
+  enableRobotsTxt = true
+  enableSitemap = true
+  enableRSS = true
+  twitterCard = "summary_large_image"
+  ogType = "article"
+
+# Analytics (Plausible)
+[analytics]
+  plausibleDomain = "lagencesauvage.com"
+  plausibleSrc = "https://plausible.io/js/script.js"
+
+# GEO (Generative Engine Optimization)
+[geo]
+  # Activer les optimisations pour les moteurs IA
+  enableSchemaArticle = true
+  enableSchemaFAQ = true
+  enableSchemaHowTo = true
+  enableSchemaOrganization = true
+  # Fraîcheur du contenu
+  showLastModified = true
+  showPublishDate = true

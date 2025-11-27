@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default "fr" }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    {{/* Meta tags SEO */}}
+    {{ partial "head/meta-seo.html" . }}
+    
+    {{/* Schema.org Organization (sur toutes les pages) */}}
+    {{ partial "schema/organization.html" . }}
+    
+    {{/* Schema.org Article (sur les articles uniquement) */}}
+    {{ if and (eq .Section "blog") .IsPage }}
+        {{ partial "schema/article.html" . }}
+    {{ end }}
+    
+    {{/* Fonts */}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    
+    {{/* Styles */}}
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/blog.css">
+    
+    {{/* Favicon */}}
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+    {{/* RSS Feed */}}
+    {{ if .OutputFormats.Get "RSS" }}
+    <link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" href="{{ with .OutputFormats.Get "RSS" }}{{ .Permalink }}{{ end }}">
+    {{ end }}
+    
+    {{/* Canonical URL */}}
+    <link rel="canonical" href="{{ .Permalink }}">
+    
+    {{/* Block pour CSS supplémentaire */}}
+    {{ block "head" . }}{{ end }}
+</head>
+<body>
+    {{/* Header */}}
+    {{ partial "header.html" . }}
+    
+    {{/* Contenu principal */}}
+    <main>
+        {{ block "main" . }}{{ end }}
+    </main>
+    
+    {{/* Footer */}}
+    {{ partial "footer.html" . }}
+    
+    {{/* Scripts */}}
+    <script src="/assets/js/main.js"></script>
+    {{ block "scripts" . }}{{ end }}
+    
+    {{/* Analytics (Plausible) */}}
+    {{ if .Site.Params.analytics.plausibleDomain }}
+    <script defer data-domain="{{ .Site.Params.analytics.plausibleDomain }}" src="{{ .Site.Params.analytics.plausibleSrc }}"></script>
+    {{ end }}
+</body>
+</html>
