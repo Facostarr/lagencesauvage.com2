@@ -1,5 +1,5 @@
 # robots.txt - L'Agence Sauvage
-# Dernière mise à jour : Novembre 2025
+# Dernière mise à jour : Décembre 2025
 
 # ============================================
 # RÈGLES POUR TOUS LES ROBOTS
@@ -7,13 +7,12 @@
 
 User-agent: *
 Allow: /
-# Éviter l’indexation de pages avec paramètres de tracking
+# Éviter l'indexation de pages avec paramètres de tracking
 Disallow: /*?*utm_
 Disallow: /*?*fbclid=
 # Laissez les assets nécessaires au rendu
 Allow: /assets/css/
 Allow: /assets/js/
-
 
 # ============================================
 # SITEMAPS
@@ -22,8 +21,8 @@ Allow: /assets/js/
 # Sitemap principal (pages statiques)
 Sitemap: https://www.lagencesauvage.com/sitemap.xml
 
-# Sitemap blog (à activer quand le blog sera lancé)
-# Sitemap: https://www.lagencesauvage.com/sitemap-blog.xml
+# Sitemap blog (articles)
+Sitemap: https://www.lagencesauvage.com/sitemap-blog.xml
 
 # ============================================
 # RÈGLES SPÉCIFIQUES PAR ROBOT
@@ -48,7 +47,7 @@ Allow: /
 User-agent: ChatGPT-User
 Allow: /
 
-# Google (contrôle d’usage IA)
+# Google (contrôle d'usage IA)
 User-agent: Google-Extended
 Allow: /
 
