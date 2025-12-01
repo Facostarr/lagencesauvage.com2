@@ -25,15 +25,17 @@ disableKinds = ["taxonomy", "term"]
   categories = "/blog/categories/:slug/"
   tags = "/blog/tags/:slug/"
 
-# Génération du sitemap
+# =============================================================================
+# SITEMAP AUTOMATIQUE - Génère sitemap-blog.xml avec tous les articles
+# =============================================================================
 [sitemap]
   changefreq = "weekly"
-  priority = 0.5
+  priority = 0.7
   filename = "sitemap-blog.xml"
 
-# Configuration des outputs
+# Configuration des outputs - SITEMAP ACTIVÉ
 [outputs]
-  home = ["HTML"]
+  home = ["HTML", "Sitemap"]
   section = ["HTML", "RSS"]
   page = ["HTML"]
 
