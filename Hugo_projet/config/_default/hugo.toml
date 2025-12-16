@@ -21,7 +21,7 @@ disableKinds = ["taxonomy", "term"]
 
 # Configuration des permalinks
 [permalinks]
-  blog = "/blog/:filename.html"
+  blog = "/blog/:filename"
   categories = "/blog/categories/:slug/"
   tags = "/blog/tags/:slug/"
 
