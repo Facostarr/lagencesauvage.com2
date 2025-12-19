@@ -5,8 +5,8 @@
 
 # Obligatoire
 title: "Comment automatiser vos emails Gmail avec l'IA en 2025"
-date: 2025-01-15
-lastmod: 2025-01-15
+date: 2025-11-15
+lastmod: 2025-11-15
 
 # SEO - Crucial
 description: "Guide complet pour automatiser le tri, les réponses et le suivi de vos emails Gmail grâce à l'IA. Économisez 10h/semaine avec des outils gratuits."
