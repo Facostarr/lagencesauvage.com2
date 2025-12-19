@@ -40,11 +40,11 @@
                 
                 <div class="meta-details">
                     <time datetime="{{ .Date.Format "2006-01-02" }}" itemprop="datePublished">
-                        📅 {{ .Date.Format "2 janvier 2006" }}
+                        📅 {{ .Date.Day }} {{ index (slice "janvier" "février" "mars" "avril" "mai" "juin" "juillet" "août" "septembre" "octobre" "novembre" "décembre") (sub .Date.Month 1) }} {{ .Date.Year }}
                     </time>
                     {{ if ne (.Date.Format "2006-01-02") (.Lastmod.Format "2006-01-02") }}
                     <span class="meta-updated">
-                        (Mis à jour : <time datetime="{{ .Lastmod.Format "2006-01-02" }}" itemprop="dateModified">{{ .Lastmod.Format "2 janvier 2006" }}</time>)
+                        (Mis à jour : <time datetime="{{ .Lastmod.Format "2006-01-02" }}" itemprop="dateModified">{{ .Lastmod.Day }} {{ index (slice "janvier" "février" "mars" "avril" "mai" "juin" "juillet" "août" "septembre" "octobre" "novembre" "décembre") (sub .Lastmod.Month 1) }} {{ .Lastmod.Year }}</time>)
                     </span>
                     {{ end }}
                     <span class="meta-reading">⏱️ {{ .ReadingTime }} min de lecture</span>
@@ -182,7 +182,7 @@
                     <a href="{{ .Permalink }}" class="related-card">
                         <span class="related-emoji">{{ .Params.emoji | default "📄" }}</span>
                         <h3>{{ .Title }}</h3>
-                        <span class="related-meta">{{ .Date.Format "2 Jan 2006" }} • {{ .ReadingTime }} min</span>
+                        <span class="related-meta">{{ .Date.Day }} {{ index (slice "Jan" "Fév" "Mar" "Avr" "Mai" "Juin" "Juil" "Août" "Sep" "Oct" "Nov" "Déc") (sub .Date.Month 1) }} {{ .Date.Year }} • {{ .ReadingTime }} min</span>
                     </a>
                     {{ end }}
                 </div>
