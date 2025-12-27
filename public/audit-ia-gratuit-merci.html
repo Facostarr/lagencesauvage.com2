@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO META TAGS -->
+  <title>Merci ! Votre Guide IA arrive | L'Agence Sauvage</title>
+  <meta name="description" content="Votre demande d'audit IA gratuit a bien été reçue. Votre guide PDF arrive dans votre boîte mail.">
+  <meta name="robots" content="noindex, nofollow">
+  
+  <!-- FAVICON -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  
+  <!-- GOOGLE FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  
+  <!-- STYLES SPÉCIFIQUES -->
+  <style>
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    /* Header minimaliste */
+    .header-minimal {
+      background: var(--cream);
+      padding: 1rem 0;
+      box-shadow: 0 2px 8px rgba(34, 79, 60, 0.1);
+    }
+    
+    .header-minimal__container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--space-lg);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .header-minimal__logo img {
+      height: 50px;
+      width: auto;
+    }
+    
+    /* Thank you section */
+    .thank-you {
+      text-align: center;
+      padding: var(--space-3xl) var(--space-lg);
+      max-width: 700px;
+    }
+    
+    .thank-you .icon-success {
+      font-size: 5rem;
+      margin-bottom: var(--space-lg);
+      animation: bounce 1s ease-in-out;
+    }
+    
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+    
+    .thank-you h1 {
+      color: var(--forest-green);
+      margin-bottom: var(--space-md);
+    }
+    
+    .thank-you .subtitle {
+      font-size: 1.25rem;
+      color: var(--stone-gray);
+      margin-bottom: var(--space-xl);
+    }
+    
+    .next-steps {
+      background: var(--cream);
+      padding: var(--space-xl);
+      border-radius: 16px;
+      margin-bottom: var(--space-xl);
+      text-align: left;
+    }
+    
+    .next-steps h2 {
+      font-size: 1.5rem;
+      margin-bottom: var(--space-md);
+      text-align: center;
+    }
+    
+    .step-list {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .step-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-md);
+      padding: var(--space-md) 0;
+      border-bottom: 1px solid rgba(34, 79, 60, 0.1);
+    }
+    
+    .step-list li:last-child {
+      border-bottom: none;
+    }
+    
+    .step-list .number {
+      width: 32px;
+      height: 32px;
+      background: var(--burnt-orange);
+      color: var(--cream);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-family: var(--font-logo);
+      flex-shrink: 0;
+    }
+    
+    .step-list .content strong {
+      display: block;
+      color: var(--forest-green);
+      margin-bottom: 0.25rem;
+    }
+    
+    .step-list .content span {
+      color: var(--stone-gray);
+      font-size: 0.95rem;
+    }
+    
+    .spam-warning {
+      background: rgba(201, 104, 57, 0.1);
+      border: 2px solid var(--burnt-orange);
+      border-radius: 8px;
+      padding: var(--space-md);
+      margin-bottom: var(--space-xl);
+    }
+    
+    .spam-warning p {
+      margin: 0;
+      color: var(--burnt-orange);
+      font-weight: 600;
+    }
+    
+    .cta-secondary {
+      margin-top: var(--space-lg);
+    }
+    
+    /* Footer minimal */
+    .footer-minimal {
+      background: var(--forest-green);
+      color: var(--cream);
+      padding: var(--space-lg) 0;
+      text-align: center;
+    }
+    
+    .footer-minimal p {
+      margin: 0.5rem 0;
+      opacity: 0.8;
+    }
+    
+    .footer-minimal a {
+      color: var(--cream);
+      opacity: 0.8;
+    }
+    
+    .footer-minimal a:hover {
+      opacity: 1;
+      color: var(--burnt-orange);
+    }
+  </style>
+  
+  <!-- Google Analytics / Conversion Tracking -->
+  <script>
+    // Événement de conversion à tracker
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    
+    // Enregistrer la conversion (à adapter selon votre outil analytics)
+    if (typeof gtag === 'function') {
+      gtag('event', 'conversion', {
+        'event_category': 'Lead',
+        'event_label': 'Audit IA Landing Page',
+        'value': 1
+      });
+    }
+  </script>
+</head>
+
+<body>
+  <!-- HEADER MINIMALISTE -->
+  <header class="header-minimal">
+    <div class="header-minimal__container">
+      <a href="/" class="header-minimal__logo">
+        <img src="/assets/images/logo-lagencesauvage-original.svg" 
+             alt="L'Agence Sauvage" 
+             loading="eager">
+      </a>
+      <a href="/" class="btn btn-primary">Retour au site</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="thank-you">
+      <div class="icon-success">✅</div>
+      
+      <h1>C'est envoyé !</h1>
+      <p class="subtitle">Votre Guide PDF arrive dans votre boîte mail</p>
+      
+      <div class="spam-warning">
+        <p>📬 Vérifiez vos spams si vous ne le voyez pas d'ici 5 minutes</p>
+      </div>
+      
+      <div class="next-steps">
+        <h2>Prochaines étapes</h2>
+        <ul class="step-list">
+          <li>
+            <span class="number">1</span>
+            <div class="content">
+              <strong>Consultez votre email</strong>
+              <span>Votre Guide PDF "L'IA pour les cabinets comptables 2026" vous attend</span>
+            </div>
+          </li>
+          <li>
+            <span class="number">2</span>
+            <div class="content">
+              <strong>Notre équipe vous contacte sous 48h</strong>
+              <span>Pour planifier votre Audit IA gratuit de 30 minutes</span>
+            </div>
+          </li>
+          <li>
+            <span class="number">3</span>
+            <div class="content">
+              <strong>Préparez vos questions</strong>
+              <span>Notez vos tâches les plus chronophages, on en parlera ensemble</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="cta-secondary">
+        <p style="margin-bottom: var(--space-md); color: var(--stone-gray);">
+          En attendant, découvrez comment nous aidons les TPE/PME
+        </p>
+        <a href="/realisations.html" class="btn btn-secondary">
+          Voir nos cas clients →
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER MINIMAL -->
+  <footer class="footer-minimal">
+    <div class="container">
+      <p><strong>L'Agence Sauvage</strong> — L'IA au coût d'un stagiaire</p>
+      <p>
+        <a href="mailto:hello@lagencesauvage.com">hello@lagencesauvage.com</a> • 
+        <a href="tel:+33185097592">+33 1 85 09 75 92</a>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
