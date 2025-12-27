@@ -513,36 +513,30 @@
         <div class="form-container">
           <h2>Demandez votre Audit IA Gratuit</h2>
           
-          <form id="auditLandingForm">
-            <div class="form-row">
-              <div class="form-group">
-                <label for="prenom">Prénom *</label>
-                <input type="text" id="prenom" name="prenom" placeholder="Jean" required>
-              </div>
-              <div class="form-group">
-                <label for="nom">Nom *</label>
-                <input type="text" id="nom" name="nom" placeholder="Dupont" required>
-              </div>
+          <form id="auditForm">
+            <div class="form-group">
+              <label for="name">Prénom et Nom *</label>
+              <input type="text" id="name" name="name" placeholder="Jean Dupont" required aria-label="Votre prénom et nom">
             </div>
             
             <div class="form-group">
               <label for="email">Email professionnel *</label>
-              <input type="email" id="email" name="email" placeholder="jean.dupont@cabinet.fr" required>
+              <input type="email" id="email" name="email" placeholder="jean.dupont@cabinet.fr" required aria-label="Email professionnel">
             </div>
             
             <div class="form-group">
-              <label for="cabinet">Nom du cabinet *</label>
-              <input type="text" id="cabinet" name="cabinet" placeholder="Cabinet Dupont & Associés" required>
+              <label for="company">Nom du cabinet *</label>
+              <input type="text" id="company" name="company" placeholder="Cabinet Dupont & Associés" required aria-label="Nom de votre entreprise">
             </div>
             
             <div class="form-row">
               <div class="form-group">
-                <label for="telephone">Téléphone <span class="optional">(optionnel)</span></label>
-                <input type="tel" id="telephone" name="telephone" placeholder="06 12 34 56 78">
+                <label for="phone">Téléphone <span class="optional">(optionnel)</span></label>
+                <input type="tel" id="phone" name="phone" placeholder="06 12 34 56 78" aria-label="Téléphone">
               </div>
               <div class="form-group">
-                <label for="effectif">Effectif du cabinet <span class="optional">(optionnel)</span></label>
-                <select id="effectif" name="effectif">
+                <label for="company_size">Effectif du cabinet *</label>
+                <select id="company_size" name="company_size" required aria-label="Taille de l'entreprise">
                   <option value="">Sélectionnez...</option>
                   <option value="1-5">1-5 collaborateurs</option>
                   <option value="6-20">6-20 collaborateurs</option>
@@ -553,12 +547,9 @@
             </div>
             
             <div class="form-group">
-              <label for="defi">Votre plus grand défi actuel <span class="optional">(optionnel)</span></label>
-              <textarea id="defi" name="defi" rows="3" placeholder="Ex: Relances clients chronophages, saisie comptable répétitive, manque de temps pour le conseil..."></textarea>
+              <label for="challenge">Votre plus grand défi actuel <span class="optional">(optionnel)</span></label>
+              <textarea id="challenge" name="challenge" rows="3" placeholder="Ex: Relances clients chronophages, saisie comptable répétitive, manque de temps pour le conseil..."></textarea>
             </div>
-            
-            <!-- Champ caché pour la source -->
-            <input type="hidden" name="source" value="Landing Page - Audit IA">
             
             <div class="form-submit">
               <button type="submit" class="btn btn-secondary btn-lg">
@@ -654,59 +645,7 @@
     </div>
   </footer>
 
-  <!-- JAVASCRIPT -->
-  <script>
-    document.getElementById('auditLandingForm').addEventListener('submit', async function(e) {
-      e.preventDefault();
-      
-      const form = e.target;
-      const submitBtn = form.querySelector('button[type="submit"]');
-      const feedback = document.getElementById('formFeedback');
-      
-      // Désactiver le bouton pendant l'envoi
-      submitBtn.disabled = true;
-      submitBtn.textContent = '⏳ Envoi en cours...';
-      
-      // Récupérer les données du formulaire
-      const formData = {
-        name: form.prenom.value + ' ' + form.nom.value,
-        prenom: form.prenom.value,
-        nom: form.nom.value,
-        email: form.email.value,
-        company: form.cabinet.value,
-        phone: form.telephone.value || '',
-        company_size: form.effectif.value || '',
-        challenge: form.defi.value || '',
-        source: 'Landing Page - Audit IA',
-        submitted_at: new Date().toISOString()
-      };
-      
-      try {
-        // Envoyer au webhook n8n (à configurer)
-        const response = await fetch('https://n8n.lagencesauvage.com/webhook/audit-ia-landing', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(formData)
-        });
-        
-        if (response.ok) {
-          // Rediriger vers la page de remerciement
-          window.location.href = '/audit-ia-gratuit-merci.html';
-        } else {
-          throw new Error('Erreur serveur');
-        }
-      } catch (error) {
-        // Afficher erreur
-        feedback.style.display = 'block';
-        feedback.className = 'form-feedback error';
-        feedback.innerHTML = '❌ Une erreur est survenue. Veuillez réessayer ou nous contacter directement à <a href="mailto:hello@lagencesauvage.com">hello@lagencesauvage.com</a>';
-        
-        submitBtn.disabled = false;
-        submitBtn.textContent = '🎯 Recevoir mon Guide + Planifier mon Audit';
-      }
-    });
-  </script>
+  <!-- JAVASCRIPT - Même script que le site principal -->
+  <script src="/assets/js/main.js"></script>
 </body>
 </html>
