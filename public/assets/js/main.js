@@ -95,7 +95,8 @@ document.addEventListener('DOMContentLoaded', function() {
           phone: form.querySelector('[name="phone"]').value.trim() || '',
           company: form.querySelector('[name="company"]').value.trim(),
           company_size: form.querySelector('[name="company_size"]').value,
-          challenge: form.querySelector('[name="challenge"]').value.trim() || ''
+          challenge: form.querySelector('[name="challenge"]').value.trim() || '',
+          source: form.querySelector('[name="source"]')?.value || ''
         };
         
         // Validation supplémentaire côté client
