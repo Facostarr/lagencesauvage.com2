@@ -1,27 +1,40 @@
 // =============================================================================
-// VERCEL SERVERLESS FUNCTION - Submit Lead to Notion + Email
+// VERCEL SERVERLESS FUNCTION - Submit Lead to Notion + Email (v2 - Nodemailer)
 // =============================================================================
 // Fichier : /api/submit-lead.js
 // 
 // Cette fonction gère :
 // 1. La validation des données du formulaire
 // 2. L'envoi vers Notion (base de données Leads)
-// 3. L'envoi d'un email de notification
-// 4. La gestion des erreurs
+// 3. L'envoi du Guide PDF au prospect (nouveau)
+// 4. L'envoi d'un email de notification à Franck
+// 5. La gestion des erreurs
 // =============================================================================
 
-// Importer les dépendances (Vercel les fournit automatiquement)
 import { Client } from '@notionhq/client';
+import nodemailer from 'nodemailer';
 
 /**
  * Configuration Notion
- * Les secrets sont stockés dans les variables d'environnement Vercel
  */
 const notion = new Client({
   auth: process.env.NOTION_API_KEY
 });
 
 const DATABASE_ID = process.env.NOTION_DATABASE_ID;
+
+/**
+ * Configuration Nodemailer SMTP
+ */
+const transporter = nodemailer.createTransport({
+  host: process.env.SMTP_HOST,
+  port: parseInt(process.env.SMTP_PORT) || 587,
+  secure: false, // true pour 465, false pour autres ports
+  auth: {
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASSWORD
+  }
+});
 
 /**
  * Handler principal de la fonction Vercel
@@ -34,7 +47,6 @@ export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   
-  // Gérer preflight request
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
   }
@@ -53,17 +65,21 @@ export default async function handler(req, res) {
   // 3. Valider les variables d'environnement
   // =============================================================================
   if (!process.env.NOTION_API_KEY || !process.env.NOTION_DATABASE_ID) {
-    console.error('❌ Variables d\'environnement manquantes');
+    console.error('❌ Variables Notion manquantes');
     return res.status(500).json({
       success: false,
       message: 'Configuration serveur incomplète. Contactez le support.'
     });
   }
   
+  if (!process.env.SMTP_HOST || !process.env.SMTP_USER || !process.env.SMTP_PASSWORD) {
+    console.warn('⚠️ Variables SMTP manquantes - emails désactivés');
+  }
+  
   // =============================================================================
   // 4. Extraire et valider les données
   // =============================================================================
-  const { name, email, phone, company, company_size, challenge } = req.body;
+  const { name, email, phone, company, company_size, challenge, source } = req.body;
   
   // Validation des champs obligatoires
   if (!name || !email || !company || !company_size) {
@@ -91,6 +107,9 @@ export default async function handler(req, res) {
     });
   }
   
+  // Source dynamique avec fallback
+  const leadSource = source || 'Site Web - Homepage';
+  
   try {
     // =============================================================================
     // 5. Créer l'entrée dans Notion
@@ -100,77 +119,38 @@ export default async function handler(req, res) {
         database_id: DATABASE_ID
       },
       properties: {
-        // Nom (Title property)
         'Name': {
-          title: [
-            {
-              text: {
-                content: name.trim()
-              }
-            }
-          ]
+          title: [{ text: { content: name.trim() } }]
         },
-        
-        // Email
         'Email': {
           email: email.trim().toLowerCase()
         },
-        
-        // Téléphone (optionnel)
         'Téléphone': phone && phone.trim() !== '' 
           ? { phone_number: phone.trim() }
           : { phone_number: null },
-        
-        // Entreprise
         'Entreprise': {
-          rich_text: [
-            {
-              text: {
-                content: company.trim()
-              }
-            }
-          ]
+          rich_text: [{ text: { content: company.trim() } }]
         },
-        
-        // Taille
         'Taille': {
-          select: {
-            name: company_size
-          }
+          select: { name: company_size }
         },
-        
-        // Défi (optionnel)
         'Défi': {
-          rich_text: [
-            {
-              text: {
-                content: challenge && challenge.trim() !== '' 
-                  ? challenge.trim() 
-                  : 'Non renseigné'
-              }
+          rich_text: [{
+            text: {
+              content: challenge && challenge.trim() !== '' 
+                ? challenge.trim() 
+                : 'Non renseigné'
             }
-          ]
+          }]
         },
-        
-        // Statut (automatique : "Nouveau")
         'Statut': {
-          select: {
-            name: 'Nouveau'
-          }
+          select: { name: 'Nouveau' }
         },
-        
-        // Source (automatique : "Site Web - Homepage")
         'Source': {
-          select: {
-            name: 'Site Web - Homepage'
-          }
+          select: { name: leadSource }
         },
-        
-        // Date de soumission
         'Date Soumission': {
-          date: {
-            start: new Date().toISOString().split('T')[0] // Format YYYY-MM-DD
-          }
+          date: { start: new Date().toISOString().split('T')[0] }
         }
       }
     });
@@ -178,7 +158,19 @@ export default async function handler(req, res) {
     console.log('✅ Lead créé dans Notion:', notionPage.id);
     
     // =============================================================================
-    // 6. Envoyer email de notification
+    // 6. Envoyer le Guide PDF au prospect (si source landing page)
+    // =============================================================================
+    if (leadSource.includes('Landing Page') || leadSource.includes('Audit IA')) {
+      try {
+        await sendGuideToProspect(email, name);
+        console.log('✅ Guide PDF envoyé au prospect');
+      } catch (guideError) {
+        console.error('⚠️ Erreur envoi guide (non bloquant):', guideError.message);
+      }
+    }
+    
+    // =============================================================================
+    // 7. Envoyer email de notification à Franck
     // =============================================================================
     try {
       await sendEmailNotification({
@@ -188,17 +180,16 @@ export default async function handler(req, res) {
         company,
         company_size,
         challenge: challenge || 'Non renseigné',
+        source: leadSource,
         notionUrl: notionPage.url
       });
-      
       console.log('✅ Email de notification envoyé');
     } catch (emailError) {
-      // Ne pas bloquer si l'email échoue
-      console.error('⚠️ Erreur envoi email (non bloquant):', emailError.message);
+      console.error('⚠️ Erreur envoi notification (non bloquant):', emailError.message);
     }
     
     // =============================================================================
-    // 7. Réponse succès
+    // 8. Réponse succès
     // =============================================================================
     return res.status(200).json({
       success: true,
@@ -208,11 +199,10 @@ export default async function handler(req, res) {
     
   } catch (error) {
     // =============================================================================
-    // 8. Gestion des erreurs
+    // 9. Gestion des erreurs
     // =============================================================================
     console.error('❌ Erreur lors de la soumission:', error);
     
-    // Erreur spécifique Notion
     if (error.code === 'validation_error') {
       return res.status(400).json({
         success: false,
@@ -235,18 +225,147 @@ export default async function handler(req, res) {
       });
     }
     
-    // Erreur générique
     return res.status(500).json({
       success: false,
-      message: 'Une erreur est survenue. Veuillez réessayer ou nous contacter directement.',
-      // En développement uniquement (à retirer en production) :
-      // debug: error.message
+      message: 'Une erreur est survenue. Veuillez réessayer ou nous contacter directement.'
     });
   }
 }
 
 // =============================================================================
-// FONCTION : Envoi d'email de notification
+// FONCTION : Envoi du Guide PDF au prospect
+// =============================================================================
+async function sendGuideToProspect(email, name) {
+  // Extraire le prénom
+  const firstName = name.split(' ')[0];
+  
+  const htmlContent = `<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Votre Guide IA pour Cabinets Comptables 2026</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f2ede1;">
+  
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color: #f2ede1;">
+    <tr>
+      <td align="center" style="padding: 40px 20px;">
+        
+        <table role="presentation" width="600" cellspacing="0" cellpadding="0" style="background-color: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(34, 79, 60, 0.1);">
+          
+          <!-- Header -->
+          <tr>
+            <td style="background: linear-gradient(135deg, #224f3c 0%, #1a3d2e 100%); padding: 30px 40px; text-align: center;">
+              <h1 style="color: #f2ede1; margin: 0; font-size: 28px; font-weight: 700;">
+                🎁 Votre Guide est prêt !
+              </h1>
+            </td>
+          </tr>
+          
+          <!-- Corps -->
+          <tr>
+            <td style="padding: 40px;">
+              
+              <p style="font-size: 18px; color: #224f3c; margin: 0 0 20px 0;">
+                Bonjour <strong>${firstName}</strong>,
+              </p>
+              
+              <p style="font-size: 16px; color: #333; line-height: 1.6; margin: 0 0 25px 0;">
+                Merci pour votre confiance ! Comme promis, voici votre guide exclusif pour préparer la période fiscale 2026 avec l'IA.
+              </p>
+              
+              <!-- Encart Guide -->
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color: #f2ede1; border-radius: 12px; margin-bottom: 30px;">
+                <tr>
+                  <td style="padding: 25px;">
+                    <table role="presentation" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td style="vertical-align: top; padding-right: 20px;">
+                          <div style="font-size: 48px;">📘</div>
+                        </td>
+                        <td style="vertical-align: top;">
+                          <h2 style="color: #224f3c; margin: 0 0 8px 0; font-size: 18px;">
+                            L'IA pour les Cabinets Comptables 2026
+                          </h2>
+                          <p style="color: #666; margin: 0; font-size: 14px;">
+                            30 pages de conseils pratiques • Cas concrets • ROI documenté
+                          </p>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+              
+              <!-- CTA Button -->
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td align="center">
+                    <a href="https://www.lagencesauvage.com/assets/documents/guide-ia-experts-comptables-2026.pdf" 
+                       style="display: inline-block; background-color: #c96839; color: #ffffff; text-decoration: none; padding: 16px 40px; border-radius: 8px; font-size: 16px; font-weight: 600;">
+                      📥 Télécharger mon Guide PDF
+                    </a>
+                  </td>
+                </tr>
+              </table>
+              
+              <!-- Prochaines étapes -->
+              <div style="margin-top: 35px; padding-top: 25px; border-top: 2px solid #f2ede1;">
+                <h3 style="color: #224f3c; margin: 0 0 15px 0; font-size: 16px;">
+                  📞 Et maintenant ?
+                </h3>
+                <p style="font-size: 15px; color: #333; line-height: 1.6; margin: 0;">
+                  Nous vous recontactons <strong>sous 48h</strong> pour planifier votre audit IA gratuit de 30 minutes. 
+                  Vous repartirez avec un diagnostic personnalisé et 3 quick wins applicables immédiatement.
+                </p>
+              </div>
+              
+            </td>
+          </tr>
+          
+          <!-- Footer -->
+          <tr>
+            <td style="background-color: #224f3c; padding: 25px 40px; text-align: center;">
+              <p style="color: #f2ede1; margin: 0 0 10px 0; font-size: 14px; font-weight: 600;">
+                L'Agence Sauvage — L'IA au coût d'un stagiaire
+              </p>
+              <p style="margin: 0;">
+                <a href="mailto:hello@lagencesauvage.com" style="color: #c96839; text-decoration: none; font-size: 13px;">hello@lagencesauvage.com</a>
+                <span style="color: #f2ede1; opacity: 0.5;"> • </span>
+                <a href="tel:+33185097592" style="color: #c96839; text-decoration: none; font-size: 13px;">01 85 09 75 92</a>
+              </p>
+              <p style="color: #f2ede1; opacity: 0.6; margin: 15px 0 0 0; font-size: 12px;">
+                <a href="https://www.lagencesauvage.com" style="color: #f2ede1; text-decoration: none;">www.lagencesauvage.com</a>
+              </p>
+            </td>
+          </tr>
+          
+        </table>
+        
+        <!-- Mention légale -->
+        <p style="color: #8c8982; font-size: 11px; margin-top: 20px; text-align: center;">
+          Vous recevez cet email car vous avez demandé un audit IA gratuit sur notre site.<br>
+          © 2026 L'Agence Sauvage. Tous droits réservés.
+        </p>
+        
+      </td>
+    </tr>
+  </table>
+  
+</body>
+</html>`;
+
+  await transporter.sendMail({
+    from: '"L\'Agence Sauvage" <hello@monagencesauvage.com>',
+    to: email,
+    subject: 'Votre Guide IA pour Cabinets Comptables 2026',
+    html: htmlContent
+  });
+}
+
+// =============================================================================
+// FONCTION : Envoi d'email de notification à Franck
 // =============================================================================
 async function sendEmailNotification(leadData) {
   const {
@@ -256,34 +375,19 @@ async function sendEmailNotification(leadData) {
     company,
     company_size,
     challenge,
+    source,
     notionUrl
   } = leadData;
   
-  // Si vous utilisez SendGrid (gratuit jusqu'à 100 emails/jour)
-  if (process.env.SENDGRID_API_KEY) {
-    const sgMail = require('@sendgrid/mail');
-    sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-    
-    const msg = {
-      to: 'franck@lagencesauvage.com', // Votre email
-      from: process.env.SENDGRID_FROM_EMAIL || 'hello@lagencesauvage.com',
-      subject: `🎯 Nouveau lead : ${name} (${company})`,
-      text: `
-Nouveau lead reçu depuis le site web !
-
-👤 Nom : ${name}
-📧 Email : ${email}
-📞 Téléphone : ${phone}
-🏢 Entreprise : ${company}
-👥 Taille : ${company_size} employés
-💡 Défi : ${challenge}
-
-🔗 Voir dans Notion : ${notionUrl}
-
----
-L'Agence Sauvage - Notifications automatiques
-      `,
-      html: `
+  // Vérifier que SMTP est configuré
+  if (!process.env.SMTP_HOST || !process.env.SMTP_USER || !process.env.SMTP_PASSWORD) {
+    console.warn('⚠️ SMTP non configuré - notification non envoyée');
+    return;
+  }
+  
+  const notificationEmail = process.env.NOTIFICATION_EMAIL || 'franck@lagencesauvage.com';
+  
+  const htmlContent = `
 <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
   <h2 style="color: #224f3c;">🎯 Nouveau lead reçu !</h2>
   
@@ -305,47 +409,31 @@ L'Agence Sauvage - Notifications automatiques
   
   <p style="color: #8c8982; font-size: 14px;">
     L'Agence Sauvage - Notifications automatiques<br>
-    Lead capturé depuis : <strong>Site Web - Homepage</strong>
+    Lead capturé depuis : <strong>${source}</strong>
   </p>
 </div>
-      `
-    };
-    
-    await sgMail.send(msg);
-  }
-  
-  // Alternative : Resend.com (aussi gratuit)
-  else if (process.env.RESEND_API_KEY) {
-    const response = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        from: 'notifications@lagencesauvage.com',
-        to: 'contact@lagencesauvage.com',
-        subject: `🎯 Nouveau lead : ${name} (${company})`,
-        html: `
-<h2>🎯 Nouveau lead reçu !</h2>
-<p><strong>Nom :</strong> ${name}</p>
-<p><strong>Email :</strong> ${email}</p>
-<p><strong>Téléphone :</strong> ${phone}</p>
-<p><strong>Entreprise :</strong> ${company}</p>
-<p><strong>Taille :</strong> ${company_size}</p>
-<p><strong>Défi :</strong> ${challenge}</p>
-<p><a href="${notionUrl}">Voir dans Notion</a></p>
-        `
-      })
-    });
-    
-    if (!response.ok) {
-      throw new Error('Erreur envoi email Resend');
-    }
-  }
-  
-  // Si aucune clé API configurée, logger un warning
-  else {
-    console.warn('⚠️ Aucune API email configurée. Configurez SENDGRID_API_KEY ou RESEND_API_KEY');
-  }
+  `;
+
+  await transporter.sendMail({
+    from: '"L\'Agence Sauvage - Notifications" <hello@monagencesauvage.com>',
+    to: notificationEmail,
+    subject: `🎯 Nouveau lead : ${name} (${company})`,
+    text: `
+Nouveau lead reçu depuis le site web !
+
+👤 Nom : ${name}
+📧 Email : ${email}
+📞 Téléphone : ${phone}
+🏢 Entreprise : ${company}
+👥 Taille : ${company_size} employés
+💡 Défi : ${challenge}
+
+🔗 Voir dans Notion : ${notionUrl}
+
+---
+Source : ${source}
+L'Agence Sauvage - Notifications automatiques
+    `,
+    html: htmlContent
+  });
 }
