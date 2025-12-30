@@ -87,6 +87,11 @@ document.addEventListener('DOMContentLoaded', function() {
       // Cacher feedback précédent
       feedback.style.display = 'none';
       
+      // Récupérer la source pour savoir si c'est une landing page
+      const sourceField = form.querySelector('[name="source"]');
+      const source = sourceField?.value || '';
+      const isLandingPage = source.includes('Landing Page') || source.includes('Audit IA');
+      
       try {
         // Récupérer les données du formulaire
         const formData = {
@@ -96,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function() {
           company: form.querySelector('[name="company"]').value.trim(),
           company_size: form.querySelector('[name="company_size"]').value,
           challenge: form.querySelector('[name="challenge"]').value.trim() || '',
-          source: form.querySelector('[name="source"]')?.value || ''
+          source: source
         };
         
         // Validation supplémentaire côté client
@@ -126,21 +131,32 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         // ✅ SUCCÈS
-        showFeedback('success', '✅ Merci ! Nous vous contacterons sous 24h pour planifier votre audit gratuit.');
+        if (isLandingPage) {
+          // Landing page : téléchargement automatique du PDF
+          showFeedback('success', '✅ Merci ! Votre guide se télécharge automatiquement. Nous vous contacterons sous 48h pour votre audit gratuit.');
+          
+          // Déclencher le téléchargement automatique du PDF
+          const downloadLink = document.createElement('a');
+          downloadLink.href = '/assets/documents/Livre_Blanc_IA_Cabinets_Comptables_2025.pdf';
+          downloadLink.download = 'Guide-IA-Cabinets-Comptables-2026.pdf';
+          downloadLink.style.display = 'none';
+          document.body.appendChild(downloadLink);
+          downloadLink.click();
+          document.body.removeChild(downloadLink);
+          
+        } else {
+          // Page standard : message classique
+          showFeedback('success', '✅ Merci ! Nous vous contacterons sous 24h pour planifier votre audit gratuit.');
+        }
         
         // Réinitialiser le formulaire
         form.reset();
-        
-        // Optionnel : Redirection après 3 secondes
-        // setTimeout(() => {
-        //   window.location.href = '/merci.html';
-        // }, 3000);
         
         // Tracking (si Google Analytics configuré)
         if (typeof gtag !== 'undefined') {
           gtag('event', 'form_submission', {
             'event_category': 'lead',
-            'event_label': 'audit_gratuit'
+            'event_label': isLandingPage ? 'landing_page_guide' : 'audit_gratuit'
           });
         }
         
