@@ -239,6 +239,39 @@ async function sendGuideToProspect(email, name) {
   // Extraire le prénom
   const firstName = name.split(' ')[0];
   
+  // URL correcte du PDF
+  const pdfUrl = 'https://www.lagencesauvage.com/assets/documents/Livre_Blanc_IA_Cabinets_Comptables_2025.pdf';
+  
+  // Version texte simple (pour compatibilité Microsoft/Outlook)
+  const textContent = `Bonjour ${firstName},
+
+Merci pour votre confiance ! Voici votre guide exclusif pour préparer la période fiscale 2026 avec l'IA.
+
+📥 TÉLÉCHARGER VOTRE GUIDE :
+${pdfUrl}
+
+Ce guide de 30 pages contient :
+- Les cas concrets de cabinets français qui ont franchi le pas
+- Les gains de temps documentés (40-60% sur certaines tâches)
+- La méthode progressive pour démarrer sans bouleverser votre organisation
+
+ET MAINTENANT ?
+Nous vous recontactons sous 48h pour planifier votre audit IA gratuit de 30 minutes.
+Vous repartirez avec un diagnostic personnalisé et 3 quick wins applicables immédiatement.
+
+À très bientôt,
+
+Franck Ladrière
+L'Agence Sauvage — L'IA au coût d'un stagiaire
+
+hello@lagencesauvage.com
+01 85 09 75 92
+www.lagencesauvage.com
+
+---
+Vous recevez cet email car vous avez demandé un audit IA gratuit sur notre site.
+`;
+
   const htmlContent = `<!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -258,7 +291,7 @@ async function sendGuideToProspect(email, name) {
           <tr>
             <td style="background: linear-gradient(135deg, #224f3c 0%, #1a3d2e 100%); padding: 30px 40px; text-align: center;">
               <h1 style="color: #f2ede1; margin: 0; font-size: 28px; font-weight: 700;">
-                🎁 Votre Guide est prêt !
+                Votre Guide est prêt !
               </h1>
             </td>
           </tr>
@@ -279,21 +312,12 @@ async function sendGuideToProspect(email, name) {
               <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color: #f2ede1; border-radius: 12px; margin-bottom: 30px;">
                 <tr>
                   <td style="padding: 25px;">
-                    <table role="presentation" cellspacing="0" cellpadding="0">
-                      <tr>
-                        <td style="vertical-align: top; padding-right: 20px;">
-                          <div style="font-size: 48px;">📘</div>
-                        </td>
-                        <td style="vertical-align: top;">
-                          <h2 style="color: #224f3c; margin: 0 0 8px 0; font-size: 18px;">
-                            L'IA pour les Cabinets Comptables 2026
-                          </h2>
-                          <p style="color: #666; margin: 0; font-size: 14px;">
-                            30 pages de conseils pratiques • Cas concrets • ROI documenté
-                          </p>
-                        </td>
-                      </tr>
-                    </table>
+                    <h2 style="color: #224f3c; margin: 0 0 8px 0; font-size: 18px;">
+                      L'IA pour les Cabinets Comptables 2026
+                    </h2>
+                    <p style="color: #666; margin: 0; font-size: 14px;">
+                      30 pages de conseils pratiques - Cas concrets - ROI documenté
+                    </p>
                   </td>
                 </tr>
               </table>
@@ -302,18 +326,24 @@ async function sendGuideToProspect(email, name) {
               <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
                 <tr>
                   <td align="center">
-                    <a href="https://www.lagencesauvage.com/assets/documents/guide-ia-experts-comptables-2026.pdf" 
+                    <a href="${pdfUrl}" 
                        style="display: inline-block; background-color: #c96839; color: #ffffff; text-decoration: none; padding: 16px 40px; border-radius: 8px; font-size: 16px; font-weight: 600;">
-                      📥 Télécharger mon Guide PDF
+                      Télécharger mon Guide PDF
                     </a>
                   </td>
                 </tr>
               </table>
               
+              <!-- Lien texte de secours -->
+              <p style="font-size: 12px; color: #888; text-align: center; margin-top: 15px;">
+                Si le bouton ne fonctionne pas, copiez ce lien :<br>
+                <a href="${pdfUrl}" style="color: #224f3c; word-break: break-all;">${pdfUrl}</a>
+              </p>
+              
               <!-- Prochaines étapes -->
               <div style="margin-top: 35px; padding-top: 25px; border-top: 2px solid #f2ede1;">
                 <h3 style="color: #224f3c; margin: 0 0 15px 0; font-size: 16px;">
-                  📞 Et maintenant ?
+                  Et maintenant ?
                 </h3>
                 <p style="font-size: 15px; color: #333; line-height: 1.6; margin: 0;">
                   Nous vous recontactons <strong>sous 48h</strong> pour planifier votre audit IA gratuit de 30 minutes. 
@@ -332,7 +362,7 @@ async function sendGuideToProspect(email, name) {
               </p>
               <p style="margin: 0;">
                 <a href="mailto:hello@lagencesauvage.com" style="color: #c96839; text-decoration: none; font-size: 13px;">hello@lagencesauvage.com</a>
-                <span style="color: #f2ede1; opacity: 0.5;"> • </span>
+                <span style="color: #f2ede1; opacity: 0.5;"> - </span>
                 <a href="tel:+33185097592" style="color: #c96839; text-decoration: none; font-size: 13px;">01 85 09 75 92</a>
               </p>
               <p style="color: #f2ede1; opacity: 0.6; margin: 15px 0 0 0; font-size: 12px;">
@@ -346,7 +376,7 @@ async function sendGuideToProspect(email, name) {
         <!-- Mention légale -->
         <p style="color: #8c8982; font-size: 11px; margin-top: 20px; text-align: center;">
           Vous recevez cet email car vous avez demandé un audit IA gratuit sur notre site.<br>
-          © 2026 L'Agence Sauvage. Tous droits réservés.
+          L'Agence Sauvage. Tous droits réservés.
         </p>
         
       </td>
@@ -359,7 +389,8 @@ async function sendGuideToProspect(email, name) {
   await transporter.sendMail({
     from: '"L\'Agence Sauvage" <hello@monagencesauvage.com>',
     to: email,
-    subject: 'Votre Guide IA pour Cabinets Comptables 2026',
+    subject: 'Votre Guide IA pour Cabinets Comptables',
+    text: textContent,
     html: htmlContent
   });
 }
