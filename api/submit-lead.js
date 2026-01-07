@@ -250,7 +250,7 @@ Merci pour votre confiance ! Voici votre guide exclusif pour préparer la pério
 📥 TÉLÉCHARGER VOTRE GUIDE :
 ${pdfUrl}
 
-Ce guide de 30 pages contient :
+Ce guide de 10 pages contient :
 - Les cas concrets de cabinets français qui ont franchi le pas
 - Les gains de temps documentés (40-60% sur certaines tâches)
 - La méthode progressive pour démarrer sans bouleverser votre organisation
@@ -261,7 +261,7 @@ Vous repartirez avec un diagnostic personnalisé et 3 quick wins applicables imm
 
 À très bientôt,
 
-Franck Ladrière
+Franck Sauvage
 L'Agence Sauvage — L'IA au coût d'un stagiaire
 
 hello@lagencesauvage.com
