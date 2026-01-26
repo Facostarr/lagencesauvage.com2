@@ -649,9 +649,12 @@ body.presentation-page {
   box-shadow: 0 12px 40px rgba(34, 79, 60, 0.12);
 }
 
+/* Header de carte avec icône + titre sur la même ligne */
 .pres-custom__card-icon {
-  font-size: 2rem;
-  margin-bottom: var(--space-sm);
+  font-size: 1.6rem;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: var(--space-sm);
 }
 
 .pres-custom__card h3 {
@@ -659,6 +662,18 @@ body.presentation-page {
   color: var(--forest-green);
   font-size: 1.4rem;
   margin-bottom: var(--space-md);
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Note outils */
+.pres-custom__tools-note {
+  margin-top: var(--space-md);
+  padding-top: var(--space-sm);
+  border-top: 1px solid rgba(34, 79, 60, 0.1);
+  font-size: 0.9rem;
+  color: var(--stone-gray);
+  font-style: italic;
 }
 
 /* Liste des besoins */
