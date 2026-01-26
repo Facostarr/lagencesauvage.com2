@@ -80,7 +80,38 @@ body.presentation-page {
   transform: scale(1.2);
 }
 
-/* === CTA FLOTTANT === */
+/* === BOUTON PDF FLOTTANT (gauche) === */
+.pres-pdf-float {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  background: var(--forest-green);
+  color: var(--cream);
+  padding: 16px 24px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  z-index: 1000;
+  box-shadow: 0 8px 32px rgba(34, 79, 60, 0.4);
+  transition: all 0.3s var(--pres-transition-bounce);
+}
+
+.pres-pdf-float:hover {
+  background: var(--forest-green-dark);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px 40px rgba(34, 79, 60, 0.5);
+  color: var(--cream);
+}
+
+.pres-pdf-float__icon {
+  font-size: 1.2rem;
+}
+
+/* === CTA FLOTTANT (droite) === */
 .pres-cta-float {
   position: fixed;
   bottom: 30px;
@@ -716,23 +747,25 @@ body.presentation-page {
 }
 
 .pres-contact__pdf-btn {
-  background: rgba(255, 255, 255, 0.1);
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.4);
   color: var(--cream);
   padding: var(--space-md) var(--space-xl);
   border-radius: 12px;
   font-size: 1rem;
-  cursor: not-allowed;
-  opacity: 0.6;
+  cursor: pointer;
   display: inline-flex;
-  flex-direction: column;
   align-items: center;
-  gap: 4px;
+  gap: 8px;
+  text-decoration: none;
+  transition: all 0.3s var(--pres-transition-smooth);
 }
 
-.pres-contact__pdf-btn small {
-  font-size: 0.8rem;
-  opacity: 0.7;
+.pres-contact__pdf-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: var(--cream);
+  color: var(--cream);
+  transform: translateY(-2px);
 }
 
 /* === FOOTER MINI === */
@@ -848,18 +881,29 @@ body.presentation-page {
     display: none;
   }
   
-  .pres-cta-float {
+  /* Boutons flottants sur mobile */
+  .pres-cta-float,
+  .pres-pdf-float {
     bottom: 20px;
-    right: 20px;
     padding: 12px 20px;
     font-size: 0.9rem;
   }
   
-  .pres-cta-float__text {
+  .pres-cta-float {
+    right: 20px;
+  }
+  
+  .pres-pdf-float {
+    left: 20px;
+  }
+  
+  .pres-cta-float__text,
+  .pres-pdf-float__text {
     display: none;
   }
   
-  .pres-cta-float__icon {
+  .pres-cta-float__icon,
+  .pres-pdf-float__icon {
     font-size: 1.5rem;
   }
   
@@ -946,6 +990,7 @@ body.presentation-page {
   }
   
   .pres-cta-float,
+  .pres-pdf-float,
   .pres-problem__card,
   .pres-benefits__card,
   .pres-why__item,
@@ -959,6 +1004,7 @@ body.presentation-page {
   .pres-header,
   .pres-progress,
   .pres-cta-float,
+  .pres-pdf-float,
   .pres-hero__scroll-indicator,
   .pres-contact__form,
   .pres-contact__pdf {
