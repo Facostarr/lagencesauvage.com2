@@ -649,21 +649,26 @@ body.presentation-page {
   box-shadow: 0 12px 40px rgba(34, 79, 60, 0.12);
 }
 
-/* Header de carte avec icône + titre sur la même ligne */
+/* Header de carte avec icône + titre alignés avec flexbox */
+.pres-custom__card-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
 .pres-custom__card-icon {
   font-size: 1.6rem;
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: var(--space-sm);
+  line-height: 1;
+  flex-shrink: 0;
 }
 
 .pres-custom__card h3 {
   font-family: var(--font-logo);
   color: var(--forest-green);
   font-size: 1.4rem;
-  margin-bottom: var(--space-md);
-  display: inline-block;
-  vertical-align: middle;
+  margin: 0;
+  line-height: 1.2;
 }
 
 /* Note outils */
