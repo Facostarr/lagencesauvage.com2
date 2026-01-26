@@ -649,7 +649,7 @@ body.presentation-page {
   box-shadow: 0 12px 40px rgba(34, 79, 60, 0.12);
 }
 
-/* Header de carte avec icône + titre alignés avec flexbox */
+/* Header de carte avec icône + titre parfaitement alignés */
 .pres-custom__card-header {
   display: flex;
   align-items: center;
@@ -658,9 +658,14 @@ body.presentation-page {
 }
 
 .pres-custom__card-icon {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   line-height: 1;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.4rem;
+  height: 1.4rem;
 }
 
 .pres-custom__card h3 {
@@ -668,7 +673,7 @@ body.presentation-page {
   color: var(--forest-green);
   font-size: 1.4rem;
   margin: 0;
-  line-height: 1.2;
+  line-height: 1;
 }
 
 /* Note outils */
