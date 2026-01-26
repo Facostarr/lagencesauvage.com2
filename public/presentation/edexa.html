@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO -->
+  <title>Présentation EDEXA | L'Agence Sauvage - Les bénéfices de l'IA, au prix d'un stagiaire</title>
+  <meta name="description" content="Proposition personnalisée pour EDEXA : automatisation des relances comptables et gains de productivité avec L'Agence Sauvage.">
+  <meta name="robots" content="noindex, nofollow">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Présentation EDEXA | L'Agence Sauvage">
+  <meta property="og:description" content="Les bénéfices de l'IA, au prix d'un stagiaire. Proposition personnalisée pour EDEXA.">
+  <meta property="og:image" content="https://www.lagencesauvage.com/assets/images/logo-slogan-humoristique.png">
+  <meta property="og:url" content="https://www.lagencesauvage.com/presentation/edexa">
+  <meta property="og:type" content="website">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  
+  <!-- Google Fonts - Anton -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/presentation.css">
+  
+  <!-- Styles spécifiques section personnalisée -->
+  <style>
+    /* Section personnalisée prospect */
+    .pres-custom {
+      background: linear-gradient(180deg, #f8f6f0 0%, var(--cream) 100%);
+    }
+    
+    .pres-custom__header {
+      text-align: center;
+      margin-bottom: var(--space-2xl);
+    }
+    
+    .pres-custom__badge {
+      display: inline-block;
+      background: var(--burnt-orange);
+      color: var(--cream);
+      padding: 8px 24px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: var(--space-md);
+    }
+    
+    .pres-custom__title {
+      font-family: var(--font-logo);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      color: var(--forest-green);
+    }
+    
+    .pres-custom__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-xl);
+      margin-bottom: var(--space-2xl);
+    }
+    
+    .pres-custom__card {
+      background: white;
+      padding: var(--space-xl);
+      border-radius: 20px;
+      box-shadow: 0 4px 24px rgba(34, 79, 60, 0.08);
+    }
+    
+    .pres-custom__card h3 {
+      font-family: var(--font-logo);
+      color: var(--forest-green);
+      font-size: 1.3rem;
+      margin-bottom: var(--space-md);
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+    
+    .pres-custom__card h3 span {
+      font-size: 1.5rem;
+    }
+    
+    .pres-custom__list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .pres-custom__list li {
+      padding: var(--space-sm) 0;
+      border-bottom: 1px solid rgba(34, 79, 60, 0.1);
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-sm);
+    }
+    
+    .pres-custom__list li:last-child {
+      border-bottom: none;
+    }
+    
+    .pres-custom__priority {
+      color: var(--burnt-orange);
+      font-size: 0.85rem;
+      white-space: nowrap;
+    }
+    
+    .pres-custom__timeline {
+      background: var(--forest-green);
+      color: var(--cream);
+      padding: var(--space-lg);
+      border-radius: 16px;
+      margin-top: var(--space-md);
+    }
+    
+    .pres-custom__timeline-item {
+      display: flex;
+      gap: var(--space-md);
+      padding: var(--space-sm) 0;
+    }
+    
+    .pres-custom__timeline-week {
+      font-weight: 700;
+      color: var(--burnt-orange);
+      min-width: 100px;
+    }
+    
+    /* Bloc tarifs */
+    .pres-custom__pricing {
+      background: linear-gradient(135deg, var(--forest-green) 0%, #1a3d2e 100%);
+      color: var(--cream);
+      padding: var(--space-2xl);
+      border-radius: 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .pres-custom__pricing::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(201, 104, 57, 0.2) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    
+    .pres-custom__pricing-badge {
+      display: inline-block;
+      background: var(--burnt-orange);
+      color: var(--cream);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: var(--space-lg);
+    }
+    
+    .pres-custom__pricing h3 {
+      font-family: var(--font-logo);
+      font-size: 1.8rem;
+      margin-bottom: var(--space-xl);
+      color: var(--cream);
+    }
+    
+    .pres-custom__pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-xl);
+      max-width: 600px;
+      margin: 0 auto var(--space-xl);
+    }
+    
+    .pres-custom__pricing-item {
+      background: rgba(255, 255, 255, 0.1);
+      padding: var(--space-lg);
+      border-radius: 16px;
+      backdrop-filter: blur(10px);
+    }
+    
+    .pres-custom__pricing-label {
+      font-size: 0.95rem;
+      opacity: 0.9;
+      margin-bottom: var(--space-sm);
+    }
+    
+    .pres-custom__pricing-old {
+      font-size: 1.2rem;
+      text-decoration: line-through;
+      opacity: 0.6;
+      margin-bottom: var(--space-xs);
+    }
+    
+    .pres-custom__pricing-new {
+      font-family: var(--font-logo);
+      font-size: 2.5rem;
+      color: var(--burnt-orange);
+    }
+    
+    .pres-custom__pricing-new small {
+      font-size: 1rem;
+      font-family: var(--font-base);
+    }
+    
+    .pres-custom__pricing-deadline {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      background: rgba(201, 104, 57, 0.3);
+      padding: var(--space-sm) var(--space-md);
+      border-radius: 8px;
+      font-size: 0.95rem;
+    }
+    
+    .pres-custom__pricing-deadline strong {
+      color: var(--burnt-orange);
+    }
+    
+    /* ROI highlight */
+    .pres-custom__roi {
+      background: var(--burnt-orange);
+      color: var(--cream);
+      padding: var(--space-lg);
+      border-radius: 16px;
+      text-align: center;
+      margin-top: var(--space-md);
+    }
+    
+    .pres-custom__roi-number {
+      font-family: var(--font-logo);
+      font-size: 3rem;
+      display: block;
+    }
+    
+    .pres-custom__roi-label {
+      font-size: 1.1rem;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .pres-custom__grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .pres-custom__pricing-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body class="presentation-page">
+  <!-- Skip Link -->
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+  <!-- HEADER MINIMAL -->
+  <header class="pres-header">
+    <a href="https://www.lagencesauvage.com" class="pres-header__logo" title="Retour au site L'Agence Sauvage">
+      <img src="/assets/images/logo-lagencesauvage-original.svg" 
+           alt="L'Agence Sauvage" 
+           loading="eager">
+    </a>
+  </header>
+
+  <!-- INDICATEURS DE PROGRESSION -->
+  <nav class="pres-progress" aria-label="Navigation sections">
+    <button class="pres-progress__dot active" data-section="0" aria-label="Section Hero"></button>
+    <button class="pres-progress__dot" data-section="1" aria-label="Section Problème"></button>
+    <button class="pres-progress__dot" data-section="2" aria-label="Section Solution"></button>
+    <button class="pres-progress__dot" data-section="3" aria-label="Section Bénéfices"></button>
+    <button class="pres-progress__dot" data-section="4" aria-label="Section Chiffres"></button>
+    <button class="pres-progress__dot" data-section="5" aria-label="Section Pourquoi nous"></button>
+    <button class="pres-progress__dot" data-section="6" aria-label="Section Comment ça marche"></button>
+    <button class="pres-progress__dot" data-section="7" aria-label="Section EDEXA"></button>
+    <button class="pres-progress__dot" data-section="8" aria-label="Section Contact"></button>
+  </nav>
+
+  <!-- BOUTON PDF FLOTTANT (gauche) -->
+  <a href="/assets/pdf/presentation-lagencesauvage.pdf" class="pres-pdf-float" title="Télécharger la présentation PDF" download>
+    <span class="pres-pdf-float__icon">📄</span>
+    <span class="pres-pdf-float__text">Télécharger PDF</span>
+  </a>
+
+  <!-- CTA FLOTTANT (droite) -->
+  <a href="#contact" class="pres-cta-float">
+    <span class="pres-cta-float__icon">📅</span>
+    <span class="pres-cta-float__text">Prenez RDV</span>
+  </a>
+
+  <!-- MAIN CONTENT -->
+  <main id="main-content">
+    
+    <!-- SECTION 1: HERO -->
+    <section class="pres-section pres-hero" data-section="0">
+      <div class="pres-hero__content">
+        <div class="pres-hero__logo-wrapper animate-on-scroll" data-animation="scale-in">
+          <img src="/assets/images/logo-lagencesauvage-original.svg" 
+               alt="L'Agence Sauvage" 
+               class="pres-hero__logo-img">
+        </div>
+        
+        <h1 class="pres-hero__title animate-on-scroll" data-animation="fade-up">
+          Les bénéfices de l'IA,<br>
+          <span class="highlight">au prix d'un stagiaire</span>
+        </h1>
+        
+        <p class="pres-hero__subtitle animate-on-scroll" data-animation="fade-up" data-delay="200">
+          Automatisez votre marketing, vos ventes et vos opérations sans recruter.
+        </p>
+        
+        <div class="pres-hero__scroll-indicator animate-on-scroll" data-animation="fade-in" data-delay="800">
+          <span>Découvrir</span>
+          <div class="scroll-arrow"></div>
+        </div>
+      </div>
+      
+      <div class="pres-hero__bg-pattern"></div>
+    </section>
+
+    <!-- SECTION 2: LE PROBLÈME -->
+    <section class="pres-section pres-problem" data-section="1">
+      <div class="pres-section__container">
+        <h2 class="pres-section__title animate-on-scroll" data-animation="fade-up">
+          Vous êtes dirigeant de TPE/PME et...
+        </h2>
+        
+        <div class="pres-problem__grid">
+          <div class="pres-problem__card animate-on-scroll" data-animation="slide-left" data-delay="0">
+            <div class="pres-problem__icon">😤</div>
+            <p>Vous n'avez <strong>pas les moyens d'embaucher</strong> pour gérer l'administratif, les relances, la paperasse.</p>
+          </div>
+          
+          <div class="pres-problem__card animate-on-scroll" data-animation="slide-right" data-delay="100">
+            <div class="pres-problem__icon">🤔</div>
+            <p>Vous avez peut-être <strong>testé ChatGPT</strong>, mais sans savoir comment l'intégrer concrètement dans votre quotidien.</p>
+          </div>
+          
+          <div class="pres-problem__card animate-on-scroll" data-animation="slide-left" data-delay="200">
+            <div class="pres-problem__icon">⏰</div>
+            <p>Vous perdez chaque semaine <strong>des heures précieuses</strong> sur des tâches répétitives qui grignotent votre marge.</p>
+          </div>
+          
+          <div class="pres-problem__card pres-problem__card--highlight animate-on-scroll" data-animation="slide-right" data-delay="300">
+            <div class="pres-problem__icon">💡</div>
+            <p><strong>Pourtant, vous le savez :</strong> l'IA n'est plus une option pour rester compétitif. Mais comment passer de la curiosité à l'action, sans exploser son budget ?</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: NOTRE SOLUTION -->
+    <section class="pres-section pres-solution" data-section="2">
+      <div class="pres-section__container">
+        <h2 class="pres-section__title animate-on-scroll" data-animation="fade-up">
+          L'Agence Sauvage vous rend votre temps
+        </h2>
+        
+        <div class="pres-solution__content">
+          <div class="pres-solution__main animate-on-scroll" data-animation="slide-left">
+            <p class="pres-solution__text">
+              Nous déployons des <strong>agents IA sur-mesure</strong> qui s'intègrent à vos outils actuels 
+              <span class="pres-solution__tools">(Gmail, Outlook, CRM, logiciels métier...)</span> 
+              pour automatiser le « sale boulot » : emails, relances, reporting, onboarding clients...
+            </p>
+          </div>
+          
+          <div class="pres-solution__difference animate-on-scroll" data-animation="slide-right" data-delay="200">
+            <div class="pres-solution__badge">Notre différence</div>
+            <p>
+              Une <strong>validation humaine systématique</strong> à chaque étape critique. 
+              Pas de contenu générique, pas de robot incontrôlable. 
+              <em>Vous gardez la main, nous faisons le travail.</em>
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="pres-solution__visual animate-on-scroll" data-animation="scale-in" data-delay="400">
+        <div class="pres-solution__circle">
+          <span>🤖</span>
+          <span>+</span>
+          <span>👤</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: LES BÉNÉFICES -->
+    <section class="pres-section pres-benefits" data-section="3">
+      <div class="pres-section__container">
+        <h2 class="pres-section__title animate-on-scroll" data-animation="fade-up">
+          Ce que vous obtenez concrètement
+        </h2>
+        
+        <div class="pres-benefits__grid">
+          <div class="pres-benefits__card animate-on-scroll" data-animation="fade-up" data-delay="0">
+            <div class="pres-benefits__icon">⏱️</div>
+            <h3>Du temps libéré</h3>
+            <p class="pres-benefits__stat">Jusqu'à <strong>15 heures économisées par semaine</strong> et par employé sur les tâches répétitives.</p>
+            <p class="pres-benefits__detail">Ce temps retrouvé, c'est du temps pour vendre, produire, et développer votre entreprise.</p>
+          </div>
+          
+          <div class="pres-benefits__card animate-on-scroll" data-animation="fade-up" data-delay="150">
+            <div class="pres-benefits__icon">💰</div>
+            <h3>Une trésorerie plus saine</h3>
+            <p class="pres-benefits__stat">Relances automatiques et personnalisées des impayés et documents manquants.</p>
+            <p class="pres-benefits__detail"><strong>Fini les oublis qui coûtent cher.</strong> Vos clients reçoivent les bonnes relances au bon moment.</p>
+          </div>
+          
+          <div class="pres-benefits__card animate-on-scroll" data-animation="fade-up" data-delay="300">
+            <div class="pres-benefits__icon">🚀</div>
+            <h3>Une visibilité décuplée</h3>
+            <p class="pres-benefits__stat">Création automatisée de contenu LinkedIn, articles de blog, newsletters.</p>
+            <p class="pres-benefits__detail">Votre présence digitale devient régulière et professionnelle, <strong>sans y passer vos soirées</strong>.</p>
+          </div>
+          
+          <div class="pres-benefits__card animate-on-scroll" data-animation="fade-up" data-delay="450">
+            <div class="pres-benefits__icon">😌</div>
+            <h3>Une équipe soulagée</h3>
+            <p class="pres-benefits__stat">Moins de tâches ingrates = des collaborateurs plus motivés et plus efficaces.</p>
+            <p class="pres-benefits__detail"><strong>L'IA prend en charge ce qui fait « lever les yeux au ciel ».</strong></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: LES CHIFFRES -->
+    <section class="pres-section pres-stats" data-section="4">
+      <div class="pres-section__container">
+        <h2 class="pres-section__title animate-on-scroll" data-animation="fade-up">
+          Les résultats de nos clients
+        </h2>
+        
+        <div class="pres-stats__grid">
+          <div class="pres-stats__item animate-on-scroll" data-animation="scale-in" data-delay="0">
+            <div class="pres-stats__number" data-count="8">0</div>
+            <div class="pres-stats__suffix">x</div>
+            <div class="pres-stats__label">ROI moyen en 6 mois</div>
+          </div>
+          
+          <div class="pres-stats__item animate-on-scroll" data-animation="scale-in" data-delay="200">
+            <div class="pres-stats__number" data-count="15">0</div>
+            <div class="pres-stats__suffix">h/sem</div>
+            <div class="pres-stats__label">Économisées par employé</div>
+          </div>
+          
+          <div class="pres-stats__item animate-on-scroll" data-animation="scale-in" data-delay="400">
+            <div class="pres-stats__number">2-4</div>
+            <div class="pres-stats__suffix">sem</div>
+            <div class="pres-stats__label">Déploiement rapide</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="pres-stats__bg-element"></div>
+    </section>
+
+    <!-- SECTION 6: POURQUOI NOUS -->
+    <section class="pres-section pres-why" data-section="5">
+      <div class="pres-section__container">
+        <h2 class="pres-section__title animate-on-scroll" data-animation="fade-up">
+          Pourquoi nous choisir ?
+        </h2>
+        
+        <div class="pres-why__list">
+          <div class="pres-why__item animate-on-scroll" data-animation="slide-left" data-delay="0">
+            <div class="pres-why__check">✓</div>
+            <div class="pres-why__content">
+              <h3>Validation humaine à chaque étape critique</h3>
+              <p>Pas de robot autonome, vous gardez le contrôle total.</p>
+            </div>
+          </div>
+          
+          <div class="pres-why__item animate-on-scroll" data-animation="slide-left" data-delay="100">
+            <div class="pres-why__check">✓</div>
+            <div class="pres-why__content">
+              <h3>Intégration avec vos outils existants</h3>
+              <p>On s'adapte à votre stack, pas l'inverse.</p>
+            </div>
+          </div>
+          
+          <div class="pres-why__item animate-on-scroll" data-animation="slide-left" data-delay="200">
+            <div class="pres-why__check">✓</div>
+            <div class="pres-why__content">
+              <h3>Budget maîtrisé</h3>
+              <p>À partir de <strong>500€/mois</strong>, soit le coût d'un stagiaire pour une performance de senior.</p>
+            </div>
+          </div>
+          
+          <div class="pres-why__item animate-on-scroll" data-animation="slide-left" data-delay="300">
+            <div class="pres-why__check">✓</div>
+            <div class="pres-why__content">
+              <h3>Zéro compétence technique requise</h3>
+              <p>On s'occupe de tout, de A à Z, avec formation de votre équipe.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: COMMENT ÇA MARCHE -->
+    <section class="pres-section pres-process" data-section="6">
+      <div class="pres-section__container">
+        <h2 class="pres-section__title animate-on-scroll" data-animation="fade-up">
+          Comment ça marche ?
+        </h2>
+        <p class="pres-section__subtitle animate-on-scroll" data-animation="fade-up" data-delay="100">
+          Un processus simple en 3 étapes
+        </p>
+        
+        <div class="pres-process__timeline">
+          <div class="pres-process__step animate-on-scroll" data-animation="slide-right" data-delay="0">
+            <div class="pres-process__number">1</div>
+            <div class="pres-process__content">
+              <h3>Audit gratuit <span class="pres-process__duration">(30 min)</span></h3>
+              <p>On analyse votre situation actuelle et on identifie ensemble <strong>3 opportunités concrètes</strong> d'automatisation. Sans engagement, sans jargon technique.</p>
+            </div>
+          </div>
+          
+          <div class="pres-process__connector"></div>
+          
+          <div class="pres-process__step animate-on-scroll" data-animation="slide-left" data-delay="200">
+            <div class="pres-process__number">2</div>
+            <div class="pres-process__content">
+              <h3>Proposition personnalisée <span class="pres-process__duration">(48h)</span></h3>
+              <p>Vous recevez un <strong>plan d'action détaillé</strong> avec estimation de ROI, adapté à vos besoins réels et à votre budget.</p>
+            </div>
+          </div>
+          
+          <div class="pres-process__connector"></div>
+          
+          <div class="pres-process__step animate-on-scroll" data-animation="slide-right" data-delay="400">
+            <div class="pres-process__number">3</div>
+            <div class="pres-process__content">
+              <h3>Mise en œuvre <span class="pres-process__duration">(2-4 semaines)</span></h3>
+              <p>On déploie la première automatisation, on forme votre équipe et on assure le suivi. <strong>Vous commencez à économiser du temps dès la première semaine.</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8: PERSONNALISÉE EDEXA -->
+    <section class="pres-section pres-custom" data-section="7">
+      <div class="pres-section__container">
+        <div class="pres-custom__header animate-on-scroll" data-animation="fade-up">
+          <span class="pres-custom__badge">Proposition personnalisée</span>
+          <h2 class="pres-custom__title">Votre situation chez EDEXA</h2>
+        </div>
+        
+        <div class="pres-custom__grid">
+          <!-- Besoins identifiés -->
+          <div class="pres-custom__card animate-on-scroll" data-animation="slide-left" data-delay="0">
+            <h3><span>📋</span> Vos besoins identifiés</h3>
+            <ul class="pres-custom__list">
+              <li>
+                <span class="pres-custom__priority">⭐⭐⭐⭐</span>
+                <span>Automatisation des <strong>relances de pièces comptables</strong> (40h/mois pour l'équipe)</span>
+              </li>
+              <li>
+                <span class="pres-custom__priority">⭐⭐⭐</span>
+                <span>Gains de <strong>productivité</strong> pour traiter plus de dossiers clients</span>
+              </li>
+              <li>
+                <span class="pres-custom__priority">⭐⭐⭐</span>
+                <span><strong>Modernisation</strong> des processus (équipe "à l'ancienne")</span>
+              </li>
+              <li>
+                <span class="pres-custom__priority">⭐⭐</span>
+                <span>Veille <strong>procédures collectives</strong></span>
+              </li>
+            </ul>
+          </div>
+          
+          <!-- Notre proposition -->
+          <div class="pres-custom__card animate-on-scroll" data-animation="slide-right" data-delay="100">
+            <h3><span>🎯</span> Notre proposition</h3>
+            <ul class="pres-custom__list">
+              <li>
+                <span>✅</span>
+                <span>Workflow de <strong>relance automatisée</strong> des pièces comptables</span>
+              </li>
+              <li>
+                <span>✅</span>
+                <span><strong>Agent intelligent</strong> avec mise en copie des collaborateurs</span>
+              </li>
+              <li>
+                <span>✅</span>
+                <span>Configuration <strong>serveur VPS dédié</strong></span>
+              </li>
+              <li>
+                <span>✅</span>
+                <span>Intégrations API : <strong>Sage Koala, Fulll, Microsoft</strong></span>
+              </li>
+              <li>
+                <span>🎁</span>
+                <span><strong>Bonus :</strong> Veille procédures collectives (BODACC)</span>
+              </li>
+            </ul>
+          </div>
+          
+          <!-- Résultats attendus -->
+          <div class="pres-custom__card animate-on-scroll" data-animation="slide-left" data-delay="200">
+            <h3><span>📈</span> Résultats attendus</h3>
+            <div class="pres-custom__roi">
+              <span class="pres-custom__roi-number">40h/mois</span>
+              <span class="pres-custom__roi-label">économisées sur les relances</span>
+            </div>
+            <p style="margin-top: var(--space-md); text-align: center; color: var(--stone-gray);">
+              = Capacité de traitement de <strong>nouveaux dossiers clients</strong>
+            </p>
+          </div>
+          
+          <!-- Planning -->
+          <div class="pres-custom__card animate-on-scroll" data-animation="slide-right" data-delay="300">
+            <h3><span>📅</span> Planning prévisionnel</h3>
+            <div class="pres-custom__timeline">
+              <div class="pres-custom__timeline-item">
+                <span class="pres-custom__timeline-week">Semaine 1-2</span>
+                <span>Configuration serveur et intégrations API</span>
+              </div>
+              <div class="pres-custom__timeline-item">
+                <span class="pres-custom__timeline-week">Semaine 3-4</span>
+                <span>Déploiement workflow + test + validation</span>
+              </div>
+              <div class="pres-custom__timeline-item" style="border-top: 1px solid rgba(255,255,255,0.2); margin-top: var(--space-sm); padding-top: var(--space-sm);">
+                <span class="pres-custom__timeline-week">→ Total</span>
+                <span><strong>4 semaines</strong></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Bloc tarifs préférentiels -->
+        <div class="pres-custom__pricing animate-on-scroll" data-animation="scale-in" data-delay="400">
+          <span class="pres-custom__pricing-badge">🏷️ Client référent</span>
+          <h3>Tarifs préférentiels EDEXA</h3>
+          
+          <div class="pres-custom__pricing-grid">
+            <div class="pres-custom__pricing-item">
+              <div class="pres-custom__pricing-label">Setup (installation)</div>
+              <div class="pres-custom__pricing-old">2 000 €</div>
+              <div class="pres-custom__pricing-new">1 000 €</div>
+            </div>
+            <div class="pres-custom__pricing-item">
+              <div class="pres-custom__pricing-label">Abonnement mensuel</div>
+              <div class="pres-custom__pricing-old">500 €/mois</div>
+              <div class="pres-custom__pricing-new">250 € <small>/mois</small></div>
+            </div>
+          </div>
+          
+          <div class="pres-custom__pricing-deadline">
+            ⚠️ Offre valable jusqu'au <strong>31 janvier 2026</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 9: CTA FINAL -->
+    <section class="pres-section pres-contact" data-section="8" id="contact">
+      <div class="pres-section__container">
+        <div class="pres-contact__cta-box animate-on-scroll" data-animation="scale-in">
+          <h2>Passez à l'action</h2>
+          <p>Réservez votre RDV gratuit et découvrez comment automatiser vos tâches répétitives dès ce mois-ci.</p>
+        </div>
+        
+        <div class="pres-contact__form-wrapper animate-on-scroll" data-animation="fade-up" data-delay="200">
+          <form class="pres-contact__form" id="auditForm">
+            <input type="hidden" name="source" value="Page Présentation EDEXA">
+            
+            <div class="pres-contact__form-row">
+              <input type="text" name="name" placeholder="Votre prénom" required aria-label="Votre prénom">
+              <input type="email" name="email" placeholder="Email professionnel" required aria-label="Email professionnel">
+            </div>
+            
+            <div class="pres-contact__form-row">
+              <input type="tel" name="phone" placeholder="Téléphone (optionnel)" aria-label="Téléphone">
+              <input type="text" name="company" placeholder="Nom de votre entreprise" value="EDEXA" required aria-label="Nom de votre entreprise">
+            </div>
+            
+            <select name="company_size" required aria-label="Taille de l'entreprise">
+              <option value="">Taille de l'entreprise</option>
+              <option value="1-5" selected>1-5 employés</option>
+              <option value="6-20">6-20 employés</option>
+              <option value="21-50">21-50 employés</option>
+              <option value="50+">50+ employés</option>
+            </select>
+            
+            <textarea name="challenge" placeholder="Votre principal défi actuel (optionnel)" rows="3" aria-label="Votre principal défi"></textarea>
+            
+            <button type="submit" class="pres-contact__submit">
+              <span>Prendre rendez-vous</span>
+              <span class="pres-contact__submit-arrow">→</span>
+            </button>
+            
+            <p class="pres-contact__privacy">🔒 Vos données sont protégées. Pas de spam.</p>
+            
+            <div id="formFeedback" class="form-feedback" style="display: none;"></div>
+          </form>
+        </div>
+        
+        <div class="pres-contact__info animate-on-scroll" data-animation="fade-up" data-delay="400">
+          <div class="pres-contact__person">
+            <strong>Franck Sauvage</strong> — Fondateur
+          </div>
+          <div class="pres-contact__details">
+            <a href="mailto:hello@lagencesauvage.com">📧 hello@lagencesauvage.com</a>
+            <a href="tel:+33686502030">📱 06 86 50 20 30</a>
+            <a href="https://www.lagencesauvage.com" target="_blank">🌐 www.lagencesauvage.com</a>
+          </div>
+        </div>
+        
+        <div class="pres-contact__pdf animate-on-scroll" data-animation="fade-in" data-delay="600">
+          <a href="/assets/pdf/presentation-lagencesauvage.pdf" class="pres-contact__pdf-btn" download>
+            <span>📄 Télécharger la présentation PDF</span>
+          </a>
+        </div>
+      </div>
+      
+      <!-- FOOTER MINI -->
+      <footer class="pres-footer">
+        <div class="pres-footer__logo">
+          <img src="/assets/images/logo-lagencesauvage-original.svg" alt="L'Agence Sauvage">
+        </div>
+        <p class="pres-footer__tagline">L'IA accessible pour les TPE/PME.</p>
+        <p class="pres-footer__slogan">Budget stagiaire, performance Sauvage !</p>
+      </footer>
+    </section>
+
+  </main>
+
+  <!-- JavaScript -->
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/presentation.js"></script>
+</body>
+</html>
