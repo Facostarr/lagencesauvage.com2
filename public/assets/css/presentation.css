@@ -85,7 +85,7 @@ body.presentation-page {
   position: fixed;
   bottom: 30px;
   left: 30px;
-  background: var(--forest-green);
+  background: var(--burnt-orange);
   color: var(--cream);
   padding: 16px 24px;
   border-radius: 50px;
@@ -96,14 +96,14 @@ body.presentation-page {
   font-size: 1rem;
   text-decoration: none;
   z-index: 1000;
-  box-shadow: 0 8px 32px rgba(34, 79, 60, 0.4);
+  box-shadow: 0 8px 32px rgba(201, 104, 57, 0.4);
   transition: all 0.3s var(--pres-transition-bounce);
 }
 
 .pres-pdf-float:hover {
-  background: var(--forest-green-dark);
+  background: var(--burnt-orange-dark);
   transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 12px 40px rgba(34, 79, 60, 0.5);
+  box-shadow: 0 12px 40px rgba(201, 104, 57, 0.5);
   color: var(--cream);
 }
 
