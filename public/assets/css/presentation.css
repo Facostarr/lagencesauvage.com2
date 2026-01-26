@@ -600,6 +600,276 @@ body.presentation-page {
   border-radius: 2px;
 }
 
+/* === SECTION PERSONNALISÉE (EDEXA, AGOREX, etc.) === */
+.pres-custom {
+  background: linear-gradient(180deg, #f8f6f0 0%, var(--cream) 100%);
+}
+
+.pres-custom__header {
+  text-align: center;
+  margin-bottom: var(--space-2xl);
+}
+
+.pres-custom__badge {
+  display: inline-block;
+  background: var(--burnt-orange);
+  color: var(--cream);
+  padding: 10px 24px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-md);
+}
+
+.pres-custom__context {
+  font-size: 1.1rem;
+  color: var(--stone-gray);
+  margin-top: var(--space-sm);
+}
+
+.pres-custom__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-xl);
+  margin-bottom: var(--space-2xl);
+}
+
+.pres-custom__card {
+  background: white;
+  padding: var(--space-xl);
+  border-radius: 20px;
+  box-shadow: 0 4px 24px rgba(34, 79, 60, 0.08);
+  transition: all 0.4s var(--pres-transition-smooth);
+}
+
+.pres-custom__card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(34, 79, 60, 0.12);
+}
+
+.pres-custom__card-icon {
+  font-size: 2rem;
+  margin-bottom: var(--space-sm);
+}
+
+.pres-custom__card h3 {
+  font-family: var(--font-logo);
+  color: var(--forest-green);
+  font-size: 1.4rem;
+  margin-bottom: var(--space-md);
+}
+
+/* Liste des besoins */
+.pres-custom__needs-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pres-custom__needs-list li {
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid rgba(34, 79, 60, 0.1);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  line-height: 1.5;
+}
+
+.pres-custom__needs-list li:last-child {
+  border-bottom: none;
+}
+
+.pres-custom__priority {
+  font-size: 0.8rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.pres-custom__priority--high {
+  color: var(--burnt-orange);
+}
+
+.pres-custom__priority--medium {
+  color: #daa520;
+}
+
+.pres-custom__priority--low {
+  color: var(--stone-gray);
+}
+
+/* Liste des solutions */
+.pres-custom__solution-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pres-custom__solution-list li {
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid rgba(34, 79, 60, 0.1);
+  line-height: 1.5;
+  color: var(--forest-green);
+}
+
+.pres-custom__solution-list li:last-child {
+  border-bottom: none;
+}
+
+.pres-custom__bonus {
+  background: rgba(201, 104, 57, 0.1);
+  padding: var(--space-sm) var(--space-md) !important;
+  border-radius: 8px;
+  margin-top: var(--space-sm);
+  color: var(--burnt-orange) !important;
+  font-weight: 600;
+}
+
+/* ROI */
+.pres-custom__roi {
+  background: var(--burnt-orange);
+  color: var(--cream);
+  padding: var(--space-lg);
+  border-radius: 16px;
+  text-align: center;
+}
+
+.pres-custom__roi-number {
+  font-family: var(--font-logo);
+  font-size: 3.5rem;
+  display: block;
+  line-height: 1;
+}
+
+.pres-custom__roi-label {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-top: var(--space-xs);
+}
+
+.pres-custom__roi-detail {
+  text-align: center;
+  color: var(--stone-gray);
+  margin-top: var(--space-md);
+  font-size: 1rem;
+}
+
+/* Timeline personnalisée */
+.pres-custom__timeline {
+  background: var(--forest-green);
+  color: var(--cream);
+  padding: var(--space-lg);
+  border-radius: 16px;
+}
+
+.pres-custom__timeline-item {
+  display: flex;
+  gap: var(--space-md);
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.pres-custom__timeline-item:last-of-type {
+  border-bottom: none;
+}
+
+.pres-custom__timeline-week {
+  font-weight: 700;
+  color: var(--burnt-orange);
+  min-width: 80px;
+  flex-shrink: 0;
+}
+
+.pres-custom__timeline-total {
+  margin-top: var(--space-sm);
+  padding-top: var(--space-sm);
+  border-top: 2px solid rgba(255, 255, 255, 0.3);
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+/* Bloc tarifs préférentiels */
+.pres-custom__pricing {
+  background: linear-gradient(135deg, var(--forest-green) 0%, #1a3d2e 100%);
+  color: var(--cream);
+  padding: var(--space-2xl);
+  border-radius: 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.pres-custom__pricing::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(201, 104, 57, 0.2) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.pres-custom__pricing-badge {
+  display: inline-block;
+  background: var(--burnt-orange);
+  color: var(--cream);
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: var(--space-lg);
+  position: relative;
+}
+
+.pres-custom__pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-xl);
+  max-width: 500px;
+  margin: 0 auto var(--space-xl);
+  position: relative;
+}
+
+.pres-custom__pricing-item {
+  background: rgba(255, 255, 255, 0.1);
+  padding: var(--space-lg);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+}
+
+.pres-custom__pricing-label {
+  display: block;
+  font-size: 0.95rem;
+  opacity: 0.85;
+  margin-bottom: var(--space-sm);
+}
+
+.pres-custom__pricing-old {
+  display: block;
+  font-size: 1.3rem;
+  text-decoration: line-through;
+  opacity: 0.5;
+  margin-bottom: var(--space-xs);
+}
+
+.pres-custom__pricing-new {
+  font-family: var(--font-logo);
+  font-size: 2.5rem;
+  color: var(--burnt-orange);
+  display: block;
+}
+
+.pres-custom__pricing-validity {
+  background: rgba(201, 104, 57, 0.25);
+  display: inline-block;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  position: relative;
+}
+
 /* === SECTION CONTACT === */
 .pres-contact {
   background: linear-gradient(180deg, var(--forest-green) 0%, #1a3d2e 100%);
@@ -856,6 +1126,10 @@ body.presentation-page {
   .pres-solution__main {
     padding-right: 0;
   }
+  
+  .pres-custom__grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 768px) {
@@ -947,6 +1221,15 @@ body.presentation-page {
     gap: var(--space-sm);
   }
   
+  /* Section personnalisée responsive */
+  .pres-custom__pricing-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .pres-custom__roi-number {
+    font-size: 2.5rem;
+  }
+  
   /* Animations réduites sur mobile */
   .animate-on-scroll[data-animation="slide-left"],
   .animate-on-scroll[data-animation="slide-right"] {
@@ -974,6 +1257,10 @@ body.presentation-page {
   
   .pres-stats__number {
     font-size: 3.5rem;
+  }
+  
+  .pres-custom__pricing-new {
+    font-size: 2rem;
   }
 }
 
