@@ -1,333 +1,261 @@
 // =============================================================================
 // PRESENTATION.JS - L'Agence Sauvage
-// Animations scroll, indicateurs de progression, formulaire
+// Animations scroll, indicateurs de progression, compteurs
 // =============================================================================
 
-(function() {
-  'use strict';
-
+document.addEventListener('DOMContentLoaded', function() {
+  
   // =============================================================================
-  // 1. INTERSECTION OBSERVER - Animations au scroll
+  // 1. INTERSECTION OBSERVER POUR ANIMATIONS
   // =============================================================================
+  const animatedElements = document.querySelectorAll('.animate-on-scroll');
+  
   const observerOptions = {
     root: null,
-    rootMargin: '0px',
-    threshold: 0.15
+    rootMargin: '0px 0px -10% 0px',
+    threshold: 0.1
   };
-
+  
   const animationObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        // Optionnel : désactiver l'observation après animation
-        // animationObserver.unobserve(entry.target);
+        const element = entry.target;
+        const delay = element.dataset.delay || 0;
+        
+        setTimeout(() => {
+          element.classList.add('animated');
+        }, parseInt(delay));
+        
+        // Unobserve après animation (performance)
+        animationObserver.unobserve(element);
       }
     });
   }, observerOptions);
-
-  // Observer tous les éléments animables
-  document.querySelectorAll('.animate-on-scroll').forEach(el => {
+  
+  animatedElements.forEach(el => {
     animationObserver.observe(el);
   });
-
+  
   // =============================================================================
   // 2. INDICATEURS DE PROGRESSION
   // =============================================================================
   const sections = document.querySelectorAll('.pres-section');
   const progressDots = document.querySelectorAll('.pres-progress__dot');
-
-  // Observer pour les sections
-  const sectionObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const sectionNumber = entry.target.dataset.section;
-        updateProgressDots(sectionNumber);
-      }
-    });
-  }, {
+  
+  const sectionObserverOptions = {
     root: null,
     rootMargin: '-40% 0px -40% 0px',
     threshold: 0
-  });
-
+  };
+  
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const sectionIndex = entry.target.dataset.section;
+        
+        // Mettre à jour les indicateurs
+        progressDots.forEach(dot => {
+          dot.classList.remove('active');
+          if (dot.dataset.section === sectionIndex) {
+            dot.classList.add('active');
+          }
+        });
+      }
+    });
+  }, sectionObserverOptions);
+  
   sections.forEach(section => {
     sectionObserver.observe(section);
   });
-
-  function updateProgressDots(activeSection) {
-    progressDots.forEach(dot => {
-      dot.classList.remove('active');
-      if (dot.dataset.section === activeSection) {
-        dot.classList.add('active');
-      }
-    });
-  }
-
-  // Click sur les dots pour naviguer
+  
+  // Navigation par clic sur les indicateurs
   progressDots.forEach(dot => {
     dot.addEventListener('click', () => {
-      const targetSection = document.querySelector(`[data-section="${dot.dataset.section}"]`);
+      const sectionIndex = dot.dataset.section;
+      const targetSection = document.querySelector(`[data-section="${sectionIndex}"]`);
+      
       if (targetSection) {
         targetSection.scrollIntoView({ behavior: 'smooth' });
       }
     });
   });
-
+  
   // =============================================================================
-  // 3. ANIMATION DES COMPTEURS (Stats)
+  // 3. COMPTEURS ANIMÉS
   // =============================================================================
   const counters = document.querySelectorAll('.pres-stats__number[data-count]');
-  let countersAnimated = false;
-
+  
   const counterObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting && !countersAnimated) {
-        countersAnimated = true;
-        animateCounters();
+      if (entry.isIntersecting) {
+        const counter = entry.target;
+        const target = parseInt(counter.dataset.count);
+        const duration = 2000; // 2 secondes
+        const increment = target / (duration / 16); // 60fps
+        let current = 0;
+        
+        const updateCounter = () => {
+          current += increment;
+          if (current < target) {
+            counter.textContent = Math.floor(current);
+            requestAnimationFrame(updateCounter);
+          } else {
+            counter.textContent = target;
+          }
+        };
+        
+        updateCounter();
+        counterObserver.unobserve(counter);
       }
     });
-  }, {
-    threshold: 0.5
+  }, { threshold: 0.5 });
+  
+  counters.forEach(counter => {
+    counterObserver.observe(counter);
   });
-
-  const statsSection = document.querySelector('.pres-stats');
-  if (statsSection) {
-    counterObserver.observe(statsSection);
-  }
-
-  function animateCounters() {
-    counters.forEach(counter => {
-      const target = parseInt(counter.dataset.count);
-      const duration = 2000; // 2 secondes
-      const increment = target / (duration / 16); // ~60fps
-      let current = 0;
-
-      const updateCounter = () => {
-        current += increment;
-        if (current < target) {
-          counter.textContent = Math.floor(current);
-          requestAnimationFrame(updateCounter);
-        } else {
-          counter.textContent = target;
-        }
-      };
-
-      updateCounter();
-    });
-  }
-
+  
   // =============================================================================
-  // 4. SMOOTH SCROLL
+  // 4. SCROLL FLUIDE POUR LES ANCRES
   // =============================================================================
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       const href = this.getAttribute('href');
+      
       if (href === '#' || href === '#!') return;
-
+      
       e.preventDefault();
       const target = document.querySelector(href);
+      
       if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
       }
     });
   });
-
+  
   // =============================================================================
-  // 5. GESTION DU FORMULAIRE
-  // =============================================================================
-  const form = document.getElementById('presentationForm');
-  const feedback = document.getElementById('formFeedback');
-
-  if (form) {
-    form.addEventListener('submit', async function(e) {
-      e.preventDefault();
-
-      const submitBtn = form.querySelector('button[type="submit"]');
-      const originalHTML = submitBtn.innerHTML;
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = '<span>⏳ Envoi en cours...</span>';
-
-      feedback.style.display = 'none';
-
-      try {
-        const formData = {
-          name: form.querySelector('[name="name"]').value.trim(),
-          email: form.querySelector('[name="email"]').value.trim(),
-          phone: form.querySelector('[name="phone"]').value.trim() || '',
-          company: form.querySelector('[name="company"]').value.trim(),
-          company_size: form.querySelector('[name="company_size"]').value,
-          challenge: form.querySelector('[name="challenge"]').value.trim() || '',
-          source: form.querySelector('[name="source"]').value
-        };
-
-        // Validation
-        if (!formData.name || !formData.email || !formData.company || !formData.company_size) {
-          throw new Error('Veuillez remplir tous les champs obligatoires');
-        }
-
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(formData.email)) {
-          throw new Error('Veuillez fournir une adresse email valide');
-        }
-
-        // Envoi API
-        const response = await fetch('/api/submit-lead', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(formData)
-        });
-
-        const result = await response.json();
-
-        if (!response.ok) {
-          throw new Error(result.message || 'Une erreur est survenue');
-        }
-
-        // Succès
-        showFeedback('success', '✅ Merci ! Nous vous contacterons sous 24h pour planifier votre audit gratuit.');
-        form.reset();
-
-        // Tracking Plausible (si disponible)
-        if (typeof plausible !== 'undefined') {
-          plausible('Form Submission', { props: { source: 'Page Présentation' } });
-        }
-
-      } catch (error) {
-        console.error('Erreur soumission:', error);
-        showFeedback('error', `❌ ${error.message || 'Une erreur est survenue. Veuillez réessayer.'}`);
-      } finally {
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = originalHTML;
-      }
-    });
-  }
-
-  function showFeedback(type, message) {
-    feedback.className = `form-feedback form-feedback--${type}`;
-    feedback.textContent = message;
-    feedback.style.display = 'block';
-    feedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-
-    if (type === 'success') {
-      setTimeout(() => {
-        feedback.style.display = 'none';
-      }, 10000);
-    }
-  }
-
-  // =============================================================================
-  // 6. CTA FLOTTANT - Animation d'apparition
+  // 5. CTA FLOTTANT - MASQUER EN SECTION CONTACT
   // =============================================================================
   const ctaFloat = document.querySelector('.pres-cta-float');
-  let ctaVisible = false;
-
-  window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
-    const windowHeight = window.innerHeight;
-
-    // Afficher après avoir scrollé 50% de la première section
-    if (scrollY > windowHeight * 0.5 && !ctaVisible) {
-      ctaFloat.style.opacity = '1';
-      ctaFloat.style.transform = 'translateY(0)';
-      ctaVisible = true;
-    }
-
-    // Cacher quand on est sur la section contact
-    const contactSection = document.querySelector('.pres-contact');
-    if (contactSection) {
-      const contactTop = contactSection.offsetTop;
-      if (scrollY + windowHeight > contactTop + 200) {
-        ctaFloat.style.opacity = '0';
-        ctaFloat.style.transform = 'translateY(20px)';
-      } else if (scrollY > windowHeight * 0.5) {
-        ctaFloat.style.opacity = '1';
-        ctaFloat.style.transform = 'translateY(0)';
-      }
-    }
-  }, { passive: true });
-
-  // État initial du CTA
-  if (ctaFloat) {
-    ctaFloat.style.opacity = '0';
-    ctaFloat.style.transform = 'translateY(20px)';
-    ctaFloat.style.transition = 'all 0.3s ease';
-  }
-
-  // =============================================================================
-  // 7. PARALLAX LÉGER SUR LE HERO
-  // =============================================================================
-  const heroBackground = document.querySelector('.pres-hero__background');
+  const contactSection = document.getElementById('contact');
   
-  if (heroBackground) {
+  if (ctaFloat && contactSection) {
+    const ctaObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          ctaFloat.style.opacity = '0';
+          ctaFloat.style.pointerEvents = 'none';
+        } else {
+          ctaFloat.style.opacity = '1';
+          ctaFloat.style.pointerEvents = 'auto';
+        }
+      });
+    }, { threshold: 0.3 });
+    
+    ctaObserver.observe(contactSection);
+  }
+  
+  // =============================================================================
+  // 6. PARALLAX LÉGER SUR HERO (optionnel)
+  // =============================================================================
+  const heroSection = document.querySelector('.pres-hero');
+  const heroBgPattern = document.querySelector('.pres-hero__bg-pattern');
+  
+  if (heroSection && heroBgPattern && window.innerWidth > 768) {
     window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY;
-      const heroHeight = document.querySelector('.pres-hero').offsetHeight;
+      const scrolled = window.pageYOffset;
+      const heroHeight = heroSection.offsetHeight;
       
-      if (scrollY < heroHeight) {
-        const parallaxOffset = scrollY * 0.4;
-        heroBackground.style.transform = `translateY(${parallaxOffset}px)`;
+      if (scrolled < heroHeight) {
+        const translateY = scrolled * 0.3;
+        heroBgPattern.style.transform = `translateY(${translateY}px)`;
       }
     }, { passive: true });
   }
-
+  
   // =============================================================================
-  // 8. KEYBOARD NAVIGATION
+  // 7. KEYBOARD NAVIGATION
   // =============================================================================
   document.addEventListener('keydown', (e) => {
-    // Flèches haut/bas pour naviguer entre sections
+    // Navigation par flèches haut/bas
     if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
-      const currentSection = document.querySelector('.pres-progress__dot.active');
-      if (!currentSection) return;
-
-      const currentIndex = parseInt(currentSection.dataset.section);
+      const currentDot = document.querySelector('.pres-progress__dot.active');
+      if (!currentDot) return;
+      
+      const currentIndex = parseInt(currentDot.dataset.section);
       let nextIndex;
-
+      
       if (e.key === 'ArrowDown') {
-        nextIndex = Math.min(currentIndex + 1, sections.length);
+        nextIndex = Math.min(currentIndex + 1, sections.length - 1);
       } else {
-        nextIndex = Math.max(currentIndex - 1, 1);
+        nextIndex = Math.max(currentIndex - 1, 0);
       }
-
+      
       const targetSection = document.querySelector(`[data-section="${nextIndex}"]`);
       if (targetSection) {
+        e.preventDefault();
         targetSection.scrollIntoView({ behavior: 'smooth' });
       }
     }
   });
-
+  
   // =============================================================================
-  // 9. ANALYTICS - Tracking du scroll depth
+  // 8. PRÉCHARGEMENT DE LA SECTION SUIVANTE
   // =============================================================================
-  const scrollDepthMarkers = [25, 50, 75, 100];
-  const trackedDepths = new Set();
-
-  window.addEventListener('scroll', () => {
-    const scrollTop = window.scrollY;
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const scrollPercent = Math.round((scrollTop / docHeight) * 100);
-
-    scrollDepthMarkers.forEach(marker => {
-      if (scrollPercent >= marker && !trackedDepths.has(marker)) {
-        trackedDepths.add(marker);
-        
-        // Plausible tracking
-        if (typeof plausible !== 'undefined') {
-          plausible('Scroll Depth', { props: { depth: `${marker}%`, page: 'presentation' } });
+  // Optionnel : précharger les images de la section suivante pour fluidité
+  const preloadNextSection = (currentIndex) => {
+    const nextSection = document.querySelector(`[data-section="${currentIndex + 1}"]`);
+    if (nextSection) {
+      const images = nextSection.querySelectorAll('img[data-src]');
+      images.forEach(img => {
+        if (img.dataset.src) {
+          img.src = img.dataset.src;
+          img.removeAttribute('data-src');
         }
-        
-        console.log(`📊 Scroll depth: ${marker}%`);
-      }
-    });
-  }, { passive: true });
-
+      });
+    }
+  };
+  
   // =============================================================================
-  // 10. PRELOAD - Performance
+  // 9. ANALYTICS TRACKING (si Plausible disponible)
   // =============================================================================
-  window.addEventListener('load', () => {
-    // Marquer la page comme chargée pour les animations CSS
-    document.body.classList.add('loaded');
+  sections.forEach(section => {
+    const sectionIndex = section.dataset.section;
+    const sectionTracker = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && window.plausible) {
+          const sectionNames = [
+            'hero', 'probleme', 'solution', 'benefices', 
+            'stats', 'pourquoi', 'process', 'contact'
+          ];
+          const sectionName = sectionNames[sectionIndex] || `section-${sectionIndex}`;
+          
+          window.plausible('Section View', { props: { section: sectionName } });
+          sectionTracker.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
     
-    console.log('✅ Presentation page loaded');
+    sectionTracker.observe(section);
   });
+  
+});
 
-})();
+// =============================================================================
+// 10. GESTION DU SCROLL REVEAL INITIAL
+// =============================================================================
+// Déclencher les animations pour les éléments déjà visibles au chargement
+window.addEventListener('load', () => {
+  // Petit délai pour laisser le DOM se stabiliser
+  setTimeout(() => {
+    const heroElements = document.querySelectorAll('.pres-hero .animate-on-scroll');
+    heroElements.forEach((el, index) => {
+      const delay = el.dataset.delay || (index * 150);
+      setTimeout(() => {
+        el.classList.add('animated');
+      }, parseInt(delay));
+    });
+  }, 100);
+});
