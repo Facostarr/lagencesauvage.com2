@@ -6,7 +6,7 @@
   
   <!-- SEO -->
   <title>Présentation EDEXA | L'Agence Sauvage - Les bénéfices de l'IA, au prix d'un stagiaire</title>
-  <meta name="description" content="Proposition personnalisée pour EDEXA : automatisation des relances comptables et gains de productivité avec L'Agence Sauvage.">
+  <meta name="description" content="Proposition personnalisée pour EDEXA : automatisez vos relances de pièces comptables et gagnez 40h/mois. Tarifs préférentiels client référent.">
   <meta name="robots" content="noindex, nofollow">
   
   <!-- Open Graph -->
@@ -28,234 +28,6 @@
   <!-- Styles -->
   <link rel="stylesheet" href="/assets/css/styles.css">
   <link rel="stylesheet" href="/assets/css/presentation.css">
-  
-  <!-- Styles spécifiques section personnalisée -->
-  <style>
-    /* Section personnalisée prospect */
-    .pres-custom {
-      background: linear-gradient(180deg, #f8f6f0 0%, var(--cream) 100%);
-    }
-    
-    .pres-custom__header {
-      text-align: center;
-      margin-bottom: var(--space-2xl);
-    }
-    
-    .pres-custom__badge {
-      display: inline-block;
-      background: var(--burnt-orange);
-      color: var(--cream);
-      padding: 8px 24px;
-      border-radius: 30px;
-      font-weight: 700;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: var(--space-md);
-    }
-    
-    .pres-custom__title {
-      font-family: var(--font-logo);
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      color: var(--forest-green);
-    }
-    
-    .pres-custom__grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-xl);
-      margin-bottom: var(--space-2xl);
-    }
-    
-    .pres-custom__card {
-      background: white;
-      padding: var(--space-xl);
-      border-radius: 20px;
-      box-shadow: 0 4px 24px rgba(34, 79, 60, 0.08);
-    }
-    
-    .pres-custom__card h3 {
-      font-family: var(--font-logo);
-      color: var(--forest-green);
-      font-size: 1.3rem;
-      margin-bottom: var(--space-md);
-      display: flex;
-      align-items: center;
-      gap: var(--space-sm);
-    }
-    
-    .pres-custom__card h3 span {
-      font-size: 1.5rem;
-    }
-    
-    .pres-custom__list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    
-    .pres-custom__list li {
-      padding: var(--space-sm) 0;
-      border-bottom: 1px solid rgba(34, 79, 60, 0.1);
-      display: flex;
-      align-items: flex-start;
-      gap: var(--space-sm);
-    }
-    
-    .pres-custom__list li:last-child {
-      border-bottom: none;
-    }
-    
-    .pres-custom__priority {
-      color: var(--burnt-orange);
-      font-size: 0.85rem;
-      white-space: nowrap;
-    }
-    
-    .pres-custom__timeline {
-      background: var(--forest-green);
-      color: var(--cream);
-      padding: var(--space-lg);
-      border-radius: 16px;
-      margin-top: var(--space-md);
-    }
-    
-    .pres-custom__timeline-item {
-      display: flex;
-      gap: var(--space-md);
-      padding: var(--space-sm) 0;
-    }
-    
-    .pres-custom__timeline-week {
-      font-weight: 700;
-      color: var(--burnt-orange);
-      min-width: 100px;
-    }
-    
-    /* Bloc tarifs */
-    .pres-custom__pricing {
-      background: linear-gradient(135deg, var(--forest-green) 0%, #1a3d2e 100%);
-      color: var(--cream);
-      padding: var(--space-2xl);
-      border-radius: 24px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .pres-custom__pricing::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      right: -20%;
-      width: 300px;
-      height: 300px;
-      background: radial-gradient(circle, rgba(201, 104, 57, 0.2) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    
-    .pres-custom__pricing-badge {
-      display: inline-block;
-      background: var(--burnt-orange);
-      color: var(--cream);
-      padding: 6px 16px;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: 700;
-      margin-bottom: var(--space-lg);
-    }
-    
-    .pres-custom__pricing h3 {
-      font-family: var(--font-logo);
-      font-size: 1.8rem;
-      margin-bottom: var(--space-xl);
-      color: var(--cream);
-    }
-    
-    .pres-custom__pricing-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-xl);
-      max-width: 600px;
-      margin: 0 auto var(--space-xl);
-    }
-    
-    .pres-custom__pricing-item {
-      background: rgba(255, 255, 255, 0.1);
-      padding: var(--space-lg);
-      border-radius: 16px;
-      backdrop-filter: blur(10px);
-    }
-    
-    .pres-custom__pricing-label {
-      font-size: 0.95rem;
-      opacity: 0.9;
-      margin-bottom: var(--space-sm);
-    }
-    
-    .pres-custom__pricing-old {
-      font-size: 1.2rem;
-      text-decoration: line-through;
-      opacity: 0.6;
-      margin-bottom: var(--space-xs);
-    }
-    
-    .pres-custom__pricing-new {
-      font-family: var(--font-logo);
-      font-size: 2.5rem;
-      color: var(--burnt-orange);
-    }
-    
-    .pres-custom__pricing-new small {
-      font-size: 1rem;
-      font-family: var(--font-base);
-    }
-    
-    .pres-custom__pricing-deadline {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--space-sm);
-      background: rgba(201, 104, 57, 0.3);
-      padding: var(--space-sm) var(--space-md);
-      border-radius: 8px;
-      font-size: 0.95rem;
-    }
-    
-    .pres-custom__pricing-deadline strong {
-      color: var(--burnt-orange);
-    }
-    
-    /* ROI highlight */
-    .pres-custom__roi {
-      background: var(--burnt-orange);
-      color: var(--cream);
-      padding: var(--space-lg);
-      border-radius: 16px;
-      text-align: center;
-      margin-top: var(--space-md);
-    }
-    
-    .pres-custom__roi-number {
-      font-family: var(--font-logo);
-      font-size: 3rem;
-      display: block;
-    }
-    
-    .pres-custom__roi-label {
-      font-size: 1.1rem;
-    }
-    
-    /* Responsive */
-    @media (max-width: 768px) {
-      .pres-custom__grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .pres-custom__pricing-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
 </head>
 
 <body class="presentation-page">
@@ -271,7 +43,7 @@
     </a>
   </header>
 
-  <!-- INDICATEURS DE PROGRESSION -->
+  <!-- INDICATEURS DE PROGRESSION (9 sections) -->
   <nav class="pres-progress" aria-label="Navigation sections">
     <button class="pres-progress__dot active" data-section="0" aria-label="Section Hero"></button>
     <button class="pres-progress__dot" data-section="1" aria-label="Section Problème"></button>
@@ -551,115 +323,97 @@
     <!-- SECTION 8: PERSONNALISÉE EDEXA -->
     <section class="pres-section pres-custom" data-section="7">
       <div class="pres-section__container">
-        <div class="pres-custom__header animate-on-scroll" data-animation="fade-up">
+        <div class="pres-custom__header animate-on-scroll" data-animation="scale-in">
           <span class="pres-custom__badge">Proposition personnalisée</span>
-          <h2 class="pres-custom__title">Votre situation chez EDEXA</h2>
+          <h2 class="pres-section__title">Votre situation chez EDEXA</h2>
+          <p class="pres-custom__context">Cabinet d'expertise comptable • 220-230 clients • Équipe de 5 personnes</p>
         </div>
         
         <div class="pres-custom__grid">
           <!-- Besoins identifiés -->
           <div class="pres-custom__card animate-on-scroll" data-animation="slide-left" data-delay="0">
-            <h3><span>📋</span> Vos besoins identifiés</h3>
-            <ul class="pres-custom__list">
+            <div class="pres-custom__card-icon">📋</div>
+            <h3>Vos besoins identifiés</h3>
+            <ul class="pres-custom__needs-list">
               <li>
-                <span class="pres-custom__priority">⭐⭐⭐⭐</span>
-                <span>Automatisation des <strong>relances de pièces comptables</strong> (40h/mois pour l'équipe)</span>
+                <span class="pres-custom__priority pres-custom__priority--high">★★★★</span>
+                <span>Automatisation des relances de pièces comptables <strong>(40h/mois pour l'équipe)</strong></span>
               </li>
               <li>
-                <span class="pres-custom__priority">⭐⭐⭐</span>
-                <span>Gains de <strong>productivité</strong> pour traiter plus de dossiers clients</span>
+                <span class="pres-custom__priority pres-custom__priority--medium">★★★</span>
+                <span>Gains de productivité pour traiter plus de dossiers clients</span>
               </li>
               <li>
-                <span class="pres-custom__priority">⭐⭐⭐</span>
-                <span><strong>Modernisation</strong> des processus (équipe "à l'ancienne")</span>
+                <span class="pres-custom__priority pres-custom__priority--medium">★★★</span>
+                <span>Modernisation des processus (équipe "à l'ancienne")</span>
               </li>
               <li>
-                <span class="pres-custom__priority">⭐⭐</span>
-                <span>Veille <strong>procédures collectives</strong></span>
+                <span class="pres-custom__priority pres-custom__priority--low">★★</span>
+                <span>Veille procédures collectives</span>
               </li>
             </ul>
           </div>
           
-          <!-- Notre proposition -->
+          <!-- Proposition -->
           <div class="pres-custom__card animate-on-scroll" data-animation="slide-right" data-delay="100">
-            <h3><span>🎯</span> Notre proposition</h3>
-            <ul class="pres-custom__list">
-              <li>
-                <span>✅</span>
-                <span>Workflow de <strong>relance automatisée</strong> des pièces comptables</span>
-              </li>
-              <li>
-                <span>✅</span>
-                <span><strong>Agent intelligent</strong> avec mise en copie des collaborateurs</span>
-              </li>
-              <li>
-                <span>✅</span>
-                <span>Configuration <strong>serveur VPS dédié</strong></span>
-              </li>
-              <li>
-                <span>✅</span>
-                <span>Intégrations API : <strong>Sage Koala, Fulll, Microsoft</strong></span>
-              </li>
-              <li>
-                <span>🎁</span>
-                <span><strong>Bonus :</strong> Veille procédures collectives (BODACC)</span>
-              </li>
+            <div class="pres-custom__card-icon">🎯</div>
+            <h3>Notre proposition</h3>
+            <ul class="pres-custom__solution-list">
+              <li>✓ Workflow de <strong>relance automatisée</strong> des pièces comptables</li>
+              <li>✓ Agent intelligent avec <strong>mise en copie des collaborateurs</strong></li>
+              <li>✓ Configuration <strong>serveur VPS dédié</strong></li>
+              <li>✓ Intégrations API : <strong>Sage Koala, Fulll, Microsoft</strong></li>
+              <li class="pres-custom__bonus">🎁 Bonus : Veille procédures collectives (BODACC)</li>
             </ul>
           </div>
           
           <!-- Résultats attendus -->
           <div class="pres-custom__card animate-on-scroll" data-animation="slide-left" data-delay="200">
-            <h3><span>📈</span> Résultats attendus</h3>
+            <div class="pres-custom__card-icon">📈</div>
+            <h3>Résultats attendus</h3>
             <div class="pres-custom__roi">
-              <span class="pres-custom__roi-number">40h/mois</span>
-              <span class="pres-custom__roi-label">économisées sur les relances</span>
+              <div class="pres-custom__roi-number">40h</div>
+              <div class="pres-custom__roi-label">économisées par mois</div>
             </div>
-            <p style="margin-top: var(--space-md); text-align: center; color: var(--stone-gray);">
-              = Capacité de traitement de <strong>nouveaux dossiers clients</strong>
-            </p>
+            <p class="pres-custom__roi-detail">= Capacité de traitement pour <strong>nouveaux dossiers clients</strong> sans embaucher</p>
           </div>
           
           <!-- Planning -->
           <div class="pres-custom__card animate-on-scroll" data-animation="slide-right" data-delay="300">
-            <h3><span>📅</span> Planning prévisionnel</h3>
+            <div class="pres-custom__card-icon">📅</div>
+            <h3>Planning prévisionnel</h3>
             <div class="pres-custom__timeline">
               <div class="pres-custom__timeline-item">
-                <span class="pres-custom__timeline-week">Semaine 1-2</span>
+                <span class="pres-custom__timeline-week">Sem. 1-2</span>
                 <span>Configuration serveur et intégrations API</span>
               </div>
               <div class="pres-custom__timeline-item">
-                <span class="pres-custom__timeline-week">Semaine 3-4</span>
+                <span class="pres-custom__timeline-week">Sem. 3-4</span>
                 <span>Déploiement workflow + test + validation</span>
               </div>
-              <div class="pres-custom__timeline-item" style="border-top: 1px solid rgba(255,255,255,0.2); margin-top: var(--space-sm); padding-top: var(--space-sm);">
-                <span class="pres-custom__timeline-week">→ Total</span>
-                <span><strong>4 semaines</strong></span>
+              <div class="pres-custom__timeline-total">
+                <strong>→ Total : 4 semaines</strong>
               </div>
             </div>
           </div>
         </div>
         
-        <!-- Bloc tarifs préférentiels -->
+        <!-- Tarifs préférentiels -->
         <div class="pres-custom__pricing animate-on-scroll" data-animation="scale-in" data-delay="400">
-          <span class="pres-custom__pricing-badge">🏷️ Client référent</span>
-          <h3>Tarifs préférentiels EDEXA</h3>
-          
+          <div class="pres-custom__pricing-badge">💎 Tarifs préférentiels client référent</div>
           <div class="pres-custom__pricing-grid">
             <div class="pres-custom__pricing-item">
-              <div class="pres-custom__pricing-label">Setup (installation)</div>
-              <div class="pres-custom__pricing-old">2 000 €</div>
-              <div class="pres-custom__pricing-new">1 000 €</div>
+              <span class="pres-custom__pricing-label">Setup</span>
+              <span class="pres-custom__pricing-old">2 000€</span>
+              <span class="pres-custom__pricing-new">1 000€</span>
             </div>
             <div class="pres-custom__pricing-item">
-              <div class="pres-custom__pricing-label">Abonnement mensuel</div>
-              <div class="pres-custom__pricing-old">500 €/mois</div>
-              <div class="pres-custom__pricing-new">250 € <small>/mois</small></div>
+              <span class="pres-custom__pricing-label">Abonnement</span>
+              <span class="pres-custom__pricing-old">500€/mois</span>
+              <span class="pres-custom__pricing-new">250€/mois</span>
             </div>
           </div>
-          
-          <div class="pres-custom__pricing-deadline">
-            ⚠️ Offre valable jusqu'au <strong>31 janvier 2026</strong>
-          </div>
+          <p class="pres-custom__pricing-validity">⚠️ Offre valable jusqu'au <strong>31 janvier 2026</strong></p>
         </div>
       </div>
     </section>
@@ -683,7 +437,7 @@
             
             <div class="pres-contact__form-row">
               <input type="tel" name="phone" placeholder="Téléphone (optionnel)" aria-label="Téléphone">
-              <input type="text" name="company" placeholder="Nom de votre entreprise" value="EDEXA" required aria-label="Nom de votre entreprise">
+              <input type="text" name="company" placeholder="Nom de votre entreprise" required aria-label="Nom de votre entreprise" value="EDEXA">
             </div>
             
             <select name="company_size" required aria-label="Taille de l'entreprise">
