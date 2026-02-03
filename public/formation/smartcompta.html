@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO -->
+  <title>Questionnaire Formation IA | Smartcompta × L'Agence Sauvage</title>
+  <meta name="description" content="Questionnaire de positionnement pour la formation IA destinée aux dirigeants de Smartcompta.">
+  <meta name="robots" content="noindex, nofollow">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/formation.css">
+</head>
+
+<body class="formation-page">
+  
+  <!-- HEADER -->
+  <header class="form-header">
+    <a href="https://www.lagencesauvage.com" class="form-header__logo">
+      <img src="/assets/images/logo-lagencesauvage-original.svg" alt="L'Agence Sauvage">
+    </a>
+    <div class="form-header__client">
+      <span>Formation pour</span>
+      <span class="form-header__client-badge">Smartcompta</span>
+    </div>
+  </header>
+  
+  <!-- BARRE DE PROGRESSION -->
+  <div class="form-progress">
+    <div class="form-progress__bar"></div>
+  </div>
+  
+  <!-- NAVIGATION SECTIONS -->
+  <nav class="form-nav" aria-label="Navigation sections">
+    <button class="form-nav__item" data-section="0">
+      <span class="form-nav__dot"></span>
+      <span class="form-nav__label">Accueil</span>
+    </button>
+    <button class="form-nav__item" data-section="1">
+      <span class="form-nav__dot"></span>
+      <span class="form-nav__label">Identité</span>
+    </button>
+    <button class="form-nav__item" data-section="2">
+      <span class="form-nav__dot"></span>
+      <span class="form-nav__label">Usage IA</span>
+    </button>
+    <button class="form-nav__item" data-section="3">
+      <span class="form-nav__dot"></span>
+      <span class="form-nav__label">Auto-évaluation</span>
+    </button>
+    <button class="form-nav__item" data-section="4">
+      <span class="form-nav__dot"></span>
+      <span class="form-nav__label">Besoins</span>
+    </button>
+    <button class="form-nav__item" data-section="5">
+      <span class="form-nav__dot"></span>
+      <span class="form-nav__label">Attentes</span>
+    </button>
+    <button class="form-nav__item" data-section="6">
+      <span class="form-nav__dot"></span>
+      <span class="form-nav__label">Logistique</span>
+    </button>
+  </nav>
+  
+  <!-- FORMULAIRE -->
+  <main class="form-container">
+    <form id="formationForm" novalidate>
+      
+      <!-- Données cachées -->
+      <input type="hidden" name="societe" value="Smartcompta">
+      <input type="hidden" name="formation" value="IA pour experts-comptables">
+      <input type="hidden" name="source" value="Formulaire Smartcompta">
+      
+      <!-- ========== SECTION 0: HERO ========== -->
+      <section class="form-section form-hero active" data-section="0">
+        <img src="/assets/images/logo-lagencesauvage-original.svg" alt="L'Agence Sauvage" class="form-hero__logo">
+        <h1 class="form-hero__title">Questionnaire de <span>positionnement</span></h1>
+        <p class="form-hero__subtitle">Aidez-nous à personnaliser votre formation IA en répondant à quelques questions sur votre profil et vos attentes.</p>
+        
+        <div class="form-hero__client-info">
+          <div class="form-hero__client-name">Smartcompta</div>
+          <div class="form-hero__formation">Formation : IA pour experts-comptables</div>
+        </div>
+        
+        <button type="button" class="form-hero__start">
+          Commencer le questionnaire
+          <span>→</span>
+        </button>
+      </section>
+      
+      <!-- ========== SECTION 1: INFORMATIONS PERSONNELLES ========== -->
+      <section class="form-section" data-section="1">
+        <div class="form-section__inner">
+          <div class="form-section__header">
+            <div class="form-section__number">1</div>
+            <h2 class="form-section__title">Informations personnelles</h2>
+            <p class="form-section__subtitle">Dites-nous qui vous êtes</p>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-group__label form-group__label--required" for="nom">Nom</label>
+              <input type="text" id="nom" name="nom" class="form-input" placeholder="Votre nom" required>
+            </div>
+            <div class="form-group">
+              <label class="form-group__label form-group__label--required" for="prenom">Prénom</label>
+              <input type="text" id="prenom" name="prenom" class="form-input" placeholder="Votre prénom" required>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-group__label" for="fonction">Fonction dans l'entreprise</label>
+            <input type="text" id="fonction" name="fonction" class="form-input" placeholder="Ex: Directeur associé, Expert-comptable...">
+          </div>
+          
+          <div class="form-group">
+            <label class="form-group__label form-group__label--required" for="email">Email professionnel</label>
+            <input type="email" id="email" name="email" class="form-input" placeholder="votre.email@entreprise.com" required>
+            <p class="form-group__hint">Un récapitulatif PDF vous sera envoyé à cette adresse.</p>
+          </div>
+          
+          <div class="form-actions">
+            <span></span>
+            <button type="button" class="form-btn form-btn--next" data-action="next">
+              Suivant
+              <span class="form-btn__icon">→</span>
+            </button>
+          </div>
+        </div>
+      </section>
+      
+      <!-- ========== SECTION 2: USAGE ACTUEL DE L'IA ========== -->
+      <section class="form-section" data-section="2">
+        <div class="form-section__inner">
+          <div class="form-section__header">
+            <div class="form-section__number">2</div>
+            <h2 class="form-section__title">Usage actuel de l'IA</h2>
+            <p class="form-section__subtitle">Votre expérience avec les outils d'IA</p>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-group__label form-group__label--required">À quelle fréquence utilisez-vous des outils d'IA ?</label>
+            <div class="form-options">
+              <label class="form-option">
+                <input type="radio" name="frequence_ia" value="Jamais" required>
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">Jamais</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="frequence_ia" value="Rarement (moins d'une fois par mois)">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">Rarement (moins d'une fois par mois)</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="frequence_ia" value="Occasionnellement (quelques fois par mois)">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">Occasionnellement (quelques fois par mois)</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="frequence_ia" value="Régulièrement (plusieurs fois par semaine)">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">Régulièrement (plusieurs fois par semaine)</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="frequence_ia" value="Quotidiennement">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">Quotidiennement</span>
+              </label>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-group__label">Quels outils d'IA avez-vous déjà utilisés ?</label>
+            <div class="form-options form-options--grid">
+              <label class="form-option">
+                <input type="checkbox" name="outils_ia" value="ChatGPT">
+                <span class="form-option__check"></span>
+                <span class="form-option__text">ChatGPT</span>
+              </label>
+              <label class="form-option">
+                <input type="checkbox" name="outils_ia" value="Claude">
+                <span class="form-option__check"></span>
+                <span class="form-option__text">Claude (Anthropic)</span>
+              </label>
+              <label class="form-option">
+                <input type="checkbox" name="outils_ia" value="Gemini">
+                <span class="form-option__check"></span>
+                <span class="form-option__text">Gemini (Google)</span>
+              </label>
+              <label class="form-option">
+                <input type="checkbox" name="outils_ia" value="Copilot">
+                <span class="form-option__check"></span>
+                <span class="form-option__text">Copilot (Microsoft)</span>
+              </label>
+              <label class="form-option">
+                <input type="checkbox" name="outils_ia" value="Mistral">
+                <span class="form-option__check"></span>
+                <span class="form-option__text">Mistral</span>
+              </label>
+              <label class="form-option">
+                <input type="checkbox" name="outils_ia" value="Aucun">
+                <span class="form-option__check"></span>
+                <span class="form-option__text">Aucun</span>
+              </label>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-group__label">Avez-vous un abonnement payant ?</label>
+            <div class="form-options">
+              <label class="form-option">
+                <input type="radio" name="abonnement_payant" value="Non, uniquement versions gratuites">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">Non, uniquement versions gratuites</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="abonnement_payant" value="Oui, ChatGPT Plus">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">Oui, ChatGPT Plus</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="abonnement_payant" value="Oui, Claude Pro">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">Oui, Claude Pro</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="abonnement_payant" value="Oui, autre abonnement">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">Oui, autre abonnement</span>
+              </label>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-group__label" for="contexte_utilisation">Dans quel contexte utilisez-vous l'IA actuellement ?</label>
+            <textarea id="contexte_utilisation" name="contexte_utilisation" class="form-textarea" placeholder="Ex: rédaction d'emails, recherche d'informations, aide à la rédaction de rapports..."></textarea>
+          </div>
+          
+          <div class="form-actions">
+            <button type="button" class="form-btn form-btn--prev" data-action="prev">
+              <span class="form-btn__icon">←</span>
+              Précédent
+            </button>
+            <button type="button" class="form-btn form-btn--next" data-action="next">
+              Suivant
+              <span class="form-btn__icon">→</span>
+            </button>
+          </div>
+        </div>
+      </section>
+      
+      <!-- ========== SECTION 3: AUTO-ÉVALUATION ========== -->
+      <section class="form-section" data-section="3">
+        <div class="form-section__inner">
+          <div class="form-section__header">
+            <div class="form-section__number">3</div>
+            <h2 class="form-section__title">Auto-évaluation</h2>
+            <p class="form-section__subtitle">Évaluez votre niveau actuel</p>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-group__label form-group__label--required">Comment évaluez-vous votre niveau en IA ?</label>
+            <div class="form-options">
+              <label class="form-option">
+                <input type="radio" name="niveau_auto" value="Débutant" required>
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text"><strong>Débutant</strong> — Je découvre, j'ai besoin de tout apprendre</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="niveau_auto" value="Intermédiaire">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text"><strong>Intermédiaire</strong> — J'ai testé, je sais faire des requêtes simples</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="niveau_auto" value="Confirmé">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text"><strong>Confirmé</strong> — J'utilise régulièrement avec de bons résultats</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="niveau_auto" value="Expert">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text"><strong>Expert</strong> — Je maîtrise les techniques avancées (prompting, workflows...)</span>
+              </label>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-group__label" for="prompting_scenario">Mise en situation</label>
+            <p class="form-group__hint" style="margin-bottom: var(--space-sm);">Si vous deviez demander à une IA de vous aider à rédiger un rapport d'analyse financière pour un client, comment formuleriez-vous votre demande ?</p>
+            <textarea id="prompting_scenario" name="prompting_scenario" class="form-textarea" placeholder="Décrivez comment vous formuleriez votre demande..."></textarea>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-group__label">Quelles notions techniques connaissez-vous ?</label>
+            <div class="form-options form-options--grid">
+              <label class="form-option">
+                <input type="checkbox" name="notions_techniques" value="Prompt / Prompting">
+                <span class="form-option__check"></span>
+                <span class="form-option__text">Prompt / Prompting</span>
+              </label>
+              <label class="form-option">
+                <input type="checkbox" name="notions_techniques" value="Tokens">
+                <span class="form-option__check"></span>
+                <span class="form-option__text">Tokens</span>
+              </label>
+              <label class="form-option">
+                <input type="checkbox" name="notions_techniques" value="Contexte / Context window">
+                <span class="form-option__check"></span>
+                <span class="form-option__text">Contexte / Context window</span>
+              </label>
+              <label class="form-option">
+                <input type="checkbox" name="notions_techniques" value="Hallucinations">
+                <span class="form-option__check"></span>
+                <span class="form-option__text">Hallucinations</span>
+              </label>
+              <label class="form-option">
+                <input type="checkbox" name="notions_techniques" value="Temperature">
+                <span class="form-option__check"></span>
+                <span class="form-option__text">Temperature</span>
+              </label>
+              <label class="form-option">
+                <input type="checkbox" name="notions_techniques" value="Aucune de ces notions">
+                <span class="form-option__check"></span>
+                <span class="form-option__text">Aucune de ces notions</span>
+              </label>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-group__label" for="difficultes">Quelles difficultés rencontrez-vous avec l'IA ?</label>
+            <textarea id="difficultes" name="difficultes" class="form-textarea" placeholder="Ex: réponses imprécises, ne sait pas comment formuler les demandes, résultats pas adaptés au métier..."></textarea>
+          </div>
+          
+          <div class="form-actions">
+            <button type="button" class="form-btn form-btn--prev" data-action="prev">
+              <span class="form-btn__icon">←</span>
+              Précédent
+            </button>
+            <button type="button" class="form-btn form-btn--next" data-action="next">
+              Suivant
+              <span class="form-btn__icon">→</span>
+            </button>
+          </div>
+        </div>
+      </section>
+      
+      <!-- ========== SECTION 4: BESOINS PROFESSIONNELS ========== -->
+      <section class="form-section" data-section="4">
+        <div class="form-section__inner">
+          <div class="form-section__header">
+            <div class="form-section__number">4</div>
+            <h2 class="form-section__title">Besoins professionnels</h2>
+            <p class="form-section__subtitle">Votre quotidien de travail</p>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-group__label" for="taches_chronophages">Quelles tâches vous prennent le plus de temps ?</label>
+            <textarea id="taches_chronophages" name="taches_chronophages" class="form-textarea" placeholder="Ex: rédaction de comptes-rendus, analyse de documents, réponses aux emails..."></textarea>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-group__label" for="taches_repetitives">Quelles tâches répétitives aimeriez-vous automatiser ?</label>
+            <textarea id="taches_repetitives" name="taches_repetitives" class="form-textarea" placeholder="Ex: synthèse de bilans, création de rapports standards, relances clients..."></textarea>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-group__label" for="outils_metier">Quels outils/logiciels utilisez-vous au quotidien ?</label>
+            <textarea id="outils_metier" name="outils_metier" class="form-textarea" placeholder="Ex: ACD, Cegid, Sage, Excel, Word, Outlook..."></textarea>
+          </div>
+          
+          <div class="form-actions">
+            <button type="button" class="form-btn form-btn--prev" data-action="prev">
+              <span class="form-btn__icon">←</span>
+              Précédent
+            </button>
+            <button type="button" class="form-btn form-btn--next" data-action="next">
+              Suivant
+              <span class="form-btn__icon">→</span>
+            </button>
+          </div>
+        </div>
+      </section>
+      
+      <!-- ========== SECTION 5: ATTENTES FORMATION ========== -->
+      <section class="form-section" data-section="5">
+        <div class="form-section__inner">
+          <div class="form-section__header">
+            <div class="form-section__number">5</div>
+            <h2 class="form-section__title">Attentes de la formation</h2>
+            <p class="form-section__subtitle">Ce que vous souhaitez apprendre</p>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-group__label">Quels sont vos objectifs principaux ?</label>
+            <div class="form-options">
+              <label class="form-option">
+                <input type="checkbox" name="objectifs_formation" value="Gagner du temps sur les tâches quotidiennes">
+                <span class="form-option__check"></span>
+                <span class="form-option__text">Gagner du temps sur les tâches quotidiennes</span>
+              </label>
+              <label class="form-option">
+                <input type="checkbox" name="objectifs_formation" value="Améliorer la qualité de mes productions">
+                <span class="form-option__check"></span>
+                <span class="form-option__text">Améliorer la qualité de mes productions</span>
+              </label>
+              <label class="form-option">
+                <input type="checkbox" name="objectifs_formation" value="Mieux accompagner mes clients avec l'IA">
+                <span class="form-option__check"></span>
+                <span class="form-option__text">Mieux accompagner mes clients avec l'IA</span>
+              </label>
+              <label class="form-option">
+                <input type="checkbox" name="objectifs_formation" value="Comprendre les enjeux et risques de l'IA">
+                <span class="form-option__check"></span>
+                <span class="form-option__text">Comprendre les enjeux et risques de l'IA</span>
+              </label>
+              <label class="form-option">
+                <input type="checkbox" name="objectifs_formation" value="Créer des automatisations">
+                <span class="form-option__check"></span>
+                <span class="form-option__text">Créer des automatisations</span>
+              </label>
+              <label class="form-option">
+                <input type="checkbox" name="objectifs_formation" value="Rester à jour sur les évolutions technologiques">
+                <span class="form-option__check"></span>
+                <span class="form-option__text">Rester à jour sur les évolutions technologiques</span>
+              </label>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-group__label form-group__label--required" for="cas_usage_prioritaire">Décrivez un cas d'usage concret que vous aimeriez maîtriser</label>
+            <textarea id="cas_usage_prioritaire" name="cas_usage_prioritaire" class="form-textarea" placeholder="Ex: Pouvoir générer automatiquement une synthèse de bilan à partir d'un PDF..." required></textarea>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-group__label" for="critere_reussite">À quoi saurez-vous que la formation a été réussie ?</label>
+            <textarea id="critere_reussite" name="critere_reussite" class="form-textarea" placeholder="Ex: Je gagne 2h par semaine, je sais rédiger des prompts efficaces..."></textarea>
+          </div>
+          
+          <div class="form-actions">
+            <button type="button" class="form-btn form-btn--prev" data-action="prev">
+              <span class="form-btn__icon">←</span>
+              Précédent
+            </button>
+            <button type="button" class="form-btn form-btn--next" data-action="next">
+              Suivant
+              <span class="form-btn__icon">→</span>
+            </button>
+          </div>
+        </div>
+      </section>
+      
+      <!-- ========== SECTION 6: LOGISTIQUE ========== -->
+      <section class="form-section" data-section="6">
+        <div class="form-section__inner">
+          <div class="form-section__header">
+            <div class="form-section__number">6</div>
+            <h2 class="form-section__title">Logistique</h2>
+            <p class="form-section__subtitle">Quelques informations pratiques</p>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-group__label">Avez-vous les droits administrateur sur votre PC ?</label>
+            <div class="form-options">
+              <label class="form-option">
+                <input type="radio" name="droits_admin" value="Oui">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">Oui, je peux installer des logiciels</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="droits_admin" value="Non">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">Non, je dois demander au service informatique</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="droits_admin" value="Je ne sais pas">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">Je ne sais pas</span>
+              </label>
+            </div>
+            <p class="form-group__hint">Cela nous aide à préparer les exercices pratiques.</p>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-group__label" for="contraintes_horaires">Avez-vous des contraintes horaires particulières ?</label>
+            <textarea id="contraintes_horaires" name="contraintes_horaires" class="form-textarea" placeholder="Ex: indisponible le vendredi, préférence pour les matinées..."></textarea>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-group__label" for="besoins_accessibilite">Besoins spécifiques d'accessibilité ?</label>
+            <textarea id="besoins_accessibilite" name="besoins_accessibilite" class="form-textarea" placeholder="Ex: sous-titrage nécessaire, documents en format accessible..."></textarea>
+          </div>
+          
+          <div class="form-actions">
+            <button type="button" class="form-btn form-btn--prev" data-action="prev">
+              <span class="form-btn__icon">←</span>
+              Précédent
+            </button>
+            <button type="button" class="form-btn form-btn--submit" data-action="submit">
+              Envoyer mes réponses
+              <span class="form-btn__icon">✓</span>
+            </button>
+          </div>
+        </div>
+      </section>
+      
+    </form>
+    
+    <!-- LOADER -->
+    <div class="form-loader">
+      <div class="form-loader__spinner"></div>
+      <p class="form-loader__text">Envoi en cours...</p>
+    </div>
+    
+    <!-- SUCCESS -->
+    <section class="form-success" style="display: none;">
+      <div class="form-success__icon">✅</div>
+      <h2 class="form-success__title">Merci pour vos réponses !</h2>
+      <p class="form-success__message">Votre questionnaire a bien été enregistré. Nous avons hâte de vous retrouver pour la formation.</p>
+      <div class="form-success__email-note">
+        <strong>📧 Vérifiez votre boîte mail</strong><br>
+        Un récapitulatif PDF de vos réponses vous a été envoyé.
+      </div>
+    </section>
+    
+  </main>
+  
+  <!-- JavaScript -->
+  <script src="/assets/js/formation.js"></script>
+  
+</body>
+</html>
