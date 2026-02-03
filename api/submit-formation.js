@@ -23,7 +23,7 @@ const notion = new Client({
 });
 
 // Database ID pour les réponses formations
-const FORMATION_DATABASE_ID = 'ac97814144c2439abe2726403ae5d5c0';
+const FORMATION_DATABASE_ID = '821a8750ebfa40d4b1f0b7db3990f82c';
 
 /**
  * Configuration Nodemailer SMTP
@@ -288,6 +288,20 @@ async function sendNotificationToFranck(data, notionUrl) {
  * Sauvegarde dans Notion
  */
 async function saveToNotion(data) {
+  // Liste des valeurs valides pour chaque select
+  const validNiveaux = ['Débutant', 'Intermédiaire', 'Confirmé', 'Expert'];
+  const validFrequences = ['Jamais', 'Essayé 1-2 fois', 'Occasionnellement', 'Régulièrement', 'Quotidiennement'];
+  const validAbonnements = ['Non (gratuit)', 'ChatGPT Plus', 'Claude Pro', 'Autre', 'Ne sait pas'];
+  const validDroits = ['Oui', 'À vérifier', 'Non (poste verrouillé)'];
+  const validSocietes = ['Smartcompta', 'Galaxy Conseil', 'Autre'];
+  const validFormations = ['IA pour experts-comptables', 'Claude + N8N', 'Autre'];
+  
+  // Helper pour valider une valeur select
+  const getValidSelect = (value, validOptions) => {
+    if (!value) return null;
+    return validOptions.includes(value) ? { name: value } : null;
+  };
+
   const page = await notion.pages.create({
     parent: { database_id: FORMATION_DATABASE_ID },
     properties: {
@@ -301,28 +315,32 @@ async function saveToNotion(data) {
         email: data.email
       },
       'Société': {
-        select: { name: data.societe || 'Autre' }
+        select: getValidSelect(data.societe, validSocietes) || { name: 'Autre' }
       },
       'Fonction': {
         rich_text: [{ text: { content: data.fonction || '' } }]
       },
       'Formation': {
-        select: { name: data.formation || 'Autre' }
+        select: getValidSelect(data.formation, validFormations) || { name: 'Autre' }
       },
       'Niveau auto-évalué': {
-        select: { name: data.niveau_auto || 'Non renseigné' }
+        select: getValidSelect(data.niveau_auto, validNiveaux)
       },
       'Fréquence usage IA': {
-        select: { name: data.frequence_ia || 'Non renseigné' }
+        select: getValidSelect(data.frequence_ia, validFrequences)
       },
       'Outils utilisés': {
-        multi_select: (Array.isArray(data.outils_ia) ? data.outils_ia : []).map(o => ({ name: o }))
+        multi_select: (Array.isArray(data.outils_ia) ? data.outils_ia : [])
+          .filter(o => ['ChatGPT', 'Claude', 'Gemini', 'Copilot', 'Aucun'].includes(o))
+          .map(o => ({ name: o }))
       },
       'Abonnement payant': {
-        select: data.abonnement_payant ? { name: data.abonnement_payant } : null
+        select: getValidSelect(data.abonnement_payant, validAbonnements)
       },
       'Attentes formation': {
-        multi_select: (Array.isArray(data.objectifs_formation) ? data.objectifs_formation : []).map(o => ({ name: o }))
+        multi_select: (Array.isArray(data.objectifs_formation) ? data.objectifs_formation : [])
+          .filter(o => ['Découvrir l\'IA', 'Améliorer prompting', 'Gagner du temps', 'Structurer usage', 'Comprendre limites', 'Former collaborateurs'].includes(o))
+          .map(o => ({ name: o }))
       },
       'Cas d\'usage prioritaire': {
         rich_text: [{ text: { content: (data.cas_usage_prioritaire || '').substring(0, 2000) } }]
@@ -331,7 +349,7 @@ async function saveToNotion(data) {
         rich_text: [{ text: { content: (data.critere_reussite || '').substring(0, 2000) } }]
       },
       'Droits admin PC': {
-        select: data.droits_admin ? { name: data.droits_admin } : null
+        select: getValidSelect(data.droits_admin, validDroits)
       },
       'Contraintes horaires': {
         rich_text: [{ text: { content: (data.contraintes_horaires || '').substring(0, 2000) } }]
@@ -341,9 +359,6 @@ async function saveToNotion(data) {
       },
       'Date soumission': {
         date: { start: new Date().toISOString().split('T')[0] }
-      },
-      'Statut': {
-        select: { name: 'Nouveau' }
       },
       'Réponses JSON': {
         rich_text: [{ text: { content: JSON.stringify(data).substring(0, 2000) } }]
