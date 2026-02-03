@@ -47,6 +47,7 @@ async function generatePDF(data) {
       const doc = new PDFDocument({
         size: 'A4',
         margin: 50,
+        bufferPages: true, // Important pour la numérotation des pages
         info: {
           Title: `Questionnaire Formation - ${data.prenom} ${data.nom}`,
           Author: "L'Agence Sauvage"
@@ -139,13 +140,13 @@ async function generatePDF(data) {
         { label: 'Besoins accessibilite', value: data.besoins_accessibilite }
       ]);
       
-      // Footer
-      const totalPages = doc.bufferedPageRange().count;
-      for (let i = 0; i < totalPages; i++) {
+      // Footer avec numérotation - Correction de l'index pour PDFKit
+      const range = doc.bufferedPageRange();
+      for (let i = 0; i < range.count; i++) {
         doc.switchToPage(i);
         doc.fontSize(8).fillColor('#999999')
           .text(
-            `L'Agence Sauvage | hello@lagencesauvage.com | www.lagencesauvage.com | Page ${i + 1}/${totalPages}`,
+            `L'Agence Sauvage | hello@lagencesauvage.com | www.lagencesauvage.com | Page ${i + 1}/${range.count}`,
             50, doc.page.height - 30,
             { align: 'center', width: doc.page.width - 100 }
           );
