@@ -103,11 +103,15 @@
       targetSection.classList.add('active');
       state.currentSection = index;
       
-      // Scroll vers la section
+      // Scroll vers le HAUT de la section (avec offset pour le header)
       setTimeout(() => {
-        targetSection.scrollIntoView({ 
-          behavior: 'smooth', 
-          block: 'center' 
+        const headerOffset = 120; // Espace pour la barre de progression
+        const elementPosition = targetSection.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
         });
       }, 100);
     }
