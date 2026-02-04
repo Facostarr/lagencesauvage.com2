@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO -->
+  <title>Questionnaire Formation n8n & Claude | Galaxy Conseil × L'Agence Sauvage</title>
+  <meta name="description" content="Questionnaire de positionnement pour la formation Maîtriser n8n & Claude destinée à Galaxy Conseil.">
+  <meta name="robots" content="noindex, nofollow">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/formation.css">
+</head>
+
+<body class="formation-page">
+  
+  <!-- HEADER -->
+  <header class="form-header">
+    <a href="https://www.lagencesauvage.com" class="form-header__logo">
+      <img src="/assets/images/logo-lagencesauvage-original.svg" alt="L'Agence Sauvage">
+    </a>
+    <div class="form-header__client">
+      <span>Formation pour</span>
+      <span class="form-header__client-badge">Galaxy Conseil</span>
+    </div>
+  </header>
+  
+  <!-- BARRE DE PROGRESSION -->
+  <div class="form-progress">
+    <div class="form-progress__bar"></div>
+  </div>
+  
+  <!-- NAVIGATION SECTIONS -->
+  <nav class="form-nav" aria-label="Navigation sections">
+    <button class="form-nav__item" data-section="0">
+      <span class="form-nav__dot"></span>
+      <span class="form-nav__label">Accueil</span>
+    </button>
+    <button class="form-nav__item" data-section="1">
+      <span class="form-nav__dot"></span>
+      <span class="form-nav__label">Profil</span>
+    </button>
+    <button class="form-nav__item" data-section="2">
+      <span class="form-nav__dot"></span>
+      <span class="form-nav__label">n8n - Base</span>
+    </button>
+    <button class="form-nav__item" data-section="3">
+      <span class="form-nav__dot"></span>
+      <span class="form-nav__label">n8n - Avancé</span>
+    </button>
+    <button class="form-nav__item" data-section="4">
+      <span class="form-nav__dot"></span>
+      <span class="form-nav__label">IA & LLM</span>
+    </button>
+    <button class="form-nav__item" data-section="5">
+      <span class="form-nav__dot"></span>
+      <span class="form-nav__label">Technique</span>
+    </button>
+    <button class="form-nav__item" data-section="6">
+      <span class="form-nav__dot"></span>
+      <span class="form-nav__label">Attentes</span>
+    </button>
+    <button class="form-nav__item" data-section="7">
+      <span class="form-nav__dot"></span>
+      <span class="form-nav__label">Finalisation</span>
+    </button>
+  </nav>
+  
+  <!-- FORMULAIRE -->
+  <main class="form-container">
+    <form id="formationForm" novalidate>
+      
+      <!-- Données cachées -->
+      <input type="hidden" name="societe" value="Galaxy Conseil">
+      <input type="hidden" name="formation" value="Maîtriser n8n & Claude : De l'idée au workflow en production">
+      <input type="hidden" name="source" value="Formulaire Galaxy Conseil">
+      
+      <!-- ========== SECTION 0: HERO ========== -->
+      <section class="form-section form-hero active" data-section="0">
+        <img src="/assets/images/logo-lagencesauvage-original.svg" alt="L'Agence Sauvage" class="form-hero__logo">
+        <h1 class="form-hero__title">Questionnaire de <span>positionnement</span></h1>
+        <p class="form-hero__subtitle">Merci de répondre individuellement et le plus honnêtement possible. L'objectif n'est pas de vous évaluer, mais de personnaliser la formation pour qu'elle vous apporte un maximum de valeur.</p>
+        
+        <div class="form-hero__client-info">
+          <div class="form-hero__client-name">Galaxy Conseil</div>
+          <div class="form-hero__formation">Formation : Maîtriser n8n & Claude</div>
+        </div>
+        
+        <div class="form-hero__duration">
+          <strong>⏱️ Durée estimée :</strong> 15–20 minutes
+        </div>
+        
+        <button type="button" class="form-hero__start">
+          Commencer le questionnaire
+          <span>→</span>
+        </button>
+      </section>
+      
+      <!-- ========== SECTION 1: PROFIL & ENVIRONNEMENT DE TRAVAIL ========== -->
+      <section class="form-section" data-section="1">
+        <div class="form-section__inner">
+          <div class="form-section__header">
+            <div class="form-section__number">1</div>
+            <h2 class="form-section__title">Profil & environnement de travail</h2>
+            <p class="form-section__subtitle">Votre rôle et vos outils quotidiens</p>
+          </div>
+          
+          <!-- Q1 -->
+          <div class="form-group">
+            <label class="form-group__label form-group__label--required">Q1. Quel est votre rôle principal chez Galaxy Conseil ?</label>
+            <div class="form-options">
+              <label class="form-option">
+                <input type="radio" name="q1_role" value="Direction / Management" required>
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">Direction / Management</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q1_role" value="Gestion comptable / Expertise comptable">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">Gestion comptable / Expertise comptable</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q1_role" value="Gestion sociale / Paie">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">Gestion sociale / Paie</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q1_role" value="Service à la personne / Coordination intervenants">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">Service à la personne / Coordination intervenants</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q1_role" value="Administration / Assistanat">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">Administration / Assistanat</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q1_role" value="Informatique / Systèmes d'information">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">Informatique / Systèmes d'information</span>
+              </label>
+            </div>
+            <input type="text" name="q1_role_autre" class="form-input" placeholder="Autre (précisez)" style="margin-top: 10px;">
+          </div>
+          
+          <!-- Q2 -->
+          <div class="form-group">
+            <label class="form-group__label">Q2. Quels modules de Ximi utilisez-vous au quotidien ?</label>
+            <p class="form-group__hint">Cochez tous ceux qui s'appliquent.</p>
+            <div class="form-options form-options--grid">
+              <label class="form-option">
+                <input type="checkbox" name="q2_ximi_modules" value="CRM / Gestion clients">
+                <span class="form-option__check"></span>
+                <span class="form-option__text">CRM / Gestion clients</span>
+              </label>
+              <label class="form-option">
+                <input type="checkbox" name="q2_ximi_modules" value="Comptabilité">
+                <span class="form-option__check"></span>
+                <span class="form-option__text">Comptabilité</span>
+              </label>
+              <label class="form-option">
+                <input type="checkbox" name="q2_ximi_modules" value="Paie / Social">
+                <span class="form-option__check"></span>
+                <span class="form-option__text">Paie / Social</span>
+              </label>
+              <label class="form-option">
+                <input type="checkbox" name="q2_ximi_modules" value="Planning / Gestion des intervenants">
+                <span class="form-option__check"></span>
+                <span class="form-option__text">Planning / Gestion intervenants</span>
+              </label>
+              <label class="form-option">
+                <input type="checkbox" name="q2_ximi_modules" value="Télégestion">
+                <span class="form-option__check"></span>
+                <span class="form-option__text">Télégestion</span>
+              </label>
+              <label class="form-option">
+                <input type="checkbox" name="q2_ximi_modules" value="Qualité">
+                <span class="form-option__check"></span>
+                <span class="form-option__text">Qualité</span>
+              </label>
+              <label class="form-option">
+                <input type="checkbox" name="q2_ximi_modules" value="Extranet clients">
+                <span class="form-option__check"></span>
+                <span class="form-option__text">Extranet clients</span>
+              </label>
+              <label class="form-option">
+                <input type="checkbox" name="q2_ximi_modules" value="RH">
+                <span class="form-option__check"></span>
+                <span class="form-option__text">RH</span>
+              </label>
+              <label class="form-option">
+                <input type="checkbox" name="q2_ximi_modules" value="Facturation">
+                <span class="form-option__check"></span>
+                <span class="form-option__text">Facturation</span>
+              </label>
+              <label class="form-option">
+                <input type="checkbox" name="q2_ximi_modules" value="Je n'utilise pas Ximi">
+                <span class="form-option__check"></span>
+                <span class="form-option__text">Je n'utilise pas Ximi</span>
+              </label>
+            </div>
+            <input type="text" name="q2_ximi_autre" class="form-input" placeholder="Autre (précisez)" style="margin-top: 10px;">
+          </div>
+          
+          <!-- Q3 -->
+          <div class="form-group">
+            <label class="form-group__label">Q3. Quels autres outils numériques utilisez-vous régulièrement ?</label>
+            <div class="form-options form-options--grid">
+              <label class="form-option">
+                <input type="checkbox" name="q3_outils" value="Microsoft Outlook">
+                <span class="form-option__check"></span>
+                <span class="form-option__text">Microsoft Outlook</span>
+              </label>
+              <label class="form-option">
+                <input type="checkbox" name="q3_outils" value="Microsoft Teams">
+                <span class="form-option__check"></span>
+                <span class="form-option__text">Microsoft Teams</span>
+              </label>
+              <label class="form-option">
+                <input type="checkbox" name="q3_outils" value="Microsoft Excel / Word">
+                <span class="form-option__check"></span>
+                <span class="form-option__text">Excel / Word</span>
+              </label>
+              <label class="form-option">
+                <input type="checkbox" name="q3_outils" value="SharePoint / OneDrive">
+                <span class="form-option__check"></span>
+                <span class="form-option__text">SharePoint / OneDrive</span>
+              </label>
+              <label class="form-option">
+                <input type="checkbox" name="q3_outils" value="PennyLane">
+                <span class="form-option__check"></span>
+                <span class="form-option__text">PennyLane</span>
+              </label>
+              <label class="form-option">
+                <input type="checkbox" name="q3_outils" value="Google Workspace">
+                <span class="form-option__check"></span>
+                <span class="form-option__text">Google Workspace</span>
+              </label>
+              <label class="form-option">
+                <input type="checkbox" name="q3_outils" value="Slack">
+                <span class="form-option__check"></span>
+                <span class="form-option__text">Slack</span>
+              </label>
+              <label class="form-option">
+                <input type="checkbox" name="q3_outils" value="Gestion de projet (Trello, Notion, Asana)">
+                <span class="form-option__check"></span>
+                <span class="form-option__text">Gestion de projet</span>
+              </label>
+            </div>
+            <input type="text" name="q3_outils_autre" class="form-input" placeholder="Autre (précisez)" style="margin-top: 10px;">
+          </div>
+          
+          <!-- Q4 -->
+          <div class="form-group">
+            <label class="form-group__label form-group__label--required">Q4. Temps passé sur des tâches répétitives que vous aimeriez automatiser ?</label>
+            <div class="form-options">
+              <label class="form-option">
+                <input type="radio" name="q4_temps_repetitif" value="Moins de 30 minutes" required>
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">Moins de 30 minutes</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q4_temps_repetitif" value="30 minutes à 1 heure">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">30 minutes à 1 heure</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q4_temps_repetitif" value="1 à 2 heures">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">1 à 2 heures</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q4_temps_repetitif" value="2 à 4 heures">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">2 à 4 heures</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q4_temps_repetitif" value="Plus de 4 heures">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">Plus de 4 heures</span>
+              </label>
+            </div>
+          </div>
+          
+          <!-- Q5 -->
+          <div class="form-group">
+            <label class="form-group__label form-group__label--required">Q5. Avez-vous déjà participé à un projet d'automatisation ?</label>
+            <div class="form-options">
+              <label class="form-option">
+                <input type="radio" name="q5_projet_auto" value="Non, jamais" required>
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">Non, jamais</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q5_projet_auto" value="Oui, en tant qu'utilisateur final">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">Oui, en tant qu'utilisateur final</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q5_projet_auto" value="Oui, en tant que contributeur">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">Oui, en tant que contributeur</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q5_projet_auto" value="Oui, en tant que concepteur/réalisateur">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">Oui, en tant que concepteur/réalisateur</span>
+              </label>
+            </div>
+          </div>
+          
+          <!-- Q6 -->
+          <div class="form-group">
+            <label class="form-group__label form-group__label--required">Q6. Aisance générale avec les outils numériques ?</label>
+            <div class="form-options">
+              <label class="form-option">
+                <input type="radio" name="q6_aisance_numerique" value="1 - Je me limite aux usages de base" required>
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">1 — Je me limite aux usages de base</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q6_aisance_numerique" value="2 - Je me débrouille, mais j'ai besoin d'aide">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">2 — Je me débrouille, mais j'ai besoin d'aide</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q6_aisance_numerique" value="3 - Je suis à l'aise et j'apprends facilement">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">3 — Je suis à l'aise et j'apprends facilement</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q6_aisance_numerique" value="4 - Je suis souvent la personne référente">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">4 — Je suis souvent la personne référente</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q6_aisance_numerique" value="5 - Je suis passionné(e) par la tech">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">5 — Je suis passionné(e) par la tech</span>
+              </label>
+            </div>
+          </div>
+          
+          <div class="form-actions">
+            <span></span>
+            <button type="button" class="form-btn form-btn--next" data-action="next">
+              Suivant
+              <span class="form-btn__icon">→</span>
+            </button>
+          </div>
+        </div>
+      </section>
+      
+      <!-- ========== SECTION 2: NIVEAU n8n - BASE ========== -->
+      <section class="form-section" data-section="2">
+        <div class="form-section__inner">
+          <div class="form-section__header">
+            <div class="form-section__number">2</div>
+            <h2 class="form-section__title">Niveau n8n — Base</h2>
+            <p class="form-section__subtitle">Évaluez vos compétences actuelles sur n8n</p>
+          </div>
+          
+          <!-- Q7 -->
+          <div class="form-group">
+            <label class="form-group__label form-group__label--required">Q7. Auto-évaluation — Niveau global sur n8n ?</label>
+            <div class="form-options">
+              <label class="form-option">
+                <input type="radio" name="q7_niveau_n8n" value="1 - Je n'ai jamais ouvert n8n" required>
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">1 — Je n'ai jamais ouvert n8n</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q7_niveau_n8n" value="2 - J'ai exploré l'interface mais je n'ai rien créé">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">2 — J'ai exploré l'interface mais je n'ai rien créé</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q7_niveau_n8n" value="3 - J'ai créé 1 à 3 workflows simples">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">3 — J'ai créé 1 à 3 workflows simples</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q7_niveau_n8n" value="4 - J'ai créé plusieurs workflows de manière autonome">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">4 — J'ai créé plusieurs workflows autonome</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q7_niveau_n8n" value="5 - Je crée des workflows complexes">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">5 — Je crée des workflows complexes</span>
+              </label>
+            </div>
+          </div>
+          
+          <!-- Q8 -->
+          <div class="form-group">
+            <label class="form-group__label form-group__label--required">Q8. Configurer un trigger (déclencheur) dans n8n ?</label>
+            <p class="form-group__hint">Exemples : Schedule Trigger, Webhook, Email Trigger…</p>
+            <div class="form-options">
+              <label class="form-option">
+                <input type="radio" name="q8_trigger" value="1 - Je ne sais pas ce qu'est un trigger" required>
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">1 — Je ne sais pas ce qu'est un trigger</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q8_trigger" value="2 - Je comprends le concept mais jamais configuré">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">2 — Je comprends le concept mais jamais configuré</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q8_trigger" value="3 - J'ai déjà configuré un trigger simple">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">3 — J'ai déjà configuré un trigger simple</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q8_trigger" value="4 - Je configure régulièrement des triggers">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">4 — Je configure régulièrement des triggers</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q8_trigger" value="5 - Je maîtrise tous les types de triggers">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">5 — Je maîtrise tous les types de triggers</span>
+              </label>
+            </div>
+          </div>
+          
+          <!-- Q9 -->
+          <div class="form-group">
+            <label class="form-group__label form-group__label--required">Q9. Utiliser le node HTTP Request pour appeler une API ?</label>
+            <div class="form-options">
+              <label class="form-option">
+                <input type="radio" name="q9_http_request" value="1 - Je ne sais pas ce qu'est une API" required>
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">1 — Je ne sais pas ce qu'est une API</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q9_http_request" value="2 - Je comprends le concept mais jamais fait d'appel">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">2 — Je comprends mais jamais fait d'appel</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q9_http_request" value="3 - J'ai utilisé HTTP Request pour un appel simple">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">3 — J'ai fait un appel simple</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q9_http_request" value="4 - Je configure avec headers, body JSON et auth">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">4 — Je configure avec headers, JSON et auth</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q9_http_request" value="5 - Je gère pagination, OAuth2, retry">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">5 — Je gère pagination, OAuth2, retry</span>
+              </label>
+            </div>
+          </div>
+          
+          <!-- Q10 -->
+          <div class="form-group">
+            <label class="form-group__label form-group__label--required">Q10. Utiliser les nodes de logique conditionnelle (IF, Switch) ?</label>
+            <div class="form-options">
+              <label class="form-option">
+                <input type="radio" name="q10_logique" value="1 - Je ne connais pas ces nodes" required>
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">1 — Je ne connais pas ces nodes</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q10_logique" value="2 - Je les ai vus mais jamais utilisés">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">2 — Je les ai vus mais jamais utilisés</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q10_logique" value="3 - J'ai utilisé un IF simple">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">3 — J'ai utilisé un IF simple</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q10_logique" value="4 - Je combine plusieurs conditions">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">4 — Je combine plusieurs conditions</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q10_logique" value="5 - Je conçois des arbres de décision complexes">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">5 — Je conçois des arbres complexes</span>
+              </label>
+            </div>
+          </div>
+          
+          <!-- Q11 -->
+          <div class="form-group">
+            <label class="form-group__label form-group__label--required">Q11. Comment gérez-vous les erreurs dans vos workflows ?</label>
+            <div class="form-options">
+              <label class="form-option">
+                <input type="radio" name="q11_erreurs" value="1 - Je ne sais pas qu'on peut gérer les erreurs" required>
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">1 — Je ne sais pas qu'on peut gérer les erreurs</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q11_erreurs" value="2 - Je sais que ça existe mais jamais mis en place">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">2 — Je sais que ça existe mais jamais fait</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q11_erreurs" value="3 - J'ai activé Continue on fail">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">3 — J'ai activé "Continue on fail"</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q11_erreurs" value="4 - J'utilise des Error Workflows">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">4 — J'utilise des Error Workflows</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q11_erreurs" value="5 - Je mets en place retry, backoff, monitoring">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">5 — Je gère retry, backoff, monitoring</span>
+              </label>
+            </div>
+          </div>
+          
+          <!-- Q12 -->
+          <div class="form-group">
+            <label class="form-group__label form-group__label--required">Q12. Avez-vous déjà utilisé le node Code (JavaScript) ?</label>
+            <div class="form-options">
+              <label class="form-option">
+                <input type="radio" name="q12_code" value="1 - Jamais, et je ne code pas" required>
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">1 — Jamais, et je ne code pas</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q12_code" value="2 - J'ai essayé mais sans succès">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">2 — J'ai essayé mais sans succès</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q12_code" value="3 - J'ai copié-collé du code et ça a fonctionné">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">3 — J'ai copié-collé du code</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q12_code" value="4 - J'écris du code simple">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">4 — J'écris du code simple</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q12_code" value="5 - J'écris du code complexe">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">5 — J'écris du code complexe</span>
+              </label>
+            </div>
+          </div>
+          
+          <div class="form-actions">
+            <button type="button" class="form-btn form-btn--prev" data-action="prev">
+              <span class="form-btn__icon">←</span>
+              Précédent
+            </button>
+            <button type="button" class="form-btn form-btn--next" data-action="next">
+              Suivant
+              <span class="form-btn__icon">→</span>
+            </button>
+          </div>
+        </div>
+      </section>
+      
+      <!-- ========== SECTION 3: NIVEAU n8n - AVANCÉ ========== -->
+      <section class="form-section" data-section="3">
+        <div class="form-section__inner">
+          <div class="form-section__header">
+            <div class="form-section__number">3</div>
+            <h2 class="form-section__title">Niveau n8n — Avancé</h2>
+            <p class="form-section__subtitle">Mises en situation pratiques</p>
+          </div>
+          
+          <!-- Q13 -->
+          <div class="form-group">
+            <label class="form-group__label form-group__label--required">Q13. Mise en situation</label>
+            <p class="form-group__hint" style="margin-bottom: var(--space-sm);">Vous devez créer un workflow qui, chaque lundi à 8h, récupère les emails non lus de la semaine dans Outlook et en fait une synthèse. Que feriez-vous en premier ?</p>
+            <div class="form-options">
+              <label class="form-option">
+                <input type="radio" name="q13_scenario_workflow" value="a - Je chercherais un template tout fait" required>
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">a) Je chercherais un template tout fait sur n8n.io</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q13_scenario_workflow" value="b - Je placerais un Schedule Trigger">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">b) Je placerais un Schedule Trigger configuré pour le lundi 8h</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q13_scenario_workflow" value="c - Je configurerais la connexion Outlook">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">c) Je commencerais par configurer la connexion Outlook / Microsoft 365</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q13_scenario_workflow" value="d - Je ne saurais pas par où commencer">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">d) Je ne saurais pas par où commencer</span>
+              </label>
+            </div>
+          </div>
+          
+          <!-- Q14 -->
+          <div class="form-group">
+            <label class="form-group__label form-group__label--required">Q14. Mise en situation</label>
+            <p class="form-group__hint" style="margin-bottom: var(--space-sm);">Votre workflow s'arrête avec l'erreur "401 Unauthorized" sur un node HTTP Request qui appelait une API Microsoft. Que pensez-vous ?</p>
+            <div class="form-options">
+              <label class="form-option">
+                <input type="radio" name="q14_scenario_erreur" value="a - L'API Microsoft est en panne" required>
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">a) L'API Microsoft est en panne, il faut attendre</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q14_scenario_erreur" value="b - Le token d'accès a expiré">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">b) Le token d'accès a probablement expiré</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q14_scenario_erreur" value="c - Il y a un bug dans n8n">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">c) Il y a un bug dans n8n</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q14_scenario_erreur" value="d - Je ne saurais pas interpréter cette erreur">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">d) Je ne saurais pas interpréter cette erreur</span>
+              </label>
+            </div>
+          </div>
+          
+          <!-- Q15 -->
+          <div class="form-group">
+            <label class="form-group__label">Q15. Mise en situation — Workflow CSV Ximi</label>
+            <p class="form-group__hint" style="margin-bottom: var(--space-sm);">Vous recevez un export CSV de Ximi avec les heures d'intervention du mois (colonnes : intervenant, client, date, heures). Vous voulez envoyer un résumé par email à chaque client. Comment structureriez-vous le workflow ?</p>
+            <textarea name="q15_scenario_csv" class="form-textarea" rows="6" placeholder="Décrivez les grandes étapes, même approximativement..."></textarea>
+          </div>
+          
+          <!-- Q16 -->
+          <div class="form-group">
+            <label class="form-group__label form-group__label--required">Q16. Avez-vous déjà utilisé Execute Workflow ?</label>
+            <p class="form-group__hint">Un workflow qui appelle un autre workflow</p>
+            <div class="form-options">
+              <label class="form-option">
+                <input type="radio" name="q16_execute_workflow" value="1 - Je ne savais pas que c'était possible" required>
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">1 — Je ne savais pas que c'était possible</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q16_execute_workflow" value="2 - Je connais le concept mais jamais fait">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">2 — Je connais le concept mais jamais fait</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q16_execute_workflow" value="3 - Je l'ai fait une fois">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">3 — Je l'ai fait une fois</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q16_execute_workflow" value="4 - Je l'utilise régulièrement">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">4 — Je l'utilise régulièrement</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q16_execute_workflow" value="5 - Je conçois des architectures parents/enfants">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">5 — Je conçois des architectures parents/enfants</span>
+              </label>
+            </div>
+          </div>
+          
+          <div class="form-actions">
+            <button type="button" class="form-btn form-btn--prev" data-action="prev">
+              <span class="form-btn__icon">←</span>
+              Précédent
+            </button>
+            <button type="button" class="form-btn form-btn--next" data-action="next">
+              Suivant
+              <span class="form-btn__icon">→</span>
+            </button>
+          </div>
+        </div>
+      </section>
+      
+      <!-- ========== SECTION 4: CONNAISSANCES IA & LLM ========== -->
+      <section class="form-section" data-section="4">
+        <div class="form-section__inner">
+          <div class="form-section__header">
+            <div class="form-section__number">4</div>
+            <h2 class="form-section__title">Connaissances IA & LLM</h2>
+            <p class="form-section__subtitle">Votre familiarité avec l'intelligence artificielle</p>
+          </div>
+          
+          <!-- Q17 -->
+          <div class="form-group">
+            <label class="form-group__label form-group__label--required">Q17. Utilisez-vous actuellement un assistant IA ?</label>
+            <p class="form-group__hint">ChatGPT, Claude, Gemini…</p>
+            <div class="form-options">
+              <label class="form-option">
+                <input type="radio" name="q17_usage_ia" value="Jamais" required>
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">Jamais</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q17_usage_ia" value="Rarement (quelques fois par mois)">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">Rarement (quelques fois par mois)</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q17_usage_ia" value="Régulièrement (plusieurs fois par semaine)">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">Régulièrement (plusieurs fois par semaine)</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q17_usage_ia" value="Quotidiennement">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">Quotidiennement</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q17_usage_ia" value="Plusieurs fois par jour">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">Plusieurs fois par jour, c'est un outil central</span>
+              </label>
+            </div>
+          </div>
+          
+          <!-- Q18 -->
+          <div class="form-group">
+            <label class="form-group__label form-group__label--required">Q18. Capacité à rédiger un prompt efficace ?</label>
+            <p class="form-group__hint">Un prompt = la consigne que vous donnez à l'IA</p>
+            <div class="form-options">
+              <label class="form-option">
+                <input type="radio" name="q18_prompting" value="1 - Je tape ma question telle quelle" required>
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">1 — Je tape ma question telle quelle, comme dans Google</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q18_prompting" value="2 - Je fais des phrases complètes">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">2 — Je fais des phrases complètes mais sans structure</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q18_prompting" value="3 - Je donne du contexte et précise le format">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">3 — Je donne du contexte et précise le format</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q18_prompting" value="4 - J'utilise des techniques avancées">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">4 — J'utilise des techniques (rôle, exemples, contraintes)</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q18_prompting" value="5 - Je conçois des prompts multi-étapes">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">5 — Je conçois des prompts multi-étapes et itératifs</span>
+              </label>
+            </div>
+          </div>
+          
+          <!-- Q19 -->
+          <div class="form-group">
+            <label class="form-group__label form-group__label--required">Q19. Connaissez-vous la différence entre prompt système et prompt utilisateur ?</label>
+            <div class="form-options">
+              <label class="form-option">
+                <input type="radio" name="q19_prompt_types" value="1 - Je ne connais pas ces termes" required>
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">1 — Je ne connais pas ces termes</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q19_prompt_types" value="2 - J'en ai vaguement entendu parler">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">2 — J'en ai vaguement entendu parler</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q19_prompt_types" value="3 - Je comprends la distinction théorique">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">3 — Je comprends la distinction théorique</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q19_prompt_types" value="4 - J'ai déjà utilisé les deux dans la pratique">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">4 — J'ai déjà utilisé les deux dans la pratique</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q19_prompt_types" value="5 - Je conçois des architectures avec les deux">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">5 — Je conçois des architectures avec les deux</span>
+              </label>
+            </div>
+          </div>
+          
+          <!-- Q20 -->
+          <div class="form-group">
+            <label class="form-group__label form-group__label--required">Q20. Avez-vous déjà utilisé Claude (Anthropic) via l'API ou n8n ?</label>
+            <div class="form-options">
+              <label class="form-option">
+                <input type="radio" name="q20_claude_api" value="1 - Je n'ai jamais utilisé Claude" required>
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">1 — Je n'ai jamais utilisé Claude</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q20_claude_api" value="2 - J'ai utilisé Claude via le site web">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">2 — J'ai utilisé Claude via le site web uniquement</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q20_claude_api" value="3 - J'ai essayé de l'intégrer dans n8n">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">3 — J'ai essayé de l'intégrer dans n8n</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q20_claude_api" value="4 - J'utilise Claude via API dans n8n">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">4 — J'utilise Claude via API dans n8n</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q20_claude_api" value="5 - J'ai créé des workflows complexes avec Claude">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">5 — J'ai créé des workflows complexes avec Claude</span>
+              </label>
+            </div>
+          </div>
+          
+          <!-- Q21 -->
+          <div class="form-group">
+            <label class="form-group__label form-group__label--required">Q21. Comprenez-vous le concept de "contexte" (context window) ?</label>
+            <div class="form-options">
+              <label class="form-option">
+                <input type="radio" name="q21_contexte" value="1 - Je ne sais pas ce que c'est" required>
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">1 — Je ne sais pas ce que c'est</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q21_contexte" value="2 - J'en ai vaguement entendu parler">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">2 — J'en ai vaguement entendu parler</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q21_contexte" value="3 - Je comprends le concept théoriquement">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">3 — Je comprends le concept théoriquement</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q21_contexte" value="4 - Je sais comment l'optimiser">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">4 — Je sais comment l'optimiser dans mes prompts</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q21_contexte" value="5 - Je gère les limites de contexte en production">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">5 — Je gère les limites de contexte en production</span>
+              </label>
+            </div>
+          </div>
+          
+          <!-- Q22 -->
+          <div class="form-group">
+            <label class="form-group__label form-group__label--required">Q22. Mise en situation</label>
+            <p class="form-group__hint" style="margin-bottom: var(--space-sm);">Vous voulez que l'IA vous aide à rédiger une synthèse mensuelle des interventions pour un client. Quelle approche est la plus efficace ?</p>
+            <div class="form-options">
+              <label class="form-option">
+                <input type="radio" name="q22_scenario_ia" value="a - Génère une synthèse mensuelle" required>
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">a) "Génère une synthèse mensuelle"</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q22_scenario_ia" value="b - Tu es un assistant...">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">b) "Tu es un assistant qui rédige des synthèses claires pour des clients..."</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q22_scenario_ia" value="c - Fais une synthèse">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">c) "Fais une synthèse"</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q22_scenario_ia" value="d - Voici les données...">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">d) "Voici les données : [données]. Format attendu : [format]. Ton : professionnel."</span>
+              </label>
+            </div>
+          </div>
+          
+          <div class="form-actions">
+            <button type="button" class="form-btn form-btn--prev" data-action="prev">
+              <span class="form-btn__icon">←</span>
+              Précédent
+            </button>
+            <button type="button" class="form-btn form-btn--next" data-action="next">
+              Suivant
+              <span class="form-btn__icon">→</span>
+            </button>
+          </div>
+        </div>
+      </section>
+      
+      <!-- ========== SECTION 5: COMPRÉHENSION TECHNIQUE ========== -->
+      <section class="form-section" data-section="5">
+        <div class="form-section__inner">
+          <div class="form-section__header">
+            <div class="form-section__number">5</div>
+            <h2 class="form-section__title">Compréhension technique</h2>
+            <p class="form-section__subtitle">Évaluez votre aisance avec les concepts techniques</p>
+          </div>
+          
+          <!-- Q23 -->
+          <div class="form-group">
+            <label class="form-group__label form-group__label--required">Q23. Niveau de compréhension : format JSON</label>
+            <div class="form-options">
+              <label class="form-option">
+                <input type="radio" name="q23_json" value="1 - Je ne sais pas ce que c'est" required>
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">1 — Je ne sais pas ce que c'est</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q23_json" value="2 - J'en ai entendu parler">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">2 — J'en ai entendu parler mais jamais manipulé</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q23_json" value="3 - Je reconnais la structure">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">3 — Je reconnais la structure quand je la vois</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q23_json" value="4 - Je sais lire et modifier du JSON simple">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">4 — Je sais lire et modifier du JSON simple</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q23_json" value="5 - Je structure et manipule du JSON complexe">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">5 — Je structure et manipule du JSON complexe</span>
+              </label>
+            </div>
+          </div>
+          
+          <!-- Q24 -->
+          <div class="form-group">
+            <label class="form-group__label form-group__label--required">Q24. Niveau de compréhension : API REST</label>
+            <div class="form-options">
+              <label class="form-option">
+                <input type="radio" name="q24_api_rest" value="1 - Je ne sais pas ce que c'est" required>
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">1 — Je ne sais pas ce que c'est</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q24_api_rest" value="2 - J'ai une vague idée">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">2 — J'ai une vague idée du concept</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q24_api_rest" value="3 - Je comprends GET, POST, PUT, DELETE">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">3 — Je comprends GET, POST, PUT, DELETE</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q24_api_rest" value="4 - J'ai déjà consommé une API REST">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">4 — J'ai déjà consommé une API REST</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q24_api_rest" value="5 - Je conçois et documente des APIs">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">5 — Je conçois et documente des APIs</span>
+              </label>
+            </div>
+          </div>
+          
+          <!-- Q25 -->
+          <div class="form-group">
+            <label class="form-group__label form-group__label--required">Q25. Niveau de compréhension : authentification OAuth</label>
+            <div class="form-options">
+              <label class="form-option">
+                <input type="radio" name="q25_oauth" value="1 - Je ne sais pas ce que c'est" required>
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">1 — Je ne sais pas ce que c'est</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q25_oauth" value="2 - Je l'ai vu lors de connexions">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">2 — Je l'ai vu lors de connexions à des services</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q25_oauth" value="3 - Je comprends le principe général">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">3 — Je comprends le principe général</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q25_oauth" value="4 - J'ai configuré OAuth dans une application">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">4 — J'ai configuré OAuth dans une application</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q25_oauth" value="5 - Je gère OAuth2, tokens, refresh">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">5 — Je gère OAuth2, tokens, refresh</span>
+              </label>
+            </div>
+          </div>
+          
+          <!-- Q26 -->
+          <div class="form-group">
+            <label class="form-group__label form-group__label--required">Q26. Mise en situation</label>
+            <p class="form-group__hint" style="margin-bottom: var(--space-sm);">Vous voyez ce message d'erreur : "Error parsing JSON: Unexpected token < in JSON at position 0". Que signifie-t-il probablement ?</p>
+            <div class="form-options">
+              <label class="form-option">
+                <input type="radio" name="q26_scenario_json" value="a - Le serveur renvoie du HTML au lieu de JSON" required>
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">a) Le serveur renvoie du HTML au lieu de JSON</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q26_scenario_json" value="b - Il manque un caractère dans le JSON">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">b) Il manque un caractère dans le JSON</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q26_scenario_json" value="c - Le JSON est corrompu">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">c) Le JSON est corrompu</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q26_scenario_json" value="d - Je ne saurais pas interpréter">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">d) Je ne saurais pas interpréter cette erreur</span>
+              </label>
+            </div>
+          </div>
+          
+          <!-- Q27 -->
+          <div class="form-group">
+            <label class="form-group__label form-group__label--required">Q27. Mise en situation</label>
+            <p class="form-group__hint" style="margin-bottom: var(--space-sm);">Une API vous demande d'envoyer les données dans le "body" de la requête. Où placez-vous ces données ?</p>
+            <div class="form-options">
+              <label class="form-option">
+                <input type="radio" name="q27_scenario_body" value="a - Dans le body de la requête HTTP" required>
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">a) Dans le body/corps de la requête HTTP, en JSON généralement</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q27_scenario_body" value="b - Dans l'URL après le ?">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">b) Dans l'URL après le "?"</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q27_scenario_body" value="c - Dans les headers HTTP">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">c) Dans les headers HTTP</span>
+              </label>
+              <label class="form-option">
+                <input type="radio" name="q27_scenario_body" value="d - Je ne sais pas">
+                <span class="form-option__check form-option__check--radio"></span>
+                <span class="form-option__text">d) Je ne sais pas</span>
+              </label>
+            </div>
+          </div>
+          
+          <div class="form-actions">
+            <button type="button" class="form-btn form-btn--prev" data-action="prev">
+              <span class="form-btn__icon">←</span>
+              Précédent
+            </button>
+            <button type="button" class="form-btn form-btn--next" data-action="next">
+              Suivant
+              <span class="form-btn__icon">→</span>
+            </button>
+          </div>
+        </div>
+      </section>
+      
+      <!-- ========== SECTION 6: ATTENTES & CAS D'USAGE ========== -->
+      <section class="form-section" data-section="6">
+        <div class="form-section__inner">
+          <div class="form-section__header">
+            <div class="form-section__number">6</div>
+            <h2 class="form-section__title">Attentes & cas d'usage</h2>
+            <p class="form-section__subtitle">Vos objectifs pour la formation</p>
+          </div>
+          
+          <!-- Q28 -->
+          <div class="form-group">
+            <label class="form-group__label form-group__label--required">Q28. Cas d'usage prioritaire #1</label>
+            <p class="form-group__hint">Décrivez un processus métier que vous aimeriez automatiser avec n8n & Claude</p>
+            <textarea name="q28_cas_usage_1" class="form-textarea" rows="5" placeholder="Ex: Générer automatiquement les comptes-rendus d'intervention à partir des données Ximi..." required></textarea>
+          </div>
+          
+          <!-- Q29 -->
+          <div class="form-group">
+            <label class="form-group__label">Q29. Cas d'usage prioritaire #2</label>
+            <textarea name="q29_cas_usage_2" class="form-textarea" rows="5" placeholder="Autre processus à automatiser (optionnel)"></textarea>
+          </div>
+          
+          <!-- Q30 -->
+          <div class="form-group">
+            <label class="form-group__label">Q30. Cas d'usage prioritaire #3</label>
+            <textarea name="q30_cas_usage_3" class="form-textarea" rows="5" placeholder="Autre processus à automatiser (optionnel)"></textarea>
+          </div>
+          
+          <!-- Q31 -->
+          <div class="form-group">
+            <label class="form-group__label form-group__label--required">Q31. Classez par priorité vos attentes de formation</label>
+            <p class="form-group__hint">Notez de 1 (le plus important) à 5 (le moins important)</p>
+            <div class="form-ranking">
+              <div class="form-ranking__item">
+                <label>Maîtriser n8n (création de workflows)</label>
+                <select name="q31_priorite_n8n" class="form-select" required>
+                  <option value="">--</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+              </div>
+              <div class="form-ranking__item">
+                <label>Maîtriser Claude (prompting efficace)</label>
+                <select name="q31_priorite_claude" class="form-select" required>
+                  <option value="">--</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+              </div>
+              <div class="form-ranking__item">
+                <label>Intégrer n8n avec vos outils métier (Ximi, Outlook...)</label>
+                <select name="q31_priorite_integration" class="form-select" required>
+                  <option value="">--</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+              </div>
+              <div class="form-ranking__item">
+                <label>Automatiser des tâches concrètes dès la formation</label>
+                <select name="q31_priorite_automatisation" class="form-select" required>
+                  <option value="">--</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+              </div>
+              <div class="form-ranking__item">
+                <label>Comprendre les concepts techniques (API, OAuth, JSON...)</label>
+                <select name="q31_priorite_technique" class="form-select" required>
+                  <option value="">--</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Q32 -->
+          <div class="form-group">
+            <label class="form-group__label">Q32. Quels modules/thèmes vous intéressent particulièrement ?</label>
+            <div class="form-options">
+              <label class="form-option">
+                <input type="checkbox" name="q32_themes" value="Fondamentaux n8n">
+                <span class="form-option__check"></span>
+                <span class="form-option__text">Fondamentaux n8n (triggers, nodes, logique)</span>
+              </label>
+              <label class="form-option">
+                <input type="checkbox" name="q32_themes" value="API et intégrations">
+                <span class="form-option__check"></span>
+                <span class="form-option__text">API et intégrations (Ximi, Microsoft, etc.)</span>
+              </label>
+              <label class="form-option">
+                <input type="checkbox" name="q32_themes" value="Claude et prompting">
+                <span class="form-option__check"></span>
+                <span class="form-option__text">Claude et prompting avancé</span>
+              </label>
+              <label class="form-option">
+                <input type="checkbox" name="q32_themes" value="Agents IA">
+                <span class="form-option__check"></span>
+                <span class="form-option__text">Agents IA et automatisation intelligente</span>
+              </label>
+              <label class="form-option">
+                <input type="checkbox" name="q32_themes" value="Mise en production">
+                <span class="form-option__check"></span>
+                <span class="form-option__text">Mise en production et monitoring</span>
+              </label>
+              <label class="form-option">
+                <input type="checkbox" name="q32_themes" value="Cas pratiques métier">
+                <span class="form-option__check"></span>
+                <span class="form-option__text">Cas pratiques métier Galaxy Conseil</span>
+              </label>
+            </div>
+          </div>
+          
+          <div class="form-actions">
+            <button type="button" class="form-btn form-btn--prev" data-action="prev">
+              <span class="form-btn__icon">←</span>
+              Précédent
+            </button>
+            <button type="button" class="form-btn form-btn--next" data-action="next">
+              Suivant
+              <span class="form-btn__icon">→</span>
+            </button>
+          </div>
+        </div>
+      </section>
+      
+      <!-- ========== SECTION 7: FINALISATION ========== -->
+      <section class="form-section" data-section="7">
+        <div class="form-section__inner">
+          <div class="form-section__header">
+            <div class="form-section__number">7</div>
+            <h2 class="form-section__title">Informations complémentaires</h2>
+            <p class="form-section__subtitle">Dernières questions avant l'envoi</p>
+          </div>
+          
+          <!-- Identité (déplacée ici pour l'envoi du PDF) -->
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-group__label form-group__label--required" for="nom">Nom</label>
+              <input type="text" id="nom" name="nom" class="form-input" placeholder="Votre nom" required>
+            </div>
+            <div class="form-group">
+              <label class="form-group__label form-group__label--required" for="prenom">Prénom</label>
+              <input type="text" id="prenom" name="prenom" class="form-input" placeholder="Votre prénom" required>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-group__label form-group__label--required" for="email">Email professionnel</label>
+            <input type="email" id="email" name="email" class="form-input" placeholder="votre.email@galaxyconseil.fr" required>
+            <p class="form-group__hint">📧 Un récapitulatif PDF vous sera envoyé à cette adresse.</p>
+          </div>
+          
+          <!-- Q33 -->
+          <div class="form-group">
+            <label class="form-group__label" for="q33_sujet_supplementaire">Q33. Un sujet non abordé que vous aimeriez voir en formation ?</label>
+            <textarea id="q33_sujet_supplementaire" name="q33_sujet_supplementaire" class="form-textarea" rows="4" placeholder="Autre sujet ou thématique importante pour vous..."></textarea>
+          </div>
+          
+          <!-- Q34 -->
+          <div class="form-group">
+            <label class="form-group__label" for="q34_contraintes">Q34. Avez-vous des contraintes particulières ?</label>
+            <p class="form-group__hint">Exemples : disponibilité limitée, matériel spécifique, besoins d'accessibilité…</p>
+            <textarea id="q34_contraintes" name="q34_contraintes" class="form-textarea" rows="4" placeholder="Précisez vos contraintes éventuelles..."></textarea>
+          </div>
+          
+          <div class="form-success-note">
+            <strong>✅ C'est presque terminé !</strong><br>
+            En cliquant sur "Envoyer", vous recevrez immédiatement un PDF récapitulatif par email.
+          </div>
+          
+          <div class="form-actions">
+            <button type="button" class="form-btn form-btn--prev" data-action="prev">
+              <span class="form-btn__icon">←</span>
+              Précédent
+            </button>
+            <button type="button" class="form-btn form-btn--submit" data-action="submit">
+              Envoyer mes réponses
+              <span class="form-btn__icon">✓</span>
+            </button>
+          </div>
+        </div>
+      </section>
+      
+    </form>
+    
+    <!-- LOADER -->
+    <div class="form-loader">
+      <div class="form-loader__spinner"></div>
+      <p class="form-loader__text">Envoi en cours...</p>
+    </div>
+    
+    <!-- SUCCESS -->
+    <section class="form-success" style="display: none;">
+      <div class="form-success__icon">✅</div>
+      <h2 class="form-success__title">Merci pour vos réponses !</h2>
+      <p class="form-success__message">Votre questionnaire a bien été enregistré. Nous avons hâte de vous retrouver pour la formation.</p>
+      <div class="form-success__email-note">
+        <strong>📧 Vérifiez votre boîte mail</strong><br>
+        Un récapitulatif PDF de vos réponses vous a été envoyé.
+      </div>
+    </section>
+    
+  </main>
+  
+  <!-- JavaScript -->
+  <script src="/assets/js/formation.js"></script>
+  
+</body>
+</html>
