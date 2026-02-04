@@ -9,7 +9,7 @@
   
   // === CONFIGURATION ===
   const CONFIG = {
-    apiEndpoint: '/api/submit-formation',
+    apiEndpoint: '/api/submit-formation-flexible',
     animationDuration: 600,
     scrollOffset: 100
   };
