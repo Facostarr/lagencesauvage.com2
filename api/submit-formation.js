@@ -234,9 +234,9 @@ async function sendPDFToRespondent(email, prenom, pdfBuffer, societe) {
 }
 
 /**
- * Envoie une notification à Franck
+ * Envoie une notification à Franck (avec PDF en pièce jointe)
  */
-async function sendNotificationToFranck(data, notionUrl) {
+async function sendNotificationToFranck(data, notionUrl, pdfBuffer) {
   const notificationEmail = process.env.NOTIFICATION_EMAIL || 'franck@lagencesauvage.com';
   
   const htmlContent = `
@@ -275,7 +275,12 @@ async function sendNotificationToFranck(data, notionUrl) {
     from: '"L\'Agence Sauvage - Formations" <hello@monagencesauvage.com>',
     to: notificationEmail,
     subject: `Questionnaire formation : ${data.prenom} ${data.nom} (${data.societe || 'N/A'})`,
-    html: htmlContent
+    html: htmlContent,
+    attachments: [{
+      filename: `Questionnaire_Formation_${data.prenom}_${data.nom}.pdf`,
+      content: pdfBuffer,
+      contentType: 'application/pdf'
+    }]
   });
 }
 
@@ -472,10 +477,10 @@ export default async function handler(req, res) {
       });
     }
     
-    // ETAPE 4: Notification Franck
+    // ETAPE 4: Notification Franck (avec PDF)
     try {
       console.log('[STEP 4/4] Envoi notification Franck...');
-      await sendNotificationToFranck(data, notionPage.url);
+      await sendNotificationToFranck(data, notionPage.url, pdfBuffer);
       console.log('[STEP 4/4] OK - Notification envoyee');
     } catch (error) {
       console.error('[STEP 4/4] ERREUR Notification:', error.message);
