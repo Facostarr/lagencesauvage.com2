@@ -145,7 +145,7 @@ Les entreprises qui s'y préparent maintenant prendront une longueur d'avance su
 >
 > **Réservez votre audit IA gratuit (30 min)** et repartez avec 3 opportunités concrètes d'automatisation pour votre entreprise. Sans engagement, sans jargon technique.
 >
-> **[Réserver mon audit gratuit →](https://www.lagencesauvage.com/rendez-vous)**
+> **[Réserver mon audit gratuit →](https://www.lagencesauvage.com/#audit-gratuit)**
 >
 > 📧 hello@lagencesauvage.com | 📞 +33 1 85 09 75 92
 
