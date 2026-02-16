@@ -1,6 +1,7 @@
 ---
 title: "L'IA Abordable en 2025 : Comment les Petites Entreprises Profitent de la Révolution des Modèles Légers Selon le Rapport Stanford"
 date: 2025-11-27
+lastmod: 2026-02-16
 description: "Découvrez comment la chute des coûts d'inférence et la montée des modèles légers démocratisent l'IA pour les PME, selon le dernier rapport AI Index 2025 de Stanford."
 categories:
   - "Tendances IA"
@@ -83,7 +84,7 @@ L'adoption technologique ne dépend pas que des coûts, mais aussi de la confian
 
 Depuis 2022, l'optimisme envers l'IA a grandi de manière significative dans des pays auparavant sceptiques :
 
-* ** **France ****: +10 % d'optimisme.
+* ** **France **** : +10 % d'optimisme.
 * **Allemagne** : +10 %.
 * **États-Unis** : +4 %.
 
@@ -100,6 +101,5 @@ Il n'a jamais été aussi peu coûteux d'être aussi intelligent. Pour les entre
 ***
 
 *Sources : [AI Index Report 2025, Stanford University]([The 2025 AI Index Report | Stanford HAI](https://hai.stanford.edu/ai-index/2025-ai-index-report)).*
-
 
 
