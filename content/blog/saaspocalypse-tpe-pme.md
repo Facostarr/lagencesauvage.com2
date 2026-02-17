@@ -1,7 +1,7 @@
 ---
 title: "SaaSpocalypse : comment les TPE/PME peuvent transformer la menace IA en avantage concurrentiel"
 date: 2026-02-10
-lastmod: 2026-02-10
+lastmod: 2026-02-16
 description: "L'IA va remplacer vos logiciels métier. Découvrez ce qu'est la SaaSpocalypse et comment préparer votre TPE/PME à cette révolution."
 summary: "La SaaSpocalypse désigne le remplacement des logiciels SaaS par l'IA. Guide complet pour les dirigeants de TPE/PME."
 
