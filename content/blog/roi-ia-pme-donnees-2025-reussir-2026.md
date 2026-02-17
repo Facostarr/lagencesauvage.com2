@@ -2,6 +2,7 @@
 title: "ROI de l'IA en PME : Ce que Révèlent les Données 2025 pour Réussir en 2026"
 description: "Découvrez les vrais chiffres du ROI de l'IA en PME : 159% de retour médian, cas concrets et méthodologie pour mesurer vos gains. Bilan 2025 et perspectives 2026."
 date: 2025-12-29
+lastmod: 2026-02-16
 author: "L'Agence Sauvage"
 categories: ["Intelligence Artificielle", "Stratégie PME"]
 tags: ["IA", "PME", "ROI", "automatisation", "productivité", "transformation digitale"]
