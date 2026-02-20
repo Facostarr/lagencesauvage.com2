@@ -8,7 +8,7 @@
 =============================================================================
 SITEMAP PAGES STATIQUES - L'AGENCE SAUVAGE
 =============================================================================
-Dernière mise à jour : Décembre 2025
+Dernière mise à jour : 20 février 2026
 Site : https://www.lagencesauvage.com
 
 NOTE: Ce fichier est dans static/ pour être préservé lors des builds Hugo.
@@ -19,7 +19,7 @@ Le sitemap du blog est généré automatiquement par Hugo → sitemap-blog.xml
 <!-- PAGE D'ACCUEIL -->
 <url>
   <loc>https://www.lagencesauvage.com/</loc>
-  <lastmod>2025-12-01</lastmod>
+  <lastmod>2026-02-20</lastmod>
   <changefreq>daily</changefreq>
   <priority>1.0</priority>
 </url>
@@ -27,14 +27,22 @@ Le sitemap du blog est généré automatiquement par Hugo → sitemap-blog.xml
 <!-- PAGES STRATÉGIQUES -->
 <url>
   <loc>https://www.lagencesauvage.com/services.html</loc>
-  <lastmod>2025-11-01</lastmod>
+  <lastmod>2026-02-20</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.9</priority>
 </url>
 
 <url>
   <loc>https://www.lagencesauvage.com/processus.html</loc>
-  <lastmod>2025-11-01</lastmod>
+  <lastmod>2026-02-20</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.9</priority>
+</url>
+
+<!-- PAGE DE CONVERSION -->
+<url>
+  <loc>https://www.lagencesauvage.com/audit-ia-gratuit.html</loc>
+  <lastmod>2026-02-20</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.9</priority>
 </url>
@@ -42,29 +50,37 @@ Le sitemap du blog est généré automatiquement par Hugo → sitemap-blog.xml
 <!-- PAGES IMPORTANTES -->
 <url>
   <loc>https://www.lagencesauvage.com/about.html</loc>
-  <lastmod>2025-11-01</lastmod>
+  <lastmod>2026-02-20</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.8</priority>
 </url>
 
 <url>
   <loc>https://www.lagencesauvage.com/realisations.html</loc>
-  <lastmod>2025-11-01</lastmod>
+  <lastmod>2026-02-20</lastmod>
   <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+
+<!-- BLOG INDEX -->
+<url>
+  <loc>https://www.lagencesauvage.com/blog.html</loc>
+  <lastmod>2026-02-20</lastmod>
+  <changefreq>daily</changefreq>
   <priority>0.8</priority>
 </url>
 
 <!-- PAGES SECONDAIRES -->
 <url>
   <loc>https://www.lagencesauvage.com/ressources.html</loc>
-  <lastmod>2025-11-01</lastmod>
+  <lastmod>2026-02-20</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.7</priority>
 </url>
 
 <url>
   <loc>https://www.lagencesauvage.com/faq.html</loc>
-  <lastmod>2025-11-01</lastmod>
+  <lastmod>2026-02-20</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.7</priority>
 </url>
@@ -72,14 +88,14 @@ Le sitemap du blog est généré automatiquement par Hugo → sitemap-blog.xml
 <!-- PAGES LÉGALES -->
 <url>
   <loc>https://www.lagencesauvage.com/mentions-legales.html</loc>
-  <lastmod>2025-11-01</lastmod>
+  <lastmod>2026-02-20</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.3</priority>
 </url>
 
 <url>
   <loc>https://www.lagencesauvage.com/privacy.html</loc>
-  <lastmod>2025-11-01</lastmod>
+  <lastmod>2026-02-20</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.3</priority>
 </url>
