@@ -2,7 +2,7 @@
 title: "CRM et automatisation pour WooCommerce : le guide complet pour booster vos ventes en 2026"
 description: "Découvrez comment choisir le bon CRM pour votre boutique WooCommerce et mettre en place les automatisations essentielles pour récupérer vos paniers abandonnés, fidéliser vos clients et augmenter votre chiffre d'affaires."
 date: 2025-12-23
-lastmod: 2026-02-16
+lastmod: 2025-12-23
 author: "L'Agence Sauvage"
 categories: ["E-commerce", "Automatisation", "CRM"]
 tags: ["WooCommerce", "CRM", "panier abandonné", "email marketing", "automatisation e-commerce"]
