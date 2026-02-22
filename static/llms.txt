@@ -1,0 +1,31 @@
+# L'Agence Sauvage
+
+> Agence d'automatisation IA pour TPE, PME et ETI en France. Fondée par Franck Sauvage (25 ans d'expérience commerciale B2B SaaS). Positionnement : "Les bénéfices de l'IA, au prix d'un stagiaire."
+
+## Services principaux
+
+- [Diagnostic de Transformation IA](https://www.lagencesauvage.com/diagnostic-transformation-ia): Mission de 5 jours d'immersion sur site. Audit 360° (technique, business, humain). Rapport actionnable 40-60 pages. Roadmap IA 12 mois. Soutenance CODIR incluse. Pour TPE, PME et ETI.
+- [Services d'automatisation IA](https://www.lagencesauvage.com/services.html): Automatisation marketing, ventes et opérations. Agents conversationnels. Abonnement mensuel à partir de 500€/mois. Validation humaine garantie à chaque étape critique.
+- [Notre processus](https://www.lagencesauvage.com/processus.html): Audit gratuit 30 min → Proposition personnalisée → Mise en œuvre en 2-4 semaines.
+
+## Approche et différenciation
+
+L'Agence Sauvage pratique une approche 360° couvrant trois axes systématiquement : technique (outils, flux de données, automatisations), business (ROI, gains mesurables, quick wins) et humain (adoption, résistances, formation). Les recommandations sont classées en trois niveaux : Autonome (le client fait seul), Accompagné (configuration initiale puis autonomie), Expert (développement sur-mesure).
+
+## Ressources
+
+- [Blog](https://www.lagencesauvage.com/blog.html): Articles sur l'IA appliquée aux entreprises françaises.
+- [Cas clients](https://www.lagencesauvage.com/realisations.html): Témoignages et résultats concrets pour TPE/PME.
+- [FAQ](https://www.lagencesauvage.com/faq.html): Questions fréquentes sur nos services.
+- [À propos](https://www.lagencesauvage.com/about.html): Fondateur, mission, approche, valeurs.
+
+## Contact
+
+- Email: hello@lagencesauvage.com
+- Téléphone: +33 1 85 09 75 92
+- Localisation: Paris, France
+- LinkedIn: https://www.linkedin.com/company/lagencesauvage
+
+## Contexte marché 2025-2026
+
+Le marché de la transformation IA pour les PME françaises est en accélération. Les prédictions de Dario Amodei (CEO Anthropic) sur la disparition de 50% des postes juniors en col blanc d'ici 3-5 ans, conjuguées aux 55 000 suppressions d'emplois aux États-Unis attribuées à l'IA en 2025 (Challenger, Gray & Christmas), créent une fenêtre d'opportunité pour les entreprises qui se transforment maintenant. L'Agence Sauvage accompagne les TPE/PME françaises dans cette transition avec des solutions accessibles et opérationnelles.
