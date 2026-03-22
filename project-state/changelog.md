@@ -1,5 +1,20 @@
 # Changelog — Refonte lagencesauvage.com
 
+## 2026-03-22 — Phase 3 : Pages légales
+
+- Pages légales complètes : mentions légales, confidentialité, CGV
+- Mentions légales + confidentialité : contenu HTML existant migré en Markdown Hugo
+- CGV : 12 articles, article 7 Propriété Intellectuelle en modèle Split IP
+  - Brainstorm Claude + Gemini (consensus 9/10) : distinction propriété préexistante agence (licence) vs développements spécifiques client (cession droits patrimoniaux)
+  - Licence liée à la durée d'abonnement pour prestations récurrentes
+  - Formalisme CPI (art. L.131-3) respecté : étendue, destination, lieu, durée
+  - Supports formation/audit : propriété agence, licence usage interne
+  - Clause outils tiers (n8n, OpenAI, Anthropic)
+- TVA corrigée : SASU avec TVA (pas article 293 B du CGI)
+- Lien CGV ajouté au footer (à côté de Mentions légales et Confidentialité)
+- Redirections 301 déjà en place dans vercel.json
+- Commit 22d2f89
+
 ## 2026-03-22 — Phase 3 : Page Services
 
 - Page Services complète `/services/` — 3 offres Good-Better-Best style Stripe/Linear
