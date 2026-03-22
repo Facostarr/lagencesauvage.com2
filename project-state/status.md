@@ -62,7 +62,7 @@
 - [x] Animations premium : hero fade-in, scroll reveal, hover cards, FAQ grid animé
 - [x] Témoignages textuels Olivier + Myriam (validés par Franck — consensus Claude+Gemini 9/10)
 - [x] ~~Screenshots réels pour les 4 cartes livrables~~ (remplacé par mini-cartes cas clients)
-- [ ] Lien Calendly pour confirmation formulaire (en attente de Franck)
+- [x] ~~Lien Calendly pour confirmation formulaire~~ (reporté post-lancement)
 - [x] **Validation Franck — Preview Vercel Phase 2** (2026-03-22)
 
 ## Phase 3 — Tâches détaillées
@@ -160,5 +160,5 @@ Aucun pour le moment.
 
 ## Décisions en attente
 
-- Lien Calendly pour page de confirmation formulaire
 - Logo final : C2 provisoire en place, Franck fait valider par contacts extérieurs. Piste monogramme A+S (séries G) à affiner
+- ~~Calendly~~ : reporté post-lancement, Franck intégrera si besoin
