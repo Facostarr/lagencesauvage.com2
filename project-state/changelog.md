@@ -1,5 +1,18 @@
 # Changelog — Refonte lagencesauvage.com
 
+## 2026-03-22 — Phase 3 : Page Diagnostic IA
+
+- Page Diagnostic de Transformation IA `/diagnostic/` — landing page SEO dédiée
+- Contenu fidèle à l'ancienne page `diagnostic-transformation-ia.html`, redesigné avec le design system Premium Tech
+- 13 sections : hero + citation Amodei, constat (3 faits sourcés Challenger/Nadella/Bloomberg), 3 erreurs entreprises, approche 360° (technique/business/humain), 4 différenciateurs, méthode J1→J5 (timeline), 5 livrables détaillés (rapport 40-60p), profils TPE/PME/ETI, tableau comparatif vs cabinet/ESN/freelance, CTA intermédiaire indigo, formulaire 2 étapes, FAQ 6 questions, CTA final
+- Tableau comparatif responsive : table desktop + cards mobile
+- Formulaire "appel découverte" 2 étapes → POST `/api/submit-diagnostic` (serverless function existante)
+- Niveaux recommandations : Autonome (vert), Accompagné (jaune), Expert (rouge)
+- Schema Service (type audit, areaServed France) + FAQPage
+- Lien "Diagnostic IA gratuit" ajouté au footer Ressources
+- Redirections 301 déjà en place : `/diagnostic-transformation-ia.html` → `/diagnostic/`, `/audit-ia-gratuit.html` → `/diagnostic/`
+- Commits 5f390fc + 13fc90d
+
 ## 2026-03-22 — Phase 3 : Case study Pôle Financier Augmenté
 
 - Section `/realisations/` créée avec grille de case studies (list.html)
