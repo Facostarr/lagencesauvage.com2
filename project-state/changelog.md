@@ -1,5 +1,20 @@
 # Changelog — Refonte lagencesauvage.com
 
+## 2026-03-22 — Phase 3 : Focus Réalisations v2 (6 use cases)
+
+- Exploration complète des 11 projets Claude Code pour identifier les cas d'usage au-delà de n8n
+- 2 brainstorms Claude + Gemini : sélection use cases (consensus 9/10) + conception Chef de Cabinet IA (consensus 9/10)
+- Focus Réalisations v2 — 6 use cases finaux (vs 5 en v1) :
+  - UC1 Pôle Financier & Recouvrement : fusionné avec PennylaneAgent (V1 11 workflows → V2 20 workflows, bot WhatsApp conversationnel Claude Haiku + Pennylane Cabinet API v2)
+  - UC2 GEO Citation Tracker (NOUVEAU) : app Python 3.13/FastAPI, monitoring visibilité marque sur 5 LLM, positionné futur SaaS pour agences
+  - UC3 Usine à Contenu B2B : enrichi avec preuve de dogfooding (propre blog + refonte site)
+  - UC4 Chef de Cabinet IA (NOUVEAU) : Jarvis repensé en agent proactif premium — 3 piliers (Gatekeeper, Executive Brief, Copilote Réunion), commande vocale WhatsApp, scénario journée type
+  - UC5 Agent Téléphonique IA : inchangé
+  - UC6 Cerveau d'Entreprise & Veille : inchangé
+- Exclusions validées par Franck : Contrats eMessage (pas assez impressionnant), Batchcook (B2C), F4 Manager (gaming), SMTP (DevOps only)
+- 11 règles d'implémentation (vs 8 en v1) : ajout tags tech visibles, organisation par département métier, tone premium
+- Diversité de stack démontrée : n8n + Python/FastAPI + Voice AI + WhatsApp + RAG
+
 ## 2026-03-22 — Phase 3 : Page Diagnostic IA
 
 - Page Diagnostic de Transformation IA `/diagnostic/` — landing page SEO dédiée
