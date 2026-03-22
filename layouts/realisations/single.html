@@ -241,13 +241,15 @@
         </div>
 
         {{/* Diagramme d'architecture */}}
+        {{ with .image }}
         <div class="reveal mb-12" data-delay="100">
-            <img src="/assets/images/architecture-pole-financier-augmente.jpg"
-                 alt="Architecture technique du P&ocirc;le Financier Augment&eacute; : 5 blocs — tri emails, OCR factures, relance WhatsApp Pennylane, recouvrement La Poste, monitoring"
+            <img src="{{ .src }}"
+                 alt="{{ .alt }}"
                  class="w-full rounded-lg border border-slate-border"
                  width="1920" height="1080"
                  loading="lazy">
         </div>
+        {{ end }}
 
         {{/* Pourquoi ces choix — accordion */}}
         <div class="reveal max-w-3xl mx-auto" data-delay="200">

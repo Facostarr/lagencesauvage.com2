@@ -161,6 +161,9 @@ pillars:
 architecture:
   title: "Sous le capot : l'architecture technique"
   intro: "5 workflows interconnectés, 105 nodes au total, orchestrés par n8n. Chaque composant a été choisi pour sa fiabilité et son rapport coût-performance."
+  image:
+    src: "/assets/images/architecture-usine-contenu-b2b.jpg"
+    alt: "Architecture technique de l'Usine à Contenu B2B : 5 blocs — Topic Discovery, Veille RAG Supabase, Rédaction SEO/GEO, Publication LinkedIn, Publication Hugo Blog"
   flow:
     - name: "n8n (auto-hébergé)"
       role: "Orchestration — 5 workflows, schedules, gestion d'état"
