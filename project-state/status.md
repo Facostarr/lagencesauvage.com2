@@ -100,7 +100,9 @@ Aucun pour le moment.
 - ✅ Page Réalisations : 5 use cases sélectionnés (consensus Claude + Gemini), focus file créé (2026-03-22)
 - ✅ Case study "Pôle Financier Augmenté" : page pilier 5 piliers narratifs, données réelles 13+ workflows n8n, API La Poste LReL, consensus Claude + Gemini score 9/10 (2026-03-22)
 - ✅ Page Diagnostic IA : contenu fidèle à l'ancienne page, nouveau design system, 13 sections complètes (2026-03-22)
+- ✅ Focus Réalisations v2 : 6 use cases (consensus Claude + Gemini v2, score 9/10) — fusion UC1+PennylaneAgent, ajout GEO Tracker SaaS, Jarvis repensé en Chef de Cabinet IA (2026-03-22)
 
 ## Décisions en attente
 
 - Lien Calendly pour page de confirmation formulaire
+- GEO Citation Tracker : positionnement SaaS pour agences (accès anticipé / waitlist)
