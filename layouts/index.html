@@ -158,132 +158,86 @@
 </section>
 
 {{/* ===================================================================
-     CE QU'ON LIVRE — Livrables concrets avec placeholders visuels
+     CE QU'ON A DÉPLOYÉ — Preuves express + mini-cartes + CTA réalisations
      =================================================================== */}}
 <section class="bg-slate-light py-16 sm:py-24">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12 sm:mb-16">
             <h2 class="font-display text-2xl sm:text-4xl tracking-tight mb-4">
-                Ce que nous avons d&eacute;j&agrave; d&eacute;ploy&eacute;
+                Des r&eacute;sultats concrets, pas des promesses
             </h2>
             <p class="text-base sm:text-lg text-slate-muted max-w-2xl mx-auto">
-                Pas de PowerPoint de 80 slides. Des outils qui tournent,
-                des processus qui font gagner du temps d&egrave;s le premier mois.
+                Chaque projet d&eacute;ploy&eacute; r&eacute;pond &agrave; un probl&egrave;me pr&eacute;cis.
+                Voici ce que nos clients ont obtenu.
             </p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
-            {{/* Cas client 1 — Pôle Financier Augmenté */}}
-            <div class="reveal card-deliverable bg-white rounded-lg border border-slate-border p-6 sm:p-8 relative" data-delay="0">
-                <span class="absolute top-4 right-4 inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-indigo/10 text-indigo text-xs font-semibold">
-                    <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
-                    Cas client
-                </span>
-                <div class="aspect-video bg-slate-light rounded-md mb-6 flex items-center justify-center overflow-hidden">
-                    <!-- [ASSET: Screenshot flux n8n Pôle Financier anonymisé — 16:9 — PNG/WebP] -->
-                    <span class="card-deliverable__image text-sm text-slate-muted">Aper&ccedil;u du P&ocirc;le Financier Augment&eacute;</span>
-                </div>
-                <h3 class="font-display text-lg mb-2">P&ocirc;le Financier Augment&eacute;</h3>
-                <p class="text-sm font-semibold text-indigo mb-2">13 workflows actifs &middot; Expertise comptable</p>
-                <p class="text-sm text-slate-muted leading-relaxed mb-4">
-                    Du tri intelligent des emails au recouvrement automatis&eacute; :
-                    un cabinet comptable dont les t&acirc;ches r&eacute;p&eacute;titives tournent 24h/24.
-                </p>
-                <div class="flex flex-wrap gap-2 mb-4">
-                    <span class="inline-block px-2 py-0.5 rounded bg-slate-light text-xs text-slate-muted">n8n</span>
-                    <span class="inline-block px-2 py-0.5 rounded bg-slate-light text-xs text-slate-muted">Pennylane</span>
-                    <span class="inline-block px-2 py-0.5 rounded bg-slate-light text-xs text-slate-muted">WhatsApp</span>
-                    <span class="inline-block px-2 py-0.5 rounded bg-slate-light text-xs text-slate-muted">Claude AI</span>
-                </div>
-                <a href="/realisations/automatisation-pole-financier-pennylane-expert-comptable/" class="inline-flex items-center text-sm font-semibold text-indigo hover:text-indigo-dark transition-colors">
-                    Voir le cas complet
-                    <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
-                </a>
+        {{/* Bandeau chiffres express */}}
+        <div class="reveal flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-16 mb-12 sm:mb-16" data-delay="0">
+            <div class="text-center">
+                <p class="font-display text-3xl sm:text-4xl text-indigo tracking-tight">6</p>
+                <p class="text-sm text-slate-muted mt-1">projets d&eacute;ploy&eacute;s</p>
             </div>
+            <div class="hidden sm:block w-px h-12 bg-slate-border"></div>
+            <div class="text-center">
+                <p class="font-display text-3xl sm:text-4xl text-indigo tracking-tight">30+</p>
+                <p class="text-sm text-slate-muted mt-1">workflows en production</p>
+            </div>
+            <div class="hidden sm:block w-px h-12 bg-slate-border"></div>
+            <div class="text-center">
+                <p class="font-display text-3xl sm:text-4xl text-indigo tracking-tight">5</p>
+                <p class="text-sm text-slate-muted mt-1">secteurs d'activit&eacute;</p>
+            </div>
+        </div>
 
-            {{/* Cas client 2 — Chef de Cabinet IA */}}
-            <div class="reveal card-deliverable bg-white rounded-lg border border-slate-border p-6 sm:p-8 relative" data-delay="100">
-                <span class="absolute top-4 right-4 inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-indigo/10 text-indigo text-xs font-semibold">
-                    <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
-                    Cas client
-                </span>
-                <div class="aspect-video bg-slate-light rounded-md mb-6 flex items-center justify-center overflow-hidden">
-                    <!-- [ASSET: Screenshot Chef de Cabinet IA — 16:9 — PNG/WebP] -->
-                    <span class="card-deliverable__image text-sm text-slate-muted">Aper&ccedil;u du Chef de Cabinet IA</span>
-                </div>
-                <h3 class="font-display text-lg mb-2">Chef de Cabinet IA</h3>
-                <p class="text-sm font-semibold text-indigo mb-2">10 &agrave; 15h r&eacute;cup&eacute;r&eacute;es/semaine &middot; Dirigeants</p>
+        {{/* Grille 3 mini-cartes */}}
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {{/* Mini-carte 1 — Chef de Cabinet IA */}}
+            <a href="/realisations/chef-de-cabinet-ia-assistant-dirigeant/" class="reveal group bg-white rounded-lg border border-slate-border p-6 hover:-translate-y-0.5 transition-all duration-200" data-delay="0">
+                <p class="font-display text-2xl sm:text-3xl text-indigo tracking-tight mb-3">-15h/sem</p>
+                <h3 class="font-display text-base mb-2 group-hover:text-indigo transition-colors">Chef de Cabinet IA</h3>
                 <p class="text-sm text-slate-muted leading-relaxed mb-4">
-                    Un assistant proactif qui trie vos emails, pr&eacute;pare vos rendez-vous
-                    et assure le suivi client &mdash; pour que vous dirigiez au lieu de subir.
+                    Un assistant qui trie vos emails, pr&eacute;pare vos rendez-vous et assure le suivi client.
                 </p>
-                <div class="flex flex-wrap gap-2 mb-4">
-                    <span class="inline-block px-2 py-0.5 rounded bg-slate-light text-xs text-slate-muted">n8n</span>
-                    <span class="inline-block px-2 py-0.5 rounded bg-slate-light text-xs text-slate-muted">Claude AI</span>
-                    <span class="inline-block px-2 py-0.5 rounded bg-slate-light text-xs text-slate-muted">WhatsApp</span>
-                    <span class="inline-block px-2 py-0.5 rounded bg-slate-light text-xs text-slate-muted">Notion</span>
-                </div>
-                <a href="/realisations/chef-de-cabinet-ia-assistant-dirigeant/" class="inline-flex items-center text-sm font-semibold text-indigo hover:text-indigo-dark transition-colors">
-                    Voir le cas complet
-                    <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
-                </a>
-            </div>
+                <span class="inline-flex items-center text-sm font-semibold text-indigo">
+                    D&eacute;couvrir
+                    <svg class="w-4 h-4 ml-1 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+                </span>
+            </a>
 
-            {{/* Cas client 3 — Agent WhatsApp × Pennylane */}}
-            <div class="reveal card-deliverable bg-white rounded-lg border border-slate-border p-6 sm:p-8 relative" data-delay="200">
-                <span class="absolute top-4 right-4 inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-indigo/10 text-indigo text-xs font-semibold">
-                    <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
-                    Cas client
-                </span>
-                <div class="aspect-video bg-slate-light rounded-md mb-6 flex items-center justify-center overflow-hidden">
-                    <!-- [ASSET: Screenshot relance WhatsApp Pennylane — 16:9 — PNG/WebP] -->
-                    <span class="card-deliverable__image text-sm text-slate-muted">Aper&ccedil;u de l'agent WhatsApp comptable</span>
-                </div>
-                <h3 class="font-display text-lg mb-2">Agent WhatsApp &times; Pennylane</h3>
-                <p class="text-sm font-semibold text-indigo mb-2">Relances automatis&eacute;es &middot; Experts-comptables</p>
+            {{/* Mini-carte 2 — Pôle Financier Augmenté */}}
+            <a href="/realisations/automatisation-pole-financier-pennylane-expert-comptable/" class="reveal group bg-white rounded-lg border border-slate-border p-6 hover:-translate-y-0.5 transition-all duration-200" data-delay="100">
+                <p class="font-display text-2xl sm:text-3xl text-indigo tracking-tight mb-3">13 workflows</p>
+                <h3 class="font-display text-base mb-2 group-hover:text-indigo transition-colors">P&ocirc;le Financier Augment&eacute;</h3>
                 <p class="text-sm text-slate-muted leading-relaxed mb-4">
-                    Vos clients re&ccedil;oivent leurs relances documents sur WhatsApp,
-                    synchronis&eacute;es avec Pennylane. Z&eacute;ro copier-coller, z&eacute;ro oubli.
+                    Du tri des emails au recouvrement : un cabinet comptable enti&egrave;rement automatis&eacute;.
                 </p>
-                <div class="flex flex-wrap gap-2 mb-4">
-                    <span class="inline-block px-2 py-0.5 rounded bg-slate-light text-xs text-slate-muted">Evolution API</span>
-                    <span class="inline-block px-2 py-0.5 rounded bg-slate-light text-xs text-slate-muted">Pennylane</span>
-                    <span class="inline-block px-2 py-0.5 rounded bg-slate-light text-xs text-slate-muted">n8n</span>
-                    <span class="inline-block px-2 py-0.5 rounded bg-slate-light text-xs text-slate-muted">Claude AI</span>
-                </div>
-                <a href="/realisations/automatisation-pole-financier-pennylane-expert-comptable/" class="inline-flex items-center text-sm font-semibold text-indigo hover:text-indigo-dark transition-colors">
-                    Voir le cas complet
-                    <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
-                </a>
-            </div>
+                <span class="inline-flex items-center text-sm font-semibold text-indigo">
+                    D&eacute;couvrir
+                    <svg class="w-4 h-4 ml-1 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+                </span>
+            </a>
 
-            {{/* Cas client 4 — Usine à Contenu B2B */}}
-            <div class="reveal card-deliverable bg-white rounded-lg border border-slate-border p-6 sm:p-8 relative" data-delay="300">
-                <span class="absolute top-4 right-4 inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-indigo/10 text-indigo text-xs font-semibold">
-                    <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
-                    Cas client
-                </span>
-                <div class="aspect-video bg-slate-light rounded-md mb-6 flex items-center justify-center overflow-hidden">
-                    <!-- [ASSET: Screenshot Usine à Contenu B2B — 16:9 — PNG/WebP] -->
-                    <span class="card-deliverable__image text-sm text-slate-muted">Aper&ccedil;u de l'usine &agrave; contenu</span>
-                </div>
-                <h3 class="font-display text-lg mb-2">Usine &agrave; Contenu B2B</h3>
-                <p class="text-sm font-semibold text-indigo mb-2">3 mois de contenu en 2h &middot; SEO + LinkedIn</p>
+            {{/* Mini-carte 3 — Usine à Contenu B2B */}}
+            <a href="/realisations/usine-contenu-b2b-seo-linkedin-automatisation/" class="reveal group bg-white rounded-lg border border-slate-border p-6 hover:-translate-y-0.5 transition-all duration-200" data-delay="200">
+                <p class="font-display text-2xl sm:text-3xl text-indigo tracking-tight mb-3">3 mois en 2h</p>
+                <h3 class="font-display text-base mb-2 group-hover:text-indigo transition-colors">Usine &agrave; Contenu B2B</h3>
                 <p class="text-sm text-slate-muted leading-relaxed mb-4">
-                    Veille sectorielle, r&eacute;daction d'articles SEO/GEO et publication LinkedIn
-                    automatis&eacute;es &mdash; sans community manager.
+                    Veille, r&eacute;daction SEO et publication LinkedIn automatis&eacute;es, sans community manager.
                 </p>
-                <div class="flex flex-wrap gap-2 mb-4">
-                    <span class="inline-block px-2 py-0.5 rounded bg-slate-light text-xs text-slate-muted">n8n</span>
-                    <span class="inline-block px-2 py-0.5 rounded bg-slate-light text-xs text-slate-muted">Supabase</span>
-                    <span class="inline-block px-2 py-0.5 rounded bg-slate-light text-xs text-slate-muted">OpenAI</span>
-                    <span class="inline-block px-2 py-0.5 rounded bg-slate-light text-xs text-slate-muted">LinkedIn</span>
-                </div>
-                <a href="/realisations/usine-contenu-b2b-seo-linkedin-automatisation/" class="inline-flex items-center text-sm font-semibold text-indigo hover:text-indigo-dark transition-colors">
-                    Voir le cas complet
-                    <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
-                </a>
-            </div>
+                <span class="inline-flex items-center text-sm font-semibold text-indigo">
+                    D&eacute;couvrir
+                    <svg class="w-4 h-4 ml-1 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+                </span>
+            </a>
+        </div>
+
+        {{/* CTA vers toutes les réalisations */}}
+        <div class="text-center mt-10">
+            <a href="/realisations/" class="inline-flex items-center px-6 py-3 text-sm font-semibold rounded-md border border-slate-border text-slate-deep hover:border-indigo hover:text-indigo transition-colors">
+                Voir toutes nos r&eacute;alisations
+                <svg class="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+            </a>
         </div>
     </div>
 </section>
