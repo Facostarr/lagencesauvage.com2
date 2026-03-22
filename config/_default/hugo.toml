@@ -8,8 +8,8 @@ languageCode = "fr-FR"
 defaultContentLanguage = "fr"
 title = "L'Agence Sauvage | IA & Automatisation pour TPE/PME"
 
-# URLs avec extension .html comme demandé
-uglyURLs = true
+# Pretty URLs (sans extension .html) — redirections 301 dans vercel.json
+# uglyURLs supprimé — voir mapping complet dans docs/playbook-refonte.md
 
 # Désactiver les pages inutiles
 disableKinds = ["taxonomy", "term"]

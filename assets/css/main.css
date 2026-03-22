@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@theme {
+  /* Palette — définie en Phase 1 (design system) */
+  /* --color-primary: ...; */
+  /* --color-secondary: ...; */
+
+  /* Typographie — définie en Phase 1 */
+  /* --font-display: ...; */
+  /* --font-body: ...; */
+}
