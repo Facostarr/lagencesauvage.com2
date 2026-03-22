@@ -25,7 +25,7 @@
      =================================================================== */}}
 {{ with index $allPages 0 }}
 <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-    <a href="{{ .Permalink }}" class="reveal group block bg-white border border-slate-border rounded-lg overflow-hidden blog-card">
+    <a href="{{ .RelPermalink }}" class="reveal group block bg-white border border-slate-border rounded-lg overflow-hidden blog-card">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
             {{/* Image */}}
             <div class="aspect-[16/9] md:aspect-auto bg-slate-light overflow-hidden">
@@ -100,7 +100,7 @@
         {{ end }}
 
         {{/* Carte article */}}
-        <a href="{{ $page.Permalink }}"
+        <a href="{{ $page.RelPermalink }}"
            class="blog-card-item reveal group flex flex-col border border-slate-border rounded-lg overflow-hidden blog-card"
            data-category="{{ if $page.Params.categories }}{{ index $page.Params.categories 0 | urlize }}{{ else }}non-classe{{ end }}"
            data-delay="{{ mul $i 80 }}">

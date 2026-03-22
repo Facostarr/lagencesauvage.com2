@@ -210,7 +210,7 @@
             <h2 class="font-display text-2xl text-slate-deep mb-8 text-center">Articles connexes</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {{ range $related }}
-                <a href="{{ .Permalink }}" class="reveal group block border border-slate-border rounded-lg overflow-hidden blog-card">
+                <a href="{{ .RelPermalink }}" class="reveal group block border border-slate-border rounded-lg overflow-hidden blog-card">
                     {{/* Image ou placeholder */}}
                     <div class="aspect-[3/2] bg-slate-light overflow-hidden">
                         {{ if .Params.image }}
