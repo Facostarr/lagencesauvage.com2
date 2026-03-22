@@ -1,13 +1,13 @@
 # Status — Refonte lagencesauvage.com
 
-## Phase en cours : 0 — Setup technique
+## Phase en cours : 1 — Design system
 
 ## Progression
 
 | Phase | Statut | Date début | Date fin |
 |-------|--------|-----------|---------|
-| Phase 0 — Setup technique | 🟡 En cours | 2026-03-22 | — |
-| Phase 1 — Design system | ⬜ À faire | — | — |
+| Phase 0 — Setup technique | ✅ Terminée | 2026-03-22 | 2026-03-22 |
+| Phase 1 — Design system | 🟡 En cours | 2026-03-22 | — |
 | Phase 2 — Homepage | ⬜ À faire | — | — |
 | Phase 3 — Pages secondaires | ⬜ À faire | — | — |
 | Phase 4 — Intégration blog | ⬜ À faire | — | — |
@@ -31,15 +31,32 @@
 - [x] Corriger 3 liens .html dans articles blog
 - [x] Ajouter règles CLAUDE.md (redirections vercel.json only + classes TW dynamiques)
 - [x] Configurer HUGO_VERSION dans Vercel Dashboard
-- [ ] Vérifier build Vercel Preview (en attente déploiement)
-- [ ] **STOP — Validation Franck**
+- [x] Corriger build Vercel (Hugo 0.58→0.158.0 via build.env)
+- [x] Vérifier build Vercel Preview — READY
+- [x] **Validation Franck — GO Phase 1**
+
+## Phase 1 — Tâches détaillées
+
+- [x] Palette de couleurs : Premium Tech — indigo #4F46E5 / slate #0F172A / blanc #FFFFFF
+- [x] Typographie : DM Serif Display (titres) + DM Sans (corps)
+- [x] baseof.html : Hugo Pipes PostCSS, Google Fonts, structure flex
+- [x] Header responsive : nav blanc, bordure subtile, CTA indigo
+- [x] Footer : 4 colonnes, fond slate clair, menus dynamiques
+- [x] Homepage placeholder : hero + CTA + section preuve sociale
+- [x] Build Vercel Preview validé par Franck
+- [ ] Vérification rendu mobile
+- [ ] **STOP — Validation Franck Phase 1 complète**
 
 ## Blockers
 
 Aucun pour le moment.
 
+## Décisions prises
+
+- ✅ Typographie : DM Serif Display + DM Sans (2026-03-22)
+- ✅ Palette : abandon "Intelligence Organique", adoption "Premium Tech" indigo/slate/blanc (2026-03-22)
+
 ## Décisions en attente
 
-- Choix typographie définitif (voir skill brand-identity pour les options)
 - Solution formulaire lead capture (Vercel Serverless existant vs autre)
 - Liste des vrais clients autorisés pour la preuve sociale
