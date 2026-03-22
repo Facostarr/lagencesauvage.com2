@@ -5,11 +5,30 @@
 @source "../../content";
 
 @theme {
-  /* Palette — définie en Phase 1 (design system) */
-  /* --color-primary: ...; */
-  /* --color-secondary: ...; */
+  /* === Palette "Intelligence Organique" === */
+  --color-forest: #224f3c;
+  --color-forest-dark: #1a3d2e;
+  --color-forest-light: #2d6b50;
+  --color-orange: #c96839;
+  --color-orange-dark: #b35a2e;
+  --color-orange-light: #d4804f;
+  --color-cream: #f2ede1;
+  --color-cream-dark: #e8e0d0;
+  --color-stone: #8c8982;
+  --color-warm-brown: #57412f;
 
-  /* Typographie — définie en Phase 1 */
-  /* --font-display: ...; */
-  /* --font-body: ...; */
+  /* === Typographie === */
+  --font-display: "DM Serif Display", Georgia, serif;
+  --font-body: "DM Sans", system-ui, sans-serif;
+}
+
+/* === Base === */
+body {
+  font-family: var(--font-body);
+  color: var(--color-forest);
+  background-color: var(--color-cream);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
 }
