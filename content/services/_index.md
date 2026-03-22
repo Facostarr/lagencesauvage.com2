@@ -20,7 +20,8 @@ offres:
     price: "500"
     price_unit: "€/mois"
     price_prefix: "À partir de"
-    price_note: "Setup initial en sus"
+    price_setup: "1 000"
+    price_note: "Setup initial à partir de 1 000€"
     includes:
       - "Agents IA sur-mesure (chatbot, tri emails, extraction données...)"
       - "Processus automatisés entre vos outils existants"
@@ -32,7 +33,7 @@ offres:
     tier: "better"
     name: "Formation IA"
     tagline: "Rendez vos équipes autonomes sur l'IA."
-    price: ""
+    price: "1 000"
     price_unit: "€/jour"
     price_prefix: "À partir de"
     price_note: "Éligible OPCO"
@@ -48,7 +49,7 @@ offres:
     name: "Transformation IA"
     tagline: "Diagnostic + déploiement + formation : l'IA de A à Z dans votre entreprise."
     recommended: true
-    price: ""
+    price: "3 000"
     price_unit: "€"
     price_prefix: "À partir de"
     price_note: "Devis personnalisé"
