@@ -48,6 +48,23 @@
 - [x] Vérification rendu mobile — validé par Franck
 - [x] **Validation Franck — Phase 1 terminée, GO Phase 2**
 
+## Phase 2 — Tâches détaillées
+
+- [x] Hero : proposition de valeur PAS + CTA audit gratuit
+- [x] Section Pain points : framework PAS (3 colonnes)
+- [x] Section "Ce qu'on livre" : 4 cartes avec placeholders visuels
+- [x] Section Social proof : Olivier Sarezinski (Eurodom) + Myriam Louergli (Optimrezo)
+- [x] Section FAQ : 6 questions avec schema FAQPage
+- [x] Formulaire audit gratuit : 2 étapes progressives → /api/submit-lead
+- [x] CTA final : fond slate dark
+- [x] Schema LocalBusiness + meta tags enrichis
+- [x] Positionnement élargi : "professionnels" (pas TPE/PME uniquement)
+- [x] Animations premium : hero fade-in, scroll reveal, hover cards, FAQ grid animé
+- [ ] Témoignages textuels Olivier + Myriam (en attente de Franck)
+- [ ] Screenshots réels pour les 4 cartes livrables (en attente de Franck)
+- [ ] Lien Calendly pour confirmation formulaire (en attente de Franck)
+- [ ] **Validation Franck — Preview Vercel Phase 2**
+
 ## Blockers
 
 Aucun pour le moment.
@@ -56,8 +73,11 @@ Aucun pour le moment.
 
 - ✅ Typographie : DM Serif Display + DM Sans (2026-03-22)
 - ✅ Palette : abandon "Intelligence Organique", adoption "Premium Tech" indigo/slate/blanc (2026-03-22)
+- ✅ Formulaire : 2 étapes progressives (coordonnées → entreprise) (2026-03-22)
+- ✅ Social proof : Olivier Sarezinski (Eurodom) + Myriam Louergli (Optimrezo) validés (2026-03-22)
+- ✅ Positionnement : "professionnels" au lieu de "TPE/PME" — cible élargie jusqu'à 200 salariés (2026-03-22)
+- ✅ Animations : consensus Claude + Gemini — style Stripe/Linear, easing expo, prefers-reduced-motion (2026-03-22)
 
 ## Décisions en attente
 
-- Solution formulaire lead capture (Vercel Serverless existant vs autre)
-- Liste des vrais clients autorisés pour la preuve sociale
+- Lien Calendly pour page de confirmation formulaire

@@ -1,5 +1,22 @@
 # Changelog — Refonte lagencesauvage.com
 
+## 2026-03-22 — Phase 2 : Homepage
+
+- Homepage complète : hero PAS, pain points (3 cols), livrables (4 cards), social proof, FAQ, formulaire 2 étapes, CTA final
+- Formulaire lead capture 2 étapes progressives → /api/submit-lead (backend existant préservé)
+- Social proof : Olivier Sarezinski (Eurodom) + Myriam Louergli (Optimrezo) — témoignages textuels en attente
+- FAQ 6 questions avec schema FAQPage + schema LocalBusiness
+- Positionnement élargi : "professionnels" au lieu de "TPE/PME" (cible jusqu'à 200 salariés)
+- FAQ outils : n8n, Claude AI, Notion, Supabase + API métier clients (Make retiré)
+- Animations premium (consensus Claude + Gemini) :
+  - Hero fade-in-up staggeré au chargement (400ms, easing expo)
+  - Scroll reveal IntersectionObserver pour pain points, livrables, social proof
+  - Tech logos grayscale → couleur au hover
+  - Cards : border indigo (pain) / border + image scale 1.03 (livrables) au hover
+  - FAQ refactoré : details natif → button + CSS grid (0fr→1fr) animé
+  - prefers-reduced-motion respecté (tout visible immédiatement)
+- Commits : afabd4b → bc55a45 (3 commits)
+
 ## 2026-03-22 — Phase 1 : Design system
 
 - Corrigé build Vercel : Hugo 0.58.2 → 0.158.0 via `build.env.HUGO_VERSION` dans vercel.json
