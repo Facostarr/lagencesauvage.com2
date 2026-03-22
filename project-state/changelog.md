@@ -1,5 +1,19 @@
 # Changelog — Refonte lagencesauvage.com
 
+## 2026-03-22 — Branding : nouveau logo C2 + favicon
+
+- Brainstorm logo Claude + Gemini (consensus 8/10) : direction "Premium Tech" Stripe/Linear
+- 5 planches de concepts générées via Gemini MCP (séries C, D, E, F, G — 30+ variations)
+- Directions explorées : S seul (C1-C4), chevrons/ribbon/slashes (D1-D4), S solides (E1-E6), 1+S (F1-F6), A+S monogramme (G1-G6)
+- Logo provisoire retenu : C2 — carré arrondi indigo #4F46E5 + S en espace négatif blanc
+- Texte : "L'Agence" (DM Sans 400) + "Sauvage" (DM Serif Display italic)
+- Favicon SVG : monogramme S seul (carré indigo + S négatif)
+- Taille logo augmentée : header h-12/h-14 (48-56px), footer h-12 (48px)
+- Fichiers : logo-lagencesauvage.svg + favicon.svg dans static/assets/images/
+- Mis à jour : header.html, footer.html, baseof.html (favicon SVG prioritaire), params.toml
+- Franck fait valider par contacts extérieurs + explore piste monogramme A+S
+- Commit acb7116
+
 ## 2026-03-22 — Phase 3 : Stack technique enrichie + blog list Tailwind
 
 - Stack technique mise à jour sur 4 pages (About, Services, Homepage, FAQ) : passage de 6 à 12 technologies

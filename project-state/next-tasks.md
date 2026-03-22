@@ -26,10 +26,17 @@
 - [x] Page Diagnostic IA `/diagnostic/`
 - [x] Pages légales : mentions légales, confidentialité, CGV
 
+## Logo (en cours de validation)
+
+- Logo provisoire C2 intégré (carré indigo + S négatif + texte)
+- Favicon SVG du monogramme S en place
+- Franck consulte des avis extérieurs sur les concepts générés
+- Piste monogramme A+S (série G) à affiner si retours positifs
+- Une fois le logo final validé : convertir les `<text>` SVG en paths vectorisés (Inkscape/Illustrator)
+
 ## Fait cette session
 
-- [x] Stack technique enrichie sur 4 pages (About, Services, Homepage, FAQ) — passage de 6 à 12 technos
-  - Ajouts : OpenAI/GPT, Google Gemini, Python/FastAPI, PostgreSQL/pgvector, Google Workspace, Whisper, APIs métier (Pennylane, LinkedIn, Pappers, La Poste)
-  - Grille About passée à 4 colonnes desktop (lg:grid-cols-4)
-  - FAQ /faq/ réécrite pour refléter l'écosystème complet
-- [x] Layout blog list.html migré vers design system Tailwind v4 (Premium Tech)
+- [x] Brainstorm logo Claude + Gemini (5 planches, 30+ concepts)
+- [x] Logo provisoire C2 + favicon SVG intégrés sur le site
+- [x] Taille logo augmentée (h-12/h-14 header, h-12 footer)
+- [x] Chemins mis à jour (header, footer, baseof, params.toml, schema)

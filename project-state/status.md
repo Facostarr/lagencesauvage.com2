@@ -100,6 +100,16 @@
 - [x] Corrections techniques : /blog.html→/blog/, /about.html→/about/ dans schema + params
 - [ ] **Validation Franck — Preview Vercel Phase 4**
 
+## Logo & Branding
+
+- [x] Brainstorm Claude + Gemini : direction logo (consensus 8/10)
+- [x] 4 planches de concepts générées via Gemini (séries C, D, E, F, G)
+- [x] Logo provisoire C2 intégré (carré arrondi indigo + S espace négatif + texte DM Serif/Sans)
+- [x] Favicon SVG (monogramme S seul)
+- [x] Taille logo augmentée header h-12/h-14, footer h-12
+- [ ] Validation logo final par Franck + contacts extérieurs (monogramme A+S en exploration)
+- [ ] Conversion texte SVG en paths vectorisés (après validation finale)
+
 ## Blockers
 
 Aucun pour le moment.
@@ -128,6 +138,9 @@ Aucun pour le moment.
 - ✅ Blog "Édition Premium 2026" : brainstorm Claude + Gemini (consensus 8/10), layouts Tailwind v4, 8 images abstraites Gemini, lecture plein écran, 4 CTAs subtils, key takeaways GEO, TOC flottant, progress bar (2026-03-22)
 - ✅ Ordre case studies par weight : Pôle Financier → GEO Tracker → Usine à Contenu → Chef de Cabinet → Agent Téléphonique → Cerveau d'Entreprise (2026-03-22)
 
+- ✅ Logo provisoire C2 : monogramme S (carré arrondi indigo #4F46E5 + S espace négatif blanc) + texte "L'Agence" DM Sans / "Sauvage" DM Serif Display italic. Brainstorm Claude + Gemini (consensus 8/10). Franck consulte des avis extérieurs + explore piste monogramme A+S (2026-03-22)
+
 ## Décisions en attente
 
 - Lien Calendly pour page de confirmation formulaire
+- Logo final : C2 provisoire en place, Franck fait valider par contacts extérieurs. Piste monogramme A+S (séries G) à affiner

@@ -58,6 +58,12 @@
 - Ne pas mettre le nom d'un outil technique (n8n, Make...) dans le titre d'une offre B2B. Le client achète un bénéfice, pas un outil. La technique va dans les bullet points.
 - L'effet leurre Good-Better-Best fonctionne quand l'offre "Best" englobe les deux autres à un prix qui semble avantageux comparé à la somme des offres isolées.
 
+## Logo / Branding
+
+- Pour un logo web, les SVG avec balises `<text>` dépendent des fonts installées/chargées. En production, convertir en `<path>` (text-to-path dans Inkscape) pour un rendu garanti partout.
+- Gemini generate-image est efficace pour explorer des directions de logo (5 planches = 30+ concepts en ~20 min) mais les résultats sont des rasters, pas des SVG vectoriels exploitables directement. Le SVG final doit être codé à la main ou retracé.
+- Le brainstorm Claude + Gemini sur le branding converge vite (1 round, consensus 8/10) quand les contraintes sont précises (palette, typo, style référence).
+
 ## Design
 
 - L'audit converge (Claude + Gemini) sur 4 problèmes bloquants : témoignages fictifs, positionnement incohérent, zéro preuve visuelle, page About sous-exploitée.
