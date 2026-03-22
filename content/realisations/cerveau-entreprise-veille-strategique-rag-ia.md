@@ -145,7 +145,7 @@ architecture:
   title: "Sous le capot : l'architecture technique"
   intro: "4 workflows interconnectés, 75 nodes au total, orchestrés par n8n. La base vectorielle Supabase sert de mémoire partagée entre l'assistant RAG et l'agent de classement. Les veilles fonctionnent en parallèle, de manière autonome."
   image:
-    src: "/assets/images/architecture-cerveau-entreprise-veille.jpg"
+    src: "/assets/images/architecture-cerveau-entreprise-veille.webp"
     alt: "Diagramme d'architecture du Cerveau d'Entreprise : Assistant RAG, Veille Procédures Collectives, Veille Marchés Publics, Agent Zero Papier — orchestrés par n8n"
   flow:
     - name: "n8n (auto-hébergé)"

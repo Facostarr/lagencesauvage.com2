@@ -159,7 +159,7 @@ architecture:
   title: "Sous le capot : l'architecture technique"
   intro: "Stack 100% custom Python/FastAPI — pas de no-code. Chaque composant a été choisi pour sa fiabilité, sa testabilité et sa capacité à évoluer vers un SaaS multi-tenant."
   image:
-    src: "/assets/images/architecture-geo-citation-tracker.jpg"
+    src: "/assets/images/architecture-geo-citation-tracker.webp"
     alt: "Diagramme d'architecture du GEO Citation Tracker : Audit Engine, 5 APIs LLM, Analysis pipeline, SQLite, Dashboard Chart.js"
   flow:
     - name: "Python 3.13"

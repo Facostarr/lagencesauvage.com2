@@ -147,7 +147,7 @@ architecture:
   title: "Sous le capot : l'architecture technique"
   intro: "8 sub-workflows interconnectés, orchestrés par n8n. Un agent IA central (Claude API) assure le routage sémantique — chaque message, email ou vocal est compris en contexte et dirigé vers le bon traitement."
   image:
-    src: "/assets/images/architecture-chef-cabinet-ia.jpg"
+    src: "/assets/images/architecture-chef-cabinet-ia.webp"
     alt: "Diagramme d'architecture du Chef de Cabinet IA : Gatekeeper, Executive Brief, Copilote Réunion, Commande Vocale — orchestrés par n8n"
   flow:
     - name: "n8n (auto-hébergé)"

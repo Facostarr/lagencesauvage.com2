@@ -10,6 +10,24 @@
     {{/* Schema.org Organization (sur toutes les pages) */}}
     {{ partial "schema/organization.html" . }}
 
+    {{/* Schema.org WebSite (homepage uniquement) */}}
+    {{ if .IsHome }}
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": "{{ .Site.BaseURL }}#website",
+        "name": "{{ .Site.Title }}",
+        "url": "{{ .Site.BaseURL }}",
+        "description": "{{ .Site.Params.description }}",
+        "publisher": {
+            "@id": "{{ .Site.BaseURL }}#organization"
+        },
+        "inLanguage": "fr-FR"
+    }
+    </script>
+    {{ end }}
+
     {{/* Schema.org Article (sur les articles uniquement) */}}
     {{ if and (eq .Section "blog") .IsPage }}
         {{ partial "schema/article.html" . }}

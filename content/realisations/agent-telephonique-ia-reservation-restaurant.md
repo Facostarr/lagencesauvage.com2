@@ -145,7 +145,7 @@ architecture:
   title: "Sous le capot : l'architecture technique"
   intro: "Un workflow n8n connecte la téléphonie, l'intelligence artificielle et votre système de réservation. Chaque composant a été choisi pour sa fiabilité en conditions réelles — un appel raté n'est pas une option."
   image:
-    src: "/assets/images/architecture-agent-telephonique-ia.jpg"
+    src: "/assets/images/architecture-agent-telephonique-ia.webp"
     alt: "Diagramme d'architecture de l'Agent Téléphonique IA : réception appel, Voice AI, LLM, routage réservation/information/escalade, deux options de déploiement"
   flow:
     - name: "n8n (auto-hébergé)"

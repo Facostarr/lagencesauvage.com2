@@ -170,7 +170,7 @@ architecture:
   title: "Sous le capot : l'architecture technique"
   intro: "13+ workflows interconnectés, orchestrés par n8n sur une infrastructure auto-hébergée. Chaque composant a été choisi pour sa fiabilité, sa sécurité, et son rapport coût-performance."
   image:
-    src: "/assets/images/architecture-pole-financier-augmente.jpg"
+    src: "/assets/images/architecture-pole-financier-augmente.webp"
     alt: "Architecture technique du Pôle Financier Augmenté : 5 blocs — tri emails, OCR factures, relance WhatsApp Pennylane, recouvrement La Poste, monitoring"
   flow:
     - name: "n8n (auto-hébergé)"
