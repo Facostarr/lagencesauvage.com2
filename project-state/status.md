@@ -1,6 +1,6 @@
 # Status — Refonte lagencesauvage.com
 
-## Phase en cours : 5 — Quality gate
+## Phase en cours : 6 — Bascule (en attente validation logo final)
 
 ## Progression
 
@@ -8,11 +8,11 @@
 |-------|--------|-----------|---------|
 | Phase 0 — Setup technique | ✅ Terminée | 2026-03-22 | 2026-03-22 |
 | Phase 1 — Design system | ✅ Terminée | 2026-03-22 | 2026-03-22 |
-| Phase 2 — Homepage | ✅ Terminée (1 item en attente Franck) | 2026-03-22 | 2026-03-22 |
+| Phase 2 — Homepage | ✅ Terminée | 2026-03-22 | 2026-03-22 |
 | Phase 3 — Pages secondaires | ✅ Terminée | 2026-03-22 | 2026-03-22 |
 | Phase 4 — Intégration blog | ✅ Terminée | 2026-03-22 | 2026-03-22 |
-| Phase 5 — Quality gate | 🟡 En cours | 2026-03-22 | — |
-| Phase 6 — Bascule | ⬜ À faire | — | — |
+| Phase 5 — Quality gate | ✅ Terminée (logo final en attente) | 2026-03-22 | 2026-03-22 |
+| Phase 6 — Bascule | 🟡 En attente validation logo | — | — |
 | Phase 7 — Post-bascule | ⬜ À faire | — | — |
 
 ## Phase 0 — Tâches détaillées
@@ -100,6 +100,22 @@
 - [x] Corrections techniques : /blog.html→/blog/, /about.html→/about/ dans schema + params
 - [x] Fix liens blog : .Permalink → .RelPermalink (navigation cassée sur preview Vercel)
 - [x] **Validation Franck — Preview Vercel Phase 4** (2026-03-22)
+
+## Phase 5 — Tâches détaillées
+
+- [x] Audit SEO : meta tags, OG, JSON-LD, canonical, hreflang, sitemap, robots.txt — complet
+- [x] Audit redirections 301 : 23/23 conformes au playbook + 2 extras légitimes
+- [x] Audit conversion CRO : CTAs, formulaires, social proof, trust signals
+- [x] Brainstorm Claude + Gemini quality gate (consensus 8/10)
+- [x] Fix SEO : og:locale dédupliqué, og:image:width/height ajoutés, dates TechArticle ISO 8601
+- [x] Fix CRO : header sticky (top-0 z-50), CTA ajouté au footer
+- [x] Fix CRO : 7 liens ancre cassés blog (#audit-gratuit → #audit-form)
+- [x] Schema WebSite ajouté sur homepage (sans SearchAction)
+- [x] Perf : 8 images JPG → WebP (-92%, 18 Mo → 1.2 Mo)
+- [x] Nettoyage : static/diagnostic-transformation-ia.html supprimé, blog/test1.png supprimé
+- [x] Build Hugo local validé (35 pages, 0 erreur)
+- [x] Push refonte-2026 → Vercel Preview
+- [x] **Validation Franck — Phase 5 terminée** (2026-03-22)
 
 ## Logo & Branding
 
