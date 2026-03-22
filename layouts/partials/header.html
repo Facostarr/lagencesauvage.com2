@@ -3,7 +3,7 @@
    Menu piloté par menus.toml (menu "main")
    ============================================================================= */}}
 
-<header class="bg-forest text-cream">
+<header class="bg-white border-b border-slate-border">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16 sm:h-20">
             {{/* Logo */}}
@@ -19,12 +19,12 @@
                 {{ range .Site.Menus.main }}
                     {{ if eq .Name "Contact" }}
                         <a href="{{ .URL }}"
-                           class="ml-4 inline-flex items-center px-5 py-2.5 text-sm font-semibold rounded bg-orange text-cream hover:bg-orange-dark transition-colors">
+                           class="ml-4 inline-flex items-center px-5 py-2.5 text-sm font-semibold rounded-md bg-indigo text-white hover:bg-indigo-dark transition-colors">
                             Audit IA gratuit
                         </a>
                     {{ else }}
                         <a href="{{ .URL }}"
-                           class="px-3 py-2 text-sm text-cream/80 hover:text-cream transition-colors{{ if eq $.RelPermalink .URL }} font-semibold text-cream{{ end }}">
+                           class="px-3 py-2 text-sm text-slate-muted hover:text-slate-deep transition-colors{{ if eq $.RelPermalink .URL }} font-semibold text-slate-deep{{ end }}">
                             {{ .Name }}
                         </a>
                     {{ end }}
@@ -33,7 +33,7 @@
 
             {{/* Bouton mobile */}}
             <button type="button"
-                    class="md:hidden inline-flex items-center justify-center p-2 text-cream/80 hover:text-cream"
+                    class="md:hidden inline-flex items-center justify-center p-2 text-slate-muted hover:text-slate-deep"
                     aria-label="Ouvrir le menu"
                     aria-expanded="false"
                     onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded') === 'false' ? 'true' : 'false'); document.getElementById('mobile-menu').classList.toggle('hidden')">
@@ -45,16 +45,16 @@
 
         {{/* Menu mobile */}}
         <nav id="mobile-menu" class="hidden md:hidden pb-4" aria-label="Menu mobile">
-            <div class="flex flex-col gap-1">
+            <div class="flex flex-col gap-1 border-t border-slate-border pt-4">
                 {{ range .Site.Menus.main }}
                     {{ if eq .Name "Contact" }}
                         <a href="{{ .URL }}"
-                           class="mt-2 block text-center px-4 py-3 text-sm font-semibold rounded bg-orange text-cream hover:bg-orange-dark transition-colors">
+                           class="mt-2 block text-center px-4 py-3 text-sm font-semibold rounded-md bg-indigo text-white hover:bg-indigo-dark transition-colors">
                             Audit IA gratuit
                         </a>
                     {{ else }}
                         <a href="{{ .URL }}"
-                           class="block px-4 py-2 text-sm text-cream/80 hover:text-cream hover:bg-forest-light rounded transition-colors{{ if eq $.RelPermalink .URL }} font-semibold text-cream bg-forest-light{{ end }}">
+                           class="block px-4 py-2 text-sm text-slate-muted hover:text-slate-deep rounded transition-colors{{ if eq $.RelPermalink .URL }} font-semibold text-slate-deep{{ end }}">
                             {{ .Name }}
                         </a>
                     {{ end }}

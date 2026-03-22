@@ -5,17 +5,15 @@
 @source "../../content";
 
 @theme {
-  /* === Palette "Intelligence Organique" === */
-  --color-forest: #224f3c;
-  --color-forest-dark: #1a3d2e;
-  --color-forest-light: #2d6b50;
-  --color-orange: #c96839;
-  --color-orange-dark: #b35a2e;
-  --color-orange-light: #d4804f;
-  --color-cream: #f2ede1;
-  --color-cream-dark: #e8e0d0;
-  --color-stone: #8c8982;
-  --color-warm-brown: #57412f;
+  /* === Palette "Premium Tech Consulting" === */
+  --color-white: #FFFFFF;
+  --color-slate-deep: #0F172A;
+  --color-slate-muted: #64748B;
+  --color-slate-light: #F8FAFC;
+  --color-slate-border: #E2E8F0;
+  --color-indigo: #4F46E5;
+  --color-indigo-dark: #4338CA;
+  --color-indigo-light: #6366F1;
 
   /* === Typographie === */
   --font-display: "DM Serif Display", Georgia, serif;
@@ -25,10 +23,11 @@
 /* === Base === */
 body {
   font-family: var(--font-body);
-  color: var(--color-forest);
-  background-color: var(--color-cream);
+  color: var(--color-slate-deep);
+  background-color: var(--color-white);
 }
 
 h1, h2, h3, h4 {
   font-family: var(--font-display);
+  color: var(--color-slate-deep);
 }

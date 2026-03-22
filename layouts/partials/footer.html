@@ -1,9 +1,9 @@
 {{/* =============================================================================
-   Footer — Sobre, 3 colonnes + copyright
+   Footer — Sobre, 4 colonnes sur fond slate clair
    Menus pilotés par menus.toml (footer_services, footer_resources)
    ============================================================================= */}}
 
-<footer class="bg-forest text-cream/80">
+<footer class="bg-slate-light border-t border-slate-border">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
             {{/* Col 1 — Marque */}}
@@ -13,7 +13,7 @@
                          alt="L'Agence Sauvage"
                          class="h-10 w-auto">
                 </a>
-                <p class="text-sm leading-relaxed">
+                <p class="text-sm text-slate-muted leading-relaxed">
                     L'IA accessible pour les TPE/PME.<br>
                     Automatisation, agents IA et marketing intelligent.
                 </p>
@@ -21,11 +21,11 @@
 
             {{/* Col 2 — Services */}}
             <div>
-                <h4 class="font-display text-cream text-base font-normal mb-4">Services</h4>
+                <h4 class="font-display text-slate-deep text-base font-normal mb-4">Services</h4>
                 <ul class="space-y-2">
                     {{ range .Site.Menus.footer_services }}
                     <li>
-                        <a href="{{ .URL }}" class="text-sm hover:text-cream transition-colors">
+                        <a href="{{ .URL }}" class="text-sm text-slate-muted hover:text-indigo transition-colors">
                             {{ .Name }}
                         </a>
                     </li>
@@ -35,11 +35,11 @@
 
             {{/* Col 3 — Ressources */}}
             <div>
-                <h4 class="font-display text-cream text-base font-normal mb-4">Ressources</h4>
+                <h4 class="font-display text-slate-deep text-base font-normal mb-4">Ressources</h4>
                 <ul class="space-y-2">
                     {{ range .Site.Menus.footer_resources }}
                     <li>
-                        <a href="{{ .URL }}" class="text-sm hover:text-cream transition-colors">
+                        <a href="{{ .URL }}" class="text-sm text-slate-muted hover:text-indigo transition-colors">
                             {{ .Name }}
                         </a>
                     </li>
@@ -49,16 +49,16 @@
 
             {{/* Col 4 — Contact */}}
             <div>
-                <h4 class="font-display text-cream text-base font-normal mb-4">Contact</h4>
-                <ul class="space-y-2 text-sm">
+                <h4 class="font-display text-slate-deep text-base font-normal mb-4">Contact</h4>
+                <ul class="space-y-2 text-sm text-slate-muted">
                     {{ with .Site.Params.contact.email }}
                     <li>
-                        <a href="mailto:{{ . }}" class="hover:text-cream transition-colors">{{ . }}</a>
+                        <a href="mailto:{{ . }}" class="hover:text-indigo transition-colors">{{ . }}</a>
                     </li>
                     {{ end }}
                     {{ with .Site.Params.contact.phone }}
                     <li>
-                        <a href="tel:{{ . | replaceRE ` ` `` }}" class="hover:text-cream transition-colors">{{ . }}</a>
+                        <a href="tel:{{ . | replaceRE ` ` `` }}" class="hover:text-indigo transition-colors">{{ . }}</a>
                     </li>
                     {{ end }}
                     {{ with .Site.Params.contact.address }}
@@ -66,7 +66,7 @@
                     {{ end }}
                 </ul>
                 {{ with .Site.Params.social.linkedin }}
-                <a href="{{ . }}" target="_blank" rel="noopener" class="inline-block mt-4 text-sm hover:text-cream transition-colors">
+                <a href="{{ . }}" target="_blank" rel="noopener" class="inline-block mt-4 text-sm text-slate-muted hover:text-indigo transition-colors">
                     LinkedIn
                 </a>
                 {{ end }}
@@ -75,12 +75,12 @@
     </div>
 
     {{/* Copyright */}}
-    <div class="border-t border-cream/20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-cream/50">
+    <div class="border-t border-slate-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-muted">
             <p>&copy; {{ now.Year }} L'Agence Sauvage. Tous droits r&eacute;serv&eacute;s.</p>
             <div class="flex gap-4">
-                <a href="/mentions-legales/" class="hover:text-cream/80 transition-colors">Mentions l&eacute;gales</a>
-                <a href="/privacy/" class="hover:text-cream/80 transition-colors">Confidentialit&eacute;</a>
+                <a href="/mentions-legales/" class="hover:text-slate-deep transition-colors">Mentions l&eacute;gales</a>
+                <a href="/privacy/" class="hover:text-slate-deep transition-colors">Confidentialit&eacute;</a>
             </div>
         </div>
     </div>
