@@ -9,16 +9,20 @@ sitemap:
 
 ## Éditeur du site
 
-**Nom :** L'Agence Sauvage
-SASU au capital de 1 000 € immatriculée au R.C.S. de Paris sous le numéro 993 863 778
+**Nom :** L'Agence Sauvage — SASU au capital de 1 000 € immatriculée au R.C.S. de Paris sous le numéro 993 863 778
+
 **Responsable de publication :** Franck Sauvage
+
 **Email :** hello@lagencesauvage.com
+
 **Téléphone :** +33 1 85 09 75 92
+
 **Siège social :** 47 Rue Berger, 75001 Paris, France
 
 ## Hébergement
 
 **Hébergeur :** Vercel Inc.
+
 **Adresse :** 340 S Lemon Ave #4133, Walnut, CA 91789, USA
 
 ## Propriété intellectuelle
