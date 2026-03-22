@@ -28,10 +28,10 @@
     <link rel="stylesheet" href="{{ $css.RelPermalink }}">
 
     {{/* Favicon */}}
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="manifest" href="/site.webmanifest">
 
     {{/* RSS Feed */}}
     {{ if .OutputFormats.Get "RSS" }}
@@ -58,6 +58,15 @@
 
     {{/* Scripts */}}
     {{ block "scripts" . }}{{ end }}
+
+    {{/* Blog JS — chargé uniquement sur les pages blog */}}
+    {{ if eq .Section "blog" }}
+    {{ $blogJS := resources.Get "js/blog.js" }}
+    {{ if hugo.IsProduction }}
+      {{ $blogJS = $blogJS | minify | fingerprint }}
+    {{ end }}
+    <script defer src="{{ $blogJS.RelPermalink }}"></script>
+    {{ end }}
 
     {{/* Analytics (Plausible) */}}
     {{ if .Site.Params.analytics.plausibleDomain }}

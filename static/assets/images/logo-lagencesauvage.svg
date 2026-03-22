@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 56" fill="none">
+  <!-- Monogramme S dans carré arrondi indigo -->
+  <rect x="4" y="4" width="48" height="48" rx="10" fill="#4F46E5"/>
+  <path d="M34 14H24c-2.8 0-5 2.2-5 5v3.5c0 2.8 2.2 5 5 5h7c1 0 1.8.8 1.8 1.8v3.5c0 1-.8 1.8-1.8 1.8H20M24 42h10c2.8 0 5-2.2 5-5v-3.5c0-2.8-2.2-5-5-5h-7c-1 0-1.8-.8-1.8-1.8v-3.5c0-1 .8-1.8 1.8-1.8h11" stroke="#FFFFFF" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- Texte "L'Agence" en DM Sans style -->
+  <text x="64" y="24" font-family="'DM Sans', system-ui, sans-serif" font-weight="400" font-size="15" letter-spacing="0.5" fill="#0F172A">L'Agence</text>
+  <!-- Texte "Sauvage" en DM Serif Display style -->
+  <text x="64" y="45" font-family="'DM Serif Display', Georgia, serif" font-weight="400" font-style="italic" font-size="24" fill="#0F172A">Sauvage</text>
+</svg>
