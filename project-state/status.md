@@ -75,7 +75,7 @@
 - [x] Stack technique alignée sur toutes les pages (Make retiré, Evolution API + Hugo+Vercel ajoutés)
 - [ ] Page Réalisations (case studies visuelles)
 - [ ] Page Diagnostic IA (landing page SEO dédiée)
-- [ ] Page FAQ complète
+- [x] Page FAQ complète : 18 questions GEO-optimisées, 5 catégories, schema FAQPage, accordion par catégorie
 - [ ] Pages légales (contenu existant, nouveau layout)
 - [ ] **Validation Franck — Preview Vercel Phase 3**
 
@@ -96,6 +96,7 @@ Aucun pour le moment.
 - ✅ Naming offres : "Assistant IA & Automatisation" / "Formation IA" / "Transformation IA" (2026-03-22)
 - ✅ Prix validés : Assistant 500€/mois + setup 1000€, Formation 1000€/jour, Transformation 3000€ (2026-03-22)
 - ✅ Stack technique : Make retiré, Evolution API + Hugo+Vercel ajoutés partout (2026-03-22)
+- ✅ Page FAQ : 18 questions GEO-optimisées (consensus Claude + Gemini), 5 catégories client-centric (2026-03-22)
 
 ## Décisions en attente
 
