@@ -1,14 +1,14 @@
 # Status — Refonte lagencesauvage.com
 
-## Phase en cours : 1 — Design system
+## Phase en cours : 2 — Homepage
 
 ## Progression
 
 | Phase | Statut | Date début | Date fin |
 |-------|--------|-----------|---------|
 | Phase 0 — Setup technique | ✅ Terminée | 2026-03-22 | 2026-03-22 |
-| Phase 1 — Design system | 🟡 En cours | 2026-03-22 | — |
-| Phase 2 — Homepage | ⬜ À faire | — | — |
+| Phase 1 — Design system | ✅ Terminée | 2026-03-22 | 2026-03-22 |
+| Phase 2 — Homepage | 🟡 En cours | 2026-03-22 | — |
 | Phase 3 — Pages secondaires | ⬜ À faire | — | — |
 | Phase 4 — Intégration blog | ⬜ À faire | — | — |
 | Phase 5 — Quality gate | ⬜ À faire | — | — |
@@ -44,8 +44,9 @@
 - [x] Footer : 4 colonnes, fond slate clair, menus dynamiques
 - [x] Homepage placeholder : hero + CTA + section preuve sociale
 - [x] Build Vercel Preview validé par Franck
-- [ ] Vérification rendu mobile
-- [ ] **STOP — Validation Franck Phase 1 complète**
+- [x] Ajustements mobile (CTA resserré, espacements réduits)
+- [x] Vérification rendu mobile — validé par Franck
+- [x] **Validation Franck — Phase 1 terminée, GO Phase 2**
 
 ## Blockers
 
