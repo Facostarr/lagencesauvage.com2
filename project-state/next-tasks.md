@@ -28,13 +28,8 @@
 
 ## Fait cette session
 
-- [x] 4 case studies créées en parallèle (agents) :
-  - UC2 GEO Citation Tracker — SaaS Python/FastAPI, 5 APIs LLM, scoring pondéré, dashboard Chart.js
-  - UC4 Chef de Cabinet IA — 4 piliers (Gatekeeper, Executive Brief, Copilote Réunion, Commande Vocale), scénario journée type en callout
-  - UC5 Agent Téléphonique IA — 4 piliers (réception, réservation, escalade, 2 options déploiement)
-  - UC6 Cerveau d'Entreprise & Veille — 4 piliers (RAG documentaire, veille procédures collectives, veille marchés publics, agent zero papier)
-- [x] 4 diagrammes d'architecture générés via Gemini MCP (16:9, 2K, style flat design)
-- [x] Images copiées dans static/assets/images/ + champ architecture.image ajouté dans chaque YAML
-- [x] Correction icône non supportée dans UC5 (phone-missed → alert-triangle)
-- [x] Ordering par weight (1→6) pour affichage meilleurs en premier sur /realisations/
-- [x] Commits 4c5562a + c5e0c9c — poussés sur refonte-2026
+- [x] Stack technique enrichie sur 4 pages (About, Services, Homepage, FAQ) — passage de 6 à 12 technos
+  - Ajouts : OpenAI/GPT, Google Gemini, Python/FastAPI, PostgreSQL/pgvector, Google Workspace, Whisper, APIs métier (Pennylane, LinkedIn, Pappers, La Poste)
+  - Grille About passée à 4 colonnes desktop (lg:grid-cols-4)
+  - FAQ /faq/ réécrite pour refléter l'écosystème complet
+- [x] Layout blog list.html migré vers design system Tailwind v4 (Premium Tech)

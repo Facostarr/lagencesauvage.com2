@@ -15,7 +15,7 @@ faq:
   - question: "Combien de temps faut-il pour voir des résultats ?"
     answer: "Les premières automatisations sont opérationnelles en 2 à 4 semaines. Lors de l'audit gratuit, nous identifions 3 gains rapides applicables immédiatement."
   - question: "Quels outils utilisez-vous ?"
-    answer: "Nous travaillons avec n8n, Claude AI, Notion, Supabase et les API métier de nos clients (comptabilité, CRM, messagerie). Nous choisissons l'outil le plus adapté à votre contexte, pas le plus à la mode."
+    answer: "Nous travaillons avec n8n, Claude AI, OpenAI, Google Gemini, Python/FastAPI, Supabase et Notion. Nous maîtrisons aussi Evolution API (WhatsApp), Whisper, Google Workspace et les API métier de nos clients (Pennylane, LinkedIn, La Poste). Nous choisissons l'outil le plus adapté à votre contexte, pas le plus à la mode."
   - question: "Que se passe-t-il après l'audit gratuit ?"
     answer: "Vous repartez avec un diagnostic écrit et 3 recommandations concrètes. Si vous souhaitez aller plus loin, nous vous proposons un accompagnement adapté. Aucune obligation."
   - question: "Travaillez-vous avec des entreprises de toutes tailles ?"

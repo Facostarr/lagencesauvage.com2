@@ -115,7 +115,7 @@
             </p>
         </div>
 
-        <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 mb-16">
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 mb-16">
             {{ range $i, $tool := .Params.stack }}
             <div class="reveal card-stack group bg-white border border-slate-border rounded-lg p-6 text-center" data-delay="{{ mul $i 60 }}">
                 <p class="font-semibold text-slate-deep text-sm mb-1 group-hover:text-indigo transition-colors">{{ $tool.name }}</p>

@@ -73,6 +73,7 @@
 - [x] Page Services : 3 offres Good-Better-Best (Assistant IA, Formation, Transformation)
 - [x] Prix validés : Assistant 500€/mois + setup 1000€, Formation 1000€/jour, Transformation 3000€
 - [x] Stack technique alignée sur toutes les pages (Make retiré, Evolution API + Hugo+Vercel ajoutés)
+- [x] Stack technique enrichie sur 4 pages (About, Services, Homepage, FAQ) — 12 technos issues des 6 case studies
 - [x] Page Réalisations : section listing + case study "Pôle Financier Augmenté" (5 piliers, 13+ workflows, sommaire cliquable, API La Poste LReL, schema TechArticle+FAQPage, assets Gemini)
 - [x] Case study "Usine à Contenu B2B" : 5 piliers (Topic Discovery, Veille RAG, Rédaction SEO/GEO, LinkedIn, Hugo Blog), 105 nodes, diagramme architecture Gemini
 - [x] Template single.html dynamique : image architecture pilotée par front matter (architecture.image)
@@ -103,6 +104,7 @@ Aucun pour le moment.
 - ✅ Naming offres : "Assistant IA & Automatisation" / "Formation IA" / "Transformation IA" (2026-03-22)
 - ✅ Prix validés : Assistant 500€/mois + setup 1000€, Formation 1000€/jour, Transformation 3000€ (2026-03-22)
 - ✅ Stack technique : Make retiré, Evolution API + Hugo+Vercel ajoutés partout (2026-03-22)
+- ✅ Stack technique v2 : enrichie à 12 technos (OpenAI, Gemini, Python/FastAPI, PostgreSQL, Whisper, Google Workspace, APIs métier) alignée sur les 6 case studies (2026-03-22)
 - ✅ Page FAQ : 18 questions GEO-optimisées (consensus Claude + Gemini), 5 catégories client-centric (2026-03-22)
 - ✅ Page Réalisations : 5 use cases sélectionnés (consensus Claude + Gemini), focus file créé (2026-03-22)
 - ✅ Case study "Pôle Financier Augmenté" : page pilier 5 piliers narratifs, données réelles 13+ workflows n8n, API La Poste LReL, consensus Claude + Gemini score 9/10 (2026-03-22)

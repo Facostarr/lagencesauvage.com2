@@ -1,5 +1,13 @@
 # Changelog — Refonte lagencesauvage.com
 
+## 2026-03-22 — Phase 3 : Stack technique enrichie + blog list Tailwind
+
+- Stack technique mise à jour sur 4 pages (About, Services, Homepage, FAQ) : passage de 6 à 12 technologies
+- Ajouts issus des 6 case studies : OpenAI/GPT, Google Gemini, Python/FastAPI, Supabase/PostgreSQL (fusionné), Google Workspace, Whisper, APIs métier (Pennylane, LinkedIn, Pappers, La Poste)
+- Page About : grille stack passée à lg:grid-cols-4 pour 12 items
+- FAQ /faq/ : réponse "Quels logiciels" réécrite avec écosystème complet
+- Layout blog list.html migré vers design system Tailwind v4 (filtres, grille, pagination, CTA)
+
 ## 2026-03-22 — Phase 3 : 4 case studies finales + diagrammes Gemini
 
 - 4 case studies créées en parallèle (4 agents), même structure YAML que UC1 et UC3 :
