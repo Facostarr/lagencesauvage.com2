@@ -20,6 +20,10 @@
 - Utiliser l'API officielle La Poste (LReL via Okapi) plutôt que des prestataires tiers comme Merci Facteur — plus de légitimité auprès des cabinets comptables.
 - Les accordion "détail technique" par pilier permettent de servir les deux audiences (décideur + technique) sans surcharger la page.
 
+## Templates Hugo — pièges
+
+- Ne jamais hardcoder un chemin d'asset (image, script) dans un layout partagé entre plusieurs pages. Toujours piloter par le front matter. Exemple : `architecture.image.src` dans le front matter, `{{ with .image }}` dans le template.
+
 ## Tailwind v4 + Hugo
 
 - Tailwind v4 ne scanne PAS automatiquement `layouts/` et `content/` depuis `assets/css/`. Il faut des directives `@source "../../layouts"` et `@source "../../content"` dans main.css.

@@ -74,9 +74,12 @@
 - [x] Prix validés : Assistant 500€/mois + setup 1000€, Formation 1000€/jour, Transformation 3000€
 - [x] Stack technique alignée sur toutes les pages (Make retiré, Evolution API + Hugo+Vercel ajoutés)
 - [x] Page Réalisations : section listing + case study "Pôle Financier Augmenté" (5 piliers, 13+ workflows, sommaire cliquable, API La Poste LReL, schema TechArticle+FAQPage, assets Gemini)
+- [x] Case study "Usine à Contenu B2B" : 5 piliers (Topic Discovery, Veille RAG, Rédaction SEO/GEO, LinkedIn, Hugo Blog), 105 nodes, diagramme architecture Gemini
+- [x] Template single.html dynamique : image architecture pilotée par front matter (architecture.image)
 - [x] Page Diagnostic IA : landing page SEO fidèle à l'ancienne page (13 sections, méthode J1→J5, tableau comparatif, formulaire appel découverte)
 - [x] Page FAQ complète : 18 questions GEO-optimisées, 5 catégories, schema FAQPage, accordion par catégorie
 - [x] Pages légales : mentions légales, confidentialité, CGV — contenu migré + layout single.html + lien CGV ajouté au footer
+- [ ] Case studies restantes : GEO Tracker, Chef de Cabinet IA, Agent Téléphonique, Cerveau d'Entreprise
 - [ ] **Validation Franck — Preview Vercel Phase 3**
 
 ## Blockers
@@ -101,6 +104,7 @@ Aucun pour le moment.
 - ✅ Case study "Pôle Financier Augmenté" : page pilier 5 piliers narratifs, données réelles 13+ workflows n8n, API La Poste LReL, consensus Claude + Gemini score 9/10 (2026-03-22)
 - ✅ Page Diagnostic IA : contenu fidèle à l'ancienne page, nouveau design system, 13 sections complètes (2026-03-22)
 - ✅ Focus Réalisations v2 : 6 use cases (consensus Claude + Gemini v2, score 9/10) — fusion UC1+PennylaneAgent, ajout GEO Tracker SaaS, Jarvis repensé en Chef de Cabinet IA (2026-03-22)
+- ✅ Case study "Usine à Contenu B2B" : 5 piliers, RAG Supabase, double optim SEO/GEO, diagramme architecture Gemini, prix "à partir de" (2026-03-22)
 
 ## Décisions en attente
 

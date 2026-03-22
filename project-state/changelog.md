@@ -1,5 +1,17 @@
 # Changelog — Refonte lagencesauvage.com
 
+## 2026-03-22 — Phase 3 : Case study Usine à Contenu B2B
+
+- Case study "Usine à Contenu B2B" `/realisations/usine-contenu-b2b-seo-linkedin-automatisation/`
+- 5 piliers narratifs : Topic Discovery (33 nodes), Veille RAG Supabase (24 nodes), Rédaction SEO/GEO (14 nodes), Publication LinkedIn (21 nodes), Publication Hugo Blog (13 nodes)
+- Pain points PAS : zéro temps, régularité impossible, SEO stagnant, community manager trop cher
+- Callout différenciant : RAG vs ChatGPT copié-collé — contenu enrichi par veille sectorielle
+- FAQ 7 questions (relecture, cadence, différenciation, niche, délai SEO, coût, CMS alternatifs)
+- CTA → offre Assistant IA (à partir de 500€/mois + à partir de 1000€ setup)
+- Diagramme architecture généré via Gemini (5 blocs, style technique clean)
+- Template single.html rendu dynamique : image architecture pilotée par front matter `architecture.image` (plus de chemin hardcodé)
+- Commits f31b53d + 7564a38
+
 ## 2026-03-22 — Phase 3 : Focus Réalisations v2 (6 use cases)
 
 - Exploration complète des 11 projets Claude Code pour identifier les cas d'usage au-delà de n8n
