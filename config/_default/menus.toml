@@ -40,24 +40,19 @@
   weight = 1
 
 [[footer_services]]
-  name = "Audit IA"
-  url = "/services/#audit-ia"
+  name = "Assistant IA & Automatisation"
+  url = "/services/#assistant-ia"
   weight = 2
 
 [[footer_services]]
-  name = "Automatisation"
-  url = "/services/#automatisation"
+  name = "Formation IA"
+  url = "/services/#formation-ia"
   weight = 3
 
 [[footer_services]]
-  name = "Agents conversationnels"
-  url = "/services/#agents-ia"
+  name = "Transformation IA"
+  url = "/services/#transformation-ia"
   weight = 4
-
-[[footer_services]]
-  name = "Abonnement mensuel"
-  url = "/services/#abonnement"
-  weight = 5
 
 # Menu footer - Ressources
 [[footer_resources]]

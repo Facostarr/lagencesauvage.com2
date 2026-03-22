@@ -151,6 +151,16 @@ h1, h2, h3, h4 {
   box-shadow: 0 0 0 1px var(--color-indigo);
 }
 
+/* --- Services: pricing cards hover --- */
+.card-pricing {
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.card-pricing:hover {
+  border-color: var(--color-indigo);
+  box-shadow: 0 0 0 1px var(--color-indigo);
+}
+
 /* --- Reduced motion : tout visible immédiatement --- */
 @media (prefers-reduced-motion: reduce) {
   .hero-animate,
