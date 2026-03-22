@@ -1,5 +1,29 @@
 # Changelog — Refonte lagencesauvage.com
 
+## 2026-03-22 — Homepage : section réalisations allégée (consensus Claude + Gemini)
+
+- 2 brainstorms Claude + Gemini successifs :
+  - V1 (consensus 9/10) : sélection des 2 meilleurs case studies (Pôle Financier + Chef de Cabinet)
+  - V2 (consensus 9/10) : Franck juge les 4 cartes détaillées "trop" → approche minimaliste validée
+- Section "Ce qu'on livre" → "Des résultats concrets, pas des promesses"
+- Bandeau chiffres express : 6 projets déployés | 30+ workflows | 5 secteurs d'activité
+- 3 mini-cartes épurées (chiffre héroïque + titre + 1 phrase + lien) :
+  - Chef de Cabinet IA (-15h/sem)
+  - Pôle Financier Augmenté (13 workflows)
+  - Usine à Contenu B2B (3 mois en 2h)
+- CTA secondaire "Voir toutes nos réalisations" → /realisations/
+- Tags stack technique supprimés (le dirigeant achète du résultat, pas du n8n)
+- Cartes entières cliquables, hover style Linear
+- Commits 2c0d19f + aa73995
+
+## 2026-03-22 — Fix navigation blog preview Vercel
+
+- Les liens de navigation blog utilisaient `.Permalink` (URL absolue vers www.lagencesauvage.com), cassant la navigation sur la preview Vercel
+- Corrigé avec `.RelPermalink` dans list.html (article vedette + grille) et single.html (articles connexes)
+- Les `.Permalink` dans canonical, schema.org et RSS restent inchangés (doivent être absolus pour le SEO)
+- Image SaaSpocalypse : diagnostic validé (fichier WebP 35Ko valide, problème = cache navigateur)
+- Commit ef797cb
+
 ## 2026-03-22 — Branding : nouveau logo C2 + favicon
 
 - Brainstorm logo Claude + Gemini (consensus 8/10) : direction "Premium Tech" Stripe/Linear

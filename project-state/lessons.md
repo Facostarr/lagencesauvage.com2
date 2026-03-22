@@ -23,6 +23,7 @@
 ## Templates Hugo — pièges
 
 - Ne jamais hardcoder un chemin d'asset (image, script) dans un layout partagé entre plusieurs pages. Toujours piloter par le front matter. Exemple : `architecture.image.src` dans le front matter, `{{ with .image }}` dans le template.
+- Pour les liens de navigation internes (cliquables par l'utilisateur), toujours utiliser `.RelPermalink` (URL relative `/blog/slug/`) au lieu de `.Permalink` (URL absolue `https://domain.com/blog/slug/`). `.Permalink` utilise le `baseURL` de la config Hugo, ce qui casse la navigation sur les previews Vercel (domaine différent de la prod). Réserver `.Permalink` aux usages SEO : canonical, schema.org, RSS, meta OG.
 
 ## Tailwind v4 + Hugo
 
@@ -63,6 +64,12 @@
 - Pour un logo web, les SVG avec balises `<text>` dépendent des fonts installées/chargées. En production, convertir en `<path>` (text-to-path dans Inkscape) pour un rendu garanti partout.
 - Gemini generate-image est efficace pour explorer des directions de logo (5 planches = 30+ concepts en ~20 min) mais les résultats sont des rasters, pas des SVG vectoriels exploitables directement. Le SVG final doit être codé à la main ou retracé.
 - Le brainstorm Claude + Gemini sur le branding converge vite (1 round, consensus 8/10) quand les contraintes sont précises (palette, typo, style référence).
+
+## Homepage / Conversion
+
+- Sur une homepage B2B à faible trafic, la section "réalisations" doit CRÉDIBILISER, pas INFORMER en détail. Un chiffre héroïque en gros + 1 phrase vaut mieux que 4 cartes détaillées avec tags stack. Les case studies complètes ont leur propre page.
+- Ne pas afficher de tags stack technique (n8n, Supabase...) sur la homepage : un dirigeant TPE achète du résultat ("15h gagnées"), pas un outil. La stack a sa place sur les pages case studies et la page About.
+- Itérer vite avec le fondateur : mieux vaut proposer, se faire corriger ("c'est trop"), et brainstormer une v2 que de chercher la perfection du premier coup.
 
 ## Design
 

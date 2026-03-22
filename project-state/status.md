@@ -52,7 +52,7 @@
 
 - [x] Hero : proposition de valeur PAS + CTA audit gratuit
 - [x] Section Pain points : framework PAS (3 colonnes)
-- [x] Section "Ce qu'on livre" : 4 cartes avec placeholders visuels
+- [x] Section "Ce qu'on livre" : refonte → bandeau chiffres + 3 mini-cartes cas clients + CTA /realisations/
 - [x] Section Social proof : Olivier Sarezinski (Eurodom) + Myriam Louergli (Optimrezo)
 - [x] Section FAQ : 6 questions avec schema FAQPage
 - [x] Formulaire audit gratuit : 2 étapes progressives → /api/submit-lead
@@ -61,7 +61,7 @@
 - [x] Positionnement élargi : "professionnels" (pas TPE/PME uniquement)
 - [x] Animations premium : hero fade-in, scroll reveal, hover cards, FAQ grid animé
 - [ ] Témoignages textuels Olivier + Myriam (en attente de Franck)
-- [ ] Screenshots réels pour les 4 cartes livrables (en attente de Franck)
+- [x] ~~Screenshots réels pour les 4 cartes livrables~~ (remplacé par mini-cartes cas clients)
 - [ ] Lien Calendly pour confirmation formulaire (en attente de Franck)
 - [ ] **Validation Franck — Preview Vercel Phase 2**
 
@@ -98,6 +98,7 @@
 - [x] 8 hero images générées par Gemini (abstraites, géométriques, palette indigo/slate, <40Ko chacune)
 - [x] Front matter enrichi : takeaways + image + imageAlt sur les 8 articles (contenu texte inchangé)
 - [x] Corrections techniques : /blog.html→/blog/, /about.html→/about/ dans schema + params
+- [x] Fix liens blog : .Permalink → .RelPermalink (navigation cassée sur preview Vercel)
 - [ ] **Validation Franck — Preview Vercel Phase 4**
 
 ## Logo & Branding
@@ -137,6 +138,7 @@ Aucun pour le moment.
 - ✅ 4 case studies finales : GEO Tracker (SaaS Python), Chef de Cabinet IA (4 piliers), Agent Téléphonique (2 options), Cerveau d'Entreprise (RAG + veille) — 4 diagrammes Gemini (2026-03-22)
 - ✅ Blog "Édition Premium 2026" : brainstorm Claude + Gemini (consensus 8/10), layouts Tailwind v4, 8 images abstraites Gemini, lecture plein écran, 4 CTAs subtils, key takeaways GEO, TOC flottant, progress bar (2026-03-22)
 - ✅ Ordre case studies par weight : Pôle Financier → GEO Tracker → Usine à Contenu → Chef de Cabinet → Agent Téléphonique → Cerveau d'Entreprise (2026-03-22)
+- ✅ Homepage section réalisations : approche minimaliste bandeau chiffres + 3 mini-cartes (consensus Claude + Gemini 9/10) — pas de tags stack technique, chiffre héroïque en gros, cartes cliquables (2026-03-22)
 
 - ✅ Logo provisoire C2 : monogramme S (carré arrondi indigo #4F46E5 + S espace négatif blanc) + texte "L'Agence" DM Sans / "Sauvage" DM Serif Display italic. Brainstorm Claude + Gemini (consensus 8/10). Franck consulte des avis extérieurs + explore piste monogramme A+S (2026-03-22)
 

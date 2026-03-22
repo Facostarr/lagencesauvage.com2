@@ -2,14 +2,14 @@
 
 ## Priorité immédiate
 
-1. **Validation Franck — Preview Vercel Phase 3** — toutes les pages secondaires et 6 case studies livrées
-2. **Phase 4 — Intégration blog** (après GO Franck)
+1. **Validation Franck — Preview Vercel** (homepage refonte section réalisations)
+2. **Phase 5 — Quality gate** : audit performance, accessibilité, SEO, responsive complet
 
 ## En attente de Franck
 
 - Témoignages textuels d'Olivier Sarezinski (Eurodom) et Myriam Louergli (Optimrezo)
-- Screenshots réels anonymisés : flux n8n, chatbot, dashboard, campagne marketing
 - Lien Calendly éventuel pour la page de confirmation formulaire
+- Logo final : validation par contacts extérieurs
 
 ## Pages Phase 3 livrées
 
@@ -36,7 +36,7 @@
 
 ## Fait cette session
 
-- [x] Brainstorm logo Claude + Gemini (5 planches, 30+ concepts)
-- [x] Logo provisoire C2 + favicon SVG intégrés sur le site
-- [x] Taille logo augmentée (h-12/h-14 header, h-12 footer)
-- [x] Chemins mis à jour (header, footer, baseof, params.toml, schema)
+- [x] Brainstorm Claude + Gemini : choix des 2 meilleurs case studies pour homepage (consensus 9/10)
+- [x] Brainstorm Claude + Gemini v2 : homepage trop chargée → approche minimaliste (consensus 9/10)
+- [x] Refonte section "Ce qu'on livre" → bandeau chiffres + 3 mini-cartes + CTA /realisations/
+- [x] Suppression tags stack technique de la homepage (dirigeant achète du résultat)
