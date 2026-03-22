@@ -26,13 +26,12 @@
 - [x] Créer le vercel.json complet (redirections 301 + headers)
 - [x] Supprimer Hugo_projet/
 - [x] Ajouter .mcp.json au .gitignore
-- [ ] Corriger vercel.json buildCommand (preset Hugo natif)
-- [ ] Ajouter @source dans main.css
-- [ ] Corriger 3 liens .html dans articles blog
-- [ ] Ajouter règles CLAUDE.md (redirections vercel.json only + classes TW dynamiques)
-- [ ] Configurer HUGO_VERSION dans Vercel Dashboard
-- [ ] Vérifier que `hugo server` tourne sans erreur
-- [ ] Push initial sur `refonte-2026` → vérifier Preview Vercel
+- [x] Corriger vercel.json buildCommand (preset Hugo natif)
+- [x] Ajouter @source dans main.css
+- [x] Corriger 3 liens .html dans articles blog
+- [x] Ajouter règles CLAUDE.md (redirections vercel.json only + classes TW dynamiques)
+- [x] Configurer HUGO_VERSION dans Vercel Dashboard
+- [ ] Vérifier build Vercel Preview (en attente déploiement)
 - [ ] **STOP — Validation Franck**
 
 ## Blockers
