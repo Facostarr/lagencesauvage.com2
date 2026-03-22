@@ -38,6 +38,13 @@
 - FAQ : le trick CSS grid `grid-template-rows: 0fr → 1fr` remplace avantageusement les `<details>` natifs pour les animations fluides d'ouverture/fermeture.
 - IntersectionObserver : unobserver après trigger pour éviter les re-animations au scroll up/down.
 
+## Stratégie offres / Pricing
+
+- Le brainstorm Claude + Gemini est très efficace pour les décisions stratégiques (naming, architecture offres, pricing psychology). Consensus rapide en 1-2 rounds.
+- En B2B avec faible trafic (~450/trimestre), centraliser les offres sur 1 page comparative plutôt que disperser sur des pages dédiées. Exception : landing pages SEO pour des requêtes long-tail spécifiques.
+- Ne pas mettre le nom d'un outil technique (n8n, Make...) dans le titre d'une offre B2B. Le client achète un bénéfice, pas un outil. La technique va dans les bullet points.
+- L'effet leurre Good-Better-Best fonctionne quand l'offre "Best" englobe les deux autres à un prix qui semble avantageux comparé à la somme des offres isolées.
+
 ## Design
 
 - L'audit converge (Claude + Gemini) sur 4 problèmes bloquants : témoignages fictifs, positionnement incohérent, zéro preuve visuelle, page About sous-exploitée.

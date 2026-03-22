@@ -2,22 +2,25 @@
 
 ## Priorité immédiate (Phase 3 — Pages secondaires)
 
-1. **Page Services** — en attente du plan d'intégration des offres par Franck
-2. Page Réalisations (case studies visuelles — besoin de contenu Franck)
-3. Page Diagnostic IA (landing page dédiée CODIR/ETI)
-4. Page FAQ complète (étendre les 6 questions homepage)
-5. Pages légales (mentions légales, privacy, CGV — contenu existant, nouveau layout)
+1. **Page Réalisations** — case studies visuelles (besoin contenu Franck)
+2. **Landing page Diagnostic IA** `/diagnostic-ia/` — SEO long-tail "diagnostic IA entreprise"
+3. Page FAQ complète (étendre les 6 questions homepage + 6 questions services)
+4. Pages légales (mentions légales, privacy, CGV — contenu existant, nouveau layout)
 
 ## En attente de Franck
 
-- Plan d'intégration des 2 offres Services (abonnement vs diagnostic) — session séparée
 - Témoignages textuels d'Olivier Sarezinski (Eurodom) et Myriam Louergli (Optimrezo)
 - Screenshots réels anonymisés : flux n8n, chatbot, dashboard, campagne marketing
 - Lien Calendly éventuel pour la page de confirmation formulaire
 - Cas clients réels pour la page Réalisations (même anonymisés)
+- Livrables concrets Transformation IA (rapport ? roadmap ? POC ?)
 
 ## Fait cette session
 
-- [x] Page À propos complète (4 sections, bio 3 actes, photo optimisée, schema.org)
-- [x] Layout single.html générique
-- [x] Preview Vercel validée par Franck
+- [x] Page Services complète : 3 offres Good-Better-Best (Assistant IA, Formation, Transformation)
+- [x] Consensus Claude + Gemini sur architecture offres + naming
+- [x] Prix validés et intégrés (500€/mois, 1000€/jour, 3000€, setup 1000€)
+- [x] Stack technique alignée sur toutes les pages (Make retiré)
+- [x] Menus footer mis à jour avec les 3 offres
+- [x] Schema.org Service + FAQPage
+- [x] CSS hover cartes pricing

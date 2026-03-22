@@ -70,16 +70,18 @@
 - [x] Page À propos : bio narrative 3 actes, credentials, stack, photo Franck, schema AboutPage
 - [x] Layout single.html générique pour pages secondaires
 - [x] Photo Franck optimisée (5436x3629 → 800x800, 7.4 Mo → 52 Ko)
-- [ ] Page Services (structure des offres à définir — Franck prépare le plan)
+- [x] Page Services : 3 offres Good-Better-Best (Assistant IA, Formation, Transformation)
+- [x] Prix validés : Assistant 500€/mois + setup 1000€, Formation 1000€/jour, Transformation 3000€
+- [x] Stack technique alignée sur toutes les pages (Make retiré, Evolution API + Hugo+Vercel ajoutés)
 - [ ] Page Réalisations (case studies visuelles)
-- [ ] Page Diagnostic IA (landing page dédiée)
+- [ ] Page Diagnostic IA (landing page SEO dédiée)
 - [ ] Page FAQ complète
 - [ ] Pages légales (contenu existant, nouveau layout)
 - [ ] **Validation Franck — Preview Vercel Phase 3**
 
 ## Blockers
 
-- Page Services : Franck prépare un plan d'intégration des 2 offres (abonnement vs diagnostic) dans une session séparée
+Aucun pour le moment.
 
 ## Décisions prises
 
@@ -90,9 +92,11 @@
 - ✅ Positionnement : "professionnels" au lieu de "TPE/PME" — cible élargie jusqu'à 200 salariés (2026-03-22)
 - ✅ Animations : consensus Claude + Gemini — style Stripe/Linear, easing expo, prefers-reduced-motion (2026-03-22)
 - ✅ Page About : structure 4 sections (consensus Claude + Gemini), bio 3 actes, pas de faux KPIs (2026-03-22)
-- ✅ Page Services : pas de tarifs affichés, CTA "contactez-nous" (2026-03-22)
+- ✅ Page Services : 3 offres Good-Better-Best — consensus Claude + Gemini (2026-03-22)
+- ✅ Naming offres : "Assistant IA & Automatisation" / "Formation IA" / "Transformation IA" (2026-03-22)
+- ✅ Prix validés : Assistant 500€/mois + setup 1000€, Formation 1000€/jour, Transformation 3000€ (2026-03-22)
+- ✅ Stack technique : Make retiré, Evolution API + Hugo+Vercel ajoutés partout (2026-03-22)
 
 ## Décisions en attente
 
 - Lien Calendly pour page de confirmation formulaire
-- Structure des offres Services (abonnement vs diagnostic) — Franck prépare le plan

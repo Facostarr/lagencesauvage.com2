@@ -1,5 +1,22 @@
 # Changelog — Refonte lagencesauvage.com
 
+## 2026-03-22 — Phase 3 : Page Services
+
+- Page Services complète `/services/` — 3 offres Good-Better-Best style Stripe/Linear
+- Offre 1 "Assistant IA & Automatisation" : abo 500€/mois + setup 1000€ (collaborateur virtuel 24/7)
+- Offre 2 "Formation IA" : ateliers sur site à partir de 1000€/jour (éligible OPCO)
+- Offre 3 "Transformation IA" (recommandé) : accompagnement complet à partir de 3000€
+- Naming challengé via brainstorm Claude + Gemini (3 rounds) : "n8n" sorti des titres, bénéfice > outil
+- Effet leurre validé : offres 1+2 isolées rendent l'offre 3 évidente financièrement
+- Section "Comment ça marche" en 3 étapes (audit → proposition → déploiement)
+- FAQ 6 questions spécifiques services + schema FAQPage
+- Schema.org Service (LocalBusiness > makesOffer > Service)
+- Social proof réutilisée (Olivier + Myriam, en attente témoignages)
+- CSS `.card-pricing` hover (border + glow indigo)
+- Menus footer mis à jour : 3 offres avec ancres (#assistant-ia, #formation-ia, #transformation-ia)
+- Stack technique alignée sur toutes les pages : Make retiré, Evolution API + Hugo+Vercel ajoutés (homepage + services + FAQ services)
+- Commits 713bd8b, 83df936, 407a29c
+
 ## 2026-03-22 — Phase 3 : Page À propos
 
 - Page À propos complète `/about/` — 4 sections (hero, bio+preuves, stack+formations, CTA)
