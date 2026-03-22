@@ -60,7 +60,7 @@
 - [x] Schema LocalBusiness + meta tags enrichis
 - [x] Positionnement élargi : "professionnels" (pas TPE/PME uniquement)
 - [x] Animations premium : hero fade-in, scroll reveal, hover cards, FAQ grid animé
-- [ ] Témoignages textuels Olivier + Myriam (en attente de Franck)
+- [x] Témoignages textuels Olivier + Myriam (validés par Franck — consensus Claude+Gemini 9/10)
 - [x] ~~Screenshots réels pour les 4 cartes livrables~~ (remplacé par mini-cartes cas clients)
 - [ ] Lien Calendly pour confirmation formulaire (en attente de Franck)
 - [x] **Validation Franck — Preview Vercel Phase 2** (2026-03-22)
