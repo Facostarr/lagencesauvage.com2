@@ -1,38 +1,566 @@
+{{ define "head" }}
+{{/* Schema LocalBusiness */}}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "L'Agence Sauvage",
+    "description": "{{ .Site.Params.organization.description }}",
+    "url": "{{ .Site.Params.organization.url }}",
+    "logo": "{{ .Site.Params.organization.logo }}",
+    "telephone": "{{ .Site.Params.contact.phone }}",
+    "email": "{{ .Site.Params.contact.email }}",
+    "foundingDate": "{{ .Site.Params.organization.foundingDate }}",
+    "priceRange": "{{ .Site.Params.organization.priceRange }}",
+    "areaServed": "{{ .Site.Params.organization.areaServed }}",
+    "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "{{ .Site.Params.organization.address.addressLocality }}",
+        "addressRegion": "{{ .Site.Params.organization.address.addressRegion }}",
+        "addressCountry": "{{ .Site.Params.organization.address.addressCountry }}"
+    },
+    "sameAs": [
+        "{{ .Site.Params.social.linkedin }}"
+    ]
+}
+</script>
+
+{{/* Schema FAQPage */}}
+{{ if .Params.faq }}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {{ range $index, $faq := .Params.faq }}
+        {{ if $index }},{{ end }}
+        {
+            "@type": "Question",
+            "name": "{{ $faq.question }}",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "{{ $faq.answer }}"
+            }
+        }
+        {{ end }}
+    ]
+}
+</script>
+{{ end }}
+{{ end }}
+
 {{ define "main" }}
+
+{{/* ===================================================================
+     HERO — Proposition de valeur + CTA
+     Framework PAS : Pain dans le titre, Solve dans le sous-titre
+     =================================================================== */}}
 <section class="py-16 sm:py-24 lg:py-32">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h1 class="font-display text-3xl sm:text-5xl lg:text-6xl tracking-tight mb-6">
-            Les b&eacute;n&eacute;fices de l'IA,<br>
-            sans la complexit&eacute;
+            Vos concurrents utilisent l'IA.<br>
+            Pas vous. Pas encore.
         </h1>
         <p class="text-base sm:text-xl text-slate-muted max-w-2xl mx-auto mb-8 leading-relaxed">
-            Automatisation, agents conversationnels et marketing intelligent
-            pour les TPE/PME qui veulent gagner du temps.
-            <!-- [DATA: Accroche définitive — Phase 2 copywriting] -->
+            L'Agence Sauvage rend l'intelligence artificielle accessible aux TPE/PME.
+            Automatisation, agents conversationnels, marketing intelligent &mdash;
+            sans jargon, sans engagement, au co&ucirc;t d'un stagiaire.
         </p>
-        <a href="/#audit-form"
+        <a href="#audit-form"
            class="inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base font-semibold rounded-md bg-indigo text-white hover:bg-indigo-dark transition-colors">
             R&eacute;servez votre audit IA gratuit (30 min)
         </a>
+        <p class="mt-4 text-sm text-slate-muted">
+            Sans engagement &middot; Livrable offert &middot; R&eacute;ponse sous 24h
+        </p>
     </div>
 </section>
 
-<section class="bg-slate-light py-12 sm:py-16">
+{{/* ===================================================================
+     BANDE TECHNOLOGIES
+     =================================================================== */}}
+<section class="bg-slate-light py-10 sm:py-12">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <p class="text-xs sm:text-sm font-semibold text-slate-muted uppercase tracking-wider">
-            <!-- [DATA: Ligne de preuve sociale — Phase 2] -->
+        <p class="text-xs sm:text-sm font-semibold text-slate-muted uppercase tracking-wider mb-6">
             Technologies ma&icirc;tris&eacute;es
         </p>
-        <div class="mt-6 flex flex-wrap items-center justify-center gap-x-8 sm:gap-x-12 gap-y-4 text-slate-muted">
-            <!-- [ASSET: Logos outils — n8n, Make, Claude, etc. — SVG monochromes] -->
-            <span class="text-sm">n8n</span>
-            <span class="text-sm">Claude AI</span>
-            <span class="text-sm">Make</span>
-            <span class="text-sm">Notion</span>
-            <span class="text-sm">WooCommerce</span>
+        <div class="flex flex-wrap items-center justify-center gap-x-8 sm:gap-x-12 gap-y-4 text-slate-muted">
+            <!-- [ASSET: Logos outils — SVG monochromes — 40x40px] -->
+            <span class="text-sm font-medium">n8n</span>
+            <span class="text-sm font-medium">Claude AI</span>
+            <span class="text-sm font-medium">Make</span>
+            <span class="text-sm font-medium">Notion</span>
+            <span class="text-sm font-medium">WooCommerce</span>
+            <span class="text-sm font-medium">Supabase</span>
         </div>
     </div>
 </section>
 
-<!-- [DÉCISION: Sections homepage complètes — Phase 2] -->
+{{/* ===================================================================
+     PAIN POINTS — Framework PAS (Pain - Agitate - Solve)
+     =================================================================== */}}
+<section class="py-16 sm:py-24">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12 sm:mb-16">
+            <h2 class="font-display text-2xl sm:text-4xl tracking-tight mb-4">
+                Vous perdez du temps sur des t&acirc;ches que l'IA fait en 10 secondes
+            </h2>
+            <p class="text-base sm:text-lg text-slate-muted max-w-2xl mx-auto">
+                Vos journ&eacute;es sont remplies de copier-coller, de relances manuelles
+                et de reporting fastidieux. Pendant ce temps, vos concurrents automatisent.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+            {{/* Pain 1 */}}
+            <div class="text-center md:text-left">
+                <div class="w-12 h-12 rounded-lg bg-indigo/10 flex items-center justify-center mb-4 mx-auto md:mx-0">
+                    <svg class="w-6 h-6 text-indigo" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                    </svg>
+                </div>
+                <h3 class="font-display text-lg mb-2">Des heures perdues chaque semaine</h3>
+                <p class="text-sm text-slate-muted leading-relaxed">
+                    Saisie manuelle, tri d'emails, relances clients, mise &agrave; jour de fichiers&hellip;
+                    Ces t&acirc;ches r&eacute;p&eacute;titives grignotent votre temps sans cr&eacute;er de valeur.
+                </p>
+            </div>
+
+            {{/* Pain 2 */}}
+            <div class="text-center md:text-left">
+                <div class="w-12 h-12 rounded-lg bg-indigo/10 flex items-center justify-center mb-4 mx-auto md:mx-0">
+                    <svg class="w-6 h-6 text-indigo" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z" />
+                    </svg>
+                </div>
+                <h3 class="font-display text-lg mb-2">L'IA semble trop ch&egrave;re ou trop technique</h3>
+                <p class="text-sm text-slate-muted leading-relaxed">
+                    Les grandes ESN facturent des dizaines de milliers d'euros.
+                    Les outils no-code promettent la lune mais vous restez seul face &agrave; l'&eacute;cran.
+                </p>
+            </div>
+
+            {{/* Pain 3 */}}
+            <div class="text-center md:text-left">
+                <div class="w-12 h-12 rounded-lg bg-indigo/10 flex items-center justify-center mb-4 mx-auto md:mx-0">
+                    <svg class="w-6 h-6 text-indigo" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" />
+                    </svg>
+                </div>
+                <h3 class="font-display text-lg mb-2">Pas de visibilit&eacute; sur le retour concret</h3>
+                <p class="text-sm text-slate-muted leading-relaxed">
+                    Vous savez que l'IA peut aider, mais par o&ugrave; commencer ?
+                    Sans diagnostic pr&eacute;cis, impossible de prioriser les bons chantiers.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{/* ===================================================================
+     CE QU'ON LIVRE — Livrables concrets avec placeholders visuels
+     =================================================================== */}}
+<section class="bg-slate-light py-16 sm:py-24">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12 sm:mb-16">
+            <h2 class="font-display text-2xl sm:text-4xl tracking-tight mb-4">
+                Ce que vous obtenez concr&egrave;tement
+            </h2>
+            <p class="text-base sm:text-lg text-slate-muted max-w-2xl mx-auto">
+                Pas de PowerPoint de 80 slides. Des outils qui tournent,
+                des processus qui font gagner du temps d&egrave;s le premier mois.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            {{/* Livrable 1 */}}
+            <div class="bg-white rounded-lg border border-slate-border p-6 sm:p-8">
+                <div class="aspect-video bg-slate-light rounded-md mb-6 flex items-center justify-center">
+                    <!-- [ASSET: Screenshot flux n8n anonymisé — 16:9 — PNG/WebP] -->
+                    <span class="text-sm text-slate-muted">Aper&ccedil;u d'un flux d'automatisation</span>
+                </div>
+                <h3 class="font-display text-lg mb-2">Automatisation de vos processus</h3>
+                <p class="text-sm text-slate-muted leading-relaxed">
+                    Vos t&acirc;ches r&eacute;p&eacute;titives reli&eacute;es entre elles : CRM, facturation,
+                    emails, reporting. Un flux qui tourne 24h/24 sans intervention.
+                </p>
+            </div>
+
+            {{/* Livrable 2 */}}
+            <div class="bg-white rounded-lg border border-slate-border p-6 sm:p-8">
+                <div class="aspect-video bg-slate-light rounded-md mb-6 flex items-center justify-center">
+                    <!-- [ASSET: Screenshot chatbot WhatsApp/web — 16:9 — PNG/WebP] -->
+                    <span class="text-sm text-slate-muted">Aper&ccedil;u d'un agent conversationnel</span>
+                </div>
+                <h3 class="font-display text-lg mb-2">Agents IA conversationnels</h3>
+                <p class="text-sm text-slate-muted leading-relaxed">
+                    Un assistant qui r&eacute;pond &agrave; vos clients, qualifie vos prospects
+                    et planifie vos rendez-vous &mdash; m&ecirc;me quand vous dormez.
+                </p>
+            </div>
+
+            {{/* Livrable 3 */}}
+            <div class="bg-white rounded-lg border border-slate-border p-6 sm:p-8">
+                <div class="aspect-video bg-slate-light rounded-md mb-6 flex items-center justify-center">
+                    <!-- [ASSET: Screenshot dashboard Supabase/analytics — 16:9 — PNG/WebP] -->
+                    <span class="text-sm text-slate-muted">Aper&ccedil;u d'un tableau de bord</span>
+                </div>
+                <h3 class="font-display text-lg mb-2">Tableaux de bord sur mesure</h3>
+                <p class="text-sm text-slate-muted leading-relaxed">
+                    Vos donn&eacute;es clients, ventes et performance regroup&eacute;es
+                    dans un tableau clair. D&eacute;cisions &eacute;clair&eacute;es, pas de devinette.
+                </p>
+            </div>
+
+            {{/* Livrable 4 */}}
+            <div class="bg-white rounded-lg border border-slate-border p-6 sm:p-8">
+                <div class="aspect-video bg-slate-light rounded-md mb-6 flex items-center justify-center">
+                    <!-- [ASSET: Screenshot campagne email/marketing — 16:9 — PNG/WebP] -->
+                    <span class="text-sm text-slate-muted">Aper&ccedil;u d'une campagne automatis&eacute;e</span>
+                </div>
+                <h3 class="font-display text-lg mb-2">Marketing automatis&eacute;</h3>
+                <p class="text-sm text-slate-muted leading-relaxed">
+                    Emails de relance, segmentation clients, contenus personnalis&eacute;s.
+                    Votre marketing tourne en arri&egrave;re-plan pendant que vous vendez.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{/* ===================================================================
+     SOCIAL PROOF — Clients réels uniquement
+     =================================================================== */}}
+<section class="py-16 sm:py-24">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="font-display text-2xl sm:text-4xl tracking-tight mb-4">
+                Ils nous font confiance
+            </h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            {{/* Client 1 */}}
+            <div class="border border-slate-border rounded-lg p-6 sm:p-8">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="w-12 h-12 rounded-full bg-indigo/10 flex items-center justify-center text-indigo font-semibold text-lg">
+                        O
+                    </div>
+                    <div>
+                        <p class="font-semibold text-slate-deep">Olivier Sarezinski</p>
+                        <p class="text-sm text-slate-muted">Fondateur, Eurodom</p>
+                    </div>
+                </div>
+                <!-- [DATA: Témoignage Olivier Sarezinski — à valider avec Franck] -->
+                <p class="text-sm text-slate-muted leading-relaxed italic">
+                    T&eacute;moignage &agrave; venir &mdash; en attente de validation.
+                </p>
+            </div>
+
+            {{/* Client 2 */}}
+            <div class="border border-slate-border rounded-lg p-6 sm:p-8">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="w-12 h-12 rounded-full bg-indigo/10 flex items-center justify-center text-indigo font-semibold text-lg">
+                        M
+                    </div>
+                    <div>
+                        <p class="font-semibold text-slate-deep">Myriam Louergli</p>
+                        <p class="text-sm text-slate-muted">Responsable, Optimrezo</p>
+                    </div>
+                </div>
+                <!-- [DATA: Témoignage Myriam Louergli — à valider avec Franck] -->
+                <p class="text-sm text-slate-muted leading-relaxed italic">
+                    T&eacute;moignage &agrave; venir &mdash; en attente de validation.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{/* ===================================================================
+     FAQ — Avec schema markup FAQPage (via head block)
+     =================================================================== */}}
+<section class="bg-slate-light py-16 sm:py-24">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="font-display text-2xl sm:text-4xl tracking-tight mb-4">
+                Questions fr&eacute;quentes
+            </h2>
+        </div>
+
+        <div class="space-y-4">
+            {{ range .Params.faq }}
+            <details class="group bg-white border border-slate-border rounded-lg">
+                <summary class="flex items-center justify-between cursor-pointer px-6 py-4 text-left font-semibold text-slate-deep text-sm sm:text-base">
+                    {{ .question }}
+                    <svg class="w-5 h-5 text-slate-muted shrink-0 ml-4 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                    </svg>
+                </summary>
+                <div class="px-6 pb-4 text-sm text-slate-muted leading-relaxed">
+                    {{ .answer }}
+                </div>
+            </details>
+            {{ end }}
+        </div>
+    </div>
+</section>
+
+{{/* ===================================================================
+     FORMULAIRE AUDIT — 2 étapes progressives
+     =================================================================== */}}
+<section id="audit-form" class="py-16 sm:py-24">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-10">
+            <h2 class="font-display text-2xl sm:text-4xl tracking-tight mb-4">
+                R&eacute;servez votre audit IA gratuit
+            </h2>
+            <p class="text-base sm:text-lg text-slate-muted">
+                30 minutes pour identifier vos 3 gains rapides avec l'IA.
+                Sans engagement, livrable offert.
+            </p>
+        </div>
+
+        <div class="bg-white border border-slate-border rounded-lg p-6 sm:p-8">
+            {{/* Indicateur d'étape */}}
+            <div class="flex items-center justify-center gap-3 mb-8" id="form-steps-indicator">
+                <div class="flex items-center gap-2" id="step-1-indicator">
+                    <span class="w-8 h-8 rounded-full bg-indigo text-white text-sm font-semibold flex items-center justify-center">1</span>
+                    <span class="text-sm font-medium text-slate-deep hidden sm:inline">Vos coordonn&eacute;es</span>
+                </div>
+                <div class="w-8 h-px bg-slate-border"></div>
+                <div class="flex items-center gap-2" id="step-2-indicator">
+                    <span class="w-8 h-8 rounded-full bg-slate-border text-slate-muted text-sm font-semibold flex items-center justify-center" id="step-2-circle">2</span>
+                    <span class="text-sm text-slate-muted hidden sm:inline" id="step-2-label">Votre entreprise</span>
+                </div>
+            </div>
+
+            <form id="lead-form" novalidate>
+                {{/* ÉTAPE 1 — Coordonnées */}}
+                <div id="form-step-1">
+                    <div class="space-y-4">
+                        <div>
+                            <label for="lead-name" class="block text-sm font-medium text-slate-deep mb-1.5">Pr&eacute;nom et nom</label>
+                            <input type="text" id="lead-name" name="name" required autocomplete="name"
+                                   class="w-full px-4 py-3 rounded-md border border-slate-border text-sm focus:outline-none focus:ring-2 focus:ring-indigo/20 focus:border-indigo transition-colors"
+                                   placeholder="Franck Dupont">
+                        </div>
+                        <div>
+                            <label for="lead-email" class="block text-sm font-medium text-slate-deep mb-1.5">Adresse email professionnelle</label>
+                            <input type="email" id="lead-email" name="email" required autocomplete="email"
+                                   class="w-full px-4 py-3 rounded-md border border-slate-border text-sm focus:outline-none focus:ring-2 focus:ring-indigo/20 focus:border-indigo transition-colors"
+                                   placeholder="franck@entreprise.com">
+                        </div>
+                    </div>
+                    <button type="button" id="btn-next-step"
+                            class="mt-6 w-full px-6 py-3 text-sm font-semibold rounded-md bg-indigo text-white hover:bg-indigo-dark transition-colors">
+                        Continuer
+                    </button>
+                </div>
+
+                {{/* ÉTAPE 2 — Entreprise */}}
+                <div id="form-step-2" class="hidden">
+                    <div class="space-y-4">
+                        <div>
+                            <label for="lead-company" class="block text-sm font-medium text-slate-deep mb-1.5">Nom de l'entreprise</label>
+                            <input type="text" id="lead-company" name="company" required autocomplete="organization"
+                                   class="w-full px-4 py-3 rounded-md border border-slate-border text-sm focus:outline-none focus:ring-2 focus:ring-indigo/20 focus:border-indigo transition-colors"
+                                   placeholder="Mon Entreprise SARL">
+                        </div>
+                        <div>
+                            <label for="lead-size" class="block text-sm font-medium text-slate-deep mb-1.5">Taille de l'entreprise</label>
+                            <select id="lead-size" name="company_size" required
+                                    class="w-full px-4 py-3 rounded-md border border-slate-border text-sm focus:outline-none focus:ring-2 focus:ring-indigo/20 focus:border-indigo transition-colors">
+                                <option value="">S&eacute;lectionnez</option>
+                                <option value="1-5">1-5 salari&eacute;s</option>
+                                <option value="6-20">6-20 salari&eacute;s</option>
+                                <option value="21-50">21-50 salari&eacute;s</option>
+                                <option value="50+">50+ salari&eacute;s</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="lead-phone" class="block text-sm font-medium text-slate-deep mb-1.5">
+                                T&eacute;l&eacute;phone <span class="font-normal text-slate-muted">(optionnel &mdash; pour vous rappeler sous 24h)</span>
+                            </label>
+                            <input type="tel" id="lead-phone" name="phone" autocomplete="tel"
+                                   class="w-full px-4 py-3 rounded-md border border-slate-border text-sm focus:outline-none focus:ring-2 focus:ring-indigo/20 focus:border-indigo transition-colors"
+                                   placeholder="06 12 34 56 78">
+                        </div>
+                        <div>
+                            <label for="lead-challenge" class="block text-sm font-medium text-slate-deep mb-1.5">
+                                Votre principal d&eacute;fi <span class="font-normal text-slate-muted">(optionnel)</span>
+                            </label>
+                            <textarea id="lead-challenge" name="challenge" rows="3"
+                                      class="w-full px-4 py-3 rounded-md border border-slate-border text-sm focus:outline-none focus:ring-2 focus:ring-indigo/20 focus:border-indigo transition-colors resize-none"
+                                      placeholder="Quelles t&acirc;ches aimeriez-vous automatiser ?"></textarea>
+                        </div>
+                    </div>
+                    <div class="flex gap-3 mt-6">
+                        <button type="button" id="btn-prev-step"
+                                class="px-6 py-3 text-sm font-medium rounded-md border border-slate-border text-slate-muted hover:text-slate-deep hover:border-slate-deep transition-colors">
+                            Retour
+                        </button>
+                        <button type="submit" id="btn-submit"
+                                class="flex-1 px-6 py-3 text-sm font-semibold rounded-md bg-indigo text-white hover:bg-indigo-dark transition-colors">
+                            Demander mon audit gratuit
+                        </button>
+                    </div>
+                </div>
+
+                {{/* Message d'erreur */}}
+                <div id="form-error" class="hidden mt-4 p-3 rounded-md bg-red-50 border border-red-200 text-sm text-red-700"></div>
+            </form>
+
+            {{/* Message de succès */}}
+            <div id="form-success" class="hidden text-center py-8">
+                <div class="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                    </svg>
+                </div>
+                <h3 class="font-display text-xl mb-2">Demande envoy&eacute;e</h3>
+                <p class="text-sm text-slate-muted">
+                    Merci pour votre confiance. Je vous recontacte sous 24h
+                    pour planifier votre audit IA gratuit de 30 minutes.
+                </p>
+                <p class="text-sm text-slate-muted mt-2">
+                    &mdash; Franck Sauvage, fondateur
+                </p>
+            </div>
+
+            {{/* Réassurance */}}
+            <div class="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-slate-muted">
+                <span>R&eacute;ponse sous 24h</span>
+                <span class="hidden sm:inline">&middot;</span>
+                <span>Sans engagement</span>
+                <span class="hidden sm:inline">&middot;</span>
+                <span>Vos donn&eacute;es ne sont jamais partag&eacute;es</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{/* ===================================================================
+     CTA FINAL — Fermeture de page
+     =================================================================== */}}
+<section class="bg-slate-deep py-16 sm:py-20">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="font-display text-2xl sm:text-3xl text-white tracking-tight mb-4">
+            30 minutes pour d&eacute;couvrir ce que l'IA peut changer dans votre entreprise
+        </h2>
+        <p class="text-base text-white/70 mb-8 max-w-xl mx-auto">
+            Un audit gratuit, un livrable concret, z&eacute;ro engagement.
+            Le premier pas co&ucirc;te 0&nbsp;&euro;.
+        </p>
+        <a href="#audit-form"
+           class="inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base font-semibold rounded-md bg-white text-slate-deep hover:bg-slate-light transition-colors">
+            R&eacute;servez votre audit IA gratuit
+        </a>
+    </div>
+</section>
+
+{{ end }}
+
+{{ define "scripts" }}
+<script>
+(function() {
+    var step1 = document.getElementById('form-step-1');
+    var step2 = document.getElementById('form-step-2');
+    var btnNext = document.getElementById('btn-next-step');
+    var btnPrev = document.getElementById('btn-prev-step');
+    var form = document.getElementById('lead-form');
+    var formError = document.getElementById('form-error');
+    var formSuccess = document.getElementById('form-success');
+    var step2Circle = document.getElementById('step-2-circle');
+    var step2Label = document.getElementById('step-2-label');
+
+    function showError(msg) {
+        formError.textContent = msg;
+        formError.classList.remove('hidden');
+    }
+
+    function hideError() {
+        formError.classList.add('hidden');
+    }
+
+    function validateEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    // Étape 1 → 2
+    btnNext.addEventListener('click', function() {
+        hideError();
+        var name = document.getElementById('lead-name').value.trim();
+        var email = document.getElementById('lead-email').value.trim();
+
+        if (!name) { showError('Merci de renseigner votre nom.'); return; }
+        if (!email || !validateEmail(email)) { showError('Merci de renseigner une adresse email valide.'); return; }
+
+        step1.classList.add('hidden');
+        step2.classList.remove('hidden');
+        step2Circle.classList.remove('bg-slate-border', 'text-slate-muted');
+        step2Circle.classList.add('bg-indigo', 'text-white');
+        if (step2Label) { step2Label.classList.remove('text-slate-muted'); step2Label.classList.add('text-slate-deep', 'font-medium'); }
+    });
+
+    // Étape 2 → 1
+    btnPrev.addEventListener('click', function() {
+        hideError();
+        step2.classList.add('hidden');
+        step1.classList.remove('hidden');
+        step2Circle.classList.add('bg-slate-border', 'text-slate-muted');
+        step2Circle.classList.remove('bg-indigo', 'text-white');
+        if (step2Label) { step2Label.classList.add('text-slate-muted'); step2Label.classList.remove('text-slate-deep', 'font-medium'); }
+    });
+
+    // Soumission
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        hideError();
+
+        var company = document.getElementById('lead-company').value.trim();
+        var size = document.getElementById('lead-size').value;
+
+        if (!company) { showError('Merci de renseigner le nom de votre entreprise.'); return; }
+        if (!size) { showError('Merci de s\u00e9lectionner la taille de votre entreprise.'); return; }
+
+        var btn = document.getElementById('btn-submit');
+        btn.disabled = true;
+        btn.textContent = 'Envoi en cours\u2026';
+
+        var data = {
+            name: document.getElementById('lead-name').value.trim(),
+            email: document.getElementById('lead-email').value.trim(),
+            company: company,
+            company_size: size,
+            phone: document.getElementById('lead-phone').value.trim(),
+            challenge: document.getElementById('lead-challenge').value.trim(),
+            source: 'Site Web - Homepage'
+        };
+
+        fetch('/api/submit-lead', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        })
+        .then(function(res) { return res.json(); })
+        .then(function(result) {
+            if (result.success) {
+                form.classList.add('hidden');
+                document.getElementById('form-steps-indicator').classList.add('hidden');
+                formSuccess.classList.remove('hidden');
+            } else {
+                btn.disabled = false;
+                btn.textContent = 'Demander mon audit gratuit';
+                showError(result.message || 'Une erreur est survenue. Veuillez r\u00e9essayer.');
+            }
+        })
+        .catch(function() {
+            btn.disabled = false;
+            btn.textContent = 'Demander mon audit gratuit';
+            showError('Erreur de connexion. V\u00e9rifiez votre connexion internet et r\u00e9essayez.');
+        });
+    });
+})();
+</script>
 {{ end }}
