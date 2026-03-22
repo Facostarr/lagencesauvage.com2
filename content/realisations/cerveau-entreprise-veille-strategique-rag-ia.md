@@ -1,4 +1,5 @@
 ---
+weight: 6
 title: "Cerveau d'Entreprise : accédez à 100 % de vos connaissances et surveillez vos marchés en 1 clic"
 description: "Découvrez comment 4 workflows IA centralisent toute la mémoire documentaire de votre entreprise et surveillent marchés publics, procédures collectives et classement automatique de documents."
 keywords:

@@ -1,4 +1,5 @@
 ---
+weight: 4
 title: "Le Chef de Cabinet IA : Libérez 10 à 15 heures par semaine en déléguant votre charge mentale"
 description: "Découvrez comment un assistant IA proactif trie vos emails, prépare vos rendez-vous et assure le suivi client — pour que vous dirigiez au lieu de subir votre journée."
 keywords:

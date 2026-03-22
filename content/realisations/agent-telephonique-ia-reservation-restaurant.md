@@ -1,4 +1,5 @@
 ---
+weight: 5
 title: "Agent Téléphonique IA : ne perdez plus aucune réservation, même à 2h du matin"
 description: "Un standardiste IA disponible 24/7 prend vos appels, gère les réservations et répond aux questions courantes — pendant que votre équipe se concentre sur vos clients."
 keywords:

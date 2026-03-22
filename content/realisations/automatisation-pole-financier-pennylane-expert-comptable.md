@@ -1,4 +1,5 @@
 ---
+weight: 1
 title: "Pôle Financier Augmenté : automatisation complète pour cabinets d'expertise comptable"
 description: "Du tri intelligent des emails à la mise en demeure automatique : découvrez comment 13 workflows IA automatisent la collecte, les relances et le recouvrement avec Pennylane."
 keywords:
