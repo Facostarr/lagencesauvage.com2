@@ -2,8 +2,13 @@
 
 ## Priorité immédiate
 
-1. **Validation Franck — Preview Vercel** (homepage refonte section réalisations)
-2. **Phase 5 — Quality gate** : audit performance, accessibilité, SEO, responsive complet
+1. **Phase 5 — Quality gate** : audit performance, accessibilité, SEO, responsive complet
+2. Lighthouse / PageSpeed sur toutes les pages clés
+3. Audit accessibilité (contraste, alt text, aria, navigation clavier)
+4. Vérification responsive complète (mobile, tablette, desktop)
+5. Validation des redirections 301 (vercel.json)
+6. Vérification schema.org / structured data sur toutes les pages
+7. Test formulaires (submit-lead, submit-diagnostic)
 
 ## En attente de Franck
 

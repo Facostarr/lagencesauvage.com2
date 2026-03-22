@@ -1,5 +1,13 @@
 # Changelog — Refonte lagencesauvage.com
 
+## 2026-03-22 — Validation Franck : Phases 2, 3 et 4
+
+- Franck valide les previews Vercel des 3 phases en un bloc
+- Phase 2 (Homepage) : validée, 2 items restent en attente (témoignages textuels + lien Calendly)
+- Phase 3 (Pages secondaires) : validée (about, services, FAQ, diagnostic, 6 case studies, pages légales)
+- Phase 4 (Intégration blog) : validée (layouts premium, 8 hero images Gemini, front matter enrichi)
+- Passage en Phase 5 — Quality gate
+
 ## 2026-03-22 — Homepage : section réalisations allégée (consensus Claude + Gemini)
 
 - 2 brainstorms Claude + Gemini successifs :

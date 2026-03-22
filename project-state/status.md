@@ -1,6 +1,6 @@
 # Status — Refonte lagencesauvage.com
 
-## Phase en cours : 4 — Intégration blog
+## Phase en cours : 5 — Quality gate
 
 ## Progression
 
@@ -8,10 +8,10 @@
 |-------|--------|-----------|---------|
 | Phase 0 — Setup technique | ✅ Terminée | 2026-03-22 | 2026-03-22 |
 | Phase 1 — Design system | ✅ Terminée | 2026-03-22 | 2026-03-22 |
-| Phase 2 — Homepage | 🟡 En cours (3 items en attente Franck) | 2026-03-22 | — |
+| Phase 2 — Homepage | ✅ Terminée (2 items en attente Franck) | 2026-03-22 | 2026-03-22 |
 | Phase 3 — Pages secondaires | ✅ Terminée | 2026-03-22 | 2026-03-22 |
-| Phase 4 — Intégration blog | 🟡 En cours | 2026-03-22 | — |
-| Phase 5 — Quality gate | ⬜ À faire | — | — |
+| Phase 4 — Intégration blog | ✅ Terminée | 2026-03-22 | 2026-03-22 |
+| Phase 5 — Quality gate | 🟡 En cours | 2026-03-22 | — |
 | Phase 6 — Bascule | ⬜ À faire | — | — |
 | Phase 7 — Post-bascule | ⬜ À faire | — | — |
 
@@ -63,7 +63,7 @@
 - [ ] Témoignages textuels Olivier + Myriam (en attente de Franck)
 - [x] ~~Screenshots réels pour les 4 cartes livrables~~ (remplacé par mini-cartes cas clients)
 - [ ] Lien Calendly pour confirmation formulaire (en attente de Franck)
-- [ ] **Validation Franck — Preview Vercel Phase 2**
+- [x] **Validation Franck — Preview Vercel Phase 2** (2026-03-22)
 
 ## Phase 3 — Tâches détaillées
 
@@ -85,7 +85,7 @@
 - [x] Case study "Agent Téléphonique IA" : 4 piliers (réception, réservation, escalade, 2 options déploiement), diagramme architecture Gemini
 - [x] Case study "Cerveau d'Entreprise & Veille" : 4 piliers (RAG documentaire, veille procédures collectives, veille marchés publics, agent zero papier), diagramme architecture Gemini
 - [x] Ordre des case studies par weight (1→6, meilleurs en premier)
-- [ ] **Validation Franck — Preview Vercel Phase 3**
+- [x] **Validation Franck — Preview Vercel Phase 3** (2026-03-22)
 
 ## Phase 4 — Tâches détaillées
 
@@ -99,7 +99,7 @@
 - [x] Front matter enrichi : takeaways + image + imageAlt sur les 8 articles (contenu texte inchangé)
 - [x] Corrections techniques : /blog.html→/blog/, /about.html→/about/ dans schema + params
 - [x] Fix liens blog : .Permalink → .RelPermalink (navigation cassée sur preview Vercel)
-- [ ] **Validation Franck — Preview Vercel Phase 4**
+- [x] **Validation Franck — Preview Vercel Phase 4** (2026-03-22)
 
 ## Logo & Branding
 
