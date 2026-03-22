@@ -1,5 +1,14 @@
 # Changelog — Refonte lagencesauvage.com
 
+## 2026-03-22 — Phase 5 : Installation Hugo local + nettoyage git
+
+- Hugo Extended v0.158.0 installé localement via `winget install Hugo.Hugo.Extended`
+- Problème PostCSS + Windows + espaces dans chemin résolu via `subst S:` (lecteur virtuel, suggestion Gemini)
+- Build local validé : 35 pages, 826ms, zéro erreur
+- `public/` retiré du tracking git (`git rm -r --cached public/`) — était encore tracké malgré le .gitignore
+- postcss-cli installé globalement en complément (`npm install -g postcss-cli`)
+- Hugo local opérationnel pour la quality gate Phase 5
+
 ## 2026-03-22 — Validation Franck : Phases 2, 3 et 4
 
 - Franck valide les previews Vercel des 3 phases en un bloc

@@ -1,14 +1,15 @@
 # Next Tasks — Refonte lagencesauvage.com
 
-## Priorité immédiate
+## Priorité immédiate — Phase 5 Quality gate
 
-1. **Phase 5 — Quality gate** : audit performance, accessibilité, SEO, responsive complet
-2. Lighthouse / PageSpeed sur toutes les pages clés
-3. Audit accessibilité (contraste, alt text, aria, navigation clavier)
-4. Vérification responsive complète (mobile, tablette, desktop)
-5. Validation des redirections 301 (vercel.json)
-6. Vérification schema.org / structured data sur toutes les pages
-7. Test formulaires (submit-lead, submit-diagnostic)
+Hugo local opérationnel (v0.158.0 via `subst S:`). Attaquer les audits :
+
+1. **Audit SEO/Schema** : inspecter le HTML généré (`hugo --gc --minify` depuis S:\), vérifier JSON-LD, meta tags, OG tags, sitemap.xml sur toutes les pages
+2. **Audit accessibilité** : contraste, alt text, aria, navigation clavier, sémantique HTML
+3. **Audit technique** : liens cassés, responsive, performance (Lighthouse sur preview Vercel)
+4. **Audit redirections 301** : tester chaque redirection du vercel.json
+5. **Audit conversion** : checklist CRO page par page (skill conversion-audit-checklist)
+6. **Test formulaires** : submit-lead, submit-diagnostic (via `vercel dev` ou preview Vercel)
 
 ## En attente de Franck
 
@@ -41,7 +42,7 @@
 
 ## Fait cette session
 
-- [x] Brainstorm Claude + Gemini : choix des 2 meilleurs case studies pour homepage (consensus 9/10)
-- [x] Brainstorm Claude + Gemini v2 : homepage trop chargée → approche minimaliste (consensus 9/10)
-- [x] Refonte section "Ce qu'on livre" → bandeau chiffres + 3 mini-cartes + CTA /realisations/
-- [x] Suppression tags stack technique de la homepage (dirigeant achète du résultat)
+- [x] Installation Hugo Extended v0.158.0 en local (winget)
+- [x] Résolution bug PostCSS + Windows + espaces via `subst S:` (conseil Gemini)
+- [x] Build local validé : 35 pages, 826ms, 0 erreur
+- [x] Nettoyage git : `public/` retiré du tracking (git rm --cached)

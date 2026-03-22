@@ -31,6 +31,7 @@
 - Ne jamais construire une classe Tailwind par concaténation dynamique dans les templates Go — le scanner ne résout pas les variables Go.
 - `postcss-cli` est requis en devDependency pour que Hugo Pipes puisse exécuter PostCSS (erreur "binary postcss not found" sinon).
 - Hugo 0.144+ : `:filename` deprecated dans les permalinks, utiliser `:contentbasename` à la place.
+- **Hugo + PostCSS + Windows + espaces dans le chemin** : Hugo passe le chemin de `node_modules/.bin/postcss` sans quotes à l'interpréteur Windows → casse si le chemin contient des espaces. Solution : `subst S: "chemin complet"` crée un lecteur virtuel sans espaces. Builder depuis `S:\`. Le subst disparaît au redémarrage.
 
 ## Vercel
 
