@@ -81,5 +81,5 @@ faq:
   - question: "L'abonnement est-il sans engagement ?"
     answer: "Oui. Après la période de mise en place initiale, l'abonnement est résiliable à tout moment. Nous misons sur la qualité du service pour vous garder, pas sur un contrat."
   - question: "Quels outils utilisez-vous ?"
-    answer: "Nous travaillons principalement avec n8n, Claude AI, Make, Notion et Supabase. Nous nous connectons aussi aux outils métier de nos clients (CRM, comptabilité, messagerie). Le choix se fait en fonction de votre contexte, pas de nos préférences."
+    answer: "Nous travaillons principalement avec n8n, Claude AI, Notion, Supabase et Evolution API. Nous nous connectons aussi aux outils métier de nos clients (CRM, comptabilité, messagerie). Le choix se fait en fonction de votre contexte, pas de nos préférences."
 ---
