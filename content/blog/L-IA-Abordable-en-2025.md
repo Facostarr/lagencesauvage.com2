@@ -12,8 +12,14 @@ tags:
   - "PME"
   - "Productivité"
 readingTime: 8
+image: "/assets/images/blog/ia-abordable-2025.webp"
+imageAlt: "L'IA abordable en 2025 : courbe descendante des coûts et montée de l'adoption"
 emoji: "📉"
 draft: false
+takeaways:
+  - "Les coûts d'inférence IA ont chuté de 280x — l'IA est désormais accessible aux budgets PME"
+  - "Les modèles légers open-source rivalisent avec les grands modèles pour les tâches métier courantes"
+  - "Le rapport Stanford AI Index 2025 confirme la démocratisation de l'IA pour les petites entreprises"
 ---
 
 ## Introduction

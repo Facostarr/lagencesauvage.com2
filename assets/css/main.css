@@ -161,6 +161,237 @@ h1, h2, h3, h4 {
   box-shadow: 0 0 0 1px var(--color-indigo);
 }
 
+/* === Blog — Édition Premium 2026 === */
+
+/* --- Reading progress bar --- */
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--color-indigo);
+  z-index: 100;
+  transition: width 50ms linear;
+}
+
+/* --- Blog article prose typography --- */
+.blog-prose {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--color-slate-deep);
+}
+
+.blog-prose h2 {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  scroll-margin-top: 5rem;
+}
+
+.blog-prose h3 {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+  scroll-margin-top: 5rem;
+}
+
+.blog-prose p {
+  margin-bottom: 1.5rem;
+}
+
+.blog-prose a {
+  color: var(--color-indigo);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 200ms ease;
+}
+
+.blog-prose a:hover {
+  color: var(--color-indigo-dark);
+}
+
+.blog-prose blockquote {
+  border-left: 4px solid var(--color-indigo);
+  padding-left: 1.25rem;
+  margin: 2rem 0;
+  font-style: italic;
+  color: var(--color-slate-muted);
+}
+
+.blog-prose code {
+  font-family: ui-monospace, "Cascadia Code", "Fira Code", monospace;
+  font-size: 0.875em;
+  background-color: var(--color-slate-light);
+  padding: 0.15em 0.4em;
+  border-radius: 0.25rem;
+}
+
+.blog-prose pre {
+  background-color: var(--color-slate-deep);
+  color: #e2e8f0;
+  padding: 1.25rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin: 2rem 0;
+}
+
+.blog-prose pre code {
+  background: none;
+  padding: 0;
+  font-size: 0.875rem;
+  color: inherit;
+}
+
+.blog-prose ul,
+.blog-prose ol {
+  margin: 1.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.blog-prose li {
+  margin-bottom: 0.5rem;
+}
+
+.blog-prose img {
+  border-radius: 0.5rem;
+  margin: 2rem 0;
+}
+
+.blog-prose hr {
+  border: none;
+  border-top: 1px solid var(--color-slate-border);
+  margin: 3rem 0;
+}
+
+.blog-prose strong {
+  font-weight: 600;
+}
+
+.blog-prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 0.95rem;
+}
+
+.blog-prose th,
+.blog-prose td {
+  border: 1px solid var(--color-slate-border);
+  padding: 0.75rem 1rem;
+  text-align: left;
+}
+
+.blog-prose th {
+  background-color: var(--color-slate-light);
+  font-weight: 600;
+}
+
+/* --- Heading anchor (copy link) --- */
+.heading-anchor {
+  opacity: 0;
+  margin-left: 0.5rem;
+  color: var(--color-slate-muted);
+  transition: opacity 200ms ease, color 200ms ease;
+  cursor: pointer;
+}
+
+.blog-prose h2:hover .heading-anchor,
+.blog-prose h3:hover .heading-anchor {
+  opacity: 1;
+}
+
+.heading-anchor:hover {
+  color: var(--color-indigo);
+}
+
+/* --- TOC floating panel --- */
+.toc-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background-color: rgba(15, 23, 42, 0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms ease;
+}
+
+.toc-overlay.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.toc-panel {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 320px;
+  max-width: 85vw;
+  background-color: var(--color-white);
+  border-left: 1px solid var(--color-slate-border);
+  padding: 2rem 1.5rem;
+  z-index: 91;
+  transform: translateX(100%);
+  transition: transform 300ms var(--ease-out-expo);
+  overflow-y: auto;
+}
+
+.toc-overlay.is-open .toc-panel {
+  transform: translateX(0);
+}
+
+.toc-panel nav a {
+  display: block;
+  padding: 0.375rem 0;
+  font-size: 0.875rem;
+  color: var(--color-slate-muted);
+  transition: color 200ms ease;
+  text-decoration: none;
+}
+
+.toc-panel nav a:hover,
+.toc-panel nav a.is-active {
+  color: var(--color-indigo);
+}
+
+.toc-panel nav ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.toc-panel nav ul ul {
+  padding-left: 1rem;
+}
+
+/* --- CTA sticky bottom bar --- */
+.cta-sticky-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 80;
+  transform: translateY(100%);
+  transition: transform 300ms var(--ease-out-expo);
+}
+
+.cta-sticky-bar.is-visible {
+  transform: translateY(0);
+}
+
+/* --- Blog card hover --- */
+.blog-card {
+  transition: border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
+}
+
+.blog-card:hover {
+  border-color: var(--color-indigo);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.08);
+  transform: translateY(-2px);
+}
+
 /* --- Reduced motion : tout visible immédiatement --- */
 @media (prefers-reduced-motion: reduce) {
   .hero-animate,

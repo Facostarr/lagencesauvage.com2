@@ -1,6 +1,6 @@
 # Status — Refonte lagencesauvage.com
 
-## Phase en cours : 3 — Pages secondaires
+## Phase en cours : 4 — Intégration blog
 
 ## Progression
 
@@ -9,8 +9,8 @@
 | Phase 0 — Setup technique | ✅ Terminée | 2026-03-22 | 2026-03-22 |
 | Phase 1 — Design system | ✅ Terminée | 2026-03-22 | 2026-03-22 |
 | Phase 2 — Homepage | 🟡 En cours (3 items en attente Franck) | 2026-03-22 | — |
-| Phase 3 — Pages secondaires | 🟡 En cours | 2026-03-22 | — |
-| Phase 4 — Intégration blog | ⬜ À faire | — | — |
+| Phase 3 — Pages secondaires | ✅ Terminée | 2026-03-22 | 2026-03-22 |
+| Phase 4 — Intégration blog | 🟡 En cours | 2026-03-22 | — |
 | Phase 5 — Quality gate | ⬜ À faire | — | — |
 | Phase 6 — Bascule | ⬜ À faire | — | — |
 | Phase 7 — Post-bascule | ⬜ À faire | — | — |
@@ -87,6 +87,19 @@
 - [x] Ordre des case studies par weight (1→6, meilleurs en premier)
 - [ ] **Validation Franck — Preview Vercel Phase 3**
 
+## Phase 4 — Tâches détaillées
+
+- [x] Brainstorm Claude + Gemini : blog "Édition Premium IA 2026" (consensus 8/10)
+- [x] Layout blog/list.html : article vedette + grille + carte CTA intégrée + filtres catégories
+- [x] Layout blog/single.html : lecture plein écran, 4 CTAs subtils, key takeaways, TOC flottant
+- [x] Styles blog dans main.css : progress bar, prose typography, TOC panel, CTA sticky
+- [x] assets/js/blog.js : progress bar, TOC highlight, copy anchor, scroll reveal, CTA sticky
+- [x] blog.js chargé conditionnellement dans baseof.html (section blog uniquement)
+- [x] 8 hero images générées par Gemini (abstraites, géométriques, palette indigo/slate, <40Ko chacune)
+- [x] Front matter enrichi : takeaways + image + imageAlt sur les 8 articles (contenu texte inchangé)
+- [x] Corrections techniques : /blog.html→/blog/, /about.html→/about/ dans schema + params
+- [ ] **Validation Franck — Preview Vercel Phase 4**
+
 ## Blockers
 
 Aucun pour le moment.
@@ -112,6 +125,7 @@ Aucun pour le moment.
 - ✅ Focus Réalisations v2 : 6 use cases (consensus Claude + Gemini v2, score 9/10) — fusion UC1+PennylaneAgent, ajout GEO Tracker SaaS, Jarvis repensé en Chef de Cabinet IA (2026-03-22)
 - ✅ Case study "Usine à Contenu B2B" : 5 piliers, RAG Supabase, double optim SEO/GEO, diagramme architecture Gemini, prix "à partir de" (2026-03-22)
 - ✅ 4 case studies finales : GEO Tracker (SaaS Python), Chef de Cabinet IA (4 piliers), Agent Téléphonique (2 options), Cerveau d'Entreprise (RAG + veille) — 4 diagrammes Gemini (2026-03-22)
+- ✅ Blog "Édition Premium 2026" : brainstorm Claude + Gemini (consensus 8/10), layouts Tailwind v4, 8 images abstraites Gemini, lecture plein écran, 4 CTAs subtils, key takeaways GEO, TOC flottant, progress bar (2026-03-22)
 - ✅ Ordre case studies par weight : Pôle Financier → GEO Tracker → Usine à Contenu → Chef de Cabinet → Agent Téléphonique → Cerveau d'Entreprise (2026-03-22)
 
 ## Décisions en attente

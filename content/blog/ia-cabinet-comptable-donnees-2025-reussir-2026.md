@@ -6,6 +6,12 @@ lastmod: 2025-12-29
 author: "L'Agence Sauvage"
 categories: ["Intelligence Artificielle", "Expertise Comptable"]
 tags: ["IA", "expert-comptable", "automatisation", "productivité", "cabinet comptable", "digitalisation"]
+image: "/assets/images/blog/ia-cabinet-comptable-2025.webp"
+imageAlt: "Automatisation cabinet comptable : colonnes de chiffres se simplifiant en formes épurées"
+takeaways:
+  - "91% des experts-comptables voient l'IA comme une opportunité, mais seuls 29% ont structuré leur démarche"
+  - "Les cabinets pionniers documentent des gains de productivité concrets et mesurables"
+  - "La pénurie de collaborateurs (30 000 postes) rend l'automatisation incontournable"
 ---
 
 Un paradoxe frappe la profession comptable en cette fin 2025 : **91% des experts-comptables considèrent l'IA comme une opportunité** selon le [Conseil National de l'Ordre](https://www.compta-online.com/ia-profession-expert-comptable-ao7637), mais à peine 29% ont structuré une véritable démarche d'intégration. Entre l'enthousiasme affiché et la réalité du terrain, un fossé s'est creusé que les cabinets pionniers ont déjà franchi avec des résultats documentés.

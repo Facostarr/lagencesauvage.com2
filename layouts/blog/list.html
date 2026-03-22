@@ -1,134 +1,159 @@
 {{ define "main" }}
 {{/* =============================================================================
-   Liste des articles du blog — Design system Premium Tech (Tailwind v4)
+   Liste des articles — Édition Premium 2026
+   Article vedette + grille + carte CTA intégrée + filtres catégories
    ============================================================================= */}}
 
-<!-- Hero Section Blog -->
+{{ $allPages := where .Pages "Type" "blog" }}
+
+{{/* ===================================================================
+     HERO — Titre + baseline
+     =================================================================== */}}
 <section class="bg-slate-light border-b border-slate-border">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 text-center">
-        <h1 class="font-display text-3xl sm:text-4xl lg:text-5xl tracking-tight text-slate-deep mb-4">Blog</h1>
-        <p class="text-lg text-slate-muted max-w-2xl mx-auto">{{ .Site.Params.blog.description }}</p>
+        <h1 class="hero-animate font-display text-3xl sm:text-4xl lg:text-5xl tracking-tight text-slate-deep mb-4">
+            {{ .Params.hero_title | default "Blog" }}
+        </h1>
+        <p class="hero-animate text-lg text-slate-muted max-w-2xl mx-auto" style="animation-delay: 100ms">
+            {{ .Params.hero_subtitle | default .Site.Params.blog.description }}
+        </p>
     </div>
 </section>
 
-<!-- Filtres et recherche -->
-<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-    <div class="flex flex-col sm:flex-row sm:items-center gap-4">
-        <!-- Barre de recherche -->
-        <div class="relative flex-1 max-w-md">
-            <svg class="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
-            <input type="text"
-                   id="searchInput"
-                   placeholder="Rechercher un article..."
-                   aria-label="Rechercher un article"
-                   class="w-full pl-10 pr-4 py-2.5 text-sm border border-slate-border rounded-md bg-white text-slate-deep placeholder:text-slate-muted focus:outline-none focus:ring-2 focus:ring-indigo/20 focus:border-indigo transition-colors">
-        </div>
-
-        <!-- Filtres catégories -->
-        <div class="flex flex-wrap gap-2" id="categoryFilters">
-            <button class="filter-tag px-3 py-1.5 text-sm rounded-md border border-slate-border text-slate-muted hover:border-indigo hover:text-indigo transition-colors bg-indigo text-white border-indigo" data-category="all">Tous</button>
-            {{ range .Site.Taxonomies.categories }}
-            <button class="filter-tag px-3 py-1.5 text-sm rounded-md border border-slate-border text-slate-muted hover:border-indigo hover:text-indigo transition-colors" data-category="{{ .Page.Title | urlize }}">{{ .Page.Title }}</button>
-            {{ end }}
-        </div>
-    </div>
-</section>
-
-<!-- Grille des articles -->
-<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-24">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8" id="articlesGrid">
-        {{ $paginator := .Paginate (where .Pages "Type" "blog") .Site.Params.blog.postsPerPage }}
-        {{ range $paginator.Pages }}
-        <article class="article-card group flex flex-col border border-slate-border rounded-lg overflow-hidden hover:border-slate-muted transition-colors"
-                 data-category="{{ if .Params.categories }}{{ index .Params.categories 0 | urlize }}{{ else }}non-classe{{ end }}"
-                 data-title="{{ .Title | lower }}"
-                 data-content="{{ .Summary | plainify | lower }}">
-
-            <!-- Image ou Emoji -->
-            <div class="aspect-[16/9] bg-slate-light flex items-center justify-center overflow-hidden">
+{{/* ===================================================================
+     ARTICLE VEDETTE — Le plus récent, carte large
+     =================================================================== */}}
+{{ with index $allPages 0 }}
+<section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+    <a href="{{ .Permalink }}" class="reveal group block bg-white border border-slate-border rounded-lg overflow-hidden blog-card">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
+            {{/* Image */}}
+            <div class="aspect-[16/9] md:aspect-auto bg-slate-light overflow-hidden">
                 {{ if .Params.image }}
                 <img src="{{ .Params.image }}"
                      alt="{{ .Params.imageAlt | default .Title }}"
+                     class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300"
+                     loading="eager">
+                {{ else }}
+                <div class="w-full h-full min-h-[240px] flex items-center justify-center bg-slate-light">
+                    <span class="text-5xl text-slate-muted/20">{{ .Params.emoji | default "IA" }}</span>
+                </div>
+                {{ end }}
+            </div>
+
+            {{/* Contenu */}}
+            <div class="flex flex-col justify-center p-6 sm:p-8 lg:p-10">
+                {{ if .Params.categories }}
+                <span class="inline-block w-fit px-3 py-1 rounded-full text-xs font-semibold bg-indigo/10 text-indigo mb-4">
+                    {{ index .Params.categories 0 }}
+                </span>
+                {{ end }}
+
+                <h2 class="font-display text-xl sm:text-2xl lg:text-3xl tracking-tight text-slate-deep group-hover:text-indigo transition-colors mb-3">
+                    {{ .Title }}
+                </h2>
+
+                <p class="text-sm text-slate-muted leading-relaxed mb-4 line-clamp-3">
+                    {{ .Summary | plainify | truncate 200 }}
+                </p>
+
+                <div class="flex items-center gap-3 text-xs text-slate-muted">
+                    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Day }} {{ index (slice "jan." "fév." "mars" "avr." "mai" "juin" "juil." "août" "sept." "oct." "nov." "déc.") (sub .Date.Month 1) }} {{ .Date.Year }}</time>
+                    <span>·</span>
+                    <span>{{ .ReadingTime }} min de lecture</span>
+                </div>
+            </div>
+        </div>
+    </a>
+</section>
+{{ end }}
+
+{{/* ===================================================================
+     FILTRES PAR CATÉGORIE + GRILLE D'ARTICLES
+     =================================================================== */}}
+{{ $remaining := after 1 $allPages }}
+{{ if $remaining }}
+<section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-24">
+
+    {{/* Filtres catégories */}}
+    <div class="flex flex-wrap gap-2 mb-8">
+        <button class="blog-filter px-3 py-1.5 text-sm rounded-md border border-indigo bg-indigo text-white transition-colors" data-category="all">Tous</button>
+        {{ range .Site.Taxonomies.categories }}
+        <button class="blog-filter px-3 py-1.5 text-sm rounded-md border border-slate-border text-slate-muted hover:border-indigo hover:text-indigo transition-colors" data-category="{{ .Page.Title | urlize }}">{{ .Page.Title }}</button>
+        {{ end }}
+    </div>
+
+    {{/* Grille */}}
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+
+        {{ range $i, $page := $remaining }}
+
+        {{/* Carte CTA intégrée — après le 3e article */}}
+        {{ if eq $i 3 }}
+        <div class="flex flex-col justify-center border border-indigo rounded-lg bg-indigo/5 p-6 sm:p-8">
+            <p class="font-display text-lg text-slate-deep mb-3">L'IA peut transformer votre quotidien professionnel.</p>
+            <p class="text-sm text-slate-muted mb-5">Découvrez comment en 30 minutes, sans engagement.</p>
+            <a href="/#audit-gratuit" class="inline-flex items-center justify-center px-4 py-2.5 text-sm font-semibold rounded-md bg-indigo text-white hover:bg-indigo-dark transition-colors">
+                Réservez votre audit IA gratuit
+            </a>
+        </div>
+        {{ end }}
+
+        {{/* Carte article */}}
+        <a href="{{ $page.Permalink }}"
+           class="blog-card-item reveal group flex flex-col border border-slate-border rounded-lg overflow-hidden blog-card"
+           data-category="{{ if $page.Params.categories }}{{ index $page.Params.categories 0 | urlize }}{{ else }}non-classe{{ end }}"
+           data-delay="{{ mul $i 80 }}">
+
+            {{/* Image */}}
+            <div class="aspect-[3/2] bg-slate-light overflow-hidden">
+                {{ if $page.Params.image }}
+                <img src="{{ $page.Params.image }}"
+                     alt="{{ $page.Params.imageAlt | default $page.Title }}"
                      loading="lazy"
                      class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300">
                 {{ else }}
-                <span class="text-4xl">{{ .Params.emoji | default "📄" }}</span>
+                <div class="w-full h-full flex items-center justify-center">
+                    <span class="text-3xl text-slate-muted/20">{{ $page.Params.emoji | default "IA" }}</span>
+                </div>
                 {{ end }}
             </div>
 
             <div class="flex flex-col flex-1 p-5">
-                <!-- Meta -->
+                {{/* Meta */}}
                 <div class="flex items-center gap-2 text-xs text-slate-muted mb-3">
-                    {{ if .Params.categories }}
-                    <span class="inline-block px-2 py-0.5 bg-indigo/10 text-indigo rounded text-xs font-medium">{{ index .Params.categories 0 }}</span>
+                    {{ if $page.Params.categories }}
+                    <span class="inline-block px-2 py-0.5 bg-indigo/10 text-indigo rounded text-xs font-medium">{{ index $page.Params.categories 0 }}</span>
                     {{ end }}
-                    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Day }} {{ index (slice "jan." "fév." "mars" "avr." "mai" "juin" "juil." "août" "sept." "oct." "nov." "déc.") (sub .Date.Month 1) }} {{ .Date.Year }}</time>
-                    {{ if .Site.Params.blog.showReadingTime }}
-                    <span>· {{ .ReadingTime }} min</span>
-                    {{ end }}
+                    <time datetime="{{ $page.Date.Format "2006-01-02" }}">{{ $page.Date.Day }} {{ index (slice "jan." "fév." "mars" "avr." "mai" "juin" "juil." "août" "sept." "oct." "nov." "déc.") (sub $page.Date.Month 1) }} {{ $page.Date.Year }}</time>
+                    <span>· {{ $page.ReadingTime }} min</span>
                 </div>
 
-                <!-- Titre -->
-                <h2 class="font-display text-lg text-slate-deep leading-snug mb-2 group-hover:text-indigo transition-colors">
-                    <a href="{{ .Permalink }}" class="block">{{ .Title }}</a>
+                {{/* Titre */}}
+                <h2 class="font-display text-base sm:text-lg text-slate-deep leading-snug mb-2 group-hover:text-indigo transition-colors">
+                    {{ $page.Title }}
                 </h2>
 
-                <!-- Extrait -->
-                <p class="text-sm text-slate-muted leading-relaxed mb-4 flex-1">
-                    {{ .Summary | plainify | truncate 140 }}
+                {{/* Extrait */}}
+                <p class="text-sm text-slate-muted leading-relaxed mb-4 flex-1 line-clamp-3">
+                    {{ $page.Summary | plainify | truncate 130 }}
                 </p>
 
-                <!-- Footer -->
-                <div class="flex items-center justify-between pt-3 border-t border-slate-border">
-                    {{ if .Params.tags }}
-                    <div class="flex gap-1.5">
-                        {{ range first 2 .Params.tags }}
-                        <span class="text-xs text-slate-muted">#{{ . }}</span>
-                        {{ end }}
-                    </div>
-                    {{ else }}
-                    <div></div>
-                    {{ end }}
-                    <a href="{{ .Permalink }}" class="text-sm font-medium text-indigo hover:text-indigo-dark transition-colors" aria-label="Lire l'article : {{ .Title }}">
-                        Lire &rarr;
-                    </a>
-                </div>
+                {{/* Lire */}}
+                <span class="text-sm font-medium text-indigo group-hover:text-indigo-dark transition-colors">
+                    Lire l'article &rarr;
+                </span>
             </div>
-        </article>
+        </a>
+
         {{ end }}
     </div>
-
-    <!-- État vide -->
-    <div id="emptyState" class="hidden text-center py-16">
-        <p class="text-slate-muted text-lg mb-2">Aucun article trouvé</p>
-        <p class="text-sm text-slate-muted">Essayez de modifier vos critères de recherche.</p>
-    </div>
-
-    <!-- Pagination -->
-    {{ if gt $paginator.TotalPages 1 }}
-    <nav class="flex items-center justify-center gap-2 mt-12" aria-label="Pagination des articles">
-        {{ if $paginator.HasPrev }}
-        <a href="{{ $paginator.Prev.URL }}" class="px-4 py-2 text-sm border border-slate-border rounded-md text-slate-muted hover:border-indigo hover:text-indigo transition-colors">&laquo; Précédent</a>
-        {{ end }}
-
-        {{ range $paginator.Pagers }}
-        {{ if eq . $paginator }}
-        <span class="px-3.5 py-2 text-sm rounded-md bg-indigo text-white font-medium">{{ .PageNumber }}</span>
-        {{ else }}
-        <a href="{{ .URL }}" class="px-3.5 py-2 text-sm border border-slate-border rounded-md text-slate-muted hover:border-indigo hover:text-indigo transition-colors">{{ .PageNumber }}</a>
-        {{ end }}
-        {{ end }}
-
-        {{ if $paginator.HasNext }}
-        <a href="{{ $paginator.Next.URL }}" class="px-4 py-2 text-sm border border-slate-border rounded-md text-slate-muted hover:border-indigo hover:text-indigo transition-colors">Suivant &raquo;</a>
-        {{ end }}
-    </nav>
-    {{ end }}
 </section>
+{{ end }}
 
-<!-- CTA Newsletter / Audit -->
+{{/* ===================================================================
+     CTA FINAL — Section sombre
+     =================================================================== */}}
 <section class="bg-slate-deep">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 text-center">
         <h2 class="font-display text-2xl sm:text-3xl text-white mb-4">Vous voulez passer à l'action ?</h2>
@@ -138,64 +163,4 @@
         </a>
     </div>
 </section>
-{{ end }}
-
-{{ define "scripts" }}
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const searchInput = document.getElementById('searchInput');
-    const filterBtns = document.querySelectorAll('.filter-tag');
-    const articles = document.querySelectorAll('.article-card');
-    const emptyState = document.getElementById('emptyState');
-    const articlesGrid = document.getElementById('articlesGrid');
-
-    let currentCategory = 'all';
-    let currentSearch = '';
-
-    const activeClasses = ['bg-indigo', 'text-white', 'border-indigo'];
-    const inactiveClasses = ['text-slate-muted', 'border-slate-border'];
-
-    filterBtns.forEach(function(btn) {
-        btn.addEventListener('click', function() {
-            filterBtns.forEach(function(b) {
-                activeClasses.forEach(function(c) { b.classList.remove(c); });
-                inactiveClasses.forEach(function(c) { b.classList.add(c); });
-            });
-            activeClasses.forEach(function(c) { btn.classList.add(c); });
-            inactiveClasses.forEach(function(c) { btn.classList.remove(c); });
-            currentCategory = btn.dataset.category;
-            filterArticles();
-        });
-    });
-
-    searchInput.addEventListener('input', function(e) {
-        currentSearch = e.target.value.toLowerCase();
-        filterArticles();
-    });
-
-    function filterArticles() {
-        var visibleCount = 0;
-        articles.forEach(function(article) {
-            var cat = article.dataset.category;
-            var title = article.dataset.title;
-            var content = article.dataset.content;
-            var matchCat = currentCategory === 'all' || cat === currentCategory;
-            var matchSearch = currentSearch === '' || title.indexOf(currentSearch) !== -1 || content.indexOf(currentSearch) !== -1;
-            if (matchCat && matchSearch) {
-                article.style.display = 'flex';
-                visibleCount++;
-            } else {
-                article.style.display = 'none';
-            }
-        });
-        if (visibleCount === 0) {
-            articlesGrid.style.display = 'none';
-            emptyState.classList.remove('hidden');
-        } else {
-            articlesGrid.style.display = '';
-            emptyState.classList.add('hidden');
-        }
-    }
-});
-</script>
 {{ end }}
