@@ -132,6 +132,25 @@ h1, h2, h3, h4 {
   overflow: hidden;
 }
 
+/* --- About: credential cards hover --- */
+.card-credential {
+  transition: border-color 200ms ease;
+}
+
+.card-credential:hover {
+  border-color: var(--color-indigo);
+}
+
+/* --- About: stack cards hover --- */
+.card-stack {
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.card-stack:hover {
+  border-color: var(--color-indigo);
+  box-shadow: 0 0 0 1px var(--color-indigo);
+}
+
 /* --- Reduced motion : tout visible immédiatement --- */
 @media (prefers-reduced-motion: reduce) {
   .hero-animate,

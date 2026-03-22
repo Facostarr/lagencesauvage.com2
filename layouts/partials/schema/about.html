@@ -1,0 +1,35 @@
+{{/* Schema.org AboutPage + Person — Page À propos */}}
+{{ with .Params.schema.person }}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "mainEntity": {
+        "@type": "Person",
+        "name": "{{ .name }}",
+        "jobTitle": "{{ .jobTitle }}",
+        "description": "{{ .description }}",
+        "worksFor": {
+            "@type": "Organization",
+            "name": "{{ $.Site.Title }}",
+            "url": "{{ $.Site.Params.organization.url }}",
+            "description": "{{ $.Site.Params.organization.description }}",
+            "foundingDate": "{{ $.Site.Params.organization.foundingDate }}",
+            "areaServed": {
+                "@type": "Country",
+                "name": "France"
+            },
+            "knowsAbout": ["Automatisation IA", "n8n", "Claude AI", "Supabase", "Intelligence artificielle pour PME"]
+        },
+        "knowsAbout": [{{ range $i, $k := .knowsAbout }}{{ if $i }}, {{ end }}"{{ $k }}"{{ end }}],
+        "alumniOf": {
+            "@type": "EducationalOrganization",
+            "name": "{{ .alumniOf }}"
+        },
+        "sameAs": [
+            "{{ .linkedin }}"
+        ]
+    }
+}
+</script>
+{{ end }}
