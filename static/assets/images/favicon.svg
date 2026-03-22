@@ -1,6 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
   <!-- Carré arrondi indigo -->
-  <rect x="4" y="4" width="56" height="56" rx="12" fill="#4F46E5"/>
-  <!-- S en espace négatif -->
-  <path d="M38 16H26c-3.3 0-6 2.7-6 6v4c0 3.3 2.7 6 6 6h8c1.1 0 2 .9 2 2v4c0 1.1-.9 2-2 2H22M26 48h12c3.3 0 6-2.7 6-6v-4c0-3.3-2.7-6-6-6h-8c-1.1 0-2-.9-2-2v-4c0-1.1.9-2 2-2h12" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="#4F46E5"/>
+  <!-- S géométrique style C2 — formes pleines angulaires -->
+  <!-- Partie haute du S : flèche vers la droite -->
+  <path d="M16 14h18l12 12-7 7H21l-5-5v-9z" fill="#FFFFFF"/>
+  <!-- Liaison diagonale -->
+  <path d="M35 25l-9 9 9 9h7l-9-9 9-9z" fill="rgba(255,255,255,0.7)"/>
+  <!-- Partie basse du S : flèche vers la gauche -->
+  <path d="M48 50H30l-12-12 7-7h18l5 5v9z" fill="#FFFFFF"/>
 </svg>

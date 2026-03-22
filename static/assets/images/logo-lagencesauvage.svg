@@ -1,9 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 56" fill="none">
-  <!-- Monogramme S dans carré arrondi indigo -->
-  <rect x="4" y="4" width="48" height="48" rx="10" fill="#4F46E5"/>
-  <path d="M34 14H24c-2.8 0-5 2.2-5 5v3.5c0 2.8 2.2 5 5 5h7c1 0 1.8.8 1.8 1.8v3.5c0 1-.8 1.8-1.8 1.8H20M24 42h10c2.8 0 5-2.2 5-5v-3.5c0-2.8-2.2-5-5-5h-7c-1 0-1.8-.8-1.8-1.8v-3.5c0-1 .8-1.8 1.8-1.8h11" stroke="#FFFFFF" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  <!-- Texte "L'Agence" en DM Sans style -->
-  <text x="64" y="24" font-family="'DM Sans', system-ui, sans-serif" font-weight="400" font-size="15" letter-spacing="0.5" fill="#0F172A">L'Agence</text>
-  <!-- Texte "Sauvage" en DM Serif Display style -->
-  <text x="64" y="45" font-family="'DM Serif Display', Georgia, serif" font-weight="400" font-style="italic" font-size="24" fill="#0F172A">Sauvage</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 60" fill="none">
+  <!-- Carré arrondi indigo -->
+  <rect x="2" y="2" width="56" height="56" rx="12" fill="#4F46E5"/>
+  <!-- S géométrique style C2 — formes pleines angulaires -->
+  <!-- Partie haute du S : flèche vers la droite -->
+  <path d="M18 14h16l10 10-6 6H22l-4-4v-8z" fill="#FFFFFF"/>
+  <!-- Partie médiane : liaison diagonale -->
+  <path d="M38 24l-14 12" stroke="#FFFFFF" stroke-width="0" fill="none"/>
+  <path d="M32 22l-8 8 8 8h6l-8-8 8-8z" fill="rgba(255,255,255,0.7)"/>
+  <!-- Partie basse du S : flèche vers la gauche -->
+  <path d="M42 46H26l-10-10 6-6h16l4 4v8z" fill="#FFFFFF"/>
+  <!-- Texte "L'Agence" en DM Sans léger -->
+  <text x="70" y="25" font-family="'DM Sans', system-ui, sans-serif" font-weight="400" font-size="16" letter-spacing="0.3" fill="#0F172A">L'Agence</text>
+  <!-- Texte "Sauvage" en DM Sans bold -->
+  <text x="70" y="48" font-family="'DM Sans', system-ui, sans-serif" font-weight="700" font-size="26" fill="#0F172A">Sauvage</text>
 </svg>
