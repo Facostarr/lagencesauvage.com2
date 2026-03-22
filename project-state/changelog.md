@@ -1,5 +1,19 @@
 # Changelog — Refonte lagencesauvage.com
 
+## 2026-03-22 — Phase 1 : Design system
+
+- Corrigé build Vercel : Hugo 0.58.2 → 0.158.0 via `build.env.HUGO_VERSION` dans vercel.json
+- Ajouté `postcss-cli` (requis par Hugo Pipes pour exécuter PostCSS)
+- Corrigé permalink deprecated `:filename` → `:contentbasename`
+- Palette validée par Franck : abandon "Intelligence Organique" (forest/orange/cream), adoption "Premium Tech" (indigo #4F46E5 / slate #0F172A / blanc #FFFFFF) — consensus Claude + Gemini
+- Typographie validée : DM Serif Display (titres) + DM Sans (corps)
+- baseof.html : Hugo Pipes + PostCSS, Google Fonts, structure flex min-h-screen
+- Header responsive : nav blanc, bordure subtile, CTA indigo, menu mobile hamburger
+- Footer : 4 colonnes, fond slate clair #F8FAFC, menus dynamiques depuis menus.toml
+- Homepage placeholder : hero + CTA + section preuve sociale technologies
+- Ajustements mobile : CTA resserré, espacements proportionnés
+- Commits : 7882ecc → e46f6ec (7 commits)
+
 ## 2026-03-22 — Corrections audit Gemini pré-Phase 1
 
 - Appliqué les 9 corrections identifiées par l'audit croisé Claude + Gemini
