@@ -1,0 +1,95 @@
+{{/* Schema TechArticle */}}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "{{ .Title }}",
+    "description": "{{ .Description }}",
+    "author": {
+        "@type": "Person",
+        "name": "Franck Sauvage",
+        "jobTitle": "Fondateur",
+        "worksFor": {
+            "@type": "Organization",
+            "name": "{{ .Site.Params.organization.name }}"
+        }
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "{{ .Site.Params.organization.name }}",
+        "url": "{{ .Site.Params.organization.url }}"
+    },
+    "datePublished": "{{ .Date.Format "2006-01-02" }}",
+    "dateModified": "{{ .Lastmod.Format "2006-01-02" }}",
+    "url": "{{ .Permalink }}",
+    "proficiencyLevel": "Expert",
+    "dependencies": "{{ delimit (apply .Params.tech_stack "index" "." "name") ", " }}",
+    "about": {
+        "@type": "Service",
+        "name": "{{ .Params.project_type }}",
+        "description": "{{ .Description }}",
+        "provider": {
+            "@type": "Organization",
+            "name": "{{ .Site.Params.organization.name }}"
+        },
+        "areaServed": {
+            "@type": "Country",
+            "name": "France"
+        },
+        "audience": {
+            "@type": "Audience",
+            "audienceType": "{{ .Params.client_industry }}"
+        }
+    }
+}
+</script>
+
+{{/* Schema BreadcrumbList */}}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Accueil",
+            "item": "{{ .Site.BaseURL }}"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Réalisations",
+            "item": "{{ .Site.BaseURL }}realisations/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "{{ .Title }}"
+        }
+    ]
+}
+</script>
+
+{{/* Schema FAQPage */}}
+{{ if .Params.faq }}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {{ range $index, $faq := .Params.faq }}
+        {{ if $index }},{{ end }}
+        {
+            "@type": "Question",
+            "name": "{{ $faq.question }}",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "{{ $faq.answer }}"
+            }
+        }
+        {{ end }}
+    ]
+}
+</script>
+{{ end }}

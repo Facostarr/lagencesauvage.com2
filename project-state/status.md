@@ -73,7 +73,7 @@
 - [x] Page Services : 3 offres Good-Better-Best (Assistant IA, Formation, Transformation)
 - [x] Prix validés : Assistant 500€/mois + setup 1000€, Formation 1000€/jour, Transformation 3000€
 - [x] Stack technique alignée sur toutes les pages (Make retiré, Evolution API + Hugo+Vercel ajoutés)
-- [ ] Page Réalisations (case studies visuelles)
+- [x] Page Réalisations : section listing + case study Agent WhatsApp × Pennylane (7 sections, schema TechArticle+FAQPage, assets Gemini)
 - [ ] Page Diagnostic IA (landing page SEO dédiée)
 - [x] Page FAQ complète : 18 questions GEO-optimisées, 5 catégories, schema FAQPage, accordion par catégorie
 - [ ] Pages légales (contenu existant, nouveau layout)
@@ -97,6 +97,7 @@ Aucun pour le moment.
 - ✅ Prix validés : Assistant 500€/mois + setup 1000€, Formation 1000€/jour, Transformation 3000€ (2026-03-22)
 - ✅ Stack technique : Make retiré, Evolution API + Hugo+Vercel ajoutés partout (2026-03-22)
 - ✅ Page FAQ : 18 questions GEO-optimisées (consensus Claude + Gemini), 5 catégories client-centric (2026-03-22)
+- ✅ Page Réalisations : 5 use cases sélectionnés (consensus Claude + Gemini), focus file créé (2026-03-22)
 
 ## Décisions en attente
 
