@@ -1,11 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 60" fill="none">
   <!-- Carré arrondi indigo -->
   <rect x="2" y="2" width="56" height="56" rx="7" fill="#4F46E5"/>
-  <!-- S géométrique C2 : trapèze haut + parallélogramme diagonal + trapèze bas -->
+  <!-- S géométrique C2 : deux formes séparées par une bande diagonale -->
   <g fill="#FFFFFF">
-    <path d="M12,12 H38 L28,22 H12 Z"/>
-    <path d="M38,12 L48,22 L22,48 L12,38 Z"/>
-    <path d="M48,38 V48 H22 L32,38 Z"/>
+    <!-- Haut du S -->
+    <path d="M 12,9 L 48,9 L 48,21 L 18,33 L 12,33 Z"/>
+    <!-- Bas du S -->
+    <path d="M 48,51 L 12,51 L 12,39 L 42,27 L 48,27 Z"/>
   </g>
   <!-- Texte "L'Agence" -->
   <text x="70" y="25" font-family="'DM Sans', system-ui, sans-serif" font-weight="400" font-size="16" letter-spacing="0.3" fill="#0F172A">L'Agence</text>
