@@ -2,9 +2,8 @@
 
 ## Priorité immédiate
 
-1. **Case studies restantes (4)** — GEO Citation Tracker, Chef de Cabinet IA, Agent Téléphonique, Cerveau d'Entreprise & Veille
-2. **Validation Franck — Preview Vercel Phase 3** — toutes les pages secondaires livrées
-3. **Phase 4 — Intégration blog** (après GO Franck)
+1. **Validation Franck — Preview Vercel Phase 3** — toutes les pages secondaires et 6 case studies livrées
+2. **Phase 4 — Intégration blog** (après GO Franck)
 
 ## En attente de Franck
 
@@ -16,25 +15,26 @@
 
 - [x] Page À propos `/about/`
 - [x] Page Services `/services/`
-- [x] Page Réalisations `/realisations/` + case study Pôle Financier Augmenté
-- [x] Case study Usine à Contenu B2B `/realisations/usine-contenu-b2b-seo-linkedin-automatisation/`
+- [x] Page Réalisations `/realisations/` — 6 case studies complètes :
+  - [x] Pôle Financier Augmenté (weight 1)
+  - [x] GEO Citation Tracker (weight 2)
+  - [x] Usine à Contenu B2B (weight 3)
+  - [x] Chef de Cabinet IA (weight 4)
+  - [x] Agent Téléphonique IA (weight 5)
+  - [x] Cerveau d'Entreprise & Veille (weight 6)
 - [x] Page FAQ `/faq/`
 - [x] Page Diagnostic IA `/diagnostic/`
 - [x] Pages légales : mentions légales, confidentialité, CGV
-- [x] Focus Réalisations v2 : 6 use cases validés (fichier focus mis à jour)
 
 ## Fait cette session
 
-- [x] Case study "Usine à Contenu B2B" — 5 piliers (Topic Discovery, Veille RAG, Rédaction SEO/GEO, LinkedIn, Hugo Blog), 105 nodes, 7 FAQ
-- [x] Diagramme architecture Usine à Contenu B2B généré via Gemini
-- [x] Template single.html rendu dynamique — image architecture pilotée par front matter `architecture.image`
-- [x] Prix corrigés "à partir de" dans la FAQ du case study
-- [x] Commits f31b53d + 7564a38 pushés sur refonte-2026
-
-## Fait session précédente
-
-- [x] Focus Réalisations v2 — 6 use cases (consensus Claude + Gemini v2, score 9/10)
-- [x] Page Diagnostic IA — landing page SEO dédiée `/diagnostic/`
-- [x] Case study "Pôle Financier Augmenté" — page pilier 5 piliers
-- [x] Pages légales : mentions légales, confidentialité, CGV
-- [x] Page FAQ complète : 18 questions GEO-optimisées, 5 catégories
+- [x] 4 case studies créées en parallèle (agents) :
+  - UC2 GEO Citation Tracker — SaaS Python/FastAPI, 5 APIs LLM, scoring pondéré, dashboard Chart.js
+  - UC4 Chef de Cabinet IA — 4 piliers (Gatekeeper, Executive Brief, Copilote Réunion, Commande Vocale), scénario journée type en callout
+  - UC5 Agent Téléphonique IA — 4 piliers (réception, réservation, escalade, 2 options déploiement)
+  - UC6 Cerveau d'Entreprise & Veille — 4 piliers (RAG documentaire, veille procédures collectives, veille marchés publics, agent zero papier)
+- [x] 4 diagrammes d'architecture générés via Gemini MCP (16:9, 2K, style flat design)
+- [x] Images copiées dans static/assets/images/ + champ architecture.image ajouté dans chaque YAML
+- [x] Correction icône non supportée dans UC5 (phone-missed → alert-triangle)
+- [x] Ordering par weight (1→6) pour affichage meilleurs en premier sur /realisations/
+- [x] Commits 4c5562a + c5e0c9c — poussés sur refonte-2026

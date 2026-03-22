@@ -79,7 +79,11 @@
 - [x] Page Diagnostic IA : landing page SEO fidèle à l'ancienne page (13 sections, méthode J1→J5, tableau comparatif, formulaire appel découverte)
 - [x] Page FAQ complète : 18 questions GEO-optimisées, 5 catégories, schema FAQPage, accordion par catégorie
 - [x] Pages légales : mentions légales, confidentialité, CGV — contenu migré + layout single.html + lien CGV ajouté au footer
-- [ ] Case studies restantes : GEO Tracker, Chef de Cabinet IA, Agent Téléphonique, Cerveau d'Entreprise
+- [x] Case study "GEO Citation Tracker" : SaaS Python/FastAPI, 5 APIs LLM, scoring pondéré, dashboard Chart.js, diagramme architecture Gemini
+- [x] Case study "Chef de Cabinet IA" : 4 piliers (Gatekeeper, Executive Brief, Copilote Réunion, Commande Vocale), scénario journée type, diagramme architecture Gemini
+- [x] Case study "Agent Téléphonique IA" : 4 piliers (réception, réservation, escalade, 2 options déploiement), diagramme architecture Gemini
+- [x] Case study "Cerveau d'Entreprise & Veille" : 4 piliers (RAG documentaire, veille procédures collectives, veille marchés publics, agent zero papier), diagramme architecture Gemini
+- [x] Ordre des case studies par weight (1→6, meilleurs en premier)
 - [ ] **Validation Franck — Preview Vercel Phase 3**
 
 ## Blockers
@@ -105,8 +109,9 @@ Aucun pour le moment.
 - ✅ Page Diagnostic IA : contenu fidèle à l'ancienne page, nouveau design system, 13 sections complètes (2026-03-22)
 - ✅ Focus Réalisations v2 : 6 use cases (consensus Claude + Gemini v2, score 9/10) — fusion UC1+PennylaneAgent, ajout GEO Tracker SaaS, Jarvis repensé en Chef de Cabinet IA (2026-03-22)
 - ✅ Case study "Usine à Contenu B2B" : 5 piliers, RAG Supabase, double optim SEO/GEO, diagramme architecture Gemini, prix "à partir de" (2026-03-22)
+- ✅ 4 case studies finales : GEO Tracker (SaaS Python), Chef de Cabinet IA (4 piliers), Agent Téléphonique (2 options), Cerveau d'Entreprise (RAG + veille) — 4 diagrammes Gemini (2026-03-22)
+- ✅ Ordre case studies par weight : Pôle Financier → GEO Tracker → Usine à Contenu → Chef de Cabinet → Agent Téléphonique → Cerveau d'Entreprise (2026-03-22)
 
 ## Décisions en attente
 
 - Lien Calendly pour page de confirmation formulaire
-- GEO Citation Tracker : positionnement SaaS pour agences (accès anticipé / waitlist)

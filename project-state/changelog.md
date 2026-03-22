@@ -1,5 +1,19 @@
 # Changelog — Refonte lagencesauvage.com
 
+## 2026-03-22 — Phase 3 : 4 case studies finales + diagrammes Gemini
+
+- 4 case studies créées en parallèle (4 agents), même structure YAML que UC1 et UC3 :
+  - **GEO Citation Tracker** `/realisations/geo-citation-tracker-visibilite-ia-marque/` — SaaS Python 3.13/FastAPI, 5 APIs LLM, scoring pondéré multi-runs, dashboard Chart.js + Alpine.js, CLI + API REST, angle waitlist agences, CTA → Transformation IA 3000€
+  - **Chef de Cabinet IA** `/realisations/chef-de-cabinet-ia-assistant-dirigeant/` — 4 piliers (Gatekeeper tri email, Executive Brief matinal WhatsApp, Copilote Réunion contexte+suivi, Commande Vocale Whisper), scénario journée type en callout, CTA → Transformation 3000€ + Assistant 500€/mois
+  - **Agent Téléphonique IA** `/realisations/agent-telephonique-ia-reservation-restaurant/` — 4 piliers (réception vocale, gestion réservations, escalade intelligente, 2 options déploiement 9/25 nodes), cible restauration/hôtellerie/cliniques, CTA → Assistant IA 500€/mois
+  - **Cerveau d'Entreprise & Veille** `/realisations/cerveau-entreprise-veille-strategique-rag-ia/` — 4 piliers (assistant RAG 28 nodes, veille procédures collectives 27 nodes, veille marchés publics 13 nodes, agent zero papier 7 nodes), 75 nodes total, CTA → Transformation 3000€
+- 4 diagrammes d'architecture générés via Gemini MCP (gemini-generate-image, 16:9, 2K, flat design)
+- Images copiées dans static/assets/images/ + champ `architecture.image` dans chaque front matter
+- Ordering par weight (1→6) : Pôle Financier, GEO Tracker, Usine à Contenu, Chef de Cabinet, Agent Téléphonique, Cerveau d'Entreprise
+- Correction icône non supportée UC5 (phone-missed → alert-triangle)
+- Page `/realisations/` désormais complète avec 6 case studies
+- Commits 4c5562a + c5e0c9c
+
 ## 2026-03-22 — Phase 3 : Case study Usine à Contenu B2B
 
 - Case study "Usine à Contenu B2B" `/realisations/usine-contenu-b2b-seo-linkedin-automatisation/`
