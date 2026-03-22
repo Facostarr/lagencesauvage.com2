@@ -11,6 +11,15 @@
 
 - La clé API n8n était committée en clair dans .mcp.json. Ajouté au .gitignore. Penser à régénérer la clé.
 
+## Case Studies / Réalisations
+
+- Pour une page pilier (pillar page), l'approche "absorber" une case study dans un scope plus large est toujours préférable à créer des pages séparées : meilleur SEO, meilleur GEO, meilleur conversion. Consensus Claude + Gemini 9/10.
+- Les données réelles de workflows n8n (nombre de nodes, flux technique) sont un différenciateur massif — montrer la vraie architecture plutôt que des descriptions vagues.
+- L'angle narratif "cycle de vie d'un document" (vs catalogue de workflows) est plus convaincant pour les décideurs non-techniques.
+- Pour le wow-factor, chercher le pont entre digital et physique (ex: API La Poste pour courrier recommandé automatique) — ça prouve qu'on va au bout du process.
+- Utiliser l'API officielle La Poste (LReL via Okapi) plutôt que des prestataires tiers comme Merci Facteur — plus de légitimité auprès des cabinets comptables.
+- Les accordion "détail technique" par pilier permettent de servir les deux audiences (décideur + technique) sans surcharger la page.
+
 ## Tailwind v4 + Hugo
 
 - Tailwind v4 ne scanne PAS automatiquement `layouts/` et `content/` depuis `assets/css/`. Il faut des directives `@source "../../layouts"` et `@source "../../content"` dans main.css.

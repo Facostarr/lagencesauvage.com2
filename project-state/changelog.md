@@ -1,5 +1,21 @@
 # Changelog — Refonte lagencesauvage.com
 
+## 2026-03-22 — Phase 3 : Case study Pôle Financier Augmenté
+
+- Section `/realisations/` créée avec grille de case studies (list.html)
+- Case study "Pôle Financier Augmenté" — page pilier SEO/GEO pour cabinets comptables
+- 5 piliers narratifs : tri email IA, extraction factures OCR, relance WhatsApp×Pennylane, recouvrement API La Poste LReL, monitoring dirigeant
+- Données issues de 13+ workflows n8n réels en production
+- Layout single.html avec sommaire cliquable, accordion tech details par pilier, callout wow-factor
+- Schema TechArticle + FAQPage + BreadcrumbList
+- FAQ 7 questions ciblant requêtes experts-comptables (RGPD, mise en demeure, coût)
+- 3 assets visuels Gemini : diagramme archi 5 blocs, diagramme WhatsApp×Pennylane, mockup conversation
+- API La Poste (LReL via Okapi) au lieu de Merci Facteur
+- Nouveau slug `/realisations/automatisation-pole-financier-pennylane-expert-comptable/`
+- Redirection 301 depuis ancien slug WhatsApp
+- 3 brainstorms Claude + Gemini (consensus 9/10 chacun)
+- Commits 180e62c + 8f7c5f1
+
 ## 2026-03-22 — Phase 3 : Pages légales
 
 - Pages légales complètes : mentions légales, confidentialité, CGV

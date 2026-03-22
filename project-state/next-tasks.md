@@ -13,18 +13,19 @@
 
 ## Fait cette session
 
-- [x] Pages légales : mentions légales, confidentialité, CGV
-  - Mentions légales + confidentialité : contenu existant migré en Markdown
-  - CGV : 12 articles rédigés, article 7 PI en modèle Split IP (brainstorm Claude + Gemini)
-    - Propriété préexistante agence (licence) vs développements spécifiques (cession)
-    - Licence liée à la durée d'abonnement, formalisme CPI respecté
-    - Supports de formation/audit = propriété agence, licence usage interne
-    - Clause outils tiers (n8n, OpenAI, etc.)
-  - TVA corrigée (SASU avec TVA, pas article 293 B)
-  - Lien CGV ajouté au footer
-  - Commit 22d2f89
+- [x] Case study "Pôle Financier Augmenté" — page pilier complète
+  - Transformation de la case study WhatsApp×Pennylane en page pilier 5 piliers narratifs
+  - Données réelles : 13+ workflows n8n en production, 22 nodes tri email, 23 nodes impayés
+  - Exploration projets PennylaneAgent + trieur email Zimbra OVH + n8n (workflows réels)
+  - Brainstorms Claude + Gemini : structure page (score 9/10), option A absorber (score 9/10)
+  - API La Poste LReL remplace Merci Facteur (plus de légitimité)
+  - Sommaire cliquable, accordion tech details, callout wow-factor recouvrement
+  - FAQ 7 questions SEO/GEO ciblant cabinets comptables
+  - Nouveau diagramme architecture 5 blocs (Gemini)
+  - Redirection 301 ancien slug → nouveau slug
+  - Commits 180e62c + 8f7c5f1
 
 ## Fait session précédente
 
-- [x] Page Réalisations : case study "Pôle Financier Augmenté" (5 piliers, 13+ workflows)
+- [x] Pages légales : mentions légales, confidentialité, CGV (commit 22d2f89)
 - [x] Page FAQ complète : 18 questions GEO-optimisées, 5 catégories
