@@ -8,6 +8,8 @@
   "redirects": [
     { "source": "/services.html", "destination": "/services/", "statusCode": 301 },
     { "source": "/realisations.html", "destination": "/realisations/", "statusCode": 301 },
+    { "source": "/realisations/agent-whatsapp-pennylane-expert-comptable/", "destination": "/realisations/automatisation-pole-financier-pennylane-expert-comptable/", "statusCode": 301 },
+    { "source": "/realisations/agent-whatsapp-pennylane-expert-comptable", "destination": "/realisations/automatisation-pole-financier-pennylane-expert-comptable/", "statusCode": 301 },
     { "source": "/about.html", "destination": "/about/", "statusCode": 301 },
     { "source": "/blog.html", "destination": "/blog/", "statusCode": 301 },
     { "source": "/ressources.html", "destination": "/blog/", "statusCode": 301 },

@@ -76,7 +76,7 @@
 - [x] Page Réalisations : section listing + case study Agent WhatsApp × Pennylane (7 sections, schema TechArticle+FAQPage, assets Gemini)
 - [ ] Page Diagnostic IA (landing page SEO dédiée)
 - [x] Page FAQ complète : 18 questions GEO-optimisées, 5 catégories, schema FAQPage, accordion par catégorie
-- [ ] Pages légales (contenu existant, nouveau layout)
+- [x] Pages légales : mentions légales, confidentialité, CGV — contenu migré + layout single.html + lien CGV ajouté au footer
 - [ ] **Validation Franck — Preview Vercel Phase 3**
 
 ## Blockers

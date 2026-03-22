@@ -6,7 +6,7 @@
 
 {{/* ===================================================================
      SECTION 1 — HERO
-     H1 + sous-titre + bande de métriques
+     H1 + sous-titre + bande de métriques + sommaire cliquable
      =================================================================== */}}
 <section class="py-16 sm:py-24 lg:py-32">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -39,7 +39,7 @@
 
         {{/* Bande de métriques */}}
         {{ with .Params.hero.metrics }}
-        <div class="hero-animate grid grid-cols-3 gap-4 sm:gap-6 border border-slate-border rounded-lg p-4 sm:p-6 bg-slate-light" style="animation-delay: 150ms">
+        <div class="hero-animate grid grid-cols-3 gap-4 sm:gap-6 border border-slate-border rounded-lg p-4 sm:p-6 bg-slate-light mb-10" style="animation-delay: 150ms">
             {{ range . }}
             <div class="text-center">
                 <p class="text-xl sm:text-2xl font-semibold text-indigo">{{ .value }}</p>
@@ -48,15 +48,32 @@
             {{ end }}
         </div>
         {{ end }}
+
+        {{/* Sommaire cliquable */}}
+        {{ with .Params.sommaire }}
+        <nav class="hero-animate border border-slate-border rounded-lg p-4 sm:p-6 bg-white" style="animation-delay: 200ms" aria-label="Sommaire">
+            <p class="text-xs font-semibold text-slate-muted uppercase tracking-wider mb-3">Sommaire</p>
+            <ol class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                {{ range $i, $item := . }}
+                <li>
+                    <a href="#{{ $item.anchor }}" class="flex items-center gap-2 text-sm text-slate-muted hover:text-indigo transition-colors py-1">
+                        <span class="w-5 h-5 rounded-full bg-indigo/10 text-indigo text-xs font-semibold flex items-center justify-center shrink-0">{{ add $i 1 }}</span>
+                        {{ $item.label }}
+                    </a>
+                </li>
+                {{ end }}
+            </ol>
+        </nav>
+        {{ end }}
     </div>
 </section>
 
 {{/* ===================================================================
-     SECTION 2 — LE PROBLÈME
+     SECTION 2 — LE CONSTAT (Pain)
      Pain points en grille
      =================================================================== */}}
 {{ with .Params.problem }}
-<section class="bg-slate-light py-16 sm:py-24">
+<section class="bg-slate-light py-16 sm:py-24" id="constat">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="reveal text-center mb-12 sm:mb-16">
             <h2 class="font-display text-2xl sm:text-4xl tracking-tight mb-4">
@@ -105,61 +122,94 @@
 {{ end }}
 
 {{/* ===================================================================
-     SECTION 3 — LA SOLUTION
-     Timeline verticale — 4 étapes
+     SECTION 3 — LES PILIERS (Solve)
+     5 blocs fonctionnels avec highlights, tech detail dépliable, callout
      =================================================================== */}}
-{{ with .Params.solution }}
-<section class="py-16 sm:py-24">
+{{ with .Params.pillars }}
+{{ range $i, $pillar := . }}
+<section class="{{ if mod $i 2 }}bg-slate-light {{ end }}py-16 sm:py-24" id="{{ $pillar.id }}">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="reveal text-center mb-12 sm:mb-16">
-            <h2 class="font-display text-2xl sm:text-4xl tracking-tight mb-4">
-                {{ .title }}
-            </h2>
-            {{ with .intro }}
-            <p class="text-base sm:text-lg text-slate-muted max-w-2xl mx-auto">
-                {{ . }}
+        <div class="reveal" data-delay="0">
+            {{/* Numéro + titre */}}
+            <div class="flex items-start gap-4 sm:gap-6 mb-8">
+                <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-indigo text-white text-lg sm:text-xl font-semibold flex items-center justify-center shrink-0">
+                    {{ $pillar.number }}
+                </div>
+                <div>
+                    <h2 class="font-display text-2xl sm:text-3xl tracking-tight">{{ $pillar.title }}</h2>
+                    <p class="text-base sm:text-lg text-indigo font-medium mt-1">{{ $pillar.tagline }}</p>
+                </div>
+            </div>
+
+            {{/* Description */}}
+            <p class="text-base sm:text-lg text-slate-muted leading-relaxed mb-8">
+                {{ $pillar.description }}
             </p>
+
+            {{/* Mockup WhatsApp (uniquement pour le pilier relance) */}}
+            {{ if $pillar.is_hero }}
+            <div class="flex justify-center mb-8">
+                <img src="/assets/images/mockup-whatsapp-pennylane.jpg"
+                     alt="Conversation WhatsApp entre l'agent IA et un client : relance, envoi de document, confirmation automatique"
+                     class="w-48 sm:w-56 lg:w-64 rounded-2xl shadow-lg"
+                     width="768" height="1365"
+                     loading="lazy">
+            </div>
             {{ end }}
-        </div>
 
-        {{/* Mockup WhatsApp */}}
-        <div class="reveal flex justify-center mb-12 sm:mb-16" data-delay="100">
-            <img src="/assets/images/mockup-whatsapp-pennylane.jpg"
-                 alt="Exemple de conversation WhatsApp entre l'agent IA et un client : relance de facture, envoi de document, confirmation automatique"
-                 class="w-48 sm:w-56 lg:w-64 rounded-2xl shadow-lg"
-                 width="768" height="1365"
-                 loading="lazy">
-        </div>
+            {{/* Highlights */}}
+            {{ with $pillar.highlights }}
+            <ul class="space-y-3 mb-8">
+                {{ range . }}
+                <li class="flex items-start gap-3 text-sm sm:text-base text-slate-muted">
+                    <svg class="w-5 h-5 text-indigo shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                    </svg>
+                    <span>{{ . }}</span>
+                </li>
+                {{ end }}
+            </ul>
+            {{ end }}
 
-        <div class="relative">
-            {{/* Ligne verticale */}}
-            <div class="absolute left-5 sm:left-6 top-0 bottom-0 w-px bg-slate-border hidden sm:block" aria-hidden="true"></div>
+            {{/* Callout (wow factor) */}}
+            {{ with $pillar.callout }}
+            <div class="border-l-4 border-indigo bg-indigo/5 rounded-r-lg p-4 sm:p-6 mb-8">
+                <p class="text-sm sm:text-base text-slate-deep font-medium leading-relaxed">
+                    {{ . }}
+                </p>
+            </div>
+            {{ end }}
 
-            <div class="space-y-8 sm:space-y-12">
-                {{ range $i, $step := .steps }}
-                <div class="reveal relative flex items-start gap-4 sm:gap-6" data-delay="{{ mul $i 100 }}">
-                    {{/* Numéro */}}
-                    <div class="relative z-10 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-indigo text-white text-sm sm:text-base font-semibold flex items-center justify-center shrink-0">
-                        {{ $step.number }}
-                    </div>
-                    {{/* Contenu */}}
-                    <div class="flex-1 pb-2">
-                        <h3 class="font-display text-lg sm:text-xl mb-2">{{ $step.title }}</h3>
-                        <p class="text-sm sm:text-base text-slate-muted leading-relaxed mb-2">
-                            {{ $step.description }}
-                        </p>
-                        {{ with $step.detail }}
-                        <p class="text-xs sm:text-sm text-slate-muted/70 leading-relaxed italic">
+            {{/* Tech detail — accordion */}}
+            {{ with $pillar.tech_detail }}
+            <div class="border border-slate-border rounded-lg bg-white">
+                <button type="button"
+                        class="faq-toggle flex items-center justify-between w-full cursor-pointer px-4 sm:px-6 py-3 text-left text-sm font-semibold text-slate-muted"
+                        aria-expanded="false"
+                        aria-controls="tech-{{ $pillar.id }}">
+                    <span class="flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" />
+                        </svg>
+                        D&eacute;tail technique &mdash; {{ $pillar.workflows_count }}
+                    </span>
+                    <svg class="w-5 h-5 shrink-0 ml-4 transition-transform duration-200 faq-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                    </svg>
+                </button>
+                <div class="faq-content" id="tech-{{ $pillar.id }}">
+                    <div>
+                        <div class="px-4 sm:px-6 pb-4 text-xs sm:text-sm text-slate-muted leading-relaxed font-mono">
                             {{ . }}
-                        </p>
-                        {{ end }}
+                        </div>
                     </div>
                 </div>
-                {{ end }}
             </div>
+            {{ end }}
         </div>
     </div>
 </section>
+{{ end }}
 {{ end }}
 
 {{/* ===================================================================
@@ -180,11 +230,11 @@
             {{ end }}
         </div>
 
-        {{/* Diagramme de flux — composants tech */}}
-        <div class="reveal grid grid-cols-2 sm:grid-cols-3 gap-4 lg:gap-6 mb-12">
+        {{/* Grille composants tech */}}
+        <div class="reveal grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 lg:gap-4 mb-12">
             {{ range $i, $component := .flow }}
-            <div class="bg-white border border-slate-border rounded-lg p-4 sm:p-6 text-center" data-delay="{{ mul $i 80 }}">
-                <p class="font-semibold text-slate-deep text-sm sm:text-base mb-1">{{ $component.name }}</p>
+            <div class="bg-white border border-slate-border rounded-lg p-3 sm:p-4 text-center" data-delay="{{ mul $i 60 }}">
+                <p class="font-semibold text-slate-deep text-xs sm:text-sm mb-1">{{ $component.name }}</p>
                 <p class="text-xs text-slate-muted leading-relaxed">{{ $component.role }}</p>
             </div>
             {{ end }}
@@ -192,8 +242,8 @@
 
         {{/* Diagramme d'architecture */}}
         <div class="reveal mb-12" data-delay="100">
-            <img src="/assets/images/architecture-agent-whatsapp-pennylane.jpg"
-                 alt="Architecture technique de l'agent WhatsApp Pennylane : flux de données entre Pennylane, n8n, WhatsApp, Claude Haiku, PostgreSQL et MinIO"
+            <img src="/assets/images/architecture-pole-financier-augmente.jpg"
+                 alt="Architecture technique du P&ocirc;le Financier Augment&eacute; : 5 blocs — tri emails, OCR factures, relance WhatsApp Pennylane, recouvrement La Poste, monitoring"
                  class="w-full rounded-lg border border-slate-border"
                  width="1920" height="1080"
                  loading="lazy">
@@ -238,7 +288,7 @@
         <p class="text-xs sm:text-sm font-semibold text-slate-muted uppercase tracking-wider mb-6">
             Technologies utilis&eacute;es
         </p>
-        <div class="flex flex-wrap items-center justify-center gap-x-8 sm:gap-x-12 gap-y-4 text-slate-muted">
+        <div class="flex flex-wrap items-center justify-center gap-x-6 sm:gap-x-10 gap-y-4 text-slate-muted">
             {{ range . }}
             <span class="tech-logo text-sm font-medium">{{ .name }}</span>
             {{ end }}
@@ -249,10 +299,9 @@
 
 {{/* ===================================================================
      SECTION 6 — FAQ
-     Schema markup FAQPage (via head block)
      =================================================================== */}}
 {{ with .Params.faq }}
-<section class="bg-slate-light py-16 sm:py-24">
+<section class="bg-slate-light py-16 sm:py-24" id="faq">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
             <h2 class="font-display text-2xl sm:text-4xl tracking-tight mb-4">
@@ -328,7 +377,7 @@
     elements.forEach(function(el) { observer.observe(el); });
 })();
 
-// === FAQ + Architecture accordion ===
+// === Accordion (FAQ + tech details + architecture) ===
 (function() {
     var toggles = document.querySelectorAll('.faq-toggle');
     toggles.forEach(function(toggle) {
@@ -354,6 +403,19 @@
             this.setAttribute('aria-expanded', String(!isOpen));
             content.classList.toggle('is-open');
             chevron.classList.toggle('rotate-180');
+        });
+    });
+})();
+
+// === Smooth scroll for sommaire ===
+(function() {
+    document.querySelectorAll('nav[aria-label="Sommaire"] a').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            var target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
         });
     });
 })();
