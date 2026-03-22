@@ -8,7 +8,7 @@
 |-------|--------|-----------|---------|
 | Phase 0 — Setup technique | ✅ Terminée | 2026-03-22 | 2026-03-22 |
 | Phase 1 — Design system | ✅ Terminée | 2026-03-22 | 2026-03-22 |
-| Phase 2 — Homepage | ✅ Terminée (2 items en attente Franck) | 2026-03-22 | 2026-03-22 |
+| Phase 2 — Homepage | ✅ Terminée (1 item en attente Franck) | 2026-03-22 | 2026-03-22 |
 | Phase 3 — Pages secondaires | ✅ Terminée | 2026-03-22 | 2026-03-22 |
 | Phase 4 — Intégration blog | ✅ Terminée | 2026-03-22 | 2026-03-22 |
 | Phase 5 — Quality gate | 🟡 En cours | 2026-03-22 | — |

@@ -13,7 +13,6 @@ Hugo local opérationnel (v0.158.0 via `subst S:`). Attaquer les audits :
 
 ## En attente de Franck
 
-- Témoignages textuels d'Olivier Sarezinski (Eurodom) et Myriam Louergli (Optimrezo)
 - Lien Calendly éventuel pour la page de confirmation formulaire
 - Logo final : validation par contacts extérieurs
 
@@ -42,7 +41,4 @@ Hugo local opérationnel (v0.158.0 via `subst S:`). Attaquer les audits :
 
 ## Fait cette session
 
-- [x] Installation Hugo Extended v0.158.0 en local (winget)
-- [x] Résolution bug PostCSS + Windows + espaces via `subst S:` (conseil Gemini)
-- [x] Build local validé : 35 pages, 826ms, 0 erreur
-- [x] Nettoyage git : `public/` retiré du tracking (git rm --cached)
+- [x] Témoignages Olivier (Eurodom) + Myriam (Optimrezo) — consensus Claude+Gemini 9/10, validés par Franck

@@ -1,5 +1,16 @@
 # Changelog — Refonte lagencesauvage.com
 
+## 2026-03-22 — Phase 5 : Témoignages clients homepage
+
+- Témoignages Olivier Sarezinski (Eurodom) + Myriam Louergli (Optimrezo) intégrés sur la homepage
+- Analyse des sites eurodom.fr et optimrezo.fr via Gemini (contexte métier, pain points, vocabulaire)
+- Brainstorm Claude + Gemini (consensus 9/10) : stratégie "Business Value Over Tech"
+- Olivier : gestion courrier domiciliés + réservations → 2h/jour récupérées → recentrage accueil Paris
+- Myriam : 20 événements/mois sur Excel → 15h/semaine gagnées → conversion invités en membres
+- Pas de phrase d'appel à l'action (choix Franck) : fin sur le résultat métier, plus naturel
+- Item "en attente Franck" résolu, Phase 2 passe à 1 seul item restant (Calendly)
+- Commit 693c49e
+
 ## 2026-03-22 — Phase 5 : Installation Hugo local + nettoyage git
 
 - Hugo Extended v0.158.0 installé localement via `winget install Hugo.Hugo.Extended`
