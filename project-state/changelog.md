@@ -1,5 +1,21 @@
 # Changelog — Refonte lagencesauvage.com
 
+## 2026-03-22 — Phase 3 : Page À propos
+
+- Page À propos complète `/about/` — 4 sections (hero, bio+preuves, stack+formations, CTA)
+- Bio narrative Franck en 3 actes : entrepreneur (2003), expert process Mixdata (2015), déclic IA (2025)
+- 4 cards credentials vérifiables en sidebar sticky (XP, secteurs, grands comptes, NEOMA)
+- Stack technique avec bénéfices métier (n8n, Claude, Supabase, Evolution API, Hugo+Vercel, Notion)
+- Bloc formations + badge OPCO/Qualiopi ("via partenaire certifié")
+- Schema.org AboutPage + Person + Organization
+- Photo professionnelle Franck optimisée via Pillow (5436x3629 → 800x800, 7.4 Mo → 52 Ko)
+- Layout `_default/single.html` générique pour futures pages secondaires
+- Styles hover cards credentials + stack dans main.css
+- CTA intermédiaire après bio + CTA final fond indigo
+- Brief Claude Desktop validé/corrigé : palette et typo corrigées, structure réduite de 6 à 4 sections (consensus Claude + Gemini brainstorm)
+- Preview Vercel validée par Franck
+- Commit f438385
+
 ## 2026-03-22 — Phase 2 : Homepage
 
 - Homepage complète : hero PAS, pain points (3 cols), livrables (4 cards), social proof, FAQ, formulaire 2 étapes, CTA final

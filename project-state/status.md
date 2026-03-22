@@ -1,6 +1,6 @@
 # Status — Refonte lagencesauvage.com
 
-## Phase en cours : 2 — Homepage
+## Phase en cours : 3 — Pages secondaires
 
 ## Progression
 
@@ -8,8 +8,8 @@
 |-------|--------|-----------|---------|
 | Phase 0 — Setup technique | ✅ Terminée | 2026-03-22 | 2026-03-22 |
 | Phase 1 — Design system | ✅ Terminée | 2026-03-22 | 2026-03-22 |
-| Phase 2 — Homepage | 🟡 En cours | 2026-03-22 | — |
-| Phase 3 — Pages secondaires | ⬜ À faire | — | — |
+| Phase 2 — Homepage | 🟡 En cours (3 items en attente Franck) | 2026-03-22 | — |
+| Phase 3 — Pages secondaires | 🟡 En cours | 2026-03-22 | — |
 | Phase 4 — Intégration blog | ⬜ À faire | — | — |
 | Phase 5 — Quality gate | ⬜ À faire | — | — |
 | Phase 6 — Bascule | ⬜ À faire | — | — |
@@ -65,9 +65,21 @@
 - [ ] Lien Calendly pour confirmation formulaire (en attente de Franck)
 - [ ] **Validation Franck — Preview Vercel Phase 2**
 
+## Phase 3 — Tâches détaillées
+
+- [x] Page À propos : bio narrative 3 actes, credentials, stack, photo Franck, schema AboutPage
+- [x] Layout single.html générique pour pages secondaires
+- [x] Photo Franck optimisée (5436x3629 → 800x800, 7.4 Mo → 52 Ko)
+- [ ] Page Services (structure des offres à définir — Franck prépare le plan)
+- [ ] Page Réalisations (case studies visuelles)
+- [ ] Page Diagnostic IA (landing page dédiée)
+- [ ] Page FAQ complète
+- [ ] Pages légales (contenu existant, nouveau layout)
+- [ ] **Validation Franck — Preview Vercel Phase 3**
+
 ## Blockers
 
-Aucun pour le moment.
+- Page Services : Franck prépare un plan d'intégration des 2 offres (abonnement vs diagnostic) dans une session séparée
 
 ## Décisions prises
 
@@ -77,7 +89,10 @@ Aucun pour le moment.
 - ✅ Social proof : Olivier Sarezinski (Eurodom) + Myriam Louergli (Optimrezo) validés (2026-03-22)
 - ✅ Positionnement : "professionnels" au lieu de "TPE/PME" — cible élargie jusqu'à 200 salariés (2026-03-22)
 - ✅ Animations : consensus Claude + Gemini — style Stripe/Linear, easing expo, prefers-reduced-motion (2026-03-22)
+- ✅ Page About : structure 4 sections (consensus Claude + Gemini), bio 3 actes, pas de faux KPIs (2026-03-22)
+- ✅ Page Services : pas de tarifs affichés, CTA "contactez-nous" (2026-03-22)
 
 ## Décisions en attente
 
 - Lien Calendly pour page de confirmation formulaire
+- Structure des offres Services (abonnement vs diagnostic) — Franck prépare le plan

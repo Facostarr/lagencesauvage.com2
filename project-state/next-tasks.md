@@ -1,25 +1,23 @@
 # Next Tasks — Refonte lagencesauvage.com
 
-## Priorité immédiate (Phase 2 — finalisation)
+## Priorité immédiate (Phase 3 — Pages secondaires)
 
-1. Vérifier la Preview Vercel (animations, FAQ, formulaire 2 étapes)
-2. Valider le rendu mobile
-3. Si ajustements nécessaires → itérer
-4. **Validation Franck → Phase 2 terminée**
+1. **Page Services** — en attente du plan d'intégration des offres par Franck
+2. Page Réalisations (case studies visuelles — besoin de contenu Franck)
+3. Page Diagnostic IA (landing page dédiée CODIR/ETI)
+4. Page FAQ complète (étendre les 6 questions homepage)
+5. Pages légales (mentions légales, privacy, CGV — contenu existant, nouveau layout)
 
 ## En attente de Franck
 
+- Plan d'intégration des 2 offres Services (abonnement vs diagnostic) — session séparée
 - Témoignages textuels d'Olivier Sarezinski (Eurodom) et Myriam Louergli (Optimrezo)
 - Screenshots réels anonymisés : flux n8n, chatbot, dashboard, campagne marketing
 - Lien Calendly éventuel pour la page de confirmation formulaire
-- Photo professionnelle (franck-sauvage.jpg — 400x400 min)
+- Cas clients réels pour la page Réalisations (même anonymisés)
 
-## Prochaine phase : Phase 3 — Pages secondaires
+## Fait cette session
 
-1. Page Services (offres séparées : abonnement vs diagnostic)
-2. Page À propos (photo, bio narrative, stack, LinkedIn, Qualiopi)
-3. Page Réalisations (case studies visuelles)
-4. Page Diagnostic IA (landing page dédiée)
-5. Page FAQ complète
-6. Pages légales (contenu existant, nouveau layout)
-7. Push → Validation Franck
+- [x] Page À propos complète (4 sections, bio 3 actes, photo optimisée, schema.org)
+- [x] Layout single.html générique
+- [x] Preview Vercel validée par Franck
