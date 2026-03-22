@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+/* Indispensable Hugo : dire à TW v4 où scanner les classes */
+@source "../../layouts";
+@source "../../content";
+
 @theme {
   /* Palette — définie en Phase 1 (design system) */
   /* --color-primary: ...; */

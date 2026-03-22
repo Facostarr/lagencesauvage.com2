@@ -127,4 +127,4 @@ Chez L'Agence Sauvage, nous aidons les TPE/PME à automatiser leur gestion email
 
 ---
 
-*Prêt à reprendre le contrôle de votre boîte mail ? [Réservez votre audit gratuit](/index.html#audit-gratuit) et découvrez votre potentiel d'automatisation.*
+*Prêt à reprendre le contrôle de votre boîte mail ? [Réservez votre audit gratuit](/#audit-gratuit) et découvrez votre potentiel d'automatisation.*

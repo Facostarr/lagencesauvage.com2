@@ -46,6 +46,8 @@ Phase en cours → voir `project-state/status.md`. Ne jamais commencer une phase
 6. **VOUVOIEMENT** sur le site. Tutoiement réservé aux échanges avec Franck.
 7. **UN SEUL CTA PRINCIPAL** par page : "Réservez votre audit IA gratuit (30 min)".
 8. **SERVERLESS FUNCTIONS** : préserver les 4 fichiers api/submit-*.js tels quels.
+9. **REDIRECTIONS = VERCEL.JSON UNIQUEMENT** : ne jamais utiliser les `aliases` Hugo pour les redirections. Single source of truth = vercel.json.
+10. **PAS DE CLASSES TAILWIND DYNAMIQUES INCOMPLÈTES** : dans les templates Go, ne jamais construire une classe Tailwind par concaténation (ex: `bg-{{ .Params.color }}-500`). Utiliser des classes complètes ou des mappings explicites.
 
 ## Copywriting
 

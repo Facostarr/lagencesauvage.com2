@@ -204,7 +204,7 @@ Nous proposons un **audit gratuit de 30 minutes** pour identifier vos 2-3 cas d'
 
 Aucun engagement, aucun jargon technique — juste un échange pragmatique entre professionnels.
 
-**[Réserver mon audit gratuit →](/audit-ia-gratuit.html)**
+**[Réserver mon audit gratuit →](/diagnostic/)**
 
 ---
 

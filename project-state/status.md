@@ -20,12 +20,17 @@
 - [x] Préparation docs (audit, playbook, stratégie skills)
 - [x] Création skills custom (brand-identity, hugo-lagencesauvage, b2b-service-page-builder, conversion-audit-checklist)
 - [x] Setup Claude Code (CLAUDE.md, settings, commands, hooks)
-- [ ] Cloner le repo et créer la branche `refonte-2026`
-- [ ] Installer Tailwind CSS v4 (npm + PostCSS + Hugo Pipes)
-- [ ] Migrer config Hugo : supprimer uglyURLs, mettre à jour menus, ajouter PostCSS aux security.exec
-- [ ] Créer le vercel.json complet (redirections 301 + headers)
-- [ ] Supprimer Hugo_projet/
-- [ ] Ajouter .mcp.json au .gitignore
+- [x] Cloner le repo et créer la branche `refonte-2026`
+- [x] Installer Tailwind CSS v4 (npm + PostCSS + Hugo Pipes)
+- [x] Migrer config Hugo : supprimer uglyURLs, mettre à jour menus, ajouter PostCSS aux security.exec
+- [x] Créer le vercel.json complet (redirections 301 + headers)
+- [x] Supprimer Hugo_projet/
+- [x] Ajouter .mcp.json au .gitignore
+- [ ] Corriger vercel.json buildCommand (preset Hugo natif)
+- [ ] Ajouter @source dans main.css
+- [ ] Corriger 3 liens .html dans articles blog
+- [ ] Ajouter règles CLAUDE.md (redirections vercel.json only + classes TW dynamiques)
+- [ ] Configurer HUGO_VERSION dans Vercel Dashboard
 - [ ] Vérifier que `hugo server` tourne sans erreur
 - [ ] Push initial sur `refonte-2026` → vérifier Preview Vercel
 - [ ] **STOP — Validation Franck**

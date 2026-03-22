@@ -75,6 +75,8 @@ Le site actuel utilise `uglyURLs = true` (extensions .html). La refonte passe en
 - [ ] Supprimer Hugo_projet/
 - [ ] Ajouter .mcp.json au .gitignore
 - [ ] Vérifier que `hugo server` tourne sans erreur
+- [ ] Configurer HUGO_VERSION dans Vercel Environment Variables
+- [ ] Vérifier taille des serverless functions au premier déploiement Vercel
 - [ ] Push initial → vérifier Preview Vercel
 - [ ] **STOP — Validation Franck**
 
@@ -109,6 +111,12 @@ Le site actuel utilise `uglyURLs = true` (extensions .html). La refonte passe en
 - [ ] Push → **Validation Franck**
 
 ### Phase 4 — Intégration blog
+
+#### Pré-requis avant de coder le layout blog
+1. Mapper la structure HTML actuelle des 8 articles (balises sémantiques, IDs titres, JSON-LD existant)
+2. Le nouveau layout DOIT préserver : balise `<article>`, structure `<header>`, IDs auto-générés par Hugo pour les titres, dates exactes (date + lastmod)
+3. Ajouter le schema markup BlogPosting/Article si absent
+
 - [ ] Layout blog/single.html
 - [ ] Layout blog/list.html
 - [ ] Vérifier chaque article accessible à sa nouvelle URL
@@ -135,6 +143,11 @@ Le site actuel utilise `uglyURLs = true` (extensions .html). La refonte passe en
 - [ ] Forcer recrawl pages clés
 - [ ] Monitorer 404 pendant 2 semaines
 - [ ] Vérifier citations LLM (ChatGPT, Perplexity)
+
+---
+
+### Serverless Functions — Test local
+`hugo server` ne fait PAS tourner les fonctions api/. Pour tester l'intégration formulaire + serverless : utiliser `vercel dev`. Non bloquant tant qu'on ne modifie pas les formulaires.
 
 ---
 

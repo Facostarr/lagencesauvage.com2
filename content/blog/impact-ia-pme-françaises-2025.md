@@ -126,7 +126,7 @@ La fenêtre d'opportunité est ouverte. Mais elle ne le restera pas indéfinimen
 
 > 🔍 **Vous voulez savoir où l'IA peut créer de la valeur dans votre entreprise ?**
 >
-> **[→ Découvrez le Diagnostic de Transformation IA](/diagnostic-transformation-ia.html)**
+> **[→ Découvrez le Diagnostic de Transformation IA](/diagnostic/)**
 >
 > 5 jours d'immersion sur site dans votre entreprise. Rapport actionnable de 40 à 60 pages. Roadmap de transformation IA sur 12 mois. Pour TPE, PME et ETI.
 
