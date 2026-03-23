@@ -8,6 +8,9 @@ categories: ["Intelligence Artificielle", "Stratégie PME"]
 tags: ["IA", "PME", "ROI", "automatisation", "productivité", "transformation digitale"]
 image: "/assets/images/blog/roi-ia-pme-2025.webp"
 imageAlt: "ROI de l'IA en PME : barres ascendantes et données de croissance"
+related_realisations:
+  - "automatisation-pole-financier-pennylane-expert-comptable"
+  - "cerveau-entreprise-veille-strategique-rag-ia"
 takeaways:
   - "ROI médian de 159,8% sur 12 mois documenté sur 200+ projets IA en PME françaises"
   - "26% des PME françaises utilisent déjà l'IA — le chiffre a doublé en un an"

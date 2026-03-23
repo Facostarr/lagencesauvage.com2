@@ -26,6 +26,9 @@ emoji: ""
 draft: false
 toc: true
 readingTime: true
+related_realisations:
+  - "geo-citation-tracker-visibilite-ia-marque"
+  - "usine-contenu-b2b-seo-linkedin-automatisation"
 takeaways:
   - "36 % des sources citées par les chatbots IA sont des entreprises — mais seules celles perçues comme « figures d'autorité » sont sélectionnées"
   - "Les règles du jeu changent : l'autorité de marque pèse plus que les backlinks, et les réseaux sociaux comptent pour moins de 8 %"

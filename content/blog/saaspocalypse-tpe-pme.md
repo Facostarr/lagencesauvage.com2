@@ -26,6 +26,9 @@ emoji: "🔥"
 draft: false
 toc: true
 readingTime: true
+related_realisations:
+  - "cerveau-entreprise-veille-strategique-rag-ia"
+  - "chef-de-cabinet-ia-assistant-dirigeant"
 takeaways:
   - "La SaaSpocalypse désigne le remplacement progressif des logiciels SaaS métier par des agents IA"
   - "Les TPE/PME sont touchées en premier car leurs processus sont plus simples à automatiser"

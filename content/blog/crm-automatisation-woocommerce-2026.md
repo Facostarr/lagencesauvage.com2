@@ -8,6 +8,9 @@ categories: ["E-commerce", "Automatisation", "CRM"]
 tags: ["WooCommerce", "CRM", "panier abandonné", "email marketing", "automatisation e-commerce"]
 image: "/assets/images/blog/crm-automatisation-woocommerce-2026.webp"
 imageAlt: "CRM et automatisation WooCommerce : flux de données interconnectés"
+related_realisations:
+  - "usine-contenu-b2b-seo-linkedin-automatisation"
+  - "automatisation-pole-financier-pennylane-expert-comptable"
 takeaways:
   - "70% des paniers WooCommerce sont abandonnés — un CRM + automatisation peut en récupérer une partie significative"
   - "5 automatisations prioritaires : relance panier, séquence bienvenue, post-achat, segmentation, SMS"

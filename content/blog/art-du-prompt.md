@@ -17,6 +17,9 @@ image: "/assets/images/blog/art-du-prompt.webp"
 imageAlt: "L'art du prompt : illustration abstraite de texte se transformant en formes géométriques"
 emoji: "🎯"
 draft: false
+related_realisations:
+  - "chef-de-cabinet-ia-assistant-dirigeant"
+  - "usine-contenu-b2b-seo-linkedin-automatisation"
 takeaways:
   - "Un bon prompt est un brief professionnel : rôle, contexte, contraintes et format attendu"
   - "Le framework RICE (Rôle, Instructions, Contexte, Exemples) structure les prompts efficaces"

@@ -200,41 +200,9 @@
     </section>
 
     {{/* ===================================================================
-         ARTICLES CONNEXES
+         RÉALISATIONS ASSOCIÉES — "De la théorie à la pratique"
          =================================================================== */}}
-    {{ if .Site.Params.blog.showRelated }}
-    {{ $related := .Site.RegularPages.Related . | first 3 }}
-    {{ if $related }}
-    <section class="py-16 sm:py-20">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="font-display text-2xl text-slate-deep mb-8 text-center">Articles connexes</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {{ range $related }}
-                <a href="{{ .RelPermalink }}" class="reveal group block border border-slate-border rounded-lg overflow-hidden blog-card">
-                    {{/* Image ou placeholder */}}
-                    <div class="aspect-[3/2] bg-slate-light overflow-hidden">
-                        {{ if .Params.image }}
-                        <img src="{{ .Params.image }}" alt="{{ .Title }}" class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300" loading="lazy">
-                        {{ else }}
-                        <div class="w-full h-full flex items-center justify-center">
-                            <span class="text-3xl text-slate-muted/30">{{ .Params.emoji | default "IA" }}</span>
-                        </div>
-                        {{ end }}
-                    </div>
-                    <div class="p-4">
-                        <p class="text-xs text-slate-muted mb-2">
-                            {{ .Date.Day }} {{ index (slice "jan." "fév." "mars" "avr." "mai" "juin" "juil." "août" "sept." "oct." "nov." "déc.") (sub .Date.Month 1) }} {{ .Date.Year }}
-                            · {{ .ReadingTime }} min
-                        </p>
-                        <h3 class="font-display text-base text-slate-deep group-hover:text-indigo transition-colors leading-snug">{{ .Title | truncate 70 }}</h3>
-                    </div>
-                </a>
-                {{ end }}
-            </div>
-        </div>
-    </section>
-    {{ end }}
-    {{ end }}
+    {{ partial "related-realisations.html" . }}
 
 </article>
 
@@ -250,6 +218,43 @@
         </a>
     </div>
 </section>
+
+{{/* ===================================================================
+     ARTICLES CONNEXES — Filet de sécurité pour lecteurs non convertis
+     =================================================================== */}}
+{{ if .Site.Params.blog.showRelated }}
+{{ $related := .Site.RegularPages.Related . | first 3 }}
+{{ if $related }}
+<section class="py-16 sm:py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="font-display text-2xl text-slate-deep mb-8 text-center">Articles connexes</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {{ range $related }}
+            <a href="{{ .RelPermalink }}" class="reveal group block border border-slate-border rounded-lg overflow-hidden blog-card">
+                {{/* Image ou placeholder */}}
+                <div class="aspect-[3/2] bg-slate-light overflow-hidden">
+                    {{ if .Params.image }}
+                    <img src="{{ .Params.image }}" alt="{{ .Title }}" class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300" loading="lazy">
+                    {{ else }}
+                    <div class="w-full h-full flex items-center justify-center">
+                        <span class="text-3xl text-slate-muted/30">{{ .Params.emoji | default "IA" }}</span>
+                    </div>
+                    {{ end }}
+                </div>
+                <div class="p-4">
+                    <p class="text-xs text-slate-muted mb-2">
+                        {{ .Date.Day }} {{ index (slice "jan." "fév." "mars" "avr." "mai" "juin" "juil." "août" "sept." "oct." "nov." "déc.") (sub .Date.Month 1) }} {{ .Date.Year }}
+                        · {{ .ReadingTime }} min
+                    </p>
+                    <h3 class="font-display text-base text-slate-deep group-hover:text-indigo transition-colors leading-snug">{{ .Title | truncate 70 }}</h3>
+                </div>
+            </a>
+            {{ end }}
+        </div>
+    </div>
+</section>
+{{ end }}
+{{ end }}
 
 {{/* ===================================================================
      TOC FLOATING PANEL

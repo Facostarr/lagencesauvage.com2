@@ -8,6 +8,8 @@ categories: ["Intelligence Artificielle", "Expertise Comptable"]
 tags: ["IA", "expert-comptable", "automatisation", "productivité", "cabinet comptable", "digitalisation"]
 image: "/assets/images/blog/ia-cabinet-comptable-2025.webp"
 imageAlt: "Automatisation cabinet comptable : colonnes de chiffres se simplifiant en formes épurées"
+related_realisations:
+  - "automatisation-pole-financier-pennylane-expert-comptable"
 takeaways:
   - "91% des experts-comptables voient l'IA comme une opportunité, mais seuls 29% ont structuré leur démarche"
   - "Les cabinets pionniers documentent des gains de productivité concrets et mesurables"

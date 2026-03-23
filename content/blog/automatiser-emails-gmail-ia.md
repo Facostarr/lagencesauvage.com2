@@ -40,6 +40,9 @@ imageAlt: "Automatisation des emails Gmail avec l'IA : flux d'enveloppes automat
 draft: false
 toc: true
 readingTime: true
+related_realisations:
+  - "automatisation-pole-financier-pennylane-expert-comptable"
+  - "chef-de-cabinet-ia-assistant-dirigeant"
 takeaways:
   - "3 niveaux d'automatisation email : filtres Gmail natifs, Google Apps Script, n8n + IA"
   - "Un tri automatique par IA peut faire économiser jusqu'à 10h/semaine sur la gestion email"

@@ -26,6 +26,9 @@ emoji: "🏭"
 draft: false
 toc: true
 readingTime: true
+related_realisations:
+  - "automatisation-pole-financier-pennylane-expert-comptable"
+  - "cerveau-entreprise-veille-strategique-rag-ia"
 takeaways:
   - "L'IA transforme d'abord les postes administratifs et le back-office, pas la production"
   - "Les 3 erreurs les plus fréquentes : viser trop gros, négliger les données, oublier l'humain"

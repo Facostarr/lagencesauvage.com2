@@ -16,6 +16,9 @@ image: "/assets/images/blog/ia-abordable-2025.webp"
 imageAlt: "L'IA abordable en 2025 : courbe descendante des coûts et montée de l'adoption"
 emoji: "📉"
 draft: false
+related_realisations:
+  - "automatisation-pole-financier-pennylane-expert-comptable"
+  - "cerveau-entreprise-veille-strategique-rag-ia"
 takeaways:
   - "Les coûts d'inférence IA ont chuté de 280x — l'IA est désormais accessible aux budgets PME"
   - "Les modèles légers open-source rivalisent avec les grands modèles pour les tâches métier courantes"
