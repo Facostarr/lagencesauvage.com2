@@ -1,5 +1,19 @@
 # Changelog — Refonte lagencesauvage.com
 
+## 2026-03-23 — Article blog "Comment être cité par ChatGPT" + règle sourcing
+
+- Nouvel article SEO/GEO : "Comment être cité par ChatGPT en 2026 : le guide complet de la visibilité IA"
+- ~2 300 mots, 6 sections H2, 5 FAQ schema, 3 takeaways, structure optimisée GEO
+- Sources : Occurrence/Ifop (Les Echos), SparkToro/Rand Fishkin, Forrester, Gartner, iAdvize x Ifop, The Digital Bloom
+- Mise en avant : GEO Citation Tracker, Usine à Contenu B2B, Formation IA
+- Image hero générée par Gemini (abstrait géométrique indigo/slate, 94 Ko WebP)
+- Brainstorm Claude + Gemini (consensus 9/10) pour le plan d'article
+- Toutes les citations sourcées avec liens hypertextes (ancres descriptives)
+- Section "Sources et références" ajoutée en bibliographie structurée
+- CLAUDE.md enrichi : section "Production d'articles de blog" avec workflow + règle sourcing obligatoire
+- Mémoire feedback sauvegardée : feedback_sources_links.md
+- Commits 5aeee13 + c203cf2
+
 ## 2026-03-23 — Logo final intégré + favicon
 
 - Logo final Logo-Agence-Sauvage.svg intégré (wordmark SVG vectorisé, couleur #403eba)

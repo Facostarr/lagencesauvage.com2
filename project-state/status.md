@@ -13,7 +13,7 @@
 | Phase 4 — Intégration blog | ✅ Terminée | 2026-03-22 | 2026-03-22 |
 | Phase 5 — Quality gate | ✅ Terminée | 2026-03-22 | 2026-03-22 |
 | Phase 6 — Bascule | ✅ Logo validé, merge main | 2026-03-23 | 2026-03-23 |
-| Phase 7 — Post-bascule | ⬜ À faire | — | — |
+| Phase 7 — Post-bascule | 🔄 En cours | 2026-03-23 | — |
 
 ## Phase 0 — Tâches détaillées
 
@@ -161,7 +161,25 @@ Aucun pour le moment.
 - ✅ Logo provisoire C2 : monogramme S (carré arrondi indigo #4F46E5 + S espace négatif blanc) + texte "L'Agence" DM Sans / "Sauvage" DM Serif Display italic. Brainstorm Claude + Gemini (consensus 8/10). Franck consulte des avis extérieurs + explore piste monogramme A+S (2026-03-22)
 - ✅ Logo final : Logo-Agence-Sauvage.svg (wordmark SVG #403eba) intégré sur header, footer, params, schema.org. Favicon monogramme S blanc sur carré arrondi #403eba (2026-03-23)
 
+## Phase 7 — Post-bascule — Tâches détaillées
+
+- [x] Merge refonte-2026 → main + push production
+- [x] Fix témoignages page Services + grille stack + redirections 301
+- [x] Recrawl Search Console (homepage, services, réalisations, about, blog, diagnostic, faq, 8 articles)
+- [x] Nouvel article blog "Comment être cité par ChatGPT" — SEO/GEO optimisé, image Gemini, sources liées
+- [x] Règle sourcing ajoutée à CLAUDE.md (liens hypertextes obligatoires sur toute citation)
+- [ ] Recrawl Search Console : 6 case studies (quota dépassé le 23/03)
+- [ ] Monitoring 404 + vérification indexation nouvelles pages (7-14 jours)
+- [ ] Créer commande `/new-article` pour workflow article répétable
+- [ ] Installer Hugo en local (retrouver le setup winget + subst S:)
+
+## Décisions prises (post-bascule)
+
+- ✅ Toute citation/étude dans un article doit avoir un lien hypertexte vérifiable vers la source (consensus Claude + Gemini 8/10, 2026-03-23)
+- ✅ Section "Sources et références" obligatoire en bas de chaque article (2026-03-23)
+- ✅ CLAUDE.md enrichi avec section "Production d'articles de blog" (2026-03-23)
+
 ## Décisions en attente
 
-- Logo final : Logo-Agence-Sauvage.svg intégré (2026-03-23). Validation preview Vercel en attente
+- ~~Logo final~~ : intégré et validé (2026-03-23)
 - ~~Calendly~~ : reporté post-lancement, Franck intégrera si besoin

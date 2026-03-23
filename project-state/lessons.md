@@ -40,6 +40,14 @@
 - Les serverless functions (api/) utilisent pdfkit + nodemailer = potentiellement lourd. Limite Vercel = 50MB zippé, timeout 10s (Hobby) / 15s (Pro). Surveiller au premier déploiement.
 - Pour tester les serverless functions localement : `vercel dev` (pas `hugo server` qui ne les voit pas).
 
+## SEO/GEO — Production de contenu
+
+- **Toute citation doit avoir un lien hypertexte vérifiable** : les systèmes RAG (Perplexity, Google AI Overview) suivent activement les liens sortants pour vérifier les faits. Un article avec des sources liées = noeud d'information fiable = plus de chances d'être cité par les LLM. Consensus Claude + Gemini 8/10.
+- Source primaire en priorité (étude originale, communiqué de presse). Si paywall : lier l'article paywall + une source secondaire accessible.
+- Ancre descriptive obligatoire (ex: "[les prévisions de Gartner](url)"). Jamais "cette étude" ou "cliquez ici".
+- Les liens sortants vers des sources autoritaires sont un signal E-E-A-T positif (pas de perte de "link juice" — mythe SEO dépassé). Utiliser des liens `dofollow` standard.
+- Section "Sources et références" en bas de chaque article : les LLM valorisent les bibliographies structurées.
+
 ## SEO/GEO — Migration blog
 
 - Les redirections 301 protègent le trafic entrant, mais les liens INTERNES dans le markdown des articles doivent aussi être mis à jour (sinon chaîne de redirection interne = mauvais pour le budget crawl).
