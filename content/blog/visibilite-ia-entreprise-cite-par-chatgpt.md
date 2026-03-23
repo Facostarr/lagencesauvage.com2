@@ -46,11 +46,11 @@ faq:
 
 *Mars 2026 | Par **Franck Sauvage**, Fondateur de [L'Agence Sauvage](https://www.lagencesauvage.com) — 25 ans d'expérience SaaS B2B*
 
-60 % des utilisateurs français consultent désormais une IA avant un achat pour s'informer, comparer et obtenir des recommandations (Adviso-Rep, 2026). Google AI Overviews touche 2 milliards d'utilisateurs par mois. ChatGPT traite 800 millions de requêtes par semaine. Perplexity dépasse les 200 millions.
+60 % des utilisateurs français consultent désormais une IA avant un achat pour s'informer, comparer et obtenir des recommandations ([étude iAdvize x Ifop, janvier 2026](https://www.ecommerce-nation.fr/ia-ecommerce-influence-achats-etude-iadvize-ifop/)). Google AI Overviews touche 2 milliards d'utilisateurs par mois. ChatGPT traite 800 millions de requêtes par semaine. Perplexity dépasse les 200 millions.
 
 La question n'est plus de savoir **si** vos clients utilisent les chatbots IA. La question est : **que disent ces IA de votre entreprise ?**
 
-Une étude du cabinet Occurrence (filiale Ifop), présentée en mars 2026 lors d'un colloque organisé par le SCRP et l'Union des Marques, apporte des réponses chiffrées — et elles changent profondément la donne pour toute entreprise qui veut rester visible.
+Une [étude du cabinet Occurrence (filiale Ifop)](https://www.lesechos.fr/tech-medias/intelligence-artificielle/les-ia-cherchent-des-figures-dautorite-comment-les-entreprises-sont-citees-dans-les-chatbots-2222099), présentée en mars 2026 lors d'un colloque organisé par le SCRP et l'Union des Marques, apporte des réponses chiffrées — et elles changent profondément la donne pour toute entreprise qui veut rester visible.
 
 ---
 
@@ -58,22 +58,22 @@ Une étude du cabinet Occurrence (filiale Ifop), présentée en mars 2026 lors d
 
 Les chatbots IA ne sont plus des gadgets. Ce sont des prescripteurs que vos prospects consultent avant de vous appeler — ou d'appeler vos concurrents.
 
-**Les chiffres clés de l'étude Occurrence/Ifop (mars 2026) :**
+**Les chiffres clés de [l'étude Occurrence/Ifop](https://www.lesechos.fr/tech-medias/intelligence-artificielle/les-ia-cherchent-des-figures-dautorite-comment-les-entreprises-sont-citees-dans-les-chatbots-2222099) (mars 2026) :**
 
 - **7 500 questions** posées aux principaux chatbots (ChatGPT, Gemini, Claude, Grok, Mistral) pour des clients grands comptes (La Poste, Crédit Agricole, Vectra...)
 - **36 % des sources citées** par les IA sont les entreprises elles-mêmes — premier poste devant les concurrents (15 %), les institutions publiques (15 %) et les médias (15 %)
-- **60 % des Français** consultent l'IA avant un achat (Adviso-Rep)
-- **38 % des acheteurs B2B** utilisent les chatbots IA lors de l'évaluation de fournisseurs (Forrester, 2026)
+- **60 % des Français** consultent l'IA avant un achat ([iAdvize x Ifop](https://www.ecommerce-nation.fr/ia-ecommerce-influence-achats-etude-iadvize-ifop/))
+- **38 % des acheteurs B2B** utilisent les chatbots IA lors de l'évaluation de fournisseurs ([Forrester, 2026](https://www.forrester.com/press-newsroom/forrester-2026-the-state-of-business-buying/))
 
-« Les IA cherchent des figures d'autorité. Sur des questions précises ayant trait à des enjeux du quotidien et des achats, plus d'un tiers des sources utilisées se réfère aux arguments des entreprises », souligne Assaël Adary, président d'Occurrence, dans Les Echos.
+« Les IA cherchent des figures d'autorité. Sur des questions précises ayant trait à des enjeux du quotidien et des achats, plus d'un tiers des sources utilisées se réfère aux arguments des entreprises », souligne Assaël Adary, président d'Occurrence, dans [Les Echos](https://www.lesechos.fr/tech-medias/intelligence-artificielle/les-ia-cherchent-des-figures-dautorite-comment-les-entreprises-sont-citees-dans-les-chatbots-2222099).
 
-Et selon Gartner, la recherche traditionnelle va chuter de 25 % cette année. Le transfert de visibilité vers les moteurs de réponse IA n'est pas une hypothèse. C'est un fait.
+Et selon [les prévisions de Gartner](https://www.gartner.com/en/newsroom/press-releases/2024-02-19-gartner-predicts-search-engine-volume-will-drop-25-percent-by-2026-due-to-ai-chatbots-and-other-virtual-agents), la recherche traditionnelle va chuter de 25 % cette année. Le transfert de visibilité vers les moteurs de réponse IA n'est pas une hypothèse. C'est un fait.
 
 ## Comment les IA choisissent leurs sources : la fin du mythe de la "position zéro"
 
-Si vous pensez encore en termes de "classement" dans les réponses IA, l'étude de Rand Fishkin (SparkToro) va vous surprendre.
+Si vous pensez encore en termes de "classement" dans les réponses IA, [l'étude de Rand Fishkin (SparkToro)](https://sparktoro.com/blog/new-research-ais-are-highly-inconsistent-when-recommending-brands-or-products-marketers-should-take-care-when-tracking-ai-visibility/) va vous surprendre.
 
-**Les résultats de l'étude SparkToro (2026) :**
+**Les résultats de [l'étude SparkToro](https://sparktoro.com/blog/new-research-ais-are-highly-inconsistent-when-recommending-brands-or-products-marketers-should-take-care-when-tracking-ai-visibility/) (2026) :**
 
 - **~3 000 réponses** analysées sur 12 requêtes différentes
 - **Moins de 1 %** des listes de marques recommandées sont strictement identiques
@@ -93,7 +93,7 @@ Une marque solidement ancrée dans ces trois graphes bénéficie d'un effet cumu
 
 ### Tous les chatbots ne se valent pas
 
-L'étude Occurrence révèle des écarts significatifs entre plateformes :
+[L'étude Occurrence](https://www.lesechos.fr/tech-medias/intelligence-artificielle/les-ia-cherchent-des-figures-dautorite-comment-les-entreprises-sont-citees-dans-les-chatbots-2222099) révèle des écarts significatifs entre plateformes :
 
 - **ChatGPT** cite les marques dans 30 % des cas — le plus généreux
 - **Gemini** : 28 %
@@ -111,7 +111,7 @@ Le GEO (Generative Engine Optimization) est la discipline qui vise à rendre vot
 
 ### Pilier 1 : L'autorité de marque prime sur les backlinks
 
-Les métriques SEO traditionnelles ne suffisent plus. Selon une étude de The Digital Bloom (2025), le **volume de recherche de marque** est le prédicteur le plus fort de citations IA, avec une corrélation de 0,334 — devant les backlinks.
+Les métriques SEO traditionnelles ne suffisent plus. Selon le [rapport AI Visibility 2025 de The Digital Bloom](https://thedigitalbloom.com/learn/2025-ai-citation-llm-visibility-report/), le **volume de recherche de marque** est le prédicteur le plus fort de citations IA, avec une corrélation de 0,334 — devant les backlinks.
 
 Les sites avec plus de 32 000 domaines référents sont 3,5 fois plus souvent cités par ChatGPT. Mais c'est surtout les **médias gagnés** (couverture presse, avis clients, mentions sur des plateformes tierces comme Trustpilot ou G2) qui pèsent, plus que le contenu propriétaire de la marque.
 
@@ -134,7 +134,7 @@ Les LLM sont **28 à 40 % plus susceptibles** de citer un contenu qui intègre :
 - Un **schema markup** structuré (Article, Organization, FAQPage)
 - Un **timestamp** "Dernière mise à jour" visible
 
-Le cabinet Occurrence préconise aussi de « devenir polyglotte » : parler à un public humain **et** aux IA simultanément. Concrètement : des bullet points dans les communiqués de presse, des légendes claires sous les photos, la traduction en texte de tout contenu visuel.
+Le [cabinet Occurrence](https://www.lesechos.fr/tech-medias/intelligence-artificielle/les-ia-cherchent-des-figures-dautorite-comment-les-entreprises-sont-citees-dans-les-chatbots-2222099) préconise aussi de « devenir polyglotte » : parler à un public humain **et** aux IA simultanément. Concrètement : des bullet points dans les communiqués de presse, des légendes claires sous les photos, la traduction en texte de tout contenu visuel.
 
 ### Pilier 4 : Le volume et la régularité du contenu expert
 
@@ -163,7 +163,7 @@ Chez L'Agence Sauvage, nous avons développé notre propre outil — le [GEO Cit
 **Ce qui le distingue :**
 
 - **Audit simultané de 5 plateformes** avec requêtes personnalisées par secteur
-- **Scoring pondéré multi-runs** : le système exécute plusieurs requêtes et agrège statistiquement les résultats pour lisser la variabilité naturelle des LLM (rappel : moins de 1 % de listes identiques selon Rand Fishkin)
+- **Scoring pondéré multi-runs** : le système exécute plusieurs requêtes et agrège statistiquement les résultats pour lisser la variabilité naturelle des LLM (rappel : [moins de 1 % de listes identiques selon Rand Fishkin](https://sparktoro.com/blog/new-research-ais-are-highly-inconsistent-when-recommending-brands-or-products-marketers-should-take-care-when-tracking-ai-visibility/))
 - **Intervalles de confiance** : vous savez si votre score est fiable ou s'il nécessite plus de données
 - **Alertes automatiques** en cas de variation significative de votre visibilité
 - **API REST** pour intégration dans vos dashboards existants
@@ -211,3 +211,14 @@ La production régulière de contenu expert structuré est le levier le plus pui
 Les chiffres sont clairs : les IA sont devenues des prescripteurs que vos clients consultent avant de vous contacter. Les entreprises qui structurent dès maintenant leur présence dans les réponses des chatbots prennent une avance que leurs concurrents auront du mal à rattraper.
 
 La bonne nouvelle : les règles du jeu sont transparentes. Autorité de marque, contenu structuré, vitesse technique, volume régulier. Ce ne sont pas des techniques obscures — c'est de la rigueur appliquée à un nouveau canal de découverte.
+
+---
+
+### Sources et références
+
+- **Occurrence / Ifop** — [« Les IA cherchent des figures d'autorité » : comment les entreprises sont citées dans les chatbots](https://www.lesechos.fr/tech-medias/intelligence-artificielle/les-ia-cherchent-des-figures-dautorite-comment-les-entreprises-sont-citees-dans-les-chatbots-2222099) — Les Echos, mars 2026
+- **iAdvize x Ifop** — [IA et e-commerce : près d'un Français sur deux influencé dans ses achats en ligne](https://www.ecommerce-nation.fr/ia-ecommerce-influence-achats-etude-iadvize-ifop/) — janvier 2026
+- **Forrester** — [2026 Buyer Insights: GenAI Is Upending B2B Buying](https://www.forrester.com/press-newsroom/forrester-2026-the-state-of-business-buying/) — 2026
+- **Gartner** — [Search Engine Volume Will Drop 25% by 2026, Due to AI Chatbots](https://www.gartner.com/en/newsroom/press-releases/2024-02-19-gartner-predicts-search-engine-volume-will-drop-25-percent-by-2026-due-to-ai-chatbots-and-other-virtual-agents) — février 2024
+- **SparkToro / Rand Fishkin** — [AIs are highly inconsistent when recommending brands or products](https://sparktoro.com/blog/new-research-ais-are-highly-inconsistent-when-recommending-brands-or-products-marketers-should-take-care-when-tracking-ai-visibility/) — janvier 2026
+- **The Digital Bloom** — [2025 AI Visibility Report: How LLMs Choose What Sources to Mention](https://thedigitalbloom.com/learn/2025-ai-citation-llm-visibility-report/) — 2025

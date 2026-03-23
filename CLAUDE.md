@@ -85,6 +85,30 @@ Demander à Franck en priorité. Si pas dispo immédiatement : placeholder expli
 | Génération visuels/mockups | gemini-generate-image | Assets "show don't tell" pour pages |
 | Second regard sur le copy | gemini-analyze-text | Cohérence ton/message vs brand identity |
 
+## Production d'articles de blog
+
+### Workflow article type
+
+1. Franck fournit : sujet / URL sources / angle souhaité / offres à mettre en avant
+2. Recherche web multi-sources (WebSearch) pour enrichir et croiser les données
+3. Brainstorm Claude + Gemini (consensus ≥ 8/10) pour valider le plan
+4. Rédaction SEO/GEO : ~2 000-2 500 mots, 5-6 H2, FAQ schema, takeaways
+5. Génération image hero Gemini (style abstrait géométrique indigo/slate, 16:9, WebP <100 Ko)
+6. Création fichier markdown avec front matter enrichi complet
+7. Push + deploy Vercel
+
+### Règles éditoriales pour les articles
+
+- **TOUTE citation, étude ou chiffre DOIT avoir un lien hypertexte vers la source** (source primaire en priorité, article de presse secondaire si la source primaire est inaccessible)
+- Ancre descriptive obligatoire (ex: "[les prévisions de Gartner](url)" — jamais "cette étude" ou "cliquez ici")
+- **Section "Sources et références"** obligatoire en bas de chaque article : bibliographie structurée avec tous les liens
+- Liens `dofollow` standard vers les sources autoritaires (pas de `nofollow`)
+- Structure GEO : réponse directe en début de chaque section H2, bullet points, données chiffrées sourcées
+- Front matter complet : title, date, lastmod, description, summary, keywords, categories, tags, author, expertise, image, imageAlt, toc, readingTime, takeaways (3), faq (3-5 questions)
+- Ton : expert mais accessible, vouvoiement, pas de mots interdits (cf. section Copywriting)
+- Longueur : 2 000-2 500 mots, 5-6 sections H2
+- Images hero : `static/assets/images/blog/[slug].webp`, 16:9, <100 Ko
+
 ## Communication
 
 Langue française. Tutoiement avec Franck. Ton direct, technique, concis. Max 3 questions par message (choix multiples quand possible). Si une info manque : signaler, proposer 2-3 options avec trade-offs, ne jamais inventer.
