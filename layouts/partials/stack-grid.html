@@ -1,0 +1,32 @@
+{{/* Stack technique — grille 12 technos réutilisable */}}
+<section class="bg-slate-light py-16 sm:py-24">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="reveal text-center mb-12">
+            <p class="text-xs sm:text-sm font-semibold text-slate-muted uppercase tracking-wider mb-4">
+                Technologies ma&icirc;tris&eacute;es
+            </p>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+            {{ $stack := slice
+                (dict "name" "n8n" "benefit" "Orchestration et automatisation de workflows sur-mesure")
+                (dict "name" "Claude (Anthropic)" "benefit" "IA conversationnelle, agents et analyse de documents")
+                (dict "name" "OpenAI / GPT" "benefit" "Génération de contenu et traitement du langage")
+                (dict "name" "Google Gemini" "benefit" "IA multimodale, RAG et analyse documentaire")
+                (dict "name" "Python / FastAPI" "benefit" "Développement d'applications et SaaS sur-mesure")
+                (dict "name" "Supabase / PostgreSQL" "benefit" "Base de données, pgvector et backend sécurisé")
+                (dict "name" "Evolution API" "benefit" "Intégration WhatsApp Business")
+                (dict "name" "Google Workspace" "benefit" "Gmail, Drive, Calendar — connectés à vos workflows")
+                (dict "name" "Hugo + Vercel" "benefit" "Sites web performants et optimisés SEO")
+                (dict "name" "Notion" "benefit" "Gestion de projet et CRM")
+                (dict "name" "Whisper (OpenAI)" "benefit" "Transcription vocale et commande audio")
+                (dict "name" "APIs métier" "benefit" "Pennylane, LinkedIn, Pappers, La Poste et vos outils")
+            }}
+            {{ range $i, $tool := $stack }}
+            <div class="reveal card-stack group bg-white border border-slate-border rounded-lg p-6 text-center" data-delay="{{ mul $i 60 }}">
+                <p class="font-semibold text-slate-deep text-sm mb-1 group-hover:text-indigo transition-colors">{{ $tool.name }}</p>
+                <p class="text-xs text-slate-muted leading-relaxed">{{ $tool.benefit }}</p>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</section>
