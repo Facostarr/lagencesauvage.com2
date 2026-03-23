@@ -10,6 +10,11 @@ node_modules/
 /build
 /dist
 
+# Hugo generated
+public/
+resources/
+.hugo_build.lock
+
 # Environnement
 .env
 .env.local
@@ -19,6 +24,12 @@ node_modules/
 
 # Vercel
 .vercel
+
+# MCP config (contient des clés API)
+.mcp.json
+
+# Claude Code local settings
+.claude/
 
 # OS
 .DS_Store

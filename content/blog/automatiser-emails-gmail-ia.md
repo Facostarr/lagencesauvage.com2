@@ -33,13 +33,17 @@ expertise: "Spécialiste IA & Automatisation pour TPE/PME"
 
 # Image ou emoji
 emoji: "📧"
-# image: "/assets/images/blog/automatiser-emails-gmail.jpg"
-# imageAlt: "Automatisation des emails Gmail avec l'IA"
+image: "/assets/images/blog/automatiser-emails-gmail-ia.webp"
+imageAlt: "Automatisation des emails Gmail avec l'IA : flux d'enveloppes automatisé"
 
 # Options
 draft: false
 toc: true
 readingTime: true
+takeaways:
+  - "3 niveaux d'automatisation email : filtres Gmail natifs, Google Apps Script, n8n + IA"
+  - "Un tri automatique par IA peut faire économiser jusqu'à 10h/semaine sur la gestion email"
+  - "Les outils nécessaires sont gratuits ou à faible coût pour les TPE/PME"
 
 # FAQ (optionnel - génère Schema.org automatiquement)
 faq:
@@ -127,4 +131,4 @@ Chez L'Agence Sauvage, nous aidons les TPE/PME à automatiser leur gestion email
 
 ---
 
-*Prêt à reprendre le contrôle de votre boîte mail ? [Réservez votre audit gratuit](/index.html#audit-gratuit) et découvrez votre potentiel d'automatisation.*
+*Prêt à reprendre le contrôle de votre boîte mail ? [Réservez votre audit gratuit](/#audit-gratuit) et découvrez votre potentiel d'automatisation.*

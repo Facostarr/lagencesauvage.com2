@@ -1,0 +1,188 @@
+{{ define "head" }}
+{{/* Schema AboutPage + Person */}}
+{{ partial "schema/about.html" . }}
+{{ end }}
+
+{{ define "main" }}
+
+{{/* ===================================================================
+     SECTION 1 — HERO
+     Mission + promesse. Sobre, pas de KPIs.
+     =================================================================== */}}
+<section class="py-16 sm:py-24 lg:py-32">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="hero-animate font-display text-3xl sm:text-5xl lg:text-6xl tracking-tight mb-6">
+            {{ .Params.hero.title }}
+        </h1>
+        <p class="hero-animate text-base sm:text-xl text-slate-muted max-w-2xl mx-auto leading-relaxed" style="animation-delay: 100ms">
+            {{ .Params.hero.subtitle }}
+        </p>
+    </div>
+</section>
+
+{{/* ===================================================================
+     SECTION 2 — BIO NARRATIVE + PREUVES
+     3 actes timeline à gauche, cards credentials sticky à droite
+     =================================================================== */}}
+<section class="py-16 sm:py-24 bg-slate-light">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {{/* Titre section */}}
+        <div class="reveal text-center mb-12 sm:mb-16">
+            <h2 class="font-display text-2xl sm:text-4xl tracking-tight mb-4">
+                Franck Sauvage, fondateur
+            </h2>
+            <div class="flex flex-col items-center gap-4">
+                <img src="/assets/images/franck-sauvage.jpg"
+                     alt="Franck Sauvage, fondateur de L'Agence Sauvage"
+                     class="w-24 h-24 sm:w-32 sm:h-32 rounded-full object-cover object-top border-2 border-slate-border"
+                     width="128" height="128"
+                     loading="eager">
+                <a href="https://www.linkedin.com/in/franck-sauvage/"
+                   target="_blank" rel="noopener"
+                   class="inline-flex items-center gap-2 text-sm text-slate-muted hover:text-indigo transition-colors">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                    Profil LinkedIn
+                </a>
+            </div>
+        </div>
+
+        {{/* Layout asymétrique : bio + cards */}}
+        <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
+
+            {{/* Colonne gauche : timeline narrative (3/5) */}}
+            <div class="lg:col-span-3 space-y-12">
+                {{ range $i, $act := .Params.bio.acts }}
+                <div class="reveal" data-delay="{{ mul $i 100 }}">
+                    {{/* Timeline marker */}}
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="w-10 h-10 rounded-full bg-indigo/10 text-indigo text-sm font-semibold flex items-center justify-center">
+                            {{ add $i 1 }}
+                        </span>
+                        <div>
+                            <h3 class="font-display text-lg">{{ $act.title }}</h3>
+                            <span class="text-xs text-slate-muted">{{ $act.period }}</span>
+                        </div>
+                    </div>
+                    {{/* Content */}}
+                    <div class="ml-[52px] text-sm sm:text-base text-slate-muted leading-relaxed space-y-4">
+                        {{ $act.content | markdownify }}
+                    </div>
+                </div>
+                {{ end }}
+            </div>
+
+            {{/* Colonne droite : cards credentials sticky (2/5) */}}
+            <div class="lg:col-span-2">
+                <div class="lg:sticky lg:top-24 space-y-4">
+                    <h3 class="font-display text-lg mb-2 text-center lg:text-left">L'expertise en bref</h3>
+                    {{ range $i, $cred := .Params.credentials }}
+                    <div class="reveal card-credential bg-white border border-slate-border rounded-lg p-5" data-delay="{{ mul $i 80 }}">
+                        <p class="text-xs font-semibold text-indigo uppercase tracking-wider mb-1">{{ $cred.label }}</p>
+                        <p class="font-semibold text-slate-deep text-sm mb-1">{{ $cred.value }}</p>
+                        <p class="text-xs text-slate-muted">{{ $cred.detail }}</p>
+                    </div>
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+
+        {{/* CTA intermédiaire */}}
+        <div class="reveal mt-16 text-center">
+            <a href="/#audit-form"
+               class="inline-flex items-center px-6 py-3 text-sm font-semibold rounded-md bg-indigo text-white hover:bg-indigo-dark transition-colors">
+                R&eacute;servez votre audit IA gratuit (30 min)
+            </a>
+            <p class="mt-3 text-xs text-slate-muted">Sans engagement &middot; Livrable offert</p>
+        </div>
+    </div>
+</section>
+
+{{/* ===================================================================
+     SECTION 3 — STACK TECHNIQUE + FORMATIONS
+     Grille sobre + badge Qualiopi/OPCO
+     =================================================================== */}}
+<section class="py-16 sm:py-24">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="reveal text-center mb-12">
+            <h2 class="font-display text-2xl sm:text-4xl tracking-tight mb-4">
+                Notre stack technique
+            </h2>
+            <p class="text-base sm:text-lg text-slate-muted max-w-2xl mx-auto">
+                Les outils que nous ma&icirc;trisons pour concevoir vos automatisations.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 mb-16">
+            {{ range $i, $tool := .Params.stack }}
+            <div class="reveal card-stack group bg-white border border-slate-border rounded-lg p-6 text-center" data-delay="{{ mul $i 60 }}">
+                <p class="font-semibold text-slate-deep text-sm mb-1 group-hover:text-indigo transition-colors">{{ $tool.name }}</p>
+                <p class="text-xs text-slate-muted leading-relaxed">{{ $tool.benefit }}</p>
+            </div>
+            {{ end }}
+        </div>
+
+        {{/* Bloc formations + Qualiopi */}}
+        <div class="reveal bg-slate-light border border-slate-border rounded-lg p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center gap-6">
+            <div class="flex-1">
+                <h3 class="font-display text-lg mb-2">Formations IA pour vos &eacute;quipes</h3>
+                <p class="text-sm text-slate-muted leading-relaxed">
+                    {{ .Params.formation.text }}
+                </p>
+            </div>
+            <div class="shrink-0 bg-white border border-slate-border rounded-md px-4 py-3 text-center">
+                <p class="text-xs font-semibold text-indigo uppercase tracking-wider mb-1">OPCO</p>
+                <p class="text-xs text-slate-muted leading-snug">{{ .Params.formation.qualiopi }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{/* ===================================================================
+     SECTION 4 — CTA FINAL
+     Fond indigo, conversion
+     =================================================================== */}}
+<section class="bg-indigo py-16 sm:py-20">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="font-display text-2xl sm:text-3xl text-white tracking-tight mb-4">
+            Discutons de votre projet
+        </h2>
+        <p class="text-base text-white/70 mb-8 max-w-xl mx-auto">
+            Commencez par un audit gratuit de 30 minutes. On identifie ensemble
+            les t&acirc;ches que l'IA peut automatiser dans votre entreprise &mdash; sans engagement.
+        </p>
+        <a href="/#audit-form"
+           class="inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base font-semibold rounded-md bg-white text-indigo hover:bg-slate-light transition-colors">
+            R&eacute;server mon audit gratuit
+        </a>
+        <p class="mt-4 text-sm text-white/60">
+            30 min &middot; Sans engagement &middot; Livrable offert
+        </p>
+    </div>
+</section>
+
+{{ end }}
+
+{{ define "scripts" }}
+<script>
+// === Scroll reveal (IntersectionObserver) ===
+(function() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var elements = document.querySelectorAll('.reveal');
+    if (!elements.length) return;
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                var delay = entry.target.getAttribute('data-delay') || '0';
+                entry.target.style.transitionDelay = delay + 'ms';
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    elements.forEach(function(el) { observer.observe(el); });
+})();
+</script>
+{{ end }}

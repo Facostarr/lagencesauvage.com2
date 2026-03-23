@@ -1,0 +1,425 @@
+{{ define "head" }}
+{{ partial "schema/case-study.html" . }}
+{{ end }}
+
+{{ define "main" }}
+
+{{/* ===================================================================
+     SECTION 1 — HERO
+     H1 + sous-titre + bande de métriques + sommaire cliquable
+     =================================================================== */}}
+<section class="py-16 sm:py-24 lg:py-32">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        {{/* Breadcrumb */}}
+        <nav class="hero-animate flex items-center gap-2 text-sm text-slate-muted mb-8" aria-label="Fil d'Ariane">
+            <a href="/" class="hover:text-indigo transition-colors">Accueil</a>
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+            </svg>
+            <a href="/realisations/" class="hover:text-indigo transition-colors">R&eacute;alisations</a>
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+            </svg>
+            <span class="text-slate-deep font-medium truncate">{{ .Title }}</span>
+        </nav>
+
+        {{/* Badge secteur */}}
+        {{ with .Params.client_industry }}
+        <span class="hero-animate inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-indigo/10 text-indigo mb-6">
+            {{ . }}
+        </span>
+        {{ end }}
+
+        <h1 class="hero-animate font-display text-3xl sm:text-4xl lg:text-5xl tracking-tight mb-6" style="animation-delay: 50ms">
+            {{ .Params.hero.title }}
+        </h1>
+        <p class="hero-animate text-base sm:text-xl text-slate-muted max-w-3xl leading-relaxed mb-10" style="animation-delay: 100ms">
+            {{ .Params.hero.subtitle }}
+        </p>
+
+        {{/* Bande de métriques */}}
+        {{ with .Params.hero.metrics }}
+        <div class="hero-animate grid grid-cols-3 gap-4 sm:gap-6 border border-slate-border rounded-lg p-4 sm:p-6 bg-slate-light mb-10" style="animation-delay: 150ms">
+            {{ range . }}
+            <div class="text-center">
+                <p class="text-xl sm:text-2xl font-semibold text-indigo">{{ .value }}</p>
+                <p class="text-xs sm:text-sm text-slate-muted mt-1">{{ .label }}</p>
+            </div>
+            {{ end }}
+        </div>
+        {{ end }}
+
+        {{/* Sommaire cliquable */}}
+        {{ with .Params.sommaire }}
+        <nav class="hero-animate border border-slate-border rounded-lg p-4 sm:p-6 bg-white" style="animation-delay: 200ms" aria-label="Sommaire">
+            <p class="text-xs font-semibold text-slate-muted uppercase tracking-wider mb-3">Sommaire</p>
+            <ol class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                {{ range $i, $item := . }}
+                <li>
+                    <a href="#{{ $item.anchor }}" class="flex items-center gap-2 text-sm text-slate-muted hover:text-indigo transition-colors py-1">
+                        <span class="w-5 h-5 rounded-full bg-indigo/10 text-indigo text-xs font-semibold flex items-center justify-center shrink-0">{{ add $i 1 }}</span>
+                        {{ $item.label }}
+                    </a>
+                </li>
+                {{ end }}
+            </ol>
+        </nav>
+        {{ end }}
+    </div>
+</section>
+
+{{/* ===================================================================
+     SECTION 2 — LE CONSTAT (Pain)
+     Pain points en grille
+     =================================================================== */}}
+{{ with .Params.problem }}
+<section class="bg-slate-light py-16 sm:py-24" id="constat">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="reveal text-center mb-12 sm:mb-16">
+            <h2 class="font-display text-2xl sm:text-4xl tracking-tight mb-4">
+                {{ .title }}
+            </h2>
+            {{ with .intro }}
+            <p class="text-base sm:text-lg text-slate-muted max-w-2xl mx-auto">
+                {{ . }}
+            </p>
+            {{ end }}
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
+            {{ range $i, $point := .points }}
+            <div class="reveal bg-white border border-slate-border rounded-lg p-6 sm:p-8" data-delay="{{ mul $i 100 }}">
+                <div class="flex items-start gap-4">
+                    <div class="w-10 h-10 rounded-full bg-red-50 text-red-500 flex items-center justify-center shrink-0">
+                        {{ if eq $point.icon "clock" }}
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                        </svg>
+                        {{ else if eq $point.icon "mail-x" }}
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+                        </svg>
+                        {{ else if eq $point.icon "calendar-x" }}
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
+                        </svg>
+                        {{ else if eq $point.icon "alert-triangle" }}
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
+                        </svg>
+                        {{ end }}
+                    </div>
+                    <div>
+                        <h3 class="font-display text-base sm:text-lg mb-2">{{ $point.title }}</h3>
+                        <p class="text-sm text-slate-muted leading-relaxed">{{ $point.description }}</p>
+                    </div>
+                </div>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</section>
+{{ end }}
+
+{{/* ===================================================================
+     SECTION 3 — LES PILIERS (Solve)
+     5 blocs fonctionnels avec highlights, tech detail dépliable, callout
+     =================================================================== */}}
+{{ with .Params.pillars }}
+{{ range $i, $pillar := . }}
+<section class="{{ if mod $i 2 }}bg-slate-light {{ end }}py-16 sm:py-24" id="{{ $pillar.id }}">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="reveal" data-delay="0">
+            {{/* Numéro + titre */}}
+            <div class="flex items-start gap-4 sm:gap-6 mb-8">
+                <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-indigo text-white text-lg sm:text-xl font-semibold flex items-center justify-center shrink-0">
+                    {{ $pillar.number }}
+                </div>
+                <div>
+                    <h2 class="font-display text-2xl sm:text-3xl tracking-tight">{{ $pillar.title }}</h2>
+                    <p class="text-base sm:text-lg text-indigo font-medium mt-1">{{ $pillar.tagline }}</p>
+                </div>
+            </div>
+
+            {{/* Description */}}
+            <p class="text-base sm:text-lg text-slate-muted leading-relaxed mb-8">
+                {{ $pillar.description }}
+            </p>
+
+            {{/* Mockup WhatsApp (uniquement pour le pilier relance) */}}
+            {{ if $pillar.is_hero }}
+            <div class="flex justify-center mb-8">
+                <img src="/assets/images/mockup-whatsapp-pennylane.webp"
+                     alt="Conversation WhatsApp entre l'agent IA et un client : relance, envoi de document, confirmation automatique"
+                     class="w-48 sm:w-56 lg:w-64 rounded-2xl shadow-lg"
+                     width="768" height="1365"
+                     loading="lazy">
+            </div>
+            {{ end }}
+
+            {{/* Highlights */}}
+            {{ with $pillar.highlights }}
+            <ul class="space-y-3 mb-8">
+                {{ range . }}
+                <li class="flex items-start gap-3 text-sm sm:text-base text-slate-muted">
+                    <svg class="w-5 h-5 text-indigo shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                    </svg>
+                    <span>{{ . }}</span>
+                </li>
+                {{ end }}
+            </ul>
+            {{ end }}
+
+            {{/* Callout (wow factor) */}}
+            {{ with $pillar.callout }}
+            <div class="border-l-4 border-indigo bg-indigo/5 rounded-r-lg p-4 sm:p-6 mb-8">
+                <p class="text-sm sm:text-base text-slate-deep font-medium leading-relaxed">
+                    {{ . }}
+                </p>
+            </div>
+            {{ end }}
+
+            {{/* Tech detail — accordion */}}
+            {{ with $pillar.tech_detail }}
+            <div class="border border-slate-border rounded-lg bg-white">
+                <button type="button"
+                        class="faq-toggle flex items-center justify-between w-full cursor-pointer px-4 sm:px-6 py-3 text-left text-sm font-semibold text-slate-muted"
+                        aria-expanded="false"
+                        aria-controls="tech-{{ $pillar.id }}">
+                    <span class="flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" />
+                        </svg>
+                        D&eacute;tail technique &mdash; {{ $pillar.workflows_count }}
+                    </span>
+                    <svg class="w-5 h-5 shrink-0 ml-4 transition-transform duration-200 faq-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                    </svg>
+                </button>
+                <div class="faq-content" id="tech-{{ $pillar.id }}">
+                    <div>
+                        <div class="px-4 sm:px-6 pb-4 text-xs sm:text-sm text-slate-muted leading-relaxed font-mono">
+                            {{ . }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</section>
+{{ end }}
+{{ end }}
+
+{{/* ===================================================================
+     SECTION 4 — ARCHITECTURE TECHNIQUE
+     Accordion dépliable + diagramme de flux + justifications
+     =================================================================== */}}
+{{ with .Params.architecture }}
+<section class="bg-slate-light py-16 sm:py-24" id="architecture">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="reveal text-center mb-12 sm:mb-16">
+            <h2 class="font-display text-2xl sm:text-4xl tracking-tight mb-4">
+                {{ .title }}
+            </h2>
+            {{ with .intro }}
+            <p class="text-base sm:text-lg text-slate-muted max-w-2xl mx-auto">
+                {{ . }}
+            </p>
+            {{ end }}
+        </div>
+
+        {{/* Grille composants tech */}}
+        <div class="reveal grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 lg:gap-4 mb-12">
+            {{ range $i, $component := .flow }}
+            <div class="bg-white border border-slate-border rounded-lg p-3 sm:p-4 text-center" data-delay="{{ mul $i 60 }}">
+                <p class="font-semibold text-slate-deep text-xs sm:text-sm mb-1">{{ $component.name }}</p>
+                <p class="text-xs text-slate-muted leading-relaxed">{{ $component.role }}</p>
+            </div>
+            {{ end }}
+        </div>
+
+        {{/* Diagramme d'architecture */}}
+        {{ with .image }}
+        <div class="reveal mb-12" data-delay="100">
+            <img src="{{ .src }}"
+                 alt="{{ .alt }}"
+                 class="w-full rounded-lg border border-slate-border"
+                 width="1920" height="1080"
+                 loading="lazy">
+        </div>
+        {{ end }}
+
+        {{/* Pourquoi ces choix — accordion */}}
+        <div class="reveal max-w-3xl mx-auto" data-delay="200">
+            <h3 class="font-display text-lg sm:text-xl text-center mb-6">Pourquoi ces choix techniques ?</h3>
+            <div class="space-y-4">
+                {{ range $i, $choice := .why_choices }}
+                <div class="bg-white border border-slate-border rounded-lg">
+                    <button type="button"
+                            class="faq-toggle flex items-center justify-between w-full cursor-pointer px-6 py-4 text-left font-semibold text-slate-deep text-sm sm:text-base"
+                            aria-expanded="false"
+                            aria-controls="arch-{{ $i }}">
+                        {{ $choice.question }}
+                        <svg class="w-5 h-5 text-slate-muted shrink-0 ml-4 transition-transform duration-200 faq-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                        </svg>
+                    </button>
+                    <div class="faq-content" id="arch-{{ $i }}">
+                        <div>
+                            <div class="px-6 pb-4 text-sm text-slate-muted leading-relaxed">
+                                {{ $choice.answer }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+</section>
+{{ end }}
+
+{{/* ===================================================================
+     SECTION 5 — TECH STACK BANDE
+     =================================================================== */}}
+{{ with .Params.tech_stack }}
+<section class="py-10 sm:py-12">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <p class="text-xs sm:text-sm font-semibold text-slate-muted uppercase tracking-wider mb-6">
+            Technologies utilis&eacute;es
+        </p>
+        <div class="flex flex-wrap items-center justify-center gap-x-6 sm:gap-x-10 gap-y-4 text-slate-muted">
+            {{ range . }}
+            <span class="tech-logo text-sm font-medium">{{ .name }}</span>
+            {{ end }}
+        </div>
+    </div>
+</section>
+{{ end }}
+
+{{/* ===================================================================
+     SECTION 6 — FAQ
+     =================================================================== */}}
+{{ with .Params.faq }}
+<section class="bg-slate-light py-16 sm:py-24" id="faq">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="font-display text-2xl sm:text-4xl tracking-tight mb-4">
+                Questions fr&eacute;quentes
+            </h2>
+        </div>
+
+        <div class="space-y-4">
+            {{ range $i, $faq := . }}
+            <div class="bg-white border border-slate-border rounded-lg">
+                <button type="button"
+                        class="faq-toggle flex items-center justify-between w-full cursor-pointer px-6 py-4 text-left font-semibold text-slate-deep text-sm sm:text-base"
+                        aria-expanded="false"
+                        aria-controls="faq-cs-{{ $i }}">
+                    {{ $faq.question }}
+                    <svg class="w-5 h-5 text-slate-muted shrink-0 ml-4 transition-transform duration-200 faq-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                    </svg>
+                </button>
+                <div class="faq-content" id="faq-cs-{{ $i }}">
+                    <div>
+                        <div class="px-6 pb-4 text-sm text-slate-muted leading-relaxed">
+                            {{ $faq.answer }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</section>
+{{ end }}
+
+{{/* ===================================================================
+     SECTION 7 — CTA FINAL
+     =================================================================== */}}
+{{ with .Params.cta }}
+<section class="bg-slate-deep py-16 sm:py-20">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="font-display text-2xl sm:text-3xl text-white tracking-tight mb-4">
+            {{ .title }}
+        </h2>
+        <p class="text-base text-white/70 mb-8 max-w-xl mx-auto">
+            {{ .description }}
+        </p>
+        <a href="{{ .button_url }}"
+           class="inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base font-semibold rounded-md bg-white text-slate-deep hover:bg-slate-light transition-colors">
+            {{ .button_text }}
+        </a>
+    </div>
+</section>
+{{ end }}
+
+{{ end }}
+
+{{ define "scripts" }}
+<script>
+// === Scroll reveal (IntersectionObserver) ===
+(function() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var elements = document.querySelectorAll('.reveal, .reveal--fade-only');
+    if (!elements.length) return;
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                var delay = entry.target.getAttribute('data-delay') || '0';
+                entry.target.style.transitionDelay = delay + 'ms';
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    elements.forEach(function(el) { observer.observe(el); });
+})();
+
+// === Accordion (FAQ + tech details + architecture) ===
+(function() {
+    var toggles = document.querySelectorAll('.faq-toggle');
+    toggles.forEach(function(toggle) {
+        toggle.addEventListener('click', function() {
+            var contentId = this.getAttribute('aria-controls');
+            var content = document.getElementById(contentId);
+            var chevron = this.querySelector('.faq-chevron');
+            var isOpen = this.getAttribute('aria-expanded') === 'true';
+
+            // Fermer les autres dans le même groupe
+            var parent = this.closest('.space-y-4');
+            if (parent) {
+                parent.querySelectorAll('.faq-toggle').forEach(function(other) {
+                    if (other !== toggle) {
+                        var otherId = other.getAttribute('aria-controls');
+                        document.getElementById(otherId).classList.remove('is-open');
+                        other.setAttribute('aria-expanded', 'false');
+                        other.querySelector('.faq-chevron').classList.remove('rotate-180');
+                    }
+                });
+            }
+
+            this.setAttribute('aria-expanded', String(!isOpen));
+            content.classList.toggle('is-open');
+            chevron.classList.toggle('rotate-180');
+        });
+    });
+})();
+
+// === Smooth scroll for sommaire ===
+(function() {
+    document.querySelectorAll('nav[aria-label="Sommaire"] a').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            var target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+})();
+</script>
+{{ end }}

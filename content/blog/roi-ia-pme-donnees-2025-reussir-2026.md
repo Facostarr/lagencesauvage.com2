@@ -6,6 +6,12 @@ lastmod: 2025-12-29
 author: "L'Agence Sauvage"
 categories: ["Intelligence Artificielle", "Stratégie PME"]
 tags: ["IA", "PME", "ROI", "automatisation", "productivité", "transformation digitale"]
+image: "/assets/images/blog/roi-ia-pme-2025.webp"
+imageAlt: "ROI de l'IA en PME : barres ascendantes et données de croissance"
+takeaways:
+  - "ROI médian de 159,8% sur 12 mois documenté sur 200+ projets IA en PME françaises"
+  - "26% des PME françaises utilisent déjà l'IA — le chiffre a doublé en un an"
+  - "Les gains varient fortement selon le secteur et la méthodologie de déploiement"
 ---
 
 L'intelligence artificielle n'est plus un luxe réservé aux grands groupes. En 2025, **26% des PME françaises utilisent au moins une solution d'IA**, un chiffre qui a doublé en seulement un an selon le [baromètre France Num 2025](https://www.francenum.gouv.fr/guides-et-conseils/strategie-numerique/comprendre-le-numerique/barometre-france-num-2025-le). Pourtant, une question revient systématiquement dans les échanges avec les dirigeants : *"Est-ce vraiment rentable pour une entreprise de ma taille ?"*

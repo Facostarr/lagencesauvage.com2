@@ -1,0 +1,190 @@
+---
+title: "Diagnostic de Transformation IA pour entreprises | L'Agence Sauvage"
+description: "5 jours d'immersion sur site pour identifier où l'IA peut transformer vos opérations, combien vous pouvez gagner, et par où commencer. Approche 360° : technique, business, humain."
+keywords:
+  - diagnostic transformation IA entreprise
+  - audit IA PME
+  - diagnostic IA sur site
+  - transformation digitale IA
+  - audit automatisation entreprise
+  - diagnostic IA ETI
+  - consultant IA PME
+
+hero:
+  title: "Votre entreprise est-elle prête pour l'ère de l'IA ?"
+  subtitle: "En 5 jours d'immersion dans votre entreprise, nous identifions exactement où l'IA peut transformer vos opérations, combien vous pouvez gagner, et par où commencer."
+  badge: "50% des postes juniors en col blanc menacés d'ici 3 à 5 ans — Dario Amodei, CEO Anthropic (Harvard Gazette, juillet 2025)"
+
+constat:
+  intro: "Pour la première fois dans l'histoire, ce sont les métiers intellectuels qui tombent en premier — pas les métiers manuels. L'IA remplace un analyste financier pour 20€/mois. Un robot remplace un ouvrier pour 50 000€. La logique financière est implacable."
+  facts:
+    - text: "55 000 suppressions de postes attribuées directement à l'IA aux États-Unis en 2025."
+      source: "Challenger, Gray & Christmas, 2025"
+    - text: "30% du code Microsoft est aujourd'hui écrit par l'IA — une proportion qui double chaque année."
+      source: "Satya Nadella, CEO Microsoft, 2025"
+    - text: "1 000 Md€ de capitalisation évaporés du secteur SaaS avec l'émergence des agents IA : le 'SaaSpocalypse'."
+      source: "Bloomberg, février 2026"
+  pme_text: "Ces chiffres concernent les géants tech. Mais les PME sont touchées en silence. Les cabinets comptables, les agences marketing, les bureaux d'études — les coupes se font sans communiqué de presse."
+  pme_good_news: "La bonne nouvelle : les entreprises qui se transforment maintenant prennent une avance décisive. La fenêtre d'opportunité est ouverte — mais elle ne le restera pas longtemps."
+
+erreurs:
+  - number: "01"
+    title: "Attendre pour voir"
+    description: "'On regarde ce que font les autres d'abord.' Le problème : quand vos concurrents auront 18 mois d'avance en automatisation, le retard sera structurel. C'est l'ensemble de leur structure de coûts qui sera différente."
+  - number: "02"
+    title: "Acheter des outils sans stratégie"
+    description: "Un abonnement ChatGPT Team ne fait pas une transformation IA. C'est comme acheter un ERP sans réorganiser les processus. Sans vision globale, vous multipliez les outils, les coûts, et la frustration des équipes."
+  - number: "03"
+    title: "Déléguer à la DSI sans vision business"
+    description: "La transformation IA n'est pas un projet technique. C'est un projet de direction. La DSI choisit les meilleurs outils — mais seul le dirigeant sait quels processus ont le plus de valeur business à transformer."
+
+solution:
+  intro: "Le Diagnostic de Transformation IA est une mission de 5 jours d'immersion sur site dans votre entreprise, qui combine audit technique, analyse business et évaluation humaine pour produire un plan d'action IA complet et chiffré."
+  axes:
+    - icon: "tech"
+      title: "Axe technique"
+      description: "Quels outils utilisez-vous ? Comment circulent vos données ? Où sont les doublons, les ressaisies, les ruptures de flux ?"
+    - icon: "business"
+      title: "Axe business"
+      description: "Quels processus ont le plus de valeur à transformer ? Quel ROI attendre ? Par où commencer pour des résultats rapides ?"
+    - icon: "human"
+      title: "Axe humain"
+      description: "Vos équipes sont-elles prêtes ? Où sont les résistances ? Comment faciliter l'adoption sur le terrain ?"
+
+differenciateurs:
+  - icon: "search"
+    title: "On ne reste pas dans une salle de réunion"
+    description: "On observe vos équipes travailler. On voit les copier-coller, les doubles saisies, les processus que personne ne remet en question 'parce que c'est comme ça depuis toujours'."
+  - icon: "document"
+    title: "On ne livre pas un PowerPoint théorique"
+    description: "On livre un rapport actionnable de 40 à 60 pages avec des recommandations concrètes, chiffrées, classées par priorité."
+  - icon: "architect"
+    title: "Comme un architecte qui livre les plans"
+    description: "Vous avez de la valeur immédiate — et un partenaire qui connaît déjà votre maison quand vient le moment de construire."
+  - icon: "person"
+    title: "Un seul interlocuteur senior"
+    description: "Franck Sauvage, 25 ans d'expérience en vente B2B et SaaS. Pas de junior, pas de sous-traitance."
+
+methode:
+  intro: "5 jours sur site structurés pour maximiser la valeur extraite — sans perturber votre activité."
+  jours:
+    - jour: "J1"
+      title: "Cadrage et Direction"
+      description: "Réunion de lancement avec le dirigeant, compréhension de la vision stratégique, interviews de la direction. On commence par le haut : vision + contraintes budgétaires."
+    - jour: "J2"
+      title: "Fonctions support"
+      description: "Interviews RH, administratif, DSI/IT. Cartographie de l'infrastructure existante et des outils en place."
+    - jour: "J3"
+      title: "Fonctions business + terrain"
+      description: "Interviews commercial, marketing, SAV. Et surtout : observation directe des équipes au travail. C'est là qu'on trouve les pépites."
+      badge: "Vrai différenciateur"
+    - jour: "J4"
+      title: "Flux transversaux"
+      description: "Atelier flux de données avec 2-3 personnes clés. On trace comment l'information circule d'un service à l'autre. Souvent la matière première la plus précieuse du rapport."
+      badge: "Vision 360°"
+    - jour: "J5"
+      title: "Synthèse et restitution à chaud"
+      description: "Présentation au dirigeant : 5-10 insights majeurs, 3 quick wins, structure du rapport. Vous repartez avec de la valeur immédiate."
+  apres:
+    - "Rapport complet de 40 à 60 pages livré sous 2 semaines"
+    - "Soutenance CODIR de 1 à 2 heures (sur site ou visio)"
+    - "Roadmap de transformation IA priorisée sur 12 mois"
+  note: "Chaque interview dure 45 min à 1h30. Chaque collaborateur n'est sollicité qu'une seule fois. Le planning est organisé en amont pour ne pas perturber l'activité."
+
+livrables:
+  intro: "Un rapport de 40 à 60 pages structuré en 5 parties — du résumé exécutif à la roadmap opérationnelle sur 12 mois."
+  items:
+    - number: "01"
+      title: "Synthèse exécutive"
+      description: "Lisible en 5 minutes. Situation actuelle, 5 constats majeurs, potentiel de gains en heures ET en euros, 3 priorités immédiates. La page que vous montrez à vos associés ou à votre banquier."
+    - number: "02"
+      title: "Diagnostic par service"
+      description: "4 à 6 pages par service audité. Pour chaque service : outils utilisés, points de friction identifiés, score de maturité IA (sur 5), et recommandations classées par niveau d'autonomie."
+      levels:
+        - color: "green"
+          label: "Autonome"
+          description: "vous faites seul"
+        - color: "yellow"
+          label: "Accompagné"
+          description: "configuration puis autonomie"
+        - color: "red"
+          label: "Expert"
+          description: "développement sur-mesure"
+    - number: "03"
+      title: "Synthèse transversale"
+      description: "Ce que personne dans votre entreprise ne peut produire seul : cartographie des flux de données entre services, identification des doublons et ruptures, matrice d'opportunités impact × complexité."
+    - number: "04"
+      title: "Roadmap de transformation IA — 12 mois"
+      description: "3 phases : Quick wins (mois 1-3), Structuration (mois 4-6), Transformation (mois 7-12). Avec budget prévisionnel et ROI attendu pour chaque phase."
+    - number: "05"
+      title: "Recommandations de formation"
+      description: "Quelles équipes former, sur quels outils, dans quel ordre. Avec distinction entre formation 'autonomie' et formation 'utilisation' selon le profil de chaque service."
+
+profils:
+  intro: "Le diagnostic s'adapte à la taille de votre organisation. Nombre de services audités, densité du rapport, profondeur des recommandations — tout est dimensionné à votre réalité."
+  items:
+    - title: "TPE / PME"
+      subtitle: "Jusqu'à 30 salariés"
+      description: "3-4 services audités. Idéal si vous sentez que votre équipe perd du temps sur des tâches répétitives mais ne savez pas par où commencer avec l'IA."
+      rapport: "Rapport d'environ 40 pages"
+    - title: "PME"
+      subtitle: "30 à 80 salariés"
+      description: "5-6 services audités. Vous avez déjà des outils en place mais ils ne communiquent pas entre eux. Les doublons et ressaisies ralentissent tout le monde."
+      rapport: "Rapport d'environ 50 pages"
+    - title: "ETI"
+      subtitle: "80 salariés et plus"
+      description: "7+ services audités. La transformation IA est un enjeu stratégique au niveau CODIR. Vous avez besoin d'une vision 360° avant d'investir."
+      rapport: "Rapport d'environ 60 pages"
+  note: "Le dimensionnement exact et l'investissement sont définis ensemble lors de l'appel découverte, en fonction de votre structure."
+
+comparatif:
+  - critere: "Approche"
+    cabinet: "PowerPoint théorique"
+    esn: "Technique uniquement"
+    freelance: "Variable"
+    agence: "360° : technique + business + humain"
+  - critere: "Présence terrain"
+    cabinet: "Rarement"
+    esn: "Jamais en PME"
+    freelance: "Variable"
+    agence: "5 jours d'immersion sur site"
+  - critere: "Observation des équipes"
+    cabinet: "Non"
+    esn: "Non"
+    freelance: "Rarement"
+    agence: "Observation directe J3"
+  - critere: "Livrable"
+    cabinet: "10-20 slides"
+    esn: "Spécifications techniques"
+    freelance: "Variable"
+    agence: "Rapport actionnable 40-60 pages"
+  - critere: "Expertise IA réelle"
+    cabinet: "Limitée"
+    esn: "Oui (technique)"
+    freelance: "Variable"
+    agence: "Oui + 25 ans d'exp. commerciale B2B"
+  - critere: "Adapté aux PME"
+    cabinet: "Non (trop cher)"
+    esn: "Non (grands comptes)"
+    freelance: "Parfois"
+    agence: "Conçu pour TPE/PME/ETI"
+  - critere: "Suivi post-diagnostic"
+    cabinet: "Rarement"
+    esn: "Développement uniquement"
+    freelance: "Au cas par cas"
+    agence: "Accompagnement mensuel possible"
+
+faq:
+  - question: "Combien de temps dure un diagnostic de transformation IA ?"
+    answer: "5 jours sur site (du lundi au vendredi), suivis de la livraison du rapport complet sous 2 semaines, puis une soutenance CODIR de 1 à 2 heures."
+  - question: "Faut-il que mes équipes soient disponibles pendant les 5 jours ?"
+    answer: "Non. Chaque collaborateur est sollicité pour un entretien individuel de 45 minutes à 1h30, une seule fois. Le planning est organisé en amont pour minimiser l'impact sur l'activité."
+  - question: "Que se passe-t-il si on ne donne pas suite après le diagnostic ?"
+    answer: "Le rapport vous appartient. Il contient suffisamment de recommandations concrètes — dont certaines classées 'autonome' — pour que vous puissiez avancer seul. C'est un investissement qui a de la valeur en soi."
+  - question: "En quoi c'est différent d'utiliser ChatGPT directement ?"
+    answer: "ChatGPT est un outil généraliste. Le diagnostic analyse votre entreprise spécifiquement : vos processus, vos outils, vos flux de données, vos équipes. C'est la différence entre un marteau et les plans d'un architecte."
+  - question: "Notre entreprise n'utilise aucun outil IA aujourd'hui. C'est trop tôt pour un diagnostic ?"
+    answer: "C'est au contraire le moment idéal. Le diagnostic vous permet de démarrer avec une vision claire plutôt que d'empiler des outils au hasard. Les entreprises qui structurent leur approche dès le départ gagnent 6 à 12 mois sur celles qui tâtonnent."
+  - question: "Qui réalise le diagnostic ?"
+    answer: "Franck Sauvage, fondateur de L'Agence Sauvage, 25 ans d'expérience en vente B2B et SaaS. Le diagnostic est réalisé par un seul interlocuteur senior qui connaît à la fois la réalité business des PME et l'écosystème IA. Pas de junior, pas de sous-traitance."
+---

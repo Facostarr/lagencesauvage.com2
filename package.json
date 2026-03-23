@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vercel dev",
-    "build": "curl -L https://github.com/gohugoio/hugo/releases/download/v0.139.0/hugo_extended_0.139.0_Linux-64bit.tar.gz | tar xz && ./hugo --minify && cp -r public/* . || true",
+    "build": "hugo --gc --minify",
     "deploy": "vercel --prod"
   },
   "dependencies": {
@@ -14,6 +14,9 @@
     "pdfkit": "^0.15.0"
   },
   "devDependencies": {
+    "@tailwindcss/postcss": "^4.2.2",
+    "postcss": "^8.5.8",
+    "postcss-cli": "^11.0.1",
     "vercel": "^33.0.0"
   },
   "engines": {

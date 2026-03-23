@@ -1,9 +1,48 @@
 {
-  "buildCommand": "curl -L https://github.com/gohugoio/hugo/releases/download/v0.139.0/hugo_extended_0.139.0_Linux-64bit.tar.gz | tar xz && ./hugo --minify",
-  "outputDirectory": "public",
-  "framework": null,
+  "framework": "hugo",
+  "build": {
+    "env": {
+      "HUGO_VERSION": "0.158.0"
+    }
+  },
   "redirects": [
-    { "source": "/blog", "destination": "/blog.html", "statusCode": 301 },
-    { "source": "/blog/", "destination": "/blog.html", "statusCode": 301 }
+    { "source": "/services.html", "destination": "/services/", "statusCode": 301 },
+    { "source": "/realisations.html", "destination": "/realisations/", "statusCode": 301 },
+    { "source": "/realisations/agent-whatsapp-pennylane-expert-comptable/", "destination": "/realisations/automatisation-pole-financier-pennylane-expert-comptable/", "statusCode": 301 },
+    { "source": "/realisations/agent-whatsapp-pennylane-expert-comptable", "destination": "/realisations/automatisation-pole-financier-pennylane-expert-comptable/", "statusCode": 301 },
+    { "source": "/about.html", "destination": "/about/", "statusCode": 301 },
+    { "source": "/blog.html", "destination": "/blog/", "statusCode": 301 },
+    { "source": "/ressources.html", "destination": "/blog/", "statusCode": 301 },
+    { "source": "/faq.html", "destination": "/faq/", "statusCode": 301 },
+    { "source": "/processus.html", "destination": "/services/", "statusCode": 301 },
+    { "source": "/diagnostic-transformation-ia.html", "destination": "/diagnostic/", "statusCode": 301 },
+    { "source": "/mentions-legales.html", "destination": "/mentions-legales/", "statusCode": 301 },
+    { "source": "/privacy.html", "destination": "/privacy/", "statusCode": 301 },
+    { "source": "/cgv.html", "destination": "/cgv/", "statusCode": 301 },
+    { "source": "/blog/art-du-prompt.html", "destination": "/blog/art-du-prompt/", "statusCode": 301 },
+    { "source": "/blog/saaspocalypse-tpe-pme.html", "destination": "/blog/saaspocalypse-tpe-pme/", "statusCode": 301 },
+    { "source": "/blog/ia-cabinet-comptable-donnees-2025-reussir-2026.html", "destination": "/blog/ia-cabinet-comptable-donnees-2025-reussir-2026/", "statusCode": 301 },
+    { "source": "/blog/roi-ia-pme-donnees-2025-reussir-2026.html", "destination": "/blog/roi-ia-pme-donnees-2025-reussir-2026/", "statusCode": 301 },
+    { "source": "/blog/crm-automatisation-woocommerce-2026.html", "destination": "/blog/crm-automatisation-woocommerce-2026/", "statusCode": 301 },
+    { "source": "/blog/l-ia-abordable-en-2025.html", "destination": "/blog/l-ia-abordable-en-2025/", "statusCode": 301 },
+    { "source": "/blog/automatiser-emails-gmail-ia.html", "destination": "/blog/automatiser-emails-gmail-ia/", "statusCode": 301 },
+    { "source": "/blog/impact-ia-pme-françaises-2025.html", "destination": "/blog/impact-ia-pme-françaises-2025/", "statusCode": 301 },
+    { "source": "/audit-ia-gratuit.html", "destination": "/diagnostic/", "statusCode": 301 }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    }
   ]
 }

@@ -18,7 +18,7 @@ author: "Franck Sauvage"
 expertise: "Fondateur L'Agence Sauvage — 25 ans d'expérience SaaS B2B"
 
 # Image & Affichage
-image: "/assets/images/blog/impact-ia-pme-françaises-2025.webp"
+image: "/assets/images/blog/impact-ia-pme-francaises-2025.webp"
 imageAlt: "Ce que l'IA transforme vraiment dans les PME françaises en 2025"
 emoji: "🏭"
 
@@ -26,6 +26,10 @@ emoji: "🏭"
 draft: false
 toc: true
 readingTime: true
+takeaways:
+  - "L'IA transforme d'abord les postes administratifs et le back-office, pas la production"
+  - "Les 3 erreurs les plus fréquentes : viser trop gros, négliger les données, oublier l'humain"
+  - "Les PME qui réussissent leur transformation IA commencent par un processus unique et mesurable"
 ---
 
 *Février 2026 | Par **Franck Sauvage**, Fondateur de [L'Agence Sauvage](https://www.lagencesauvage.com) — 25 ans d'expérience SaaS B2B*
@@ -126,7 +130,7 @@ La fenêtre d'opportunité est ouverte. Mais elle ne le restera pas indéfinimen
 
 > 🔍 **Vous voulez savoir où l'IA peut créer de la valeur dans votre entreprise ?**
 >
-> **[→ Découvrez le Diagnostic de Transformation IA](/diagnostic-transformation-ia.html)**
+> **[→ Découvrez le Diagnostic de Transformation IA](/diagnostic/)**
 >
 > 5 jours d'immersion sur site dans votre entreprise. Rapport actionnable de 40 à 60 pages. Roadmap de transformation IA sur 12 mois. Pour TPE, PME et ETI.
 

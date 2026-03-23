@@ -6,6 +6,12 @@ lastmod: 2025-12-23
 author: "L'Agence Sauvage"
 categories: ["E-commerce", "Automatisation", "CRM"]
 tags: ["WooCommerce", "CRM", "panier abandonné", "email marketing", "automatisation e-commerce"]
+image: "/assets/images/blog/crm-automatisation-woocommerce-2026.webp"
+imageAlt: "CRM et automatisation WooCommerce : flux de données interconnectés"
+takeaways:
+  - "70% des paniers WooCommerce sont abandonnés — un CRM + automatisation peut en récupérer une partie significative"
+  - "5 automatisations prioritaires : relance panier, séquence bienvenue, post-achat, segmentation, SMS"
+  - "Budget réaliste : à partir de 50€/mois pour un CRM adapté aux PME e-commerce"
 ---
 
 # CRM et automatisation pour WooCommerce : le guide complet pour booster vos ventes en 2026

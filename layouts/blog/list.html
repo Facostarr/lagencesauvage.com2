@@ -1,205 +1,166 @@
 {{ define "main" }}
 {{/* =============================================================================
-   Liste des articles du blog
-   Design cohérent avec le site, fond crème
+   Liste des articles — Édition Premium 2026
+   Article vedette + grille + carte CTA intégrée + filtres catégories
    ============================================================================= */}}
 
-<!-- Hero Section Blog -->
-<section class="blog-hero">
-    <div class="container">
-        <h1>BLOG</h1>
-        <p>{{ .Site.Params.blog.description }}</p>
+{{ $allPages := where .Pages "Type" "blog" }}
+
+{{/* ===================================================================
+     HERO — Titre + baseline
+     =================================================================== */}}
+<section class="bg-slate-light border-b border-slate-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 text-center">
+        <h1 class="hero-animate font-display text-3xl sm:text-4xl lg:text-5xl tracking-tight text-slate-deep mb-4">
+            {{ .Params.hero_title | default "Blog" }}
+        </h1>
+        <p class="hero-animate text-lg text-slate-muted max-w-2xl mx-auto" style="animation-delay: 100ms">
+            {{ .Params.hero_subtitle | default .Site.Params.blog.description }}
+        </p>
     </div>
 </section>
 
-<!-- Contenu principal -->
-<div class="blog-main">
-    <div class="container">
-        
-        <!-- Barre de recherche et filtres -->
-        <section class="filters-section">
-            <div class="search-bar">
-                <input type="text" 
-                       id="searchInput" 
-                       placeholder="🔍 Rechercher un article..." 
-                       aria-label="Rechercher un article">
+{{/* ===================================================================
+     ARTICLE VEDETTE — Le plus récent, carte large
+     =================================================================== */}}
+{{ with index $allPages 0 }}
+<section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+    <a href="{{ .RelPermalink }}" class="reveal group block bg-white border border-slate-border rounded-lg overflow-hidden blog-card">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
+            {{/* Image */}}
+            <div class="aspect-[16/9] md:aspect-auto bg-slate-light overflow-hidden">
+                {{ if .Params.image }}
+                <img src="{{ .Params.image }}"
+                     alt="{{ .Params.imageAlt | default .Title }}"
+                     class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300"
+                     loading="eager">
+                {{ else }}
+                <div class="w-full h-full min-h-[240px] flex items-center justify-center bg-slate-light">
+                    <span class="text-5xl text-slate-muted/20">{{ .Params.emoji | default "IA" }}</span>
+                </div>
+                {{ end }}
             </div>
-            
-            <div class="filter-row">
-                <div class="filter-group">
-                    <h3>CATÉGORIES</h3>
-                    <div class="filter-tags" id="categoryFilters">
-                        <button class="filter-tag active" data-category="all">Tous</button>
-                        {{ range .Site.Taxonomies.categories }}
-                        <button class="filter-tag" data-category="{{ .Page.Title | urlize }}">{{ .Page.Title }}</button>
-                        {{ end }}
-                    </div>
+
+            {{/* Contenu */}}
+            <div class="flex flex-col justify-center p-6 sm:p-8 lg:p-10">
+                {{ if .Params.categories }}
+                <span class="inline-block w-fit px-3 py-1 rounded-full text-xs font-semibold bg-indigo/10 text-indigo mb-4">
+                    {{ index .Params.categories 0 }}
+                </span>
+                {{ end }}
+
+                <h2 class="font-display text-xl sm:text-2xl lg:text-3xl tracking-tight text-slate-deep group-hover:text-indigo transition-colors mb-3">
+                    {{ .Title }}
+                </h2>
+
+                <p class="text-sm text-slate-muted leading-relaxed mb-4 line-clamp-3">
+                    {{ .Summary | plainify | truncate 200 }}
+                </p>
+
+                <div class="flex items-center gap-3 text-xs text-slate-muted">
+                    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Day }} {{ index (slice "jan." "fév." "mars" "avr." "mai" "juin" "juil." "août" "sept." "oct." "nov." "déc.") (sub .Date.Month 1) }} {{ .Date.Year }}</time>
+                    <span>·</span>
+                    <span>{{ .ReadingTime }} min de lecture</span>
                 </div>
             </div>
-        </section>
-
-        <!-- Grille des articles -->
-        <section class="articles-container">
-            <div class="articles-grid" id="articlesGrid">
-                {{ $paginator := .Paginate (where .Pages "Type" "blog") .Site.Params.blog.postsPerPage }}
-                {{ range $paginator.Pages }}
-                <article class="article-card" 
-                         data-category="{{ if .Params.categories }}{{ index .Params.categories 0 | urlize }}{{ else }}non-classe{{ end }}"
-                         data-title="{{ .Title | lower }}"
-                         data-content="{{ .Summary | plainify | lower }}">
-                    
-                    <!-- Image ou Emoji -->
-                    <div class="article-image">
-                        {{ if .Params.image }}
-                        <img src="{{ .Params.image }}" 
-                             alt="{{ .Params.imageAlt | default .Title }}" 
-                             loading="lazy">
-                        {{ else }}
-                        <span class="article-emoji">{{ .Params.emoji | default "📄" }}</span>
-                        {{ end }}
-                    </div>
-                    
-                    <div class="article-content">
-                        <!-- Meta -->
-                        <div class="article-meta">
-                            {{ if .Params.categories }}
-                            <span class="article-category">{{ index .Params.categories 0 }}</span>
-                            {{ end }}
-                            <span>• {{ .Date.Format "2 Jan 2006" }}</span>
-                            {{ if .Site.Params.blog.showReadingTime }}
-                            <span>• {{ .ReadingTime }} min</span>
-                            {{ end }}
-                        </div>
-                        
-                        <!-- Titre -->
-                        <h2 class="article-title">{{ .Title }}</h2>
-                        
-                        <!-- Extrait -->
-                        <p class="article-excerpt">
-                            {{ .Summary | plainify | truncate 150 }}
-                        </p>
-                        
-                        <!-- Footer -->
-                        <div class="article-footer">
-                            {{ if .Params.tags }}
-                            <div class="article-tags">
-                                {{ range first 3 .Params.tags }}
-                                <span class="tag">#{{ . }}</span>
-                                {{ end }}
-                            </div>
-                            {{ end }}
-                            <a href="{{ .Permalink }}" class="read-more" aria-label="Lire l'article : {{ .Title }}">Lire →</a>
-                        </div>
-                    </div>
-                </article>
-                {{ end }}
-            </div>
-
-            <!-- État vide -->
-            <div id="emptyState" class="empty-state" style="display: none;">
-                <div class="empty-state-icon">🔍</div>
-                <h3>Aucun article trouvé</h3>
-                <p>Essayez de modifier vos critères de recherche ou de filtrage.</p>
-            </div>
-
-            <!-- Pagination -->
-            {{ if gt $paginator.TotalPages 1 }}
-            <nav class="pagination" aria-label="Pagination des articles">
-                {{ if $paginator.HasPrev }}
-                <a href="{{ $paginator.Prev.URL }}" class="page-btn">« Précédent</a>
-                {{ else }}
-                <span class="page-btn disabled">« Précédent</span>
-                {{ end }}
-                
-                {{ range $paginator.Pagers }}
-                {{ if eq . $paginator }}
-                <span class="page-btn active">{{ .PageNumber }}</span>
-                {{ else }}
-                <a href="{{ .URL }}" class="page-btn">{{ .PageNumber }}</a>
-                {{ end }}
-                {{ end }}
-                
-                {{ if $paginator.HasNext }}
-                <a href="{{ $paginator.Next.URL }}" class="page-btn">Suivant »</a>
-                {{ else }}
-                <span class="page-btn disabled">Suivant »</span>
-                {{ end }}
-            </nav>
-            {{ end }}
-        </section>
-
-        <!-- Newsletter CTA -->
-        <section class="newsletter-cta">
-            <h2>RESTEZ INFORMÉ</h2>
-            <p>Recevez nos meilleurs articles et guides pratiques directement dans votre boîte mail.</p>
-            <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Merci ! Fonctionnalité newsletter à venir.');">
-                <input type="email" placeholder="Votre email" required aria-label="Votre adresse email">
-                <button type="submit">S'abonner</button>
-            </form>
-        </section>
-    </div>
-</div>
+        </div>
+    </a>
+</section>
 {{ end }}
 
-{{ define "scripts" }}
-<script>
-// Recherche et filtrage des articles
-document.addEventListener('DOMContentLoaded', function() {
-    const searchInput = document.getElementById('searchInput');
-    const categoryFilters = document.querySelectorAll('.filter-tag');
-    const articles = document.querySelectorAll('.article-card');
-    const emptyState = document.getElementById('emptyState');
-    const articlesGrid = document.getElementById('articlesGrid');
-    
-    let currentCategory = 'all';
-    let currentSearch = '';
+{{/* ===================================================================
+     FILTRES PAR CATÉGORIE + GRILLE D'ARTICLES
+     =================================================================== */}}
+{{ $remaining := after 1 $allPages }}
+{{ if $remaining }}
+<section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-24">
 
-    // Filtrage par catégorie
-    categoryFilters.forEach(filter => {
-        filter.addEventListener('click', function() {
-            categoryFilters.forEach(f => f.classList.remove('active'));
-            this.classList.add('active');
-            currentCategory = this.dataset.category;
-            filterArticles();
-        });
-    });
+    {{/* Filtres catégories */}}
+    <div class="flex flex-wrap gap-2 mb-8">
+        <button class="blog-filter px-3 py-1.5 text-sm rounded-md border border-indigo bg-indigo text-white transition-colors" data-category="all">Tous</button>
+        {{ range .Site.Taxonomies.categories }}
+        <button class="blog-filter px-3 py-1.5 text-sm rounded-md border border-slate-border text-slate-muted hover:border-indigo hover:text-indigo transition-colors" data-category="{{ .Page.Title | urlize }}">{{ .Page.Title }}</button>
+        {{ end }}
+    </div>
 
-    // Recherche textuelle
-    searchInput.addEventListener('input', function(e) {
-        currentSearch = e.target.value.toLowerCase();
-        filterArticles();
-    });
+    {{/* Grille */}}
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
 
-    function filterArticles() {
-        let visibleCount = 0;
+        {{ range $i, $page := $remaining }}
 
-        articles.forEach(article => {
-            const category = article.dataset.category;
-            const title = article.dataset.title;
-            const content = article.dataset.content;
-            
-            const matchesCategory = currentCategory === 'all' || category === currentCategory;
-            const matchesSearch = currentSearch === '' || 
-                                title.includes(currentSearch) || 
-                                content.includes(currentSearch);
-            
-            if (matchesCategory && matchesSearch) {
-                article.style.display = 'flex';
-                visibleCount++;
-            } else {
-                article.style.display = 'none';
-            }
-        });
+        {{/* Carte CTA intégrée — après le 3e article */}}
+        {{ if eq $i 3 }}
+        <div class="flex flex-col justify-center border border-indigo rounded-lg bg-indigo/5 p-6 sm:p-8">
+            <p class="font-display text-lg text-slate-deep mb-3">L'IA peut transformer votre quotidien professionnel.</p>
+            <p class="text-sm text-slate-muted mb-5">Découvrez comment en 30 minutes, sans engagement.</p>
+            <a href="/#audit-form" class="inline-flex items-center justify-center px-4 py-2.5 text-sm font-semibold rounded-md bg-indigo text-white hover:bg-indigo-dark transition-colors">
+                Réservez votre audit IA gratuit
+            </a>
+        </div>
+        {{ end }}
 
-        // Afficher/cacher l'état vide
-        if (visibleCount === 0) {
-            articlesGrid.style.display = 'none';
-            emptyState.style.display = 'block';
-        } else {
-            articlesGrid.style.display = 'grid';
-            emptyState.style.display = 'none';
-        }
-    }
-});
-</script>
+        {{/* Carte article */}}
+        <a href="{{ $page.RelPermalink }}"
+           class="blog-card-item reveal group flex flex-col border border-slate-border rounded-lg overflow-hidden blog-card"
+           data-category="{{ if $page.Params.categories }}{{ index $page.Params.categories 0 | urlize }}{{ else }}non-classe{{ end }}"
+           data-delay="{{ mul $i 80 }}">
+
+            {{/* Image */}}
+            <div class="aspect-[3/2] bg-slate-light overflow-hidden">
+                {{ if $page.Params.image }}
+                <img src="{{ $page.Params.image }}"
+                     alt="{{ $page.Params.imageAlt | default $page.Title }}"
+                     loading="lazy"
+                     class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300">
+                {{ else }}
+                <div class="w-full h-full flex items-center justify-center">
+                    <span class="text-3xl text-slate-muted/20">{{ $page.Params.emoji | default "IA" }}</span>
+                </div>
+                {{ end }}
+            </div>
+
+            <div class="flex flex-col flex-1 p-5">
+                {{/* Meta */}}
+                <div class="flex items-center gap-2 text-xs text-slate-muted mb-3">
+                    {{ if $page.Params.categories }}
+                    <span class="inline-block px-2 py-0.5 bg-indigo/10 text-indigo rounded text-xs font-medium">{{ index $page.Params.categories 0 }}</span>
+                    {{ end }}
+                    <time datetime="{{ $page.Date.Format "2006-01-02" }}">{{ $page.Date.Day }} {{ index (slice "jan." "fév." "mars" "avr." "mai" "juin" "juil." "août" "sept." "oct." "nov." "déc.") (sub $page.Date.Month 1) }} {{ $page.Date.Year }}</time>
+                    <span>· {{ $page.ReadingTime }} min</span>
+                </div>
+
+                {{/* Titre */}}
+                <h2 class="font-display text-base sm:text-lg text-slate-deep leading-snug mb-2 group-hover:text-indigo transition-colors">
+                    {{ $page.Title }}
+                </h2>
+
+                {{/* Extrait */}}
+                <p class="text-sm text-slate-muted leading-relaxed mb-4 flex-1 line-clamp-3">
+                    {{ $page.Summary | plainify | truncate 130 }}
+                </p>
+
+                {{/* Lire */}}
+                <span class="text-sm font-medium text-indigo group-hover:text-indigo-dark transition-colors">
+                    Lire l'article &rarr;
+                </span>
+            </div>
+        </a>
+
+        {{ end }}
+    </div>
+</section>
+{{ end }}
+
+{{/* ===================================================================
+     CTA FINAL — Section sombre
+     =================================================================== */}}
+<section class="bg-slate-deep">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 text-center">
+        <h2 class="font-display text-2xl sm:text-3xl text-white mb-4">Vous voulez passer à l'action ?</h2>
+        <p class="text-slate-muted text-lg mb-8">Découvrez comment l'IA peut transformer votre quotidien en 30 minutes.</p>
+        <a href="/#audit-form" class="inline-flex items-center px-6 py-3 text-sm font-semibold rounded-md bg-indigo text-white hover:bg-indigo-dark transition-colors">
+            Réservez votre audit IA gratuit
+        </a>
+    </div>
+</section>
 {{ end }}

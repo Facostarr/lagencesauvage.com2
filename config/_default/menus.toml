@@ -1,5 +1,5 @@
 # =============================================================================
-# Menus de navigation
+# Menus de navigation — Pretty URLs (refonte-2026)
 # =============================================================================
 
 # Menu principal (header)
@@ -10,12 +10,12 @@
 
 [[main]]
   name = "Services"
-  url = "/services.html"
+  url = "/services/"
   weight = 2
 
 [[main]]
   name = "Réalisations"
-  url = "/realisations.html"
+  url = "/realisations/"
   weight = 3
 
 [[main]]
@@ -25,7 +25,7 @@
 
 [[main]]
   name = "À propos"
-  url = "/about.html"
+  url = "/about/"
   weight = 5
 
 [[main]]
@@ -36,28 +36,23 @@
 # Menu footer - Services
 [[footer_services]]
   name = "Tous nos services"
-  url = "/services.html"
+  url = "/services/"
   weight = 1
 
 [[footer_services]]
-  name = "Audit IA"
-  url = "/services.html#audit-ia"
+  name = "Assistant IA & Automatisation"
+  url = "/services/#assistant-ia"
   weight = 2
 
 [[footer_services]]
-  name = "Automatisation"
-  url = "/services.html#automatisation"
+  name = "Formation IA"
+  url = "/services/#formation-ia"
   weight = 3
 
 [[footer_services]]
-  name = "Agents conversationnels"
-  url = "/services.html#agents-ia"
+  name = "Transformation IA"
+  url = "/services/#transformation-ia"
   weight = 4
-
-[[footer_services]]
-  name = "Abonnement mensuel"
-  url = "/services.html#abonnement"
-  weight = 5
 
 # Menu footer - Ressources
 [[footer_resources]]
@@ -67,15 +62,15 @@
 
 [[footer_resources]]
   name = "Cas clients"
-  url = "/realisations.html"
+  url = "/realisations/"
   weight = 2
 
 [[footer_resources]]
-  name = "FAQ"
-  url = "/faq.html"
+  name = "Diagnostic IA gratuit"
+  url = "/diagnostic/"
   weight = 3
 
 [[footer_resources]]
-  name = "Notre processus"
-  url = "/processus.html"
+  name = "FAQ"
+  url = "/faq/"
   weight = 4

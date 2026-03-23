@@ -1,31 +1,65 @@
 {{/* =============================================================================
-   Header - Navigation principale
-   Identique au design existant du site
+   Header — Navigation responsive sobre
+   Menu piloté par menus.toml (menu "main")
    ============================================================================= */}}
 
-<header class="header">
-    <div class="header__container">
-        <a href="/" class="header__logo">
-            <img src="/assets/images/logo-lagencesauvage-original.svg" 
-                 alt="L'Agence Sauvage - Intelligence Artificielle pour TPE/PME" 
-                 class="logo-img"
-                 loading="eager">
-        </a>
-        
-        <button class="nav__toggle" aria-label="Ouvrir le menu" aria-expanded="false">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        
-        <nav class="nav" aria-label="Menu principal">
-            <ul class="nav__menu">
-                <li><a href="/services.html" class="nav__link">Services</a></li>
-                <li><a href="/realisations.html" class="nav__link">Réalisations</a></li>
-                <li><a href="/blog.html" class="nav__link{{ if eq .Section "blog" }} active{{ end }}">Blog</a></li>
-                <li><a href="/about.html" class="nav__link">À propos</a></li>
-                <li><a href="/#audit-gratuit" class="btn btn-primary">Audit gratuit</a></li>
-            </ul>
+<header class="bg-white border-b border-slate-border sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16 sm:h-20">
+            {{/* Logo */}}
+            <a href="/" class="flex-shrink-0" aria-label="Accueil — L'Agence Sauvage">
+                <img src="/assets/images/Logo-Agence-Sauvage.svg"
+                     alt="L'Agence Sauvage"
+                     class="h-12 sm:h-14 w-auto"
+                     loading="eager">
+            </a>
+
+            {{/* Navigation desktop */}}
+            <nav class="hidden md:flex items-center gap-1" aria-label="Menu principal">
+                {{ range .Site.Menus.main }}
+                    {{ if eq .Name "Contact" }}
+                        <a href="{{ .URL }}"
+                           class="ml-4 inline-flex items-center px-5 py-2.5 text-sm font-semibold rounded-md bg-indigo text-white hover:bg-indigo-dark transition-colors">
+                            Audit IA gratuit
+                        </a>
+                    {{ else }}
+                        <a href="{{ .URL }}"
+                           class="px-3 py-2 text-sm text-slate-muted hover:text-slate-deep transition-colors{{ if eq $.RelPermalink .URL }} font-semibold text-slate-deep{{ end }}">
+                            {{ .Name }}
+                        </a>
+                    {{ end }}
+                {{ end }}
+            </nav>
+
+            {{/* Bouton mobile */}}
+            <button type="button"
+                    class="md:hidden inline-flex items-center justify-center p-2 text-slate-muted hover:text-slate-deep"
+                    aria-label="Ouvrir le menu"
+                    aria-expanded="false"
+                    onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded') === 'false' ? 'true' : 'false'); document.getElementById('mobile-menu').classList.toggle('hidden')">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+
+        {{/* Menu mobile */}}
+        <nav id="mobile-menu" class="hidden md:hidden pb-4" aria-label="Menu mobile">
+            <div class="flex flex-col gap-1 border-t border-slate-border pt-4">
+                {{ range .Site.Menus.main }}
+                    {{ if eq .Name "Contact" }}
+                        <a href="{{ .URL }}"
+                           class="mt-2 block text-center px-4 py-3 text-sm font-semibold rounded-md bg-indigo text-white hover:bg-indigo-dark transition-colors">
+                            Audit IA gratuit
+                        </a>
+                    {{ else }}
+                        <a href="{{ .URL }}"
+                           class="block px-4 py-2 text-sm text-slate-muted hover:text-slate-deep rounded transition-colors{{ if eq $.RelPermalink .URL }} font-semibold text-slate-deep{{ end }}">
+                            {{ .Name }}
+                        </a>
+                    {{ end }}
+                {{ end }}
+            </div>
         </nav>
     </div>
 </header>

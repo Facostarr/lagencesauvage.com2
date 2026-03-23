@@ -13,8 +13,14 @@ tags:
   - "Tutorials"
   - "Entrepreneurs"
 readingTime: 12
+image: "/assets/images/blog/art-du-prompt.webp"
+imageAlt: "L'art du prompt : illustration abstraite de texte se transformant en formes géométriques"
 emoji: "🎯"
 draft: false
+takeaways:
+  - "Un bon prompt est un brief professionnel : rôle, contexte, contraintes et format attendu"
+  - "Le framework RICE (Rôle, Instructions, Contexte, Exemples) structure les prompts efficaces"
+  - "Les entrepreneurs qui maîtrisent le prompting réduisent leurs temps de décision de 40%"
 ---
 
 ## Introduction : L'IA comme levier stratégique pour les entrepreneurs
