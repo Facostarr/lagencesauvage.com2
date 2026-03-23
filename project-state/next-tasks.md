@@ -1,20 +1,18 @@
 # Next Tasks — Refonte lagencesauvage.com
 
-## Priorité immédiate — Phase 5 Quality gate
+## Priorité immédiate — Phase 6 Bascule
 
-Hugo local opérationnel (v0.158.0 via `subst S:`). Attaquer les audits :
+Logo final intégré. Prochaines étapes :
 
-1. **Audit SEO/Schema** : inspecter le HTML généré (`hugo --gc --minify` depuis S:\), vérifier JSON-LD, meta tags, OG tags, sitemap.xml sur toutes les pages
-2. **Audit accessibilité** : contraste, alt text, aria, navigation clavier, sémantique HTML
-3. **Audit technique** : liens cassés, responsive, performance (Lighthouse sur preview Vercel)
-4. **Audit redirections 301** : tester chaque redirection du vercel.json
-5. **Audit conversion** : checklist CRO page par page (skill conversion-audit-checklist)
-6. **Test formulaires** : submit-lead, submit-diagnostic (via `vercel dev` ou preview Vercel)
+1. **Validation Franck** : vérifier le logo + favicon sur la preview Vercel
+2. **Nettoyage fichiers temporaires** : image-1774200708627.jpeg et temp-logo.png dans static/assets/images/ (non trackés)
+3. **Merge refonte-2026 → main** : après GO Franck
+4. **DNS / domaine** : basculer le domaine lagencesauvage.com vers la nouvelle version
 
 ## En attente de Franck
 
-- Lien Calendly éventuel pour la page de confirmation formulaire
-- Logo final : validation par contacts extérieurs
+- Validation preview Vercel avec logo final
+- GO pour merge vers main (bascule production)
 
 ## Pages Phase 3 livrées
 
@@ -31,14 +29,16 @@ Hugo local opérationnel (v0.158.0 via `subst S:`). Attaquer les audits :
 - [x] Page Diagnostic IA `/diagnostic/`
 - [x] Pages légales : mentions légales, confidentialité, CGV
 
-## Logo (en cours de validation)
+## Logo
 
-- Logo provisoire C2 intégré (carré indigo + S négatif + texte)
-- Favicon SVG du monogramme S en place
-- Franck consulte des avis extérieurs sur les concepts générés
-- Piste monogramme A+S (série G) à affiner si retours positifs
-- Une fois le logo final validé : convertir les `<text>` SVG en paths vectorisés (Inkscape/Illustrator)
+- [x] Logo final Logo-Agence-Sauvage.svg intégré (wordmark SVG vectorisé #403eba)
+- [x] Favicon monogramme S mis à jour (#403eba)
+- [x] Ancien logo supprimé
+- [ ] Validation Franck sur preview
 
-## Fait cette session
+## Fait cette session (2026-03-23)
 
-- [x] Témoignages Olivier (Eurodom) + Myriam (Optimrezo) — consensus Claude+Gemini 9/10, validés par Franck
+- [x] Logo final Logo-Agence-Sauvage.svg intégré (header, footer, params.toml, schema.org)
+- [x] Favicon SVG recréé (monogramme S vectorisé, blanc sur carré arrondi #403eba)
+- [x] Ancien logo-lagencesauvage.svg supprimé
+- [x] Push refonte-2026 → Vercel Preview

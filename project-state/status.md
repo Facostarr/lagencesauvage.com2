@@ -1,6 +1,6 @@
 # Status — Refonte lagencesauvage.com
 
-## Phase en cours : 6 — Bascule (en attente validation logo final)
+## Phase en cours : 6 — Bascule ✅ (logo validé, merge main en cours)
 
 ## Progression
 
@@ -11,8 +11,8 @@
 | Phase 2 — Homepage | ✅ Terminée | 2026-03-22 | 2026-03-22 |
 | Phase 3 — Pages secondaires | ✅ Terminée | 2026-03-22 | 2026-03-22 |
 | Phase 4 — Intégration blog | ✅ Terminée | 2026-03-22 | 2026-03-22 |
-| Phase 5 — Quality gate | ✅ Terminée (logo final en attente) | 2026-03-22 | 2026-03-22 |
-| Phase 6 — Bascule | 🟡 En attente validation logo | — | — |
+| Phase 5 — Quality gate | ✅ Terminée | 2026-03-22 | 2026-03-22 |
+| Phase 6 — Bascule | ✅ Logo validé, merge main | 2026-03-23 | 2026-03-23 |
 | Phase 7 — Post-bascule | ⬜ À faire | — | — |
 
 ## Phase 0 — Tâches détaillées
@@ -124,8 +124,10 @@
 - [x] Logo provisoire C2 intégré (carré arrondi indigo + S espace négatif + texte DM Serif/Sans)
 - [x] Favicon SVG (monogramme S seul)
 - [x] Taille logo augmentée header h-12/h-14, footer h-12
-- [ ] Validation logo final par Franck + contacts extérieurs (monogramme A+S en exploration)
-- [ ] Conversion texte SVG en paths vectorisés (après validation finale)
+- [x] Logo final Logo-Agence-Sauvage.svg intégré (wordmark #403eba, header+footer+params+schema.org)
+- [x] Favicon SVG mis à jour (monogramme S blanc sur carré arrondi #403eba)
+- [x] Ancien logo-lagencesauvage.svg supprimé
+- [ ] Validation Franck sur preview Vercel avec logo final
 
 ## Blockers
 
@@ -157,8 +159,9 @@ Aucun pour le moment.
 - ✅ Homepage section réalisations : approche minimaliste bandeau chiffres + 3 mini-cartes (consensus Claude + Gemini 9/10) — pas de tags stack technique, chiffre héroïque en gros, cartes cliquables (2026-03-22)
 
 - ✅ Logo provisoire C2 : monogramme S (carré arrondi indigo #4F46E5 + S espace négatif blanc) + texte "L'Agence" DM Sans / "Sauvage" DM Serif Display italic. Brainstorm Claude + Gemini (consensus 8/10). Franck consulte des avis extérieurs + explore piste monogramme A+S (2026-03-22)
+- ✅ Logo final : Logo-Agence-Sauvage.svg (wordmark SVG #403eba) intégré sur header, footer, params, schema.org. Favicon monogramme S blanc sur carré arrondi #403eba (2026-03-23)
 
 ## Décisions en attente
 
-- Logo final : C2 provisoire en place, Franck fait valider par contacts extérieurs. Piste monogramme A+S (séries G) à affiner
+- Logo final : Logo-Agence-Sauvage.svg intégré (2026-03-23). Validation preview Vercel en attente
 - ~~Calendly~~ : reporté post-lancement, Franck intégrera si besoin

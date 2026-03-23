@@ -1,5 +1,14 @@
 # Changelog — Refonte lagencesauvage.com
 
+## 2026-03-23 — Logo final intégré + favicon
+
+- Logo final Logo-Agence-Sauvage.svg intégré (wordmark SVG vectorisé, couleur #403eba)
+- Mis à jour : header.html, footer.html, params.toml (logo + schema.org organization)
+- Favicon SVG recréé : monogramme S blanc sur carré arrondi #403eba (path vectorisé, pas de dépendance font)
+- Ancien logo-lagencesauvage.svg supprimé
+- Push refonte-2026 → preview Vercel
+- Commit 9e8e096
+
 ## 2026-03-22 — Phase 5 : Témoignages clients homepage
 
 - Témoignages Olivier Sarezinski (Eurodom) + Myriam Louergli (Optimrezo) intégrés sur la homepage
