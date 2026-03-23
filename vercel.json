@@ -26,6 +26,7 @@
     { "source": "/blog/crm-automatisation-woocommerce-2026.html", "destination": "/blog/crm-automatisation-woocommerce-2026/", "statusCode": 301 },
     { "source": "/blog/l-ia-abordable-en-2025.html", "destination": "/blog/l-ia-abordable-en-2025/", "statusCode": 301 },
     { "source": "/blog/automatiser-emails-gmail-ia.html", "destination": "/blog/automatiser-emails-gmail-ia/", "statusCode": 301 },
+    { "source": "/blog/impact-ia-pme-fran%C3%A7aises-2025.html", "destination": "/blog/impact-ia-pme-françaises-2025/", "statusCode": 301 },
     { "source": "/blog/impact-ia-pme-françaises-2025.html", "destination": "/blog/impact-ia-pme-françaises-2025/", "statusCode": 301 },
     { "source": "/audit-ia-gratuit.html", "destination": "/diagnostic/", "statusCode": 301 }
   ],
