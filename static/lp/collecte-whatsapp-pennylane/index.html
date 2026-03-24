@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Collecte WhatsApp × Pennylane — Vos clients envoient leurs pièces sans relance | L'Agence Sauvage</title>
-  <meta name="description" content="Automatisez la collecte de pièces comptables via WhatsApp avec injection directe dans Pennylane. Temps de collecte divisé par 3, zéro relance, 95% de taux de lecture.">
+  <meta name="description" content="Automatisez la collecte de pièces comptables via WhatsApp avec injection directe dans Pennylane. Temps de collecte divisé par 3, zéro relance, 98% de taux de lecture.">
   <meta name="robots" content="noindex, nofollow">
   <meta name="color-scheme" content="light">
 
@@ -31,8 +31,8 @@
       --slate-border: #E2E8F0;
       --indigo: #4F46E5;
       --indigo-dark: #4338CA;
-      --indigo-light: #6366F1;
-      --brand: #403eba;
+      --indigo-light: #EEF2FF;
+      --green-wa: #25D366;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -45,98 +45,13 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    h1, h2, h3 {
-      font-family: 'DM Serif Display', Georgia, serif;
-      line-height: 1.2;
-    }
+    h1, h2, h3 { font-family: 'DM Serif Display', Georgia, serif; line-height: 1.2; }
+    img { max-width: 100%; height: auto; }
+    a { color: var(--indigo); }
 
-    .container {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    /* ── Header ── */
-    .header {
-      padding: 1.25rem 0;
-      border-bottom: 1px solid var(--slate-border);
-      background: var(--white);
-    }
-
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .logo {
-      height: 2.5rem;
-    }
-
-    .header-cta {
-      font-size: 0.875rem;
-      font-weight: 600;
-      color: var(--indigo);
-      text-decoration: none;
-    }
-
-    .header-cta:hover { text-decoration: underline; }
-
-    /* ── Hero ── */
-    .hero {
-      padding: 5rem 0 4rem;
-      text-align: center;
-    }
-
-    .hero-badge {
-      display: inline-block;
-      padding: 0.375rem 1rem;
-      border-radius: 9999px;
-      background: var(--slate-light);
-      color: var(--indigo);
-      font-size: 0.8125rem;
-      font-weight: 600;
-      letter-spacing: 0.025em;
-      margin-bottom: 1.5rem;
-      border: 1px solid var(--slate-border);
-    }
-
-    .hero h1 {
-      font-size: clamp(2rem, 5vw, 3rem);
-      color: var(--slate-deep);
-      max-width: 800px;
-      margin: 0 auto 1.25rem;
-    }
-
-    .hero-sub {
-      font-size: 1.25rem;
-      color: var(--slate-muted);
-      max-width: 600px;
-      margin: 0 auto 2.5rem;
-    }
-
-    .hero-cta {
-      display: inline-block;
-      padding: 1rem 2.25rem;
-      background: var(--indigo);
-      color: #fff;
-      font-weight: 600;
-      font-size: 1rem;
-      border-radius: 0.5rem;
-      text-decoration: none;
-      transition: background 0.2s;
-    }
-
-    .hero-cta:hover { background: var(--indigo-dark); }
-
-    /* ── Section générique ── */
-    .section {
-      padding: 4.5rem 0;
-    }
-
-    .section-alt {
-      background: var(--slate-light);
-    }
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 1.5rem; }
+    .section { padding: 5rem 0; }
+    .section-alt { background: var(--slate-light); }
 
     .section-title {
       font-size: clamp(1.5rem, 3.5vw, 2.25rem);
@@ -152,200 +67,356 @@
       font-size: 1.0625rem;
     }
 
-    /* ── Problème : 3 colonnes ── */
+    /* ── Header ── */
+    .header {
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--slate-border);
+      background: var(--white);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .header-inner { display: flex; align-items: center; justify-content: space-between; }
+    .logo { height: 2.5rem; }
+
+    .header-cta-btn {
+      display: inline-block;
+      padding: 0.5rem 1.25rem;
+      background: var(--indigo);
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.875rem;
+      border-radius: 0.375rem;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .header-cta-btn:hover { background: var(--indigo-dark); color: #fff; }
+
+    /* ── Hero split ── */
+    .hero {
+      padding: 4rem 0 3rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .hero-visual { order: -1; }
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 0.375rem 1rem;
+      border-radius: 9999px;
+      background: var(--indigo-light);
+      color: var(--indigo);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.025em;
+      margin-bottom: 1.25rem;
+      border: 1px solid var(--slate-border);
+    }
+
+    .hero h1 {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      margin-bottom: 1rem;
+    }
+
+    .hero-sub {
+      font-size: 1.125rem;
+      color: var(--slate-muted);
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: var(--indigo);
+      color: #fff;
+      font-weight: 600;
+      font-size: 1rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .hero-cta:hover { background: var(--indigo-dark); color: #fff; }
+
+    .hero-visual img {
+      border-radius: 1rem;
+      box-shadow: 0 20px 60px rgba(15, 23, 42, 0.12);
+    }
+
+    /* ── Bandeau métriques ── */
+    .metrics-band {
+      background: var(--slate-deep);
+      padding: 2.5rem 0;
+    }
+
+    .metrics-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      text-align: center;
+    }
+
+    @media (max-width: 640px) {
+      .metrics-row { grid-template-columns: 1fr; gap: 1.5rem; }
+    }
+
+    .metric-item {}
+    .metric-value {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 2.5rem;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+    .metric-label { font-size: 0.9375rem; font-weight: 600; color: #CBD5E1; }
+    .metric-vs { font-size: 0.8125rem; color: #64748B; margin-top: 0.25rem; }
+
+    /* ── Problème : 4 cartes ── */
     .problems-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 640px) {
+      .problems-grid { grid-template-columns: 1fr; }
     }
 
     .problem-card {
       background: var(--white);
       border: 1px solid var(--slate-border);
       border-radius: 0.75rem;
-      padding: 2rem;
-      text-align: center;
+      padding: 1.75rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
     }
 
-    .section-alt .problem-card {
-      background: var(--white);
-    }
-
-    .problem-icon {
-      width: 3rem;
-      height: 3rem;
-      margin: 0 auto 1.25rem;
+    .problem-num {
+      flex-shrink: 0;
+      width: 2.25rem;
+      height: 2.25rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      border-radius: 0.75rem;
+      border-radius: 0.5rem;
       background: #FEE2E2;
       color: #DC2626;
-      font-size: 1.25rem;
-    }
-
-    .problem-card h3 {
-      font-size: 1.125rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .problem-card p {
-      color: var(--slate-muted);
-      font-size: 0.9375rem;
-    }
-
-    /* ── Solution : flux visuel ── */
-    .flow {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-      margin-bottom: 2.5rem;
-    }
-
-    .flow-step {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      min-width: 140px;
-    }
-
-    .flow-icon {
-      width: 4rem;
-      height: 4rem;
-      border-radius: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.75rem;
-      margin-bottom: 0.75rem;
-      border: 2px solid var(--slate-border);
-      background: var(--white);
-    }
-
-    .flow-icon-wa { border-color: #25D366; color: #25D366; }
-    .flow-icon-ai { border-color: var(--indigo); color: var(--indigo); }
-    .flow-icon-pen { border-color: #1E40AF; color: #1E40AF; }
-
-    .flow-label {
-      font-weight: 600;
+      font-weight: 700;
       font-size: 0.875rem;
-      margin-bottom: 0.25rem;
     }
 
-    .flow-desc {
+    .problem-card h3 { font-size: 1rem; margin-bottom: 0.375rem; }
+    .problem-card p { color: var(--slate-muted); font-size: 0.875rem; line-height: 1.6; }
+
+    /* ── Solution : split text + image ── */
+    .solution-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .solution-grid { grid-template-columns: 1fr; }
+    }
+
+    .solution-steps { list-style: none; padding: 0; }
+
+    .solution-step {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--slate-border);
+    }
+
+    .solution-step:last-child { border-bottom: none; }
+
+    .step-num {
+      flex-shrink: 0;
+      width: 2rem;
+      height: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: var(--indigo);
+      color: #fff;
+      font-weight: 700;
       font-size: 0.8125rem;
-      color: var(--slate-muted);
     }
 
-    .flow-arrow {
-      font-size: 1.5rem;
-      color: var(--slate-muted);
+    .step-title { font-family: 'DM Sans', sans-serif; font-weight: 600; margin-bottom: 0.25rem; }
+    .step-desc { color: var(--slate-muted); font-size: 0.875rem; }
+
+    .solution-img img {
+      border-radius: 0.75rem;
+      border: 1px solid var(--slate-border);
+    }
+
+    /* ── Escalade ── */
+    .escalade-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.5rem;
     }
 
     @media (max-width: 640px) {
-      .flow { flex-direction: column; }
-      .flow-arrow { transform: rotate(90deg); }
+      .escalade-grid { grid-template-columns: 1fr; }
     }
 
-    .solution-details {
-      max-width: 640px;
-      margin: 0 auto;
+    .escalade-card {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      border-radius: 0.75rem;
+      border: 1px solid var(--slate-border);
+      background: var(--white);
     }
 
-    .solution-details ul {
+    .escalade-day {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 1.75rem;
+      color: var(--indigo);
+      margin-bottom: 0.5rem;
+    }
+
+    .escalade-type { font-weight: 600; margin-bottom: 0.375rem; }
+    .escalade-desc { font-size: 0.8125rem; color: var(--slate-muted); }
+
+    /* ── Sous le capot ── */
+    .capot-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .capot-grid { grid-template-columns: 1fr; }
+    }
+
+    .capot-stats {
       list-style: none;
       padding: 0;
     }
 
-    .solution-details li {
-      padding: 0.625rem 0;
-      padding-left: 1.75rem;
-      position: relative;
-      color: var(--slate-muted);
-      font-size: 0.9375rem;
+    .capot-stat {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--slate-border);
     }
 
-    .solution-details li::before {
-      content: "✓";
-      position: absolute;
-      left: 0;
+    .capot-stat:last-child { border-bottom: none; }
+
+    .capot-stat-value {
+      flex-shrink: 0;
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 1.5rem;
       color: var(--indigo);
-      font-weight: 700;
+      min-width: 3.5rem;
+      text-align: right;
     }
 
-    /* ── Résultats : 3 métriques ── */
-    .metrics-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 2rem;
-      text-align: center;
-    }
+    .capot-stat-label { font-size: 0.9375rem; color: var(--slate-muted); }
+    .capot-stat-label strong { color: var(--slate-deep); }
 
-    .metric {
-      padding: 2rem 1.5rem;
+    .capot-img img {
       border-radius: 0.75rem;
-      background: var(--white);
       border: 1px solid var(--slate-border);
     }
 
-    .metric-value {
-      font-family: 'DM Serif Display', Georgia, serif;
-      font-size: 2.75rem;
-      color: var(--indigo);
-      line-height: 1;
-      margin-bottom: 0.5rem;
+    /* ── FAQ ── */
+    .faq-list { max-width: 720px; margin: 0 auto; }
+
+    .faq-item {
+      border-bottom: 1px solid var(--slate-border);
     }
 
-    .metric-label {
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 1.25rem 0;
+      background: none;
+      border: none;
+      font-family: 'DM Sans', sans-serif;
       font-size: 1rem;
       font-weight: 600;
-      margin-bottom: 0.25rem;
+      color: var(--slate-deep);
+      cursor: pointer;
+      text-align: left;
+      gap: 1rem;
     }
 
-    .metric-desc {
-      font-size: 0.8125rem;
+    .faq-question:hover { color: var(--indigo); }
+
+    .faq-chevron {
+      flex-shrink: 0;
+      width: 1.25rem;
+      height: 1.25rem;
+      transition: transform 0.2s;
       color: var(--slate-muted);
     }
 
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .faq-answer-inner {
+      padding: 0 0 1.25rem;
+      color: var(--slate-muted);
+      font-size: 0.9375rem;
+      line-height: 1.7;
+    }
+
     /* ── Preuve sociale ── */
-    .proof {
+    .proof-band {
       text-align: center;
-      padding: 3rem 0;
+      padding: 2.5rem 0;
       border-top: 1px solid var(--slate-border);
+      border-bottom: 1px solid var(--slate-border);
     }
 
     .proof-text {
-      font-size: 1.0625rem;
+      font-size: 1rem;
       color: var(--slate-muted);
       max-width: 640px;
       margin: 0 auto;
     }
 
-    .proof-link {
-      color: var(--indigo);
-      font-weight: 600;
-      text-decoration: none;
-    }
-
+    .proof-link { color: var(--indigo); font-weight: 600; text-decoration: none; }
     .proof-link:hover { text-decoration: underline; }
 
-    /* ── Formulaire CTA ── */
+    /* ── CTA / Formulaire ── */
     .cta-section {
       padding: 5rem 0;
       background: var(--slate-deep);
-      color: #F1F5F9;
     }
 
-    .cta-section .section-title {
-      color: #F1F5F9;
-    }
-
-    .cta-section .section-intro {
-      color: #94A3B8;
-    }
+    .cta-section .section-title { color: #F1F5F9; }
+    .cta-section .section-intro { color: #94A3B8; }
 
     .form-card {
       max-width: 480px;
@@ -356,9 +427,7 @@
       color: var(--slate-deep);
     }
 
-    .form-group {
-      margin-bottom: 1.25rem;
-    }
+    .form-group { margin-bottom: 1.25rem; }
 
     .form-group label {
       display: block;
@@ -385,9 +454,7 @@
       box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
     }
 
-    .form-group input::placeholder {
-      color: var(--slate-muted);
-    }
+    .form-group input::placeholder { color: var(--slate-muted); }
 
     .form-submit {
       width: 100%;
@@ -402,7 +469,6 @@
       cursor: pointer;
       transition: background 0.2s;
     }
-
     .form-submit:hover { background: var(--indigo-dark); }
 
     .form-note {
@@ -412,20 +478,9 @@
       margin-top: 1rem;
     }
 
-    .form-success {
-      display: none;
-      text-align: center;
-      padding: 2rem;
-    }
-
-    .form-success.active {
-      display: block;
-    }
-
-    .form-success h3 {
-      color: var(--indigo);
-      margin-bottom: 0.5rem;
-    }
+    .form-success { display: none; text-align: center; padding: 2rem; }
+    .form-success.active { display: block; }
+    .form-success h3 { color: var(--indigo); margin-bottom: 0.5rem; }
 
     /* ── Footer ── */
     .footer {
@@ -435,12 +490,7 @@
       font-size: 0.8125rem;
       color: var(--slate-muted);
     }
-
-    .footer a {
-      color: var(--slate-muted);
-      text-decoration: none;
-    }
-
+    .footer a { color: var(--slate-muted); text-decoration: none; }
     .footer a:hover { text-decoration: underline; }
 
     /* ── Animations ── */
@@ -450,151 +500,269 @@
         transform: translateY(1.5rem);
         transition: opacity 0.6s ease, transform 0.6s ease;
       }
-      .fade-up.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      .fade-up.visible { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
+  <!-- ════════ HEADER ════════ -->
   <header class="header">
     <div class="container header-inner">
       <a href="https://www.lagencesauvage.com/?utm_source=mailwizz&utm_medium=email&utm_campaign=collecte-whatsapp-pennylane" aria-label="L'Agence Sauvage">
         <img src="/assets/images/Logo-Agence-Sauvage.svg" alt="L'Agence Sauvage" class="logo">
       </a>
-      <a href="#formulaire" class="header-cta">Demander une démo</a>
+      <a href="#formulaire" class="header-cta-btn">Découvrir le système</a>
     </div>
   </header>
 
-  <!-- Hero -->
+  <!-- ════════ HERO SPLIT ════════ -->
   <section class="hero">
     <div class="container">
-      <span class="hero-badge">Experts-comptables</span>
-      <h1>Vos clients vous envoient leurs pièces comptables — sans que vous les relanciez</h1>
-      <p class="hero-sub">Un flux WhatsApp automatisé qui collecte, classe et injecte les justificatifs directement dans Pennylane. Temps de collecte divisé par 3.</p>
-      <a href="#formulaire" class="hero-cta">Découvrez comment l'appliquer à votre cabinet</a>
-    </div>
-  </section>
-
-  <!-- Problème -->
-  <section class="section section-alt">
-    <div class="container">
-      <h2 class="section-title fade-up">Le problème que vous connaissez trop bien</h2>
-      <p class="section-intro fade-up">Chaque mois, la même course contre la montre pour récupérer les pièces de vos clients.</p>
-      <div class="problems-grid">
-        <div class="problem-card fade-up">
-          <div class="problem-icon">
-            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          </div>
-          <h3>Relances chronophages</h3>
-          <p>Vos collaborateurs passent des heures à relancer par email des clients qui ne répondent pas. Chaque période de clôture, c'est la même corvée.</p>
+      <div class="hero-grid">
+        <div class="hero-content">
+          <span class="hero-badge">Experts-comptables</span>
+          <h1>Fini la chasse aux pièces : vos clients vous les envoient sur WhatsApp</h1>
+          <p class="hero-sub">Un système automatisé qui relance vos clients via WhatsApp, collecte leurs justificatifs, et les injecte directement dans Pennylane. Parfaitement intégré à votre environnement existant.</p>
+          <a href="#formulaire" class="hero-cta">Découvrez comment l'appliquer à votre cabinet</a>
         </div>
-        <div class="problem-card fade-up">
-          <div class="problem-icon">
-            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          </div>
-          <h3>Emails ignorés</h3>
-          <p>Taux d'ouverture moyen d'un email de relance : 20 %. Vos demandes finissent noyées dans la boîte de réception de vos clients.</p>
-        </div>
-        <div class="problem-card fade-up">
-          <div class="problem-icon">
-            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z"/><path d="M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/><path d="M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z"/><path d="M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z"/><path d="M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z"/><path d="M15.5 19H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z"/><path d="M10 9.5C10 10.33 9.33 11 8.5 11h-5C2.67 11 2 10.33 2 9.5S2.67 8 3.5 8h5c.83 0 1.5.67 1.5 1.5z"/><path d="M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z"/></svg>
-          </div>
-          <h3>Retards en clôture</h3>
-          <p>Pièces manquantes = clôture décalée. Vous accumulez du retard sur les bilans et mettez la pression à toute l'équipe.</p>
+        <div class="hero-visual fade-up">
+          <img src="/assets/images/mockup-whatsapp-pennylane.webp" alt="Conversation WhatsApp automatisée avec un client pour la collecte de pièces comptables, synchronisée avec Pennylane" width="540" height="400" loading="eager">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Solution -->
-  <section class="section">
+  <!-- ════════ BANDEAU MÉTRIQUES ════════ -->
+  <section class="metrics-band">
     <div class="container">
-      <h2 class="section-title fade-up">La solution : WhatsApp comme canal de collecte</h2>
-      <p class="section-intro fade-up">Vos clients photographient leurs justificatifs sur WhatsApp. Le reste est entièrement automatique.</p>
-
-      <div class="flow fade-up">
-        <div class="flow-step">
-          <div class="flow-icon flow-icon-wa">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          </div>
-          <span class="flow-label">WhatsApp</span>
-          <span class="flow-desc">Le client envoie<br>sa pièce</span>
+      <div class="metrics-row">
+        <div class="metric-item">
+          <div class="metric-value">~98 %</div>
+          <div class="metric-label">Taux d'ouverture WhatsApp</div>
+          <div class="metric-vs">vs ~20 % pour l'email</div>
         </div>
-        <span class="flow-arrow">→</span>
-        <div class="flow-step">
-          <div class="flow-icon flow-icon-ai">
-            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z"/></svg>
-          </div>
-          <span class="flow-label">IA Classification</span>
-          <span class="flow-desc">Tri et extraction<br>automatiques</span>
-        </div>
-        <span class="flow-arrow">→</span>
-        <div class="flow-step">
-          <div class="flow-icon flow-icon-pen">
-            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z"/></svg>
-          </div>
-          <span class="flow-label">Pennylane</span>
-          <span class="flow-desc">Injection directe<br>dans votre compta</span>
-        </div>
-      </div>
-
-      <div class="solution-details fade-up">
-        <ul>
-          <li>Le client photographie une facture ou un justificatif sur WhatsApp — comme il enverrait un message à un ami</li>
-          <li>L'IA identifie le type de document, extrait les données clés (montant, fournisseur, date)</li>
-          <li>Le justificatif est classé et injecté dans Pennylane avec les bonnes imputations</li>
-          <li>Votre collaborateur reçoit une notification uniquement en cas d'anomalie à vérifier</li>
-          <li>Un rappel automatique est envoyé aux clients qui n'ont pas transmis leurs pièces — sans intervention de votre équipe</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Résultats -->
-  <section class="section section-alt">
-    <div class="container">
-      <h2 class="section-title fade-up">Les résultats constatés</h2>
-      <p class="section-intro fade-up">Mesurés sur des cabinets ayant déployé ce type d'automatisation.</p>
-      <div class="metrics-grid fade-up">
-        <div class="metric">
-          <div class="metric-value">&divide;3</div>
+        <div class="metric-item">
+          <div class="metric-value">&divide; 3</div>
           <div class="metric-label">Temps de collecte</div>
-          <div class="metric-desc">Vos collaborateurs se concentrent sur le conseil, pas sur les relances</div>
+          <div class="metric-vs">Vos collaborateurs conseillent, l'IA relance</div>
         </div>
-        <div class="metric">
+        <div class="metric-item">
           <div class="metric-value">0</div>
           <div class="metric-label">Relance manuelle</div>
-          <div class="metric-desc">Les rappels automatiques remplacent les emails que personne ne lit</div>
-        </div>
-        <div class="metric">
-          <div class="metric-value">95 %</div>
-          <div class="metric-label">Taux de lecture</div>
-          <div class="metric-desc">WhatsApp vs 20 % pour l'email — vos clients voient vraiment le message</div>
+          <div class="metric-vs">Escalade automatique J+3, J+4, J+7</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Preuve sociale -->
-  <section class="proof">
+  <!-- ════════ LE PROBLÈME ════════ -->
+  <section class="section section-alt">
+    <div class="container">
+      <h2 class="section-title fade-up">Vos collaborateurs méritent mieux que de la relance manuelle</h2>
+      <p class="section-intro fade-up">Chaque mois, le même scénario se répète dans votre cabinet.</p>
+      <div class="problems-grid">
+        <div class="problem-card fade-up">
+          <div class="problem-num">1</div>
+          <div>
+            <h3>15 à 20 heures par semaine perdues</h3>
+            <p>Vos collaborateurs trient des boîtes mail engorgées, relancent pour des pièces manquantes, saisissent manuellement. Temps non facturable, à faible valeur ajoutée.</p>
+          </div>
+        </div>
+        <div class="problem-card fade-up">
+          <div class="problem-num">2</div>
+          <div>
+            <h3>Des emails de relance ignorés</h3>
+            <p>Le taux d'ouverture moyen d'un email de relance reste autour de 20 %. Vos demandes finissent noyées dans la boîte de réception de vos clients.</p>
+          </div>
+        </div>
+        <div class="problem-card fade-up">
+          <div class="problem-num">3</div>
+          <div>
+            <h3>Des clôtures en retard</h3>
+            <p>Sans les pièces justificatives, impossible de clôturer. Les impayés s'accumulent sans relance systématique. La trésorerie de vos clients en pâtit.</p>
+          </div>
+        </div>
+        <div class="problem-card fade-up">
+          <div class="problem-num">4</div>
+          <div>
+            <h3>Des outils qui détectent mais ne relancent pas</h3>
+            <p>Pennylane identifie les documents manquants. Votre messagerie reçoit les factures. Mais entre la détection et l'action, tout repose sur la discipline humaine.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ COMMENT ÇA MARCHE ════════ -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title fade-up">Le client répond en quelques minutes — avec une simple photo</h2>
+      <p class="section-intro fade-up">Le système interroge Pennylane toutes les 6 heures, détecte les documents manquants, et relance chaque client sur WhatsApp avec un message personnalisé.</p>
+
+      <div class="solution-grid fade-up">
+        <div>
+          <ul class="solution-steps">
+            <li class="solution-step">
+              <div class="step-num">1</div>
+              <div>
+                <div class="step-title">Détection automatique</div>
+                <div class="step-desc">Le système synchronise Pennylane toutes les 6 heures et identifie les documents manquants pour chaque client.</div>
+              </div>
+            </li>
+            <li class="solution-step">
+              <div class="step-num">2</div>
+              <div>
+                <div class="step-title">Relance WhatsApp personnalisée</div>
+                <div class="step-desc">Le client reçoit un message WhatsApp clair et personnalisé. L'IA gère la conversation naturellement — le client a l'impression de parler à un collaborateur.</div>
+              </div>
+            </li>
+            <li class="solution-step">
+              <div class="step-num">3</div>
+              <div>
+                <div class="step-title">Le client répond avec une photo</div>
+                <div class="step-desc">Comme il enverrait un message à un ami. Pas besoin d'ordinateur, de scanner, ou de chercher dans ses pièces jointes.</div>
+              </div>
+            </li>
+            <li class="solution-step">
+              <div class="step-num">4</div>
+              <div>
+                <div class="step-title">Injection directe dans Pennylane</div>
+                <div class="step-desc">L'IA valide le document, l'identifie, et l'uploade dans Pennylane avec les bonnes imputations. Boucle fermée, collaborateur libéré.</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="solution-img">
+          <img src="/assets/images/mockup-whatsapp-pennylane.webp" alt="Flux automatisé WhatsApp vers Pennylane — collecte de justificatifs comptables" width="540" height="400" loading="lazy">
+        </div>
+      </div>
+
+      <!-- Escalade progressive -->
+      <div class="escalade-grid fade-up">
+        <div class="escalade-card">
+          <div class="escalade-day">J+3</div>
+          <div class="escalade-type">Relance douce</div>
+          <div class="escalade-desc">Message amical rappelant les pièces en attente</div>
+        </div>
+        <div class="escalade-card">
+          <div class="escalade-day">J+4</div>
+          <div class="escalade-type">Rappel</div>
+          <div class="escalade-desc">Second message avec liste numérotée des documents manquants</div>
+        </div>
+        <div class="escalade-card">
+          <div class="escalade-day">J+7</div>
+          <div class="escalade-type">Escalade</div>
+          <div class="escalade-desc">Dernière relance avant notification à votre collaborateur</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ SOUS LE CAPOT ════════ -->
+  <section class="section section-alt">
+    <div class="container">
+      <h2 class="section-title fade-up">Sous le capot : un système déployé en production</h2>
+      <p class="section-intro fade-up">Ce n'est pas un prototype. C'est un système opérationnel, construit et maintenu pour un cabinet comptable.</p>
+
+      <div class="capot-grid fade-up">
+        <div>
+          <ul class="capot-stats">
+            <li class="capot-stat">
+              <div class="capot-stat-value">9</div>
+              <div class="capot-stat-label"><strong>Workflows interconnectés</strong> dédiés à la collecte WhatsApp × Pennylane</div>
+            </li>
+            <li class="capot-stat">
+              <div class="capot-stat-value">86</div>
+              <div class="capot-stat-label"><strong>Nodes automatisés</strong> — chaque cas limite est couvert</div>
+            </li>
+            <li class="capot-stat">
+              <div class="capot-stat-value">6h</div>
+              <div class="capot-stat-label"><strong>Cycle de synchronisation</strong> Pennylane — aucun document oublié</div>
+            </li>
+            <li class="capot-stat">
+              <div class="capot-stat-value">24/7</div>
+              <div class="capot-stat-label"><strong>Disponibilité</strong> — le système relance même le week-end</div>
+            </li>
+            <li class="capot-stat">
+              <div class="capot-stat-value">13+</div>
+              <div class="capot-stat-label"><strong>Workflows au total</strong> dans le Pôle Financier Augmenté (tri emails, OCR, recouvrement)</div>
+            </li>
+          </ul>
+        </div>
+        <div class="capot-img">
+          <img src="/assets/images/architecture-pole-financier-augmente.webp" alt="Architecture technique du Pôle Financier Augmenté : 5 blocs — tri emails, OCR factures, relance WhatsApp Pennylane, recouvrement La Poste, monitoring" width="600" height="400" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ PREUVE SOCIALE ════════ -->
+  <section class="proof-band">
     <div class="container">
       <p class="proof-text">
-        Ce flux est basé sur notre case study
+        Ce système fait partie de notre case study
         <a href="https://www.lagencesauvage.com/realisations/automatisation-pole-financier-pennylane-expert-comptable/?utm_source=mailwizz&utm_medium=email&utm_campaign=collecte-whatsapp-pennylane" class="proof-link">Pôle Financier Augmenté</a>
-        — 13 workflows automatisés, déployés en production pour un cabinet comptable.
+        — 13 workflows déployés en production pour un cabinet d'expertise comptable. Du tri des emails à la mise en demeure par courrier recommandé.
       </p>
     </div>
   </section>
 
-  <!-- CTA / Formulaire -->
+  <!-- ════════ FAQ ════════ -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title fade-up">Questions fréquentes</h2>
+      <div class="faq-list fade-up">
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Est-ce sécurisé pour les données financières de mes clients ?
+            <svg class="faq-chevron" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">L'ensemble de l'infrastructure est auto-hébergé sur un serveur dédié. Les documents transitent par un stockage chiffré et sont supprimés après traitement. La passerelle WhatsApp (Evolution API) est auto-hébergée — aucune donnée ne passe par des serveurs tiers non maîtrisés. L'audit trail trace chaque action.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Et si mes clients n'utilisent pas WhatsApp ?
+            <svg class="faq-chevron" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">En France, plus de 33 millions de personnes utilisent WhatsApp. Dans la pratique, la quasi-totalité des dirigeants de TPE/PME ont l'application sur leur téléphone. Pour les rares exceptions, le système de relance par email classique reste actif en parallèle.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Est-ce conforme au RGPD d'envoyer des relances WhatsApp ?
+            <svg class="faq-chevron" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Les relances WhatsApp s'inscrivent dans le cadre de l'exécution contractuelle entre votre cabinet et vos clients. Elles remplacent les relances email ou téléphoniques habituelles. L'infrastructure WhatsApp est auto-hébergée sur votre serveur — aucune donnée n'est partagée avec Meta ou des tiers.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Combien de temps pour le déployer dans mon cabinet ?
+            <svg class="faq-chevron" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">La connexion Pennylane et WhatsApp prend 2 à 3 semaines. Le déploiement complet du Pôle Financier Augmenté (incluant tri email, OCR factures, recouvrement) se fait en 3 à 6 semaines selon la complexité de votre environnement. L'appel découverte de 15 minutes permet d'évaluer précisément votre situation.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ CTA / FORMULAIRE ════════ -->
   <section class="cta-section" id="formulaire">
     <div class="container">
       <h2 class="section-title fade-up">Découvrez comment l'appliquer à votre cabinet</h2>
-      <p class="section-intro fade-up">Remplissez ce formulaire et nous vous recontactons sous 24h avec une analyse personnalisée.</p>
+      <p class="section-intro fade-up">Laissez vos coordonnées. On vous recontacte sous 24h pour un appel découverte de 15 minutes — on évalue ensemble le potentiel d'automatisation de votre collecte.</p>
 
       <div class="form-card fade-up" id="form-container">
         <form id="lead-form" action="/api/submit-lead" method="POST">
@@ -622,19 +790,19 @@
             <label for="cabinet">Nom du cabinet</label>
             <input type="text" id="cabinet" name="company" placeholder="Cabinet Dupont & Associés" required>
           </div>
-          <button type="submit" class="form-submit">Recevoir l'analyse personnalisée</button>
-          <p class="form-note">Gratuit, sans engagement. Vos données restent confidentielles.</p>
+          <button type="submit" class="form-submit">Recevoir l'appel découverte</button>
+          <p class="form-note">Gratuit, sans engagement, 15 minutes. Vos données restent confidentielles.</p>
         </form>
 
         <div class="form-success" id="form-success">
           <h3>Merci !</h3>
-          <p>Nous avons bien reçu votre demande. Un consultant vous recontacte sous 24h pour analyser comment adapter ce flux à votre cabinet.</p>
+          <p>Nous avons bien reçu votre demande. Un consultant vous recontacte sous 24h pour planifier votre appel découverte.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- ════════ FOOTER ════════ -->
   <footer class="footer">
     <div class="container">
       <p>&copy; 2026 L'Agence Sauvage — <a href="https://www.lagencesauvage.com/mentions-legales/?utm_source=mailwizz&utm_medium=email&utm_campaign=collecte-whatsapp-pennylane">Mentions légales</a> &middot; <a href="https://www.lagencesauvage.com/confidentialite/?utm_source=mailwizz&utm_medium=email&utm_campaign=collecte-whatsapp-pennylane">Confidentialité</a></p>
@@ -646,16 +814,43 @@
     if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
-      }, { threshold: 0.15 });
+      }, { threshold: 0.1 });
       document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
     } else {
       document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible'));
     }
 
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const answer = item.querySelector('.faq-answer');
+        const isOpen = item.classList.contains('open');
+
+        // Close all
+        document.querySelectorAll('.faq-item.open').forEach(openItem => {
+          openItem.classList.remove('open');
+          openItem.querySelector('.faq-answer').style.maxHeight = null;
+          openItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        });
+
+        // Toggle current
+        if (!isOpen) {
+          item.classList.add('open');
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
     // Form submission
     document.getElementById('lead-form').addEventListener('submit', async function(e) {
       e.preventDefault();
       const form = e.target;
+      const btn = form.querySelector('.form-submit');
+      btn.textContent = 'Envoi en cours…';
+      btn.disabled = true;
+
       const data = Object.fromEntries(new FormData(form));
 
       try {
@@ -667,9 +862,11 @@
         if (res.ok) {
           form.style.display = 'none';
           document.getElementById('form-success').classList.add('active');
+        } else {
+          btn.textContent = 'Recevoir l\'appel découverte';
+          btn.disabled = false;
         }
       } catch (err) {
-        // Fallback: redirect to main site contact
         window.location.href = 'https://www.lagencesauvage.com/?utm_source=mailwizz&utm_medium=email&utm_campaign=collecte-whatsapp-pennylane#audit-form';
       }
     });
