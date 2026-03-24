@@ -507,7 +507,7 @@
   <header class="header">
     <div class="container header-inner">
       <a href="https://www.lagencesauvage.com/?utm_source=mailwizz&utm_medium=email&utm_campaign=collecte-whatsapp-pennylane" aria-label="L'Agence Sauvage">
-        <img src="/Logo-Agence-Sauvage.svg" alt="L'Agence Sauvage" class="logo">
+        <img src="/assets/images/Logo-Agence-Sauvage.svg" alt="L'Agence Sauvage" class="logo">
       </a>
       <a href="#formulaire" class="header-cta">Demander une démo</a>
     </div>
@@ -642,11 +642,13 @@
 
       <div class="form-card fade-up" id="form-container">
         <form id="lead-form" action="/api/submit-lead" method="POST">
-          <!-- UTM hidden fields -->
+          <!-- Hidden fields: UTM + API required fields -->
           <input type="hidden" name="utm_source" value="mailwizz">
           <input type="hidden" name="utm_medium" value="email">
           <input type="hidden" name="utm_campaign" value="collecte-whatsapp-pennylane">
-          <input type="hidden" name="page" value="lp-collecte-whatsapp-pennylane">
+          <input type="hidden" name="source" value="Landing Page - Collecte WhatsApp Pennylane">
+          <input type="hidden" name="company_size" value="6-20">
+          <input type="hidden" name="challenge" value="Collecte pièces comptables WhatsApp × Pennylane">
 
           <div class="form-group">
             <label for="name">Votre nom</label>
@@ -657,8 +659,12 @@
             <input type="email" id="email" name="email" placeholder="j.dupont@cabinet.fr" required>
           </div>
           <div class="form-group">
+            <label for="phone">Téléphone <span style="font-weight:400;color:var(--slate-muted)">(optionnel)</span></label>
+            <input type="tel" id="phone" name="phone" placeholder="06 12 34 56 78">
+          </div>
+          <div class="form-group">
             <label for="cabinet">Nom du cabinet</label>
-            <input type="text" id="cabinet" name="company" placeholder="Cabinet Dupont & Associés">
+            <input type="text" id="cabinet" name="company" placeholder="Cabinet Dupont & Associés" required>
           </div>
           <button type="submit" class="form-submit">Recevoir l'analyse personnalisée</button>
           <p class="form-note">Gratuit, sans engagement. Vos données restent confidentielles.</p>
