@@ -303,7 +303,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 3rem;
-      align-items: center;
+      align-items: start;
     }
 
     @media (max-width: 768px) {
@@ -340,6 +340,10 @@
     .capot-img img {
       border-radius: 0.75rem;
       border: 1px solid var(--slate-border);
+      max-height: 600px;
+      width: auto;
+      margin: 0 auto;
+      display: block;
     }
 
     /* ── FAQ ── */
@@ -527,7 +531,7 @@
           <a href="#formulaire" class="hero-cta">Découvrez comment l'appliquer à votre cabinet</a>
         </div>
         <div class="hero-visual fade-up">
-          <img src="/assets/images/mockup-whatsapp-pennylane.webp" alt="Conversation WhatsApp automatisée avec un client pour la collecte de pièces comptables, synchronisée avec Pennylane" width="540" height="400" loading="eager">
+          <img src="/assets/images/mockup-whatsapp-collecte.webp" alt="Conversation WhatsApp automatisée avec un client pour la collecte de pièces comptables, synchronisée avec Pennylane" width="540" height="400" loading="eager">
         </div>
       </div>
     </div>
@@ -634,7 +638,7 @@
           </ul>
         </div>
         <div class="solution-img">
-          <img src="/assets/images/mockup-whatsapp-pennylane.webp" alt="Flux automatisé WhatsApp vers Pennylane — collecte de justificatifs comptables" width="540" height="400" loading="lazy">
+          <img src="/assets/images/mockup-whatsapp-collecte.webp" alt="Flux automatisé WhatsApp vers Pennylane — collecte de justificatifs comptables" width="540" height="400" loading="lazy">
         </div>
       </div>
 
@@ -691,7 +695,7 @@
           </ul>
         </div>
         <div class="capot-img">
-          <img src="/assets/images/architecture-pole-financier-augmente.webp" alt="Architecture technique du Pôle Financier Augmenté : 5 blocs — tri emails, OCR factures, relance WhatsApp Pennylane, recouvrement La Poste, monitoring" width="600" height="400" loading="lazy">
+          <img src="/assets/images/architecture-whatsapp-pennylane.webp" alt="Architecture technique du module collecte WhatsApp × Pennylane : 9 workflows — sync Pennylane, orchestrateur relances, envoi WhatsApp, webhook réception, traitement fichier, conversation IA, upload Pennylane" width="540" height="968" loading="lazy">
         </div>
       </div>
     </div>
