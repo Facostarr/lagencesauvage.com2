@@ -1,6 +1,6 @@
 # Status — Refonte lagencesauvage.com
 
-## Phase en cours : 6 — Bascule ✅ (logo validé, merge main en cours)
+## Phase en cours : 7 — Post-bascule 🔄
 
 ## Progression
 
@@ -160,6 +160,7 @@ Aucun pour le moment.
 
 - ✅ Logo provisoire C2 : monogramme S (carré arrondi indigo #4F46E5 + S espace négatif blanc) + texte "L'Agence" DM Sans / "Sauvage" DM Serif Display italic. Brainstorm Claude + Gemini (consensus 8/10). Franck consulte des avis extérieurs + explore piste monogramme A+S (2026-03-22)
 - ✅ Logo final : Logo-Agence-Sauvage.svg (wordmark SVG #403eba) intégré sur header, footer, params, schema.org. Favicon monogramme S blanc sur carré arrondi #403eba (2026-03-23)
+- ✅ Section "De la théorie à la pratique" : case studies pertinentes en fin d'article blog, entre author box et CTA final. Articles connexes déplacés après le CTA (filet de sécurité). Brainstorm Claude + Gemini consensus 8/10 (2026-03-23)
 
 ## Phase 7 — Post-bascule — Tâches détaillées
 
@@ -168,16 +169,23 @@ Aucun pour le moment.
 - [x] Recrawl Search Console (homepage, services, réalisations, about, blog, diagnostic, faq, 8 articles)
 - [x] Nouvel article blog "Comment être cité par ChatGPT" — SEO/GEO optimisé, image Gemini, sources liées
 - [x] Règle sourcing ajoutée à CLAUDE.md (liens hypertextes obligatoires sur toute citation)
-- [ ] Recrawl Search Console : 6 case studies (quota dépassé le 23/03)
+- [x] Section "De la théorie à la pratique" : case studies en fin d'article blog (partial + matching 9 articles, consensus Claude+Gemini 8/10)
+- [x] Brainstorm Claude + Gemini : 4 idées d'articles blog SEO/GEO (consensus 8/10 + 9/10)
+- [x] Article "Facturation électronique 2026 : ce que Pennylane ne fait pas" — SEO/GEO, 8 sources fraîches, 5 FAQ, image Gemini
+- [ ] Recrawl Search Console : 6 case studies + nouvel article facturation (quota dépassé le 23/03)
 - [ ] Monitoring 404 + vérification indexation nouvelles pages (7-14 jours)
 - [ ] Créer commande `/new-article` pour workflow article répétable
 - [ ] Installer Hugo en local (retrouver le setup winget + subst S:)
+- [ ] Rédiger article 2/4 : "Claude Cowork et PME : la fin des silos documentaires"
+- [ ] Rédiger article 3/4 : "Agents IA autonomes en PME : 3 cas d'usage réels"
+- [ ] Rédiger article 4/4 : "IA et professions juridiques : gain de temps et secret professionnel"
 
 ## Décisions prises (post-bascule)
 
 - ✅ Toute citation/étude dans un article doit avoir un lien hypertexte vérifiable vers la source (consensus Claude + Gemini 8/10, 2026-03-23)
 - ✅ Section "Sources et références" obligatoire en bas de chaque article (2026-03-23)
 - ✅ CLAUDE.md enrichi avec section "Production d'articles de blog" (2026-03-23)
+- ✅ Stratégie blog semaine 2026-03-23 : 4 articles SEO/GEO validés (brainstorm Claude + Gemini, consensus 8/10 + 9/10) — facturation électronique, Claude Cowork, agents IA autonomes, professions juridiques (2026-03-23)
 
 ## Décisions en attente
 

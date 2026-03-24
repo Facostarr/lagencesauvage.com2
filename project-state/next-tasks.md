@@ -31,16 +31,29 @@ Quota dépassé aujourd'hui. Demander l'indexation pour les 6 case studies :
 
 - [ ] Monitoring 404 dans Search Console
 - [ ] Vérifier indexation des nouvelles pages (7-14 jours)
-- [ ] Supprimer ancien sitemap-blog.xml dans Search Console
+- [x] Fix sitemap.xml : toutes les pages incluses (articles, case studies, etc.)
+- [ ] Supprimer ancien sitemap-blog.xml dans Search Console + resoumettre sitemap.xml
 
 ### Production de contenu (en cours)
 
 - [x] Article "Comment être cité par ChatGPT" — SEO/GEO optimisé, image Gemini, 6 sources liées, bibliographie
 - [x] Règle sourcing dans CLAUDE.md : liens hypertextes obligatoires sur toute citation
 - [x] Mémoire sauvegardée : feedback_sources_links.md
+- [x] Section "De la théorie à la pratique" — case studies en fin d'article blog (partial + layout réorganisé + matching 9 articles)
+- [x] Brainstorm Claude + Gemini : 4 idées d'articles SEO/GEO (consensus 8/10 + 9/10)
+- [x] Article "Facturation électronique 2026 : ce que Pennylane ne fait pas" — 5 angles morts PDP, case study Pôle Financier, 8 sources fraîches, 5 FAQ schema, image Gemini
+
+### Articles à rédiger cette semaine (plan validé)
+
+- [x] Article "Claude Cowork en mars 2026 : 3 cas d'usage concrets pour les PME" — brainstorm 9/10, 14 sources, pushé 2026-03-24
+- [ ] Article 3/4 : "Agents IA autonomes en PME : 3 cas d'usage réels qui remplacent les SaaS" — Guides pratiques
+- [ ] Article 4/4 : "IA et professions juridiques : gain de temps et secret professionnel en 2026" — Expertise terrain
+
+### Outillage blog
+
 - [ ] Créer commande `/new-article` (workflow article orchestré)
 - [ ] Créer archetype Hugo `archetypes/blog.md` (template front matter)
-- [ ] Retrouver/réinstaller Hugo local (winget + subst S:)
+- [x] Hugo Extended v0.158.0 installé en local + subst S: fonctionnel
 
 ### Leviers GEO prioritaires (post-lancement)
 

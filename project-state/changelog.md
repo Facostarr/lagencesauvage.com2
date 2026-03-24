@@ -1,5 +1,33 @@
 # Changelog — Refonte lagencesauvage.com
 
+## 2026-03-24 — Article Claude Cowork + fix sitemap
+
+- Nouvel article blog : "Claude Cowork en mars 2026 : 3 cas d'usage concrets pour les PME (et gains de temps chiffrés)"
+- ~2 300 mots, 6 H2, 5 FAQ schema, 3 takeaways, 14 sources liées avec bibliographie
+- 3 cas d'usage détaillés : comptabilité (2h→20min), marketing (40-60% plus rapide), SAV (Slack+Salesforce)
+- Intégration naturelle offres Formation IA + Transformation IA (sans prix, RDV uniquement)
+- Recherche multi-sources : WebSearch (8 requêtes) + Gemini Deep Research (13 min)
+- Brainstorm Claude + Gemini : consensus 9/10
+- Image hero mockup interface Claude Cowork (Gemini, 47 Ko WebP)
+- Fix sitemap.xml : suppression bloc [outputs] restrictif + renommage sitemap-blog.xml → sitemap.xml standard
+- Le sitemap inclut désormais toutes les pages (articles, case studies, pages légales)
+- Commits 2af5bc2 + 5f9fd4d — pushés sur main
+
+## 2026-03-23 — Section "De la théorie à la pratique" — case studies en fin d'article blog
+
+- Brainstorm Claude + Gemini (consensus 8/10) : pertinence, positionnement, format
+- Nouveau partial `related-realisations.html` : bandeau compact, badge "Étude de cas", bordure indigo, hover subtil
+- Layout blog/single.html réorganisé : Author Box → Case Studies → CTA Final → Articles connexes (filet de sécurité)
+- Matching intelligent via front matter `related_realisations` sur 9 articles :
+  - Visibilité IA/ChatGPT → GEO Citation Tracker + Usine à Contenu
+  - Impact IA PME / ROI / IA Abordable → Pôle Financier + Cerveau d'Entreprise
+  - SaaSpocalypse → Cerveau d'Entreprise + Chef de Cabinet
+  - Automatisation emails → Pôle Financier + Chef de Cabinet
+  - Cabinet comptable → Pôle Financier
+  - Art du prompt → Chef de Cabinet + Usine à Contenu
+  - CRM WooCommerce → Usine à Contenu + Pôle Financier
+- Commit 91a2a12
+
 ## 2026-03-23 — Article blog "Comment être cité par ChatGPT" + règle sourcing
 
 - Nouvel article SEO/GEO : "Comment être cité par ChatGPT en 2026 : le guide complet de la visibilité IA"
