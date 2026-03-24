@@ -26,18 +26,12 @@ disableKinds = ["taxonomy", "term"]
   tags = "/blog/tags/:slug/"
 
 # =============================================================================
-# SITEMAP AUTOMATIQUE - Génère sitemap-blog.xml avec tous les articles
+# SITEMAP AUTOMATIQUE - Toutes les pages indexées
 # =============================================================================
 [sitemap]
   changefreq = "weekly"
   priority = 0.7
-  filename = "sitemap-blog.xml"
-
-# Configuration des outputs - SITEMAP ACTIVÉ
-[outputs]
-  home = ["HTML", "Sitemap"]
-  section = ["HTML", "RSS"]
-  page = ["HTML"]
+  filename = "sitemap.xml"
 
 # Format des dates en français
 [frontmatter]
