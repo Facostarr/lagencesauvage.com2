@@ -1,5 +1,11 @@
 # Changelog — Refonte lagencesauvage.com
 
+## 2026-03-25 — Fix tracker Plausible LP + mémoire feedback
+
+- Ajout script Plausible Analytics sur la LP `/lp/collecte-whatsapp-pennylane/` (oublié à la création)
+- Mémoire feedback sauvegardée : toujours inclure Plausible sur chaque nouvelle page (LP statique, layouts Hugo)
+- Commit 76fddde — pushé sur main
+
 ## 2026-03-24 — Landing page campagne cold email "Collecte WhatsApp × Pennylane"
 
 - LP statique HTML/CSS pour campagne cold email ciblant experts-comptables
