@@ -43,6 +43,14 @@ Quota dépassé aujourd'hui. Demander l'indexation pour les 6 case studies :
 - [x] Brainstorm Claude + Gemini : 4 idées d'articles SEO/GEO (consensus 8/10 + 9/10)
 - [x] Article "Facturation électronique 2026 : ce que Pennylane ne fait pas" — 5 angles morts PDP, case study Pôle Financier, 8 sources fraîches, 5 FAQ schema, image Gemini
 
+### Campagne cold email experts-comptables (fait 2026-03-24)
+
+- [x] LP "Collecte WhatsApp × Pennylane" : `/lp/collecte-whatsapp-pennylane/`
+- [x] HTML/CSS statique, responsive, light mode forcé, formulaire → /api/submit-lead (Notion + notif email)
+- [x] 3 images Gemini dédiées : mockup collecte, mockup association, architecture W1-W9
+- [x] UTM : utm_source=mailwizz&utm_medium=email&utm_campaign=collecte-whatsapp-pennylane
+- [x] Source lead : "Campagne Email - Collecte WhatsApp Pennylane" (pas de guide PDF envoyé)
+
 ### Articles à rédiger cette semaine (plan validé)
 
 - [x] Article "Claude Cowork en mars 2026 : 3 cas d'usage concrets pour les PME" — brainstorm 9/10, 14 sources, pushé 2026-03-24

@@ -80,6 +80,14 @@
 - Ne pas afficher de tags stack technique (n8n, Supabase...) sur la homepage : un dirigeant TPE achète du résultat ("15h gagnées"), pas un outil. La stack a sa place sur les pages case studies et la page About.
 - Itérer vite avec le fondateur : mieux vaut proposer, se faire corriger ("c'est trop"), et brainstormer une v2 que de chercher la perfection du premier coup.
 
+## Landing pages campagne
+
+- Pour une LP cold email B2B ciblant une audience conservatrice (experts-comptables, avocats), **ne pas implémenter de dark mode**. Le `prefers-color-scheme: dark` automatique crée des problèmes de contraste non testés. Forcer le light mode avec `<meta name="color-scheme" content="light">`.
+- Les fichiers HTML statiques dans `static/lp/` de Hugo sont servis directement par Vercel sans passer par le pipeline Hugo — parfait pour des LP campagne standalone.
+- L'API `/api/submit-lead` exige `company_size` (champ obligatoire). Pour une LP sans ce champ visible, ajouter un `<input type="hidden" name="company_size" value="6-20">`.
+- La source du lead contrôle l'envoi du guide PDF : si `source.includes('Landing Page')`, le guide est envoyé. Nommer la source "Campagne Email - ..." pour éviter cet envoi si non souhaité.
+- Un mockup réel (conversation WhatsApp avec facture) above the fold est infiniment plus convaincant qu'un schéma abstrait — l'expert-comptable comprend le produit en 2 secondes.
+
 ## Design
 
 - L'audit converge (Claude + Gemini) sur 4 problèmes bloquants : témoignages fictifs, positionnement incohérent, zéro preuve visuelle, page About sous-exploitée.

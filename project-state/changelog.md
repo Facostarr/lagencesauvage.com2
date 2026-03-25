@@ -1,5 +1,28 @@
 # Changelog — Refonte lagencesauvage.com
 
+## 2026-03-24 — Landing page campagne cold email "Collecte WhatsApp × Pennylane"
+
+- LP statique HTML/CSS pour campagne cold email ciblant experts-comptables
+- URL : `/lp/collecte-whatsapp-pennylane/` (noindex, nofollow)
+- V1 : structure basique hero centré + 3 pain points + flow visuel + formulaire
+- Dark mode supprimé (consensus Claude+Gemini 9/10) : indigo sur slate dark = ratio 2.6:1, illisible WCAG. Meta `color-scheme: light` + suppression 46 lignes CSS dark
+- V2 refonte complète (consensus Claude+Gemini 8/10, structure "Narrative Case Study") :
+  - Hero split : headline à gauche + mockup WhatsApp above the fold
+  - Bandeau métriques slate dark : ~98% ouverture WA, ÷3 temps, 0 relance
+  - 4 pain points issus de la case study (15-20h/sem, emails ignorés, clôtures, outils passifs)
+  - 4 étapes "Comment ça marche" + escalade progressive J+3/J+4/J+7
+  - Section "Sous le capot" : stats techniques (9 workflows, 86 nodes, sync 6h) + architecture
+  - FAQ 4 questions ciblées (sécurité, adoption WA, RGPD, délai)
+  - Header sticky avec CTA bouton, formulaire avec état loading
+- 3 images Gemini dédiées :
+  - `mockup-whatsapp-collecte.webp` (254 Ko) — conversation facture Orange
+  - `mockup-whatsapp-association.webp` — client répond "1" pour associer facture
+  - `architecture-whatsapp-pennylane.webp` (160 Ko) — schéma 9 workflows W1-W9
+- Formulaire → `/api/submit-lead` (Notion + email notification Franck)
+- Source : "Campagne Email - Collecte WhatsApp Pennylane" (évite envoi guide PDF)
+- UTM : mailwizz / email / collecte-whatsapp-pennylane
+- Commits d119a64 → a3d29b9 (6 commits) — pushés sur main
+
 ## 2026-03-24 — Article Claude Cowork + fix sitemap
 
 - Nouvel article blog : "Claude Cowork en mars 2026 : 3 cas d'usage concrets pour les PME (et gains de temps chiffrés)"

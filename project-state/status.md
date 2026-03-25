@@ -176,7 +176,7 @@ Aucun pour le moment.
 - [ ] Monitoring 404 + vérification indexation nouvelles pages (7-14 jours)
 - [ ] Créer commande `/new-article` pour workflow article répétable
 - [ ] Installer Hugo en local (retrouver le setup winget + subst S:)
-- [ ] Rédiger article 2/4 : "Claude Cowork et PME : la fin des silos documentaires"
+- [x] Landing page campagne cold email "Collecte WhatsApp × Pennylane" experts-comptables (HTML/CSS statique, formulaire lead capture, 3 images Gemini)
 - [ ] Rédiger article 3/4 : "Agents IA autonomes en PME : 3 cas d'usage réels"
 - [ ] Rédiger article 4/4 : "IA et professions juridiques : gain de temps et secret professionnel"
 
@@ -186,6 +186,8 @@ Aucun pour le moment.
 - ✅ Section "Sources et références" obligatoire en bas de chaque article (2026-03-23)
 - ✅ CLAUDE.md enrichi avec section "Production d'articles de blog" (2026-03-23)
 - ✅ Stratégie blog semaine 2026-03-23 : 4 articles SEO/GEO validés (brainstorm Claude + Gemini, consensus 8/10 + 9/10) — facturation électronique, Claude Cowork, agents IA autonomes, professions juridiques (2026-03-23)
+- ✅ LP campagne cold email : dark mode supprimé (consensus Claude+Gemini 9/10), light mode forcé — audience B2B conservatrice, indigo sur slate dark = ratio 2.6:1 illisible (2026-03-24)
+- ✅ LP campagne : structure "Narrative Case Study" (consensus Claude+Gemini 8/10) — hero split + mockup WhatsApp above the fold + bandeau métriques + 4 pain points + escalade J+3/J+4/J+7 + architecture dédiée + FAQ 4 questions (2026-03-24)
 
 ## Décisions en attente
 
