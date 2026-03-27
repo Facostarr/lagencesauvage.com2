@@ -28,7 +28,12 @@
     { "source": "/blog/automatiser-emails-gmail-ia.html", "destination": "/blog/automatiser-emails-gmail-ia/", "statusCode": 301 },
     { "source": "/blog/impact-ia-pme-fran%C3%A7aises-2025.html", "destination": "/blog/impact-ia-pme-françaises-2025/", "statusCode": 301 },
     { "source": "/blog/impact-ia-pme-françaises-2025.html", "destination": "/blog/impact-ia-pme-françaises-2025/", "statusCode": 301 },
-    { "source": "/audit-ia-gratuit.html", "destination": "/diagnostic/", "statusCode": 301 }
+    { "source": "/audit-ia-gratuit.html", "destination": "/diagnostic/", "statusCode": 301 },
+    { "source": "/blog/tags/:path*", "destination": "/blog/", "statusCode": 301 },
+    { "source": "/blog/categories/:path*", "destination": "/blog/", "statusCode": 301 },
+    { "source": "/blog/automatiser-emails-gmail-ia-n8n.html", "destination": "/blog/automatiser-emails-gmail-ia/", "statusCode": 301 },
+    { "source": "/blog/ia-abordable-et-2025.html.html", "destination": "/blog/l-ia-abordable-en-2025/", "statusCode": 301 },
+    { "source": "/log.html", "destination": "/blog/", "statusCode": 301 }
   ],
   "headers": [
     {
