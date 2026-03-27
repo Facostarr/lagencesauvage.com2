@@ -1,5 +1,13 @@
 # Changelog — Refonte lagencesauvage.com
 
+## 2026-03-27 — Fix Search Console : FAQ duplicate, 404s, RSS canonical
+
+- Fix "Duplicate field FAQPage" (8 articles blog) : suppression microdata HTML, JSON-LD seul conservé (commit 5624650)
+- Fix 9 URLs 404 : wildcard `/blog/tags/*` → `/blog/`, `/blog/categories/*` → `/blog/`, + 3 redirections spécifiques (variante "-n8n", double .html, typo /log.html) (commit d73cc37)
+- Fix "Duplicate without user-selected canonical" (`/blog/index.xml`) : header `X-Robots-Tag: noindex` sur flux RSS (commit 428682b)
+- "Page with redirect" (3 pages http/non-www) : normal, géré par Vercel
+- "Crawled - currently not indexed" (8 pages) : normal post-refonte, pas de fix technique
+
 ## 2026-03-25 — Fix tracker Plausible LP + mémoire feedback
 
 - Ajout script Plausible Analytics sur la LP `/lp/collecte-whatsapp-pennylane/` (oublié à la création)
