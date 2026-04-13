@@ -760,6 +760,7 @@
         .then(function() {
             form.classList.add('hidden');
             successEl.classList.remove('hidden');
+            if (window.plausible) { plausible('Lead', {props: {source: 'Diagnostic'}}); }
         })
         .catch(function() {
             btnSubmit.disabled = false;

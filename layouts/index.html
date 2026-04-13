@@ -596,6 +596,7 @@
                 form.classList.add('hidden');
                 document.getElementById('form-steps-indicator').classList.add('hidden');
                 formSuccess.classList.remove('hidden');
+                if (window.plausible) { plausible('Lead', {props: {source: 'Homepage'}}); }
             } else {
                 btn.disabled = false;
                 btn.textContent = 'Demander mon audit gratuit';
