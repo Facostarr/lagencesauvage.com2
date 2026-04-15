@@ -189,7 +189,17 @@ export default async function handler(req, res) {
     }
     
     // =============================================================================
-    // 8. Réponse succès
+    // 8. Tracking Plausible server-side (adblocker-proof)
+    // =============================================================================
+    try {
+      await trackPlausibleEvent(req, 'Lead', { source: leadSource });
+      console.log('✅ Event Plausible envoyé');
+    } catch (plausibleError) {
+      console.warn('⚠️ Erreur Plausible (non bloquant):', plausibleError.message);
+    }
+
+    // =============================================================================
+    // 9. Réponse succès
     // =============================================================================
     return res.status(200).json({
       success: true,
@@ -230,6 +240,34 @@ export default async function handler(req, res) {
       message: 'Une erreur est survenue. Veuillez réessayer ou nous contacter directement.'
     });
   }
+}
+
+// =============================================================================
+// FONCTION : Tracking Plausible Events API (server-side, adblocker-proof)
+// =============================================================================
+async function trackPlausibleEvent(req, eventName, props = {}) {
+  const domain = 'lagencesauvage.com';
+  const pageUrl = req.headers.referer || `https://www.${domain}/`;
+  const userAgent = req.headers['user-agent'] || 'Mozilla/5.0';
+  const ip = req.headers['x-forwarded-for']?.split(',')[0]?.trim()
+    || req.headers['x-real-ip']
+    || req.socket?.remoteAddress
+    || '127.0.0.1';
+
+  await fetch('https://plausible.io/api/event', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'User-Agent': userAgent,
+      'X-Forwarded-For': ip
+    },
+    body: JSON.stringify({
+      name: eventName,
+      url: pageUrl,
+      domain: domain,
+      props: props
+    })
+  });
 }
 
 // =============================================================================

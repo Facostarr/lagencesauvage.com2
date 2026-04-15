@@ -176,9 +176,44 @@ export default async function handler(req, res) {
   }
   */
 
+  // === TRACKING PLAUSIBLE (server-side, adblocker-proof) ===
+  try {
+    await trackPlausibleEvent(req, 'Lead', { source: 'Diagnostic' });
+  } catch (e) {
+    console.warn('[Plausible] Erreur non bloquante:', e.message);
+  }
+
   // === SUCCÈS ===
   return res.status(200).json({
     success: true,
     message: 'Lead enregistrée. Vous serez recontacté sous 24h.'
+  });
+}
+
+// =============================================================================
+// FONCTION : Tracking Plausible Events API (server-side, adblocker-proof)
+// =============================================================================
+async function trackPlausibleEvent(req, eventName, props = {}) {
+  const domain = 'lagencesauvage.com';
+  const pageUrl = req.headers.referer || `https://www.${domain}/`;
+  const userAgent = req.headers['user-agent'] || 'Mozilla/5.0';
+  const ip = req.headers['x-forwarded-for']?.split(',')[0]?.trim()
+    || req.headers['x-real-ip']
+    || req.socket?.remoteAddress
+    || '127.0.0.1';
+
+  await fetch('https://plausible.io/api/event', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'User-Agent': userAgent,
+      'X-Forwarded-For': ip
+    },
+    body: JSON.stringify({
+      name: eventName,
+      url: pageUrl,
+      domain: domain,
+      props: props
+    })
   });
 }
