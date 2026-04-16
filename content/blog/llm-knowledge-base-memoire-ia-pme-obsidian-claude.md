@@ -155,12 +155,7 @@ Le workflow d'ingestion complet ressemble à ceci :
 5. n8n écrit les fichiers Markdown dans le vault Obsidian
 6. n8n met à jour `index.md` et `log.md`
 
-**Coût mensuel estimé** :
-- Obsidian : gratuit (usage personnel) ou 50 €/an pour usage commercial
-- Claude API : entre 10 et 50 €/mois selon le volume d'ingestion
-- n8n : gratuit en self-hosted, ~20 €/mois en cloud
-
-Un coût total inférieur à celui d'une heure de prestation externe, pour un système qui tourne en continu.
+**Vous voulez savoir ce que ce système coûterait à déployer dans votre contexte — et ce qu'il vous rapporterait ?** C'est précisément ce qu'on évalue ensemble lors d'un audit IA gratuit de 30 minutes : volume de documents à capitaliser, outils déjà en place, quick wins atteignables en 30 jours. [Réservez votre créneau →](#audit-form)
 
 **Un point sur le RGPD** : la wiki étant stockée en local dans Obsidian, vos données restent sur votre infrastructure. Seul l'appel API à Claude implique un transit vers les serveurs d'Anthropic — ce que vous pouvez limiter aux contenus non confidentiels, ou traiter avec un modèle déployé en local (Ollama + LLaMA 3) pour les données sensibles.
 
