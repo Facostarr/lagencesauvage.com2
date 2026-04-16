@@ -48,6 +48,7 @@ Phase en cours → voir `project-state/status.md`. Ne jamais commencer une phase
 8. **SERVERLESS FUNCTIONS** : préserver les 4 fichiers api/submit-*.js tels quels.
 9. **REDIRECTIONS = VERCEL.JSON UNIQUEMENT** : ne jamais utiliser les `aliases` Hugo pour les redirections. Single source of truth = vercel.json.
 10. **PAS DE CLASSES TAILWIND DYNAMIQUES INCOMPLÈTES** : dans les templates Go, ne jamais construire une classe Tailwind par concaténation (ex: `bg-{{ .Params.color }}-500`). Utiliser des classes complètes ou des mappings explicites.
+11. **VALIDATION AVANT PUSH — CONTENU ÉDITORIAL** : tout article de blog ou page de contenu doit être soumis à Franck pour relecture complète avant tout `git push`. Présenter le contenu final dans la conversation et attendre un GO explicite. Ne jamais pousser en production un contenu que Franck n'a pas validé — en particulier : tarifs, chiffres, promesses commerciales, positionnement offre.
 
 ## Copywriting
 
@@ -95,7 +96,8 @@ Demander à Franck en priorité. Si pas dispo immédiatement : placeholder expli
 4. Rédaction SEO/GEO : ~2 000-2 500 mots, 5-6 H2, FAQ schema, takeaways
 5. Génération image hero Gemini (style abstrait géométrique indigo/slate, 16:9, WebP <100 Ko)
 6. Création fichier markdown avec front matter enrichi complet
-7. Push + deploy Vercel
+7. **Soumettre le contenu complet à Franck pour relecture et validation — OBLIGATOIRE avant tout push**
+8. Push + deploy Vercel uniquement après GO explicite de Franck
 
 ### Règles éditoriales pour les articles
 
