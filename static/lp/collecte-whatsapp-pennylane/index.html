@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Collecte WhatsApp × Pennylane — Vos clients envoient leurs pièces sans relance | L'Agence Sauvage</title>
   <meta name="description" content="Automatisez la collecte de pièces comptables via WhatsApp avec injection directe dans Pennylane. Temps de collecte divisé par 3, zéro relance, 98% de taux de lecture.">
-  <meta name="robots" content="noindex, nofollow">
+  <meta name="robots" content="index, follow">
   <meta name="color-scheme" content="light">
 
   <!-- Open Graph -->
@@ -867,6 +867,9 @@
           body: JSON.stringify(data)
         });
         if (res.ok) {
+          if (window.plausible) {
+            plausible('Lead', { props: { source: 'LP-WhatsApp-Pennylane', medium: data.utm_medium || 'direct' } });
+          }
           form.style.display = 'none';
           document.getElementById('form-success').classList.add('active');
         } else {
