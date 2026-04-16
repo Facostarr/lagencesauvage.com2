@@ -1,5 +1,15 @@
 # Changelog — Refonte lagencesauvage.com
 
+## 2026-04-16 — Article AI Act : obligation formation IA + financement OPCO/Qualiopi/GhG Formations
+
+- Recherche multi-sources : 4 WebSearch (AI Act art. 4, sanctions, financement OPCO, Qualiopi) + Gemini Deep Research (8m15, rapport complet 35 sources)
+- Brainstorm Claude + Gemini : plan article en 6 H2 (consensus 8/10) — angle "conformité + opportunité financement"
+- Nuances clés de la deep research intégrées : art. 4 = circonstance aggravante (pas sanction directe), Digital Omnibus en discussion, FNE-Formation terminé → FSE+ via OPCO
+- Article ~2 200 mots, 5 FAQ schema, 3 takeaways, tableau calendrier AI Act, 10 sources liées
+- Partenaire Qualiopi identifié : GhG Formations (ghgformations.com, Paris 75017, Zineb El Mejjad)
+- Image hero Gemini WebP 38.5 Ko (symbolique EU étoiles + personne en formation IA)
+- Validé par Franck avant push — commit b981557 pushé sur main
+
 ## 2026-04-16 — LP WhatsApp Pennylane : indexation Google + tracking Plausible Lead
 
 - `noindex, nofollow` retiré → `index, follow` (page désormais crawlable par Google)
