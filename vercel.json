@@ -33,6 +33,11 @@
     { "source": "/blog/categories/:path*", "destination": "/blog/", "statusCode": 301 },
     { "source": "/blog/automatiser-emails-gmail-ia-n8n.html", "destination": "/blog/automatiser-emails-gmail-ia/", "statusCode": 301 },
     { "source": "/blog/ia-abordable-et-2025.html.html", "destination": "/blog/l-ia-abordable-en-2025/", "statusCode": 301 },
+    { "source": "/blog/l-ia-abordable-en-2025.html.html", "destination": "/blog/l-ia-abordable-en-2025/", "statusCode": 301 },
+    { "source": "/blog/automatiser-emails-gmail-ia.html.html", "destination": "/blog/automatiser-emails-gmail-ia/", "statusCode": 301 },
+    { "source": "/audit-ia-gratuit", "destination": "/diagnostic/", "statusCode": 301 },
+    { "source": "/contact", "destination": "/diagnostic/", "statusCode": 301 },
+    { "source": "/cdn-cgi/l/email-protection", "destination": "/", "statusCode": 301 },
     { "source": "/log.html", "destination": "/blog/", "statusCode": 301 }
   ],
   "headers": [
