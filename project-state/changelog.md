@@ -1,5 +1,13 @@
 # Changelog — Refonte lagencesauvage.com
 
+## 2026-04-16 — LP WhatsApp Pennylane : indexation Google + tracking Plausible Lead
+
+- `noindex, nofollow` retiré → `index, follow` (page désormais crawlable par Google)
+- Événement Plausible `Lead` ajouté sur soumission formulaire avec props : `source='LP-WhatsApp-Pennylane'`, `medium=utm_medium` (email vs direct)
+- Différenciation trafic campagne email vs organique visible dans dashboard Plausible → Events → Lead → Props
+- Action suivante : soumettre l'URL dans Search Console pour indexation rapide
+- Commit cd5eb5b — pushé sur main
+
 ## 2026-04-16 — Article LLM Knowledge Base (méthode Karpathy) + wiki interne + règle éditoriale
 
 - Recherche multi-sources : tweet Karpathy (~20M vues, avril 2026), WebSearch + Gemini Search + Gemini Deep Research (6m49, 7 sections, 21 sources)

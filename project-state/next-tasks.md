@@ -55,6 +55,8 @@ Quota dépassé aujourd'hui. Demander l'indexation pour les 6 case studies :
 
 - [ ] Relire article "LLM Knowledge Base" en production et valider (ou demander corrections)
 - [ ] Relire article "Zero Human Company" en production et valider
+- [ ] Valider + commiter article "AI Act / Formation IA / OPCO / Qualiopi 2026" (fichier local non commité — attente relecture Franck)
+- [ ] Soumettre LP `/lp/collecte-whatsapp-pennylane/` dans Search Console (noindex retiré 2026-04-16)
 
 ### Articles à rédiger cette semaine (plan validé)
 
