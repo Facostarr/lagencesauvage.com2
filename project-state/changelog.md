@@ -1,5 +1,18 @@
 # Changelog — Refonte lagencesauvage.com
 
+## 2026-04-16 — Nouvel article "Zero Human Company" + image dashboard Paperclip
+
+- Article ~2 300 mots : "Zero Human Company : le mythe américain face à la réalité des PME françaises"
+- Recherche multi-sources (Paperclip AI 42K stars, Gartner +1445%, Dario Amodei 70-80%, Medvi $401M, FelixCraft $78K)
+- Angle validé Claude+Gemini consensus 9/10 : accroche ZHC → pivot "entreprise agentique" adapté FR
+- Section interne "Dans notre propre laboratoire" : org chart 6 agents agence-sauvage-ventes (Prospecteur, Contact, Qualificateur, Conformité, Coordinateur, Directeur), objectif 40 RDV/mois, zéro budget exposé
+- 3 CTAs audit gratuit naturellement positionnés (post-cas-d'usage, pilote, conclusion)
+- FAQ 5 questions dont CSE (art. L.2312-8) + AI Act européen + responsabilité légale
+- Zéro anglicisme : leads→prospects, onboarding→intégration, ERP/CRM explicités, Planning Agent→agent de planification
+- Image hero : dashboard Paperclip stylisé (style Linear/Notion dark mode) avec agents en FR, 55,9 Ko WebP 1280×720
+- Image générée en 3 itérations (org chart hexagonal → org chart dashboard → vrai style Paperclip UI)
+- Commit 0bbe788 — pushé sur main → Vercel production
+
 ## 2026-03-27 — Fix Search Console : FAQ duplicate, 404s, RSS canonical
 
 - Fix "Duplicate field FAQPage" (8 articles blog) : suppression microdata HTML, JSON-LD seul conservé (commit 5624650)

@@ -88,6 +88,12 @@
 - La source du lead contrôle l'envoi du guide PDF : si `source.includes('Landing Page')`, le guide est envoyé. Nommer la source "Campagne Email - ..." pour éviter cet envoi si non souhaité.
 - Un mockup réel (conversation WhatsApp avec facture) above the fold est infiniment plus convaincant qu'un schéma abstrait — l'expert-comptable comprend le produit en 2 secondes.
 
+## Workflow éditorial — Règles de validation
+
+- **Ne jamais pusher un article sans validation explicite de Franck.** Présenter le contenu complet dans la conversation et attendre un GO avant tout `git push`. Règle critique surtout pour les contenus mentionnant des tarifs, des chiffres ou des promesses commerciales — ce type de contenu peut dévaluer l'offre de l'agence aux yeux des prospects.
+- **Jamais de grille de prix dans un article de blog.** Un article qui affiche "10-50€/mois" contre-dit directement une prestation vendue plusieurs centaines ou milliers d'euros. À la place : CTA vers l'audit gratuit pour qualifier le prospect et révéler le coût en contexte.
+- **Workflow Deep Research Gemini** : lancer en parallèle de la rédaction (pas en attente bloquante). Le deep research prend 5-20 min — utiliser ce temps pour rédiger, puis enrichir avec les insights de Gemini sur les points critiques (limites, pièges, alternatives).
+
 ## Design
 
 - L'audit converge (Claude + Gemini) sur 4 problèmes bloquants : témoignages fictifs, positionnement incohérent, zéro preuve visuelle, page About sous-exploitée.

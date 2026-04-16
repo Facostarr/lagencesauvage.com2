@@ -177,6 +177,9 @@ Aucun pour le moment.
 - [ ] Créer commande `/new-article` pour workflow article répétable
 - [ ] Installer Hugo en local (retrouver le setup winget + subst S:)
 - [x] Landing page campagne cold email "Collecte WhatsApp × Pennylane" experts-comptables (HTML/CSS statique, formulaire lead capture, 3 images Gemini)
+- [x] Article "LLM Knowledge Base (méthode Karpathy)" — recherche multi-sources, brainstorm Gemini 9/10, 2200 mots, image hero, wiki interne — PUSHÉ (validation post-push : grille tarifaire → CTA)
+- [ ] Validation Franck article LLM Knowledge Base (contenu publié mais non relu avant push)
+- [x] Article "Zero Human Company : le mythe américain face à la réalité des PME françaises" — 2300 mots, consensus Claude+Gemini 9/10, section interne agence-sauvage-ventes, image dashboard Paperclip, pushé 2026-04-16
 - [ ] Rédiger article 3/4 : "Agents IA autonomes en PME : 3 cas d'usage réels"
 - [ ] Rédiger article 4/4 : "IA et professions juridiques : gain de temps et secret professionnel"
 
