@@ -1,5 +1,16 @@
 # Changelog — Refonte lagencesauvage.com
 
+## 2026-04-16 — Article LLM Knowledge Base (méthode Karpathy) + wiki interne + règle éditoriale
+
+- Recherche multi-sources : tweet Karpathy (~20M vues, avril 2026), WebSearch + Gemini Search + Gemini Deep Research (6m49, 7 sections, 21 sources)
+- Brainstorm Claude + Gemini : plan article (consensus 9/10) — angle "mémoire d'entreprise" B2B
+- Article "Base de connaissances IA : méthode Karpathy" — 2 200 mots, 5 FAQ schema, 3 takeaways, tableau RAG vs LLM Wiki, 3 cas d'usage PME (commits 7b94b96 + afb918b)
+- Fix post-push : grille tarifaire 10-50€/mois supprimée → remplacée par CTA audit gratuit (non validé avant push)
+- Image hero Gemini WebP 81Ko (cerveau géométrique indigo)
+- Wiki interne `docs/wiki/llm-knowledge-base-karpathy.md` — référence technique complète
+- CLAUDE.md Règle 11 + workflow article step 7 : validation Franck obligatoire avant push (commit 93d7cbb)
+- Mémoire persistante : `feedback_validation_avant_push.md`
+
 ## 2026-04-16 — Nouvel article "Zero Human Company" + image dashboard Paperclip
 
 - Article ~2 300 mots : "Zero Human Company : le mythe américain face à la réalité des PME françaises"

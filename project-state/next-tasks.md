@@ -51,6 +51,11 @@ Quota dépassé aujourd'hui. Demander l'indexation pour les 6 case studies :
 - [x] UTM : utm_source=mailwizz&utm_medium=email&utm_campaign=collecte-whatsapp-pennylane
 - [x] Source lead : "Campagne Email - Collecte WhatsApp Pennylane" (pas de guide PDF envoyé)
 
+### Validation en attente
+
+- [ ] Relire article "LLM Knowledge Base" en production et valider (ou demander corrections)
+- [ ] Relire article "Zero Human Company" en production et valider
+
 ### Articles à rédiger cette semaine (plan validé)
 
 - [x] Article "Claude Cowork en mars 2026 : 3 cas d'usage concrets pour les PME" — brainstorm 9/10, 14 sources, pushé 2026-03-24
