@@ -53,27 +53,27 @@ Quota dépassé aujourd'hui. Demander l'indexation pour les 6 case studies :
 
 ### Validation en attente
 
-- [ ] Relire article "LLM Knowledge Base" en production et valider (ou demander corrections)
-- [ ] Relire article "Zero Human Company" en production et valider
-- [ ] Soumettre LP `/lp/collecte-whatsapp-pennylane/` dans Search Console (noindex retiré 2026-04-16)
+- [x] Relire article "LLM Knowledge Base" — validé (2026-04-17)
+- [x] Relire article "Zero Human Company" — validé (2026-04-17)
+- [x] Soumettre LP `/lp/collecte-whatsapp-pennylane/` dans Search Console — fait (2026-04-17)
 
 ### Search Console — indexations à demander
 
-- [ ] Article AI Act : `https://www.lagencesauvage.com/blog/ai-act-formation-ia-obligatoire-opco-qualiopi-2026/`
-- [ ] Article Zero Human Company (si pas encore fait)
+- [x] Article AI Act : soumis (2026-04-17)
+- [x] Article Zero Human Company : soumis (2026-04-17)
 
 ### Articles à rédiger cette semaine (plan validé)
 
 - [x] Article "Claude Cowork en mars 2026 : 3 cas d'usage concrets pour les PME" — brainstorm 9/10, 14 sources, pushé 2026-03-24
 - [x] Article "Zero Human Company : le mythe américain face à la réalité des PME françaises" — recherche multi-sources, consensus Claude+Gemini 9/10, pushé 2026-04-16
 - [x] Article "AI Act : former vos collaborateurs à l'IA est désormais une obligation légale" — deep research Gemini 8m15, consensus 8/10, partenaire GhG Formations Qualiopi, validé + pushé 2026-04-16
-- [ ] Article 3/4 : "Agents IA autonomes en PME : 3 cas d'usage réels qui remplacent les SaaS" — Guides pratiques
-- [ ] Article 4/4 : "IA et professions juridiques : gain de temps et secret professionnel en 2026" — Expertise terrain
+- [ ] Article 3/4 : "Agents IA autonomes en PME : 3 cas d'usage réels qui remplacent les SaaS" — Guides pratiques (reporté)
+- [ ] Article 4/4 : "IA et professions juridiques : gain de temps et secret professionnel en 2026" — Expertise terrain (reporté)
 
 ### Outillage blog
 
-- [ ] Créer commande `/new-article` (workflow article orchestré)
-- [ ] Créer archetype Hugo `archetypes/blog.md` (template front matter)
+- [ ] Créer commande `/new-article` (workflow article orchestré) — reporté
+- [ ] Créer archetype Hugo `archetypes/blog.md` (template front matter) — reporté
 - [x] Hugo Extended v0.158.0 installé en local + subst S: fonctionnel
 
 ### Leviers GEO prioritaires (post-lancement)

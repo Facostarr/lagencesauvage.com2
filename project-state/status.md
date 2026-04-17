@@ -172,15 +172,16 @@ Aucun pour le moment.
 - [x] Section "De la théorie à la pratique" : case studies en fin d'article blog (partial + matching 9 articles, consensus Claude+Gemini 8/10)
 - [x] Brainstorm Claude + Gemini : 4 idées d'articles blog SEO/GEO (consensus 8/10 + 9/10)
 - [x] Article "Facturation électronique 2026 : ce que Pennylane ne fait pas" — SEO/GEO, 8 sources fraîches, 5 FAQ, image Gemini
-- [ ] Recrawl Search Console : 6 case studies + nouvel article facturation (quota dépassé le 23/03)
+- [x] Recrawl Search Console : article AI Act + LP Pennylane soumis à l'indexation (2026-04-17)
 - [ ] Monitoring 404 + vérification indexation nouvelles pages (7-14 jours)
 - [ ] Créer commande `/new-article` pour workflow article répétable
-- [ ] Installer Hugo en local (retrouver le setup winget + subst S:)
+- [x] Installer Hugo en local (retrouver le setup winget + subst S:)
 - [x] Landing page campagne cold email "Collecte WhatsApp × Pennylane" experts-comptables (HTML/CSS statique, formulaire lead capture, 3 images Gemini)
-- [x] Article "LLM Knowledge Base (méthode Karpathy)" — recherche multi-sources, brainstorm Gemini 9/10, 2200 mots, image hero, wiki interne — PUSHÉ (validation post-push : grille tarifaire → CTA)
-- [ ] Validation Franck article LLM Knowledge Base (contenu publié mais non relu avant push)
-- [x] Article "Zero Human Company : le mythe américain face à la réalité des PME françaises" — 2300 mots, consensus Claude+Gemini 9/10, section interne agence-sauvage-ventes, image dashboard Paperclip, pushé 2026-04-16
+- [x] Article "LLM Knowledge Base (méthode Karpathy)" — recherche multi-sources, brainstorm Gemini 9/10, 2200 mots, image hero, wiki interne — PUSHÉ
+- [x] Validation Franck article LLM Knowledge Base — validé (2026-04-17)
+- [x] Article "Zero Human Company : le mythe américain face à la réalité des PME françaises" — 2300 mots, consensus Claude+Gemini 9/10, section interne agence-sauvage-ventes, image dashboard Paperclip, pushé 2026-04-16 — validé (2026-04-17)
 - [x] Article "AI Act : former vos collaborateurs à l'IA est désormais une obligation légale" — 2200 mots, consensus Claude+Gemini 8/10, deep research Gemini 8m15, partenaire GhG Formations Qualiopi, image hero EU+formation, validé et pushé 2026-04-16
+- [x] Bandeau métriques homepage : 10 000+ actions/mois + <1 sec./tâche + 0 intervention humaine (consensus Claude+Gemini 9/10, validé 2026-04-17)
 - [ ] Rédiger article 3/4 : "Agents IA autonomes en PME : 3 cas d'usage réels"
 - [ ] Rédiger article 4/4 : "IA et professions juridiques : gain de temps et secret professionnel"
 
@@ -192,6 +193,7 @@ Aucun pour le moment.
 - ✅ Stratégie blog semaine 2026-03-23 : 4 articles SEO/GEO validés (brainstorm Claude + Gemini, consensus 8/10 + 9/10) — facturation électronique, Claude Cowork, agents IA autonomes, professions juridiques (2026-03-23)
 - ✅ LP campagne cold email : dark mode supprimé (consensus Claude+Gemini 9/10), light mode forcé — audience B2B conservatrice, indigo sur slate dark = ratio 2.6:1 illisible (2026-03-24)
 - ✅ LP campagne : structure "Narrative Case Study" (consensus Claude+Gemini 8/10) — hero split + mockup WhatsApp above the fold + bandeau métriques + 4 pain points + escalade J+3/J+4/J+7 + architecture dédiée + FAQ 4 questions (2026-03-24)
+- ✅ Bandeau métriques homepage : remplacement des 3 chiffres figés par 10 000+ actions/mois + <1 sec./tâche + 0 intervention humaine — données issues de n8n réel (consensus Claude+Gemini 9/10, validé 2026-04-17)
 
 ## Décisions en attente
 
