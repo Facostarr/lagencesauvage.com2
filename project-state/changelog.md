@@ -1,5 +1,20 @@
 # Changelog — Refonte lagencesauvage.com
 
+## 2026-04-17 — Bandeau métriques homepage : refonte chiffres de preuve sociale
+
+- Remplacement des 3 métriques figées et peu convaincantes ("6 projets déployés", "30+ workflows en production", "5 secteurs d'activité")
+- Nouvelle base : données réelles n8n (2 587 exécutions cette semaine, 0% failure rate, 0.53s runtime)
+- Brainstorm Claude + Gemini (consensus 9/10) — 3 combinaisons proposées, mix final validé par Franck
+- Métriques retenues : `10 000+ actions déléguées par mois` / `< 1 sec. d'exécution par tâche` / `0 intervention humaine requise`
+- Principe : données evergreen (mise à jour trimestrielle max), centrées bénéfice client pas technique
+- Commit efea20b — pushé sur main → live sur lagencesauvage.com
+
+## 2026-04-17 — Validations articles + Search Console
+
+- Article "LLM Knowledge Base" — validé par Franck (2026-04-17)
+- Article "Zero Human Company" — validé par Franck (2026-04-17)
+- Search Console : article AI Act + LP Pennylane soumis à l'indexation
+
 ## 2026-04-16 — Article AI Act : obligation formation IA + financement OPCO/Qualiopi/GhG Formations
 
 - Recherche multi-sources : 4 WebSearch (AI Act art. 4, sanctions, financement OPCO, Qualiopi) + Gemini Deep Research (8m15, rapport complet 35 sources)

@@ -7,6 +7,13 @@
 - Les serverless functions Vercel (api/submit-*.js) dépendent de Notion + nodemailer + pdfkit — les préserver intactes.
 - Hugo_projet/ était un premier essai de Hugo pour le blog seul — 100% redondant avec la racine, à supprimer.
 
+## Métriques de preuve sociale
+
+- Les chiffres figés et liés au volume de clients ("6 projets") vieillissent mal et nécessitent une maintenance constante. Préférer des métriques système (executions n8n, fiabilité) evergreen.
+- Les données n8n (executions, failure rate, runtime) sont une source de preuve sociale crédible et vérifiable — à mobiliser pour les pages de conversion.
+- Traduire le jargon technique en bénéfice client : "2 587 executions, 0% failure" → "0 intervention humaine requise". Le dirigeant non-technique comprend le bénéfice, pas la métrique.
+- Pour les chiffres à l'échelle mensuelle (10 000+/mois = 2 500/semaine × 4) : les volumes mensuels lissent les variations hebdomadaires et semblent plus institutionnels.
+
 ## Sécurité
 
 - La clé API n8n était committée en clair dans .mcp.json. Ajouté au .gitignore. Penser à régénérer la clé.
