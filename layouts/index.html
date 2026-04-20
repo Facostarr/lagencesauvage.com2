@@ -68,7 +68,7 @@
         </p>
         <a href="#audit-form" style="animation-delay: 200ms"
            class="hero-animate inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base font-semibold rounded-md bg-indigo text-white hover:bg-indigo-dark transition-colors">
-            R&eacute;servez votre audit IA gratuit (30 min)
+            Diagnostic d&eacute;couverte gratuit (15 min)
         </a>
         <p class="hero-animate mt-4 text-sm text-slate-muted" style="animation-delay: 300ms">
             Sans engagement &middot; Livrable offert &middot; R&eacute;ponse sous 24h
@@ -312,10 +312,10 @@
     <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-10">
             <h2 class="font-display text-2xl sm:text-4xl tracking-tight mb-4">
-                R&eacute;servez votre audit IA gratuit
+                Diagnostic d&eacute;couverte gratuit
             </h2>
             <p class="text-base sm:text-lg text-slate-muted">
-                30 minutes pour identifier vos 3 gains rapides avec l'IA.
+                15 minutes pour identifier vos 3 gains rapides avec l'IA.
                 Sans engagement, livrable offert.
             </p>
         </div>
@@ -401,7 +401,7 @@
                         </button>
                         <button type="submit" id="btn-submit"
                                 class="flex-1 px-6 py-3 text-sm font-semibold rounded-md bg-indigo text-white hover:bg-indigo-dark transition-colors">
-                            Demander mon audit gratuit
+                            Demander mon diagnostic gratuit
                         </button>
                     </div>
                 </div>
@@ -420,7 +420,7 @@
                 <h3 class="font-display text-xl mb-2">Demande envoy&eacute;e</h3>
                 <p class="text-sm text-slate-muted">
                     Merci pour votre confiance. Je vous recontacte sous 24h
-                    pour planifier votre audit IA gratuit de 30 minutes.
+                    pour planifier votre diagnostic découverte de 15 minutes.
                 </p>
                 <p class="text-sm text-slate-muted mt-2">
                     &mdash; Franck Sauvage, fondateur
@@ -450,15 +450,15 @@
 <section class="bg-slate-deep py-16 sm:py-20">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 class="font-display text-2xl sm:text-3xl text-white tracking-tight mb-4">
-            30 minutes pour d&eacute;couvrir ce que l'IA peut changer dans votre entreprise
+            15 minutes pour d&eacute;couvrir ce que l'IA peut changer dans votre entreprise
         </h2>
         <p class="text-base text-white/70 mb-8 max-w-xl mx-auto">
-            Un audit gratuit, un livrable concret, z&eacute;ro engagement.
+            Un diagnostic gratuit, un livrable concret, z&eacute;ro engagement.
             Le premier pas co&ucirc;te 0&nbsp;&euro;.
         </p>
         <a href="#audit-form"
            class="inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base font-semibold rounded-md bg-white text-slate-deep hover:bg-slate-light transition-colors">
-            R&eacute;servez votre audit IA gratuit
+            Diagnostic d&eacute;couverte gratuit
         </a>
     </div>
 </section>
@@ -599,13 +599,13 @@
                 if (window.plausible) { plausible('Lead', {props: {source: 'Homepage'}}); }
             } else {
                 btn.disabled = false;
-                btn.textContent = 'Demander mon audit gratuit';
+                btn.textContent = 'Demander mon diagnostic gratuit';
                 showError(result.message || 'Une erreur est survenue. Veuillez r\u00e9essayer.');
             }
         })
         .catch(function() {
             btn.disabled = false;
-            btn.textContent = 'Demander mon audit gratuit';
+            btn.textContent = 'Demander mon diagnostic gratuit';
             showError('Erreur de connexion. V\u00e9rifiez votre connexion internet et r\u00e9essayez.');
         });
     });
