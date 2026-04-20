@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ .Title }} — L'Agence Sauvage</title>
+  <meta name="robots" content="noindex, nofollow">
+  <style>
+    /* Reset & base */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+      color: #0F172A;
+      background: #fff;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 2.5rem;
+    }
+
+    /* Header branding */
+    .kit-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding-bottom: 1.5rem;
+      border-bottom: 3px solid #4F46E5;
+      margin-bottom: 2rem;
+    }
+    .kit-header h1 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #0F172A;
+      line-height: 1.2;
+    }
+    .kit-header .subtitle {
+      font-size: 1rem;
+      color: #4F46E5;
+      font-weight: 600;
+      margin-top: 0.3rem;
+    }
+    .kit-header .brand {
+      text-align: right;
+      font-size: 0.8rem;
+      color: #64748B;
+    }
+    .kit-header .brand strong {
+      display: block;
+      font-size: 1rem;
+      color: #0F172A;
+      font-weight: 700;
+    }
+
+    /* Intro blockquote */
+    blockquote {
+      background: #F1F5F9;
+      border-left: 4px solid #4F46E5;
+      padding: 1rem 1.25rem;
+      margin: 1.5rem 0;
+      border-radius: 0 6px 6px 0;
+      font-style: italic;
+      color: #374151;
+    }
+
+    /* How to use box */
+    .kit-howto {
+      background: #EEF2FF;
+      border: 1px solid #C7D2FE;
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin: 1.5rem 0;
+    }
+    .kit-howto strong { color: #4F46E5; }
+
+    /* Section headers */
+    h2 {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: #fff;
+      background: #0F172A;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      margin: 2.5rem 0 1.5rem;
+      letter-spacing: 0.02em;
+    }
+
+    /* Prompt cards */
+    h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #4F46E5;
+      margin: 1.5rem 0 0.5rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 1px solid #E2E8F0;
+    }
+
+    p { margin: 0.5rem 0; color: #374151; }
+
+    strong { color: #0F172A; }
+
+    /* Prompt code blocks */
+    pre {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-left: 4px solid #4F46E5;
+      border-radius: 6px;
+      padding: 1rem 1.25rem;
+      margin: 0.75rem 0 1.25rem;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      font-family: 'Courier New', monospace;
+      font-size: 0.85rem;
+      line-height: 1.7;
+      color: #1E293B;
+    }
+    code { font-family: 'Courier New', monospace; font-size: 0.85rem; }
+
+    /* Labels */
+    p strong:first-child { color: #4F46E5; }
+
+    /* CTA final */
+    .kit-cta {
+      background: #0F172A;
+      color: #fff;
+      border-radius: 10px;
+      padding: 2rem;
+      margin-top: 3rem;
+      text-align: center;
+    }
+    .kit-cta h2 {
+      background: none;
+      color: #fff;
+      padding: 0;
+      margin: 0 0 0.75rem;
+      font-size: 1.3rem;
+    }
+    .kit-cta p { color: #CBD5E1; font-size: 0.9rem; }
+    .kit-cta .cta-btn {
+      display: inline-block;
+      margin-top: 1.25rem;
+      background: #4F46E5;
+      color: #fff;
+      padding: 0.75rem 2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    /* Footer */
+    .kit-footer {
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid #E2E8F0;
+      font-size: 0.75rem;
+      color: #94A3B8;
+      text-align: center;
+    }
+
+    /* HR separator */
+    hr {
+      border: none;
+      border-top: 1px solid #E2E8F0;
+      margin: 1.5rem 0;
+    }
+
+    /* Print */
+    @media print {
+      body { padding: 1rem; font-size: 12px; }
+      h2 { page-break-before: auto; }
+      h3 { page-break-after: avoid; }
+      pre { page-break-inside: avoid; }
+      .kit-cta { page-break-inside: avoid; }
+      .no-print { display: none; }
+    }
+
+    /* Print button */
+    .print-btn {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background: #4F46E5;
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1.25rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      z-index: 100;
+    }
+    @media print { .print-btn { display: none; } }
+  </style>
+</head>
+<body>
+
+  <button class="print-btn no-print" onclick="window.print()">Télécharger PDF</button>
+
+  <header class="kit-header">
+    <div>
+      <h1>10 prompts Claude<br>pour PME</h1>
+      <div class="subtitle">Copiez, collez, récupérez votre temps</div>
+    </div>
+    <div class="brand">
+      <strong>L'Agence Sauvage</strong>
+      IA opérationnelle pour TPE/PME<br>
+      lagencesauvage.com
+    </div>
+  </header>
+
+  <div class="content">
+    {{ .Content }}
+  </div>
+
+  <footer class="kit-footer">
+    © 2026 L'Agence Sauvage · Paris · hello@lagencesauvage.com · lagencesauvage.com
+  </footer>
+
+</body>
+</html>
