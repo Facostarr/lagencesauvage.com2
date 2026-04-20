@@ -114,14 +114,16 @@
             </div>
 
             {{ range $i, $section := after 1 $sections }}
-                {{/* CTA inline #1 — après ~30% (après le 2e H2) */}}
+                {{/* CTA inline #1 — Lead magnet après ~30% (après le 2e H2) */}}
                 {{ if eq $i 2 }}
-                <aside class="cta-inline my-12 bg-slate-light border-l-4 border-indigo rounded-r-lg p-6">
-                    <p class="text-base text-slate-deep font-medium mb-2">Vous vivez cette situation au quotidien ?</p>
-                    <p class="text-sm text-slate-muted mb-4">Découvrez en 30 minutes comment l'IA peut transformer votre façon de travailler.</p>
-                    <a href="/#audit-form" class="inline-flex items-center px-4 py-2 text-sm font-semibold rounded-md bg-indigo text-white hover:bg-indigo-dark transition-colors">
-                        Diagnostic découverte gratuit
-                    </a>
+                <aside class="cta-inline my-12 rounded-lg overflow-hidden" style="border:1px solid #C7D2FE">
+                    <div style="background:#EEF2FF;padding:1.25rem 1.5rem">
+                        <p class="text-sm font-bold mb-1" style="color:#3730A3">Kit gratuit — 10 prompts Claude pour PME</p>
+                        <p class="text-sm mb-3" style="color:#374151">Copiez-collez ces prompts dans Claude pour gagner plusieurs heures chaque semaine sur vos tâches dirigeant.</p>
+                        <a href="/ressources/kit-claude-cowork-pme/" class="inline-flex items-center px-4 py-2 text-sm font-semibold rounded-md text-white transition-colors" style="background:#4F46E5">
+                            Télécharger le kit gratuit →
+                        </a>
+                    </div>
                 </aside>
                 {{ end }}
 
