@@ -1,0 +1,401 @@
+{{ define "main" }}
+
+{{/* ============================================================
+     HERO — H1 + sous-titre + formulaire multi-step
+     ============================================================ */}}
+<section class="bg-slate-deep text-white py-16 sm:py-20">
+  <div class="mx-auto max-w-4xl px-4 sm:px-6">
+    <div class="inline-flex items-center gap-2 rounded-full bg-indigo-500/20 px-4 py-1.5 text-sm font-semibold text-indigo-300 mb-6">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+      Certifié Qualiopi · Finançable OPCO jusqu'à 100%
+    </div>
+    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-4">
+      Formez vos équipes à Claude —<br class="hidden sm:block">
+      <span class="text-indigo-400">finançable jusqu'à 100% via votre OPCO</span>
+    </h1>
+    <p class="text-lg text-slate-300 mb-10 max-w-2xl">
+      21 heures sur 3 jours pour maîtriser Claude en contexte professionnel. Conforme à l'obligation AI Act. Prise en charge jusqu'à 100% pour les TPE/PME selon votre OPCO.
+    </p>
+
+    {{/* Formulaire multi-step */}}
+    <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-xl max-w-xl" id="form-container">
+
+      {{/* Step 1 */}}
+      <div id="step-1">
+        <p class="text-sm font-semibold text-indigo-600 mb-1">Étape 1 sur 2</p>
+        <h2 class="text-slate-900 text-xl font-bold mb-1">Recevez le programme complet</h2>
+        <p class="text-slate-500 text-sm mb-5">17 pages · Objectifs pédagogiques · Modalités OPCO</p>
+        <form id="prog-form-1" novalidate>
+          <div class="grid grid-cols-2 gap-3 mb-3">
+            <div>
+              <label for="pf-firstname" class="block text-xs font-semibold text-slate-700 mb-1">Prénom <span class="text-red-500">*</span></label>
+              <input type="text" id="pf-firstname" name="firstName" required autocomplete="given-name" placeholder="Marie"
+                class="w-full rounded-lg border border-slate-200 px-3 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-100">
+            </div>
+            <div>
+              <label for="pf-lastname" class="block text-xs font-semibold text-slate-700 mb-1">Nom</label>
+              <input type="text" id="pf-lastname" name="lastName" autocomplete="family-name" placeholder="Dupont"
+                class="w-full rounded-lg border border-slate-200 px-3 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-100">
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="pf-email" class="block text-xs font-semibold text-slate-700 mb-1">Email professionnel <span class="text-red-500">*</span></label>
+            <input type="email" id="pf-email" name="email" required autocomplete="email" placeholder="marie.dupont@entreprise.fr"
+              class="w-full rounded-lg border border-slate-200 px-3 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-100">
+          </div>
+          <div class="mb-5">
+            <label for="pf-company" class="block text-xs font-semibold text-slate-700 mb-1">Entreprise</label>
+            <input type="text" id="pf-company" name="company" autocomplete="organization" placeholder="Acme SAS"
+              class="w-full rounded-lg border border-slate-200 px-3 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-100">
+          </div>
+          <p id="pf-error-1" class="hidden mb-3 text-sm text-red-600"></p>
+          <button type="submit" id="pf-btn-1"
+            class="w-full rounded-lg bg-indigo-600 py-3 text-sm font-bold text-white hover:bg-indigo-700 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-400">
+            Recevoir le programme →
+          </button>
+          <p class="mt-2 text-center text-xs text-slate-400">Pas de spam. Votre email reste chez nous.</p>
+        </form>
+      </div>
+
+      {{/* Step 2 */}}
+      <div id="step-2" class="hidden">
+        <div class="flex items-center gap-2 mb-4">
+          <div class="flex h-7 w-7 items-center justify-center rounded-full bg-green-100 text-green-600 text-xs font-bold">✓</div>
+          <p class="text-sm font-semibold text-green-700">Programme envoyé ! Vérifiez votre boîte mail.</p>
+        </div>
+        <p class="text-sm font-semibold text-indigo-600 mb-1">Étape 2 sur 2 — Optionnelle</p>
+        <h2 class="text-slate-900 text-xl font-bold mb-1">Personnalisons votre session</h2>
+        <p class="text-slate-500 text-sm mb-5">Ces informations nous permettent de vous préparer un devis OPCO précis.</p>
+        <form id="prog-form-2" novalidate>
+          <div class="mb-3">
+            <label for="pf-size" class="block text-xs font-semibold text-slate-700 mb-1">Taille de l'entreprise</label>
+            <select id="pf-size" name="size"
+              class="w-full rounded-lg border border-slate-200 px-3 py-2.5 text-sm text-slate-900 focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-100 bg-white">
+              <option value="">-- Sélectionnez --</option>
+              <option value="1-9">Moins de 10 salariés</option>
+              <option value="10-49">10 à 49 salariés</option>
+              <option value="50-299">50 à 299 salariés</option>
+              <option value="300+">300 salariés et plus</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="pf-sector" class="block text-xs font-semibold text-slate-700 mb-1">Secteur d'activité</label>
+            <select id="pf-sector" name="sector"
+              class="w-full rounded-lg border border-slate-200 px-3 py-2.5 text-sm text-slate-900 focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-100 bg-white">
+              <option value="">-- Sélectionnez --</option>
+              <option value="conseil-services">Conseil & services aux entreprises</option>
+              <option value="industrie">Industrie & fabrication</option>
+              <option value="commerce-distribution">Commerce & distribution</option>
+              <option value="btp-immobilier">BTP & immobilier</option>
+              <option value="sante-medico-social">Santé & médico-social</option>
+              <option value="finance-comptabilite">Finance & comptabilité</option>
+              <option value="autre">Autre</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="block text-xs font-semibold text-slate-700 mb-2">Avez-vous déjà contacté votre OPCO ?</label>
+            <div class="flex gap-4">
+              <label class="flex items-center gap-2 text-sm text-slate-700 cursor-pointer">
+                <input type="radio" name="opco_contact" value="Oui" class="accent-indigo-600"> Oui
+              </label>
+              <label class="flex items-center gap-2 text-sm text-slate-700 cursor-pointer">
+                <input type="radio" name="opco_contact" value="Non" class="accent-indigo-600"> Non
+              </label>
+              <label class="flex items-center gap-2 text-sm text-slate-700 cursor-pointer">
+                <input type="radio" name="opco_contact" value="Je ne sais pas lequel" class="accent-indigo-600"> Je ne sais pas
+              </label>
+            </div>
+          </div>
+          <div class="mb-5">
+            <label for="pf-position" class="block text-xs font-semibold text-slate-700 mb-1">Votre poste / fonction</label>
+            <input type="text" id="pf-position" name="position" placeholder="Dirigeant, DRH, Responsable formation…"
+              class="w-full rounded-lg border border-slate-200 px-3 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-100">
+          </div>
+          <button type="submit" id="pf-btn-2"
+            class="w-full rounded-lg bg-indigo-600 py-3 text-sm font-bold text-white hover:bg-indigo-700 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-400">
+            Envoyer mes informations →
+          </button>
+          <button type="button" id="pf-skip"
+            class="w-full mt-2 rounded-lg border border-slate-200 py-2.5 text-sm text-slate-500 hover:text-slate-700 hover:border-slate-300 transition-colors focus:outline-none">
+            Passer cette étape
+          </button>
+        </form>
+      </div>
+
+      {{/* Confirmation finale */}}
+      <div id="step-done" class="hidden text-center py-4">
+        <div class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-green-100 text-2xl">✓</div>
+        <h2 class="text-slate-900 text-xl font-bold mb-2">Merci !</h2>
+        <p class="text-slate-600 text-sm mb-6">Le programme est dans votre boîte mail. Nous revenons vers vous rapidement pour organiser votre session.</p>
+        <a href="/#audit-form"
+          class="inline-block rounded-lg bg-indigo-600 px-6 py-3 text-sm font-bold text-white hover:bg-indigo-700 transition-colors">
+          Réserver un diagnostic découverte 15 min →
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{{/* ============================================================
+     FORMATION EN 3 JOURS
+     ============================================================ */}}
+<section class="py-16 bg-white">
+  <div class="mx-auto max-w-4xl px-4 sm:px-6">
+    <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-2">Ce que couvre la formation</h2>
+    <p class="text-slate-500 mb-10">21 heures réparties sur 3 jours espacés de 2 à 3 semaines. Format intra-entreprise, 4 à 8 participants.</p>
+    <div class="grid sm:grid-cols-3 gap-6">
+      <div class="rounded-xl border border-slate-100 bg-slate-50 p-6">
+        <div class="mb-3 inline-flex items-center gap-2 rounded-full bg-indigo-100 px-3 py-1 text-xs font-bold text-indigo-700">Jour 1</div>
+        <h3 class="font-bold text-slate-900 mb-2">Fondations & écosystème</h3>
+        <ul class="text-sm text-slate-600 space-y-1.5">
+          <li>Écosystème Claude 2026 complet</li>
+          <li>Méthode RCFC (prompting structuré)</li>
+          <li>Configuration des Projects</li>
+          <li>Création de Skills personnelles</li>
+          <li>RGPD, confidentialité, anonymisation</li>
+        </ul>
+      </div>
+      <div class="rounded-xl border border-indigo-200 bg-indigo-50 p-6">
+        <div class="mb-3 inline-flex items-center gap-2 rounded-full bg-indigo-600 px-3 py-1 text-xs font-bold text-white">Jour 2</div>
+        <h3 class="font-bold text-slate-900 mb-2">Production augmentée</h3>
+        <ul class="text-sm text-slate-600 space-y-1.5">
+          <li>Connecteurs MCP (M365 ou Google)</li>
+          <li>Excel, Word, PowerPoint avec Claude</li>
+          <li>Audit anti-hallucinations (méthode 5 points)</li>
+          <li>Orchestration cross-app</li>
+        </ul>
+      </div>
+      <div class="rounded-xl border border-slate-100 bg-slate-50 p-6">
+        <div class="mb-3 inline-flex items-center gap-2 rounded-full bg-indigo-100 px-3 py-1 text-xs font-bold text-indigo-700">Jour 3</div>
+        <h3 class="font-bold text-slate-900 mb-2">Cowork & autonomie</h3>
+        <ul class="text-sm text-slate-600 space-y-1.5">
+          <li>Cowork mono-shot et planifié</li>
+          <li>Claude in Chrome</li>
+          <li>Chef-d'œuvre sur cas réel</li>
+          <li>Plan d'action 30/60/90 jours</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{/* ============================================================
+     FINANCEMENT OPCO
+     ============================================================ */}}
+<section class="py-16 bg-slate-50">
+  <div class="mx-auto max-w-4xl px-4 sm:px-6">
+    <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-2">Financement OPCO — Votre reste à charge</h2>
+    <p class="text-slate-500 mb-8">La formation est dispensée par GHG Formations, organisme certifié Qualiopi. Cette certification est la condition obligatoire pour accéder aux financements OPCO et CPF.</p>
+    <div class="overflow-hidden rounded-xl border border-slate-200 bg-white">
+      <table class="w-full text-sm">
+        <thead class="bg-slate-900 text-white">
+          <tr>
+            <th class="px-5 py-3 text-left font-semibold">Taille de l'entreprise</th>
+            <th class="px-5 py-3 text-left font-semibold">Prise en charge OPCO estimée</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-100">
+          <tr class="bg-indigo-50">
+            <td class="px-5 py-3.5 font-medium text-slate-900">Moins de 10 salariés (TPE)</td>
+            <td class="px-5 py-3.5 font-bold text-indigo-700">Jusqu'à 100%</td>
+          </tr>
+          <tr>
+            <td class="px-5 py-3.5 font-medium text-slate-900">10 à 49 salariés</td>
+            <td class="px-5 py-3.5 text-slate-700">Entre 50 et 80% selon l'OPCO</td>
+          </tr>
+          <tr class="bg-slate-50">
+            <td class="px-5 py-3.5 font-medium text-slate-900">50 à 300 salariés</td>
+            <td class="px-5 py-3.5 text-slate-700">Entre 30 et 70% selon l'OPCO et le secteur</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="mt-4 text-xs text-slate-400">Les taux varient selon votre OPCO de rattachement, les priorités sectorielles et le volume demandé. Contactez votre OPCO au moins un mois avant le début prévu de la formation.</p>
+    <div class="mt-6 rounded-xl bg-indigo-600 p-6 text-white">
+      <p class="font-bold mb-1">Dossier OPCO en 3 étapes (environ 3 semaines)</p>
+      <ol class="text-sm text-indigo-100 space-y-1 list-decimal list-inside">
+        <li>Identifier votre OPCO selon votre code NAF (Atlas, Akto, OPCO 2i, Uniformation…)</li>
+        <li>Demander un devis à GHG Formations — nous le préparons en 48h</li>
+        <li>Déposer le dossier au moins un mois avant la session</li>
+      </ol>
+      <a href="/#audit-form" class="mt-4 inline-block rounded-lg bg-white text-indigo-600 px-5 py-2.5 text-sm font-bold hover:bg-indigo-50 transition-colors">
+        On vous accompagne — Diagnostic 15 min →
+      </a>
+    </div>
+  </div>
+</section>
+
+{{/* ============================================================
+     CRÉDIBILITÉ
+     ============================================================ */}}
+<section class="py-16 bg-white">
+  <div class="mx-auto max-w-4xl px-4 sm:px-6">
+    <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-8">Conception et animation</h2>
+    <div class="grid sm:grid-cols-2 gap-8">
+      <div class="rounded-xl border border-slate-100 p-6">
+        <p class="text-xs font-bold text-indigo-600 uppercase tracking-wide mb-2">Conception pédagogique & animation</p>
+        <p class="font-bold text-slate-900 mb-1">Franck Sauvage — L'Agence Sauvage</p>
+        <p class="text-sm text-slate-600">Fondateur, expert en déploiement de systèmes IA pour TPE/PME françaises. Formateur IA depuis 2024, spécialisé sur Claude (Anthropic) et les outils d'automatisation métier.</p>
+      </div>
+      <div class="rounded-xl border border-slate-100 p-6">
+        <p class="text-xs font-bold text-indigo-600 uppercase tracking-wide mb-2">Dispensateur certifié Qualiopi</p>
+        <p class="font-bold text-slate-900 mb-1">GHG Formations — Paris</p>
+        <p class="text-sm text-slate-600">Organisme de formation certifié Qualiopi (Référentiel National Qualité V9). La certification garantit l'éligibilité aux financements OPCO et CPF, ainsi que la qualité du processus pédagogique.</p>
+      </div>
+    </div>
+    <div class="mt-6 flex flex-wrap gap-3">
+      <span class="inline-flex items-center gap-1.5 rounded-full border border-slate-200 px-4 py-1.5 text-sm text-slate-600"><span class="text-indigo-500">✓</span> Certifié Qualiopi V9</span>
+      <span class="inline-flex items-center gap-1.5 rounded-full border border-slate-200 px-4 py-1.5 text-sm text-slate-600"><span class="text-indigo-500">✓</span> Éligible OPCO & CPF</span>
+      <span class="inline-flex items-center gap-1.5 rounded-full border border-slate-200 px-4 py-1.5 text-sm text-slate-600"><span class="text-indigo-500">✓</span> Intra-entreprise sur site</span>
+      <span class="inline-flex items-center gap-1.5 rounded-full border border-slate-200 px-4 py-1.5 text-sm text-slate-600"><span class="text-indigo-500">✓</span> 4 à 8 participants</span>
+      <span class="inline-flex items-center gap-1.5 rounded-full border border-slate-200 px-4 py-1.5 text-sm text-slate-600"><span class="text-indigo-500">✓</span> Conforme AI Act article 4</span>
+    </div>
+  </div>
+</section>
+
+{{/* ============================================================
+     FAQ
+     ============================================================ */}}
+<section class="py-16 bg-slate-50">
+  <div class="mx-auto max-w-3xl px-4 sm:px-6">
+    <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-8">Questions fréquentes</h2>
+    <div class="space-y-4">
+      <details class="rounded-xl border border-slate-200 bg-white px-6 py-4 group">
+        <summary class="cursor-pointer font-semibold text-slate-900 list-none flex justify-between items-center gap-4">
+          Comment trouver mon OPCO pour financer la formation ?
+          <span class="text-indigo-500 text-xl group-open:rotate-45 transition-transform">+</span>
+        </summary>
+        <p class="mt-3 text-sm text-slate-600">Votre OPCO dépend de votre code NAF (activité principale). Les principaux pour les services et PME : Atlas (conseil, numérique), Akto (commerce, services), OPCO 2i (industrie), Constructys (BTP), Uniformation (économie sociale). Votre OPCO peut financer entre 50 et 100% du coût pédagogique selon la taille de votre entreprise.</p>
+      </details>
+      <details class="rounded-xl border border-slate-200 bg-white px-6 py-4 group">
+        <summary class="cursor-pointer font-semibold text-slate-900 list-none flex justify-between items-center gap-4">
+          Mes salariés ont-ils besoin de connaissances en IA pour suivre la formation ?
+          <span class="text-indigo-500 text-xl group-open:rotate-45 transition-transform">+</span>
+        </summary>
+        <p class="mt-3 text-sm text-slate-600">Non. Le seul prérequis est la maîtrise des outils bureautiques courants (Excel, Word, messagerie). La formation démarre de zéro sur Claude et l'IA générative. Un module e-learning de 30 minutes est prévu avant le Jour 1 pour que chacun arrive avec le même niveau de base.</p>
+      </details>
+      <details class="rounded-xl border border-slate-200 bg-white px-6 py-4 group">
+        <summary class="cursor-pointer font-semibold text-slate-900 list-none flex justify-between items-center gap-4">
+          Peut-on utiliser le CPF pour financer la formation ?
+          <span class="text-indigo-500 text-xl group-open:rotate-45 transition-transform">+</span>
+        </summary>
+        <p class="mt-3 text-sm text-slate-600">Oui, si la formation est inscrite au Répertoire Spécifique ou au RNCP. Chaque salarié dispose d'un solde CPF (environ 500€ par an, plafonné à 5 000€) mobilisable à son initiative. L'employeur peut compléter via le Plan de développement des compétences.</p>
+      </details>
+      <details class="rounded-xl border border-slate-200 bg-white px-6 py-4 group">
+        <summary class="cursor-pointer font-semibold text-slate-900 list-none flex justify-between items-center gap-4">
+          La formation est-elle disponible en inter-entreprises ?
+          <span class="text-indigo-500 text-xl group-open:rotate-45 transition-transform">+</span>
+        </summary>
+        <p class="mt-3 text-sm text-slate-600">La formation est conçue pour le format intra-entreprise (4 à 8 participants de la même organisation) afin de travailler sur des cas réels propres à votre contexte. Des sessions inter-entreprises peuvent être organisées selon les demandes. Contactez-nous pour connaître les disponibilités.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+{{/* ============================================================
+     CTA SECONDAIRE
+     ============================================================ */}}
+<section class="py-14 bg-slate-900 text-white text-center">
+  <div class="mx-auto max-w-2xl px-4 sm:px-6">
+    <h2 class="text-2xl font-bold mb-3">Pas encore prêt à vous engager ?</h2>
+    <p class="text-slate-300 mb-6 text-sm">En 15 minutes, nous identifions votre situation vis-à-vis de l'AI Act, votre OPCO de rattachement et les formations prioritaires pour vos équipes. Sans engagement.</p>
+    <a href="/#audit-form"
+      class="inline-block rounded-lg bg-indigo-500 px-8 py-3.5 font-bold text-white hover:bg-indigo-400 transition-colors text-sm">
+      Réserver un diagnostic découverte 15 min →
+    </a>
+  </div>
+</section>
+
+{{ end }}
+
+{{ define "scripts" }}
+<script>
+(function() {
+  var emailCapture = '';
+
+  // Step 1 submit
+  var form1 = document.getElementById('prog-form-1');
+  if (!form1) return;
+
+  form1.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    var btn = document.getElementById('pf-btn-1');
+    var err = document.getElementById('pf-error-1');
+    var firstName = document.getElementById('pf-firstname').value.trim();
+    var lastName  = document.getElementById('pf-lastname').value.trim();
+    var email     = document.getElementById('pf-email').value.trim();
+    var company   = document.getElementById('pf-company').value.trim();
+
+    if (!firstName || !email) {
+      err.textContent = 'Prénom et email sont requis.';
+      err.classList.remove('hidden');
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Envoi en cours…';
+    err.classList.add('hidden');
+
+    try {
+      var res = await fetch('/api/submit-programme', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ firstName, lastName, email, company })
+      });
+      var data = await res.json();
+      if (data.success) {
+        emailCapture = email;
+        document.getElementById('step-1').classList.add('hidden');
+        document.getElementById('step-2').classList.remove('hidden');
+        // Scroll to form top
+        document.getElementById('form-container').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        err.textContent = data.message || 'Une erreur est survenue. Réessayez.';
+        err.classList.remove('hidden');
+        btn.disabled = false;
+        btn.textContent = 'Recevoir le programme →';
+      }
+    } catch (_) {
+      err.textContent = 'Erreur réseau. Réessayez dans quelques instants.';
+      err.classList.remove('hidden');
+      btn.disabled = false;
+      btn.textContent = 'Recevoir le programme →';
+    }
+  });
+
+  // Step 2 submit
+  var form2 = document.getElementById('prog-form-2');
+  form2.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    var btn2 = document.getElementById('pf-btn-2');
+    btn2.disabled = true;
+    btn2.textContent = 'Envoi…';
+
+    var opcoSelected = document.querySelector('input[name="opco_contact"]:checked');
+    try {
+      await fetch('/api/submit-programme-step2', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: emailCapture,
+          size: document.getElementById('pf-size').value,
+          sector: document.getElementById('pf-sector').value,
+          opco_contact: opcoSelected ? opcoSelected.value : '',
+          position: document.getElementById('pf-position').value.trim()
+        })
+      });
+    } catch (_) { /* non bloquant */ }
+
+    document.getElementById('step-2').classList.add('hidden');
+    document.getElementById('step-done').classList.remove('hidden');
+  });
+
+  // Skip step 2
+  document.getElementById('pf-skip').addEventListener('click', function() {
+    document.getElementById('step-2').classList.add('hidden');
+    document.getElementById('step-done').classList.remove('hidden');
+  });
+})();
+</script>
+{{ end }}

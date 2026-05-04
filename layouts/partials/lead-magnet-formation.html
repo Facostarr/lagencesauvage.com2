@@ -1,0 +1,66 @@
+<div class="lm-formation rounded-xl border border-indigo-200 bg-indigo-50 p-6 sm:p-8 my-10" id="lm-formation">
+  <div class="mb-3 inline-flex items-center gap-2 rounded-full bg-indigo-100 px-3 py-1 text-xs font-semibold text-indigo-700">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+    Certifié Qualiopi · Finançable OPCO jusqu'à 100%
+  </div>
+  <h3 class="text-lg font-bold text-slate-900 mb-2">Téléchargez le programme de formation complet</h3>
+  <p class="text-sm text-slate-600 mb-4">21 heures sur 3 jours pour maîtriser Claude en contexte professionnel. Partagez ce document avec votre OPCO pour déposer un dossier de prise en charge.</p>
+  <ul class="mb-5 space-y-1.5 text-sm text-slate-700">
+    <li class="flex items-center gap-2"><span class="font-bold text-indigo-500">✓</span> Finançable jusqu'à 100% pour les TPE/PME via les OPCO</li>
+    <li class="flex items-center gap-2"><span class="font-bold text-indigo-500">✓</span> Conforme à l'obligation de formation AI Act (article 4)</li>
+    <li class="flex items-center gap-2"><span class="font-bold text-indigo-500">✓</span> 17 modules · Projects, Skills, MCP, Cowork, Office add-ins</li>
+  </ul>
+  <form id="lmf-form-{{ if .File }}{{ .File.UniqueID }}{{ else }}blog{{ end }}" class="flex flex-col sm:flex-row gap-2">
+    <input type="text" class="lmf-firstname min-w-0 flex-1 rounded-lg border border-indigo-200 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-200" placeholder="Votre prénom" required autocomplete="given-name">
+    <input type="email" class="lmf-email min-w-0 flex-1 rounded-lg border border-indigo-200 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-200" placeholder="votre@email.com" required autocomplete="email">
+    <button type="submit" class="lmf-btn whitespace-nowrap rounded-lg bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-indigo-700 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-400">
+      Recevoir le programme →
+    </button>
+  </form>
+  <p class="lmf-success hidden mt-3 text-sm font-semibold text-indigo-700"></p>
+  <p class="lmf-error hidden mt-3 text-sm text-red-600"></p>
+  <p class="mt-2 text-xs text-slate-400">Pas de spam. Votre email reste chez nous.</p>
+</div>
+<script>
+(function() {
+  var el = document.querySelector('.lm-formation');
+  if (!el) return;
+  var form = el.querySelector('form');
+  if (!form) return;
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    var btn = el.querySelector('.lmf-btn');
+    var success = el.querySelector('.lmf-success');
+    var error = el.querySelector('.lmf-error');
+    btn.disabled = true;
+    btn.textContent = 'Envoi…';
+    error.classList.add('hidden');
+    try {
+      var r = await fetch('/api/submit-programme', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          firstName: el.querySelector('.lmf-firstname').value,
+          email: el.querySelector('.lmf-email').value
+        })
+      });
+      var d = await r.json();
+      if (d.success) {
+        form.style.display = 'none';
+        success.textContent = '✓ Programme envoyé ! Vérifiez votre boîte mail (pensez aux spams).';
+        success.classList.remove('hidden');
+      } else {
+        error.textContent = d.message || 'Une erreur est survenue. Réessayez.';
+        error.classList.remove('hidden');
+        btn.disabled = false;
+        btn.textContent = 'Recevoir le programme →';
+      }
+    } catch (_) {
+      error.textContent = 'Erreur réseau. Réessayez dans quelques instants.';
+      error.classList.remove('hidden');
+      btn.disabled = false;
+      btn.textContent = 'Recevoir le programme →';
+    }
+  });
+})();
+</script>
