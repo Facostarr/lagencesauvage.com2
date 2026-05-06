@@ -6,7 +6,6 @@
   <title>{{ .Title }} — L'Agence Sauvage</title>
   <meta name="robots" content="noindex, nofollow">
   <style>
-    /* Reset & base */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
@@ -14,10 +13,17 @@
       font-size: 14px;
       line-height: 1.6;
       color: #0F172A;
-      background: #fff;
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 2rem 2.5rem;
+      background: #F8FAFC;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.5rem;
+    }
+
+    .page-wrapper {
+      max-width: 560px;
+      width: 100%;
     }
 
     /* Header branding */
@@ -25,235 +31,218 @@
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      padding-bottom: 1.5rem;
+      padding-bottom: 1.25rem;
       border-bottom: 3px solid #4F46E5;
-      margin-bottom: 2rem;
+      margin-bottom: 1.75rem;
     }
     .kit-header h1 {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       font-weight: 800;
       color: #0F172A;
       line-height: 1.2;
     }
     .kit-header .subtitle {
-      font-size: 1rem;
+      font-size: 0.9rem;
       color: #4F46E5;
       font-weight: 600;
       margin-top: 0.3rem;
     }
     .kit-header .brand {
       text-align: right;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       color: #64748B;
+      flex-shrink: 0;
+      margin-left: 1rem;
     }
     .kit-header .brand strong {
       display: block;
-      font-size: 1rem;
+      font-size: 0.9rem;
       color: #0F172A;
       font-weight: 700;
     }
 
-    /* Intro blockquote */
-    blockquote {
-      background: #F1F5F9;
-      border-left: 4px solid #4F46E5;
-      padding: 1rem 1.25rem;
-      margin: 1.5rem 0;
-      border-radius: 0 6px 6px 0;
-      font-style: italic;
-      color: #374151;
-    }
-
-    /* How to use box */
-    .kit-howto {
-      background: #EEF2FF;
-      border: 1px solid #C7D2FE;
-      border-radius: 8px;
-      padding: 1rem 1.25rem;
-      margin: 1.5rem 0;
-    }
-    .kit-howto strong { color: #4F46E5; }
-
-    /* Section headers */
-    h2 {
-      font-size: 1.2rem;
-      font-weight: 800;
-      color: #fff;
-      background: #0F172A;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      margin: 2.5rem 0 1.5rem;
-      letter-spacing: 0.02em;
-    }
-
-    /* Prompt cards */
-    h3 {
-      font-size: 1rem;
-      font-weight: 700;
-      color: #4F46E5;
-      margin: 1.5rem 0 0.5rem;
-      padding-bottom: 0.3rem;
-      border-bottom: 1px solid #E2E8F0;
-    }
-
-    p { margin: 0.5rem 0; color: #374151; }
-
-    strong { color: #0F172A; }
-
-    /* Prompt code blocks */
-    pre {
-      background: #F8FAFC;
+    /* Teaser */
+    .kit-teaser {
+      background: #fff;
       border: 1px solid #E2E8F0;
-      border-left: 4px solid #4F46E5;
-      border-radius: 6px;
-      padding: 1rem 1.25rem;
-      margin: 0.75rem 0 1.25rem;
-      white-space: pre-wrap;
-      word-wrap: break-word;
-      font-family: 'Courier New', monospace;
-      font-size: 0.85rem;
-      line-height: 1.7;
-      color: #1E293B;
-    }
-    code { font-family: 'Courier New', monospace; font-size: 0.85rem; }
-
-    /* Labels */
-    p strong:first-child { color: #4F46E5; }
-
-    /* CTA final */
-    .kit-cta {
-      background: #0F172A;
-      color: #fff;
       border-radius: 10px;
-      padding: 2rem;
-      margin-top: 3rem;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .kit-teaser p {
+      color: #374151;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+    .kit-teaser ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.6rem;
+    }
+    .kit-teaser ul li {
+      font-size: 0.85rem;
+      color: #374151;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.4rem;
+    }
+    .kit-teaser ul li::before {
+      content: "→";
+      color: #4F46E5;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* Gate form */
+    .kit-gate {
+      background: #fff;
+      border: 1px solid #C7D2FE;
+      border-radius: 10px;
+      padding: 1.75rem;
       text-align: center;
     }
-    .kit-cta h2 {
-      background: none;
-      color: #fff;
-      padding: 0;
-      margin: 0 0 0.75rem;
-      font-size: 1.3rem;
+    .kit-gate-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #0F172A;
+      margin-bottom: 0.4rem;
     }
-    .kit-cta p { color: #CBD5E1; font-size: 0.9rem; }
-    .kit-cta .cta-btn {
-      display: inline-block;
-      margin-top: 1.25rem;
+    .kit-gate-sub {
+      font-size: 0.85rem;
+      color: #64748B;
+      margin-bottom: 1.25rem;
+    }
+    .kit-gate form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .kit-gate input {
+      padding: 11px 14px;
+      border: 1px solid #C7D2FE;
+      border-radius: 6px;
+      font-size: 14px;
+      width: 100%;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .kit-gate input:focus { border-color: #4F46E5; }
+    .kit-gate button[type=submit] {
       background: #4F46E5;
       color: #fff;
-      padding: 0.75rem 2rem;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.15s;
+    }
+    .kit-gate button[type=submit]:hover { background: #4338CA; }
+    .kit-gate button[type=submit]:disabled { opacity: 0.6; cursor: not-allowed; }
+    .kit-gate .no-spam {
+      font-size: 11px;
+      color: #94A3B8;
+      margin-top: 6px;
+    }
+
+    /* Success state */
+    .kit-success {
+      text-align: center;
+    }
+    .kit-success p {
+      font-size: 0.9rem;
+      color: #374151;
+      margin-bottom: 1.25rem;
+    }
+    .kit-success .dl-btn {
+      display: inline-block;
+      background: #4F46E5;
+      color: #fff;
+      padding: 13px 28px;
       border-radius: 6px;
       text-decoration: none;
       font-weight: 700;
       font-size: 0.95rem;
     }
+    .kit-success .dl-note {
+      font-size: 11px;
+      color: #94A3B8;
+      margin-top: 10px;
+    }
 
     /* Footer */
     .kit-footer {
-      margin-top: 2rem;
-      padding-top: 1rem;
-      border-top: 1px solid #E2E8F0;
-      font-size: 0.75rem;
+      margin-top: 1.5rem;
+      font-size: 0.72rem;
       color: #94A3B8;
       text-align: center;
     }
-
-    /* HR separator */
-    hr {
-      border: none;
-      border-top: 1px solid #E2E8F0;
-      margin: 1.5rem 0;
-    }
-
-    /* Print */
-    @media print {
-      body { padding: 1rem; font-size: 12px; }
-      h2 { page-break-before: auto; }
-      h3 { page-break-after: avoid; }
-      pre { page-break-inside: avoid; }
-      .kit-cta { page-break-inside: avoid; }
-      .no-print { display: none; }
-    }
-
-    /* Print button */
-    .print-btn {
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
-      background: #4F46E5;
-      color: #fff;
-      border: none;
-      padding: 0.5rem 1.25rem;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 0.85rem;
-      font-weight: 600;
-      z-index: 100;
-    }
-    @media print { .print-btn { display: none; } }
-
-    /* Optin bar */
-    .kit-optin {
-      background: #EEF2FF;
-      border: 1px solid #C7D2FE;
-      border-radius: 8px;
-      padding: 1rem 1.5rem;
-      margin-bottom: 2rem;
-      text-align: center;
-    }
-    .kit-optin-title { font-weight: 700; color: #3730A3; font-size: 0.95rem; margin: 0; }
-    @media print { .kit-optin { display: none; } }
   </style>
 </head>
 <body>
 
-  <button class="print-btn no-print" onclick="window.print()">Imprimer / PDF</button>
+  <div class="page-wrapper">
 
-  <!-- Formulaire de capture email (masqué à l'impression) -->
-  <div class="kit-optin no-print" id="kit-optin">
-    <p class="kit-optin-title">Recevez ce kit par email + les prochaines ressources</p>
-    <form id="kit-form" style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:12px">
-      <input type="text" id="kit-firstname" placeholder="Votre prénom" required
-        style="padding:10px 14px;border:1px solid #C7D2FE;border-radius:6px;font-size:14px;flex:1;min-width:140px">
-      <input type="email" id="kit-email" placeholder="votre@email.com" required
-        style="padding:10px 14px;border:1px solid #C7D2FE;border-radius:6px;font-size:14px;flex:1;min-width:180px">
-      <button type="submit"
-        style="background:#4F46E5;color:#fff;border:none;padding:10px 20px;border-radius:6px;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap">
-        Recevoir le kit →
-      </button>
-    </form>
-    <p id="kit-msg" style="display:none;margin-top:10px;font-weight:600;color:#4F46E5"></p>
-    <p style="font-size:11px;color:#94A3B8;margin-top:8px">Pas de spam. Désabonnement en un clic.</p>
-  </div>
+    <header class="kit-header">
+      <div>
+        <h1>10 prompts Claude<br>pour PME</h1>
+        <div class="subtitle">Copiez, collez, récupérez votre temps</div>
+      </div>
+      <div class="brand">
+        <strong>L'Agence Sauvage</strong>
+        IA opérationnelle pour TPE/PME<br>
+        lagencesauvage.com
+      </div>
+    </header>
 
-  <header class="kit-header">
-    <div>
-      <h1>10 prompts Claude<br>pour PME</h1>
-      <div class="subtitle">Copiez, collez, récupérez votre temps</div>
+    <div class="kit-teaser">
+      <p>10 prompts opérationnels pour les tâches les plus chronophages d'une PME. Ouvrez Claude, copiez, adaptez les crochets <code>[…]</code>, envoyez. Aucune configuration préalable.</p>
+      <ul>
+        <li>Synthèse de réunion</li>
+        <li>Analyse de données</li>
+        <li>Aide à la décision</li>
+        <li>Offre d'emploi</li>
+        <li>Entretien difficile</li>
+        <li>Onboarding</li>
+        <li>Email client complexe</li>
+        <li>Brief commercial</li>
+        <li>Post LinkedIn</li>
+        <li>Newsletter</li>
+      </ul>
     </div>
-    <div class="brand">
-      <strong>L'Agence Sauvage</strong>
-      IA opérationnelle pour TPE/PME<br>
-      lagencesauvage.com
+
+    <div class="kit-gate" id="kit-gate">
+      <p class="kit-gate-title">Recevoir le kit en PDF</p>
+      <p class="kit-gate-sub">Téléchargement immédiat + les prochaines ressources</p>
+      <form id="kit-form">
+        <input type="text" id="kit-firstname" placeholder="Votre prénom" required autocomplete="given-name">
+        <input type="email" id="kit-email" placeholder="votre@email.com" required autocomplete="email">
+        <button type="submit" id="kit-submit">Recevoir le kit PDF →</button>
+        <p id="kit-error" style="display:none;color:#DC2626;font-size:13px;text-align:center"></p>
+      </form>
+      <p class="no-spam">Pas de spam. Désabonnement en un clic.</p>
     </div>
-  </header>
 
-  <div class="content">
-    {{ .Content }}
+    <footer class="kit-footer">
+      © 2026 L'Agence Sauvage · Paris · hello@lagencesauvage.com
+    </footer>
+
   </div>
-
-  <footer class="kit-footer">
-    © 2026 L'Agence Sauvage · Paris · hello@lagencesauvage.com · lagencesauvage.com
-  </footer>
 
   <script>
     document.getElementById('kit-form').addEventListener('submit', async function(e) {
       e.preventDefault();
-      const btn = this.querySelector('button[type=submit]');
-      const msg = document.getElementById('kit-msg');
+      const btn = document.getElementById('kit-submit');
+      const errEl = document.getElementById('kit-error');
       btn.disabled = true;
       btn.textContent = 'Envoi…';
+      errEl.style.display = 'none';
+
       try {
         const res = await fetch('/api/submit-kit', {
           method: 'POST',
@@ -264,24 +253,31 @@
           })
         });
         const data = await res.json();
+
         if (data.success) {
-          document.getElementById('kit-optin').innerHTML =
-            '<p style="font-weight:700;color:#4F46E5;padding:8px 0">✓ Kit envoyé ! Vérifiez votre boîte mail.</p>';
+          document.getElementById('kit-gate').innerHTML =
+            '<div class="kit-success">' +
+            '<p style="font-size:1.1rem;font-weight:700;color:#16A34A;margin-bottom:0.5rem">Kit envoyé !</p>' +
+            '<p>Vérifiez votre boîte mail, puis téléchargez le PDF ci-dessous.</p>' +
+            '<a class="dl-btn" href="/assets/downloads/kit-10-prompts-claude-pme.pdf" download>' +
+            'Télécharger mon kit (PDF) →' +
+            '</a>' +
+            '<p class="dl-note">Vous pouvez également sauvegarder ce lien pour y accéder plus tard.</p>' +
+            '</div>';
         } else {
-          msg.textContent = data.message || 'Une erreur est survenue.';
-          msg.style.display = 'block';
-          msg.style.color = '#DC2626';
+          errEl.textContent = data.message || 'Une erreur est survenue.';
+          errEl.style.display = 'block';
           btn.disabled = false;
-          btn.textContent = 'Recevoir le kit →';
+          btn.textContent = 'Recevoir le kit PDF →';
         }
       } catch (_) {
-        msg.textContent = 'Erreur réseau. Réessayez.';
-        msg.style.display = 'block';
-        msg.style.color = '#DC2626';
+        errEl.textContent = 'Erreur réseau. Réessayez.';
+        errEl.style.display = 'block';
         btn.disabled = false;
-        btn.textContent = 'Recevoir le kit →';
+        btn.textContent = 'Recevoir le kit PDF →';
       }
     });
   </script>
+
 </body>
 </html>
