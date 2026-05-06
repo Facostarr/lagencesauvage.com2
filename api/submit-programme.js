@@ -71,15 +71,15 @@ export default async function handler(req, res) {
       from: "Franck Sauvage — L'Agence Sauvage <hello@lagencesauvage.com>",
       to: emailNorm,
       subject: 'Votre programme de formation Claude — finançable jusqu\'à 100% OPCO',
-      text: `Bonjour ${firstName},\n\nVoici le programme de formation "Maîtriser Claude en entreprise" :\n${PDF_URL}\n\nCe document de 17 pages détaille le programme complet (3 jours, 21 heures, certifié Qualiopi), les objectifs pédagogiques et les modalités de financement OPCO. Vous pouvez le partager directement avec votre OPCO ou votre service RH pour déposer un dossier de prise en charge.\n\nPour calculer votre reste à charge ou planifier une session intra-entreprise, je suis disponible pour un diagnostic découverte de 15 minutes :\n${DIAGNOSTIC_URL}\n\nCordialement,\n\nFranck Sauvage\nFondateur — L'Agence Sauvage\nhello@lagencesauvage.com`,
+      text: `Bonjour ${firstName},\n\nVoici la proposition de formation "Maîtriser Claude en entreprise" :\n${PDF_URL}\n\nCe document de 7 pages présente la promesse de la formation, le programme sur 3 jours espacés (21 heures), 3 cas d'usage métier concrets, les modalités pratiques et les conditions de financement via votre OPCO. Vous pouvez le partager directement avec votre OPCO ou votre service RH pour déposer un dossier de prise en charge.\n\nPour cadrer cette formation pour vos équipes ou calculer votre reste à charge, je suis disponible pour un échange de 30 minutes :\n${DIAGNOSTIC_URL}\n\nCordialement,\n\nFranck Sauvage\nFondateur — L'Agence Sauvage\nhello@lagencesauvage.com`,
       html: `<div style="font-family:system-ui,-apple-system,sans-serif;max-width:560px;margin:0 auto;color:#0F172A">
 <div style="background:#4F46E5;padding:24px 32px;border-radius:8px 8px 0 0">
   <h1 style="color:#fff;margin:0;font-size:20px;font-weight:700">Maîtriser Claude en entreprise</h1>
-  <p style="color:#C7D2FE;margin:6px 0 0;font-size:14px">Programme de formation — Certifié Qualiopi · Finançable OPCO</p>
+  <p style="color:#C7D2FE;margin:6px 0 0;font-size:14px">Proposition de formation — Finançable OPCO · Dispensateur Qualiopi</p>
 </div>
 <div style="background:#fff;border:1px solid #E2E8F0;border-top:none;padding:32px;border-radius:0 0 8px 8px">
   <p style="margin:0 0 16px">Bonjour <strong>${firstName}</strong>,</p>
-  <p style="margin:0 0 20px;color:#374151">Voici le programme complet de la formation. Ce document de 17 pages détaille les objectifs pédagogiques, les 17 modules répartis sur 3 jours, et les modalités de financement via votre OPCO.</p>
+  <p style="margin:0 0 20px;color:#374151">Voici la proposition complète. Ce document de 7 pages présente la promesse de formation, le programme sur 3 jours espacés, 3 cas d'usage métier concrets, et les conditions de financement via votre OPCO.</p>
 
   <a href="${PDF_URL}" style="display:inline-block;background:#4F46E5;color:#fff;padding:13px 28px;border-radius:6px;text-decoration:none;font-weight:700;font-size:15px">Télécharger le programme PDF →</a>
 
@@ -98,8 +98,8 @@ export default async function handler(req, res) {
   </div>
 
   <hr style="border:none;border-top:1px solid #E2E8F0;margin:28px 0">
-  <p style="margin:0 0 8px;color:#374151;font-size:14px">Vous souhaitez calculer votre reste à charge ou planifier une session ?</p>
-  <a href="${DIAGNOSTIC_URL}" style="color:#4F46E5;font-size:14px;font-weight:600">Réservez un diagnostic découverte de 15 min →</a>
+  <p style="margin:0 0 8px;color:#374151;font-size:14px">Pour cadrer cette formation pour vos équipes ou calculer votre reste à charge OPCO :</p>
+  <a href="${DIAGNOSTIC_URL}" style="color:#4F46E5;font-size:14px;font-weight:600">Réservez un premier échange de 30 min →</a>
   <hr style="border:none;border-top:1px solid #E2E8F0;margin:28px 0">
   <p style="margin:0;font-size:12px;color:#94A3B8">L'Agence Sauvage · Paris · <a href="mailto:hello@lagencesauvage.com" style="color:#94A3B8">hello@lagencesauvage.com</a> · Dispensateur : GHG Formations (certifié Qualiopi)</p>
 </div>
