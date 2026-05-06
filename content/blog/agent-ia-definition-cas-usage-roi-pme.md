@@ -31,7 +31,7 @@ related_realisations:
 
 takeaways:
   - "Un agent IA n'est pas un chatbot : il exécute des objectifs complets en utilisant vos outils métiers (email, CRM, ERP), tandis qu'un chatbot se contente de générer du texte en réponse à une question."
-  - "74 % des entreprises ayant adopté des agents IA rapportent un ROI positif dès la première année — avec un ROI moyen atteint en 8 mois pour les PME françaises ayant ciblé les bons processus."
+  - "74 % des entreprises ayant adopté des agents IA rapportent un ROI positif dès la première année, et 39 % indiquent que la productivité de leurs équipes a au moins doublé sur les processus automatisés — les résultats les plus rapides concernent les processus à fort volume et faible variabilité : traitement de factures, qualification de prospects, relances de suivi."
   - "Avant tout déploiement, trois prérequis s'imposent : identifier un processus à fort volume et faible risque, intégrer une validation humaine sur les décisions critiques, et anticiper les obligations de l'AI Act européen applicables en août 2026."
 
 faq:
@@ -104,13 +104,13 @@ Quand vous déployez un agent IA, vous configurez ces quatre composants pour qu'
 
 ## 3 cas d'usage concrets pour les PME françaises
 
-[Selon les analyses de Deloitte](https://www.deloitte.com/global/en/issues/work/agentic-ai.html), le marché des agents IA autonomes représente 8,5 milliards de dollars en 2026, avec une projection à 35 milliards d'ici 2030. Cette croissance est portée par des applications très concrètes dans des secteurs où les tâches répétitives représentent une part significative du temps de travail.
+[Selon les analyses de Deloitte](https://www.deloitte.com/us/en/insights/industry/technology/technology-media-and-telecom-predictions/2026/ai-agent-orchestration.html), le marché des agents IA autonomes représente 8,5 milliards de dollars en 2026, avec une projection à 35 milliards d'ici 2030. Cette croissance est portée par des applications très concrètes dans des secteurs où les tâches répétitives représentent une part significative du temps de travail.
 
 ### Cabinet d'expertise comptable : du traitement de factures à 15 € à 3 €
 
-Le traitement des factures fournisseurs est l'une des tâches les plus chronophages des services comptables. En France, [le coût moyen de traitement manuel d'une facture s'élève entre 10 et 15 euros](https://www.flowwa.io), en comptant le temps de saisie, les vérifications, les corrections d'erreurs et les relances — selon des études menées auprès de cabinets comptables français.
+Le traitement des factures fournisseurs est l'une des tâches les plus chronophages des services comptables. En France, [le coût moyen de traitement manuel d'une facture s'élève entre 10 et 15 euros](https://www.dimo-dematerialisation.com/cout-traitement-facture-fournisseur/), en comptant le temps de saisie, les vérifications, les corrections d'erreurs et les relances — selon des analyses menées sur les processus comptables des PME françaises.
 
-Un agent IA comptable prend en charge l'ensemble du processus : lecture du document entrant (email, PDF, flux EDI), extraction des données structurées (fournisseur, numéro SIRET, montant HT, TVA, date d'échéance), rapprochement automatique avec les bons de commande existants, détection des anomalies et intégration dans le logiciel de gestion — sans manipulation manuelle. Ce coût tombe [entre 1 et 3 euros par facture, soit une réduction de l'ordre de 80 %](https://www.mkit.fr).
+Un agent IA comptable prend en charge l'ensemble du processus : lecture du document entrant (email, PDF, flux EDI), extraction des données structurées (fournisseur, numéro SIRET, montant HT, TVA, date d'échéance), rapprochement automatique avec les bons de commande existants, détection des anomalies et intégration dans le logiciel de gestion — sans manipulation manuelle. Ce coût tombe [entre 1 et 3 euros par facture, soit une réduction de l'ordre de 80 %](https://www.gedly.fr/blog/quel-est-le-cout-de-traitement-d-une-facture-fournisseur-par-une-plateforme-dematerialisee).
 
 L'enjeu s'amplifie avec l'obligation de facturation électronique, dont le déploiement progressif débute en France à partir de septembre 2026. Les cabinets qui automatisent leur chaîne de traitement dès maintenant ne subissent pas une transition — ils l'anticipent avec une longueur d'avance.
 
@@ -122,7 +122,7 @@ Dans une PME industrielle ou de distribution, les ruptures de stock et les retar
 
 Un agent IA de surveillance logistique surveille en continu les niveaux de stock, les délais de livraison fournisseurs et les tendances de consommation. Lorsqu'il détecte un seuil d'alerte, il ne génère pas une simple notification : il engage un workflow de résolution. Il consulte les tarifs des fournisseurs alternatifs, prépare un projet de bon de commande, le soumet à validation humaine et met à jour le tableau de bord de suivi — le tout avant que le responsable logistique n'ouvre son ordinateur.
 
-Des entreprises comme Décathlon expérimentent ce type de systèmes pour synchroniser leurs chaînes d'approvisionnement à l'échelle mondiale, [avec des gains directs et mesurés sur la rentabilité et la réduction des ruptures](https://www.craft.ai/blog/ia-logistique-distribution). Pour une PME industrielle de 50 à 200 salariés, la même logique s'applique à une échelle plus modeste, mais avec un impact proportionnel tout aussi significatif.
+Pour une PME industrielle de 50 à 200 salariés, ce niveau de surveillance agentique est aujourd'hui accessible — avec un impact proportionnel sur la réduction des ruptures et la rentabilité des stocks.
 
 La prévention d'une seule rupture critique — qui aurait stoppé une ligne de production pendant une journée — peut rentabiliser plusieurs mois d'abonnement à un agent de surveillance.
 
@@ -132,7 +132,7 @@ Dans les métiers de services — agences immobilières, cabinets de conseil, st
 
 Un agent IA de qualification répond immédiatement, à toute heure, et engage une conversation structurée : budget, localisation, nombre de pièces, délai de projet, besoins spécifiques. Il interroge la base de données interne, prépare une présélection de biens ou de prestations correspondants, et propose des créneaux de rendez-vous avec un conseiller humain — qui n'intervient que sur les prospects déjà qualifiés.
 
-Les résultats mesurés dans ce secteur indiquent [une réduction de 80 % des tâches administratives répétitives et une augmentation de plus de 40 % du taux de résolution des demandes entrantes](https://www.nextstep-agence.com), sans augmentation des effectifs. Le conseiller humain reçoit un dossier complet, un historique de la conversation, une plage horaire déjà confirmée — et consacre son temps à ce que l'agent ne peut pas faire : la relation, la négociation, la décision.
+[Les analyses de McKinsey sur l'IA agentique en immobilier](https://www.mckinsey.com/industries/real-estate/our-insights/how-agentic-ai-can-reshape-real-estates-operating-model) documentent une réduction significative du temps consacré aux tâches administratives et une augmentation mesurable du taux de traitement des demandes entrantes, sans augmentation des effectifs. Le conseiller humain reçoit un dossier complet, un historique de la conversation, une plage horaire déjà confirmée — et consacre son temps à ce que l'agent ne peut pas faire : la relation, la négociation, la décision.
 
 ---
 
@@ -142,9 +142,7 @@ Les résultats mesurés dans ce secteur indiquent [une réduction de 80 % des t�
 
 ## ROI : ce que l'IA rapporte vraiment
 
-Les données sont maintenant suffisamment consolidées pour dépasser les promesses marketing. [Selon une étude conduite par Google Cloud auprès de plusieurs milliers de dirigeants](https://cloud.google.com/transform/), **74 % des entreprises ayant déployé des agents IA rapportent un retour sur investissement positif dès la première année**. Parmi elles, 39 % indiquent que la productivité de leurs équipes a au moins doublé sur les processus automatisés.
-
-En France, les structures d'accompagnement à la transformation IA rapportent un [ROI concret en 8 mois en moyenne, associé à une réduction de 20 % des coûts opérationnels](https://juwa.co/blog/actualites-tendances-ia/actu-ia-2026-comment-les-agents-autonomes-vont-transformer-votre-pme/) sur les processus ciblés.
+Les données sont maintenant suffisamment consolidées pour dépasser les promesses marketing. [Selon une étude conduite par Google Cloud auprès de plusieurs milliers de dirigeants](https://cloud.google.com/transform/101-real-world-generative-ai-use-cases-from-industry-leaders), **74 % des entreprises ayant déployé des agents IA rapportent un retour sur investissement positif dès la première année**. Parmi elles, 39 % indiquent que la productivité de leurs équipes a au moins doublé sur les processus automatisés.
 
 Un avantage souvent sous-estimé : un agent IA n'a pas d'heures supplémentaires. Il qualifie un prospect à 23h, prépare un rapport à 6h du matin et traite un pic d'activité en fin de mois sans générer de coût marginal supplémentaire — tout en maintenant une qualité d'exécution strictement constante.
 
@@ -206,13 +204,11 @@ Réévaluez en parallèle les missions de vos collaborateurs. L'objectif n'est p
 
 ## Sources et références
 
-- Deloitte — [Agentic AI : perspectives de marché 2026-2030](https://www.deloitte.com/global/en/issues/work/agentic-ai.html) — marché estimé à 8,5 milliards de dollars en 2026, projection à 35 milliards d'ici 2030
-- Google Cloud — [The state of generative AI in the enterprise](https://cloud.google.com/transform/) — 74 % des entreprises ayant adopté l'IA rapportent un ROI positif dès la première année
+- Deloitte — [Agentic AI : orchestration et perspectives de marché 2026-2030](https://www.deloitte.com/us/en/insights/industry/technology/technology-media-and-telecom-predictions/2026/ai-agent-orchestration.html) — marché estimé à 8,5 milliards de dollars en 2026, projection à 35 milliards d'ici 2030
+- Google Cloud — [101 real-world generative AI use cases from industry leaders](https://cloud.google.com/transform/101-real-world-generative-ai-use-cases-from-industry-leaders) — 74 % des entreprises ayant adopté l'IA rapportent un ROI positif dès la première année
 - Salesforce — [Small & Medium Business Trends Report](https://www.salesforce.com/resources/research-reports/small-medium-business-trends/) — 78 % des PME prévoient d'investir dans l'IA en 2025
 - CitizenCall — [Agents IA en entreprise : adoption et résultats 2025](https://www.citizencall.fr/blog/agent-ia-autonome-entreprise) — 85 % d'adoption des agents IA en relation client
-- Flowwa — [Coût de traitement des factures fournisseurs](https://www.flowwa.io) — coût manuel 10-15 € réduit à 1-3 € avec automatisation IA
-- MKIT — [Facturation électronique et IA pour les cabinets comptables](https://www.mkit.fr) — impact opérationnel mesuré sur les cabinets français
-- Craft.ai — [IA et logistique en France](https://www.craft.ai/blog/ia-logistique-distribution) — expérimentations Décathlon, gains sur la chaîne d'approvisionnement
-- NextStep Agence — [Agent IA et immobilier : retours terrain](https://www.nextstep-agence.com) — réduction de 80 % des tâches manuelles, +40 % de demandes traitées
+- DIMO Dématérialisation — [Coût de traitement d'une facture fournisseur](https://www.dimo-dematerialisation.com/cout-traitement-facture-fournisseur/) — coût manuel 10-15 € par facture en PME française
+- Gedly — [Coût de traitement par plateforme dématérialisée](https://www.gedly.fr/blog/quel-est-le-cout-de-traitement-d-une-facture-fournisseur-par-une-plateforme-dematerialisee) — réduction à 1-3 € par facture avec automatisation
+- McKinsey — [How agentic AI can reshape real estate's operating model](https://www.mckinsey.com/industries/real-estate/our-insights/how-agentic-ai-can-reshape-real-estates-operating-model) — impact mesurable sur les tâches administratives et le traitement des demandes
 - IBM — [EU AI Act : guide pratique pour les entreprises](https://www.ibm.com/topics/eu-ai-act) — calendrier, obligations, sanctions applicables
-- Juwa.co — [Comment les agents autonomes transforment les PME françaises](https://juwa.co/blog/actualites-tendances-ia/actu-ia-2026-comment-les-agents-autonomes-vont-transformer-votre-pme/) — ROI moyen en 8 mois, réduction de 20 % des coûts opérationnels
