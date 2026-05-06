@@ -195,6 +195,8 @@ Aucun pour le moment.
 - [ ] Second lead magnet "Checklist IA PME 2026" (concept validé, pas démarré)
 - [x] Page formation "Maîtriser Claude en entreprise" — créée (2026-05-06)
 - [x] Article "Agent IA : définition, cas d'usage et ROI PME" — pushé (commits 6879f7d + 7dcc363, sources corrigées)
+- [x] Lead magnet kit prompts : refonte PDF gate — PDF généré (Playwright A4), layout gated, email lien PDF direct (2026-05-06)
+- [x] Email submit-programme.js : aligné sur PDF réel (7 pages, "Proposition de formation", CTA 30 min) (2026-05-06)
 
 ## Décisions prises (post-bascule)
 

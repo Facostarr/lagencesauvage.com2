@@ -73,7 +73,7 @@ Quota dépassé aujourd'hui. Demander l'indexation pour les 6 case studies :
 
 ### Lead magnets (en cours)
 
-- [x] Lead magnet 1 — Kit démarrage Claude Cowork PME : PDF + capture email + submit-kit + CTA blog (2026-04-26)
+- [x] Lead magnet 1 — Kit 10 prompts Claude PME : PDF gate — PDF Playwright A4, layout gated (teaser + form), bouton DL direct après soumission, email lien PDF (2026-05-06)
 - [x] Lead magnet 2 — Formation Claude entreprise : landing `/formation/maitriser-claude-entreprise/`, formulaire multi-step, PDF programme, API step1+step2, shortcode, nav, CTA article AI Act (2026-05-06)
 - [ ] Lead magnet 3 — Checklist IA PME 2026 : concept validé, production non démarrée
 
