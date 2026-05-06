@@ -31,6 +31,14 @@ Hugo Extended ≥0.145 | Tailwind CSS v4 (config CSS-first via @theme, PAS tailw
 
 Skills user-level (chargées automatiquement, ne pas dupliquer) : `agence-sauvage-brand-identity` (TOUJOURS en premier), `hugo-lagencesauvage`, `b2b-service-page-builder`, `conversion-audit-checklist`, `seo-blog-writer`, `geo-optimization`, `ux-expert`, `devfullstack`
 
+**Skills `.claude/skills/` (project-scope, audit 2026-04-23 + résolution sources skills.sh)** :
+- Anthropic : `frontend-design` (Tailwind v4), `brand-guidelines` (charte ASV)
+- addyosmani/web-quality-skills : `accessibility` + `seo` (quality gate Phase 5)
+- vercel-labs/agent-skills : `deploy-to-vercel` (pipeline Git→Vercel)
+- coreyhaines31/marketingskills : `ai-seo`, `schema-markup`, `page-cro`, `copywriting`, `form-cro`
+- **Pack Shubham (sources résolues)** : `humanizer` (blader/humanizer — anti-IA writing), `seo-geo` (resciencelab/opc-skills), `keyword-research` + `content-gap-analysis` + `competitor-analysis` (aaron-he-zhu/seo-geo-claude-skills), `design-consultation` + `design-review` (garrytan/gstack), `polish` (pbakaus/impeccable)
+- **Skills NON disponibles publiquement** : `prose-fr`, `proofread`, `landing-page-copywriter` (pas de repo GitHub source — voir `skills-lock.json` `notAvailablePublicly`)
+
 ## Phasage (7 phases — validation Franck entre chaque)
 
 Phase 0 = setup technique | Phase 1 = design system | Phase 2 = homepage | Phase 3 = pages secondaires | Phase 4 = intégration blog | Phase 5 = quality gate | Phase 6 = bascule | Phase 7 = post-bascule
@@ -39,8 +47,8 @@ Phase en cours → voir `project-state/status.md`. Ne jamais commencer une phase
 ## Règles critiques (non négociables)
 
 1. **ZÉRO INVENTION** : ne jamais créer de témoignages, citations, avis, KPI ou statistiques. Aucun chiffre sans validation explicite de Franck.
-2. **BLOG INTOUCHABLE** : ne jamais modifier le contenu markdown des articles dans `content/blog/`. Le front matter peut être enrichi (meta, OG). Les layouts peuvent changer. Le contenu texte est sacré.
-3. **BRANCHE REFONTE UNIQUEMENT** : tous les commits sur `refonte-2026`. Jamais sur `main`. Jamais de merge vers `main` sans GO explicite de Franck.
+2. **CONTENU BLOG EXISTANT PROTÉGÉ** : ne jamais modifier le corps des articles existants sans demande explicite de Franck (risque SEO/GEO). La création et l'édition de nouveaux articles sont la mission principale de la Phase 7. Le front matter peut être enrichi à tout moment. Les layouts peuvent changer.
+3. **BRANCHE PRINCIPALE `main`** : depuis la Phase 6 (bascule mai 2026), tous les commits vont sur `main`. La branche `refonte-2026` est archivée.
 4. **REDIRECTIONS 301 OBLIGATOIRES** : chaque ancienne URL .html a sa redirection dans vercel.json. Tester avant chaque push. Mapping complet dans le playbook.
 5. **SOBRIÉTÉ** : max 2 emojis/page (idéal 0). Pas de gradients, ombres excessives, couleurs saturées. Pas de photos stock.
 6. **VOUVOIEMENT** sur le site. Tutoiement réservé aux échanges avec Franck.
@@ -49,6 +57,7 @@ Phase en cours → voir `project-state/status.md`. Ne jamais commencer une phase
 9. **REDIRECTIONS = VERCEL.JSON UNIQUEMENT** : ne jamais utiliser les `aliases` Hugo pour les redirections. Single source of truth = vercel.json.
 10. **PAS DE CLASSES TAILWIND DYNAMIQUES INCOMPLÈTES** : dans les templates Go, ne jamais construire une classe Tailwind par concaténation (ex: `bg-{{ .Params.color }}-500`). Utiliser des classes complètes ou des mappings explicites.
 11. **VALIDATION AVANT PUSH — CONTENU ÉDITORIAL** : tout article de blog ou page de contenu doit être soumis à Franck pour relecture complète avant tout `git push`. Présenter le contenu final dans la conversation et attendre un GO explicite. Ne jamais pousser en production un contenu que Franck n'a pas validé — en particulier : tarifs, chiffres, promesses commerciales, positionnement offre.
+12. **SOURCES BLOG — INTERDICTION CONCURRENTS** : ne jamais citer en source une agence IA, agence digitale ou tout prestataire concurrent de L'Agence Sauvage. Sources autorisées : cabinets conseil (McKinsey, Deloitte, Gartner, PwC), organismes officiels (gouvernement.fr, CNIL, Commission Européenne), éditeurs logiciels non concurrents (Salesforce, Google, IBM, SAP), presse spécialisée reconnue (Les Échos, Le Monde, TechCrunch, Harvard Business Review). Vérifier systématiquement que chaque lien pointe vers une page de contenu précise, jamais une page d'accueil.
 
 ## Copywriting
 
@@ -60,7 +69,7 @@ Mots interdits : révolutionner, disruptif, innovant, solution de pointe, game-c
 
 - **Config Hugo** : TOML, 3 fichiers dans config/_default/. Front matter articles : YAML.
 - **Tailwind v4** : point d'entrée `assets/css/main.css` avec `@import "tailwindcss"`. Palette/typo via `@theme`. Pas de tailwind.config.js.
-- **Git** : commits atomiques en français — `feat:`, `fix:`, `refactor:`, `docs:`, `chore:`. Branche unique `refonte-2026`.
+- **Git** : commits atomiques en français — `feat:`, `fix:`, `refactor:`, `docs:`, `chore:`. Branche principale : `main` (depuis Phase 6).
 - **Nommage** : layouts/partials en kebab-case, images en kebab-case descriptif, contenu en slug URL.
 - **Placeholders** : `<!-- [ASSET: description — dimensions — format] -->`, `<!-- [DATA: description] -->`, `<!-- [DÉCISION: question] -->`
 - **Sécurité** : avant toute commande destructive (rm, mv masse, git reset), lister les opérations et demander validation.
