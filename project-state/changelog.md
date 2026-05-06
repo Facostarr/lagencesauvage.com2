@@ -1,5 +1,19 @@
 # Changelog — Refonte lagencesauvage.com
 
+## 2026-05-06 — Lead magnet kit prompts : refonte en PDF gate + fix email programme formation
+
+- **Lead magnet "10 prompts Claude pour PME"** : refactoré de "contenu visible + opt-in" → Option C PDF gate
+  - PDF généré depuis la page live via Playwright (A4, backgrounds, marges 15mm) → `static/assets/downloads/kit-10-prompts-claude-pme.pdf`
+  - Layout `layouts/ressources/single.html` entièrement réécrit : teaser statique (10 prompts listés) + formulaire central (prénom + email) — contenu du kit supprimé de la page
+  - Après soumission : bouton "Télécharger mon kit (PDF) →" affiché directement sur la page
+  - `api/submit-kit.js` mis à jour : `kitUrl` → `kitPdfUrl` pointant vers le PDF statique, bouton email "Télécharger mon kit (PDF) →"
+  - Commits `067b0ed` (hook auto) — pushé sur main → live
+- **Email `submit-programme.js`** : alignement sur le PDF réel (7 pages "Proposition de formation")
+  - "17 pages / 17 modules" → "7 pages, proposition complète sur 3 jours espacés"
+  - Sous-titre header : "Certifié Qualiopi" → "Dispensateur Qualiopi" (plus exact — GHG Formations est le certifié)
+  - CTA bas de mail : "diagnostic découverte 15 min" → "premier échange 30 min" (cohérent avec le PDF)
+  - Commit `1a255ee` — pushé sur main → live
+
 ## 2026-05-06 — Lead magnet formation Claude entreprise + CTA swap article AI Act
 
 - **Landing page `/formation/maitriser-claude-entreprise/`** : layout dédié `layouts/formation/single.html`, formulaire multi-step (step 1 capture immédiate prénom+nom+email+entreprise, step 2 qualification taille+secteur+OPCO+poste), JS vanilla, texte copywriting OPCO-first
