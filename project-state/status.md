@@ -182,11 +182,24 @@ Aucun pour le moment.
 - [x] Article "Zero Human Company : le mythe américain face à la réalité des PME françaises" — 2300 mots, consensus Claude+Gemini 9/10, section interne agence-sauvage-ventes, image dashboard Paperclip, pushé 2026-04-16 — validé (2026-04-17)
 - [x] Article "AI Act : former vos collaborateurs à l'IA est désormais une obligation légale" — 2200 mots, consensus Claude+Gemini 8/10, deep research Gemini 8m15, partenaire GhG Formations Qualiopi, image hero EU+formation, validé et pushé 2026-04-16
 - [x] Bandeau métriques homepage : 10 000+ actions/mois + <1 sec./tâche + 0 intervention humaine (consensus Claude+Gemini 9/10, validé 2026-04-17)
+- [x] Lead magnet "Kit démarrage Claude Cowork pour PME" : capture email, PDF attaché via Resend, CTA blog, endpoint /api/submit-kit (2026-04-26)
+- [x] Lead magnet "Formation Claude entreprise" : landing page `/formation/maitriser-claude-entreprise/`, formulaire multi-step (step1 capture immédiate + step2 qualification), PDF programme, API submit-programme step1+step2, shortcode Hugo, nav header "Formation", CTA article AI Act (2026-05-06)
+- [x] CTA article AI Act : swap kit prompts → formulaire formation (conditionnel tag "Formation IA" dans layout blog, inline $i==2 — autres articles gardent le kit) (2026-05-06)
+- [x] Système notification leads double-canal : api/_notify.js (Resend + Telegram), migration complète des 5 endpoints api/submit-*.js, nodemailer supprimé (2026-05-06)
+- [x] SPF lagencesauvage.com mis à jour : spf.resend.com + _spf.google.com + ~all (2026-05-06)
+- [x] Test e2e validé : email reçu sur beforbiz@gmail.com depuis endpoint submit-kit en production (2026-05-06)
+- [ ] **BLOQUANT** : RESEND_API_KEY manquante/expirée Vercel → formulaires diagnostic + formation retournent 500. Action Franck : Vercel Dashboard → lagencesauvageavecnotion → Settings → Env Vars → vérifier RESEND_API_KEY
+- [ ] Supprimer entrée test Notion "Test / beforbiz@gmail.com" (action manuelle Franck)
 - [ ] Rédiger article 3/4 : "Agents IA autonomes en PME : 3 cas d'usage réels"
 - [ ] Rédiger article 4/4 : "IA et professions juridiques : gain de temps et secret professionnel"
+- [ ] Second lead magnet "Checklist IA PME 2026" (concept validé, pas démarré)
+- [x] Page formation "Maîtriser Claude en entreprise" — créée (2026-05-06)
+- [x] Article "Agent IA : définition, cas d'usage et ROI PME" — pushé (commits 6879f7d + 7dcc363, sources corrigées)
 
 ## Décisions prises (post-bascule)
 
+- ✅ Infrastructure email transactionnelle : Resend (HTTPS API) pour tous les endpoints api/submit-*.js — VPS2/KumoMTA réservé aux campagnes Mailwizz bulk. Cause : KumoMTA n'autorisait le relay que pour monagencesauvage.com, pas lagencesauvage.com (silencieux). Décision 2026-05-06.
+- ✅ nodemailer supprimé du projet — aucun endpoint n'utilise SMTP direct
 - ✅ Toute citation/étude dans un article doit avoir un lien hypertexte vérifiable vers la source (consensus Claude + Gemini 8/10, 2026-03-23)
 - ✅ Section "Sources et références" obligatoire en bas de chaque article (2026-03-23)
 - ✅ CLAUDE.md enrichi avec section "Production d'articles de blog" (2026-03-23)

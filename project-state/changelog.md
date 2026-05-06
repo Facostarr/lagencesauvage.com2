@@ -1,5 +1,29 @@
 # Changelog — Refonte lagencesauvage.com
 
+## 2026-05-06 — Lead magnet formation Claude entreprise + CTA swap article AI Act
+
+- **Landing page `/formation/maitriser-claude-entreprise/`** : layout dédié `layouts/formation/single.html`, formulaire multi-step (step 1 capture immédiate prénom+nom+email+entreprise, step 2 qualification taille+secteur+OPCO+poste), JS vanilla, texte copywriting OPCO-first
+- **API step 1 `api/submit-programme.js`** : Notion (Source = "Lead Magnet - Programme Formation") + Resend email avec lien PDF + notifyFounder (Resend+Telegram)
+- **API step 2 `api/submit-programme-step2.js`** : notifyFounder uniquement, toujours 200, non-bloquant
+- **Partial `layouts/partials/lead-magnet-formation.html`** + shortcode `{{< lead-magnet-formation >}}` (2 champs, contexte blog)
+- **PDF programme** : `static/assets/downloads/programme-formation-claude-entreprise.pdf` ajouté au repo par Franck
+- **Menu header** : "Formation" ajouté weight 3 → `/formation/maitriser-claude-entreprise/`
+- **CTA article AI Act** : remplacement du kit prompts par le lead magnet formation via `layouts/blog/single.html` conditionnel `{{ if in .Params.tags "Formation IA" }}` à la position $i==2 (inline, après le 2e H2). Autres articles conservent le kit. Doublon fin d'article supprimé.
+- **Erreur 500 diagnostiquée** : `RESEND_API_KEY` manquante ou expirée dans Vercel Dashboard → les deux formulaires (diagnostic homepage + formation) retournent 500. Action Franck requise.
+- Commits `2ecc5a7` + `14d9c52` — pushés sur main → live
+
+## 2026-05-06 — Système de notification leads durable : Resend + _notify.js centralisé
+
+- **Diagnostic cause racine** : lead du 26 avril non notifié car `submit-kit.js` envoyait depuis `hello@lagencesauvage.com` alors que VPS2 KumoMTA n'autorise le relay que pour `hello@monagencesauvage.com` → rejet SMTP silencieux. Doublé par le bloc conditionnel `if (SMTP_HOST && SMTP_USER)` qui masquait l'erreur.
+- **Créé `api/_notify.js`** : utilitaire centralisé `notifyFounder()` — double canal `Promise.allSettled` (Resend email + Telegram), support pièces jointes PDF, log explicite si les deux canaux échouent
+- **Migration nodemailer → Resend** sur les 5 endpoints : `submit-kit`, `submit-lead`, `submit-formation`, `submit-formation-flexible`, `submit-diagnostic`
+- **`submit-diagnostic.js`** : bloc email commenté depuis l'origine → remplacé par `notifyFounder()` actif
+- **`from:` unifié** sur tous les endpoints : `hello@lagencesauvage.com` (plus de `monagencesauvage.com`)
+- **DNS `lagencesauvage.com`** : SPF mis à jour → `include:spf.resend.com include:_spf.google.com ~all`
+- **Vercel env vars** : `RESEND_API_KEY` ajouté, `SMTP_*` + `SENDGRID_*` supprimés
+- **Test end-to-end validé** : `{"success":true}` + email reçu sur beforbiz@gmail.com
+- Commits `c3b608e` + `746df3b` — pushés sur main → live
+
 ## 2026-04-17 — Bandeau métriques homepage : refonte chiffres de preuve sociale
 
 - Remplacement des 3 métriques figées et peu convaincantes ("6 projets déployés", "30+ workflows en production", "5 secteurs d'activité")

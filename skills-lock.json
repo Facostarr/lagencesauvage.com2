@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "auditDate": "2026-04-23",
+  "skills": {
+    "frontend-design": { "source": "anthropics/skills", "sourceType": "github", "installCmd": "git clone (anthropics/skills)" },
+    "brand-guidelines": { "source": "anthropics/skills", "sourceType": "github" },
+    "accessibility": { "source": "addyosmani/web-quality-skills", "sourceType": "github" },
+    "seo": { "source": "addyosmani/web-quality-skills", "sourceType": "github" },
+    "deploy-to-vercel": { "source": "vercel-labs/agent-skills", "sourceType": "github" },
+    "ai-seo": { "source": "coreyhaines31/marketingskills", "sourceType": "github" },
+    "schema-markup": { "source": "coreyhaines31/marketingskills", "sourceType": "github" },
+    "page-cro": { "source": "coreyhaines31/marketingskills", "sourceType": "github" },
+    "copywriting": { "source": "coreyhaines31/marketingskills", "sourceType": "github" },
+    "form-cro": { "source": "coreyhaines31/marketingskills", "sourceType": "github" },
+    "humanizer": { "source": "blader/humanizer", "sourceType": "github", "installCmd": "npx skills add blader/humanizer" },
+    "seo-geo": { "source": "resciencelab/opc-skills", "sourceType": "github", "installCmd": "npx skills add resciencelab/opc-skills/seo-geo" },
+    "keyword-research": { "source": "aaron-he-zhu/seo-geo-claude-skills", "sourceType": "github", "installCmd": "npx skills add aaron-he-zhu/seo-geo-claude-skills/keyword-research" },
+    "content-gap-analysis": { "source": "aaron-he-zhu/seo-geo-claude-skills", "sourceType": "github", "installCmd": "npx skills add aaron-he-zhu/seo-geo-claude-skills/content-gap-analysis" },
+    "competitor-analysis": { "source": "aaron-he-zhu/seo-geo-claude-skills", "sourceType": "github", "installCmd": "npx skills add aaron-he-zhu/seo-geo-claude-skills/competitor-analysis" },
+    "design-consultation": { "source": "garrytan/gstack", "sourceType": "github", "installCmd": "npx skills add garrytan/gstack/design-consultation" },
+    "design-review": { "source": "garrytan/gstack", "sourceType": "github", "installCmd": "npx skills add garrytan/gstack/design-review" },
+    "polish": { "source": "pbakaus/impeccable", "sourceType": "github", "installCmd": "npx skills add pbakaus/impeccable/polish" }
+  },
+  "notAvailablePublicly": {
+    "comment": "Skills mentionnes dans le pack Shubham Sharma sans source GitHub publique — impossibles a telecharger automatiquement",
+    "skills": ["prose-fr", "proofread", "landing-page-copywriter"]
+  }
+}

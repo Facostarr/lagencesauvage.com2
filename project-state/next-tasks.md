@@ -67,8 +67,33 @@ Quota dépassé aujourd'hui. Demander l'indexation pour les 6 case studies :
 - [x] Article "Claude Cowork en mars 2026 : 3 cas d'usage concrets pour les PME" — brainstorm 9/10, 14 sources, pushé 2026-03-24
 - [x] Article "Zero Human Company : le mythe américain face à la réalité des PME françaises" — recherche multi-sources, consensus Claude+Gemini 9/10, pushé 2026-04-16
 - [x] Article "AI Act : former vos collaborateurs à l'IA est désormais une obligation légale" — deep research Gemini 8m15, consensus 8/10, partenaire GhG Formations Qualiopi, validé + pushé 2026-04-16
+- [x] Article "Agent IA : définition, cas d'usage et ROI pour les PME" — pushé (commits 6879f7d + 7dcc363)
 - [ ] Article 3/4 : "Agents IA autonomes en PME : 3 cas d'usage réels qui remplacent les SaaS" — Guides pratiques (reporté)
 - [ ] Article 4/4 : "IA et professions juridiques : gain de temps et secret professionnel en 2026" — Expertise terrain (reporté)
+
+### Lead magnets (en cours)
+
+- [x] Lead magnet 1 — Kit démarrage Claude Cowork PME : PDF + capture email + submit-kit + CTA blog (2026-04-26)
+- [x] Lead magnet 2 — Formation Claude entreprise : landing `/formation/maitriser-claude-entreprise/`, formulaire multi-step, PDF programme, API step1+step2, shortcode, nav, CTA article AI Act (2026-05-06)
+- [ ] Lead magnet 3 — Checklist IA PME 2026 : concept validé, production non démarrée
+
+### Pages créées cette session
+
+- [x] `/formation/maitriser-claude-entreprise/` — landing page formation complète (2026-05-06)
+
+### BLOQUANT — Action Franck requise
+
+- [ ] **Vercel env vars** : vérifier/reconfigurer `RESEND_API_KEY` dans le projet `lagencesauvageavecnotion` → Settings → Environment Variables. Les deux formulaires (diagnostic homepage + formation) retournent 500 "Missing API key".
+
+### Infrastructure (fait 2026-05-06 — ne pas modifier)
+
+- [x] api/_notify.js : utilitaire centralisé Resend + Telegram (Promise.allSettled)
+- [x] 5 endpoints migrés : submit-kit, submit-lead, submit-formation, submit-formation-flexible, submit-diagnostic
+- [x] nodemailer retiré de package.json
+- [x] SPF lagencesauvage.com mis à jour avec spf.resend.com
+- [x] RESEND_API_KEY configurée dans Vercel Dashboard
+- [x] Vars SMTP_* et SENDGRID_* supprimées de Vercel Dashboard
+- [ ] Action manuelle Franck : supprimer entrée test Notion "Test / beforbiz@gmail.com"
 
 ### Outillage blog
 
