@@ -16,11 +16,12 @@ const resend = new Resend(process.env.RESEND_API_KEY);
  * @param {Object} lead
  * @param {string} lead.firstName
  * @param {string} lead.email
- * @param {string} lead.source   - Label humain ex: "Kit Claude Cowork", "Formulaire homepage"
+ * @param {string} lead.source       - Label humain ex: "Kit Claude Cowork", "Formulaire homepage"
  * @param {string} [lead.notionUrl]
- * @param {string} [lead.extra]  - Infos supplémentaires (entreprise, défi, etc.)
+ * @param {string} [lead.extra]      - Infos supplémentaires (entreprise, défi, etc.)
+ * @param {Array}  [lead.attachments] - Pièces jointes Resend [{filename, content, contentType}]
  */
-export async function notifyFounder({ firstName, email, source, notionUrl, extra }) {
+export async function notifyFounder({ firstName, email, source, notionUrl, extra, attachments }) {
   const subject = `📥 Nouveau lead — ${firstName} (${source})`;
   const lines = [
     `👤 ${firstName}`,
@@ -32,7 +33,7 @@ export async function notifyFounder({ firstName, email, source, notionUrl, extra
   const text = lines.join('\n');
 
   const results = await Promise.allSettled([
-    sendEmail(subject, text),
+    sendEmail(subject, text, attachments),
     sendTelegram(text),
   ]);
 
@@ -50,17 +51,19 @@ export async function notifyFounder({ firstName, email, source, notionUrl, extra
   }
 }
 
-async function sendEmail(subject, text) {
+async function sendEmail(subject, text, attachments) {
   if (!process.env.RESEND_API_KEY) {
     throw new Error('RESEND_API_KEY manquante');
   }
   const to = process.env.NOTIFICATION_EMAIL || 'beforbiz@gmail.com';
-  const { error } = await resend.emails.send({
+  const payload = {
     from: "L'Agence Sauvage <hello@lagencesauvage.com>",
     to,
     subject,
     text,
-  });
+  };
+  if (attachments?.length) payload.attachments = attachments;
+  const { error } = await resend.emails.send(payload);
   if (error) throw new Error(`Resend error: ${error.message}`);
 }
 

@@ -13,7 +13,8 @@
 // =============================================================================
 
 import { Client } from '@notionhq/client';
-import nodemailer from 'nodemailer';
+import { Resend } from 'resend';
+import { notifyFounder } from './_notify.js';
 import PDFDocument from 'pdfkit';
 
 /**
@@ -26,18 +27,7 @@ const notion = new Client({
 // Database ID pour les réponses formations
 const FORMATION_DATABASE_ID = '821a8750ebfa40d4b1f0b7db3990f82c';
 
-/**
- * Configuration Nodemailer SMTP
- */
-const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST,
-  port: parseInt(process.env.SMTP_PORT) || 587,
-  secure: false,
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASSWORD
-  }
-});
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 /**
  * Détecte la structure du formulaire et organise les champs par sections
@@ -288,10 +278,10 @@ async function sendPDFToRespondent(email, prenom, pdfBuffer, societe) {
 </body>
 </html>`;
 
-  await transporter.sendMail({
-    from: '"L\'Agence Sauvage" <hello@monagencesauvage.com>',
+  const { error } = await resend.emails.send({
+    from: "L'Agence Sauvage <hello@lagencesauvage.com>",
     to: email,
-    subject: `Questionnaire formation reçu - ${societe || 'L\'Agence Sauvage'}`,
+    subject: `Questionnaire formation reçu - ${societe || "L'Agence Sauvage"}`,
     html: htmlContent,
     attachments: [{
       filename: `Questionnaire_Formation_${prenom}.pdf`,
@@ -299,62 +289,9 @@ async function sendPDFToRespondent(email, prenom, pdfBuffer, societe) {
       contentType: 'application/pdf'
     }]
   });
+  if (error) throw new Error(`Resend error: ${error.message}`);
 }
 
-/**
- * Envoie une notification à Franck (avec PDF en pièce jointe)
- */
-async function sendNotificationToFranck(data, notionUrl, pdfBuffer) {
-  const notificationEmail = process.env.NOTIFICATION_EMAIL || 'franck@lagencesauvage.com';
-  
-  // Extraction des infos clés pour la notification
-  const keyInfo = [];
-  
-  // Chercher les infos principales (niveau, fréquence, etc.)
-  Object.keys(data).forEach(key => {
-    if (key.includes('niveau') || key.includes('frequence')) {
-      keyInfo.push(`<p><strong>${key}:</strong> ${data[key]}</p>`);
-    }
-  });
-  
-  const htmlContent = `
-<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-  <h2 style="color: #224f3c;">Nouveau questionnaire formation reçu !</h2>
-  
-  <div style="background: #f2ede1; padding: 20px; border-radius: 8px; margin: 20px 0;">
-    <p><strong>Participant :</strong> ${data.prenom} ${data.nom}</p>
-    <p><strong>Email :</strong> <a href="mailto:${data.email}">${data.email}</a></p>
-    <p><strong>Fonction :</strong> ${data.fonction || 'Non renseigné'}</p>
-    <p><strong>Société :</strong> ${data.societe || 'Non renseigné'}</p>
-    <p><strong>Formation :</strong> ${data.formation || 'Non renseigné'}</p>
-    ${keyInfo.join('\n')}
-  </div>
-  
-  <a href="${notionUrl}" 
-     style="display: inline-block; background: #c96839; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; margin: 20px 0;">
-    Voir dans Notion
-  </a>
-  
-  <hr style="margin: 30px 0; border: none; border-top: 1px solid #e0e0e0;">
-  
-  <p style="color: #8c8982; font-size: 14px;">
-    L'Agence Sauvage - Notifications automatiques<br>
-    Questionnaire reçu depuis : <strong>${data.source || 'Formulaire Formation'}</strong>
-  </p>
-</div>`;
-
-  await transporter.sendMail({
-    from: '"L\'Agence Sauvage - Formations" <hello@monagencesauvage.com>',
-    to: notificationEmail,
-    subject: `Questionnaire formation : ${data.prenom} ${data.nom} (${data.societe || 'N/A'})`,
-    html: htmlContent,
-    attachments: [{
-      filename: `Questionnaire_Formation_${data.prenom}_${data.nom}.pdf`,
-      content: pdfBuffer,
-      contentType: 'application/pdf'
-    }]
-  });
-}
 
 /**
  * Sauvegarde FLEXIBLE dans Notion
@@ -494,34 +431,40 @@ export default async function handler(req, res) {
     });
   }
   
-  // ETAPE 3: Envoi email au répondant
-  if (process.env.SMTP_HOST && process.env.SMTP_USER) {
-    try {
-      console.log('[FLEXIBLE STEP 3/4] Envoi email répondant vers:', data.email);
-      await sendPDFToRespondent(data.email, data.prenom, pdfBuffer, data.societe);
-      console.log('[FLEXIBLE STEP 3/4] OK - Email répondant envoyé');
-    } catch (error) {
-      console.error('[FLEXIBLE STEP 3/4] ERREUR Email répondant:', error.message);
-      return res.status(500).json({
-        success: false,
-        message: 'Erreur lors de l\'envoi de l\'email de confirmation',
-        error: 'EMAIL_RESPONDENT_FAILED',
-        details: error.message,
-        notionPageId: notionPage?.id
-      });
-    }
-    
-    // ETAPE 4: Notification Franck (avec PDF)
-    try {
-      console.log('[FLEXIBLE STEP 4/4] Envoi notification Franck...');
-      await sendNotificationToFranck(data, notionPage.url, pdfBuffer);
-      console.log('[FLEXIBLE STEP 4/4] OK - Notification envoyée');
-    } catch (error) {
-      console.error('[FLEXIBLE STEP 4/4] ERREUR Notification:', error.message);
-      // Non bloquant - on considère le process comme réussi
-    }
-  } else {
-    console.warn('[FLEXIBLE STEP 3-4/4] SMTP non configuré - emails non envoyés');
+  // ETAPE 3: Envoi email au répondant (avec PDF)
+  try {
+    console.log('[FLEXIBLE STEP 3/4] Envoi email répondant vers:', data.email);
+    await sendPDFToRespondent(data.email, data.prenom, pdfBuffer, data.societe);
+    console.log('[FLEXIBLE STEP 3/4] OK - Email répondant envoyé');
+  } catch (error) {
+    console.error('[FLEXIBLE STEP 3/4] ERREUR Email répondant:', error.message);
+    return res.status(500).json({
+      success: false,
+      message: "Erreur lors de l'envoi de l'email de confirmation",
+      error: 'EMAIL_RESPONDENT_FAILED',
+      details: error.message,
+      notionPageId: notionPage?.id
+    });
+  }
+
+  // ETAPE 4: Notification Franck via _notify.js (email + PDF en pièce jointe)
+  try {
+    console.log('[FLEXIBLE STEP 4/4] Envoi notification Franck...');
+    await notifyFounder({
+      firstName: data.prenom,
+      email: data.email,
+      source: data.source || 'Formulaire Formation Flexible',
+      notionUrl: notionPage.url,
+      extra: `👤 ${data.prenom} ${data.nom} · 🏢 ${data.societe || 'N/A'} · 🎓 ${data.formation || 'N/A'}`,
+      attachments: [{
+        filename: `Questionnaire_Formation_${data.prenom}_${data.nom}.pdf`,
+        content: pdfBuffer,
+        contentType: 'application/pdf'
+      }]
+    });
+    console.log('[FLEXIBLE STEP 4/4] OK - Notification envoyée');
+  } catch (error) {
+    console.error('[FLEXIBLE STEP 4/4] ERREUR Notification (non bloquant):', error.message);
   }
   
   // Succès complet

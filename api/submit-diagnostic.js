@@ -19,6 +19,8 @@
  *        L'email est optionnel (notifications peuvent être configurées dans Notion directement).
  */
 
+import { notifyFounder } from './_notify.js';
+
 const ALLOWED_ORIGINS = [
   'https://www.lagencesauvage.com',
   'https://lagencesauvage.com'
@@ -128,53 +130,18 @@ export default async function handler(req, res) {
     console.warn('[Notion] Variables NOTION_TOKEN / NOTION_DATABASE_ID non configurées. Lead non enregistrée.');
   }
 
-  // === EMAIL — Notification à Franck ===
-  // Utilise l'API Notion ou un webhook si SMTP non configuré.
-  // Pour une implémentation SMTP, décommenter le bloc ci-dessous
-  // et installer le package @sendgrid/mail ou nodemailer via package.json.
-
-  /*
-  const smtpHost = process.env.SMTP_HOST;
-  const smtpUser = process.env.SMTP_USER;
-  const smtpPass = process.env.SMTP_PASS;
-
-  if (smtpHost && smtpUser && smtpPass) {
-    try {
-      // Exemple avec Brevo (ex-Sendinblue) via API REST — aucun package requis
-      const emailPayload = {
-        sender: { name: "Agence Sauvage — Formulaire", email: smtpUser },
-        to: [{ email: "franck@lagencesauvage.com", name: "Franck Sauvage" }],
-        replyTo: { email: email, name: nom },
-        subject: `🔔 Nouveau lead Diagnostic IA — ${nom} (${entreprise})`,
-        htmlContent: `
-          <h2>Nouveau lead Diagnostic de Transformation IA</h2>
-          <table cellpadding="8">
-            <tr><td><strong>Nom</strong></td><td>${nom}</td></tr>
-            <tr><td><strong>Entreprise</strong></td><td>${entreprise}</td></tr>
-            <tr><td><strong>Email</strong></td><td><a href="mailto:${email}">${email}</a></td></tr>
-            <tr><td><strong>Taille</strong></td><td>${salaries} salariés</td></tr>
-            <tr><td><strong>Irritant</strong></td><td>${irritant || 'Non renseigné'}</td></tr>
-            <tr><td><strong>Date</strong></td><td>${new Date().toLocaleString('fr-FR', { timeZone: 'Europe/Paris' })}</td></tr>
-          </table>
-          <p><a href="https://notion.so" target="_blank">→ Voir dans Notion</a></p>
-        `
-      };
-
-      await fetch('https://api.brevo.com/v3/smtp/email', {
-        method: 'POST',
-        headers: {
-          'api-key': smtpPass,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(emailPayload)
-      });
-
-      console.log('[Email] Notification envoyée à franck@lagencesauvage.com');
-    } catch (emailError) {
-      console.error('[Email] Exception:', emailError.message);
-    }
+  // === NOTIFICATION Franck via _notify.js ===
+  try {
+    const firstName = nom.split(' ')[0];
+    await notifyFounder({
+      firstName,
+      email,
+      source: source || 'Formulaire Diagnostic',
+      extra: `🏢 ${entreprise} · 👥 ${salaries} · 💡 ${irritant || 'Non renseigné'}`,
+    });
+  } catch (e) {
+    console.warn('[Notify] Erreur non bloquante:', e.message);
   }
-  */
 
   // === TRACKING PLAUSIBLE (server-side, adblocker-proof) ===
   try {

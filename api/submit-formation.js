@@ -12,7 +12,8 @@
 // =============================================================================
 
 import { Client } from '@notionhq/client';
-import nodemailer from 'nodemailer';
+import { Resend } from 'resend';
+import { notifyFounder } from './_notify.js';
 import PDFDocument from 'pdfkit';
 
 /**
@@ -25,18 +26,7 @@ const notion = new Client({
 // Database ID pour les réponses formations
 const FORMATION_DATABASE_ID = '821a8750ebfa40d4b1f0b7db3990f82c';
 
-/**
- * Configuration Nodemailer SMTP
- */
-const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST,
-  port: parseInt(process.env.SMTP_PORT) || 587,
-  secure: false,
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASSWORD
-  }
-});
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 /**
  * Génère un PDF récapitulatif des réponses
@@ -220,10 +210,10 @@ async function sendPDFToRespondent(email, prenom, pdfBuffer, societe) {
 </body>
 </html>`;
 
-  await transporter.sendMail({
-    from: '"L\'Agence Sauvage" <hello@monagencesauvage.com>',
+  const { error } = await resend.emails.send({
+    from: "L'Agence Sauvage <hello@lagencesauvage.com>",
     to: email,
-    subject: `Questionnaire formation recu - ${societe || 'L\'Agence Sauvage'}`,
+    subject: `Questionnaire formation reçu - ${societe || "L'Agence Sauvage"}`,
     html: htmlContent,
     attachments: [{
       filename: `Questionnaire_Formation_${prenom}.pdf`,
@@ -231,58 +221,9 @@ async function sendPDFToRespondent(email, prenom, pdfBuffer, societe) {
       contentType: 'application/pdf'
     }]
   });
+  if (error) throw new Error(`Resend error: ${error.message}`);
 }
 
-/**
- * Envoie une notification à Franck (avec PDF en pièce jointe)
- */
-async function sendNotificationToFranck(data, notionUrl, pdfBuffer) {
-  const notificationEmail = process.env.NOTIFICATION_EMAIL || 'franck@lagencesauvage.com';
-  
-  const htmlContent = `
-<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-  <h2 style="color: #224f3c;">Nouveau questionnaire formation recu !</h2>
-  
-  <div style="background: #f2ede1; padding: 20px; border-radius: 8px; margin: 20px 0;">
-    <p><strong>Participant :</strong> ${data.prenom} ${data.nom}</p>
-    <p><strong>Email :</strong> <a href="mailto:${data.email}">${data.email}</a></p>
-    <p><strong>Fonction :</strong> ${data.fonction || 'Non renseigne'}</p>
-    <p><strong>Societe :</strong> ${data.societe || 'Non renseigne'}</p>
-    <p><strong>Formation :</strong> ${data.formation || 'Non renseigne'}</p>
-    <p><strong>Niveau auto-evalue :</strong> ${data.niveau_auto || 'Non renseigne'}</p>
-    <p><strong>Frequence IA :</strong> ${data.frequence_ia || 'Non renseigne'}</p>
-  </div>
-  
-  <div style="background: #224f3c; color: white; padding: 15px; border-radius: 8px; margin: 20px 0;">
-    <p style="margin: 0;"><strong>Objectif principal :</strong></p>
-    <p style="margin: 5px 0 0 0;">${data.cas_usage_prioritaire || 'Non renseigne'}</p>
-  </div>
-  
-  <a href="${notionUrl}" 
-     style="display: inline-block; background: #c96839; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; margin: 20px 0;">
-    Voir dans Notion
-  </a>
-  
-  <hr style="margin: 30px 0; border: none; border-top: 1px solid #e0e0e0;">
-  
-  <p style="color: #8c8982; font-size: 14px;">
-    L'Agence Sauvage - Notifications automatiques<br>
-    Questionnaire recu depuis : <strong>${data.source || 'Formulaire Formation'}</strong>
-  </p>
-</div>`;
-
-  await transporter.sendMail({
-    from: '"L\'Agence Sauvage - Formations" <hello@monagencesauvage.com>',
-    to: notificationEmail,
-    subject: `Questionnaire formation : ${data.prenom} ${data.nom} (${data.societe || 'N/A'})`,
-    html: htmlContent,
-    attachments: [{
-      filename: `Questionnaire_Formation_${data.prenom}_${data.nom}.pdf`,
-      content: pdfBuffer,
-      contentType: 'application/pdf'
-    }]
-  });
-}
 
 /**
  * Sauvegarde dans Notion
@@ -455,42 +396,40 @@ export default async function handler(req, res) {
     });
   }
   
-  // ETAPE 3: Envoi email au répondant
-  if (process.env.SMTP_HOST && process.env.SMTP_USER) {
-    try {
-      console.log('[STEP 3/4] Envoi email repondant vers:', data.email);
-      await sendPDFToRespondent(data.email, data.prenom, pdfBuffer, data.societe);
-      console.log('[STEP 3/4] OK - Email repondant envoye');
-    } catch (error) {
-      console.error('[STEP 3/4] ERREUR Email repondant:', error.message);
-      console.error('[STEP 3/4] Code SMTP:', error.code);
-      console.error('[STEP 3/4] Response:', error.response);
-      // On continue malgré l'erreur email - Notion est déjà sauvegardé
-      return res.status(500).json({
-        success: false,
-        message: 'Erreur lors de l\'envoi de l\'email de confirmation',
-        error: 'EMAIL_RESPONDENT_FAILED',
-        details: error.message,
-        smtpCode: error.code,
-        smtpResponse: error.response,
-        notionPageId: notionPage?.id
-      });
-    }
-    
-    // ETAPE 4: Notification Franck (avec PDF)
-    try {
-      console.log('[STEP 4/4] Envoi notification Franck...');
-      await sendNotificationToFranck(data, notionPage.url, pdfBuffer);
-      console.log('[STEP 4/4] OK - Notification envoyee');
-    } catch (error) {
-      console.error('[STEP 4/4] ERREUR Notification:', error.message);
-      // Non bloquant - on considère le process comme réussi
-      console.warn('[STEP 4/4] Notification echouee mais process continue');
-    }
-  } else {
-    console.warn('[STEP 3-4/4] SMTP non configure - emails non envoyes');
-    console.warn('SMTP_HOST:', process.env.SMTP_HOST ? 'SET' : 'MISSING');
-    console.warn('SMTP_USER:', process.env.SMTP_USER ? 'SET' : 'MISSING');
+  // ETAPE 3: Envoi email au répondant (avec PDF)
+  try {
+    console.log('[STEP 3/4] Envoi email répondant vers:', data.email);
+    await sendPDFToRespondent(data.email, data.prenom, pdfBuffer, data.societe);
+    console.log('[STEP 3/4] OK - Email répondant envoyé');
+  } catch (error) {
+    console.error('[STEP 3/4] ERREUR Email répondant:', error.message);
+    return res.status(500).json({
+      success: false,
+      message: "Erreur lors de l'envoi de l'email de confirmation",
+      error: 'EMAIL_RESPONDENT_FAILED',
+      details: error.message,
+      notionPageId: notionPage?.id
+    });
+  }
+
+  // ETAPE 4: Notification Franck via _notify.js (email + PDF en pièce jointe)
+  try {
+    console.log('[STEP 4/4] Envoi notification Franck...');
+    await notifyFounder({
+      firstName: data.prenom,
+      email: data.email,
+      source: data.source || 'Formulaire Formation',
+      notionUrl: notionPage.url,
+      extra: `👤 ${data.prenom} ${data.nom} · 🏢 ${data.societe || 'N/A'} · 🎓 ${data.formation || 'N/A'}`,
+      attachments: [{
+        filename: `Questionnaire_Formation_${data.prenom}_${data.nom}.pdf`,
+        content: pdfBuffer,
+        contentType: 'application/pdf'
+      }]
+    });
+    console.log('[STEP 4/4] OK - Notification envoyée');
+  } catch (error) {
+    console.error('[STEP 4/4] ERREUR Notification (non bloquant):', error.message);
   }
   
   // Succès complet
