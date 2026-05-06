@@ -116,8 +116,8 @@
             {{ range $i, $section := after 1 $sections }}
                 {{/* CTA inline #1 — Lead magnet après ~30% (après le 2e H2) */}}
                 {{ if eq $i 2 }}
-                {{ if in .Params.tags "Formation IA" }}
-                {{ partial "lead-magnet-formation.html" . }}
+                {{ if in $.Params.tags "Formation IA" }}
+                {{ partial "lead-magnet-formation.html" $ }}
                 {{ else }}
                 <aside class="cta-inline my-12 rounded-lg overflow-hidden" style="border:1px solid #C7D2FE">
                     <div style="background:#EEF2FF;padding:1.25rem 1.5rem">
