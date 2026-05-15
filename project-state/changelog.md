@@ -1,5 +1,16 @@
 # Changelog — Refonte lagencesauvage.com
 
+## 2026-05-15 — Article "Agent IA opérationnel PME" — guide déploiement + roadmap 6 semaines
+
+- **Nouvel article** : `agent-ia-operationnel-pme-guide-deploiement.md` — 2200 mots, 6 H2, 5 FAQ GEO, maillage interne 6 liens
+  - Angle : guide opérationnel d'exécution (distinct de l'article définition existant) — stack française (Pennylane, Pipedrive, Sage, n8n), AI Act + OPCO, checklist maturité 5 critères, roadmap 6 semaines
+  - Sources : Bpifrance (1.8€/€), Gartner (40% enterprise apps agents fin 2026), McKinsey (5.8x ROI 14 mois), Millorem/AI Act, Francenum.gouv.fr
+  - Cas d'usage : relance impayés, **reporting automatisé** (Pennylane+Sellsy+Pipedrive), triage leads
+  - Image hero : figure éthérée indigo/slate style Hermes NousResearch — WebP 81 Ko, 1280×720
+  - Workflow : vault Hermes (308 cas d'usage) → keyword research 8 phases → web searches → challenge Gemini Pro (plan 6.5/10 → restructuré 9/10) → rédaction → audit anti-cannibalisation → swap traitement factures→reporting → image → push
+- **Audit anti-cannibalisation** : comparaison avec `/blog/agent-ia-definition-cas-usage-roi-pme/` — swap "traitement de factures" (couvert dans l'article définition) → "reporting automatisé" (non couvert nulle part)
+- Commits : `1f2d9db` (article + image), `7bcbc81` (swap anti-cannibalisation) — pushés sur main → live
+
 ## 2026-05-15 — Article "Claude for Small Business" + liens croisés blog
 
 - **Nouvel article** : `claude-for-small-business-agents-ia-pme-france.md` — 2300 mots, 5 H2, FAQ schema JSON-LD, image hero WebP 49 Ko (Gemini)

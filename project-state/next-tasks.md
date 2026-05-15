@@ -69,7 +69,10 @@ Quota dépassé aujourd'hui. Demander l'indexation pour les 6 case studies :
 - [x] Article "AI Act : former vos collaborateurs à l'IA est désormais une obligation légale" — deep research Gemini 8m15, consensus 8/10, partenaire GhG Formations Qualiopi, validé + pushé 2026-04-16
 - [x] Article "Agent IA : définition, cas d'usage et ROI pour les PME" — pushé (commits 6879f7d + 7dcc363)
 - [x] Article "Claude for Small Business : agents IA PME France" — 2300 mots, consensus Claude+Gemini 9/10, liens croisés Claude Cowork, pushé 2026-05-15
-- [ ] Article 3/4 : "Agents IA autonomes en PME : 3 cas d'usage réels qui remplacent les SaaS" — Guides pratiques (reporté)
+- [x] Article "Déployer un agent IA opérationnel dans votre PME : guide pratique et roadmap 6 semaines" — pushé 2026-05-15 (keyword: agent IA opérationnel PME)
+- [ ] Soumettre nouvel article dans Search Console pour indexation
+- [ ] Ajouter `related_realisations: automatisation-pole-financier-pennylane-expert-comptable` au front matter du nouvel article
+- [ ] Article 3/4 : "Agents IA autonomes en PME : 3 cas d'usage réels qui remplacent les SaaS" — Guides pratiques (attention : différencier de l'article déploiement déjà publié — angle "SaaS-replacement" vs "guide opérationnel")
 - [ ] Article 4/4 : "IA et professions juridiques : gain de temps et secret professionnel en 2026" — Expertise terrain (reporté)
 
 ### Lead magnets (en cours)

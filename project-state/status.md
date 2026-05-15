@@ -198,6 +198,7 @@ Aucun pour le moment.
 - [x] Lead magnet kit prompts : refonte PDF gate — PDF généré (Playwright A4), layout gated, email lien PDF direct (2026-05-06)
 - [x] Email submit-programme.js : aligné sur PDF réel (7 pages, "Proposition de formation", CTA 30 min) (2026-05-06)
 - [x] Article "Claude for Small Business : agents IA pour les PME françaises" — veille Obsidian, recherche multi-sources, consensus Claude+Gemini 9/10, 2300 mots, 5 H2, FAQ schema, image hero Gemini 49 Ko, liens croisés bidirectionnels avec Claude Cowork, CTA formation OPCO, pushé 2026-05-15
+- [x] Article "Déployer un agent IA opérationnel dans votre PME : guide pratique et roadmap 6 semaines" — vault Hermes (308 cas d'usage), keyword research 8 phases, challenge Gemini Pro (6.5→9/10), 2200 mots, 6 H2, 5 FAQ GEO, maillage interne 6 liens, image hero Gemini 81 Ko (style Hermes), audit anti-cannibalisation (swap factures→reporting), pushé 2026-05-15
 
 ## Décisions prises (post-bascule)
 
