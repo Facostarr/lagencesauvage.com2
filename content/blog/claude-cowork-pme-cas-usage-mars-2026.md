@@ -169,6 +169,8 @@ L'outil est accessible. Mais identifier les bons workflows, configurer les conne
 
 Dans les deux cas, le point de départ est le même : un [diagnostic IA gratuit de 30 minutes](/diagnostic-ia/) pour cartographier vos cas d'usage et mesurer le potentiel de gains.
 
+En mai 2026, Anthropic a étendu cette approche avec [Claude for Small Business](/blog/claude-for-small-business-agents-ia-pme-france/) : 15 workflows agentiques prêts à l'emploi, intégrés nativement à HubSpot, QuickBooks, PayPal et Canva. Une lecture complémentaire pour comprendre où se positionne l'offre Anthropic sur le marché PME — et ce que ça change concrètement pour les entreprises françaises.
+
 [Réservez votre diagnostic IA gratuit (30 min) →](/diagnostic-ia/)
 
 ---

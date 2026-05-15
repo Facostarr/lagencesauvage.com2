@@ -69,7 +69,7 @@ La frontière qui sépare "l'IA qui parle" de "l'IA qui agit" est précisément 
 
 Ce changement de paradigme dépasse Anthropic. Il traduit une maturité du marché : les dirigeants de PME ne cherchent plus à "tester l'IA". Ils cherchent à l'intégrer dans leurs processus pour en tirer un gain de temps mesurable. Claude for Small Business leur donne raison — et devrait interpeller ceux qui n'ont pas encore franchi ce cap.
 
-Pour aller plus loin sur la distinction entre chatbot et agent opérationnel, notre article [Qu'est-ce qu'un agent IA ?](/blog/agent-ia-definition-cas-usage-roi-pme/) couvre le sujet en détail.
+Pour aller plus loin sur la distinction entre chatbot et agent opérationnel, notre article [Qu'est-ce qu'un agent IA ?](/blog/agent-ia-definition-cas-usage-roi-pme/) couvre le sujet en détail. Et pour voir ces capacités agentiques en action sur des cas PME concrets et chiffrés, notre article [Claude Cowork : 3 cas d'usage pour les PME](/blog/claude-cowork-pme-cas-usage-mars-2026/) détaille ce que l'outil fait sur la comptabilité, le marketing et le service client — reporting divisé par 6, production de contenu accélérée de 40 %.
 
 ---
 
