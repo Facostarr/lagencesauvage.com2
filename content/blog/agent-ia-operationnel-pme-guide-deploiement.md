@@ -29,7 +29,7 @@ readingTime: true
 
 takeaways:
   - "72 % des TPE-PME françaises sont encore bloquées à la génération de texte. Les agents opérationnels — ceux qui agissent dans vos logiciels — représentent le vrai saut de productivité : selon McKinsey, un déploiement IA en production génère un retour de 5,8x sur l'investissement à 14 mois."
-  - "Trois agents suffisent pour commencer : relance des impayés, traitement de factures et triage de leads. Chacun est configurable sur Pennylane, Pipedrive ou Sage via n8n — sans ligne de code, sans changer vos outils."
+  - "Trois agents suffisent pour commencer : relance des impayés, reporting automatisé et triage de leads. Chacun est configurable sur Pennylane, Pipedrive ou Sage via n8n — sans ligne de code, sans changer vos outils."
   - "L'AI Act (Art. 4) impose une obligation de maîtrise de l'IA en vigueur dès 2026 : déployer un agent structuré transforme l'IA 'fantôme' de vos équipes en architecture légale et contrôlée — finançable via OPCO avec un reste à charge pouvant être nul."
 
 faq:
@@ -38,7 +38,7 @@ faq:
   - question: "Quelle est la différence entre ChatGPT et un agent IA opérationnel ?"
     answer: "ChatGPT génère du texte en réponse à une question. Un agent IA opérationnel agit dans vos logiciels : il interroge l'API de Pennylane, identifie les factures impayées, rédige les relances et vous les soumet pour approbation — puis les envoie après votre validation. La différence est entre un outil qui produit du contenu et un processus automatisé qui exécute des tâches métier complètes."
   - question: "Comment déployer un agent IA sans compétences techniques dans une PME ?"
-    answer: "L'orchestrateur n8n permet de connecter Claude ou un autre modèle IA à vos outils métiers (Pennylane, Pipedrive, Sage) sans écrire de code. La configuration d'un premier workflow prend 1 à 2 semaines. Des formations sur mesure éligibles OPCO — dont le reste à charge peut être nul — permettent à votre équipe de maîtriser ces outils en autonomie."
+    answer: "L'orchestrateur n8n permet de connecter Claude ou un autre modèle IA à vos outils métiers (Pennylane, Pipedrive, Sage) sans écrire de code. La configuration d'un premier workflow — relance impayés, reporting mensuel ou triage de leads — prend 1 à 2 semaines. Des formations sur mesure éligibles OPCO — dont le reste à charge peut être nul — permettent à votre équipe de maîtriser ces outils en autonomie."
   - question: "Quels logiciels français sont compatibles avec les agents IA ?"
     answer: "Pennylane, Pipedrive, Sellsy et Sage disposent tous d'API publiques documentées qui permettent à un agent IA d'interroger et de mettre à jour vos données. Via n8n comme orchestrateur, vous reproduisez exactement les mêmes workflows agentiques que les solutions packagées américaines — sur vos outils réels, dans votre contexte métier."
   - question: "L'AI Act oblige-t-il les PME françaises à former leurs équipes à l'IA ?"
@@ -82,9 +82,9 @@ C'est statistiquement le workflow à ROI le plus rapide pour une PME de services
 
 Le gain est double : aucun impayé n'est oublié en période de forte activité, et le temps de relance passe de plusieurs heures hebdomadaires à une validation de quinze minutes. Selon [Bpifrance](https://lelab.bpifrance.fr/ia2025), 62 % des PME ayant testé ce type d'agent ont obtenu 1,8 € pour chaque euro investi dès la première année.
 
-**Traitement des factures fournisseurs**
+**Reporting automatisé**
 
-La saisie, la vérification, le rapprochement et le classement d'une facture fournisseur est l'une des tâches les plus chronophages des services comptables. Un agent traite la même opération en moins de 30 secondes, avec une réduction significative des erreurs de saisie. Ce poste de coût — souvent sous-estimé faute d'être mesuré — devient visible dès le premier mois de déploiement.
+La production d'un tableau de bord mensuel — chiffre d'affaires, marges, impayés, pipeline commercial — mobilise en général deux à quatre heures de travail dans une PME : export des données, mise en forme, vérification des écarts, envoi aux parties prenantes. Un agent réalise cette séquence en quelques minutes : il interroge vos outils (Pennylane, Sellsy, Pipedrive), consolide les données, identifie les anomalies et vous soumet le rapport structuré pour validation avant diffusion. Ce qui était une demi-journée de travail administratif devient une relecture de quinze minutes.
 
 **Triage et qualification des leads**
 
