@@ -68,6 +68,7 @@ Quota dépassé aujourd'hui. Demander l'indexation pour les 6 case studies :
 - [x] Article "Zero Human Company : le mythe américain face à la réalité des PME françaises" — recherche multi-sources, consensus Claude+Gemini 9/10, pushé 2026-04-16
 - [x] Article "AI Act : former vos collaborateurs à l'IA est désormais une obligation légale" — deep research Gemini 8m15, consensus 8/10, partenaire GhG Formations Qualiopi, validé + pushé 2026-04-16
 - [x] Article "Agent IA : définition, cas d'usage et ROI pour les PME" — pushé (commits 6879f7d + 7dcc363)
+- [x] Article "Claude for Small Business : agents IA PME France" — 2300 mots, consensus Claude+Gemini 9/10, liens croisés Claude Cowork, pushé 2026-05-15
 - [ ] Article 3/4 : "Agents IA autonomes en PME : 3 cas d'usage réels qui remplacent les SaaS" — Guides pratiques (reporté)
 - [ ] Article 4/4 : "IA et professions juridiques : gain de temps et secret professionnel en 2026" — Expertise terrain (reporté)
 

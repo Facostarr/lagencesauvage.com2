@@ -1,5 +1,17 @@
 # Changelog — Refonte lagencesauvage.com
 
+## 2026-05-15 — Article "Claude for Small Business" + liens croisés blog
+
+- **Nouvel article** : `claude-for-small-business-agents-ia-pme-france.md` — 2300 mots, 5 H2, FAQ schema JSON-LD, image hero WebP 49 Ko (Gemini)
+  - Angle : validation de tendance "agents métier vs chatbots" + pivot France (stack US vs Pennylane/Pipedrive via n8n)
+  - Sources : Anthropic (annonce 13/05), Bpifrance Le Lab ia2025 (55% adoption, 72% bloqués texte), TechCrunch, SiliconAngle
+  - CTA : formation sur mesure finançable OPCO + audit gratuit 30 min
+  - Workflow : veille Obsidian → recherche multi-sources → brainstorm Gemini (consensus 9/10) → keyword research 8 phases → rédaction → image → push
+- **Liens croisés bidirectionnels** : nouveau article ↔ `claude-cowork-pme-cas-usage-mars-2026`
+  - Nouveau → Cowork : fin H2.1 "Des chatbots aux agents métier" (résultats chiffrés Cowork)
+  - Cowork → nouveau : fin section "Comment intégrer", avant CTA (mise à jour mai 2026)
+- Commits : `a5372ba` (article + image), `719d3d3` (liens croisés) — pushés sur main → live
+
 ## 2026-05-06 — Lead magnet kit prompts : refonte en PDF gate + fix email programme formation
 
 - **Lead magnet "10 prompts Claude pour PME"** : refactoré de "contenu visible + opt-in" → Option C PDF gate

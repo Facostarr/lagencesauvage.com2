@@ -197,6 +197,7 @@ Aucun pour le moment.
 - [x] Article "Agent IA : définition, cas d'usage et ROI PME" — pushé (commits 6879f7d + 7dcc363, sources corrigées)
 - [x] Lead magnet kit prompts : refonte PDF gate — PDF généré (Playwright A4), layout gated, email lien PDF direct (2026-05-06)
 - [x] Email submit-programme.js : aligné sur PDF réel (7 pages, "Proposition de formation", CTA 30 min) (2026-05-06)
+- [x] Article "Claude for Small Business : agents IA pour les PME françaises" — veille Obsidian, recherche multi-sources, consensus Claude+Gemini 9/10, 2300 mots, 5 H2, FAQ schema, image hero Gemini 49 Ko, liens croisés bidirectionnels avec Claude Cowork, CTA formation OPCO, pushé 2026-05-15
 
 ## Décisions prises (post-bascule)
 

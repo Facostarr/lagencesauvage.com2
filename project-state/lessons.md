@@ -1,5 +1,11 @@
 # Lessons Learned — Refonte lagencesauvage.com
 
+## Production d'articles
+
+- **Liens croisés bidirectionnels** : quand deux articles couvrent des sujets complémentaires (ex: Claude Cowork + Claude for Small Business), ajouter un lien dans chaque sens avec une ancre descriptive et une raison de cliquer (résultat chiffré ou évolution temporelle). Une phrase suffit — éviter les blocs "À lire aussi" génériques.
+- **Pivot "Stack US vs Stack FR"** : pour tout lancement Anthropic/OpenAI ciblant l'écosystème américain (QuickBooks, PayPal), l'angle différenciant systématique pour L'Agence Sauvage est "les équivalents français (Pennylane, Pipedrive, Sellsy) ont des API — voici comment on les connecte". Toujours vérifier avec Franck que les outils cités ont bien des API avant publication.
+- **CTA formation OPCO** : pour les articles agents IA / automatisation, le CTA prioritaire est la formation sur mesure finançable OPCO, pas uniquement l'audit. Mentionner l'éligibilité OPCO dans le corps du texte (section conclusion) ET dans la FAQ (Q5).
+
 ## Architecture
 
 - Le repo existant utilise `uglyURLs = true` (URLs .html). La refonte passe en pretty URLs — toutes les anciennes URLs doivent avoir des redirections 301 dans vercel.json.
