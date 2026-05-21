@@ -253,7 +253,7 @@ const coverSection = {
   children: [
     new Paragraph({
       spacing: { before: 0, after: 0 },
-      children: [coverImg(773, 1159)],
+      children: [coverImg(780, 1100)],
     }),
   ],
 };
