@@ -1,0 +1,67 @@
+<div class="lm-checklist rounded-xl border border-indigo-200 bg-indigo-50 p-6 sm:p-8 my-10" id="lm-checklist">
+  <div class="mb-3 inline-flex items-center gap-2 rounded-full bg-indigo-100 px-3 py-1 text-xs font-semibold text-indigo-700">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/></svg>
+    PDF gratuit · Guide semaine par semaine · Actions concrètes
+  </div>
+  <h3 class="text-lg font-bold text-slate-900 mb-2">Téléchargez la checklist 30 jours pour déployer Claude dans votre équipe</h3>
+  <p class="text-sm text-slate-600 mb-4">Du premier prompt jusqu'à un déploiement complet : 4 semaines d'actions concrètes pour adopter Claude au quotidien dans votre PME, avec les quick wins à copier-coller et les erreurs à éviter.</p>
+  <ul class="mb-5 space-y-1.5 text-sm text-slate-700">
+    <li class="flex items-center gap-2"><span class="font-bold text-indigo-500">✓</span> S1 Fondations, S2 Cas d'usage, S3 Adoption équipe, S4 Mesure ROI</li>
+    <li class="flex items-center gap-2"><span class="font-bold text-indigo-500">✓</span> 3 quick wins métier (comptabilité, marketing, SAV) avec prompts prêts à copier</li>
+    <li class="flex items-center gap-2"><span class="font-bold text-indigo-500">✓</span> Bonus : modèle email d'annonce pour embarquer votre équipe</li>
+  </ul>
+  <form id="lmc-form-{{ if .File }}{{ .File.UniqueID }}{{ else }}blog{{ end }}" class="flex flex-col sm:flex-row gap-2">
+    <input type="text" class="lmc-firstname min-w-0 flex-1 rounded-lg border border-indigo-200 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-200" placeholder="Votre prénom" required autocomplete="given-name">
+    <input type="email" class="lmc-email min-w-0 flex-1 rounded-lg border border-indigo-200 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-200" placeholder="votre@email.com" required autocomplete="email">
+    <button type="submit" class="lmc-btn whitespace-nowrap rounded-lg bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-indigo-700 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-400">
+      Recevoir la checklist →
+    </button>
+  </form>
+  <p class="lmc-success hidden mt-3 text-sm font-semibold text-indigo-700"></p>
+  <p class="lmc-error hidden mt-3 text-sm text-red-600"></p>
+  <p class="mt-2 text-xs text-slate-400">Pas de spam. Votre email reste chez nous.</p>
+</div>
+<script>
+(function() {
+  var el = document.querySelector('.lm-checklist');
+  if (!el) return;
+  var form = el.querySelector('form');
+  if (!form) return;
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    var btn = el.querySelector('.lmc-btn');
+    var success = el.querySelector('.lmc-success');
+    var error = el.querySelector('.lmc-error');
+    btn.disabled = true;
+    btn.textContent = 'Envoi…';
+    error.classList.add('hidden');
+    try {
+      var r = await fetch('/api/submit-checklist', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          firstName: el.querySelector('.lmc-firstname').value,
+          email: el.querySelector('.lmc-email').value
+        })
+      });
+      var d = await r.json();
+      if (d.success) {
+        form.style.display = 'none';
+        success.textContent = '✓ Votre checklist est en route ! Vérifiez votre boîte mail (pensez aux spams).';
+        success.classList.remove('hidden');
+        if (window.plausible) { plausible('Checklist Download', {props: {source: 'Lead Magnet Checklist 30 Jours'}}); }
+      } else {
+        error.textContent = d.message || 'Une erreur est survenue. Réessayez.';
+        error.classList.remove('hidden');
+        btn.disabled = false;
+        btn.textContent = 'Recevoir la checklist →';
+      }
+    } catch (_) {
+      error.textContent = 'Erreur réseau. Réessayez dans quelques instants.';
+      error.classList.remove('hidden');
+      btn.disabled = false;
+      btn.textContent = 'Recevoir la checklist →';
+    }
+  });
+})();
+</script>

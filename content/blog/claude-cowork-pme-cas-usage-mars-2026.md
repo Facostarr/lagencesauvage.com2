@@ -11,7 +11,7 @@ canonical: ""
 
 # Catégories & Tags
 categories: ["Expertise terrain"]
-tags: ["Claude Cowork", "Anthropic", "IA", "Automatisation", "PME", "Agents IA", "Productivité"]
+tags: ["Claude Cowork", "Anthropic", "IA", "Automatisation", "PME", "Agents IA", "Productivité", "Checklist IA"]
 
 # Auteur & Crédibilité (E-E-A-T)
 author: "Franck Sauvage"
