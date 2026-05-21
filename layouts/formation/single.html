@@ -346,6 +346,7 @@
       var data = await res.json();
       if (data.success) {
         emailCapture = email;
+        if (window.plausible) { plausible('Programme Formation Download', {props: {source: 'Lead Magnet Formation'}}); }
         document.getElementById('step-1').classList.add('hidden');
         document.getElementById('step-2').classList.remove('hidden');
         // Scroll to form top
