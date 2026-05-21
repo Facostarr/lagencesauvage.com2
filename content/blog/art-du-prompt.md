@@ -12,6 +12,7 @@ tags:
   - "claude-opus-4.5"
   - "Tutorials"
   - "Entrepreneurs"
+  - "Prompts IA"
 readingTime: 12
 image: "/assets/images/blog/art-du-prompt.webp"
 imageAlt: "L'art du prompt : illustration abstraite de texte se transformant en formes géométriques"

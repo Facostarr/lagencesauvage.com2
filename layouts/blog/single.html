@@ -118,6 +118,8 @@
                 {{ if eq $i 2 }}
                 {{ if in $.Params.tags "Formation IA" }}
                 {{ partial "lead-magnet-formation.html" $ }}
+                {{ else if in $.Params.tags "Prompts IA" }}
+                {{ partial "lead-magnet-prompts.html" $ }}
                 {{ else }}
                 <aside class="cta-inline my-12 rounded-lg overflow-hidden" style="border:1px solid #C7D2FE">
                     <div style="background:#EEF2FF;padding:1.25rem 1.5rem">
