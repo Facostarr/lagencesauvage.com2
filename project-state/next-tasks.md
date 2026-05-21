@@ -79,15 +79,51 @@ Quota dépassé aujourd'hui. Demander l'indexation pour les 6 case studies :
 
 - [x] Lead magnet 1 — Kit 10 prompts Claude PME : PDF gate — PDF Playwright A4, layout gated (teaser + form), bouton DL direct après soumission, email lien PDF (2026-05-06)
 - [x] Lead magnet 2 — Formation Claude entreprise : landing `/formation/maitriser-claude-entreprise/`, formulaire multi-step, PDF programme, API step1+step2, shortcode, nav, CTA article AI Act (2026-05-06)
-- [ ] Lead magnet 3 — Checklist IA PME 2026 : concept validé, production non démarrée
+- [x] Lead magnet A — "50 Prompts IA Prêts à l'Emploi pour PME" : 50 prompts ROCF, 6 catégories, docx+PDF 20p, API /api/submit-prompts, partial intégré /blog/art-du-prompt/ (tag "Prompts IA"), Plausible "50 Prompts Download" (2026-05-21)
+  - [ ] Action Franck : Créer Goal Plausible "50 Prompts Download" dans dashboard → Goals → Custom event
+  - [ ] Action Franck : `git push` pour déployer en production
+
+---
+
+### Lead magnet B — À faire en prochaine session
+
+**Article cible :** `/blog/claude-cowork-pme-cas-usage-mars-2026/` — 231 visites (top article du site)
+**Sujet :** "Checklist 30 jours pour déployer Claude dans votre équipe"
+**Angle :** Guide opérationnel semaine par semaine (S1 fondations, S2 cas d'usage, S3 adoption équipe, S4 mesure ROI)
+
+**Workflow (identique lead magnet A) :**
+1. WebSearch multi-sources (best practices IA onboarding PME)
+2. Gemini Deep Research (`mcp__gemini__gemini-deep-research`) — attendre résultats avant d'écrire
+3. Challenge Gemini Pro (`mcp__gemini__gemini-query`, pro, thinkingLevel: high) sur le contenu DR
+4. Consensus ≥ 8/10 → plan définitif
+5. Créer `docs/lead-magnets/create-checklist.cjs` (docx v9.6.1, branding indigo, logo SVG+PNG fallback)
+6. Générer le docx + laisser Franck exporter en PDF → `docs/lead-magnets/checklist-30-jours-claude-pme.pdf`
+7. Copier PDF → `static/assets/downloads/checklist-30-jours-claude-pme.pdf`
+8. Créer `api/submit-checklist.js` (Notion source: "Lead Magnet - Checklist 30 Jours", Plausible event: "Checklist Download")
+9. Créer `layouts/partials/lead-magnet-checklist.html` (tag déclencheur: "Checklist IA")
+10. Ajouter tag "Checklist IA" dans front matter `content/blog/claude-cowork-pme-cas-usage-mars-2026.md`
+11. Ajouter condition `else if "Checklist IA"` dans `layouts/blog/single.html` ($i==2)
+12. Créer Goal Plausible "Checklist Download"
+
+**PDF URL cible :** `https://www.lagencesauvage.com/assets/downloads/checklist-30-jours-claude-pme.pdf`
+
+---
+
+### Lead magnet C — Prévu après B
+
+**Article cible :** `/blog/ia-cabinet-comptable-donnees-2025-reussir/` — 131 visites
+**Sujet :** "Kit IA pour cabinet comptable — les 5 premiers pas"
+**Tag déclencheur :** "Kit Comptable IA"
+**API :** `/api/submit-kit-comptable`
+**Plausible event :** "Kit Comptable Download"
 
 ### Pages créées cette session
 
 - [x] `/formation/maitriser-claude-entreprise/` — landing page formation complète (2026-05-06)
 
-### BLOQUANT — Action Franck requise
+### Infrastructure email — Résolu (2026-05-15)
 
-- [ ] **Vercel env vars** : vérifier/reconfigurer `RESEND_API_KEY` dans le projet `lagencesauvageavecnotion` → Settings → Environment Variables. Les deux formulaires (diagnostic homepage + formation) retournent 500 "Missing API key".
+- [x] **RESEND_API_KEY** configurée dans Vercel + utilisée en production (lead reçu par email confirmé, clé active depuis 9 jours — vérifié 2026-05-15)
 
 ### Infrastructure (fait 2026-05-06 — ne pas modifier)
 

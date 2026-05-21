@@ -199,6 +199,9 @@ Aucun pour le moment.
 - [x] Email submit-programme.js : aligné sur PDF réel (7 pages, "Proposition de formation", CTA 30 min) (2026-05-06)
 - [x] Article "Claude for Small Business : agents IA pour les PME françaises" — veille Obsidian, recherche multi-sources, consensus Claude+Gemini 9/10, 2300 mots, 5 H2, FAQ schema, image hero Gemini 49 Ko, liens croisés bidirectionnels avec Claude Cowork, CTA formation OPCO, pushé 2026-05-15
 - [x] Article "Déployer un agent IA opérationnel dans votre PME : guide pratique et roadmap 6 semaines" — vault Hermes (308 cas d'usage), keyword research 8 phases, challenge Gemini Pro (6.5→9/10), 2200 mots, 6 H2, 5 FAQ GEO, maillage interne 6 liens, image hero Gemini 81 Ko (style Hermes), audit anti-cannibalisation (swap factures→reporting), pushé 2026-05-15
+- [x] Analyse Plausible (91j/28j/7j) + stratégie 3 lead magnets ciblés articles top trafic (2026-05-21)
+- [x] Lead magnet A — "50 Prompts IA Prêts à l'Emploi pour PME" : PDF 20p docx (framework ROCF, 6 catégories, 50 prompts), API /api/submit-prompts (Notion+Resend+Plausible), partial lead-magnet-prompts, intégré /blog/art-du-prompt/ (tag "Prompts IA"), Goal Plausible "50 Prompts Download" à créer manuellement dans dashboard (2026-05-21)
+- [ ] Créer Goal Plausible "50 Prompts Download" (action manuelle Franck : plausible.io → lagencesauvage.com → Goals → Add goal → Custom event → "50 Prompts Download")
 
 ## Décisions prises (post-bascule)
 
