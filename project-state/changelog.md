@@ -1,5 +1,18 @@
 # Changelog — Refonte lagencesauvage.com
 
+## 2026-05-21 — Lead magnet B — Checklist 30 jours Claude PME
+
+- **Lead magnet B** déployé sur `/blog/claude-cowork-pme-cas-usage-mars-2026/` (231 visites — top article)
+  - `docs/lead-magnets/create-checklist.cjs` : script docx (4 semaines d'actions, quick wins compta/marketing/SAV, 3 erreurs fatales, bonus email template, branding Claude cream + indigo ASV)
+  - `checklist-30-jours-claude-pme.pdf` → `static/assets/downloads/` (link live en production)
+  - `api/submit-checklist.js` : Notion (source "Lead Magnet - Checklist 30 Jours") + Resend email + Plausible "Checklist Download"
+  - `layouts/partials/lead-magnet-checklist.html` : partial formulaire inline (tag déclencheur "Checklist IA")
+  - `layouts/blog/single.html` : condition `else if "Checklist IA"` ajoutée au bloc $i==2
+  - `content/blog/claude-cowork-pme-cas-usage-mars-2026.md` : tag "Checklist IA" ajouté au front matter
+  - Couverture : image Gemini (Option B — Claude cream + Desktop wireframe + bannière indigo ASV), fix dimensions coverImg(780, 1100) pour A4 complet sans troncature
+  - Goal Plausible "Checklist Download" créé par Franck
+  - Commits : `87ff4ed` (code + docx) + `c762ecf` (PDF + fix cover) — pushés sur main → live
+
 ## 2026-05-15 — Article "Agent IA opérationnel PME" — guide déploiement + roadmap 6 semaines
 
 - **Nouvel article** : `agent-ia-operationnel-pme-guide-deploiement.md` — 2200 mots, 6 H2, 5 FAQ GEO, maillage interne 6 liens

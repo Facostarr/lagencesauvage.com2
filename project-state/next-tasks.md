@@ -80,8 +80,7 @@ Quota dépassé aujourd'hui. Demander l'indexation pour les 6 case studies :
 - [x] Lead magnet 1 — Kit 10 prompts Claude PME : PDF gate — PDF Playwright A4, layout gated (teaser + form), bouton DL direct après soumission, email lien PDF (2026-05-06)
 - [x] Lead magnet 2 — Formation Claude entreprise : landing `/formation/maitriser-claude-entreprise/`, formulaire multi-step, PDF programme, API step1+step2, shortcode, nav, CTA article AI Act (2026-05-06)
 - [x] Lead magnet A — "50 Prompts IA Prêts à l'Emploi pour PME" : 50 prompts ROCF, 6 catégories, docx+PDF 20p, API /api/submit-prompts, partial intégré /blog/art-du-prompt/ (tag "Prompts IA"), Plausible "50 Prompts Download" (2026-05-21)
-  - [ ] Action Franck : Créer Goal Plausible "50 Prompts Download" dans dashboard → Goals → Custom event
-  - [ ] Action Franck : `git push` pour déployer en production
+- [x] Lead magnet B — "Checklist 30 Jours pour déployer Claude dans votre PME" : docx+PDF 4 semaines (S1 fondations, S2 cas d'usage, S3 adoption, S4 ROI) + quick wins + erreurs fatales + bonus email template, API /api/submit-checklist, partial lead-magnet-checklist, intégré /blog/claude-cowork-pme-cas-usage-mars-2026/ (tag "Checklist IA"), Plausible "Checklist Download" (2026-05-21)
 
 ---
 
