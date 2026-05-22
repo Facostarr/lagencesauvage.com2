@@ -51,7 +51,7 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Invalid JSON' });
   }
 
-  const { nom, entreprise, salaries, email, irritant, source, date } = body;
+  const { nom, entreprise, salaries, email, irritant, source, date, telephone } = body;
 
   if (!nom || !entreprise || !salaries || !email) {
     return res.status(400).json({ error: 'Champs requis manquants : nom, entreprise, salaries, email' });
@@ -102,6 +102,9 @@ export default async function handler(req, res) {
           },
           'Statut': {
             select: { name: 'Nouveau lead' }
+          },
+          'Téléphone': {
+            phone_number: telephone || null
           }
         }
       };
@@ -137,7 +140,7 @@ export default async function handler(req, res) {
       firstName,
       email,
       source: source || 'Formulaire Diagnostic',
-      extra: `🏢 ${entreprise} · 👥 ${salaries} · 💡 ${irritant || 'Non renseigné'}`,
+      extra: `🏢 ${entreprise} · 👥 ${salaries} · 💡 ${irritant || 'Non renseigné'}${telephone ? ` · 📞 ${telephone}` : ''}`,
     });
   } catch (e) {
     console.warn('[Notify] Erreur non bloquante:', e.message);

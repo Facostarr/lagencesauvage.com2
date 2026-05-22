@@ -496,6 +496,12 @@
                                    class="w-full px-4 py-3 rounded-md border border-slate-border text-sm focus:outline-none focus:ring-2 focus:ring-indigo/20 focus:border-indigo transition-colors"
                                    placeholder="franck@entreprise.com">
                         </div>
+                        <div>
+                            <label for="diag-phone" class="block text-sm font-medium text-slate-deep mb-1.5">Téléphone <span class="font-normal text-slate-muted">(optionnel)</span></label>
+                            <input type="tel" id="diag-phone" name="telephone" autocomplete="tel"
+                                   class="w-full px-4 py-3 rounded-md border border-slate-border text-sm focus:outline-none focus:ring-2 focus:ring-indigo/20 focus:border-indigo transition-colors"
+                                   placeholder="+33 6 12 34 56 78">
+                        </div>
                     </div>
                     <button type="button" id="diag-btn-next"
                             class="mt-6 w-full px-6 py-3 text-sm font-semibold rounded-md bg-indigo text-white hover:bg-indigo-dark transition-colors cursor-pointer">
@@ -740,6 +746,7 @@
         var payload = {
             nom: form.querySelector('[name="nom"]').value.trim(),
             email: form.querySelector('[name="email"]').value.trim(),
+            telephone: form.querySelector('[name="telephone"]').value.trim(),
             entreprise: entreprise,
             salaries: salaries,
             irritant: form.querySelector('[name="irritant"]').value.trim(),

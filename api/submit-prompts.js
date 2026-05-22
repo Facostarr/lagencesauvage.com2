@@ -23,7 +23,7 @@ export default async function handler(req, res) {
   if (req.method === 'OPTIONS') return res.status(200).end();
   if (req.method !== 'POST') return res.status(405).json({ success: false });
 
-  const { firstName, email } = req.body;
+  const { firstName, email, phone = '' } = req.body;
 
   if (!firstName || !email) {
     return res.status(400).json({ success: false, message: 'Prénom et email requis.' });
@@ -50,6 +50,7 @@ export default async function handler(req, res) {
           'Statut': { select: { name: 'Nouveau' } },
           'Source': { select: { name: 'Lead Magnet - 50 Prompts PME' } },
           'Date Soumission': { date: { start: new Date().toISOString().split('T')[0] } },
+          'Téléphone': { phone_number: phone.trim() || null },
         },
       });
       notionUrl = page.url;
@@ -115,6 +116,7 @@ export default async function handler(req, res) {
       email,
       source: '50 Prompts IA PME',
       notionUrl,
+      extra: phone.trim() ? `📞 Téléphone : ${phone.trim()}` : undefined,
     });
   } catch (err) {
     console.error('⚠️ notifyFounder échoué (non bloquant):', err.message);

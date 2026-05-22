@@ -10,12 +10,17 @@
     <li class="flex items-center gap-2"><span class="font-bold text-indigo-500">✓</span> Conforme à l'obligation de formation AI Act (article 4)</li>
     <li class="flex items-center gap-2"><span class="font-bold text-indigo-500">✓</span> 17 modules · Projects, Skills, MCP, Cowork, Office add-ins</li>
   </ul>
-  <form id="lmf-form-{{ if .File }}{{ .File.UniqueID }}{{ else }}blog{{ end }}" class="flex flex-col sm:flex-row gap-2">
-    <input type="text" class="lmf-firstname min-w-0 flex-1 rounded-lg border border-indigo-200 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-200" placeholder="Votre prénom" required autocomplete="given-name">
-    <input type="email" class="lmf-email min-w-0 flex-1 rounded-lg border border-indigo-200 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-200" placeholder="votre@email.com" required autocomplete="email">
-    <button type="submit" class="lmf-btn whitespace-nowrap rounded-lg bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-indigo-700 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-400">
-      Recevoir le programme →
-    </button>
+  <form id="lmf-form-{{ if .File }}{{ .File.UniqueID }}{{ else }}blog{{ end }}" class="flex flex-col gap-2">
+    <div class="flex flex-col sm:flex-row gap-2">
+      <input type="text" class="lmf-firstname min-w-0 flex-1 rounded-lg border border-indigo-200 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-200" placeholder="Votre prénom" required autocomplete="given-name">
+      <input type="email" class="lmf-email min-w-0 flex-1 rounded-lg border border-indigo-200 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-200" placeholder="votre@email.com" required autocomplete="email">
+    </div>
+    <div class="flex flex-col sm:flex-row gap-2">
+      <input type="tel" class="lmf-phone min-w-0 flex-1 rounded-lg border border-indigo-200 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-200" placeholder="Téléphone (optionnel)" autocomplete="tel">
+      <button type="submit" class="lmf-btn whitespace-nowrap rounded-lg bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-indigo-700 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-400">
+        Recevoir le programme →
+      </button>
+    </div>
   </form>
   <p class="lmf-success hidden mt-3 text-sm font-semibold text-indigo-700"></p>
   <p class="lmf-error hidden mt-3 text-sm text-red-600"></p>
@@ -41,7 +46,8 @@
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           firstName: el.querySelector('.lmf-firstname').value,
-          email: el.querySelector('.lmf-email').value
+          email: el.querySelector('.lmf-email').value,
+          phone: el.querySelector('.lmf-phone').value
         })
       });
       var d = await r.json();

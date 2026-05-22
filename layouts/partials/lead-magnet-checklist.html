@@ -10,12 +10,17 @@
     <li class="flex items-center gap-2"><span class="font-bold text-indigo-500">✓</span> 3 quick wins métier (comptabilité, marketing, SAV) avec prompts prêts à copier</li>
     <li class="flex items-center gap-2"><span class="font-bold text-indigo-500">✓</span> Bonus : modèle email d'annonce pour embarquer votre équipe</li>
   </ul>
-  <form id="lmc-form-{{ if .File }}{{ .File.UniqueID }}{{ else }}blog{{ end }}" class="flex flex-col sm:flex-row gap-2">
-    <input type="text" class="lmc-firstname min-w-0 flex-1 rounded-lg border border-indigo-200 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-200" placeholder="Votre prénom" required autocomplete="given-name">
-    <input type="email" class="lmc-email min-w-0 flex-1 rounded-lg border border-indigo-200 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-200" placeholder="votre@email.com" required autocomplete="email">
-    <button type="submit" class="lmc-btn whitespace-nowrap rounded-lg bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-indigo-700 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-400">
-      Recevoir la checklist →
-    </button>
+  <form id="lmc-form-{{ if .File }}{{ .File.UniqueID }}{{ else }}blog{{ end }}" class="flex flex-col gap-2">
+    <div class="flex flex-col sm:flex-row gap-2">
+      <input type="text" class="lmc-firstname min-w-0 flex-1 rounded-lg border border-indigo-200 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-200" placeholder="Votre prénom" required autocomplete="given-name">
+      <input type="email" class="lmc-email min-w-0 flex-1 rounded-lg border border-indigo-200 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-200" placeholder="votre@email.com" required autocomplete="email">
+    </div>
+    <div class="flex flex-col sm:flex-row gap-2">
+      <input type="tel" class="lmc-phone min-w-0 flex-1 rounded-lg border border-indigo-200 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-200" placeholder="Téléphone (optionnel)" autocomplete="tel">
+      <button type="submit" class="lmc-btn whitespace-nowrap rounded-lg bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-indigo-700 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-400">
+        Recevoir la checklist →
+      </button>
+    </div>
   </form>
   <p class="lmc-success hidden mt-3 text-sm font-semibold text-indigo-700"></p>
   <p class="lmc-error hidden mt-3 text-sm text-red-600"></p>
@@ -41,7 +46,8 @@
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           firstName: el.querySelector('.lmc-firstname').value,
-          email: el.querySelector('.lmc-email').value
+          email: el.querySelector('.lmc-email').value,
+          phone: el.querySelector('.lmc-phone').value
         })
       });
       var d = await r.json();
