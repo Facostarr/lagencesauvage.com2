@@ -99,14 +99,28 @@ export default async function handler(req, res) {
   const entreprise = resolved.entreprise;
   let niveauConfiance = entreprise.source_confiance ?? 'manuel';
 
-  // ---- 3a. Application optionnelle d'idcc_override (PRD étage 3)
+  // ---- 3a. Application optionnelle d'idcc_override ou branche_slug_override
+  //          (PRD étage 3 — sélection humaine assistée)
   // Si DINUM + siret2idcc ont échoué (entreprise.idcc == null) et que le
   // prospect a sélectionné sa convention dans la liste assistée, on l'utilise
   // pour le compute. Source devient 'manual' (auditable côté Notion).
+  //
+  // Deux pistes possibles selon ce que le prospect a choisi :
+  //   - idcc_override (number) : entrée du idcc_index (97 IDCCs)
+  //   - branche_slug_override (string) : entrée du naf_fallback_index
+  //     (22 branches sans IDCC déclaré — Afdas, Constructys, etc.)
   let idccSource = entreprise.source_idcc ?? 'manuel';
+  let nafFallbackSlug = null;
   const isIdccAbsent = !entreprise.idcc;
   if (body.idcc_override && isIdccAbsent) {
     entreprise.idcc = body.idcc_override;
+    entreprise.source_idcc = 'manual';
+    entreprise.source_confiance = 'manuel';
+    idccSource = 'manual';
+    niveauConfiance = 'manuel';
+  } else if (body.branche_slug_override && isIdccAbsent) {
+    nafFallbackSlug = body.branche_slug_override;
+    entreprise.branche_slug_override = body.branche_slug_override;
     entreprise.source_idcc = 'manual';
     entreprise.source_confiance = 'manuel';
     idccSource = 'manual';
@@ -128,6 +142,7 @@ export default async function handler(req, res) {
       idcc: entreprise.idcc,
       tefenCode: entreprise.tranche_effectif_tefen,
       sourceIdcc: idccSource,
+      nafFallbackSlug,
     });
   } catch (err) {
     logJson('simulator.compute.engine_error', { message: err?.message, siret: body.siret, idcc: entreprise.idcc });
@@ -169,6 +184,7 @@ export default async function handler(req, res) {
       utm_campaign: body.utm_campaign,
       tefen_override: body.tefen_override ?? null,
       idcc_override: body.idcc_override ?? null,
+      branche_slug_override: body.branche_slug_override ?? null,
       is_recompute: Boolean(body.notion_lead_id),
     },
     entreprise,
@@ -188,6 +204,7 @@ export default async function handler(req, res) {
       const recomputeReason = [
         body.tefen_override ? `effectif → ${body.tefen_override}` : null,
         body.idcc_override ? `IDCC → ${body.idcc_override}` : null,
+        body.branche_slug_override ? `branche → ${body.branche_slug_override}` : null,
       ].filter(Boolean).join(' + ') || 'recompute';
       notionPage = await updateSimulatorLead({
         pageId: body.notion_lead_id,

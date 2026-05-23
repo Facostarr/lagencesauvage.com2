@@ -39,6 +39,7 @@
     // et qu'on cascade ensuite sur un TEFEN manuel, il faut renvoyer les deux
     // pour éviter de retomber dans le cas idcc_inconnu.
     idccOverride: null,
+    brancheSlugOverride: null,
     tefenOverride: null,
   };
 
@@ -334,6 +335,7 @@
     state.notionLeadId = null;
     state.overrideAttempted = false;
     state.idccOverride = null;
+    state.brancheSlugOverride = null;
     state.tefenOverride = null;
     el.search.value = '';
     setError(el.formError, null);
@@ -534,7 +536,11 @@
     el.idcc.label.textContent = 'Calcul en cours…';
     el.idcc.spinner?.classList.remove('hidden');
     announceSr('Recalcul de votre budget avec la convention sélectionnée.');
-    track('simulator_idcc_override_used', { idcc: idccValue });
+
+    // Distinguer override IDCC numérique (idcc_index) vs slug NAF (naf_fallback_index)
+    const isNafSlug = idccValue.startsWith('naf:');
+    const nafSlug = isNafSlug ? idccValue.slice(4) : null;
+    track('simulator_idcc_override_used', { value: idccValue, kind: isNafSlug ? 'naf' : 'idcc' });
 
     const payload = {
       siret: state.entreprise.siret,
@@ -544,11 +550,13 @@
       telephone: $('sim-phone')?.value.trim() || undefined,
       utm_source: getUtm('utm_source'),
       utm_campaign: getUtm('utm_campaign'),
-      idcc_override: idccValue,
+      idcc_override: isNafSlug ? undefined : idccValue,
+      branche_slug_override: isNafSlug ? nafSlug : undefined,
       tefen_override: state.tefenOverride || undefined,
       notion_lead_id: state.notionLeadId,
     };
-    state.idccOverride = idccValue;
+    if (isNafSlug) state.brancheSlugOverride = nafSlug;
+    else state.idccOverride = idccValue;
     state.overrideAttempted = true;
 
     try {
@@ -619,6 +627,7 @@
       utm_campaign: getUtm('utm_campaign'),
       tefen_override: tefenValue,
       idcc_override: state.idccOverride || undefined,
+      branche_slug_override: state.brancheSlugOverride || undefined,
       notion_lead_id: state.notionLeadId,
     };
     state.tefenOverride = tefenValue;

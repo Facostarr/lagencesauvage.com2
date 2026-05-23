@@ -54,13 +54,13 @@ export function classifyBudget(budgetMaxEur, casParticulier) {
   return 'cold';
 }
 
-export function runCompute({ idcc, tefenCode, sourceIdcc }) {
+export function runCompute({ idcc, tefenCode, sourceIdcc, nafFallbackSlug }) {
   const idccNum = idcc == null ? null : Number.parseInt(String(idcc), 10);
   return computeBudget({
     idcc: Number.isFinite(idccNum) ? idccNum : null,
     tefen_code: tefenCode,
     source_idcc: sourceIdcc ?? 'manuel',
-    naf_fallback_slug: null,
+    naf_fallback_slug: nafFallbackSlug ?? null,
     simulator_data: simulatorData,
     metadata,
   });
@@ -86,5 +86,21 @@ export function getValidIdccOverrides() {
     }
   }
   _validIdccOverrides = set;
+  return set;
+}
+
+// Whitelist des branches du naf_fallback_index (branches sans IDCC déclaré —
+// principalement Afdas + 3 branches Constructys + 4 branches OPCO Mobilités…).
+// 22 entrées qui complètent les 45 IDCCs avec branche_nom pour atteindre une
+// couverture de 10 OPCO sur 11 dans le select de sélection humaine.
+let _validBrancheOverrides = null;
+export function getValidBrancheOverrides() {
+  if (_validBrancheOverrides) return _validBrancheOverrides;
+  const set = new Set();
+  const index = simulatorData?.naf_fallback_index ?? {};
+  for (const slug of Object.keys(index)) {
+    if (typeof slug === 'string' && slug.length > 0) set.add(slug);
+  }
+  _validBrancheOverrides = set;
   return set;
 }

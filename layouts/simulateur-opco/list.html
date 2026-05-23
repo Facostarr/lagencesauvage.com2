@@ -215,9 +215,17 @@
              ============================================================ */}}
         {{ $simData := transform.Unmarshal (os.ReadFile "static/data/simulator-ready.json") }}
         {{ $idccItems := slice }}
+        {{/* 45 conventions avec libellé branche issues du idcc_index, valeur = IDCC numérique */}}
         {{ range $idcc, $entry := $simData.idcc_index }}
           {{ if $entry.branche_nom }}
-            {{ $idccItems = $idccItems | append (dict "idcc" $idcc "branche" $entry.branche_nom "opco" (or $entry.opco_nom "Autre OPCO")) }}
+            {{ $idccItems = $idccItems | append (dict "value" $idcc "branche" $entry.branche_nom "opco" (or $entry.opco_nom "Autre OPCO")) }}
+          {{ end }}
+        {{ end }}
+        {{/* 22 branches du naf_fallback_index (Afdas, Constructys, Mobilités, Santé, Uniformation
+             qui n'ont pas d'IDCC déclaré). Valeur préfixée naf: pour distinguer au backend. */}}
+        {{ range $slug, $entry := $simData.naf_fallback_index }}
+          {{ if $entry.branche_nom }}
+            {{ $idccItems = $idccItems | append (dict "value" (printf "naf:%s" $slug) "branche" $entry.branche_nom "opco" (or $entry.opco_nom "Autre OPCO")) }}
           {{ end }}
         {{ end }}
         {{ $opcoNames := slice }}
@@ -242,7 +250,7 @@
               {{ range $opco := $opcoNames }}
                 <optgroup label="{{ $opco }}">
                   {{ range $item := sort (where $idccItems "opco" $opco) "branche" }}
-                    <option value="{{ $item.idcc }}">{{ $item.branche }}</option>
+                    <option value="{{ $item.value }}">{{ $item.branche }}</option>
                   {{ end }}
                 </optgroup>
               {{ end }}

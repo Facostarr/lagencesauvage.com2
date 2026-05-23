@@ -5,7 +5,9 @@
 // /api/simulate-opco-* DOIT passer ici avant d'être injecté dans une URL DINUM
 // ou siret2idcc.
 
-import { getValidIdccOverrides } from './compute-engine.js';
+import { getValidIdccOverrides, getValidBrancheOverrides } from './compute-engine.js';
+
+const BRANCHE_SLUG_ALLOWED = /^[a-z0-9-]{3,80}$/;
 
 const Q_ALLOWED = /^[A-Za-zÀ-ÖØ-öø-ÿ0-9 .,'&()\-]+$/;
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -99,6 +101,7 @@ export function validateComputeBody(body) {
     utm_campaign: null,
     tefen_override: null,
     idcc_override: null,
+    branche_slug_override: null,
     notion_lead_id: null,
   };
 
@@ -115,6 +118,14 @@ export function validateComputeBody(body) {
       return { ok: false, code: 'invalid_body', message: 'Convention collective invalide ou non couverte.' };
     }
     out.idcc_override = idccNum;
+  }
+
+  if (body.branche_slug_override !== undefined && body.branche_slug_override !== null && body.branche_slug_override !== '') {
+    const slug = String(body.branche_slug_override);
+    if (!BRANCHE_SLUG_ALLOWED.test(slug) || !getValidBrancheOverrides().has(slug)) {
+      return { ok: false, code: 'invalid_body', message: 'Branche professionnelle invalide ou non couverte.' };
+    }
+    out.branche_slug_override = slug;
   }
 
   if (body.notion_lead_id !== undefined && body.notion_lead_id !== null && body.notion_lead_id !== '') {
