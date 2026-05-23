@@ -4,9 +4,9 @@
      Combine : WebApplication + BreadcrumbList + FAQPage + HowTo + Dataset
      + SpeakableSpecification. Tous référencent l'Organization (sitewide #organization).
      ============================================================================= */}}
-{{/* Hugo YAML parser de la v0.158 garde parfois les guillemets de fermeture
-     dans la valeur. On strip défensivement avant jsonify. */}}
-{{ $desc := .Params.description | strings.TrimPrefix "\"" | strings.TrimSuffix "\"" }}
+{{/* Hugo .Params.X garde les guillemets YAML — utiliser .Description (champ
+     canonique normalisé) au lieu de .Params.description. */}}
+{{ $desc := .Description }}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
