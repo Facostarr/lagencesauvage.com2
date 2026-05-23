@@ -9,7 +9,11 @@ const WINDOW_MS = 1000;
 const MAX_REQ_PER_WINDOW = 10;
 const MAX_TRACKED_IPS = 5000;
 
+const POST_WINDOW_MS = 60_000;
+const POST_MAX_REQ_PER_WINDOW = 5;
+
 const buckets = new Map();
+const postBuckets = new Map();
 
 export function extractClientIp(req) {
   const fwd = req.headers['x-forwarded-for'];
@@ -19,6 +23,27 @@ export function extractClientIp(req) {
   }
   if (typeof req.headers['x-real-ip'] === 'string') return req.headers['x-real-ip'];
   return req.socket?.remoteAddress || '0.0.0.0';
+}
+
+export function checkPostRateLimit(ip) {
+  const now = Date.now();
+  const bucket = postBuckets.get(ip);
+  if (!bucket) {
+    if (postBuckets.size >= MAX_TRACKED_IPS) {
+      const firstKey = postBuckets.keys().next().value;
+      if (firstKey !== undefined) postBuckets.delete(firstKey);
+    }
+    postBuckets.set(ip, [now]);
+    return { allowed: true, remaining: POST_MAX_REQ_PER_WINDOW - 1 };
+  }
+  const filtered = bucket.filter((t) => now - t < POST_WINDOW_MS);
+  if (filtered.length >= POST_MAX_REQ_PER_WINDOW) {
+    postBuckets.set(ip, filtered);
+    return { allowed: false, remaining: 0, retryAfterMs: POST_WINDOW_MS - (now - filtered[0]) };
+  }
+  filtered.push(now);
+  postBuckets.set(ip, filtered);
+  return { allowed: true, remaining: POST_MAX_REQ_PER_WINDOW - filtered.length };
 }
 
 export function checkRateLimit(ip) {
