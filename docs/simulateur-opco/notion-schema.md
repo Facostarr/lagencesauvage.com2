@@ -2,16 +2,21 @@
 
 Schéma de la base Notion dédiée au lead capture du Simulateur OPCO (cf. PRD section 8). Cette base est **distincte** de la base "Leads Diagnostic" car la qualification est radicalement différente : budget chiffré, IDCC connu, secteur certain → priorisation commerciale automatisée.
 
-## Action manuelle Franck — création de la base
+## ✅ Base créée (2026-05-23)
 
-1. Dans Notion, dupliquer le template existant "Leads Diagnostic" OU créer une nouvelle base.
-2. Renommer en **Leads Simulateur OPCO**.
-3. Configurer les **17 colonnes (+ 2 colonnes calculées Notion)** listées ci-dessous.
-4. Inviter l'intégration Notion existante (ou nouvelle) en partage de la base.
-5. Récupérer l'ID de la base (32 chars hex dans l'URL) → ajouter env var dans Vercel Dashboard :
+- **URL** : https://www.notion.so/6852f4ca02714b9eb5e019b2449be6db
+- **Database ID** : `6852f4ca02714b9eb5e019b2449be6db`
+- **Parent** : 🎯 VENDRE (même emplacement que "Leads - L'Agence Sauvage (Site Web)")
+- **Schéma** : 18 propriétés + body de page pour snapshot JSON, toutes les options Select/Multi-select pré-créées
+
+## Action manuelle restante — Franck
+
+1. **Ajouter env var Vercel** (Dashboard → lagencesauvageavecnotion → Settings → Environment Variables) :
    - **Nom** : `NOTION_DATABASE_SIMULATEUR_OPCO`
-   - **Environments** : Production + Preview
-6. Redéployer la branche `feat/simulateur-opco`.
+   - **Valeur** : `6852f4ca02714b9eb5e019b2449be6db`
+   - **Environments** : Production + Preview ✓
+2. **Vérifier l'accès intégration Notion** : ouvrir la base, vérifier dans `…` (menu) → `Connections` que l'intégration utilisée par `NOTION_API_KEY` est connectée. Si non, l'ajouter manuellement (les autres bases sous 🎯 VENDRE l'ont déjà — héritage probable mais à confirmer).
+3. **Redéployer** la branche `feat/simulateur-opco` (ou laisser le prochain push faire le job).
 
 ## Colonnes (mapping exact API → Notion)
 
