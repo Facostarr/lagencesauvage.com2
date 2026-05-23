@@ -346,34 +346,36 @@ def build_page(opco: dict) -> str:
     faq = faq_entries(opco)
     faq_yaml = render_faq_yaml(faq)
 
-    front_matter = dedent(f"""\
-        ---
-        title: {yaml_escape(title)}
-        description: {yaml_escape(description)}
-        date: 2026-05-23
-        lastmod: 2026-05-23
-        layout: "single"
-        robots: "index, follow"
-        canonical: "/simulateur-opco/{slug}/"
-        ogImage: "/assets/images/logo-agence-sauvage.svg"
-        opco_slug: {yaml_escape(slug)}
-        opco_nom_court: {yaml_escape(nom_court)}
-        opco_nom_officiel: {yaml_escape(nom_officiel)}
-        opco_url_racine: {yaml_escape(url_racine)}
-        opco_url_criteres: {yaml_escape(url_criteres)}
-        opco_nb_idcc: {nb_idcc if isinstance(nb_idcc, int) else yaml_escape(nb_idcc)}
-        opco_audience: {yaml_escape(audience)}
-        opco_annee: {annee}
-        opco_date_maj: {yaml_escape(date_maj)}
-        keywords:
-          - "OPCO {nom_court} 2026"
-          - "budget formation {nom_court}"
-          - "simulateur OPCO {nom_court}"
-          - "convention collective {nom_court}"
-          - "financement formation {audience.split(',')[0].strip()}"
-        {faq_yaml}
-        ---
-        """)
+    fm_lines = [
+        "---",
+        f"title: {yaml_escape(title)}",
+        f"description: {yaml_escape(description)}",
+        "date: 2026-05-23",
+        "lastmod: 2026-05-23",
+        'layout: "single"',
+        'robots: "index, follow"',
+        f'canonical: "/simulateur-opco/{slug}/"',
+        'ogImage: "/assets/images/logo-agence-sauvage.svg"',
+        f"opco_slug: {yaml_escape(slug)}",
+        f"opco_nom_court: {yaml_escape(nom_court)}",
+        f"opco_nom_officiel: {yaml_escape(nom_officiel)}",
+        f"opco_url_racine: {yaml_escape(url_racine)}",
+        f"opco_url_criteres: {yaml_escape(url_criteres)}",
+        f"opco_nb_idcc: {nb_idcc if isinstance(nb_idcc, int) else yaml_escape(nb_idcc)}",
+        f"opco_audience: {yaml_escape(audience)}",
+        f"opco_annee: {annee}",
+        f"opco_date_maj: {yaml_escape(date_maj)}",
+        "keywords:",
+        f'  - "OPCO {nom_court} 2026"',
+        f'  - "budget formation {nom_court}"',
+        f'  - "simulateur OPCO {nom_court}"',
+        f'  - "convention collective {nom_court}"',
+        f'  - "financement formation {audience.split(",")[0].strip()}"',
+    ]
+    if faq_yaml:
+        fm_lines.append(faq_yaml)
+    fm_lines.append("---")
+    front_matter = "\n".join(fm_lines) + "\n"
 
     # Body
     body = []
