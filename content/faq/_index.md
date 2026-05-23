@@ -1,12 +1,6 @@
 ---
 title: "Questions fréquentes — L'Agence Sauvage"
 description: "Retrouvez les réponses à toutes vos questions sur l'intégration de l'IA en entreprise : budget, outils, sécurité des données, méthodologie et accompagnement."
-menu:
-  main:
-    name: "FAQ"
-    weight: 7
-    params:
-      hidden: true
 
 # === Catégories FAQ ===
 faq_categories:
