@@ -39,19 +39,17 @@ export function buildLeadPayload({ body, entreprise, result, snapshot, niveauCon
   const sirenNumber = entreprise?.siren ? Number.parseInt(entreprise.siren, 10) : null;
   const idccNumber = result?.inputs_snapshot?.idcc ?? null;
 
+  // IMPORTANT (consensus Gemini H6, 85% confiance) : à la CRÉATION d'une page
+  // Notion (vs l'UPDATE), il faut OMETTRE les propriétés vides — surtout pour
+  // les types phone_number, select, number qui ne tolèrent pas { field: null }
+  // à la création (validation_error 400). On construit donc le payload en
+  // n'ajoutant que les propriétés effectivement renseignées.
   const properties = {
     'Nom complet': { title: [{ text: { content: truncate(nomComplet, TITLE_LIMIT) } }] },
     Email: { email: body.email.trim().toLowerCase() },
-    Téléphone: body.telephone?.trim() ? { phone_number: body.telephone.trim() } : { phone_number: null },
     'Raison sociale': { rich_text: [{ text: { content: truncate(entreprise?.nom_complet || '', RICH_TEXT_LIMIT) } }] },
-    SIREN: { number: Number.isFinite(sirenNumber) ? sirenNumber : null },
-    'Code NAF': entreprise?.naf ? { select: { name: truncate(entreprise.naf, 100) } } : { select: null },
     'Tranche effectif': { select: { name: tefenLabel(entreprise?.tranche_effectif_tefen) } },
-    IDCC: { number: Number.isFinite(idccNumber) ? idccNumber : null },
     'Niveau confiance IDCC': { select: { name: confianceNotionLabel(niveauConfiance) } },
-    OPCO: result?.opco_nom ? { select: { name: truncate(result.opco_nom, 100) } } : { select: null },
-    'Budget min (€)': { number: result?.budget_min_eur ?? null },
-    'Budget max (€)': { number: result?.budget_max_eur ?? null },
     'Dispositifs activés': { multi_select: dispositifsLabels },
     'Version règles': { rich_text: [{ text: { content: truncate(result?.version_regles || '', RICH_TEXT_LIMIT) } }] },
     'Statut commercial': { select: { name: 'Nouveau' } },
@@ -59,12 +57,15 @@ export function buildLeadPayload({ body, entreprise, result, snapshot, niveauCon
     'Date soumission': { date: { start: new Date().toISOString() } },
   };
 
-  if (qualification) {
-    properties['Qualification (auto)'] = { select: { name: qualification } };
-  }
-  if (result?.cas_particulier) {
-    properties['Cas particulier'] = { select: { name: truncate(result.cas_particulier, 100) } };
-  }
+  if (body.telephone?.trim()) properties.Téléphone = { phone_number: body.telephone.trim() };
+  if (Number.isFinite(sirenNumber)) properties.SIREN = { number: sirenNumber };
+  if (entreprise?.naf) properties['Code NAF'] = { select: { name: truncate(entreprise.naf, 100) } };
+  if (Number.isFinite(idccNumber)) properties.IDCC = { number: idccNumber };
+  if (result?.opco_nom) properties.OPCO = { select: { name: truncate(result.opco_nom, 100) } };
+  if (Number.isFinite(result?.budget_min_eur)) properties['Budget min (€)'] = { number: result.budget_min_eur };
+  if (Number.isFinite(result?.budget_max_eur)) properties['Budget max (€)'] = { number: result.budget_max_eur };
+  if (qualification) properties['Qualification (auto)'] = { select: { name: qualification } };
+  if (result?.cas_particulier) properties['Cas particulier'] = { select: { name: truncate(result.cas_particulier, 100) } };
 
   const snapshotJson = JSON.stringify(snapshot, null, 2);
   const chunks = chunkString(snapshotJson, CODE_BLOCK_MAX);
