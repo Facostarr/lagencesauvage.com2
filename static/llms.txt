@@ -8,6 +8,10 @@
 - [Services d'automatisation IA](https://www.lagencesauvage.com/services.html): Automatisation marketing, ventes et opérations. Agents conversationnels. Abonnement mensuel à partir de 500€/mois. Validation humaine garantie à chaque étape critique.
 - [Notre processus](https://www.lagencesauvage.com/processus.html): Audit gratuit 30 min → Proposition personnalisée → Mise en œuvre en 2-4 semaines.
 
+## Outils gratuits
+
+- [Simulateur Budget OPCO 2026](https://www.lagencesauvage.com/simulateur-opco/): Outil gratuit qui calcule en 30 secondes le budget formation OPCO 2026 d'une TPE/PME depuis la raison sociale ou le SIREN. Couvre les 11 OPCO français (Afdas, Akto, Atlas, Constructys, OCAPIAT, OPCO 2i, OPCO EP, OPCO Mobilités, OPCO Santé, Opcommerce, Uniformation). Données officielles DGEFP, France Compétences, Jaune budgétaire 2026. Pas de création de compte ; aucune connaissance préalable de l'IDCC requise. Mise à jour trimestrielle. Détaille les dispositifs activables : Plan de Développement des Compétences (PDC), AFEST, Période de reconversion (qui remplace Pro-A depuis le 1er janvier 2026, loi du 24 octobre 2025), abondement CPF, actions collectives de branche.
+
 ## Approche et différenciation
 
 L'Agence Sauvage pratique une approche 360° couvrant trois axes systématiquement : technique (outils, flux de données, automatisations), business (ROI, gains mesurables, quick wins) et humain (adoption, résistances, formation). Les recommandations sont classées en trois niveaux : Autonome (le client fait seul), Accompagné (configuration initiale puis autonomie), Expert (développement sur-mesure).

@@ -18,6 +18,19 @@
 {{ define "main" }}
 
 {{/* ============================================================
+     BREADCRUMB visible — accessibilité + signal SEO
+     ============================================================ */}}
+<nav class="bg-white border-b border-slate-100" aria-label="Fil d'Ariane">
+  <div class="mx-auto max-w-5xl px-4 sm:px-6 py-3">
+    <ol class="flex items-center gap-2 text-sm text-slate-600">
+      <li><a href="/" class="hover:text-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-indigo-500 rounded">Accueil</a></li>
+      <li aria-hidden="true" class="text-slate-300">›</li>
+      <li aria-current="page" class="text-slate-900 font-medium">Simulateur OPCO 2026</li>
+    </ol>
+  </div>
+</nav>
+
+{{/* ============================================================
      HERO — input unique + autocomplete + bandeau réassurance
      ============================================================ */}}
 <section id="sim-hero" class="bg-slate-deep text-white pt-12 pb-16 sm:pt-16 sm:pb-20">
@@ -340,7 +353,7 @@
       Le simulateur couvre l'ensemble des opérateurs de compétences agréés par France Compétences. Les règles 2026 sont issues des publications officielles et mises à jour trimestriellement.
     </p>
     <ul class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 text-center">
-      {{ range slice "Afdas" "Akto" "Atlas" "Constructys" "Mobilités" "Opco EP" "Opco 2i" "OCAPIAT" "Opco Santé" "Uniformation" "Cohésion sociale" }}
+      {{ range slice "Afdas" "Akto" "Atlas" "Constructys" "OPCO Mobilités" "OPCO EP" "OPCO 2i" "OCAPIAT" "OPCO Santé" "Uniformation" "L'Opcommerce" }}
       <li class="rounded-lg border border-slate-200 bg-slate-50 px-3 py-2.5 text-xs sm:text-sm font-medium text-slate-700">{{ . }}</li>
       {{ end }}
     </ul>
@@ -367,9 +380,203 @@
       <li class="bg-white rounded-xl p-5 border border-slate-200">
         <div class="flex h-8 w-8 items-center justify-center rounded-full bg-indigo-600 text-white text-sm font-bold mb-3">3</div>
         <h3 class="font-bold text-slate-900 mb-1.5">Calcul du budget</h3>
-        <p class="text-sm text-slate-600 leading-relaxed">Pour votre IDCC et votre tranche d'effectif, nous additionnons les <strong>dispositifs activables</strong> en 2026 : PDC, AFEST, bonus thématiques, parcours stratégique, FNE-Formation, actions collectives.</p>
+        <p class="text-sm text-slate-600 leading-relaxed">Pour votre IDCC et votre tranche d'effectif, nous additionnons les <strong>dispositifs activables</strong> en 2026 : PDC, AFEST, bonus thématiques, parcours stratégique, abondement CPF, actions collectives.</p>
       </li>
     </ol>
+  </div>
+</section>
+
+{{/* ============================================================
+     MÉTHODOLOGIE DE CALCUL — détail des sources et de la démarche
+     ============================================================ */}}
+<section id="section-methodologie" class="bg-white py-12 sm:py-16 border-t border-slate-100">
+  <div class="mx-auto max-w-3xl px-4 sm:px-6">
+    <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-6">Méthodologie de calcul de votre budget OPCO 2026</h2>
+
+    <p class="text-base text-slate-700 leading-relaxed mb-5">
+      Le simulateur applique en trois étapes les règles publiques de financement de la formation professionnelle. Aucune donnée n'est inventée : chaque montant affiché est sourcé sur les publications officielles des OPCO et de l'État.
+    </p>
+
+    <h3 class="text-lg font-bold text-slate-900 mt-7 mb-2">Étape 1 — Identification de votre entreprise</h3>
+    <p class="text-base text-slate-700 leading-relaxed mb-4">
+      Le simulateur interroge l'<a href="https://recherche-entreprises.api.gouv.fr/docs/" rel="noopener" target="_blank" class="text-indigo-600 underline hover:text-indigo-800">API officielle Recherche d'entreprises</a> (DINUM, data.gouv.fr) à partir de votre raison sociale ou de votre SIREN. Cette API agrège les bases SIRENE (INSEE), DSN (URSSAF) et KALI (Légifrance) — elle restitue votre code NAF, votre effectif déclaré et, quand il est connu, votre IDCC.
+    </p>
+
+    <h3 class="text-lg font-bold text-slate-900 mt-6 mb-2">Étape 2 — Rattachement OPCO et convention collective</h3>
+    <p class="text-base text-slate-700 leading-relaxed mb-4">
+      Si l'IDCC n'est pas présent dans le payload DINUM, l'<a href="https://api.gouv.fr/les-api/siret2idcc" rel="noopener" target="_blank" class="text-indigo-600 underline hover:text-indigo-800">API siret2idcc</a> de la Fabrique sociale (Ministère du Travail) prend le relais. Le rattachement à l'un des 11 OPCO français est ensuite calculé selon la cartographie publiée par <a href="https://www.francecompetences.fr/operateurs-de-competences/" rel="noopener" target="_blank" class="text-indigo-600 underline hover:text-indigo-800">France Compétences</a> (article R6332-9 du Code du travail).
+    </p>
+
+    <h3 class="text-lg font-bold text-slate-900 mt-6 mb-2">Étape 3 — Calcul des dispositifs activables</h3>
+    <p class="text-base text-slate-700 leading-relaxed mb-4">
+      Pour votre couple IDCC + tranche d'effectif, le simulateur additionne les dispositifs activables en 2026 : Plan de Développement des Compétences (PDC), AFEST (Action de Formation En Situation de Travail), bonus thématiques, parcours stratégique, actions collectives et abondement CPF. Les barèmes proviennent des notes de politique formation 2026 publiées par chaque OPCO (par exemple la <a href="https://www.opco-atlas.fr/sites/default/files/medias/files/2026/03/atlas_note-politique_formation_2026_160326.pdf" rel="noopener" target="_blank" class="text-indigo-600 underline hover:text-indigo-800">Note politique Emploi Formation 2026 d'Atlas</a>, datée du 16 mars 2026).
+    </p>
+
+    <p class="text-sm text-slate-500 italic leading-relaxed mt-5 border-l-4 border-slate-200 pl-4 py-1">
+      Les montants restitués sont indicatifs et sans valeur contractuelle : seul votre OPCO détient le pouvoir d'engagement financier après étude du dossier complet et vérification de la <a href="https://travail-emploi.gouv.fr/qualiopi-marque-de-certification-qualite-des-prestataires-de-formation" rel="noopener" target="_blank" class="text-slate-600 underline hover:text-slate-800">certification Qualiopi</a> de votre organisme de formation.
+    </p>
+  </div>
+</section>
+
+{{/* ============================================================
+     STATISTIQUES OFFICIELLES — 3 chiffres-clés sourcés
+     ============================================================ */}}
+<section id="section-chiffres" class="bg-slate-deep text-white py-12 sm:py-16">
+  <div class="mx-auto max-w-5xl px-4 sm:px-6">
+    <h2 class="text-center text-2xl sm:text-3xl font-bold mb-3">Le financement OPCO en chiffres officiels 2026</h2>
+    <p class="text-center text-sm sm:text-base text-slate-300 mb-10 max-w-2xl mx-auto">
+      Toutes les données ci-dessous proviennent de sources publiques. Aucun chiffre n'est extrapolé.
+    </p>
+    <dl class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+      <div class="rounded-2xl bg-white/5 border border-white/10 p-6">
+        <dt class="text-4xl sm:text-5xl font-bold text-indigo-300 mb-2">521 M€</dt>
+        <dd class="text-sm text-slate-200 leading-relaxed">
+          Enveloppe nationale 2026 du Plan de Développement des Compétences pour les TPE/PME de moins de 50 salariés.
+          <span class="block mt-2 text-xs text-slate-400">Source : <a href="https://www.assemblee-nationale.fr/dyn/dyn/contenu/visualisation/1089989/file/7-Jaune2026_Formation_Professionnelle.pdf" rel="noopener" target="_blank" class="underline hover:text-white">Annexe Jaune Formation Professionnelle 2026</a></span>
+        </dd>
+      </div>
+      <div class="rounded-2xl bg-white/5 border border-white/10 p-6">
+        <dt class="text-4xl sm:text-5xl font-bold text-indigo-300 mb-2">0,55% à 1%</dt>
+        <dd class="text-sm text-slate-200 leading-relaxed">
+          Taux de contribution formation professionnelle (CFP) selon l'effectif : 0,55% sous 11 salariés, 1% au-delà.
+          <span class="block mt-2 text-xs text-slate-400">Source : <a href="https://entreprendre.service-public.gouv.fr/vosdroits/F22570" rel="noopener" target="_blank" class="underline hover:text-white">Service Public Entreprendre — fiche F22570</a></span>
+        </dd>
+      </div>
+      <div class="rounded-2xl bg-white/5 border border-white/10 p-6">
+        <dt class="text-4xl sm:text-5xl font-bold text-indigo-300 mb-2">11 OPCO</dt>
+        <dd class="text-sm text-slate-200 leading-relaxed">
+          Opérateurs de compétences agréés en France depuis la réforme du 1<sup>er</sup> janvier 2019.
+          <span class="block mt-2 text-xs text-slate-400">Source : <a href="https://www.francecompetences.fr/operateurs-de-competences/" rel="noopener" target="_blank" class="underline hover:text-white">France Compétences</a></span>
+        </dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+{{/* ============================================================
+     RÉFORME DU 1ER JANVIER 2026 — mention dédiée (signal fraîcheur GEO)
+     ============================================================ */}}
+<section id="section-reforme" class="bg-amber-50 border-y border-amber-200 py-10 sm:py-12">
+  <div class="mx-auto max-w-3xl px-4 sm:px-6">
+    <div class="flex items-start gap-4">
+      <div class="flex-shrink-0 mt-1">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-amber-700" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <path fill-rule="evenodd" d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 6a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 6zm0 9a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path>
+        </svg>
+      </div>
+      <div>
+        <h2 class="text-lg sm:text-xl font-bold text-amber-900 mb-2">Réforme du 1<sup>er</sup> janvier 2026</h2>
+        <p class="text-sm sm:text-base text-amber-900 leading-relaxed">
+          La <strong>loi du 24 octobre 2025</strong> a remplacé le dispositif Pro-A par la <strong>Période de reconversion</strong>. Le simulateur intègre cette réforme : Pro-A n'est plus proposé. Une certification RNCP ou CQP devient obligatoire pour les parcours en alternance des salariés en poste.
+        </p>
+        <p class="text-sm text-amber-800 leading-relaxed mt-2">
+          Le plafond du CPF sur les certifications du Répertoire Spécifique est par ailleurs fixé à <strong>1 500€</strong> depuis le 1<sup>er</sup> janvier 2026, avec une participation forfaitaire de 150€ du titulaire.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{/* ============================================================
+     GLOSSAIRE — compact, schema-friendly (<dl>)
+     ============================================================ */}}
+<section id="section-glossaire" class="bg-white py-12 sm:py-16">
+  <div class="mx-auto max-w-4xl px-4 sm:px-6">
+    <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-3">Glossaire OPCO — les sigles à connaître</h2>
+    <p class="text-sm sm:text-base text-slate-600 mb-8">
+      Les 9 acronymes essentiels pour comprendre le financement de la formation professionnelle en 2026.
+    </p>
+    <dl class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-5">
+      <div>
+        <dt class="font-bold text-slate-900">OPCO</dt>
+        <dd class="text-sm text-slate-600 leading-relaxed mt-1">Opérateur de Compétences. Organisme paritaire agréé par France Compétences (11 en France depuis 2019) qui finance la formation professionnelle des salariés des entreprises de son périmètre.</dd>
+      </div>
+      <div>
+        <dt class="font-bold text-slate-900">IDCC</dt>
+        <dd class="text-sm text-slate-600 leading-relaxed mt-1">Identifiant De la Convention Collective. Code à 4 chiffres rattachant l'entreprise à une branche professionnelle, elle-même rattachée à un OPCO. Visible sur le bulletin de paie.</dd>
+      </div>
+      <div>
+        <dt class="font-bold text-slate-900">NAF / APE</dt>
+        <dd class="text-sm text-slate-600 leading-relaxed mt-1">Nomenclature d'Activités Française / Activité Principale Exercée. Code à 5 caractères attribué par l'INSEE qui décrit l'activité principale d'une entreprise.</dd>
+      </div>
+      <div>
+        <dt class="font-bold text-slate-900">CFP</dt>
+        <dd class="text-sm text-slate-600 leading-relaxed mt-1">Contribution à la Formation Professionnelle. Versement obligatoire à l'URSSAF : 0,55% de la masse salariale brute (&lt;11 salariés) ou 1% (11 salariés et plus).</dd>
+      </div>
+      <div>
+        <dt class="font-bold text-slate-900">PDC</dt>
+        <dd class="text-sm text-slate-600 leading-relaxed mt-1">Plan de Développement des Compétences. Dispositif principal de financement OPCO pour les TPE/PME. Plafonds variables selon branche et effectif.</dd>
+      </div>
+      <div>
+        <dt class="font-bold text-slate-900">AFEST</dt>
+        <dd class="text-sm text-slate-600 leading-relaxed mt-1">Action de Formation En Situation de Travail. Formation sur le poste, alternant phases de travail et séquences réflexives. Inscrite au Code du travail (article L6313-1) depuis 2018.</dd>
+      </div>
+      <div>
+        <dt class="font-bold text-slate-900">Période de reconversion</dt>
+        <dd class="text-sm text-slate-600 leading-relaxed mt-1">Nouveau dispositif depuis le 1<sup>er</sup> janvier 2026 (loi du 24 octobre 2025), remplace Pro-A. Reconversion ou promotion par alternance avec certification RNCP/CQP obligatoire.</dd>
+      </div>
+      <div>
+        <dt class="font-bold text-slate-900">Subrogation</dt>
+        <dd class="text-sm text-slate-600 leading-relaxed mt-1">Modalité par laquelle l'OPCO règle directement l'organisme de formation, sans avance de trésorerie pour l'entreprise. Conditionnée au dépôt du dossier avant le démarrage de la formation.</dd>
+      </div>
+      <div>
+        <dt class="font-bold text-slate-900">Qualiopi</dt>
+        <dd class="text-sm text-slate-600 leading-relaxed mt-1">Référentiel National Qualité (RNQ V9). Certification obligatoire des organismes de formation pour être éligibles aux financements OPCO depuis le 1<sup>er</sup> janvier 2022.</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+{{/* ============================================================
+     FAQ — 8 Q/R rendues serveur depuis .Params.faq (DOM initial)
+     Format <details>/<summary> natif : SEO + accessibilité + zéro JS
+     ============================================================ */}}
+{{ if .Params.faq }}
+<section id="section-faq" class="bg-slate-50 py-12 sm:py-16">
+  <div class="mx-auto max-w-3xl px-4 sm:px-6">
+    <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-3">Questions fréquentes sur le financement OPCO</h2>
+    <p class="text-sm sm:text-base text-slate-600 mb-8">
+      Les réponses aux 8 questions les plus posées par les dirigeants de TPE/PME sur le budget formation OPCO 2026.
+    </p>
+    <div class="space-y-3">
+      {{ range $i, $faq := .Params.faq }}
+      <details class="group bg-white rounded-xl border border-slate-200 hover:border-indigo-300 transition-colors" {{ if eq $i 0 }}open{{ end }}>
+        <summary class="cursor-pointer list-none p-5 sm:p-6 flex items-start justify-between gap-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-indigo-500 rounded-xl">
+          <h3 class="text-base sm:text-lg font-bold text-slate-900 leading-snug">{{ $faq.question }}</h3>
+          <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 h-5 w-5 text-indigo-600 mt-0.5 transition-transform group-open:rotate-180" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.06l3.71-3.83a.75.75 0 111.08 1.04l-4.25 4.39a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z" clip-rule="evenodd"></path>
+          </svg>
+        </summary>
+        <div class="px-5 pb-5 sm:px-6 sm:pb-6 text-sm sm:text-base text-slate-700 leading-relaxed">
+          {{ $faq.answer | safeHTML }}
+        </div>
+      </details>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+{{/* ============================================================
+     BANDEAU SOURCES — bas de page, signal E-E-A-T + fraîcheur GEO
+     ============================================================ */}}
+<section class="bg-white border-t border-slate-100 py-10">
+  <div class="mx-auto max-w-3xl px-4 sm:px-6">
+    <div class="rounded-2xl bg-slate-50 border border-slate-200 p-5 sm:p-6">
+      <div class="flex items-start gap-3">
+        <div class="flex-shrink-0 mt-1">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-emerald-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+          </svg>
+        </div>
+        <div class="text-sm text-slate-700 leading-relaxed">
+          <p class="font-semibold text-slate-900 mb-1.5">Données vérifiées le 23 mai 2026</p>
+          <p>
+            Sources : <a href="https://travail-emploi.gouv.fr/le-ministere-en-action/dgefp" rel="noopener" target="_blank" class="text-indigo-600 underline hover:text-indigo-800">DGEFP</a> · <a href="https://www.francecompetences.fr/" rel="noopener" target="_blank" class="text-indigo-600 underline hover:text-indigo-800">France Compétences</a> · <a href="https://www.assemblee-nationale.fr/dyn/dyn/contenu/visualisation/1089989/file/7-Jaune2026_Formation_Professionnelle.pdf" rel="noopener" target="_blank" class="text-indigo-600 underline hover:text-indigo-800">Jaune budgétaire Formation Professionnelle 2026</a> · sites officiels des 11 OPCO. Mise à jour trimestrielle.
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
