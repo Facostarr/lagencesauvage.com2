@@ -25,7 +25,8 @@ import { createHash } from 'node:crypto';
 import { validateComputeBody } from './_simulateur/validators.js';
 import { checkPostRateLimit, extractClientIp } from './_simulateur/rate-limit.js';
 import { resolveSiretWithCascade, ResolveError } from './_simulateur/resolve-service.js';
-import { runCompute, classifyBudget, getSchemaVersion, confianceNotionLabel } from './_simulateur/compute-engine.js';
+import { runCompute, classifyBudget, getSchemaVersion, confianceNotionLabel, getValidIdccOverrides, getValidBrancheOverrides } from './_simulateur/compute-engine.js';
+import { suggestFromNaf } from './_simulateur/naf-suggestions.js';
 import { createSimulatorLead, updateSimulatorLead } from './_simulateur/notion-client.js';
 import { sendRecapToProspect } from './_simulateur/recap-email.js';
 import { trackPlausibleEvent } from './_simulateur/plausible.js';
@@ -284,6 +285,16 @@ export default async function handler(req, res) {
     is_recompute: isUpdate,
   });
 
+  // ---- 8. Suggestion NAF→convention (S6.6.2)
+  // Si le résultat reste en idcc_inconnu (cascade DINUM+siret2idcc échouée +
+  // pas d'idcc_override fourni à ce POST) ET qu'on a un NAF, on consulte la
+  // table déterministe NAF→convention pour pré-suggérer un choix à valider.
+  // Logique stricte (consensus Gemini) : IDCC réel > suggestion NAF > vide.
+  let suggestion = null;
+  if (simulation?.cas_particulier === 'idcc_inconnu' && entreprise?.naf) {
+    suggestion = suggestFromNaf(entreprise.naf, getValidIdccOverrides(), getValidBrancheOverrides());
+  }
+
   return sendOk(res, {
     simulation,
     entreprise,
@@ -291,5 +302,6 @@ export default async function handler(req, res) {
     notion_page_id: notionPage?.id ?? null,
     tefen_source: tefenSource,
     idcc_source: idccSource,
+    suggestion,
   });
 }

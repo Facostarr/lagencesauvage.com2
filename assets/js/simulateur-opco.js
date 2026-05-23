@@ -41,6 +41,10 @@
     idccOverride: null,
     brancheSlugOverride: null,
     tefenOverride: null,
+    // Suggestion NAF→IDCC/branche reçue du backend (S6.6.2). Format :
+    // { type: 'idcc'|'branche', value: <number|string>, naf: 'XX.XXX' }
+    // Conservée pour distinguer accepted vs overridden au submit (Plausible).
+    suggestion: null,
   };
 
   // Cas particuliers pour lesquels la saisie manuelle d'effectif peut débloquer
@@ -113,6 +117,8 @@
       label: $('sim-idcc-label'),
       spinner: $('sim-idcc-spinner'),
       error: $('sim-idcc-error'),
+      suggestionBanner: $('sim-idcc-suggestion-banner'),
+      suggestionText: $('sim-idcc-suggestion-text'),
     },
     errorMessage: $('sim-error-message'),
     errorRetry: $('sim-error-retry'),
@@ -337,6 +343,7 @@
     state.idccOverride = null;
     state.brancheSlugOverride = null;
     state.tefenOverride = null;
+    state.suggestion = null;
     el.search.value = '';
     setError(el.formError, null);
     showState('hook');
@@ -394,6 +401,7 @@
       }
       state.simulation = data.simulation;
       if (data.notion_page_id) state.notionLeadId = data.notion_page_id;
+      state.suggestion = data.suggestion || null;
       renderReveal(data);
     } catch (err) {
       showState('error');
@@ -493,9 +501,36 @@
       && !state.overrideAttempted;
     el.idcc.form.classList.toggle('hidden', !canOverride);
     if (canOverride && el.idcc.select) {
-      el.idcc.select.value = '';
       setError(el.idcc.error, null);
+      applyNafSuggestion();
     }
+  }
+
+  // Pré-suggestion NAF→convention (S6.6.2)
+  function applyNafSuggestion() {
+    const sugg = state.suggestion;
+    if (!sugg || !el.idcc.select || !el.idcc.suggestionBanner) {
+      if (el.idcc.suggestionBanner) el.idcc.suggestionBanner.classList.add('hidden');
+      if (el.idcc.select) el.idcc.select.value = '';
+      return;
+    }
+    const targetValue = sugg.type === 'branche' ? `naf:${sugg.value}` : String(sugg.value);
+    // Vérifier que l'option existe dans le select (défense en profondeur)
+    const opt = el.idcc.select.querySelector(`option[value="${cssEscape(targetValue)}"]`);
+    if (!opt) {
+      el.idcc.suggestionBanner.classList.add('hidden');
+      el.idcc.select.value = '';
+      return;
+    }
+    el.idcc.select.value = targetValue;
+    const branchLabel = opt.textContent.trim();
+    el.idcc.suggestionText.textContent = ` D'après votre code NAF ${sugg.naf}, votre convention est probablement « ${branchLabel} » (pré-sélectionnée ci-dessous). Validez ou changez.`;
+    el.idcc.suggestionBanner.classList.remove('hidden');
+    track('simulator_idcc_suggested', { naf: sugg.naf, suggested: targetValue });
+  }
+
+  function cssEscape(str) {
+    return String(str).replace(/["\\]/g, '\\$&');
   }
 
   // Bascule en cas "hors-scope" — quand le prospect indique que sa convention
@@ -541,6 +576,18 @@
     const isNafSlug = idccValue.startsWith('naf:');
     const nafSlug = isNafSlug ? idccValue.slice(4) : null;
     track('simulator_idcc_override_used', { value: idccValue, kind: isNafSlug ? 'naf' : 'idcc' });
+
+    // S6.6.2 — tracking acceptation/override de la suggestion NAF
+    if (state.suggestion) {
+      const suggestedValue = state.suggestion.type === 'branche'
+        ? `naf:${state.suggestion.value}`
+        : String(state.suggestion.value);
+      if (idccValue === suggestedValue) {
+        track('simulator_idcc_suggestion_accepted', { naf: state.suggestion.naf, suggested: suggestedValue });
+      } else {
+        track('simulator_idcc_suggestion_overridden', { naf: state.suggestion.naf, suggested: suggestedValue, actual: idccValue });
+      }
+    }
 
     const payload = {
       siret: state.entreprise.siret,
