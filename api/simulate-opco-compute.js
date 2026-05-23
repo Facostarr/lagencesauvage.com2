@@ -148,17 +148,21 @@ export default async function handler(req, res) {
       qualification: QUALIFICATION_LABELS[qualification],
     });
   } catch (err) {
-    logJson('simulator.compute.notion_error', {
+    const debugDetails = {
       message: err?.message,
       code: err?.code,
       status: err?.status,
       name: err?.name,
-      body: typeof err?.body === 'string' ? err.body.slice(0, 1000) : JSON.stringify(err?.body ?? {}).slice(0, 1000),
+      body: typeof err?.body === 'string' ? err.body.slice(0, 1500) : JSON.stringify(err?.body ?? {}).slice(0, 1500),
+    };
+    logJson('simulator.compute.notion_error', {
+      ...debugDetails,
       stack_first: typeof err?.stack === 'string' ? err.stack.split('\n').slice(0, 3).join(' | ') : null,
       email_hash: emailHash,
       siret: body.siret,
     });
-    return sendError(res, 500, 'notion_failed', 'Impossible d\'enregistrer la simulation. Réessayez ou contactez-nous.');
+    // DEBUG TEMPORAIRE : exposer le détail Notion dans la réponse HTTP (à retirer après diagnostic)
+    return sendError(res, 500, 'notion_failed', 'Impossible d\'enregistrer la simulation. Réessayez ou contactez-nous.', { _debug_notion: debugDetails });
   }
 
   // ---- 6. Promise.allSettled — awaité avant res.json() pour ne pas geler la lambda
