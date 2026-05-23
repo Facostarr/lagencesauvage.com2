@@ -1,35 +1,171 @@
-{{/* Schema WebApplication — Simulateur Budget OPCO 2026 (consensus Gemini 9/10 2026-05-23) */}}
+{{/* =============================================================================
+     Schema.org @graph — Simulateur Budget OPCO 2026
+     Consensus Claude + Gemini Deep Research (2026-05-23)
+     Combine : WebApplication + BreadcrumbList + FAQPage + HowTo + Dataset
+     + SpeakableSpecification. Tous référencent l'Organization (sitewide #organization).
+     ============================================================================= */}}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "@id": "{{ .Permalink }}#webapp",
-  "name": "Simulateur Budget OPCO 2026",
-  "url": "{{ .Permalink }}",
-  "description": "{{ .Params.description }}",
-  "applicationCategory": "BusinessApplication",
-  "applicationSubCategory": "FinanceApplication",
-  "operatingSystem": "All",
-  "browserRequirements": "Requires JavaScript",
-  "inLanguage": "fr-FR",
-  "isAccessibleForFree": true,
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "EUR",
-    "availability": "https://schema.org/InStock"
-  },
-  "audience": {
-    "@type": "BusinessAudience",
-    "audienceType": "TPE/PME"
-  },
-  "publisher": {
-    "@id": "{{ .Site.BaseURL }}#organization"
-  },
-  "potentialAction": {
-    "@type": "Action",
-    "name": "Calculer son budget OPCO 2026",
-    "target": "{{ .Permalink }}"
-  }
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "{{ .Permalink }}#webapp",
+      "name": "Simulateur Budget OPCO 2026",
+      "alternateName": "Calculateur de budget formation OPCO TPE/PME 2026",
+      "url": "{{ .Permalink }}",
+      "description": {{ .Params.description | jsonify }},
+      "applicationCategory": "BusinessApplication",
+      "applicationSubCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "fr-FR",
+      "isAccessibleForFree": true,
+      "datePublished": "2026-05-15",
+      "dateModified": {{ .Lastmod.Format "2006-01-02" | jsonify }},
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock"
+      },
+      "audience": {
+        "@type": "BusinessAudience",
+        "audienceType": "TPE/PME françaises (moins de 250 salariés)"
+      },
+      "featureList": [
+        "Calcul automatique du budget formation OPCO 2026 depuis le SIREN ou la raison sociale",
+        "Reconnaissance automatique de l'OPCO et de l'IDCC sans saisie manuelle",
+        "Couverture des 11 OPCO français agréés par France Compétences",
+        "Détail des dispositifs activables : Plan de Développement des Compétences (PDC), AFEST, Période de reconversion, abondement CPF",
+        "Données officielles DGEFP et France Compétences, mises à jour trimestriellement"
+      ],
+      "provider": {
+        "@id": "{{ .Site.BaseURL }}#organization"
+      },
+      "publisher": {
+        "@id": "{{ .Site.BaseURL }}#organization"
+      },
+      "potentialAction": {
+        "@type": "Action",
+        "name": "Calculer son budget OPCO 2026",
+        "target": "{{ .Permalink }}#sim-hero"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "{{ .Permalink }}#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "{{ .Site.BaseURL }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Simulateur OPCO 2026",
+          "item": "{{ .Permalink }}"
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "{{ .Permalink }}#howto",
+      "name": "Comment estimer son budget formation OPCO 2026 en 30 secondes",
+      "description": "Méthode pas-à-pas pour calculer le budget formation activable en 2026 via son OPCO, depuis une raison sociale ou un SIREN, sans avoir à connaître son IDCC.",
+      "totalTime": "PT30S",
+      "estimatedCost": {
+        "@type": "MonetaryAmount",
+        "currency": "EUR",
+        "value": "0"
+      },
+      "tool": [
+        { "@type": "HowToTool", "name": "Raison sociale ou numéro SIREN de l'entreprise" }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Reconnaissance de l'entreprise",
+          "text": "Saisissez la raison sociale ou le numéro SIREN dans le champ unique. L'outil interroge l'API officielle Recherche d'entreprises (DINUM, data.gouv.fr) qui agrège les bases SIRENE de l'INSEE, DSN et KALI.",
+          "url": "{{ .Permalink }}#sim-hero"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Identification automatique de l'OPCO et de l'IDCC",
+          "text": "La convention collective (IDCC) est récupérée depuis le payload DINUM. En cas d'absence, l'API siret2idcc de la Fabrique sociale (Ministère du Travail) est interrogée en fallback. L'OPCO de rattachement est ensuite déduit selon la cartographie France Compétences.",
+          "url": "{{ .Permalink }}#sim-hero"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Calcul du budget formation 2026",
+          "text": "Pour l'IDCC et la tranche d'effectif identifiés, l'outil additionne les dispositifs activables en 2026 : Plan de Développement des Compétences (PDC), AFEST, bonus thématiques, parcours stratégique, actions collectives. Les barèmes proviennent des publications officielles des OPCO et de la DGEFP.",
+          "url": "{{ .Permalink }}#sim-hero"
+        }
+      ]
+    },
+    {{/* FAQPage — alimenté par .Params.faq dans _index.md (single source of truth, miroir du visible) */}}
+    {{ if .Params.faq }}
+    {
+      "@type": "FAQPage",
+      "@id": "{{ .Permalink }}#faq",
+      "mainEntity": [
+        {{ range $index, $faq := .Params.faq }}
+        {{ if $index }},{{ end }}
+        {
+          "@type": "Question",
+          "name": {{ $faq.question | jsonify }},
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": {{ $faq.answer | jsonify }}
+          }
+        }
+        {{ end }}
+      ]
+    },
+    {{ end }}
+    {
+      "@type": "Dataset",
+      "@id": "{{ .Permalink }}#dataset",
+      "name": "Barèmes de prise en charge OPCO 2026 — France",
+      "description": "Cartographie consolidée des critères de financement formation des 11 OPCO français pour l'année 2026 : Plan de Développement des Compétences (PDC), AFEST, Période de reconversion, abondement CPF, actions collectives. Sources : sites officiels des OPCO et France Compétences.",
+      "url": "{{ .Permalink }}",
+      "keywords": "OPCO, formation professionnelle, PDC, AFEST, IDCC, TPE, PME, financement, 2026, France",
+      "inLanguage": "fr-FR",
+      "datePublished": "2026-05-15",
+      "dateModified": {{ .Lastmod.Format "2006-01-02" | jsonify }},
+      "spatialCoverage": {
+        "@type": "Country",
+        "name": "France"
+      },
+      "temporalCoverage": "2026/2027",
+      "license": "https://creativecommons.org/licenses/by-nc/4.0/",
+      "creator": {
+        "@id": "{{ .Site.BaseURL }}#organization"
+      },
+      "isAccessibleForFree": true,
+      "variableMeasured": [
+        "Plan de Développement des Compétences (PDC) — plafonds annuels par tranche d'effectif",
+        "AFEST — taux horaire et plafond annuel",
+        "Période de reconversion — taux horaire et durée maximale",
+        "Abondement CPF — plafonds par branche",
+        "Actions collectives — programmes 100% financés par OPCO"
+      ]
+    },
+    {
+      "@type": "SpeakableSpecification",
+      "@id": "{{ .Permalink }}#speakable",
+      "cssSelector": [
+        "#sim-hero h1",
+        "#sim-hero p",
+        "#section-methodologie p",
+        "#section-faq details"
+      ]
+    }
+  ]
 }
 </script>
