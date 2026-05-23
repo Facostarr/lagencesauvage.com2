@@ -59,9 +59,13 @@ export function buildLeadPayload({ body, entreprise, result, snapshot, niveauCon
 
   if (body.telephone?.trim()) properties.Téléphone = { phone_number: body.telephone.trim() };
   if (Number.isFinite(sirenNumber)) properties.SIREN = { number: sirenNumber };
-  if (entreprise?.naf) properties['Code NAF'] = { select: { name: truncate(entreprise.naf, 100) } };
+  // Code NAF et OPCO en rich_text (et non select) : Notion refuse de créer
+  // des options Select à la volée — 700+ codes NAF impossibles à pré-créer,
+  // et le moteur compute renvoie des variantes de casse OPCO ("OPCO EP" vs
+  // "Opco EP", "Opco Atlas" vs "Atlas") qui produisent un validation_error.
+  if (entreprise?.naf) properties['Code NAF'] = { rich_text: [{ text: { content: truncate(entreprise.naf, RICH_TEXT_LIMIT) } }] };
   if (Number.isFinite(idccNumber)) properties.IDCC = { number: idccNumber };
-  if (result?.opco_nom) properties.OPCO = { select: { name: truncate(result.opco_nom, 100) } };
+  if (result?.opco_nom) properties.OPCO = { rich_text: [{ text: { content: truncate(result.opco_nom, RICH_TEXT_LIMIT) } }] };
   if (Number.isFinite(result?.budget_min_eur)) properties['Budget min (€)'] = { number: result.budget_min_eur };
   if (Number.isFinite(result?.budget_max_eur)) properties['Budget max (€)'] = { number: result.budget_max_eur };
   if (qualification) properties['Qualification (auto)'] = { select: { name: qualification } };
