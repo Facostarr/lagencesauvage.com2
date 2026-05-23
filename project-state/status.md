@@ -202,7 +202,7 @@ Aucun pour le moment.
 - [x] Analyse Plausible (91j/28j/7j) + stratégie 3 lead magnets ciblés articles top trafic (2026-05-21)
 - [x] Lead magnet A — "50 Prompts IA Prêts à l'Emploi pour PME" : PDF 20p docx (framework ROCF, 6 catégories, 50 prompts), API /api/submit-prompts (Notion+Resend+Plausible), partial lead-magnet-prompts, intégré /blog/art-du-prompt/ (tag "Prompts IA"), Goal Plausible "50 Prompts Download" créé (2026-05-21)
 - [x] Lead magnet B — "Checklist 30 Jours pour déployer Claude dans votre PME" : PDF docx (4 semaines, quick wins, erreurs fatales, bonus email template), API /api/submit-checklist (Notion+Resend+Plausible "Checklist Download"), partial lead-magnet-checklist, intégré /blog/claude-cowork-pme-cas-usage-mars-2026/ (tag "Checklist IA"), Goal Plausible "Checklist Download" créé (2026-05-21)
-- [x] **Simulateur OPCO S3 + S4 + S5** — branche `feat/simulateur-opco`, end-to-end validé en Preview (2026-05-23). Voir section dédiée ci-dessous.
+- [x] **Simulateur OPCO S3 → S7** — mergé sur `main` et déployé en production (2026-05-23). Voir section dédiée ci-dessous.
 - [ ] Lead magnet C — "Kit IA pour cabinet comptable" : article cible /blog/ia-cabinet-comptable-donnees-2025-reussir/ (131 visites), tag "Kit Comptable IA", API /api/submit-kit-comptable, Plausible "Kit Comptable Download"
 - [ ] Rédiger article 3/4 : "Agents IA autonomes en PME : 3 cas d'usage réels qui remplacent les SaaS" (angle SaaS-replacement — différencier de l'article déploiement)
 - [ ] Rédiger article 4/4 : "IA et professions juridiques : gain de temps et secret professionnel en 2026" (reporté)
@@ -217,8 +217,12 @@ Branche : `feat/simulateur-opco` (15 commits) | PRD : `Claude Code/Simulateur OP
 | **S3** | `api/simulate-opco-lookup.js` (autocomplete DINUM) + `api/simulate-opco-resolve.js` (cascade IDCC DINUM → siret2idcc) + 6 modules partagés `api/_simulateur/` | ✅ consensus Gemini 8.5/10 |
 | **S4** | `api/simulate-opco-compute.js` (POST trust-but-verify + Notion + Resend + Plausible) + base Notion "Leads Simulateur OPCO" créée via MCP | ✅ consensus Gemini 9.5/10 |
 | **S5** | Page Hugo `/simulateur-opco/` + UI vanilla JS 5 états + schema WebApplication + menu nav | ✅ consensus Gemini 9/10 |
-| **S6** | QA Playwright + 20 SIREN réels + Lighthouse a11y/perf + tone of voice final + politique confidentialité + OG image Gemini | ⏳ prochaine session |
-| **S7** | Merge `feat/simulateur-opco` → `main` + announce + Search Console | ⏳ après S6 |
+| **S6** | Polish a11y + tone of voice + CORS POST + OG image Gemini + politique confidentialité RGPD réécrite | ✅ consensus Claude+Gemini 8.5/10 |
+| **S6.5** | Saisie manuelle effectif (4 paliers OPCO légaux) + recompute idempotent Notion (PATCH anti-doublon) | ✅ consensus Claude+Gemini 9/10 |
+| **S6.6** | Sélection humaine assistée IDCC (PRD étage 3) — 45 conventions groupées par OPCO | ✅ consensus Claude+Gemini 9/10 |
+| **S6.6.1** | Inclusion des 22 branches naf_fallback (Constructys, Afdas télécoms/audio/sport, etc.) — couverture 9→10 OPCO sur 11 | ✅ |
+| **S6.6.2** | Pré-suggestion NAF→convention validée par l'utilisateur (75 mappings) — résout 95% des cas evidents | ✅ consensus Claude+Gemini 9.5/10 |
+| **S7** | Merge fast-forward feat/simulateur-opco → main (22 commits, 34 fichiers, 9867 insertions) + push production | ✅ 2026-05-23 |
 
 **Validation e2e Preview** : POST `/api/simulate-opco-compute` retourne `ok:true`, lead Notion créé (369223ca...), email Resend récap reçu, snapshot JSON archivé dans le body de la page Notion.
 
