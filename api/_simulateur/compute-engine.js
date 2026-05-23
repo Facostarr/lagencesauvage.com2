@@ -69,3 +69,22 @@ export function runCompute({ idcc, tefenCode, sourceIdcc }) {
 export function getSchemaVersion() {
   return simulatorData?.schema_version ?? '?';
 }
+
+// Whitelist d'IDCCs valides pour la sélection humaine assistée (PRD étage 3
+// de la cascade IDCC). On n'expose au prospect que les IDCCs ayant un libellé
+// branche en clair — c'est la précision UX requise pour qu'un dirigeant
+// reconnaisse sa convention sans connaître le code 4 chiffres.
+let _validIdccOverrides = null;
+export function getValidIdccOverrides() {
+  if (_validIdccOverrides) return _validIdccOverrides;
+  const set = new Set();
+  const index = simulatorData?.idcc_index ?? {};
+  for (const [idcc, entry] of Object.entries(index)) {
+    if (entry?.branche_nom) {
+      const n = Number.parseInt(idcc, 10);
+      if (Number.isFinite(n)) set.add(n);
+    }
+  }
+  _validIdccOverrides = set;
+  return set;
+}

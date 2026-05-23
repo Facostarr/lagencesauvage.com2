@@ -208,6 +208,58 @@
           <p id="sim-manual-message" class="text-sm text-amber-900 leading-relaxed"></p>
         </div>
 
+        {{/* ============================================================
+             Bloc IDCC manuel — affiché par JS quand le cas particulier
+             est idcc_inconnu. Liste des conventions présentes en BDD
+             regroupées par OPCO, libellés branche en clair (PRD étage 3).
+             ============================================================ */}}
+        {{ $simData := transform.Unmarshal (os.ReadFile "static/data/simulator-ready.json") }}
+        {{ $idccItems := slice }}
+        {{ range $idcc, $entry := $simData.idcc_index }}
+          {{ if $entry.branche_nom }}
+            {{ $idccItems = $idccItems | append (dict "idcc" $idcc "branche" $entry.branche_nom "opco" (or $entry.opco_nom "Autre OPCO")) }}
+          {{ end }}
+        {{ end }}
+        {{ $opcoNames := slice }}
+        {{ range $idccItems }}
+          {{ if not (in $opcoNames .opco) }}
+            {{ $opcoNames = $opcoNames | append .opco }}
+          {{ end }}
+        {{ end }}
+        {{ $opcoNames = sort $opcoNames }}
+
+        <form id="sim-idcc-form" class="hidden mb-6 rounded-2xl border border-indigo-200 bg-indigo-50/40 p-5 sm:p-6" novalidate>
+          <label for="sim-idcc-select" class="block text-sm font-semibold text-slate-900 mb-2">
+            Quelle est votre convention collective ?
+          </label>
+          <p class="text-xs text-slate-600 leading-relaxed mb-3">
+            Les bases publiques (DINUM, Fabrique sociale) n'ont pas pu rattacher votre entreprise à une convention. Sélectionnez-la pour débloquer votre simulation.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-2">
+            <select id="sim-idcc-select" name="idcc_override" required
+              class="flex-1 rounded-lg border-2 border-slate-200 px-3 py-2.5 text-sm text-slate-900 bg-white focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-100">
+              <option value="">— Sélectionnez votre convention —</option>
+              {{ range $opco := $opcoNames }}
+                <optgroup label="{{ $opco }}">
+                  {{ range $item := where $idccItems "opco" $opco | sort "branche" }}
+                    <option value="{{ $item.idcc }}">{{ $item.branche }}</option>
+                  {{ end }}
+                </optgroup>
+              {{ end }}
+              <option value="_not_found">Ma convention n'est pas dans cette liste</option>
+            </select>
+            <button type="submit" id="sim-idcc-submit"
+              class="rounded-lg bg-indigo-600 px-5 py-2.5 text-sm font-bold text-white hover:bg-indigo-700 transition-colors focus:outline-none focus:ring-4 focus:ring-indigo-200 disabled:opacity-50 disabled:cursor-not-allowed">
+              <span id="sim-idcc-label">Calculer mon budget</span>
+              <svg id="sim-idcc-spinner" class="hidden inline-block animate-spin h-4 w-4 ml-2" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+              </svg>
+            </button>
+          </div>
+          <p id="sim-idcc-error" class="hidden mt-3 text-sm text-red-600" role="alert"></p>
+        </form>
+
         {{/* Bloc effectif manuel — affiché par JS uniquement quand le cas particulier
              est effectif_non_renseigne ou effectif_hors_tranches */}}
         <form id="sim-tefen-form" class="hidden mb-6 rounded-2xl border border-indigo-200 bg-indigo-50/40 p-5 sm:p-6" novalidate>

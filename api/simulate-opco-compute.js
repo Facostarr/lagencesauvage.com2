@@ -97,9 +97,23 @@ export default async function handler(req, res) {
     return sendError(res, 500, 'internal', 'Erreur interne.');
   }
   const entreprise = resolved.entreprise;
-  const niveauConfiance = entreprise.source_confiance ?? 'manuel';
+  let niveauConfiance = entreprise.source_confiance ?? 'manuel';
 
-  // ---- 3a. Application optionnelle de tefen_override
+  // ---- 3a. Application optionnelle d'idcc_override (PRD étage 3)
+  // Si DINUM + siret2idcc ont échoué (entreprise.idcc == null) et que le
+  // prospect a sélectionné sa convention dans la liste assistée, on l'utilise
+  // pour le compute. Source devient 'manual' (auditable côté Notion).
+  let idccSource = entreprise.source_idcc ?? 'manuel';
+  const isIdccAbsent = !entreprise.idcc;
+  if (body.idcc_override && isIdccAbsent) {
+    entreprise.idcc = body.idcc_override;
+    entreprise.source_idcc = 'manual';
+    entreprise.source_confiance = 'manuel';
+    idccSource = 'manual';
+    niveauConfiance = 'manuel';
+  }
+
+  // ---- 3b. Application optionnelle de tefen_override
   // Le prospect peut corriger son effectif quand DINUM le renvoie absent (NN)
   // ou que le moteur retourne 'effectif_hors_tranches'. On le marque pour audit
   // et pour que le Sales soit alerté qu'il s'agit d'une déclaration prospect.
@@ -107,13 +121,13 @@ export default async function handler(req, res) {
   const dinumTefen = entreprise.tranche_effectif_tefen;
   const isTefenAbsent = !dinumTefen || dinumTefen === 'NN';
 
-  // ---- 3b. Compute budget
+  // ---- 3c. Compute budget
   let simulation;
   try {
     simulation = runCompute({
       idcc: entreprise.idcc,
       tefenCode: entreprise.tranche_effectif_tefen,
-      sourceIdcc: entreprise.source_idcc ?? 'manuel',
+      sourceIdcc: idccSource,
     });
   } catch (err) {
     logJson('simulator.compute.engine_error', { message: err?.message, siret: body.siret, idcc: entreprise.idcc });
@@ -130,7 +144,7 @@ export default async function handler(req, res) {
       simulation = runCompute({
         idcc: entreprise.idcc,
         tefenCode: body.tefen_override,
-        sourceIdcc: entreprise.source_idcc ?? 'manuel',
+        sourceIdcc: idccSource,
       });
     } catch (err) {
       logJson('simulator.compute.engine_error_override', { message: err?.message, siret: body.siret, tefen_override: body.tefen_override });
@@ -138,6 +152,7 @@ export default async function handler(req, res) {
     }
   }
   entreprise.tefen_source = tefenSource;
+  entreprise.idcc_source = idccSource;
 
   const qualification = classifyBudget(simulation.budget_max_eur, simulation.cas_particulier);
 
@@ -153,6 +168,7 @@ export default async function handler(req, res) {
       utm_source: body.utm_source,
       utm_campaign: body.utm_campaign,
       tefen_override: body.tefen_override ?? null,
+      idcc_override: body.idcc_override ?? null,
       is_recompute: Boolean(body.notion_lead_id),
     },
     entreprise,
@@ -169,9 +185,10 @@ export default async function handler(req, res) {
   const isUpdate = Boolean(body.notion_lead_id);
   try {
     if (isUpdate) {
-      const recomputeReason = body.tefen_override
-        ? `effectif corrigé par le prospect → ${body.tefen_override}`
-        : 'recompute';
+      const recomputeReason = [
+        body.tefen_override ? `effectif → ${body.tefen_override}` : null,
+        body.idcc_override ? `IDCC → ${body.idcc_override}` : null,
+      ].filter(Boolean).join(' + ') || 'recompute';
       notionPage = await updateSimulatorLead({
         pageId: body.notion_lead_id,
         body,
@@ -224,6 +241,7 @@ export default async function handler(req, res) {
       source_confiance: niveauConfiance,
       cas_particulier: simulation.cas_particulier ?? 'ok',
       tefen_source: tefenSource,
+      idcc_source: idccSource,
     }),
   ]);
   settled.forEach((r, i) => {
@@ -245,6 +263,7 @@ export default async function handler(req, res) {
     cas_particulier: simulation.cas_particulier,
     notion_page_id: notionPage?.id,
     tefen_source: tefenSource,
+    idcc_source: idccSource,
     is_recompute: isUpdate,
   });
 
@@ -254,5 +273,6 @@ export default async function handler(req, res) {
     qualification,
     notion_page_id: notionPage?.id ?? null,
     tefen_source: tefenSource,
+    idcc_source: idccSource,
   });
 }

@@ -5,6 +5,8 @@
 // /api/simulate-opco-* DOIT passer ici avant d'être injecté dans une URL DINUM
 // ou siret2idcc.
 
+import { getValidIdccOverrides } from './compute-engine.js';
+
 const Q_ALLOWED = /^[A-Za-zÀ-ÖØ-öø-ÿ0-9 .,'&()\-]+$/;
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const PHONE_ALLOWED = /^[+\d\s().\-]{6,30}$/;
@@ -96,6 +98,7 @@ export function validateComputeBody(body) {
     utm_source: null,
     utm_campaign: null,
     tefen_override: null,
+    idcc_override: null,
     notion_lead_id: null,
   };
 
@@ -104,6 +107,14 @@ export function validateComputeBody(body) {
       return { ok: false, code: 'invalid_body', message: 'Tranche d\'effectif invalide.' };
     }
     out.tefen_override = body.tefen_override;
+  }
+
+  if (body.idcc_override !== undefined && body.idcc_override !== null && body.idcc_override !== '') {
+    const idccNum = Number.parseInt(String(body.idcc_override), 10);
+    if (!Number.isFinite(idccNum) || !getValidIdccOverrides().has(idccNum)) {
+      return { ok: false, code: 'invalid_body', message: 'Convention collective invalide ou non couverte.' };
+    }
+    out.idcc_override = idccNum;
   }
 
   if (body.notion_lead_id !== undefined && body.notion_lead_id !== null && body.notion_lead_id !== '') {

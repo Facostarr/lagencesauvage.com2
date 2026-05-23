@@ -34,12 +34,21 @@
     currentStep: 'hook',
     notionLeadId: null,
     overrideAttempted: false,
+    // Persistance des overrides entre recomputes : le backend re-résout SIRET à
+    // chaque POST (anti-tampering), donc si on a déjà fourni un IDCC manuel
+    // et qu'on cascade ensuite sur un TEFEN manuel, il faut renvoyer les deux
+    // pour éviter de retomber dans le cas idcc_inconnu.
+    idccOverride: null,
+    tefenOverride: null,
   };
 
   // Cas particuliers pour lesquels la saisie manuelle d'effectif peut débloquer
   // la simulation. Les autres cas (idcc_inconnu, dirigeant_tns_sans_salarie...)
   // restent en analyse manuelle CTA VIP.
   const TEFEN_OVERRIDE_CASES = new Set(['effectif_non_renseigne', 'effectif_hors_tranches']);
+  // Cas pour lesquels la sélection humaine assistée d'IDCC peut débloquer la
+  // simulation (PRD étage 3 de la cascade IDCC).
+  const IDCC_OVERRIDE_CASES = new Set(['idcc_inconnu']);
   const lookupCache = new Map();
   let lookupTimer = null;
   let lookupAbort = null;
@@ -95,6 +104,14 @@
       label: $('sim-tefen-label'),
       spinner: $('sim-tefen-spinner'),
       error: $('sim-tefen-error'),
+    },
+    idcc: {
+      form: $('sim-idcc-form'),
+      select: $('sim-idcc-select'),
+      submit: $('sim-idcc-submit'),
+      label: $('sim-idcc-label'),
+      spinner: $('sim-idcc-spinner'),
+      error: $('sim-idcc-error'),
     },
     errorMessage: $('sim-error-message'),
     errorRetry: $('sim-error-retry'),
@@ -316,6 +333,8 @@
     state.entreprise = null;
     state.notionLeadId = null;
     state.overrideAttempted = false;
+    state.idccOverride = null;
+    state.tefenOverride = null;
     el.search.value = '';
     setError(el.formError, null);
     showState('hook');
@@ -400,6 +419,7 @@
       el.manual.title.textContent = labelCasParticulier(simulation.cas_particulier);
       el.manual.message.textContent = simulation.message_cas_particulier || 'Votre situation nécessite une analyse manuelle. Notre équipe vous recontacte rapidement.';
       renderTefenOverrideForm(simulation.cas_particulier);
+      renderIdccOverrideForm(simulation.cas_particulier);
       showState('manual');
       return;
     }
@@ -464,6 +484,106 @@
     }
   }
 
+  function renderIdccOverrideForm(cas) {
+    if (!el.idcc.form) return;
+    const canOverride = IDCC_OVERRIDE_CASES.has(cas)
+      && Boolean(state.notionLeadId)
+      && !state.overrideAttempted;
+    el.idcc.form.classList.toggle('hidden', !canOverride);
+    if (canOverride && el.idcc.select) {
+      el.idcc.select.value = '';
+      setError(el.idcc.error, null);
+    }
+  }
+
+  // Bascule en cas "hors-scope" — quand le prospect indique que sa convention
+  // n'est pas dans la liste (fin de cascade PRD, ~0,5% des cas).
+  function showOutOfScope() {
+    state.overrideAttempted = true;
+    el.idcc.form?.classList.add('hidden');
+    el.tefen.form?.classList.add('hidden');
+    el.manual.title.textContent = 'Convention non couverte par le simulateur';
+    el.manual.message.textContent = 'Notre base couvre 97 conventions collectives sur les principales. La vôtre n\'y figure pas encore. Réservez un échange de 30 minutes, nous identifions ensemble votre dispositif de financement.';
+    announceSr('Votre convention collective n\'est pas couverte. Échangez avec un expert pour une analyse manuelle.');
+    track('simulator_idcc_not_in_list', {});
+  }
+
+  el.idcc.form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    setError(el.idcc.error, null);
+    const idccValue = el.idcc.select?.value;
+    if (!idccValue) {
+      setError(el.idcc.error, 'Sélectionnez votre convention collective.');
+      return;
+    }
+    if (idccValue === '_not_found') {
+      showOutOfScope();
+      return;
+    }
+    if (!state.entreprise?.siret || !state.notionLeadId) {
+      setError(el.idcc.error, 'Session expirée. Rechargez la page pour recommencer.');
+      return;
+    }
+    const email = $('sim-email')?.value.trim();
+    if (!email) {
+      setError(el.idcc.error, 'Session expirée. Rechargez la page pour recommencer.');
+      return;
+    }
+
+    el.idcc.submit.disabled = true;
+    el.idcc.label.textContent = 'Calcul en cours…';
+    el.idcc.spinner?.classList.remove('hidden');
+    announceSr('Recalcul de votre budget avec la convention sélectionnée.');
+    track('simulator_idcc_override_used', { idcc: idccValue });
+
+    const payload = {
+      siret: state.entreprise.siret,
+      email,
+      rgpd_consent: true,
+      nom_prospect: $('sim-name')?.value.trim() || undefined,
+      telephone: $('sim-phone')?.value.trim() || undefined,
+      utm_source: getUtm('utm_source'),
+      utm_campaign: getUtm('utm_campaign'),
+      idcc_override: idccValue,
+      tefen_override: state.tefenOverride || undefined,
+      notion_lead_id: state.notionLeadId,
+    };
+    state.idccOverride = idccValue;
+    state.overrideAttempted = true;
+
+    try {
+      const res = await fetch(API_COMPUTE, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const data = await res.json().catch(() => ({ ok: false, code: 'parse_error' }));
+      if (!res.ok || !data?.ok) {
+        if (data?.code === 'rate_limited') setError(el.idcc.error, 'Trop de tentatives. Réessayez dans une minute.');
+        else if (data?.code === 'upstream_down') setError(el.idcc.error, 'Service entreprises temporairement ralenti. Réessayez dans 30 secondes.');
+        else setError(el.idcc.error, 'Une erreur est survenue. Réessayez ou contactez-nous.');
+        return;
+      }
+      state.simulation = data.simulation;
+      if (data.notion_page_id) state.notionLeadId = data.notion_page_id;
+      if (!data.simulation?.cas_particulier) {
+        track('simulator_idcc_override_success', { idcc: idccValue });
+      }
+      // Si le nouveau cas est effectif_*, renderReveal réaffichera le form tefen
+      // (mais overrideAttempted=true le bloque). Reset pour permettre la 2e étape.
+      if (data.simulation?.cas_particulier && TEFEN_OVERRIDE_CASES.has(data.simulation.cas_particulier)) {
+        state.overrideAttempted = false;
+      }
+      renderReveal(data);
+    } catch (err) {
+      setError(el.idcc.error, 'Connexion interrompue. Réessayez.');
+    } finally {
+      el.idcc.submit.disabled = false;
+      el.idcc.label.textContent = 'Calculer mon budget';
+      el.idcc.spinner?.classList.add('hidden');
+    }
+  });
+
   el.tefen.form?.addEventListener('submit', async (e) => {
     e.preventDefault();
     setError(el.tefen.error, null);
@@ -498,8 +618,10 @@
       utm_source: getUtm('utm_source'),
       utm_campaign: getUtm('utm_campaign'),
       tefen_override: tefenValue,
+      idcc_override: state.idccOverride || undefined,
       notion_lead_id: state.notionLeadId,
     };
+    state.tefenOverride = tefenValue;
     state.overrideAttempted = true;
 
     try {
