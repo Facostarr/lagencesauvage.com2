@@ -4,6 +4,9 @@
      Combine : WebApplication + BreadcrumbList + FAQPage + HowTo + Dataset
      + SpeakableSpecification. Tous référencent l'Organization (sitewide #organization).
      ============================================================================= */}}
+{{/* Hugo .Params.X garde les guillemets YAML — utiliser .Description (champ
+     canonique normalisé) au lieu de .Params.description. */}}
+{{ $desc := .Description }}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -14,7 +17,7 @@
       "name": "Simulateur Budget OPCO 2026",
       "alternateName": "Calculateur de budget formation OPCO TPE/PME 2026",
       "url": "{{ .Permalink }}",
-      "description": {{ .Params.description | jsonify }},
+      "description": {{ $desc | jsonify }},
       "applicationCategory": "BusinessApplication",
       "applicationSubCategory": "FinanceApplication",
       "operatingSystem": "All",
@@ -116,12 +119,14 @@
       "mainEntity": [
         {{ range $index, $faq := .Params.faq }}
         {{ if $index }},{{ end }}
+        {{ $q := $faq.question | strings.TrimPrefix "\"" | strings.TrimSuffix "\"" }}
+        {{ $a := $faq.answer   | strings.TrimPrefix "\"" | strings.TrimSuffix "\"" }}
         {
           "@type": "Question",
-          "name": {{ $faq.question | jsonify }},
+          "name": {{ $q | jsonify }},
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": {{ $faq.answer | jsonify }}
+            "text": {{ $a | jsonify }}
           }
         }
         {{ end }}
