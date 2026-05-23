@@ -10,6 +10,11 @@ const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const PHONE_ALLOWED = /^[+\d\s().\-]{6,30}$/;
 const NAME_ALLOWED = /^[A-Za-zÀ-ÖØ-öø-ÿ0-9 .,'’\-]+$/;
 const UTM_ALLOWED = /^[A-Za-z0-9_.\-]+$/;
+// 4 paliers OPCO légaux exposés au prospect : 1-10 / 11-49 / 50-249 / 250+
+// Mappés sur le code TEFEN le plus bas de la tranche correspondante.
+export const TEFEN_OVERRIDE_WHITELIST = new Set(['01', '11', '21', '32']);
+// Notion renvoie des IDs UUID v4 (32 hex chars avec ou sans dashes)
+const NOTION_PAGE_ID_REGEX = /^[a-f0-9]{8}-?[a-f0-9]{4}-?[a-f0-9]{4}-?[a-f0-9]{4}-?[a-f0-9]{12}$/i;
 
 export function sanitizeSirenSiret(raw) {
   if (typeof raw !== 'string') return null;
@@ -90,7 +95,23 @@ export function validateComputeBody(body) {
     telephone: null,
     utm_source: null,
     utm_campaign: null,
+    tefen_override: null,
+    notion_lead_id: null,
   };
+
+  if (body.tefen_override !== undefined && body.tefen_override !== null && body.tefen_override !== '') {
+    if (typeof body.tefen_override !== 'string' || !TEFEN_OVERRIDE_WHITELIST.has(body.tefen_override)) {
+      return { ok: false, code: 'invalid_body', message: 'Tranche d\'effectif invalide.' };
+    }
+    out.tefen_override = body.tefen_override;
+  }
+
+  if (body.notion_lead_id !== undefined && body.notion_lead_id !== null && body.notion_lead_id !== '') {
+    if (typeof body.notion_lead_id !== 'string' || !NOTION_PAGE_ID_REGEX.test(body.notion_lead_id)) {
+      return { ok: false, code: 'invalid_body', message: 'Identifiant de lead invalide.' };
+    }
+    out.notion_lead_id = body.notion_lead_id;
+  }
 
   if (body.nom_prospect !== undefined && body.nom_prospect !== null && body.nom_prospect !== '') {
     if (typeof body.nom_prospect !== 'string' || body.nom_prospect.length > 100 || !NAME_ALLOWED.test(body.nom_prospect.trim())) {

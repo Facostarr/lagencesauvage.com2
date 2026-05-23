@@ -99,3 +99,58 @@ export async function createSimulatorLead({ databaseId, body, entreprise, result
   const { properties, children } = buildLeadPayload({ body, entreprise, result, snapshot, niveauConfiance, qualification });
   return notion.pages.create({ parent: { database_id: databaseId }, properties, children });
 }
+
+// Update idempotent : appelé quand le prospect renvoie une saisie corrigée
+// (ex: tefen_override). On patch les propriétés calculables et on append un
+// nouveau bloc snapshot pour conserver l'historique d'audit dans le body.
+export async function updateSimulatorLead({ pageId, body, entreprise, result, snapshot, niveauConfiance, qualification, recomputeReason }) {
+  if (!process.env.NOTION_API_KEY) throw new Error('NOTION_API_KEY manquante.');
+  if (!pageId) throw new Error('pageId manquant pour update Notion.');
+  const notion = new Client({ auth: process.env.NOTION_API_KEY });
+  const { properties } = buildLeadPayload({ body, entreprise, result, snapshot, niveauConfiance, qualification });
+  // On ne PATCH que les propriétés susceptibles d'avoir changé après recompute.
+  // L'email, le nom, le SIREN sont immuables — on les laisse intacts.
+  const updatableKeys = new Set([
+    'Tranche effectif',
+    'Niveau confiance IDCC',
+    'Dispositifs activés',
+    'Version règles',
+    'OPCO',
+    'IDCC',
+    'Code NAF',
+    'Budget min (€)',
+    'Budget max (€)',
+    'Qualification (auto)',
+    'Cas particulier',
+  ]);
+  const filteredProps = Object.fromEntries(
+    Object.entries(properties).filter(([key]) => updatableKeys.has(key)),
+  );
+  const updated = await notion.pages.update({ page_id: pageId, properties: filteredProps });
+
+  // Append du snapshot v2 au body pour preuve d'audit
+  const snapshotJson = JSON.stringify(snapshot, null, 2);
+  const chunks = chunkString(snapshotJson, CODE_BLOCK_MAX);
+  const heading = recomputeReason
+    ? `Snapshot après correction (${recomputeReason})`
+    : 'Snapshot après recompute';
+  await notion.blocks.children.append({
+    block_id: pageId,
+    children: [
+      {
+        object: 'block',
+        type: 'heading_3',
+        heading_3: { rich_text: [{ type: 'text', text: { content: heading } }] },
+      },
+      ...chunks.map((c) => ({
+        object: 'block',
+        type: 'code',
+        code: {
+          language: 'json',
+          rich_text: [{ type: 'text', text: { content: c } }],
+        },
+      })),
+    ],
+  });
+  return updated;
+}

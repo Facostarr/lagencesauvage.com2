@@ -32,7 +32,14 @@
     activeIndex: -1,
     results: [],
     currentStep: 'hook',
+    notionLeadId: null,
+    overrideAttempted: false,
   };
+
+  // Cas particuliers pour lesquels la saisie manuelle d'effectif peut débloquer
+  // la simulation. Les autres cas (idcc_inconnu, dirigeant_tns_sans_salarie...)
+  // restent en analyse manuelle CTA VIP.
+  const TEFEN_OVERRIDE_CASES = new Set(['effectif_non_renseigne', 'effectif_hors_tranches']);
   const lookupCache = new Map();
   let lookupTimer = null;
   let lookupAbort = null;
@@ -80,6 +87,14 @@
     manual: {
       title: $('sim-manual-title'),
       message: $('sim-manual-message'),
+    },
+    tefen: {
+      form: $('sim-tefen-form'),
+      select: $('sim-tefen-select'),
+      submit: $('sim-tefen-submit'),
+      label: $('sim-tefen-label'),
+      spinner: $('sim-tefen-spinner'),
+      error: $('sim-tefen-error'),
     },
     errorMessage: $('sim-error-message'),
     errorRetry: $('sim-error-retry'),
@@ -299,6 +314,8 @@
 
   el.changeCompany?.addEventListener('click', () => {
     state.entreprise = null;
+    state.notionLeadId = null;
+    state.overrideAttempted = false;
     el.search.value = '';
     setError(el.formError, null);
     showState('hook');
@@ -355,6 +372,7 @@
         return;
       }
       state.simulation = data.simulation;
+      if (data.notion_page_id) state.notionLeadId = data.notion_page_id;
       renderReveal(data);
     } catch (err) {
       showState('error');
@@ -381,6 +399,7 @@
     if (simulation.cas_particulier) {
       el.manual.title.textContent = labelCasParticulier(simulation.cas_particulier);
       el.manual.message.textContent = simulation.message_cas_particulier || 'Votre situation nécessite une analyse manuelle. Notre équipe vous recontacte rapidement.';
+      renderTefenOverrideForm(simulation.cas_particulier);
       showState('manual');
       return;
     }
@@ -429,6 +448,90 @@
 
     showState('reveal');
   }
+
+  function renderTefenOverrideForm(cas) {
+    if (!el.tefen.form) return;
+    // Conditions d'affichage : (1) cas particulier d'effectif, (2) on a un lead
+    // Notion à updater (sinon pas de PATCH possible), (3) pas déjà tenté un
+    // override qui a échoué sur un autre cas (anti-boucle).
+    const canOverride = TEFEN_OVERRIDE_CASES.has(cas)
+      && Boolean(state.notionLeadId)
+      && !state.overrideAttempted;
+    el.tefen.form.classList.toggle('hidden', !canOverride);
+    if (canOverride && el.tefen.select) {
+      el.tefen.select.value = '';
+      setError(el.tefen.error, null);
+    }
+  }
+
+  el.tefen.form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    setError(el.tefen.error, null);
+    const tefenValue = el.tefen.select?.value;
+    if (!tefenValue) {
+      setError(el.tefen.error, 'Sélectionnez votre tranche d\'effectif.');
+      return;
+    }
+    if (!state.entreprise?.siret || !state.notionLeadId) {
+      setError(el.tefen.error, 'Session expirée. Rechargez la page pour recommencer.');
+      return;
+    }
+    // On réutilise les données déjà collectées au 1er POST
+    const email = $('sim-email')?.value.trim();
+    if (!email) {
+      setError(el.tefen.error, 'Session expirée. Rechargez la page pour recommencer.');
+      return;
+    }
+
+    el.tefen.submit.disabled = true;
+    el.tefen.label.textContent = 'Calcul en cours…';
+    el.tefen.spinner?.classList.remove('hidden');
+    announceSr('Recalcul de votre budget avec la tranche d\'effectif fournie.');
+    track('simulator_tefen_override_used', { tefen: tefenValue });
+
+    const payload = {
+      siret: state.entreprise.siret,
+      email,
+      rgpd_consent: true,
+      nom_prospect: $('sim-name')?.value.trim() || undefined,
+      telephone: $('sim-phone')?.value.trim() || undefined,
+      utm_source: getUtm('utm_source'),
+      utm_campaign: getUtm('utm_campaign'),
+      tefen_override: tefenValue,
+      notion_lead_id: state.notionLeadId,
+    };
+    state.overrideAttempted = true;
+
+    try {
+      const res = await fetch(API_COMPUTE, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const data = await res.json().catch(() => ({ ok: false, code: 'parse_error' }));
+      if (!res.ok || !data?.ok) {
+        if (data?.code === 'rate_limited') setError(el.tefen.error, 'Trop de tentatives. Réessayez dans une minute.');
+        else if (data?.code === 'upstream_down') setError(el.tefen.error, 'Service entreprises temporairement ralenti. Réessayez dans 30 secondes.');
+        else setError(el.tefen.error, 'Une erreur est survenue. Réessayez ou contactez-nous.');
+        return;
+      }
+      state.simulation = data.simulation;
+      if (data.notion_page_id) state.notionLeadId = data.notion_page_id;
+      // Si le recompute débloque un vrai budget → on bascule en reveal
+      if (!data.simulation?.cas_particulier) {
+        track('simulator_tefen_override_success', { tefen: tefenValue });
+      }
+      // renderReveal gère lui-même reveal vs manual, et renderTefenOverrideForm
+      // cachera le formulaire si on retombe en manual (overrideAttempted = true)
+      renderReveal(data);
+    } catch (err) {
+      setError(el.tefen.error, 'Connexion interrompue. Réessayez.');
+    } finally {
+      el.tefen.submit.disabled = false;
+      el.tefen.label.textContent = 'Calculer mon budget';
+      el.tefen.spinner?.classList.add('hidden');
+    }
+  });
 
   function labelCasParticulier(cas) {
     return ({

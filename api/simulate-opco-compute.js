@@ -26,7 +26,7 @@ import { validateComputeBody } from './_simulateur/validators.js';
 import { checkPostRateLimit, extractClientIp } from './_simulateur/rate-limit.js';
 import { resolveSiretWithCascade, ResolveError } from './_simulateur/resolve-service.js';
 import { runCompute, classifyBudget, getSchemaVersion, confianceNotionLabel } from './_simulateur/compute-engine.js';
-import { createSimulatorLead } from './_simulateur/notion-client.js';
+import { createSimulatorLead, updateSimulatorLead } from './_simulateur/notion-client.js';
 import { sendRecapToProspect } from './_simulateur/recap-email.js';
 import { trackPlausibleEvent } from './_simulateur/plausible.js';
 import { notifyFounder } from './_notify.js';
@@ -99,7 +99,15 @@ export default async function handler(req, res) {
   const entreprise = resolved.entreprise;
   const niveauConfiance = entreprise.source_confiance ?? 'manuel';
 
-  // ---- 3. Compute budget
+  // ---- 3a. Application optionnelle de tefen_override
+  // Le prospect peut corriger son effectif quand DINUM le renvoie absent (NN)
+  // ou que le moteur retourne 'effectif_hors_tranches'. On le marque pour audit
+  // et pour que le Sales soit alerté qu'il s'agit d'une déclaration prospect.
+  let tefenSource = 'dinum';
+  const dinumTefen = entreprise.tranche_effectif_tefen;
+  const isTefenAbsent = !dinumTefen || dinumTefen === 'NN';
+
+  // ---- 3b. Compute budget
   let simulation;
   try {
     simulation = runCompute({
@@ -111,6 +119,25 @@ export default async function handler(req, res) {
     logJson('simulator.compute.engine_error', { message: err?.message, siret: body.siret, idcc: entreprise.idcc });
     return sendError(res, 500, 'internal', 'Erreur de calcul du budget.');
   }
+
+  // Si override fourni ET (TEFEN absent OU cas particulier effectif) → recalcul
+  const isEffectifCase = simulation?.cas_particulier === 'effectif_non_renseigne'
+    || simulation?.cas_particulier === 'effectif_hors_tranches';
+  if (body.tefen_override && (isTefenAbsent || isEffectifCase)) {
+    entreprise.tranche_effectif_tefen = body.tefen_override;
+    tefenSource = 'prospect';
+    try {
+      simulation = runCompute({
+        idcc: entreprise.idcc,
+        tefenCode: body.tefen_override,
+        sourceIdcc: entreprise.source_idcc ?? 'manuel',
+      });
+    } catch (err) {
+      logJson('simulator.compute.engine_error_override', { message: err?.message, siret: body.siret, tefen_override: body.tefen_override });
+      return sendError(res, 500, 'internal', 'Erreur de calcul du budget (recompute).');
+    }
+  }
+  entreprise.tefen_source = tefenSource;
 
   const qualification = classifyBudget(simulation.budget_max_eur, simulation.cas_particulier);
 
@@ -125,6 +152,8 @@ export default async function handler(req, res) {
       nom_prospect: body.nom_prospect,
       utm_source: body.utm_source,
       utm_campaign: body.utm_campaign,
+      tefen_override: body.tefen_override ?? null,
+      is_recompute: Boolean(body.notion_lead_id),
     },
     entreprise,
     simulation,
@@ -137,16 +166,33 @@ export default async function handler(req, res) {
     return sendError(res, 500, 'config_missing', 'Configuration serveur incomplète. Contactez le support.');
   }
   let notionPage;
+  const isUpdate = Boolean(body.notion_lead_id);
   try {
-    notionPage = await createSimulatorLead({
-      databaseId,
-      body,
-      entreprise,
-      result: simulation,
-      snapshot,
-      niveauConfiance,
-      qualification: QUALIFICATION_LABELS[qualification],
-    });
+    if (isUpdate) {
+      const recomputeReason = body.tefen_override
+        ? `effectif corrigé par le prospect → ${body.tefen_override}`
+        : 'recompute';
+      notionPage = await updateSimulatorLead({
+        pageId: body.notion_lead_id,
+        body,
+        entreprise,
+        result: simulation,
+        snapshot,
+        niveauConfiance,
+        qualification: QUALIFICATION_LABELS[qualification],
+        recomputeReason,
+      });
+    } else {
+      notionPage = await createSimulatorLead({
+        databaseId,
+        body,
+        entreprise,
+        result: simulation,
+        snapshot,
+        niveauConfiance,
+        qualification: QUALIFICATION_LABELS[qualification],
+      });
+    }
   } catch (err) {
     logJson('simulator.compute.notion_error', {
       message: err?.message,
@@ -156,6 +202,7 @@ export default async function handler(req, res) {
       body: typeof err?.body === 'string' ? err.body.slice(0, 1500) : JSON.stringify(err?.body ?? {}).slice(0, 1500),
       email_hash: emailHash,
       siret: body.siret,
+      is_update: isUpdate,
     });
     return sendError(res, 500, 'notion_failed', 'Impossible d\'enregistrer la simulation. Réessayez ou contactez-nous.');
   }
@@ -171,11 +218,12 @@ export default async function handler(req, res) {
       notionUrl: notionPage?.url,
       extra: buildExtra({ entreprise, result: simulation, qualification, niveauConfiance }),
     }),
-    trackPlausibleEvent(req, 'Lead Simulateur OPCO', {
+    trackPlausibleEvent(req, isUpdate ? 'Lead Simulateur OPCO Recompute' : 'Lead Simulateur OPCO', {
       budget_bucket: qualification,
       opco_slug: simulation.opco_slug ?? 'unknown',
       source_confiance: niveauConfiance,
       cas_particulier: simulation.cas_particulier ?? 'ok',
+      tefen_source: tefenSource,
     }),
   ]);
   settled.forEach((r, i) => {
@@ -196,6 +244,8 @@ export default async function handler(req, res) {
     budget_max: simulation.budget_max_eur,
     cas_particulier: simulation.cas_particulier,
     notion_page_id: notionPage?.id,
+    tefen_source: tefenSource,
+    is_recompute: isUpdate,
   });
 
   return sendOk(res, {
@@ -203,5 +253,6 @@ export default async function handler(req, res) {
     entreprise,
     qualification,
     notion_page_id: notionPage?.id ?? null,
+    tefen_source: tefenSource,
   });
 }
