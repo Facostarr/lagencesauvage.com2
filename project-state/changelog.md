@@ -1,5 +1,31 @@
 # Changelog — Refonte lagencesauvage.com
 
+## 2026-05-23 — Simulateur OPCO S3 + S4 + S5 + debug end-to-end
+
+- **Sprint massif sur le Simulateur OPCO** (PRD 2026-05-22 validé consensus dual-LLM Claude+Gemini DR). Branche `feat/simulateur-opco`, 15 commits, flow complet validé en Preview Vercel.
+- **S3 — Endpoints lookup + resolve** (consensus Gemini Pro 8.5/10, 4 corrections intégrées : split 2 endpoints, anti-SSRF strict, rate-limit 10 req/s IP, TTL cache 24h)
+  - `api/simulate-opco-lookup.js` : autocomplete DINUM, debounce 300ms, retry exponentiel, cache LRU
+  - `api/simulate-opco-resolve.js` : cascade IDCC DINUM → siret2idcc → manuel
+  - 6 modules partagés `api/_simulateur/` (validators, cache, rate-limit, dinum-client, siret2idcc-client, http-utils, resolve-service)
+  - Artefacts R&D importés : `static/data/simulator-ready.json` (199 KB) + `lib/simulateur-opco/compute_budget.js` (port JS S2) + `tests/fixtures/test_sirens.json`
+  - Harness de tests : 14/14 OK (Boulangerie Aixoise IDCC 0843, PAUL multi-IDCC, anti-SSRF, cache HIT, rate-limit 429, OPTIONS 204, POST 405)
+- **S4 — Compute + Notion + Resend + Plausible** (consensus Gemini Pro 9.5/10, 4 corrections : ESM JSON import natif, snapshot dans body Notion, await Promise.allSettled, logs SHA-256 sans PII)
+  - `api/simulate-opco-compute.js` : flow trust-but-verify (re-résolution serveur anti-tampering)
+  - 4 modules `api/_simulateur/` (compute-engine, notion-client, recap-email, plausible)
+  - Base Notion "Leads Simulateur OPCO" créée via MCP (17 propriétés + snapshot JSON dans body de page)
+  - Tests unitaires : 47/47 OK (Syntec IDCC 1486 → Hot lead 11k-13k Atlas confirmé)
+- **S5 — Page Hugo + UI vanilla JS** (consensus Gemini Pro 9/10, 5 corrections : hash routing back button, granularité teaser max, cas de bord, accessibilité clavier, JS bundled via Hugo Pipes)
+  - `content/simulateur-opco/_index.md` + `layouts/simulateur-opco/list.html` (5 états : hook, picked, reveal, manual, error)
+  - `assets/js/simulateur-opco.js` (~10 KB vanilla — pas d'Alpine.js malgré PRD, cohérence repo)
+  - `layouts/partials/schema/simulateur-opco.html` (WebApplication, BusinessApplication, FinanceApplication)
+  - Menu nav + footer mis à jour (`menus.toml`)
+- **3 bugs en cascade débuggés** :
+  1. Notion refuse `{ field: null }` à `pages.create` (corrigé : omission propriétés vides au lieu de null)
+  2. Notion Select n'accepte pas les options dynamiques (Code NAF 700+ valeurs + OPCO variantes de casse passés en RICH_TEXT, schema patché via MCP `notion-update-data-source`)
+  3. Env vars Vercel build-time + intégration Notion "Formulaire Site Web" pas connectée à la nouvelle base (Franck a ajouté la connexion manuellement)
+- **Validation finale** : POST direct via curl bypass token `mcp__get_access_to_vercel_url` → `{ok:true, notion_page_id: 369223ca-b565-...}`, lead Notion vérifié avec 17 propriétés correctes + snapshot JSON dans body, email Resend récap reçu (notification Outlook confirmée)
+- **Reste à faire** : S6 (QA Playwright + 20 SIREN + Lighthouse + tone of voice + confidentialité + OG image), S7 (merge main + Search Console)
+
 ## 2026-05-21 — Lead magnet B — Checklist 30 jours Claude PME
 
 - **Lead magnet B** déployé sur `/blog/claude-cowork-pme-cas-usage-mars-2026/` (231 visites — top article)

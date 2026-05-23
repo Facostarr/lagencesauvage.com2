@@ -1,5 +1,30 @@
 # Lessons Learned — Refonte lagencesauvage.com
 
+## Vercel env vars — bakées au build time pour Node.js serverless
+
+- **Toute modification d'env var (ajout, valeur, scope Production/Preview) nécessite un nouveau build**. Vercel n'expose pas dynamiquement les nouvelles valeurs aux lambdas existantes. Symptôme typique : tu cliques "Save" dans Settings → Environment Variables, mais `process.env.MA_VAR` retourne toujours `undefined` côté lambda → c'est normal, fais un commit (vide si besoin : `git commit --allow-empty -m "force redeploy"`) et push.
+- **Toujours vérifier le scope** d'une env var : "Production only" est le défaut Vercel UI quand tu en crées une. Pour qu'une branche feature accessible en Preview voit la même variable, il faut explicitement cocher **Preview** aussi. Sinon `NOTION_API_KEY undefined` côté Preview avec autres endpoints fonctionnels en Production.
+- **Hobby tier = 12 serverless functions max**. Au-delà, le deploy passe en state ERROR sans message explicite après "Deploying outputs...". J'ai ajouté `api/simulate-opco-debug.js` qui a fait passer le compte à 13 → silent fail. Solution : supprimer le fichier excédentaire, ou upgrade Pro.
+
+## Notion API — pièges fréquents (debug 2026-05-23)
+
+- **Les Select n'acceptent JAMAIS d'options à la volée via l'API**. Si la propriété a été créée avec options=[], envoyer `{ select: { name: "valeur_pas_dans_la_liste" } }` retourne `validation_error: "Value must be one of the following: ... If a new select option is needed, the data source must be updated to add it."`. Pour valeurs non énumérables (codes NAF avec 700+ valeurs possibles, noms variables avec casses différentes) : **utiliser RICH_TEXT au lieu de SELECT**. Les filtres/regroupements Notion fonctionnent aussi sur rich_text.
+- **À la création (`pages.create`), il faut OMETTRE les propriétés vides plutôt que d'envoyer `{ field: null }`**. Notion refuse `{ phone_number: null }`, `{ number: null }`, `{ select: null }` au create (valide uniquement à `pages.update` pour clear). Solution : construire le payload conditionnellement, n'ajouter une propriété que si la valeur est non-null.
+- **Les intégrations Notion ne s'héritent JAMAIS automatiquement**, même si la nouvelle base est créée sous une page parent où l'intégration est déjà partagée. Toujours vérifier dans `···` → **Connections** sur la base elle-même. Ajouter manuellement l'intégration nommée (attention au nom exact — `"L'Agence Sauvage - Formulaire Site Web"` ≠ `"L'Agence Sauvage - Formulaire de Contact"`, plusieurs intégrations peuvent coexister).
+- **Snapshot JSON volumineux** : la limite Notion sur rich_text est 2000 chars/segment. Pour archiver un payload JSON 4-6 KB en preuve d'audit, utiliser le BODY de la page (children, block `code` language json) plutôt qu'une propriété rich_text. Chunker le JSON en blocs de 1900 chars max.
+
+## Debugging Vercel quand les logs sont tronqués
+
+- Le viewer `mcp__vercel__get_runtime_logs` rend les messages dans une table Markdown qui tronque à ~30 chars. Grep ciblé fonctionne (`query="object_not_found"`) mais ne montre pas le contenu réel.
+- **Solution pour MVP/preview** : exposer temporairement les détails de l'erreur dans la réponse HTTP via un champ `_debug_*`. Permet de copier-coller depuis le Network tab du navigateur ou via `curl` direct. À retirer dès que le bug est diagnostiqué.
+- **Bypass deployment protection** : `mcp__vercel__get_access_to_vercel_url` génère un token de 23h. Cookie `_vercel_jwt` à sauver dans un fichier (`curl -c /tmp/cookies.txt -L "URL?_vercel_share=TOKEN"`) puis réutiliser pour les POST/GET suivants (`curl -b /tmp/cookies.txt -X POST ...`). Permet de tester un endpoint en POST sans repasser par le SSO browser.
+
+## Hugo + Vercel — limites et conventions repo
+
+- **Le repo n'utilise PAS Alpine.js** malgré ce que le PRD du Simulateur OPCO suggérait. Tous les formulaires multi-step existants (formation, lead magnets, diagnostic) sont en vanilla JS pur (querySelector + addEventListener + fetch + classList.toggle). Cohérence repo > suggestion PRD. Pour S5 : vanilla JS retenu (10 KB minified, zero dep).
+- **Pattern de chargement JS par section** : conditionnel dans `baseof.html` (cf. blog.js ligne 81-87) OU bloc `scripts` défini dans le layout enfant (pattern utilisé pour `assets/js/simulateur-opco.js` via `resources.Get | minify | fingerprint`).
+- **`{{ block "head" . }}{{ end }}`** dans `baseof.html` ligne 63 : permet d'injecter du schema markup par layout enfant via `{{ define "head" }}` (pattern utilisé pour `simulateur-opco/list.html` — JSON-LD WebApplication).
+
 ## Production d'articles
 
 - **Audit anti-cannibalisation obligatoire** : avant de pusher tout nouvel article sur un sujet déjà couvert (agents IA, ROI, déploiement...), fetcher l'article existant le plus proche et comparer H2 par H2. Identifier les cas d'usage ou sections qui se chevauchent et les remplacer avant push. Coût : 5 min. Bénéfice : cluster SEO cohérent, pas de dilution de signal.

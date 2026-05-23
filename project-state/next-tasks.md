@@ -34,6 +34,27 @@ Quota dépassé aujourd'hui. Demander l'indexation pour les 6 case studies :
 - [x] Fix sitemap.xml : toutes les pages incluses (articles, case studies, etc.)
 - [ ] Supprimer ancien sitemap-blog.xml dans Search Console + resoumettre sitemap.xml
 
+### Simulateur OPCO — S6 + S7 (prochaine session)
+
+**Branche** : `feat/simulateur-opco` (15 commits) — flow e2e validé en Preview Vercel le 2026-05-23.
+
+**S6 — QA + polish (~2h)** :
+- [ ] Tests Playwright cross-browser sur le flow 5 états (Chromium, Firefox, WebKit)
+- [ ] Validation manuelle sur 20 SIREN réels de `tests/fixtures/test_sirens.json` (idéalement compléter les `_TO_FILL_BY_FRANCK`)
+- [ ] Audit Lighthouse a11y + perf (cible : 95+ partout)
+- [ ] Passage skill `agence-sauvage-tone` sur tous les copy (hero, gate, reveal, manual, error)
+- [ ] Mise à jour `content/confidentialite.md` : mentionner explicitement le nouveau traitement Simulateur OPCO (raison sociale + SIREN + email pour générer simulation et recontacter)
+- [ ] OG image dédiée via Gemini : mockup interface simulateur (palette indigo/slate, jauge budget, factuel)
+- [ ] Nettoyage Notion : supprimer la page test MCP `[TEST MCP] Diagnostic - à supprimer` + 4 leads `debug*@claude.test` / `verif@claude.test`
+
+**S7 — Merge + announce (~1h)** :
+- [ ] Audit conversion-audit-checklist sur `/simulateur-opco/` avant merge
+- [ ] Merge `feat/simulateur-opco` → `main` (squash ou rebase ?)
+- [ ] Vérification que les 23 redirections 301 existantes ne sont pas cassées
+- [ ] Soumission Search Console : `/simulateur-opco/` + sitemap.xml
+- [ ] LinkedIn announce : Franck (post sur l'outil + capture d'écran)
+- [ ] Vérifier que `NOTION_API_KEY` + `NOTION_DATABASE_SIMULATEUR_OPCO` + `RESEND_API_KEY` + Telegram* + Plausible sont cochés **Production + Preview** dans Vercel
+
 ### Production de contenu (en cours)
 
 - [x] Article "Comment être cité par ChatGPT" — SEO/GEO optimisé, image Gemini, 6 sources liées, bibliographie
