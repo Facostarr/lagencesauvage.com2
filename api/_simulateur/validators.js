@@ -14,9 +14,14 @@ const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const PHONE_ALLOWED = /^[+\d\s().\-]{6,30}$/;
 const NAME_ALLOWED = /^[A-Za-zÀ-ÖØ-öø-ÿ0-9 .,'’\-]+$/;
 const UTM_ALLOWED = /^[A-Za-z0-9_.\-]+$/;
-// 4 paliers OPCO légaux exposés au prospect : 1-10 / 11-49 / 50-249 / 250+
+// 5 paliers exposés au prospect :
+//   00 = 0 salarié (TNS dirigeant uniquement, pas éligible OPCO)
+//   01 = 1 à 10 salariés
+//   11 = 11 à 49 salariés
+//   21 = 50 à 249 salariés
+//   32 = 250 salariés ou plus
 // Mappés sur le code TEFEN le plus bas de la tranche correspondante.
-export const TEFEN_OVERRIDE_WHITELIST = new Set(['01', '11', '21', '32']);
+export const TEFEN_OVERRIDE_WHITELIST = new Set(['00', '01', '11', '21', '32']);
 // Notion renvoie des IDs UUID v4 (32 hex chars avec ou sans dashes)
 const NOTION_PAGE_ID_REGEX = /^[a-f0-9]{8}-?[a-f0-9]{4}-?[a-f0-9]{4}-?[a-f0-9]{4}-?[a-f0-9]{12}$/i;
 
