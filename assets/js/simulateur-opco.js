@@ -97,6 +97,9 @@
       dispositifs: $('sim-reveal-dispositifs'),
       warnings: $('sim-reveal-warnings'),
       warningsList: $('sim-reveal-warnings-list'),
+      autoBanner: $('sim-reveal-auto-banner'),
+      autoText: $('sim-reveal-auto-text'),
+      changeConvention: $('sim-reveal-change-convention'),
     },
     manual: {
       title: $('sim-manual-title'),
@@ -308,11 +311,16 @@
         return;
       }
       state.entreprise = data.entreprise;
-      renderPicked(data.entreprise);
+      // S6.6.3 : capture la suggestion NAF→convention si fournie par le resolve
+      // pour la pré-utiliser dans la card picked (affichage rassurant) et au
+      // compute (auto-apply si auto=true + effectif > 0).
+      state.suggestion = data.suggestion || null;
+      renderPicked(data.entreprise, state.suggestion);
       track('simulator_company_picked', {
         opco_slug: data.entreprise.source_idcc ? (data.entreprise.idcc || 'unknown') : 'unknown',
         source_confiance: data.entreprise.source_confiance,
         tefen: data.entreprise.tranche_effectif_tefen,
+        suggestion_kind: state.suggestion ? (state.suggestion.auto ? 'auto' : 'manual') : 'none',
       });
       showState('picked');
     } catch (err) {
@@ -322,14 +330,25 @@
     }
   }
 
-  function renderPicked(ent) {
+  function renderPicked(ent, suggestion) {
     el.picked.name.textContent = ent.nom_complet || '—';
     el.picked.siren.textContent = ent.siren || '—';
     el.picked.tefen.textContent = tefenLabel(ent.tranche_effectif_tefen);
     el.picked.naf.textContent = ent.naf || '—';
     if (ent.source_confiance === 'manuel' || !ent.idcc) {
-      el.picked.opco.textContent = 'À déterminer manuellement';
-      el.picked.branche.textContent = `Convention non identifiée automatiquement (${confianceLabel(ent.source_confiance)})`;
+      // Pas d'IDCC retourné par DINUM/siret2idcc. Si on a une suggestion NAF,
+      // l'utiliser pour rassurer le prospect dans la card (S6.6.3) au lieu
+      // d'afficher un "non identifié" qui peut dégoûter du formulaire.
+      if (suggestion?.auto) {
+        el.picked.opco.textContent = 'Déduit du code NAF';
+        el.picked.branche.textContent = `Convention probable d'après NAF ${suggestion.naf} (modifiable après calcul)`;
+      } else if (suggestion) {
+        el.picked.opco.textContent = 'À confirmer';
+        el.picked.branche.textContent = `Convention probable d'après NAF ${suggestion.naf} (à valider à l'étape suivante)`;
+      } else {
+        el.picked.opco.textContent = 'À déterminer manuellement';
+        el.picked.branche.textContent = `Convention non identifiée automatiquement (${confianceLabel(ent.source_confiance)})`;
+      }
     } else {
       el.picked.opco.textContent = '—'; // sera complété au compute
       el.picked.branche.textContent = `IDCC ${ent.idcc} (${confianceLabel(ent.source_confiance)})`;
@@ -424,7 +443,8 @@
   // ============================================================================
   // Reveal
   // ============================================================================
-  function renderReveal({ simulation, entreprise }) {
+  function renderReveal(data) {
+    const { simulation, entreprise } = data;
     if (simulation.cas_particulier) {
       el.manual.title.textContent = labelCasParticulier(simulation.cas_particulier);
       el.manual.message.textContent = simulation.message_cas_particulier || 'Votre situation nécessite une analyse manuelle. Notre équipe vous recontacte rapidement.';
@@ -432,6 +452,16 @@
       renderIdccOverrideForm(simulation.cas_particulier);
       showState('manual');
       return;
+    }
+
+    // S6.6.3 — bandeau disruptif si la convention a été auto-déduite du NAF
+    if (data.auto_applied && data.auto_suggestion && el.reveal.autoBanner && el.reveal.autoText) {
+      const branche = simulation.branche_nom || `convention liée à votre code NAF ${data.auto_suggestion.naf}`;
+      el.reveal.autoText.textContent = `Votre convention a été estimée automatiquement à « ${branche} » d'après votre code NAF ${data.auto_suggestion.naf}. Cette déduction est correcte dans la grande majorité des cas, mais reste indicative. Si votre entreprise relève d'une autre convention, corrigez-la pour obtenir une simulation exacte.`;
+      el.reveal.autoBanner.classList.remove('hidden');
+      track('simulator_naf_auto_applied', { naf: data.auto_suggestion.naf, idcc_or_slug: String(data.auto_suggestion.value) });
+    } else if (el.reveal.autoBanner) {
+      el.reveal.autoBanner.classList.add('hidden');
     }
 
     // Budget chiffrable
@@ -478,6 +508,24 @@
 
     showState('reveal');
   }
+
+  // S6.6.3 — bouton "Changer ma convention" sur l'état reveal (visible quand
+  // la convention a été auto-déduite). Force le passage en état manual avec
+  // form IDCC actif. On simule un cas_particulier = idcc_inconnu et on reset
+  // l'auto-application (entreprise.idcc=null pour que renderIdccOverrideForm
+  // accepte d'afficher le form).
+  el.reveal.changeConvention?.addEventListener('click', () => {
+    if (state.entreprise) state.entreprise.idcc = null;
+    state.idccOverride = null;
+    state.brancheSlugOverride = null;
+    state.overrideAttempted = false;
+    el.manual.title.textContent = 'Changer votre convention collective';
+    el.manual.message.textContent = 'Sélectionnez la convention exacte de votre entreprise pour recalculer.';
+    renderTefenOverrideForm('idcc_inconnu');
+    renderIdccOverrideForm('idcc_inconnu');
+    showState('manual');
+    track('simulator_naf_auto_corrected', { initial: state.suggestion ? String(state.suggestion.value) : 'unknown' });
+  });
 
   function renderTefenOverrideForm(cas) {
     if (!el.tefen.form) return;

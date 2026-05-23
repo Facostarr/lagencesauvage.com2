@@ -104,3 +104,16 @@ export function getValidBrancheOverrides() {
   _validBrancheOverrides = set;
   return set;
 }
+
+// Renvoie l'effectif min estimé pour un code TEFEN INSEE, depuis la table
+// tefen_to_tranche_opco de simulator-ready.json. Utilisé par l'auto-application
+// NAF (S6.6.3) pour garantir que effectif > 0 avant d'auto-appliquer (un TNS
+// sans salarié dépend du FIFPL/FAFIEC, pas d'un OPCO).
+// Retourne null si TEFEN inconnu ou code NN (effectif non renseigné).
+export function getEffectifMinFromTefen(tefenCode) {
+  if (!tefenCode || tefenCode === 'NN') return null;
+  const entry = simulatorData?.tefen_to_tranche_opco?.[tefenCode];
+  if (!entry) return null;
+  const min = entry.effectif_estime_min;
+  return Number.isFinite(min) ? min : null;
+}

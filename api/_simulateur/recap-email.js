@@ -75,7 +75,17 @@ function shell({ prenom, bodyHtml }) {
 </body></html>`;
 }
 
-function buildBudgetBody({ entreprise, result }) {
+function autoAppliedBannerHtml({ autoSuggestion, brancheLabel }) {
+  if (!autoSuggestion) return '';
+  const naf = escapeHtml(autoSuggestion.naf || '');
+  const branche = escapeHtml(brancheLabel || `la convention liée à votre NAF ${naf}`);
+  return `<div style="margin:0 0 20px;padding:16px 20px;background:#fef3c7;border-left:4px solid #f59e0b;border-radius:6px">
+    <p style="margin:0 0 6px;font-size:14px;color:#92400e;font-weight:700;text-transform:uppercase;letter-spacing:0.04em">⚠️ Convention déduite automatiquement</p>
+    <p style="margin:0;font-size:15px;color:#78350f;line-height:1.55">Ce budget est calculé sur la base de la convention <strong>« ${branche} »</strong>, déduite statistiquement de votre code NAF <strong>${naf}</strong>. La déduction est correcte dans la grande majorité des cas. Si votre entreprise relève d'une autre convention, refaites le test avec la convention exacte pour obtenir un budget précis.</p>
+  </div>`;
+}
+
+function buildBudgetBody({ entreprise, result, autoApplied, autoSuggestion }) {
   const min = result?.budget_min_eur;
   const max = result?.budget_max_eur;
   const fourchette = min != null && max != null && min !== max
@@ -84,7 +94,10 @@ function buildBudgetBody({ entreprise, result }) {
     ? `Jusqu'à ${formatEur(max)}`
     : 'À calculer en entretien';
 
+  const autoBanner = autoApplied ? autoAppliedBannerHtml({ autoSuggestion, brancheLabel: result?.branche_nom }) : '';
+
   return `
+    ${autoBanner}
     <p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:#334155">
       Votre entreprise <strong>${escapeHtml(entreprise?.nom_complet || '')}</strong> est rattachée à l'OPCO <strong>${escapeHtml(result?.opco_nom || '—')}</strong>${result?.branche_nom ? ` (convention « ${escapeHtml(result.branche_nom)} »)` : ''}.
     </p>
@@ -113,11 +126,13 @@ function buildManualBody({ entreprise, result }) {
     </p>`;
 }
 
-export async function sendRecapToProspect({ email, prenom, entreprise, result }) {
+export async function sendRecapToProspect({ email, prenom, entreprise, result, autoApplied, autoSuggestion }) {
   if (!process.env.RESEND_API_KEY) throw new Error('RESEND_API_KEY manquante.');
   const resend = new Resend(process.env.RESEND_API_KEY);
   const isManual = Boolean(result?.cas_particulier) || !result?.budget_chiffrable;
-  const bodyHtml = isManual ? buildManualBody({ entreprise, result }) : buildBudgetBody({ entreprise, result });
+  const bodyHtml = isManual
+    ? buildManualBody({ entreprise, result })
+    : buildBudgetBody({ entreprise, result, autoApplied, autoSuggestion });
   const html = shell({ prenom, bodyHtml });
   const subject = isManual
     ? 'Votre simulation OPCO — analyse manuelle requise'

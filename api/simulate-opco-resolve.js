@@ -17,6 +17,8 @@ import { validateSiret } from './_simulateur/validators.js';
 import { checkRateLimit, extractClientIp } from './_simulateur/rate-limit.js';
 import { resolveSiretWithCascade, ResolveError } from './_simulateur/resolve-service.js';
 import { applyCors, sendError, sendOk, logJson } from './_simulateur/http-utils.js';
+import { getValidIdccOverrides, getValidBrancheOverrides } from './_simulateur/compute-engine.js';
+import { suggestFromNaf } from './_simulateur/naf-suggestions.js';
 
 export default async function handler(req, res) {
   applyCors(req, res);
@@ -47,6 +49,14 @@ export default async function handler(req, res) {
     return sendError(res, 500, 'internal', 'Erreur interne.');
   }
 
+  // S6.6.3 — enrichir avec la suggestion NAF→convention si IDCC absent.
+  // Permet à la card "Entreprise identifiée" d'afficher dès le picked state
+  // "Convention probable : Syntec (déduit de votre NAF)" au lieu de "À confirmer".
+  let suggestion = null;
+  if (!payload.entreprise?.idcc && payload.entreprise?.naf) {
+    suggestion = suggestFromNaf(payload.entreprise.naf, getValidIdccOverrides(), getValidBrancheOverrides());
+  }
+
   logJson('simulator.resolve.ok', {
     siret: siret.value,
     cache_hit: cacheHit,
@@ -55,7 +65,8 @@ export default async function handler(req, res) {
     source_confiance: payload.entreprise?.source_confiance,
     multi_idcc: payload.entreprise?.multi_idcc,
     upstream_ms: payload.upstream_ms,
+    suggestion_kind: suggestion ? (suggestion.auto ? 'auto' : 'manual') : 'none',
   });
 
-  return sendOk(res, payload, { cacheHit });
+  return sendOk(res, { ...payload, suggestion }, { cacheHit });
 }

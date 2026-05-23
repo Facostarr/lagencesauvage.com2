@@ -25,7 +25,7 @@ import { createHash } from 'node:crypto';
 import { validateComputeBody } from './_simulateur/validators.js';
 import { checkPostRateLimit, extractClientIp } from './_simulateur/rate-limit.js';
 import { resolveSiretWithCascade, ResolveError } from './_simulateur/resolve-service.js';
-import { runCompute, classifyBudget, getSchemaVersion, confianceNotionLabel, getValidIdccOverrides, getValidBrancheOverrides } from './_simulateur/compute-engine.js';
+import { runCompute, classifyBudget, getSchemaVersion, confianceNotionLabel, getValidIdccOverrides, getValidBrancheOverrides, getEffectifMinFromTefen } from './_simulateur/compute-engine.js';
 import { suggestFromNaf } from './_simulateur/naf-suggestions.js';
 import { createSimulatorLead, updateSimulatorLead } from './_simulateur/notion-client.js';
 import { sendRecapToProspect } from './_simulateur/recap-email.js';
@@ -112,6 +112,8 @@ export default async function handler(req, res) {
   //     (22 branches sans IDCC déclaré — Afdas, Constructys, etc.)
   let idccSource = entreprise.source_idcc ?? 'manuel';
   let nafFallbackSlug = null;
+  let autoApplied = false;
+  let autoSuggestion = null;
   const isIdccAbsent = !entreprise.idcc;
   if (body.idcc_override && isIdccAbsent) {
     entreprise.idcc = body.idcc_override;
@@ -126,6 +128,28 @@ export default async function handler(req, res) {
     entreprise.source_confiance = 'manuel';
     idccSource = 'manual';
     niveauConfiance = 'manuel';
+  } else if (isIdccAbsent && entreprise.naf) {
+    // ---- 3a-bis. Auto-application NAF→convention (S6.6.3)
+    // Si on a un NAF et que la table NAF→convention marque ce mapping
+    // comme `auto: true` (≥95% confiance + métier homogène), on applique
+    // automatiquement, MAIS seulement si effectif > 0 (un TNS sans salarié
+    // dépend du FIFPL/FAFIEC, pas d'un OPCO — risque budget faux sinon).
+    const sugg = suggestFromNaf(entreprise.naf, getValidIdccOverrides(), getValidBrancheOverrides());
+    const effectifMin = getEffectifMinFromTefen(entreprise.tranche_effectif_tefen);
+    if (sugg?.auto && effectifMin != null && effectifMin > 0) {
+      autoApplied = true;
+      autoSuggestion = sugg;
+      if (sugg.type === 'idcc') {
+        entreprise.idcc = sugg.value;
+      } else {
+        nafFallbackSlug = sugg.value;
+        entreprise.branche_slug_override = sugg.value;
+      }
+      entreprise.source_idcc = 'heuristique-naf';
+      entreprise.source_confiance = 'heuristique-naf';
+      idccSource = 'heuristique-naf';
+      niveauConfiance = 'heuristique-naf';
+    }
   }
 
   // ---- 3b. Application optionnelle de tefen_override
@@ -186,6 +210,8 @@ export default async function handler(req, res) {
       tefen_override: body.tefen_override ?? null,
       idcc_override: body.idcc_override ?? null,
       branche_slug_override: body.branche_slug_override ?? null,
+      auto_applied: autoApplied,
+      auto_suggestion: autoSuggestion,
       is_recompute: Boolean(body.notion_lead_id),
     },
     entreprise,
@@ -245,7 +271,7 @@ export default async function handler(req, res) {
   // ---- 6. Promise.allSettled — awaité avant res.json() pour ne pas geler la lambda
   const prenom = body.nom_prospect?.split(' ')?.[0] ?? null;
   const settled = await Promise.allSettled([
-    sendRecapToProspect({ email: body.email, prenom, entreprise, result: simulation }),
+    sendRecapToProspect({ email: body.email, prenom, entreprise, result: simulation, autoApplied, autoSuggestion }),
     notifyFounder({
       firstName: prenom ?? 'Lead simulateur',
       email: body.email,
@@ -260,6 +286,7 @@ export default async function handler(req, res) {
       cas_particulier: simulation.cas_particulier ?? 'ok',
       tefen_source: tefenSource,
       idcc_source: idccSource,
+      auto_applied: autoApplied,
     }),
   ]);
   settled.forEach((r, i) => {
@@ -282,6 +309,7 @@ export default async function handler(req, res) {
     notion_page_id: notionPage?.id,
     tefen_source: tefenSource,
     idcc_source: idccSource,
+    auto_applied: autoApplied,
     is_recompute: isUpdate,
   });
 
@@ -303,5 +331,7 @@ export default async function handler(req, res) {
     tefen_source: tefenSource,
     idcc_source: idccSource,
     suggestion,
+    auto_applied: autoApplied,
+    auto_suggestion: autoSuggestion,
   });
 }

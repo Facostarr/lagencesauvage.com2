@@ -178,6 +178,21 @@
           </div>
         </div>
 
+        {{/* Bandeau disruptif si la convention a été déduite automatiquement
+             du code NAF (S6.6.3 auto-apply). Affiché par JS. */}}
+        <div id="sim-reveal-auto-banner" class="hidden mb-6 rounded-lg bg-amber-50 border-2 border-amber-300 p-4">
+          <div class="flex items-start gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-amber-700 flex-shrink-0 mt-0.5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 5a.75.75 0 01.75.75v4.5a.75.75 0 01-1.5 0v-4.5A.75.75 0 0110 5zm0 9a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" /></svg>
+            <div class="flex-1 text-sm">
+              <p class="font-semibold text-amber-900 mb-1">Convention déduite automatiquement</p>
+              <p class="text-amber-800 leading-relaxed mb-2" id="sim-reveal-auto-text">Votre convention a été estimée d'après votre code NAF.</p>
+              <button type="button" id="sim-reveal-change-convention" class="text-amber-900 underline font-medium hover:text-amber-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded">
+                Changer ma convention
+              </button>
+            </div>
+          </div>
+        </div>
+
         {{/* Tuile budget central */}}
         <div class="rounded-2xl bg-gradient-to-br from-indigo-50 to-indigo-100/50 border border-indigo-200 p-6 sm:p-8 mb-6 text-center">
           <p class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-indigo-700 mb-2">Budget formation 2026</p>
