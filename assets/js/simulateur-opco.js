@@ -621,6 +621,7 @@
       }
       state.simulation = data.simulation;
       if (data.notion_page_id) state.notionLeadId = data.notion_page_id;
+      state.suggestion = data.suggestion || null;
       if (!data.simulation?.cas_particulier) {
         track('simulator_idcc_override_success', { idcc: idccValue });
       }
@@ -695,12 +696,18 @@
       }
       state.simulation = data.simulation;
       if (data.notion_page_id) state.notionLeadId = data.notion_page_id;
+      state.suggestion = data.suggestion || null;
       // Si le recompute débloque un vrai budget → on bascule en reveal
       if (!data.simulation?.cas_particulier) {
         track('simulator_tefen_override_success', { tefen: tefenValue });
       }
-      // renderReveal gère lui-même reveal vs manual, et renderTefenOverrideForm
-      // cachera le formulaire si on retombe en manual (overrideAttempted = true)
+      // Cascade tefen → idcc : si après ajout du TEFEN, le nouveau cas
+      // particulier est idcc_inconnu (DINUM n'a toujours pas l'IDCC), on
+      // réautorise un override IDCC. Symétrique au handler IDCC qui reset
+      // pour permettre une cascade idcc → tefen.
+      if (data.simulation?.cas_particulier && IDCC_OVERRIDE_CASES.has(data.simulation.cas_particulier)) {
+        state.overrideAttempted = false;
+      }
       renderReveal(data);
     } catch (err) {
       setError(el.tefen.error, 'Connexion interrompue. Réessayez.');
