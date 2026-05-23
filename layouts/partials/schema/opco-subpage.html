@@ -2,6 +2,11 @@
    Schema.org @graph pour les sous-pages OPCO (/simulateur-opco/{slug}/)
    Combine : BreadcrumbList + Service (financement formation) + FAQPage
    ============================================================================= */}}
+{{/* Hugo YAML parser de la v0.158 garde parfois les guillemets de fermeture
+     dans la valeur. On strip défensivement avant jsonify pour tous les params. */}}
+{{ $desc        := .Params.description       | strings.TrimPrefix "\"" | strings.TrimSuffix "\"" }}
+{{ $nomOff      := .Params.opco_nom_officiel | strings.TrimPrefix "\"" | strings.TrimSuffix "\"" }}
+{{ $audience    := .Params.opco_audience     | strings.TrimPrefix "\"" | strings.TrimSuffix "\"" }}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -34,7 +39,7 @@
       "@type": "Service",
       "@id": "{{ .Permalink }}#service",
       "name": "Financement formation professionnelle — OPCO {{ .Params.opco_nom_court }} 2026",
-      "description": {{ .Params.description | jsonify }},
+      "description": {{ $desc | jsonify }},
       "url": "{{ .Permalink }}",
       "serviceType": "Financement de la formation professionnelle continue",
       "inLanguage": "fr-FR",
@@ -44,13 +49,13 @@
       },
       "provider": {
         "@type": "Organization",
-        "name": {{ .Params.opco_nom_officiel | jsonify }},
+        "name": {{ $nomOff | jsonify }},
         "url": "{{ .Params.opco_url_racine }}",
         "alternateName": "OPCO {{ .Params.opco_nom_court }}"
       },
       "audience": {
         "@type": "BusinessAudience",
-        "audienceType": {{ .Params.opco_audience | jsonify }}
+        "audienceType": {{ $audience | jsonify }}
       },
       "category": "Formation professionnelle continue",
       "offers": {
@@ -73,12 +78,14 @@
       "mainEntity": [
         {{ range $index, $faq := .Params.faq }}
         {{ if $index }},{{ end }}
+        {{ $q := $faq.question | strings.TrimPrefix "\"" | strings.TrimSuffix "\"" }}
+        {{ $a := $faq.answer   | strings.TrimPrefix "\"" | strings.TrimSuffix "\"" }}
         {
           "@type": "Question",
-          "name": {{ $faq.question | jsonify }},
+          "name": {{ $q | jsonify }},
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": {{ $faq.answer | jsonify }}
+            "text": {{ $a | jsonify }}
           }
         }
         {{ end }}
