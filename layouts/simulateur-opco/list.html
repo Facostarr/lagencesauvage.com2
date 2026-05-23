@@ -250,9 +250,9 @@
             <span aria-hidden="true">💡</span>
             <span id="sim-idcc-suggestion-text"></span>
           </div>
-          <div class="flex flex-col sm:flex-row gap-2">
+          <div class="flex flex-col gap-2">
             <select id="sim-idcc-select" name="idcc_override" required
-              class="flex-1 rounded-lg border-2 border-slate-200 px-3 py-2.5 text-sm text-slate-900 bg-white focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-100">
+              class="w-full min-w-0 rounded-lg border-2 border-slate-200 px-3 py-2.5 text-sm text-slate-900 bg-white focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-100">
               <option value="">— Sélectionnez votre convention —</option>
               {{ range $opco := $opcoNames }}
                 <optgroup label="{{ $opco }}">
@@ -264,7 +264,7 @@
               <option value="_not_found">Ma convention n'est pas dans cette liste</option>
             </select>
             <button type="submit" id="sim-idcc-submit"
-              class="rounded-lg bg-indigo-600 px-5 py-2.5 text-sm font-bold text-white hover:bg-indigo-700 transition-colors focus:outline-none focus:ring-4 focus:ring-indigo-200 disabled:opacity-50 disabled:cursor-not-allowed">
+              class="w-full rounded-lg bg-indigo-600 px-5 py-2.5 text-sm font-bold text-white hover:bg-indigo-700 transition-colors focus:outline-none focus:ring-4 focus:ring-indigo-200 disabled:opacity-50 disabled:cursor-not-allowed">
               <span id="sim-idcc-label">Calculer mon budget</span>
               <svg id="sim-idcc-spinner" class="hidden inline-block animate-spin h-4 w-4 ml-2" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
@@ -284,9 +284,9 @@
           <p class="text-xs text-slate-600 leading-relaxed mb-3">
             L'INSEE n'a pas publié cette information pour votre structure. Indiquez-la pour débloquer votre simulation.
           </p>
-          <div class="flex flex-col sm:flex-row gap-2">
+          <div class="flex flex-col gap-2">
             <select id="sim-tefen-select" name="tefen_override" required
-              class="flex-1 rounded-lg border-2 border-slate-200 px-3 py-2.5 text-sm text-slate-900 bg-white focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-100">
+              class="w-full min-w-0 rounded-lg border-2 border-slate-200 px-3 py-2.5 text-sm text-slate-900 bg-white focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-100">
               <option value="">— Sélectionnez une tranche —</option>
               <option value="01">1 à 10 salariés</option>
               <option value="11">11 à 49 salariés</option>
@@ -294,7 +294,7 @@
               <option value="32">250 salariés ou plus</option>
             </select>
             <button type="submit" id="sim-tefen-submit"
-              class="rounded-lg bg-indigo-600 px-5 py-2.5 text-sm font-bold text-white hover:bg-indigo-700 transition-colors focus:outline-none focus:ring-4 focus:ring-indigo-200 disabled:opacity-50 disabled:cursor-not-allowed">
+              class="w-full rounded-lg bg-indigo-600 px-5 py-2.5 text-sm font-bold text-white hover:bg-indigo-700 transition-colors focus:outline-none focus:ring-4 focus:ring-indigo-200 disabled:opacity-50 disabled:cursor-not-allowed">
               <span id="sim-tefen-label">Calculer mon budget</span>
               <svg id="sim-tefen-spinner" class="hidden inline-block animate-spin h-4 w-4 ml-2" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
