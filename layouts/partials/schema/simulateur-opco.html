@@ -1,0 +1,35 @@
+{{/* Schema WebApplication — Simulateur Budget OPCO 2026 (consensus Gemini 9/10 2026-05-23) */}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "@id": "{{ .Permalink }}#webapp",
+  "name": "Simulateur Budget OPCO 2026",
+  "url": "{{ .Permalink }}",
+  "description": "{{ .Params.description }}",
+  "applicationCategory": "BusinessApplication",
+  "applicationSubCategory": "FinanceApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "inLanguage": "fr-FR",
+  "isAccessibleForFree": true,
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR",
+    "availability": "https://schema.org/InStock"
+  },
+  "audience": {
+    "@type": "BusinessAudience",
+    "audienceType": "TPE/PME"
+  },
+  "publisher": {
+    "@id": "{{ .Site.BaseURL }}#organization"
+  },
+  "potentialAction": {
+    "@type": "Action",
+    "name": "Calculer son budget OPCO 2026",
+    "target": "{{ .Permalink }}"
+  }
+}
+</script>

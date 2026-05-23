@@ -1,0 +1,276 @@
+{{ define "head" }}
+  {{ partial "schema/simulateur-opco.html" . }}
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Simulateur Budget OPCO 2026 — TPE/PME">
+  <meta property="og:description" content="{{ .Params.description }}">
+  <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:locale" content="fr_FR">
+  <meta name="twitter:card" content="summary_large_image">
+{{ end }}
+
+{{ define "main" }}
+
+{{/* ============================================================
+     HERO — input unique + autocomplete + bandeau réassurance
+     ============================================================ */}}
+<section id="sim-hero" class="bg-slate-deep text-white pt-12 pb-16 sm:pt-16 sm:pb-20">
+  <div class="mx-auto max-w-3xl px-4 sm:px-6">
+
+    {{/* Badge réassurance données officielles */}}
+    <div class="flex justify-center mb-6">
+      <span class="inline-flex items-center gap-2 rounded-full bg-indigo-500/15 border border-indigo-400/30 px-4 py-1.5 text-xs sm:text-sm font-medium text-indigo-200">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+        Données officielles 2026 — DGEFP · France Compétences · IDCC
+      </span>
+    </div>
+
+    <h1 class="text-center text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-4">
+      Calculez votre budget formation<br class="hidden sm:block">
+      <span class="text-indigo-400">OPCO 2026 en 30 secondes</span>
+    </h1>
+    <p class="text-center text-base sm:text-lg text-slate-300 mb-8 max-w-2xl mx-auto">
+      Depuis votre raison sociale ou votre SIREN. Pas besoin de connaître votre IDCC.
+    </p>
+
+    {{/* ============================================================
+         CARD UNIQUE qui change d'état (hook → entreprise → email → résultat)
+         ============================================================ */}}
+    <div id="sim-card" class="bg-white rounded-2xl shadow-2xl mx-auto max-w-2xl">
+
+      {{/* ----- ÉTAT 1 — HOOK : input unique avec autocomplete ----- */}}
+      <div id="sim-state-hook" class="p-6 sm:p-8">
+        <label for="sim-search" class="block text-sm font-semibold text-slate-700 mb-2">
+          Votre entreprise
+        </label>
+        <div class="relative">
+          <input type="text" id="sim-search" name="search"
+            autocomplete="organization"
+            placeholder="Ex : Boulangerie Aixoise ou 499823920"
+            aria-label="Nom de votre entreprise ou SIREN"
+            aria-autocomplete="list"
+            aria-controls="sim-dropdown"
+            aria-expanded="false"
+            class="w-full rounded-lg border-2 border-slate-200 px-4 py-3.5 text-base text-slate-900 placeholder-slate-400 focus:border-indigo-500 focus:outline-none focus:ring-4 focus:ring-indigo-100 transition-colors">
+          <div id="sim-search-spinner" class="hidden absolute right-3 top-1/2 -translate-y-1/2">
+            <svg class="animate-spin h-5 w-5 text-indigo-500" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+            </svg>
+          </div>
+        </div>
+
+        {{/* Dropdown résultats autocomplete */}}
+        <ul id="sim-dropdown" role="listbox" aria-label="Suggestions d'entreprises"
+          class="hidden mt-2 border border-slate-200 rounded-lg max-h-72 overflow-y-auto divide-y divide-slate-100"
+          aria-live="polite">
+          {{/* Items injectés dynamiquement par JS */}}
+        </ul>
+
+        <p id="sim-search-error" class="hidden mt-3 text-sm text-red-600" role="alert"></p>
+
+        <p class="mt-5 text-xs text-slate-500 flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
+          <span>Gratuit</span><span aria-hidden="true">·</span>
+          <span>En 30 secondes</span><span aria-hidden="true">·</span>
+          <span>Sans chercher votre IDCC</span>
+        </p>
+      </div>
+
+      {{/* ----- ÉTAT 2 — ENTREPRISE RECONNUE + GATE EMAIL ----- */}}
+      <div id="sim-state-picked" class="hidden p-6 sm:p-8">
+
+        {{/* Carte entreprise reconnue */}}
+        <div class="rounded-xl bg-emerald-50 border border-emerald-200 p-4 sm:p-5 mb-6">
+          <div class="flex items-start gap-3">
+            <div class="flex-shrink-0 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-emerald-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-xs font-semibold uppercase tracking-wide text-emerald-700 mb-1">Entreprise identifiée</p>
+              <h2 id="sim-picked-name" class="text-lg font-bold text-slate-900 leading-tight"></h2>
+              <dl class="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5 text-sm">
+                <div class="flex gap-2"><dt class="text-slate-500">SIREN :</dt><dd id="sim-picked-siren" class="text-slate-900 font-medium"></dd></div>
+                <div class="flex gap-2"><dt class="text-slate-500">Effectif :</dt><dd id="sim-picked-tefen" class="text-slate-900 font-medium"></dd></div>
+                <div class="flex gap-2"><dt class="text-slate-500">Code NAF :</dt><dd id="sim-picked-naf" class="text-slate-900 font-medium"></dd></div>
+                <div class="flex gap-2"><dt class="text-slate-500">OPCO :</dt><dd id="sim-picked-opco" class="text-slate-900 font-medium"></dd></div>
+                <div class="flex gap-2 sm:col-span-2"><dt class="text-slate-500">Convention :</dt><dd id="sim-picked-branche" class="text-slate-900 font-medium"></dd></div>
+              </dl>
+              <p class="mt-3 text-sm text-emerald-900">
+                <strong>Votre budget formation 2026 est prêt.</strong> Saisissez votre email professionnel pour révéler le montant exact.
+              </p>
+            </div>
+          </div>
+          <button type="button" id="sim-change-company" class="mt-3 text-xs text-emerald-700 underline hover:text-emerald-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 rounded">
+            Changer d'entreprise
+          </button>
+        </div>
+
+        {{/* Form gate email */}}
+        <form id="sim-compute-form" novalidate>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+            <div>
+              <label for="sim-email" class="block text-xs font-semibold text-slate-700 mb-1">Email professionnel <span class="text-red-500" aria-hidden="true">*</span></label>
+              <input type="email" id="sim-email" name="email" required autocomplete="email"
+                placeholder="vous@entreprise.fr"
+                class="w-full rounded-lg border border-slate-200 px-3 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-100">
+            </div>
+            <div>
+              <label for="sim-name" class="block text-xs font-semibold text-slate-700 mb-1">Votre nom <span class="font-normal text-slate-400">(optionnel)</span></label>
+              <input type="text" id="sim-name" name="nom_prospect" autocomplete="name"
+                placeholder="Prénom Nom"
+                class="w-full rounded-lg border border-slate-200 px-3 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-100">
+            </div>
+          </div>
+          <div class="mb-4">
+            <label for="sim-phone" class="block text-xs font-semibold text-slate-700 mb-1">Téléphone <span class="font-normal text-slate-400">(optionnel)</span></label>
+            <input type="tel" id="sim-phone" name="telephone" autocomplete="tel"
+              placeholder="+33 6 12 34 56 78"
+              class="w-full rounded-lg border border-slate-200 px-3 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-100">
+          </div>
+          <div class="mb-4 flex items-start gap-2">
+            <input type="checkbox" id="sim-rgpd" name="rgpd_consent" required
+              class="mt-1 h-4 w-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-400">
+            <label for="sim-rgpd" class="text-xs text-slate-600 leading-relaxed">
+              J'accepte que L'Agence Sauvage utilise mes données (raison sociale, SIREN, email) pour générer ma simulation et me recontacter. <a href="/confidentialite/" class="underline text-indigo-600 hover:text-indigo-800">Politique de confidentialité</a>.
+            </label>
+          </div>
+          <p id="sim-form-error" class="hidden mb-3 text-sm text-red-600" role="alert"></p>
+          <button type="submit" id="sim-submit-btn"
+            class="w-full rounded-lg bg-indigo-600 py-3 text-sm sm:text-base font-bold text-white hover:bg-indigo-700 transition-colors focus:outline-none focus:ring-4 focus:ring-indigo-200 disabled:opacity-50 disabled:cursor-not-allowed">
+            <span id="sim-submit-label">Voir mon budget</span>
+            <svg id="sim-submit-spinner" class="hidden inline-block animate-spin h-4 w-4 ml-2" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+            </svg>
+          </button>
+        </form>
+      </div>
+
+      {{/* ----- ÉTAT 3 — REVEAL : budget chiffrable ----- */}}
+      <div id="sim-state-reveal" class="hidden p-6 sm:p-8">
+
+        <div class="text-center mb-6">
+          <div class="inline-flex items-center gap-2 rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-800">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+            Simulation terminée — récap envoyé par email
+          </div>
+        </div>
+
+        {{/* Tuile budget central */}}
+        <div class="rounded-2xl bg-gradient-to-br from-indigo-50 to-indigo-100/50 border border-indigo-200 p-6 sm:p-8 mb-6 text-center">
+          <p class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-indigo-700 mb-2">Budget formation 2026</p>
+          <p id="sim-reveal-budget" class="text-3xl sm:text-4xl font-bold text-indigo-900 mb-2">—</p>
+          <p id="sim-reveal-opco" class="text-sm text-slate-600">—</p>
+        </div>
+
+        {{/* Liste dispositifs */}}
+        <div id="sim-reveal-dispositifs-wrap" class="hidden mb-5">
+          <h3 class="text-sm font-semibold text-slate-900 mb-3">Dispositifs activables</h3>
+          <ul id="sim-reveal-dispositifs" class="space-y-2"></ul>
+        </div>
+
+        {{/* Warnings */}}
+        <div id="sim-reveal-warnings" class="hidden mb-5 rounded-lg bg-amber-50 border border-amber-200 p-4">
+          <p class="text-xs font-semibold text-amber-900 mb-2 uppercase tracking-wide">À noter</p>
+          <ul id="sim-reveal-warnings-list" class="space-y-1.5 text-sm text-amber-900"></ul>
+        </div>
+
+        {{/* Disclaimer DGEFP obligatoire */}}
+        <p class="text-xs text-slate-500 leading-relaxed mb-6 italic">
+          Les montants indiqués sont fournis à titre indicatif (source : DGEFP, règles 2026) et sont sans valeur contractuelle. Seul votre OPCO détient le pouvoir d'engagement financier après étude de votre dossier complet.
+        </p>
+
+        {{/* CTA unique */}}
+        <a href="/diagnostic/" id="sim-reveal-cta"
+          class="block w-full rounded-lg bg-slate-deep py-3.5 text-center text-base font-bold text-white hover:bg-slate-900 transition-colors focus:outline-none focus:ring-4 focus:ring-slate-300">
+          Réservez 30 min avec un expert IA pour activer ces fonds →
+        </a>
+      </div>
+
+      {{/* ----- ÉTAT 3-bis — REVEAL : cas particulier (analyse manuelle) ----- */}}
+      <div id="sim-state-manual" class="hidden p-6 sm:p-8">
+        <div class="text-center mb-5">
+          <div class="inline-flex items-center gap-2 rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-800">
+            Analyse manuelle requise
+          </div>
+        </div>
+        <div class="rounded-2xl bg-amber-50 border border-amber-200 p-5 sm:p-6 mb-6">
+          <h3 id="sim-manual-title" class="text-base font-bold text-amber-900 mb-2">Votre situation nécessite une vérification manuelle</h3>
+          <p id="sim-manual-message" class="text-sm text-amber-900 leading-relaxed"></p>
+        </div>
+        <p class="text-xs text-slate-500 leading-relaxed mb-6 italic">
+          Notre équipe a archivé votre demande et vous recontacte sous 48h ouvrées. Pour accélérer, vous pouvez réserver un échange de 30 minutes ci-dessous.
+        </p>
+        <a href="/diagnostic/" class="block w-full rounded-lg bg-slate-deep py-3.5 text-center text-base font-bold text-white hover:bg-slate-900 transition-colors focus:outline-none focus:ring-4 focus:ring-slate-300">
+          Échangez 30 min avec un expert →
+        </a>
+      </div>
+
+      {{/* ----- ÉTAT 4 — Erreur serveur ----- */}}
+      <div id="sim-state-error" class="hidden p-6 sm:p-8 text-center">
+        <div class="rounded-2xl bg-red-50 border border-red-200 p-5 sm:p-6 mb-5">
+          <h3 class="text-base font-bold text-red-900 mb-2">Connexion interrompue</h3>
+          <p id="sim-error-message" class="text-sm text-red-800">Une erreur est survenue. Veuillez réessayer dans quelques instants.</p>
+        </div>
+        <button type="button" id="sim-error-retry"
+          class="rounded-lg bg-indigo-600 px-6 py-2.5 text-sm font-bold text-white hover:bg-indigo-700 transition-colors focus:outline-none focus:ring-4 focus:ring-indigo-200">
+          Réessayer
+        </button>
+      </div>
+
+    </div>{{/* /sim-card */}}
+
+  </div>
+</section>
+
+{{/* ============================================================
+     SECTION RÉASSURANCE — Logos OPCO + sources officielles
+     ============================================================ */}}
+<section class="bg-white py-12 sm:py-16 border-t border-slate-100">
+  <div class="mx-auto max-w-5xl px-4 sm:px-6">
+    <h2 class="text-center text-xl sm:text-2xl font-bold text-slate-900 mb-2">11 OPCO français couverts</h2>
+    <p class="text-center text-sm text-slate-600 mb-8 max-w-2xl mx-auto">
+      Le simulateur couvre l'ensemble des opérateurs de compétences agréés par France Compétences. Les règles 2026 sont issues des publications officielles et mises à jour trimestriellement.
+    </p>
+    <ul class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 text-center">
+      {{ range slice "Afdas" "Akto" "Atlas" "Constructys" "Mobilités" "Opco EP" "Opco 2i" "OCAPIAT" "Opco Santé" "Uniformation" "Cohésion sociale" }}
+      <li class="rounded-lg border border-slate-200 bg-slate-50 px-3 py-2.5 text-xs sm:text-sm font-medium text-slate-700">{{ . }}</li>
+      {{ end }}
+    </ul>
+  </div>
+</section>
+
+{{/* ============================================================
+     SECTION "COMMENT ÇA MARCHE" — pédagogie
+     ============================================================ */}}
+<section class="bg-slate-50 py-12 sm:py-16">
+  <div class="mx-auto max-w-4xl px-4 sm:px-6">
+    <h2 class="text-center text-2xl sm:text-3xl font-bold text-slate-900 mb-10">Comment fonctionne le simulateur</h2>
+    <ol class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+      <li class="bg-white rounded-xl p-5 border border-slate-200">
+        <div class="flex h-8 w-8 items-center justify-center rounded-full bg-indigo-600 text-white text-sm font-bold mb-3">1</div>
+        <h3 class="font-bold text-slate-900 mb-1.5">Reconnaissance entreprise</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">Nous interrogeons l'API officielle <strong>Recherche d'entreprises</strong> (DINUM, data.gouv.fr) à partir de votre raison sociale ou SIREN. Cette source agrège SIRENE, DSN et KALI.</p>
+      </li>
+      <li class="bg-white rounded-xl p-5 border border-slate-200">
+        <div class="flex h-8 w-8 items-center justify-center rounded-full bg-indigo-600 text-white text-sm font-bold mb-3">2</div>
+        <h3 class="font-bold text-slate-900 mb-1.5">Identification OPCO + IDCC</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">Votre convention collective (IDCC) est récupérée automatiquement depuis le payload DINUM. En cas d'absence, nous interrogeons l'API <strong>siret2idcc</strong> de la Fabrique sociale (Ministère du Travail).</p>
+      </li>
+      <li class="bg-white rounded-xl p-5 border border-slate-200">
+        <div class="flex h-8 w-8 items-center justify-center rounded-full bg-indigo-600 text-white text-sm font-bold mb-3">3</div>
+        <h3 class="font-bold text-slate-900 mb-1.5">Calcul du budget</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">Pour votre IDCC et votre tranche d'effectif, nous additionnons les <strong>dispositifs activables</strong> en 2026 : PDC, AFEST, bonus thématiques, parcours stratégique, FNE-Formation, actions collectives.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+{{ end }}
+
+{{ define "scripts" }}
+  {{ $simJS := resources.Get "js/simulateur-opco.js" }}
+  {{ if hugo.IsProduction }}
+    {{ $simJS = $simJS | minify | fingerprint }}
+  {{ end }}
+  <script defer src="{{ $simJS.RelPermalink }}"></script>
+{{ end }}

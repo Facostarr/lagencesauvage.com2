@@ -19,24 +19,29 @@
   weight = 3
 
 [[main]]
+  name = "Simulateur OPCO"
+  url = "/simulateur-opco/"
+  weight = 4
+
+[[main]]
   name = "Réalisations"
   url = "/realisations/"
-  weight = 4
+  weight = 5
 
 [[main]]
   name = "Blog"
   url = "/blog/"
-  weight = 5
+  weight = 6
 
 [[main]]
   name = "À propos"
   url = "/about/"
-  weight = 6
+  weight = 7
 
 [[main]]
   name = "Contact"
   url = "/#audit-form"
-  weight = 7
+  weight = 8
 
 # Menu footer - Services
 [[footer_services]]
@@ -76,6 +81,11 @@
   weight = 3
 
 [[footer_resources]]
+  name = "Simulateur Budget OPCO"
+  url = "/simulateur-opco/"
+  weight = 4
+
+[[footer_resources]]
   name = "FAQ"
   url = "/faq/"
-  weight = 4
+  weight = 5
