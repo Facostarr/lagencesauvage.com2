@@ -503,7 +503,8 @@ def main():
 
         content = build_page(opco)
         out_path = OUT_DIR / f"{slug}.md"
-        out_path.write_text(content, encoding="utf-8")
+        # Force LF line endings (Hugo YAML parser mishandles CRLF in quoted scalars on Windows)
+        out_path.write_bytes(content.encode("utf-8").replace(b"\r\n", b"\n"))
         written += 1
         print(f"  [OK] {out_path.relative_to(ROOT)}  ({len(content)} chars)")
 
