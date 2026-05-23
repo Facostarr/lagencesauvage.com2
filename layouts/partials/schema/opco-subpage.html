@@ -1,0 +1,90 @@
+{{/* =============================================================================
+   Schema.org @graph pour les sous-pages OPCO (/simulateur-opco/{slug}/)
+   Combine : BreadcrumbList + Service (financement formation) + FAQPage
+   ============================================================================= */}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "{{ .Permalink }}#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "{{ .Site.BaseURL }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Simulateur OPCO 2026",
+          "item": "{{ .Site.BaseURL }}simulateur-opco/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "OPCO {{ .Params.opco_nom_court }}",
+          "item": "{{ .Permalink }}"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "{{ .Permalink }}#service",
+      "name": "Financement formation professionnelle — OPCO {{ .Params.opco_nom_court }} 2026",
+      "description": {{ .Params.description | jsonify }},
+      "url": "{{ .Permalink }}",
+      "serviceType": "Financement de la formation professionnelle continue",
+      "inLanguage": "fr-FR",
+      "areaServed": {
+        "@type": "Country",
+        "name": "France"
+      },
+      "provider": {
+        "@type": "Organization",
+        "name": {{ .Params.opco_nom_officiel | jsonify }},
+        "url": "{{ .Params.opco_url_racine }}",
+        "alternateName": "OPCO {{ .Params.opco_nom_court }}"
+      },
+      "audience": {
+        "@type": "BusinessAudience",
+        "audienceType": {{ .Params.opco_audience | jsonify }}
+      },
+      "category": "Formation professionnelle continue",
+      "offers": {
+        "@type": "Offer",
+        "category": "Plan de Développement des Compétences, Période de reconversion, AFEST, abondement CPF, contrat de professionnalisation, FNE-Formation, actions collectives",
+        "priceCurrency": "EUR",
+        "eligibleRegion": {
+          "@type": "Country",
+          "name": "France"
+        }
+      },
+      "isRelatedTo": {
+        "@id": "{{ .Site.BaseURL }}simulateur-opco/#webapp"
+      }
+    }
+    {{ if .Params.faq }}
+    ,{
+      "@type": "FAQPage",
+      "@id": "{{ .Permalink }}#faq",
+      "mainEntity": [
+        {{ range $index, $faq := .Params.faq }}
+        {{ if $index }},{{ end }}
+        {
+          "@type": "Question",
+          "name": {{ $faq.question | jsonify }},
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": {{ $faq.answer | jsonify }}
+          }
+        }
+        {{ end }}
+      ]
+    }
+    {{ end }}
+  ]
+}
+</script>
