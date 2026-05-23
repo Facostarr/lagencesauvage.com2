@@ -30,7 +30,7 @@
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "OPCO {{ .Params.opco_nom_court }}",
+          "name": "{{ .Params.opco_label | default (printf "OPCO %s" .Params.opco_nom_court) }}",
           "item": "{{ .Permalink }}"
         }
       ]
@@ -38,7 +38,7 @@
     {
       "@type": "Service",
       "@id": "{{ .Permalink }}#service",
-      "name": "Financement formation professionnelle — OPCO {{ .Params.opco_nom_court }} 2026",
+      "name": "Financement formation professionnelle — {{ .Params.opco_label | default (printf "OPCO %s" .Params.opco_nom_court) }} 2026",
       "description": {{ $desc | jsonify }},
       "url": "{{ .Permalink }}",
       "serviceType": "Financement de la formation professionnelle continue",
@@ -51,7 +51,7 @@
         "@type": "Organization",
         "name": {{ $nomOff | jsonify }},
         "url": "{{ .Params.opco_url_racine }}",
-        "alternateName": "OPCO {{ .Params.opco_nom_court }}"
+        "alternateName": "{{ .Params.opco_label | default (printf "OPCO %s" .Params.opco_nom_court) }}"
       },
       "audience": {
         "@type": "BusinessAudience",

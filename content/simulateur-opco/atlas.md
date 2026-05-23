@@ -9,6 +9,7 @@ canonical: "/simulateur-opco/atlas/"
 ogImage: "/assets/images/logo-agence-sauvage.svg"
 opco_slug: atlas
 opco_nom_court: Atlas
+opco_label: OPCO Atlas
 opco_nom_officiel: Opco Atlas — Services financiers, conseil et numérique
 opco_url_racine: 'https://www.opco-atlas.fr/'
 opco_url_criteres: 'https://www.opco-atlas.fr/criteres-financement.html'
@@ -23,19 +24,19 @@ keywords:
   - "convention collective Atlas"
   - "financement formation services financiers"
 faq:
-  - question: "Quelles entreprises sont rattachées à Atlas ?"
+  - question: "Quelles entreprises sont rattachées à OPCO Atlas ?"
     answer: "L'OPCO Atlas couvre les entreprises dont la convention collective figure parmi les 14 branches couvertes (services financiers, conseil et numérique). Le rattachement est automatique selon l'IDCC de votre convention. Si vous ne le connaissez pas, notre <a href=\"/simulateur-opco/\">simulateur identifie automatiquement votre OPCO</a> depuis votre raison sociale ou votre SIREN."
-  - question: "Quels prérequis pour financer une formation via Atlas ?"
+  - question: "Quels prérequis pour financer une formation via OPCO Atlas ?"
     answer: "Trois prérequis : (1) votre entreprise doit être à jour de sa contribution formation professionnelle (CFP) versée à l'URSSAF, (2) l'organisme de formation doit être <a href=\"https://travail-emploi.gouv.fr/qualiopi-marque-de-certification-qualite-des-prestataires-de-formation\" rel=\"noopener\" target=\"_blank\">certifié Qualiopi</a> (obligatoire depuis le 1er janvier 2022), et (3) la demande de financement doit être déposée <strong>avant le démarrage de la formation</strong> (pas de prise en charge rétroactive)."
-  - question: "Le dispositif Pro-A est-il encore disponible chez Atlas ?"
-    answer: "Non. La loi du 24 octobre 2025 a remplacé Pro-A par la <strong>Période de reconversion</strong> depuis le 1er janvier 2026. Atlas a basculé ses critères vers ce nouveau dispositif. Les exigences restent comparables : alternance, certification RNCP ou CQP obligatoire, tuteur identifié dans l'entreprise."
+  - question: "Le dispositif Pro-A est-il encore disponible chez OPCO Atlas ?"
+    answer: "Non. La loi du 24 octobre 2025 a remplacé Pro-A par la <strong>Période de reconversion</strong> depuis le 1er janvier 2026. OPCO Atlas a basculé ses critères vers ce nouveau dispositif. Les exigences restent comparables : alternance, certification RNCP ou CQP obligatoire, tuteur identifié dans l'entreprise."
 ---
 
 L'Opco Atlas finance la formation professionnelle des salariés des entreprises des **services financiers, du conseil et du numérique**. Si votre convention collective figure parmi les 14 branches couvertes — notamment **Syntec (IDCC 1486)**, **Banque (IDCC 2120)** ou **Sociétés d'assurances (IDCC 1672)** — votre budget formation 2026 est mobilisable via les dispositifs ci-dessous.
 
 [**Calculez votre budget formation OPCO 2026 en 30 secondes →**](/simulateur-opco/)
 
-## Carte d'identité de l'OPCO Atlas
+## Carte d'identité — OPCO Atlas
 
 | Information | Détail |
 |---|---|
@@ -49,7 +50,7 @@ L'Opco Atlas finance la formation professionnelle des salariés des entreprises 
 
 ## Dispositifs OPCO Atlas activables en 2026
 
-Voici un récapitulatif des dispositifs de financement formation pris en charge par Atlas en 2026. Les conditions précises varient selon votre convention collective (IDCC) et la taille de votre entreprise.
+Voici un récapitulatif des dispositifs de financement formation pris en charge par OPCO Atlas en 2026. Les conditions précises varient selon votre convention collective (IDCC) et la taille de votre entreprise.
 
 | Dispositif | Éligibilité 2026 | Note |
 |---|---|---|
@@ -60,9 +61,9 @@ Voici un récapitulatif des dispositifs de financement formation pris en charge 
 | POEC (Préparation Opérationnelle à l'Emploi Collective) | À vérifier auprès de l'OPCO | — |
 | Abondement CPF par l'OPCO | À vérifier | Abondement variable selon branche, sur certifications prioritaires de branche (max 2 500€ TTC observé chez Syntec) ou… |
 
-## Branches principales couvertes par Atlas
+## Branches principales couvertes par OPCO Atlas
 
-Les 14 conventions collectives suivantes sont rattachées à Atlas. Si vous n'êtes pas certain de la vôtre, notre simulateur la détecte automatiquement depuis votre SIREN.
+Les 14 conventions collectives suivantes sont rattachées à OPCO Atlas. Si vous n'êtes pas certain de la vôtre, notre simulateur la détecte automatiquement depuis votre SIREN.
 
 - Bureaux d'études techniques, cabinets d'ingénieurs-conseils et sociétés de conseil (Syntec — IDCC 1486)
 - Banque (IDCC 2120)
@@ -79,11 +80,11 @@ Les 14 conventions collectives suivantes sont rattachées à Atlas. Si vous n'ê
 - Economistes de la construction
 - Géomètres
 
-[Calculez votre budget Atlas 2026 →](/simulateur-opco/)
+[Calculez votre budget OPCO Atlas 2026 →](/simulateur-opco/)
 
-## Analyse détaillée — Atlas en 2026
+## Analyse détaillée — OPCO Atlas en 2026
 
-Cette section restitue notre analyse complète des critères de financement publiés officiellement par Atlas. Données factuelles, sourcées et mises à jour régulièrement.
+Cette section restitue notre analyse complète des critères de financement publiés officiellement par OPCO Atlas. Données factuelles, sourcées et mises à jour régulièrement.
 
 ## Identité et positionnement
 
@@ -182,7 +183,7 @@ Snapshot raw complet : `data/raw/2026-05-12/atlas/` (16 pages critères + 3 fich
 
 ## Sources officielles
 
-Toutes les données de cette page proviennent des publications officielles de Atlas, vérifiées à la date indiquée.
+Toutes les données de cette page proviennent des publications officielles de OPCO Atlas, vérifiées à la date indiquée.
 
 - [https://www.opco-atlas.fr/criteres-financement.html](https://www.opco-atlas.fr/criteres-financement.html) (consulté le 2026-05-12)
 - [https://www.opco-atlas.fr/criteres-financement/bureaux-detudes-techniques-ingenieurs-et-conseils](https://www.opco-atlas.fr/criteres-financement/bureaux-detudes-techniques-ingenieurs-et-conseils) (consulté le 2026-05-12)
@@ -190,6 +191,6 @@ Toutes les données de cette page proviennent des publications officielles de At
 
 ## Calculez votre budget OPCO Atlas 2026
 
-Notre simulateur identifie automatiquement votre rattachement à Atlas depuis votre raison sociale ou votre numéro SIREN. Aucune connaissance préalable de votre IDCC n'est requise. Le calcul prend 30 secondes et reste sans engagement.
+Notre simulateur identifie automatiquement votre rattachement à OPCO Atlas depuis votre raison sociale ou votre numéro SIREN. Aucune connaissance préalable de votre IDCC n'est requise. Le calcul prend 30 secondes et reste sans engagement.
 
 [**Lancer le simulateur OPCO 2026 →**](/simulateur-opco/)

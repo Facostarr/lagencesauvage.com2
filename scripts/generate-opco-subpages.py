@@ -268,19 +268,36 @@ def render_branches_principales(opco: dict) -> str:
     return "\n".join(f"- {b}" for b in branches)
 
 
+def compute_opco_label(nom_court: str) -> str:
+    """Calcule le label canonique d'affichage anti-doublon."""
+    if nom_court.startswith("OPCO ") or nom_court.startswith("L'"):
+        return nom_court
+    return f"OPCO {nom_court}"
+
+
+def label_with_article(label: str) -> str:
+    """Préfixe "L'" si nécessaire pour usage dans phrases françaises.
+    "OPCO Atlas" → "L'OPCO Atlas" ; "L'Opcommerce" → "L'Opcommerce"."""
+    if label.startswith("L'"):
+        return label
+    return f"L'{label}"
+
+
 def faq_entries(opco: dict) -> list[dict]:
     """Génère 3 questions FAQ spécifiques à l'OPCO depuis les données."""
     slug = opco["slug"]
     meta = OPCO_META[slug]
     nom_court = meta["nom_court"]
+    opco_label = compute_opco_label(nom_court)
+    opco_label_art = label_with_article(opco_label)
     nb_idcc = opco.get("nb_idcc_couverts") or "plusieurs"
 
     faq: list[dict] = []
 
     faq.append({
-        "question": f"Quelles entreprises sont rattachées à {nom_court} ?",
+        "question": f"Quelles entreprises sont rattachées à {opco_label} ?",
         "answer": (
-            f"L'OPCO {nom_court} couvre les entreprises dont la convention collective figure parmi "
+            f"{opco_label_art} couvre les entreprises dont la convention collective figure parmi "
             f"les {nb_idcc} branches couvertes ({meta['audience']}). Le rattachement est automatique "
             f"selon l'IDCC de votre convention. Si vous ne le connaissez pas, notre "
             f"<a href=\"/simulateur-opco/\">simulateur identifie automatiquement votre OPCO</a> "
@@ -291,7 +308,7 @@ def faq_entries(opco: dict) -> list[dict]:
     qualiopi_required = opco.get("prerequis_qualiopi", True)
     if qualiopi_required:
         faq.append({
-            "question": f"Quels prérequis pour financer une formation via {nom_court} ?",
+            "question": f"Quels prérequis pour financer une formation via {opco_label} ?",
             "answer": (
                 f"Trois prérequis : (1) votre entreprise doit être à jour de sa contribution formation "
                 f"professionnelle (CFP) versée à l'URSSAF, (2) l'organisme de formation doit être "
@@ -305,21 +322,21 @@ def faq_entries(opco: dict) -> list[dict]:
     proa_obsolete = not pr.get("proa_encore_affiche", True)
     if proa_obsolete:
         faq.append({
-            "question": f"Le dispositif Pro-A est-il encore disponible chez {nom_court} ?",
+            "question": f"Le dispositif Pro-A est-il encore disponible chez {opco_label} ?",
             "answer": (
                 f"Non. La loi du 24 octobre 2025 a remplacé Pro-A par la <strong>Période de reconversion</strong> "
-                f"depuis le 1er janvier 2026. {nom_court} a basculé ses critères vers ce nouveau dispositif. "
+                f"depuis le 1er janvier 2026. {opco_label} a basculé ses critères vers ce nouveau dispositif. "
                 f"Les exigences restent comparables : alternance, certification RNCP ou CQP obligatoire, "
                 f"tuteur identifié dans l'entreprise."
             ),
         })
     else:
         faq.append({
-            "question": f"Comment est calculé le budget OPCO de mon entreprise chez {nom_court} ?",
+            "question": f"Comment est calculé le budget OPCO de mon entreprise chez {opco_label} ?",
             "answer": (
                 f"Le budget est calculé à partir de votre Contribution Formation Professionnelle (CFP) "
                 f"versée à l'URSSAF (0,55% de la masse salariale brute sous 11 salariés, 1% au-delà) "
-                f"et des barèmes 2026 publiés par {nom_court} pour votre convention collective. "
+                f"et des barèmes 2026 publiés par {opco_label} pour votre convention collective. "
                 f"Notre <a href=\"/simulateur-opco/\">simulateur calcule ce montant en 30 secondes</a> "
                 f"depuis votre SIREN."
             ),
@@ -358,8 +375,8 @@ def build_page(opco: dict) -> str:
     date_maj = opco.get("date_derniere_maj_humaine", opco.get("date_scraping", "2026-05-12"))
     notes = (opco.get("notes_libres") or "").strip()
 
-    # Front matter
-    title = f"OPCO {nom_court} 2026 — Budget formation, dispositifs et conventions"
+    opco_label = compute_opco_label(nom_court)
+    title = f"{opco_label} 2026 — Budget formation, dispositifs et conventions"
     description = (
         f"{nom_court} finance la formation des salariés des secteurs {audience}. "
         f"Dispositifs activables 2026 (PDC, Période de reconversion, AFEST, abondement CPF), "
@@ -381,6 +398,7 @@ def build_page(opco: dict) -> str:
         'ogImage: "/assets/images/logo-agence-sauvage.svg"',
         f"opco_slug: {yaml_escape(slug)}",
         f"opco_nom_court: {yaml_escape(nom_court)}",
+        f"opco_label: {yaml_escape(opco_label)}",
         f"opco_nom_officiel: {yaml_escape(nom_officiel)}",
         f"opco_url_racine: {yaml_escape(url_racine)}",
         f"opco_url_criteres: {yaml_escape(url_criteres)}",
@@ -389,9 +407,9 @@ def build_page(opco: dict) -> str:
         f"opco_annee: {annee}",
         f"opco_date_maj: {yaml_escape(date_maj)}",
         "keywords:",
-        f'  - "OPCO {nom_court} 2026"',
+        f'  - "{opco_label} 2026"',
         f'  - "budget formation {nom_court}"',
-        f'  - "simulateur OPCO {nom_court}"',
+        f'  - "simulateur {opco_label}"',
         f'  - "convention collective {nom_court}"',
         f'  - "financement formation {audience.split(",")[0].strip()}"',
     ]
@@ -412,7 +430,7 @@ def build_page(opco: dict) -> str:
     body.append("")
 
     # Carte d'identité
-    body.append("## Carte d'identité de l'OPCO " + nom_court)
+    body.append(f"## Carte d'identité — {opco_label}")
     body.append("")
     body.append("| Information | Détail |")
     body.append("|---|---|")
@@ -428,11 +446,11 @@ def build_page(opco: dict) -> str:
     body.append("")
 
     # Tableau dispositifs
-    body.append(f"## Dispositifs OPCO {nom_court} activables en 2026")
+    body.append(f"## Dispositifs {opco_label} activables en 2026")
     body.append("")
     body.append(
         f"Voici un récapitulatif des dispositifs de financement formation pris en charge par "
-        f"{nom_court} en 2026. Les conditions précises varient selon votre convention collective "
+        f"{opco_label} en 2026. Les conditions précises varient selon votre convention collective "
         f"(IDCC) et la taille de votre entreprise."
     )
     body.append("")
@@ -442,10 +460,10 @@ def build_page(opco: dict) -> str:
     # Branches principales
     branches_md = render_branches_principales(opco)
     if branches_md:
-        body.append(f"## Branches principales couvertes par {nom_court}")
+        body.append(f"## Branches principales couvertes par {opco_label}")
         body.append("")
         body.append(
-            f"Les {nb_idcc} conventions collectives suivantes sont rattachées à {nom_court}. Si "
+            f"Les {nb_idcc} conventions collectives suivantes sont rattachées à {opco_label}. Si "
             f"vous n'êtes pas certain de la vôtre, notre simulateur la détecte automatiquement "
             f"depuis votre SIREN."
         )
@@ -453,17 +471,17 @@ def build_page(opco: dict) -> str:
         body.append(branches_md)
         body.append("")
         body.append(
-            f"[Calculez votre budget {nom_court} 2026 →](/simulateur-opco/)"
+            f"[Calculez votre budget {opco_label} 2026 →](/simulateur-opco/)"
         )
         body.append("")
 
     # Notes éditoriales (brut)
     if notes:
-        body.append(f"## Analyse détaillée — {nom_court} en 2026")
+        body.append(f"## Analyse détaillée — {opco_label} en 2026")
         body.append("")
         body.append(
             "Cette section restitue notre analyse complète des critères de financement publiés "
-            f"officiellement par {nom_court}. Données factuelles, sourcées et mises à jour "
+            f"officiellement par {opco_label}. Données factuelles, sourcées et mises à jour "
             f"régulièrement."
         )
         body.append("")
@@ -477,17 +495,17 @@ def build_page(opco: dict) -> str:
         body.append("")
         body.append(
             "Toutes les données de cette page proviennent des publications officielles de "
-            f"{nom_court}, vérifiées à la date indiquée."
+            f"{opco_label}, vérifiées à la date indiquée."
         )
         body.append("")
         body.append(sources_md)
         body.append("")
 
     # CTA final
-    body.append(f"## Calculez votre budget OPCO {nom_court} 2026")
+    body.append(f"## Calculez votre budget {opco_label} 2026")
     body.append("")
     body.append(
-        f"Notre simulateur identifie automatiquement votre rattachement à {nom_court} depuis "
+        f"Notre simulateur identifie automatiquement votre rattachement à {opco_label} depuis "
         f"votre raison sociale ou votre numéro SIREN. Aucune connaissance préalable de votre "
         f"IDCC n'est requise. Le calcul prend 30 secondes et reste sans engagement."
     )

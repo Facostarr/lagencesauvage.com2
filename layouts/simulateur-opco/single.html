@@ -20,7 +20,7 @@
       <li aria-hidden="true" class="text-slate-300">›</li>
       <li><a href="/simulateur-opco/" class="hover:text-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-indigo-500 rounded">Simulateur OPCO 2026</a></li>
       <li aria-hidden="true" class="text-slate-300">›</li>
-      <li aria-current="page" class="text-slate-900 font-medium">OPCO {{ .Params.opco_nom_court }}</li>
+      <li aria-current="page" class="text-slate-900 font-medium">{{ .Params.opco_label | default (printf "OPCO %s" .Params.opco_nom_court) }}</li>
     </ol>
   </div>
 </nav>
@@ -32,11 +32,11 @@
   <div class="mx-auto max-w-3xl px-4 sm:px-6">
     <div class="flex justify-center mb-5">
       <span class="inline-flex items-center gap-2 rounded-full bg-indigo-500/15 border border-indigo-400/30 px-4 py-1.5 text-xs sm:text-sm font-medium text-indigo-200">
-        OPCO {{ .Params.opco_nom_court }} · Critères {{ .Params.opco_annee }} · Vérifié le {{ .Params.opco_date_maj }}
+        {{ .Params.opco_label | default (printf "OPCO %s" .Params.opco_nom_court) }} · Critères {{ .Params.opco_annee }} · Vérifié le {{ .Params.opco_date_maj }}
       </span>
     </div>
     <h1 class="text-center text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-5">
-      OPCO {{ .Params.opco_nom_court }} 2026<br class="hidden sm:block">
+      {{ .Params.opco_label | default (printf "OPCO %s" .Params.opco_nom_court) }} 2026<br class="hidden sm:block">
       <span class="text-indigo-300">Budget formation, dispositifs et conventions</span>
     </h1>
     <p class="text-center text-base sm:text-lg text-slate-300 max-w-2xl mx-auto">
@@ -66,7 +66,7 @@
 {{ if .Params.faq }}
 <section id="section-faq" class="bg-slate-50 py-12 sm:py-16">
   <div class="mx-auto max-w-3xl px-4 sm:px-6">
-    <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-6">Questions fréquentes — OPCO {{ .Params.opco_nom_court }}</h2>
+    <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-6">Questions fréquentes — {{ .Params.opco_label | default (printf "OPCO %s" .Params.opco_nom_court) }}</h2>
     <div class="space-y-3">
       {{ range $i, $faq := .Params.faq }}
       <details class="group bg-white rounded-xl border border-slate-200 hover:border-indigo-300 transition-colors" {{ if eq $i 0 }}open{{ end }}>
