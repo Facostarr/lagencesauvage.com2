@@ -1,21 +1,21 @@
 ---
-title: "OPCO Atlas 2026 — Budget formation, dispositifs et conventions"
-description: "Atlas finance la formation des salariés des secteurs services financiers, conseil et numérique. Dispositifs activables 2026 (PDC, Période de reconversion, AFEST, abondement CPF), branches couvertes, sources officielles. "
+title: OPCO Atlas 2026 — Budget formation, dispositifs et conventions
+description: 'Atlas finance la formation des salariés des secteurs services financiers, conseil et numérique. Dispositifs activables 2026 (PDC, Période de reconversion, AFEST, abondement CPF), branches couvertes, sources officielles. '
 date: 2026-05-23
 lastmod: 2026-05-23
 layout: "single"
 robots: "index, follow"
 canonical: "/simulateur-opco/atlas/"
 ogImage: "/assets/images/logo-agence-sauvage.svg"
-opco_slug: "atlas"
-opco_nom_court: "Atlas"
-opco_nom_officiel: "Opco Atlas — Services financiers, conseil et numérique"
-opco_url_racine: "https://www.opco-atlas.fr/"
-opco_url_criteres: "https://www.opco-atlas.fr/criteres-financement.html"
+opco_slug: atlas
+opco_nom_court: Atlas
+opco_nom_officiel: Opco Atlas — Services financiers, conseil et numérique
+opco_url_racine: 'https://www.opco-atlas.fr/'
+opco_url_criteres: 'https://www.opco-atlas.fr/criteres-financement.html'
 opco_nb_idcc: 14
-opco_audience: "services financiers, conseil et numérique"
+opco_audience: services financiers, conseil et numérique
 opco_annee: 2026
-opco_date_maj: "2026-05-12"
+opco_date_maj: 2026-05-12
 keywords:
   - "OPCO Atlas 2026"
   - "budget formation Atlas"

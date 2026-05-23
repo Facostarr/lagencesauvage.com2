@@ -154,7 +154,15 @@ OPCO_META: dict[str, dict] = {
 
 
 def yaml_escape(value) -> str:
-    """Quote une valeur pour insertion dans un YAML front matter."""
+    """Sérialise une valeur en YAML scalaire.
+
+    Hugo 0.158 a un bug avec les YAML quoted scalars contenant des
+    caractères spéciaux (em-dash, accents) : les guillemets de fermeture
+    sont gardés dans la valeur, ce qui pollue jsonify.
+
+    Solution : utiliser des plain scalars (sans guillemets) chaque fois
+    que possible, et fallback sur single-quoted scalars sinon.
+    """
     if value is None:
         return '""'
     if isinstance(value, bool):
@@ -162,8 +170,23 @@ def yaml_escape(value) -> str:
     if isinstance(value, (int, float)):
         return str(value)
     s = str(value)
-    s = s.replace("\\", "\\\\").replace('"', '\\"')
-    return f'"{s}"'
+    # Si la valeur contient des caractères réservés YAML, on single-quote.
+    # Sinon on laisse en plain scalar (le plus sûr face au bug Hugo).
+    reserved_chars = set(":#&*!|>'\"%@`")
+    needs_quote = (
+        not s
+        or s[0] in "-?[{,]} " + "".join(reserved_chars)
+        or s[-1] == " "
+        or any(c in reserved_chars for c in s)
+        or s.strip().lower() in {"true", "false", "yes", "no", "null", "~"}
+        or ": " in s
+        or "  " in s
+        or "\n" in s
+    )
+    if not needs_quote:
+        return s
+    # Single-quoted scalar : seuls les single-quotes doivent être doublés
+    return "'" + s.replace("'", "''") + "'"
 
 
 def render_dispositifs_table(opco: dict) -> str:
