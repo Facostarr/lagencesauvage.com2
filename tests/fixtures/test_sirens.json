@@ -1,0 +1,88 @@
+{
+  "schema_version": "2026.Q2.1",
+  "description": "Cas de test SIREN réels pour validation manuelle en S6 (QA cross-browser + 20 SIREN réels). Couvre la variété d'OPCO, de tranches d'effectif, et les cas particuliers (multi-IDCC, idcc_a_confirmer, sans salarié). Ces SIRENS DOIVENT être validés en appel live DINUM avant tout usage en production — la BDD entreprises évolue.",
+  "validation_status": "draft_to_validate_in_s6",
+  "test_cases": [
+    {
+      "categorie": "TPE_boulangerie_artisanale",
+      "siren": "499823920",
+      "raison_sociale_attendue": "BOULANGERIE AIXOISE",
+      "naf_attendu": "10.71C",
+      "idcc_attendu": 843,
+      "opco_attendu": "ep",
+      "tranche_effectif_tefen_attendue": "11",
+      "source_validation": "test live DINUM 2026-05-22, payload réel vérifié dans skill siret-idcc-resolution"
+    },
+    {
+      "categorie": "Multi_IDCC_holding",
+      "siren": "562112277",
+      "raison_sociale_attendue": "PAUL (groupe Boulangeries Holder)",
+      "idcc_attendu_multiple": [3255, 1747],
+      "idcc_retenu_apres_priorisation_siege": "à valider en live",
+      "opco_attendu": "à confirmer selon priorisation",
+      "note": "Cas multi-IDCC documenté dans skill siret-idcc-resolution. Le moteur doit prioriser siege.liste_idcc[0] et flaguer multi-IDCC en Notion."
+    },
+    {
+      "categorie": "PME_conseil_numerique_syntec",
+      "siren": "_TO_FILL_BY_FRANCK",
+      "raison_sociale_attendue": "Cabinet de conseil/numérique avec 10-49 sal",
+      "idcc_attendu": 1486,
+      "opco_attendu": "atlas",
+      "note": "Trouver un SIRET en live via recherche DINUM 'conseil' + code postal 75 ou 13"
+    },
+    {
+      "categorie": "PME_HCR",
+      "siren": "_TO_FILL_BY_FRANCK",
+      "raison_sociale_attendue": "Hôtel ou restaurant 10-49 sal",
+      "idcc_attendu": 1979,
+      "opco_attendu": "akto",
+      "note": "Cible : un hôtel 10-49 sal pour tester la tranche 11-49 PDC HCR (plancher 3000€)"
+    },
+    {
+      "categorie": "PME_audiovisuel_idcc_a_confirmer",
+      "siren": "_TO_FILL_BY_FRANCK",
+      "raison_sociale_attendue": "Société de production audiovisuelle",
+      "naf_attendu": "59.11A",
+      "idcc_attendu": "non déclaré dans BDD OPCO (à confirmer)",
+      "opco_attendu": "afdas",
+      "branche_fallback_attendue": "afdas-audiovisuel",
+      "note": "Doit déclencher le naf_fallback_index, branche_idcc_a_confirmer=true, message UX 'rattachement Afdas confirmé, convention exacte à valider'"
+    },
+    {
+      "categorie": "ETI_metallurgie",
+      "siren": "_TO_FILL_BY_FRANCK",
+      "raison_sociale_attendue": "Entreprise métallurgie 50-299 sal",
+      "idcc_attendu": "à voir (3248 ou autre)",
+      "opco_attendu": "opco2i",
+      "note": "Cas ETI pour valider l'affichage de plafonds 50-299"
+    },
+    {
+      "categorie": "TPE_artisan_btp",
+      "siren": "_TO_FILL_BY_FRANCK",
+      "raison_sociale_attendue": "Artisan BTP 1-10 sal",
+      "opco_attendu": "constructys",
+      "note": "Cas Constructys (peu d'IDCC connus dans la BDD)"
+    },
+    {
+      "categorie": "Association_uniformation",
+      "siren": "_TO_FILL_BY_FRANCK",
+      "raison_sociale_attendue": "Association loi 1901 secteur social",
+      "opco_attendu": "uniformation"
+    },
+    {
+      "categorie": "PME_commerce_de_gros",
+      "siren": "_TO_FILL_BY_FRANCK",
+      "raison_sociale_attendue": "Grossiste",
+      "idcc_attendu": 573,
+      "opco_attendu": "akto"
+    },
+    {
+      "categorie": "Entreprise_sans_salarie",
+      "siren": "_TO_FILL_BY_FRANCK",
+      "raison_sociale_attendue": "Entreprise individuelle sans salarié",
+      "tranche_effectif_tefen_attendue": "NN",
+      "comportement_attendu": "Message 'Le financement OPCO concerne les entreprises avec au moins un salarié.'"
+    }
+  ],
+  "instructions_remplissage": "Pour chaque cas marqué _TO_FILL_BY_FRANCK, faire en S6 un appel GET https://recherche-entreprises.api.gouv.fr/search?q={raison_sociale}&code_postal={cp} et choisir un SIRET réel correspondant. Ne PAS inventer de SIRET. Documenter la date du test live dans ce fichier."
+}
