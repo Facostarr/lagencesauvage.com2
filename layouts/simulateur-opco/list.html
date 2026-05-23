@@ -241,7 +241,7 @@
               <option value="">— Sélectionnez votre convention —</option>
               {{ range $opco := $opcoNames }}
                 <optgroup label="{{ $opco }}">
-                  {{ range $item := where $idccItems "opco" $opco | sort "branche" }}
+                  {{ range $item := sort (where $idccItems "opco" $opco) "branche" }}
                     <option value="{{ $item.idcc }}">{{ $item.branche }}</option>
                   {{ end }}
                 </optgroup>
