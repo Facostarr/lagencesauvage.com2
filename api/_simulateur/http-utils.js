@@ -17,7 +17,7 @@ export function applyCors(req, res) {
     res.setHeader('Access-Control-Allow-Origin', 'https://www.lagencesauvage.com');
   }
   res.setHeader('Vary', 'Origin');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   res.setHeader('Access-Control-Max-Age', '600');
 }

@@ -62,7 +62,7 @@ function shell({ prenom, bodyHtml }) {
         <tr><td style="padding:32px 40px">
           ${bodyHtml}
           <div style="margin-top:32px;text-align:center">
-            <a href="${CTA_URL}" style="display:inline-block;background:#4F46E5;color:#ffffff;text-decoration:none;padding:14px 32px;border-radius:8px;font-size:16px;font-weight:600">Réservez 30 min avec un expert IA</a>
+            <a href="${CTA_URL}" style="display:inline-block;background:#4F46E5;color:#ffffff;text-decoration:none;padding:14px 32px;border-radius:8px;font-size:16px;font-weight:600">Échangez 30 minutes avec un expert</a>
           </div>
           <p style="margin:32px 0 0;font-size:13px;color:#64748b;line-height:1.5">${DISCLAIMER}</p>
         </td></tr>
@@ -109,7 +109,7 @@ function buildManualBody({ entreprise, result }) {
       <p style="margin:0;font-size:16px;color:#78350f;line-height:1.6">${escapeHtml(message)}</p>
     </div>
     <p style="margin:24px 0 0;font-size:15px;color:#334155;line-height:1.6">
-      Réservez 30 minutes avec un expert IA : nous identifions ensemble votre dispositif de financement et votre cas d'usage prioritaire.
+      Échangez 30 minutes avec un expert. Nous identifions ensemble votre dispositif de financement et votre cas d'usage prioritaire.
     </p>`;
 }
 

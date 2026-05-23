@@ -83,6 +83,7 @@
     },
     errorMessage: $('sim-error-message'),
     errorRetry: $('sim-error-retry'),
+    srAnnounce: $('sim-sr-announce'),
   };
 
   if (!el.search || !el.card) return; // page sans simulateur, exit silencieux
@@ -94,6 +95,21 @@
     try { if (typeof window.plausible === 'function') window.plausible(event, { props: props || {} }); } catch (_) {}
   }
 
+  const STATE_SR_LABELS = {
+    hook: 'Saisissez votre raison sociale ou votre SIREN.',
+    picked: 'Entreprise reconnue. Indiquez votre email professionnel pour afficher la simulation.',
+    reveal: 'Simulation prête. Le récapitulatif est affiché ci-dessous et envoyé par email.',
+    manual: 'Votre situation nécessite une analyse manuelle. Notre équipe vous recontacte.',
+    error: 'Une erreur est survenue. Vous pouvez réessayer.',
+  };
+
+  function announceSr(message) {
+    if (!el.srAnnounce || !message) return;
+    // reset puis set pour forcer la relecture sur les LR qui débouncent
+    el.srAnnounce.textContent = '';
+    setTimeout(() => { el.srAnnounce.textContent = message; }, 30);
+  }
+
   function showState(name) {
     Object.keys(el.states).forEach((k) => {
       if (el.states[k]) el.states[k].classList.toggle('hidden', k !== name);
@@ -102,6 +118,7 @@
     if (window.location.hash !== `#${name}`) {
       try { history.pushState({ step: name }, '', `#${name}`); } catch (_) {}
     }
+    announceSr(STATE_SR_LABELS[name]);
     // Focus management
     setTimeout(() => {
       if (name === 'hook') el.search?.focus();
@@ -309,6 +326,7 @@
     el.submitBtn.disabled = true;
     el.submitLabel.textContent = 'Calcul en cours…';
     el.submitSpinner.classList.remove('hidden');
+    announceSr('Calcul de votre budget formation en cours.');
 
     const payload = {
       siret: state.entreprise.siret,
@@ -329,9 +347,10 @@
       });
       const data = await res.json().catch(() => ({ ok: false, code: 'parse_error' }));
       if (!res.ok || !data?.ok) {
-        if (data?.code === 'rgpd_missing') setError(el.formError, 'Veuillez cocher le consentement RGPD.');
+        if (data?.code === 'rgpd_missing') setError(el.formError, 'Cochez le consentement RGPD pour continuer.');
         else if (data?.code === 'rate_limited') setError(el.formError, 'Trop de tentatives. Réessayez dans une minute.');
-        else if (data?.code === 'not_found') setError(el.formError, 'SIRET introuvable côté base entreprises. Recommencez avec un autre identifiant.');
+        else if (data?.code === 'not_found') setError(el.formError, 'SIRET introuvable dans la base entreprises. Vérifiez la saisie ou contactez-nous.');
+        else if (data?.code === 'upstream_down') setError(el.formError, 'Le service entreprises de l\'État est temporairement ralenti. Réessayez dans 30 secondes.');
         else setError(el.formError, 'Une erreur est survenue. Réessayez ou contactez-nous.');
         return;
       }
@@ -342,7 +361,7 @@
       el.errorMessage.textContent = 'Le service de simulation est momentanément indisponible. Réessayez dans quelques instants.';
     } finally {
       el.submitBtn.disabled = false;
-      el.submitLabel.textContent = 'Voir mon budget';
+      el.submitLabel.textContent = 'Afficher la simulation';
       el.submitSpinner.classList.add('hidden');
     }
   });
