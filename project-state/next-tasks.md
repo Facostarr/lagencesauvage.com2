@@ -260,51 +260,63 @@ Suite des Sprints 1+2 SEO/GEO (cf. changelog 2026-05-23). 3 axes proposés en fi
 2. Sourcing **assisté par IA** (Claude/GPT extrait les PDFs OPCO) au lieu de manuel 3-4h
 3. **Pas de scraper maison** pour la maintenance — veille no-code Visualping
 
-### Sprint 1 — "Fix the Leaky Bucket" (TNS/FAF) ~8h
+### ~~Sprint 1 — "Fix the Leaky Bucket" (TNS/FAF) ~8h~~ ❌ ABANDONNÉ 2026-05-26
 
-**Hypothèse** : les TPE sans salariés (SASU, freelances IT) sont la cible la plus chaude pour l'abonnement IA 500€/mois. Il faut arrêter de les perdre.
+**Décision** : abandon total après re-challenge Claude+Gemini (consensus 9.5/10 → **3.5/10 ajusté**). Cf. mémoire `feedback_icp_finance_offre.md`.
 
-**Tâches** :
-- [ ] **Découverte (2h)** : sourcer les montants de prise en charge 2026 pour Agéfice (commerçants), FIFPL (libéraux), FAFCEA (artisans), FAF-PM (médecins). Sources : sites officiels FAF + Service-Public.fr.
-- [ ] **Contenu (3h)** : rédiger la page pilier `/simulateur-opco/dirigeants-non-salaries/` (SEO + tableau mapping NAF → FAF + intro client + sources).
-- [ ] **Dev (2h)** : modifier `assets/js/simulateur-opco.js` — si `cas_particulier === 'dirigeant_tns_sans_salarie'` OU `effectif === 0` après override → router vers la nouvelle page au lieu du CTA VIP générique.
-- [ ] **Nurturing (1h)** : créer un template email récap spécifique "FAF" dans `api/_simulateur/recap-email.js` avec lien diag IA 30 min + 3 prompts gratuits "Gagner 1h/jour" (fallback si pas de budget classique).
+**Raisons du retournement** (vérifiées via web search sources officielles 2026) :
+1. **Abonnement IA 500€/mois NON éligible FAF** (service opérationnel, pas action de formation au sens art. L6313-1). Seule la formation 1j Qualiopi via partenaire GhG est finançable.
+2. **Plafonds FAF dérisoires** : AGEFICE distanciel 500€/an, FIFPL 600-1500€/an → financent 1 jour de formation à 1000€ max. Pas un funnel d'abonnement.
+3. **Marge ASV quasi-nulle** : facturation Qualiopi obligatoire par partenaire GhG → part commission. Pas d'upsell : un freelance solo n'a pas d'équipe à équiper.
+4. **Pollution CRM** : leads "freelance solo cherchant financement" diluent le scoring vs ICP réel PME 5-200 sal.
+5. **Risque réputationnel** : promettre "financer votre transformation IA" alors que seul 1 jour de formation par partenaire est éligible.
 
-**Critère de sortie** : un freelance SASU testant le simulateur avec "0 salarié" reçoit son budget FAF et un CTA pertinent (pas un CTA générique).
-
-**Métriques de succès** :
-- Drop-off au niveau "Effectif 0" : passer de >50% (estimation actuelle) à < 10%
-- +3 leads TNS / mois traçables en Notion via `source_qualification: faf-tns`
-- Taux de clic CTA diag IA depuis page FAF : viser ≥ 8%
+**Conséquence** : on ne crée NI page pilier, NI traffic management. Les freelances tombent sur le CTA générique. Les ~8h sont 100% réallouées au Sprint 2 Big 5.
 
 ---
 
-### Sprint 2 — "The Big 5" (volume + sourcing IA-assisté) ~8h
+### Sprint 2 v2 — "High-Value 5" (ICP-driven + sourcing IA-assisté) ~8h — 🎯 PRIORITÉ 1
 
-**Hypothèse** : ajouter les 5 conventions manquantes majeures couvre 79% des salariés FR et booste la crédibilité de l'outil B2B. Mais on n'investit pas 20h de sourcing manuel : on utilise nos propres outils IA.
+**Pivot 2026-05-26** : la v1 ("Big 5" volume — Commerces alim, Transports, Chimie, Optique, Métallurgie doublon) a été révisée par consensus Claude+Gemini (3/10 ajusté) → biais "couverture salariés FR" au détriment de l'ICP fit ASV.
+
+**Hypothèse révisée** : ajouter 5 conventions à fort ICP ASV (cabinets, pharma, hospi, BTP cadres) génère plus de leads convertissables que 5 conventions à fort volume mais ICP faible (chauffeurs, ouvriers commerce alim).
+
+**High-Value 5** (consensus Claude+Gemini 9.5/10) :
+| # | IDCC | Convention | OPCO | Volume | Use case IA pivot |
+|---|------|-----------|------|--------|-------------------|
+| 1 | 787 | Experts-Comptables | EP | 150k | Pôle Financier Augmenté (case study existant ASV) |
+| 2 | 1000 | Cabinets d'Avocats | EP | 80k | Recherche jurisprudence, conclusions, Claude Enterprise |
+| 3 | 1996 | Pharmacie d'officine | EP | 75k | Ordonnances, stocks, fidélisation, agent rdv |
+| 4 | 2264 | Hospitalisation privée | Santé | 250k | Dictée médicale, RH/admin, agent rdv |
+| 5 | 1597 | BTP Cadres & ETAM | Constructys | 200k | Devis, rapports chantier (ingés vs garagistes) |
+
+**État réel de la BDD** (audit 2026-05-26) :
+- IDCC 787, 2264, 1597 : ABSENTS → à AJOUTER
+- IDCC 1000, 1996 : présents OPCO EP sans détails → à ENRICHIR
+- Correction OPCO importante : 787 est sous **OPCO Atlas** (pas EP)
 
 **Tâches** :
-- [ ] **Data (4h max)** : utiliser Claude Sonnet ou GPT-4o pour extraire les barèmes 2026 depuis les PDFs OPCO officiels pour les 5 conventions :
-  - IDCC 2216 Commerces alimentaires (L'Opcommerce — 800k sal)
-  - IDCC 16 Transports routiers (OPCO Mobilités — 700k sal)
-  - IDCC 3017 Industrie chimique (OPCO 2i — 200k sal)
-  - IDCC 1431 Optique-lunetterie (OPCO EP — 30k sal)
-  - IDCC 3248 vérifier vs 3127 actuel (CCN métallurgie unifiée 2026, OPCO 2i)
-  
-  Prompt structuré pour sortie JSON aligné `simulator-ready.json` schema + `notes_libres` rédigés.
-- [ ] **Intégration (1h)** : mettre à jour `data/opco-database.json` (projet voisin `Simulateur OPCO/`), régénérer `static/data/simulator-ready.json` via le script de build BDD, valider schémas.
-- [ ] **Dev (1h)** : étendre `api/_simulateur/naf-suggestions.js` de +15 NAFs ciblés :
-  - 47.11A-F Commerce alimentaire (6 NAFs → 2216)
-  - 49.41A/B, 49.42Z Transports routiers (3 NAFs → 16)
-  - 20.11Z, 20.13A/B, 20.14Z, 20.15Z, 20.16A/B Industrie chimique (~5 NAFs → 3017)
-  - 47.78A Optique (1 NAF → 1431)
-- [ ] **SEO (2h)** : régénérer le script `generate-opco-branches.py` pour publier les 5 fiches branches programmatiques (avec `notes_libres` extraits par IA).
+- [x] **Phase Data pilote** (2026-05-26) : IDCC 787 Experts-Comptables — JSON + notes_libres + sources officielles validés. Cf. `docs/sprint-2-bigfive-v2/idcc-787-experts-comptables.md`.
+- [ ] **Phase Data industrialisation** (~3h, session suivante) : appliquer le template validé sur IDCC 1000 (Avocats), 1996 (Pharmacie officine), 2264 (Hospi privée), 1597 (BTP Cadres ETAM). Chaque draft : WebFetch site OPCO + JSON + notes_libres ~2000 chars + sources liées. Validation Franck par draft.
+- [ ] **Intégration BDD** (~1h, après validation des 5 drafts) : insérer les 5 entrées dans `static/data/simulator-ready.json` + clarifier le workflow `data/opco-database.json` projet local vs voisin `Simulateur OPCO/`.
+- [ ] **Dev NAF suggestions** (~1h) : étendre `api/_simulateur/naf-suggestions.js` :
+  - 69.20Z Activités comptables → 787 (auto: true)
+  - 69.10Z Activités juridiques → 1000 (auto: false, beaucoup de sous-conventions)
+  - 47.73Z Pharmacie d'officine → 1996 (auto: true)
+  - 86.10Z, 86.21Z, 86.22A/B/C → 2264 (auto: true pour hospi, false pour mixtes)
+  - 71.12A/B Ingénierie BTP → 1597 (auto: false, peut aussi être Syntec)
+- [ ] **SEO 5 fiches programmatiques** (~2h) : générer via `scripts/generate-opco-branches.py`.
+
+**Dette technique parallèle (~15 min)** : fusion fiches métallurgie 3127 + 3248 (la CCN unifiée 2026 a un nouveau IDCC mais c'est la même convention) → redirection 301 + alias front matter.
+
+**Dette technique parallèle (15 min)** : fusion fiche métallurgie 3127 + 3248 (la CCN unifiée 2026 a juste un nouveau IDCC, pas une nouvelle convention) → redirection 301 ou alias front matter.
 
 **Critère de sortie** : les 5 IDCCs remontent dans le simulateur en prod ET les 5 nouvelles pages SEO sont indexables (sitemap + lastmod).
 
-**Métriques de succès** :
-- Taux "convention non couverte" (event Plausible `simulator_idcc_not_in_list`) : passer de X% (à mesurer) à < 15%
-- Couverture salariés FR : passer de 64% à ~79% sur le TOP 22 conventions
+**Métriques de succès révisées** (ICP-driven, pas volume) :
+- Taux conversion lead → diag IA depuis ces 5 fiches : viser ≥ 12% (vs ~5% sur les 20 fiches existantes mélangées)
+- Nb leads "Profession compatible offre ASV récurrente" (>= 5 sal, secteur tech/services/santé/juridique) : viser ≥ 5/mois
+- Couverture salariés FR : +12 pts (~755k salariés en plus dans des secteurs où ASV peut vendre)
 
 ---
 
@@ -352,14 +364,14 @@ Suite des Sprints 1+2 SEO/GEO (cf. changelog 2026-05-23). 3 axes proposés en fi
 
 ---
 
-### Décision GTM consensus : ORDRE D'EXÉCUTION
+### Décision GTM consensus : ORDRE D'EXÉCUTION (révisé 2026-05-26)
 
-1. **Sprint 1 d'abord** (TNS/FAF) — time-to-revenue ICP cœur cible ASV
-2. **Sprint 2 ensuite** (Big 5) — crédibilité B2B + volume salariés
+1. ~~Sprint 1 TNS/FAF~~ ❌ ABANDONNÉ — ICP mismatch + abonnement non-finançable
+2. **Sprint 2 PRIORITÉ 1** (Big 5) — crédibilité B2B + volume salariés FR (+15 pts couverture)
 3. **Sprint 3 en continu** (capture intent + drip SEO)
 4. **Sprint 4 quand bande passante** (maintenance lean)
 
-Total ~20h pour passer de 64% à ~80% couverture **trafic réel** avec funnel qualifié IA.
+Total ~18h (au lieu de ~20h) pour passer de 64% à ~80% couverture **trafic réel** avec funnel qualifié IA.
 
 ### Angles morts à surveiller (rappel Gemini)
 
