@@ -368,9 +368,25 @@
     <p class="text-center text-sm text-slate-600 mb-8 max-w-2xl mx-auto">
       Le simulateur couvre l'ensemble des opérateurs de compétences agréés par France Compétences. Les règles 2026 sont issues des publications officielles et mises à jour trimestriellement.
     </p>
+    {{/* Maillage interne : chaque card linke vers sa sous-page /simulateur-opco/{slug}/ */}}
+    {{ $opcoLinks := slice
+        (dict "label" "Afdas" "slug" "afdas")
+        (dict "label" "Akto" "slug" "akto")
+        (dict "label" "Atlas" "slug" "atlas")
+        (dict "label" "Constructys" "slug" "constructys")
+        (dict "label" "OPCO Mobilités" "slug" "mobilites")
+        (dict "label" "OPCO EP" "slug" "ep")
+        (dict "label" "OPCO 2i" "slug" "opco2i")
+        (dict "label" "OCAPIAT" "slug" "ocapiat")
+        (dict "label" "OPCO Santé" "slug" "opco-sante")
+        (dict "label" "Uniformation" "slug" "uniformation")
+        (dict "label" "L'Opcommerce" "slug" "opcommerce")
+    }}
     <ul class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 text-center">
-      {{ range slice "Afdas" "Akto" "Atlas" "Constructys" "OPCO Mobilités" "OPCO EP" "OPCO 2i" "OCAPIAT" "OPCO Santé" "Uniformation" "L'Opcommerce" }}
-      <li class="rounded-lg border border-slate-200 bg-slate-50 px-3 py-2.5 text-xs sm:text-sm font-medium text-slate-700">{{ . }}</li>
+      {{ range $opcoLinks }}
+      <li>
+        <a href="/simulateur-opco/{{ .slug }}/" class="block rounded-lg border border-slate-200 bg-slate-50 px-3 py-2.5 text-xs sm:text-sm font-medium text-slate-700 hover:bg-indigo-50 hover:border-indigo-300 hover:text-indigo-700 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-indigo-500">{{ .label }}</a>
+      </li>
       {{ end }}
     </ul>
   </div>

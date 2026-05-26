@@ -230,3 +230,122 @@ Suite des Sprints 1+2 SEO/GEO (cf. changelog 2026-05-23). 3 axes proposés en fi
 **Impact** : cosmétique (JSON valide, Google parse). Pas bloquant production mais sub-optimal pour rich snippets.
 
 **Fix à prévoir** : custom JSON template Hugo via `printf` + `replaceRE` manuel (bypass complet de `jsonify`) OU upgrade Hugo si bug fix amont. Estimer 1-2h.
+
+---
+
+## 🎯 INITIATIVE : GTM Simulateur Formation (Q2 2026)
+
+**Objectif** : Transformer le trafic du simulateur en leads IA qualifiés, avec un effort de maintenance minimal.
+**Cible couverture** : 80% du trafic réel (pas 100% des ~700 IDCCs FR — Pareto).
+
+**Plan consensus Claude+Gemini Pro 8/10 → 9.5/10 ajusté (2026-05-24)** avec 3 inversions critiques vs ma proposition initiale :
+1. Priorité **TNS/FAF avant volume salariés** (time-to-revenue ICP — SASU IT = cible chaude)
+2. Sourcing **assisté par IA** (Claude/GPT extrait les PDFs OPCO) au lieu de manuel 3-4h
+3. **Pas de scraper maison** pour la maintenance — veille no-code Visualping
+
+### Sprint 1 — "Fix the Leaky Bucket" (TNS/FAF) ~8h
+
+**Hypothèse** : les TPE sans salariés (SASU, freelances IT) sont la cible la plus chaude pour l'abonnement IA 500€/mois. Il faut arrêter de les perdre.
+
+**Tâches** :
+- [ ] **Découverte (2h)** : sourcer les montants de prise en charge 2026 pour Agéfice (commerçants), FIFPL (libéraux), FAFCEA (artisans), FAF-PM (médecins). Sources : sites officiels FAF + Service-Public.fr.
+- [ ] **Contenu (3h)** : rédiger la page pilier `/simulateur-opco/dirigeants-non-salaries/` (SEO + tableau mapping NAF → FAF + intro client + sources).
+- [ ] **Dev (2h)** : modifier `assets/js/simulateur-opco.js` — si `cas_particulier === 'dirigeant_tns_sans_salarie'` OU `effectif === 0` après override → router vers la nouvelle page au lieu du CTA VIP générique.
+- [ ] **Nurturing (1h)** : créer un template email récap spécifique "FAF" dans `api/_simulateur/recap-email.js` avec lien diag IA 30 min + 3 prompts gratuits "Gagner 1h/jour" (fallback si pas de budget classique).
+
+**Critère de sortie** : un freelance SASU testant le simulateur avec "0 salarié" reçoit son budget FAF et un CTA pertinent (pas un CTA générique).
+
+**Métriques de succès** :
+- Drop-off au niveau "Effectif 0" : passer de >50% (estimation actuelle) à < 10%
+- +3 leads TNS / mois traçables en Notion via `source_qualification: faf-tns`
+- Taux de clic CTA diag IA depuis page FAF : viser ≥ 8%
+
+---
+
+### Sprint 2 — "The Big 5" (volume + sourcing IA-assisté) ~8h
+
+**Hypothèse** : ajouter les 5 conventions manquantes majeures couvre 79% des salariés FR et booste la crédibilité de l'outil B2B. Mais on n'investit pas 20h de sourcing manuel : on utilise nos propres outils IA.
+
+**Tâches** :
+- [ ] **Data (4h max)** : utiliser Claude Sonnet ou GPT-4o pour extraire les barèmes 2026 depuis les PDFs OPCO officiels pour les 5 conventions :
+  - IDCC 2216 Commerces alimentaires (L'Opcommerce — 800k sal)
+  - IDCC 16 Transports routiers (OPCO Mobilités — 700k sal)
+  - IDCC 3017 Industrie chimique (OPCO 2i — 200k sal)
+  - IDCC 1431 Optique-lunetterie (OPCO EP — 30k sal)
+  - IDCC 3248 vérifier vs 3127 actuel (CCN métallurgie unifiée 2026, OPCO 2i)
+  
+  Prompt structuré pour sortie JSON aligné `simulator-ready.json` schema + `notes_libres` rédigés.
+- [ ] **Intégration (1h)** : mettre à jour `data/opco-database.json` (projet voisin `Simulateur OPCO/`), régénérer `static/data/simulator-ready.json` via le script de build BDD, valider schémas.
+- [ ] **Dev (1h)** : étendre `api/_simulateur/naf-suggestions.js` de +15 NAFs ciblés :
+  - 47.11A-F Commerce alimentaire (6 NAFs → 2216)
+  - 49.41A/B, 49.42Z Transports routiers (3 NAFs → 16)
+  - 20.11Z, 20.13A/B, 20.14Z, 20.15Z, 20.16A/B Industrie chimique (~5 NAFs → 3017)
+  - 47.78A Optique (1 NAF → 1431)
+- [ ] **SEO (2h)** : régénérer le script `generate-opco-branches.py` pour publier les 5 fiches branches programmatiques (avec `notes_libres` extraits par IA).
+
+**Critère de sortie** : les 5 IDCCs remontent dans le simulateur en prod ET les 5 nouvelles pages SEO sont indexables (sitemap + lastmod).
+
+**Métriques de succès** :
+- Taux "convention non couverte" (event Plausible `simulator_idcc_not_in_list`) : passer de X% (à mesurer) à < 15%
+- Couverture salariés FR : passer de 64% à ~79% sur le TOP 22 conventions
+
+---
+
+### Sprint 3 — Capture d'intentions + Drip SEO (continu post-S1/S2)
+
+**Hypothèse** : la data utilisateur doit guider les prochains ajouts BDD, et Google préfère une croissance organique des pages SEO.
+
+**Tâches** :
+- [ ] **Tracking (1h)** : configurer les events Plausible additionnels :
+  - `simulator_idcc_not_in_list` (déjà en place — vérifier)
+  - `simulator_naf_auto_corrected` (déjà en place)
+  - `simulator_faf_triggered` (à ajouter quand Sprint 1 fait)
+- [ ] **Qualification IA (1h)** : ajouter un champ optionnel dans le form de capture email après l'entreprise reconnue :
+  - "Votre objectif principal : ☐ Gagner du temps avec l'IA ☐ Outils bureautiques ☐ Formation métier ☐ Autre"
+  - Stocké dans Notion comme `objectif_form_principal`
+  - Transforme les leads "froids" en filtrables (priorité IA pour ASV)
+- [ ] **SEO Drip** : planifier la publication des 39 pages branches restantes au rythme de **4 pages/semaine maximum** (anti-Helpful Content). Choix data-driven : prendre en priorité les branches dont les NAFs ressortent dans Plausible `simulator_idcc_not_in_list`.
+
+**Critère de sortie** : Plausible remonte les vrais trous de couverture (vs hypothèses) ET le CRM Notion reçoit la qualification IA pour chaque lead.
+
+**Métriques de succès** :
+- % de leads qualifiés "IA" vs "Autre" : viser ≥ 40% de "IA"
+- Croissance impressions Search Console sur les requêtes "budget formation IDCC XXXX" : +50% en 6 semaines
+- Lead-to-diag rate sur prospects qualifiés IA : viser ≥ 12% vs ≤ 5% sur "Autre"
+
+---
+
+### Sprint 4 — Lean Maintenance (Set & Forget) ~2h setup
+
+**Hypothèse** : le re-scraping automatique coûte plus en dev qu'une veille manuelle intelligente. Pour un fondateur solo, on évite la dette technique.
+
+**Tâches** :
+- [ ] **Ops (1h)** : configurer Visualping (ou équivalent free tier) sur les 11 URLs "Critères de financement" des OPCO. Notification email si changement de texte sur la page.
+- [ ] **UX (1h)** : ajouter un micro-lien discret sous le résultat reveal :
+  - "Un barème vous semble inexact ? Signalez-le nous"
+  - Lien mailto ou petit form vers `/api/submit-feedback-simulateur`
+- [ ] (Optionnel) Abonnement newsletter Centre Inffo / France Compétences pour alertes officielles.
+
+**Critère de sortie** : le fondateur reçoit ≤ 1 email/semaine d'alerte changement barème OPCO. Maintenance trimestrielle ≤ 2h.
+
+**Métriques de succès** :
+- Temps maintenance réel : < 2h/trimestre mesuré
+- Nb signalements prospects "barème inexact" / trimestre : monitorer
+- Délai entre publication officielle nouveau barème OPCO et mise à jour BDD ASV : viser ≤ 2 semaines
+
+---
+
+### Décision GTM consensus : ORDRE D'EXÉCUTION
+
+1. **Sprint 1 d'abord** (TNS/FAF) — time-to-revenue ICP cœur cible ASV
+2. **Sprint 2 ensuite** (Big 5) — crédibilité B2B + volume salariés
+3. **Sprint 3 en continu** (capture intent + drip SEO)
+4. **Sprint 4 quand bande passante** (maintenance lean)
+
+Total ~20h pour passer de 64% à ~80% couverture **trafic réel** avec funnel qualifié IA.
+
+### Angles morts à surveiller (rappel Gemini)
+
+- **Email nurturing si pas de budget** : prospect avec budget faible/0€ ne doit pas tomber dans le vide → fallback contenu gratuit
+- **Volume vs ICP** : éviter le piège de sourcer des conventions à fort volume (transport routier, supermarchés) qui ne convertiront pas sur l'abonnement IA 500€/mois
+- **Maintenance scraper fragile** : NE PAS coder de scraper maison custom — toujours Visualping ou veille manuelle
