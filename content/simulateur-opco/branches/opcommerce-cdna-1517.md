@@ -3,7 +3,7 @@ title: Simulateur Budget Formation Commerces détail non alimentaires (IDCC 1517
 description: 'Calculez votre budget formation 2026 pour la convention Commerces détail non alimentaires (L''Opcommerce, IDCC 1517). Plafonds PDC par tranche d''effectif, dispositifs activables, sources officielles. Simulation en 30 seco'
 date: 2026-05-23
 lastmod: 2026-05-23
-layout: "single"
+layout: "branche-fiche"
 robots: "index, follow"
 canonical: "/simulateur-opco/branches/opcommerce-cdna-1517/"
 ogImage: "/assets/images/logo-agence-sauvage.svg"

@@ -3,7 +3,7 @@ title: 'Simulateur Budget Formation Sociétés d''assurances (IDCC 1672) — 202
 description: 'Calculez votre budget formation 2026 pour la convention Sociétés d''assurances (Opco Atlas, IDCC 1672). Plafonds PDC par tranche d''effectif, dispositifs activables, sources officielles. Simulation en 30 secondes.'
 date: 2026-05-23
 lastmod: 2026-05-23
-layout: "single"
+layout: "branche-fiche"
 robots: "index, follow"
 canonical: "/simulateur-opco/branches/assurances-1672/"
 ogImage: "/assets/images/logo-agence-sauvage.svg"

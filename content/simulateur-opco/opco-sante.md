@@ -2,75 +2,70 @@
 title: OPCO Santé 2026 — Budget formation, dispositifs et conventions
 description: OPCO Santé finance la formation des salariés des secteurs santé privée et médico-social privé. Dispositifs activables 2026 (PDC, Période de reconversion, AFEST, abondement CPF), branches couvertes, sources officielles. C
 date: 2026-05-23
-lastmod: 2026-05-23
-layout: "single"
-robots: "index, follow"
-canonical: "/simulateur-opco/opco-sante/"
-ogImage: "/assets/images/logo-agence-sauvage.svg"
+lastmod: '2026-05-26'
+layout: opco-fiche
+robots: index, follow
+canonical: /simulateur-opco/opco-sante/
+ogImage: /assets/images/logo-agence-sauvage.svg
 opco_slug: opco-sante
 opco_nom_court: OPCO Santé
 opco_label: OPCO Santé
 opco_nom_officiel: OPCO Santé — Opérateur de Compétences de la Santé
-opco_url_racine: 'https://www.opco-sante.fr/'
-opco_url_criteres: 'https://www.opco-sante.fr/employeur/financer-vos-formations/les-regles-de-prise-en-charge/'
+opco_url_racine: https://www.opco-sante.fr/
+opco_url_criteres: https://www.opco-sante.fr/employeur/financer-vos-formations/les-regles-de-prise-en-charge/
 opco_nb_idcc: —
 opco_audience: santé privée et médico-social privé
 opco_annee: 2026
 opco_date_maj: 2026-05-18
 keywords:
-  - "OPCO Santé 2026"
-  - "budget formation OPCO Santé"
-  - "simulateur OPCO Santé"
-  - "convention collective OPCO Santé"
-  - "financement formation santé privée et médico-social privé"
+- OPCO Santé 2026
+- budget formation OPCO Santé
+- simulateur OPCO Santé
+- convention collective OPCO Santé
+- financement formation santé privée et médico-social privé
 faq:
-  - question: "Quelles entreprises sont rattachées à OPCO Santé ?"
-    answer: "L'OPCO Santé couvre les entreprises dont la convention collective figure parmi les plusieurs branches couvertes (santé privée et médico-social privé). Le rattachement est automatique selon l'IDCC de votre convention. Si vous ne le connaissez pas, notre <a href=\"/simulateur-opco/\">simulateur identifie automatiquement votre OPCO</a> depuis votre raison sociale ou votre SIREN."
-  - question: "Quels prérequis pour financer une formation via OPCO Santé ?"
-    answer: "Trois prérequis : (1) votre entreprise doit être à jour de sa contribution formation professionnelle (CFP) versée à l'URSSAF, (2) l'organisme de formation doit être <a href=\"https://travail-emploi.gouv.fr/qualiopi-marque-de-certification-qualite-des-prestataires-de-formation\" rel=\"noopener\" target=\"_blank\">certifié Qualiopi</a> (obligatoire depuis le 1er janvier 2022), et (3) la demande de financement doit être déposée <strong>avant le démarrage de la formation</strong> (pas de prise en charge rétroactive)."
-  - question: "Le dispositif Pro-A est-il encore disponible chez OPCO Santé ?"
-    answer: "Non. La loi du 24 octobre 2025 a remplacé Pro-A par la <strong>Période de reconversion</strong> depuis le 1er janvier 2026. OPCO Santé a basculé ses critères vers ce nouveau dispositif. Les exigences restent comparables : alternance, certification RNCP ou CQP obligatoire, tuteur identifié dans l'entreprise."
+- question: Quelles entreprises sont rattachées à OPCO Santé ?
+  answer: L'OPCO Santé couvre les entreprises dont la convention collective figure parmi les plusieurs branches couvertes (santé privée et médico-social privé). Le rattachement est automatique selon l'IDCC de votre convention. Si vous ne le connaissez pas, notre <a href="/simulateur-opco/">simulateur identifie automatiquement votre OPCO</a> depuis votre raison sociale ou votre SIREN.
+- question: Quels prérequis pour financer une formation via OPCO Santé ?
+  answer: 'Trois prérequis : (1) votre entreprise doit être à jour de sa contribution formation professionnelle (CFP) versée à l''URSSAF, (2) l''organisme de formation doit être <a href="https://travail-emploi.gouv.fr/qualiopi-marque-de-certification-qualite-des-prestataires-de-formation" rel="noopener" target="_blank">certifié Qualiopi</a> (obligatoire depuis le 1er janvier 2022), et (3) la demande de financement doit être déposée <strong>avant le démarrage de la formation</strong> (pas de prise en charge rétroactive).'
+- question: Le dispositif Pro-A est-il encore disponible chez OPCO Santé ?
+  answer: 'Non. La loi du 24 octobre 2025 a remplacé Pro-A par la <strong>Période de reconversion</strong> depuis le 1er janvier 2026. OPCO Santé a basculé ses critères vers ce nouveau dispositif. Les exigences restent comparables : alternance, certification RNCP ou CQP obligatoire, tuteur identifié dans l''entreprise.'
+dispositifs_2026:
+- nom: Plan de Développement des Compétences (PDC)
+  statut: eligible
+  note: 'Cibles : moins-50'
+- nom: Contrat de professionnalisation
+  statut: eligible
+  note: 'Forfait horaire : 9.15€/h'
+- nom: Période de reconversion
+  statut: eligible
+  note: Remplace Pro-A depuis le 1er janvier 2026 — certification RNCP, CQP requise
+- nom: FNE-Formation
+  statut: a-verifier
+  note: Instruit par l'OPCO
+- nom: POEC (Préparation Opérationnelle à l'Emploi Collective)
+  statut: a-verifier
+  note: —
+- nom: Abondement CPF par l'OPCO
+  statut: a-verifier
+  note: 'FMB SSSMS : abondement CPF 4 000€ à 8 000€ + bonus co-construit 2 000€ (voir fiche branche SSSMS). FMB HP et SPSTI : …'
+branches_idcc:
+- nom: Sanitaire, social et médico-social privé à but non lucratif
+  slug: opco-sante-sssms
+- nom: Hospitalisation privée et thermalisme
+  slug: opco-sante-hp
+- nom: Services de prévention et santé au travail interentreprises
+  idcc: 897
+- nom: Entreprises ne relevant pas d'une convention collective
 ---
 
 L'OPCO Santé finance la formation professionnelle des salariés des **établissements de santé privés et du médico-social privé** : cliniques, EHPAD privés, hospitalisation privée à but non lucratif, services à la personne, aide à domicile. Si votre entreprise relève de l'une des conventions de la santé privée, votre budget formation 2026 est mobilisable via les dispositifs ci-dessous.
 
-[**Calculez votre budget formation OPCO 2026 en 30 secondes →**](/simulateur-opco/)
+{{< opco-kpi >}}
 
-## Carte d'identité — OPCO Santé
+{{< opco-dispositifs >}}
 
-| Information | Détail |
-|---|---|
-| Nom officiel | OPCO Santé — Opérateur de Compétences de la Santé |
-| Périmètre | Santé privée et médico-social privé |
-| Nombre de conventions couvertes | — |
-| Site officiel | [https://www.opco-sante.fr/](https://www.opco-sante.fr/) |
-| Critères de financement | [Voir la page officielle](https://www.opco-sante.fr/employeur/financer-vos-formations/les-regles-de-prise-en-charge/) |
-| Année d'application des critères | 2026 |
-| Dernière mise à jour humaine | 2026-05-18 |
-
-## Dispositifs OPCO Santé activables en 2026
-
-Voici un récapitulatif des dispositifs de financement formation pris en charge par OPCO Santé en 2026. Les conditions précises varient selon votre convention collective (IDCC) et la taille de votre entreprise.
-
-| Dispositif | Éligibilité 2026 | Note |
-|---|---|---|
-| Plan de Développement des Compétences (PDC) | ✅ Éligible | Cibles : moins-50 |
-| Contrat de professionnalisation | ✅ Éligible | Forfait horaire : 9.15€/h |
-| Période de reconversion | ✅ Éligible | Remplace Pro-A depuis le 1er janvier 2026 — certification RNCP, CQP requise |
-| FNE-Formation | À vérifier | Instruit par l'OPCO |
-| POEC (Préparation Opérationnelle à l'Emploi Collective) | À vérifier auprès de l'OPCO | — |
-| Abondement CPF par l'OPCO | À vérifier | FMB SSSMS : abondement CPF 4 000€ à 8 000€ + bonus co-construit 2 000€ (voir fiche branche SSSMS). FMB HP et SPSTI : … |
-
-## Branches principales couvertes par OPCO Santé
-
-Les — conventions collectives suivantes sont rattachées à OPCO Santé. Si vous n'êtes pas certain de la vôtre, notre simulateur la détecte automatiquement depuis votre SIREN.
-
-- Sanitaire, social et médico-social privé à but non lucratif (SSSMS)
-- Hospitalisation privée et thermalisme (HP)
-- Services de prévention et santé au travail interentreprises (SPSTI — IDCC 897)
-- Entreprises ne relevant pas d'une convention collective (Hors CC)
-
-[Calculez votre budget OPCO Santé 2026 →](/simulateur-opco/)
+{{< opco-branches >}}
 
 ## Analyse détaillée — OPCO Santé en 2026
 
@@ -159,8 +154,6 @@ Toutes les données de cette page proviennent des publications officielles de OP
 - [https://www.opco-sante.fr/app/uploads/2026/05/opco0274_synthese-des-prise-en-charge-sssms_pdf_site.pdf](https://www.opco-sante.fr/app/uploads/2026/05/opco0274_synthese-des-prise-en-charge-sssms_pdf_site.pdf) (consulté le 2026-05-18)
 - [https://www.opco-sante.fr/app/uploads/2026/05/opco0275_synthese-des-prise-en-charge-hp_pdf_site.pdf](https://www.opco-sante.fr/app/uploads/2026/05/opco0275_synthese-des-prise-en-charge-hp_pdf_site.pdf) (consulté le 2026-05-18)
 - [https://www.opco-sante.fr/app/uploads/2026/05/opco0276_synthese-des-prise-en-charge-spsti_pdf_site.pdf](https://www.opco-sante.fr/app/uploads/2026/05/opco0276_synthese-des-prise-en-charge-spsti_pdf_site.pdf) (consulté le 2026-05-18)
-
-## Calculez votre budget OPCO Santé 2026
 
 Notre simulateur identifie automatiquement votre rattachement à OPCO Santé depuis votre raison sociale ou votre numéro SIREN. Aucune connaissance préalable de votre IDCC n'est requise. Le calcul prend 30 secondes et reste sans engagement.
 

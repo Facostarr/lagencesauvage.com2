@@ -3,7 +3,7 @@ title: 'Simulateur Budget Formation Services de l''automobile (IDCC 1090) — 20
 description: 'Calculez votre budget formation 2026 pour la convention Services de l''automobile (OPCO Mobilités, IDCC 1090). Plafonds PDC par tranche d''effectif, dispositifs activables, sources officielles. Simulation en 30 secondes.'
 date: 2026-05-23
 lastmod: 2026-05-23
-layout: "single"
+layout: "branche-fiche"
 robots: "index, follow"
 canonical: "/simulateur-opco/branches/mobilites-services-auto-1090/"
 ogImage: "/assets/images/logo-agence-sauvage.svg"

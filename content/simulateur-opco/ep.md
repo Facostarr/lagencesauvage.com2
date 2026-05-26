@@ -2,76 +2,71 @@
 title: OPCO EP 2026 — Budget formation, dispositifs et conventions
 description: OPCO EP finance la formation des salariés des secteurs entreprises de proximité — artisanat, professions libérales, services. Dispositifs activables 2026 (PDC, Période de reconversion, AFEST, abondement CPF), branches co
 date: 2026-05-23
-lastmod: 2026-05-23
-layout: "single"
-robots: "index, follow"
-canonical: "/simulateur-opco/ep/"
-ogImage: "/assets/images/logo-agence-sauvage.svg"
+lastmod: '2026-05-26'
+layout: opco-fiche
+robots: index, follow
+canonical: /simulateur-opco/ep/
+ogImage: /assets/images/logo-agence-sauvage.svg
 opco_slug: ep
 opco_nom_court: OPCO EP
 opco_label: OPCO EP
 opco_nom_officiel: OPCO EP — Opco des Entreprises de Proximité
-opco_url_racine: 'https://www.opcoep.fr/'
-opco_url_criteres: 'https://www.opcoep.fr/criteres-de-financement'
+opco_url_racine: https://www.opcoep.fr/
+opco_url_criteres: https://www.opcoep.fr/criteres-de-financement
 opco_nb_idcc: 54
 opco_audience: entreprises de proximité — artisanat, professions libérales, services
 opco_annee: 2026
 opco_date_maj: 2026-05-18
 keywords:
-  - "OPCO EP 2026"
-  - "budget formation OPCO EP"
-  - "simulateur OPCO EP"
-  - "convention collective OPCO EP"
-  - "financement formation entreprises de proximité — artisanat"
+- OPCO EP 2026
+- budget formation OPCO EP
+- simulateur OPCO EP
+- convention collective OPCO EP
+- financement formation entreprises de proximité — artisanat
 faq:
-  - question: "Quelles entreprises sont rattachées à OPCO EP ?"
-    answer: "L'OPCO EP couvre les entreprises dont la convention collective figure parmi les 54 branches couvertes (entreprises de proximité — artisanat, professions libérales, services). Le rattachement est automatique selon l'IDCC de votre convention. Si vous ne le connaissez pas, notre <a href=\"/simulateur-opco/\">simulateur identifie automatiquement votre OPCO</a> depuis votre raison sociale ou votre SIREN."
-  - question: "Quels prérequis pour financer une formation via OPCO EP ?"
-    answer: "Trois prérequis : (1) votre entreprise doit être à jour de sa contribution formation professionnelle (CFP) versée à l'URSSAF, (2) l'organisme de formation doit être <a href=\"https://travail-emploi.gouv.fr/qualiopi-marque-de-certification-qualite-des-prestataires-de-formation\" rel=\"noopener\" target=\"_blank\">certifié Qualiopi</a> (obligatoire depuis le 1er janvier 2022), et (3) la demande de financement doit être déposée <strong>avant le démarrage de la formation</strong> (pas de prise en charge rétroactive)."
-  - question: "Le dispositif Pro-A est-il encore disponible chez OPCO EP ?"
-    answer: "Non. La loi du 24 octobre 2025 a remplacé Pro-A par la <strong>Période de reconversion</strong> depuis le 1er janvier 2026. OPCO EP a basculé ses critères vers ce nouveau dispositif. Les exigences restent comparables : alternance, certification RNCP ou CQP obligatoire, tuteur identifié dans l'entreprise."
+- question: Quelles entreprises sont rattachées à OPCO EP ?
+  answer: L'OPCO EP couvre les entreprises dont la convention collective figure parmi les 54 branches couvertes (entreprises de proximité — artisanat, professions libérales, services). Le rattachement est automatique selon l'IDCC de votre convention. Si vous ne le connaissez pas, notre <a href="/simulateur-opco/">simulateur identifie automatiquement votre OPCO</a> depuis votre raison sociale ou votre SIREN.
+- question: Quels prérequis pour financer une formation via OPCO EP ?
+  answer: 'Trois prérequis : (1) votre entreprise doit être à jour de sa contribution formation professionnelle (CFP) versée à l''URSSAF, (2) l''organisme de formation doit être <a href="https://travail-emploi.gouv.fr/qualiopi-marque-de-certification-qualite-des-prestataires-de-formation" rel="noopener" target="_blank">certifié Qualiopi</a> (obligatoire depuis le 1er janvier 2022), et (3) la demande de financement doit être déposée <strong>avant le démarrage de la formation</strong> (pas de prise en charge rétroactive).'
+- question: Le dispositif Pro-A est-il encore disponible chez OPCO EP ?
+  answer: 'Non. La loi du 24 octobre 2025 a remplacé Pro-A par la <strong>Période de reconversion</strong> depuis le 1er janvier 2026. OPCO EP a basculé ses critères vers ce nouveau dispositif. Les exigences restent comparables : alternance, certification RNCP ou CQP obligatoire, tuteur identifié dans l''entreprise.'
+dispositifs_2026:
+- nom: Plan de Développement des Compétences (PDC)
+  statut: eligible
+  note: 'Cibles : moins-11, 11-49, 50-299'
+- nom: Contrat de professionnalisation
+  statut: eligible
+  note: 'Forfait horaire : 9.15€/h'
+- nom: Période de reconversion
+  statut: eligible
+  note: Remplace Pro-A depuis le 1er janvier 2026 — certification RNCP, CQP requise
+- nom: FNE-Formation
+  statut: a-verifier
+  note: Instruit par l'OPCO
+- nom: POEC (Préparation Opérationnelle à l'Emploi Collective)
+  statut: a-verifier
+  note: —
+- nom: Abondement CPF par l'OPCO
+  statut: a-verifier
+  note: —
+branches_idcc:
+- nom: Immobilier
+  idcc: 1527
+  slug: ep-immobilier-1527
+- nom: Professions libérales
+- nom: Artisanat alimentaire
+  idcc: 843
+- nom: Services aux particuliers
+- nom: 30+ autres branches de proximité
 ---
 
 L'OPCO EP (Entreprises de Proximité) finance la formation professionnelle des salariés de **l'artisanat, des professions libérales et des services de proximité**. Il couvre 54 branches — pharmacie, coiffure, boulangerie, automobile, fleuristerie, professions juridiques, professions de santé libérales, etc. Si votre entreprise relève de l'une de ces conventions, votre budget formation 2026 est mobilisable via les dispositifs ci-dessous.
 
-[**Calculez votre budget formation OPCO 2026 en 30 secondes →**](/simulateur-opco/)
+{{< opco-kpi >}}
 
-## Carte d'identité — OPCO EP
+{{< opco-dispositifs >}}
 
-| Information | Détail |
-|---|---|
-| Nom officiel | OPCO EP — Opco des Entreprises de Proximité |
-| Périmètre | Entreprises de proximité — artisanat, professions libérales, services |
-| Nombre de conventions couvertes | 54 |
-| Site officiel | [https://www.opcoep.fr/](https://www.opcoep.fr/) |
-| Critères de financement | [Voir la page officielle](https://www.opcoep.fr/criteres-de-financement) |
-| Année d'application des critères | 2026 |
-| Dernière mise à jour humaine | 2026-05-18 |
-
-## Dispositifs OPCO EP activables en 2026
-
-Voici un récapitulatif des dispositifs de financement formation pris en charge par OPCO EP en 2026. Les conditions précises varient selon votre convention collective (IDCC) et la taille de votre entreprise.
-
-| Dispositif | Éligibilité 2026 | Note |
-|---|---|---|
-| Plan de Développement des Compétences (PDC) | ✅ Éligible | Cibles : moins-11, 11-49, 50-299 |
-| Contrat de professionnalisation | ✅ Éligible | Forfait horaire : 9.15€/h |
-| Période de reconversion | ✅ Éligible | Remplace Pro-A depuis le 1er janvier 2026 — certification RNCP, CQP requise |
-| FNE-Formation | À vérifier | Instruit par l'OPCO |
-| POEC (Préparation Opérationnelle à l'Emploi Collective) | À vérifier auprès de l'OPCO | — |
-| Abondement CPF par l'OPCO | À vérifier |  |
-
-## Branches principales couvertes par OPCO EP
-
-Les 54 conventions collectives suivantes sont rattachées à OPCO EP. Si vous n'êtes pas certain de la vôtre, notre simulateur la détecte automatiquement depuis votre SIREN.
-
-- Immobilier (IDCC 1527, 1512)
-- Professions libérales (avocats, notaires, pharmacie, médecins, vétérinaires, géomètres…)
-- Artisanat alimentaire (boulangerie IDCC 843, boucherie 992, charcuterie 953, pâtisserie 1267…)
-- Services aux particuliers (coiffure 2596, esthétique 3032, SAP 3127, emploi à domicile 3239…)
-- 30+ autres branches de proximité
-
-[Calculez votre budget OPCO EP 2026 →](/simulateur-opco/)
+{{< opco-branches >}}
 
 ## Analyse détaillée — OPCO EP en 2026
 
@@ -154,8 +149,6 @@ EP met à jour ses critères **branche par branche** (ex: Immobilier MAJ 08/04/2
 Toutes les données de cette page proviennent des publications officielles de OPCO EP, vérifiées à la date indiquée.
 
 - [https://www.opcoep.fr/criteres-de-financement?branche=187](https://www.opcoep.fr/criteres-de-financement?branche=187) (consulté le 2026-05-18)
-
-## Calculez votre budget OPCO EP 2026
 
 Notre simulateur identifie automatiquement votre rattachement à OPCO EP depuis votre raison sociale ou votre numéro SIREN. Aucune connaissance préalable de votre IDCC n'est requise. Le calcul prend 30 secondes et reste sans engagement.
 

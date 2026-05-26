@@ -3,7 +3,7 @@ title: Simulateur Budget Formation HCR (Hôtellerie-Restauration) (IDCC 1979) �
 description: 'Calculez votre budget formation 2026 pour la convention HCR (Hôtellerie-Restauration) (AKTO, IDCC 1979). Plafonds PDC par tranche d''effectif, dispositifs activables, sources officielles. Simulation en 30 secondes.'
 date: 2026-05-23
 lastmod: 2026-05-23
-layout: "single"
+layout: "branche-fiche"
 robots: "index, follow"
 canonical: "/simulateur-opco/branches/akto-hcr-1979/"
 ogImage: "/assets/images/logo-agence-sauvage.svg"
