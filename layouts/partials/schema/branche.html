@@ -1,0 +1,97 @@
+{{/* =============================================================================
+   Schema.org @graph pour les fiches branches IDCC
+   (/simulateur-opco/branches/{slug}/)
+
+   Combine : BreadcrumbList (4 niveaux) + WebPage (mainEntity ciblée IDCC) + FAQPage.
+   Recommandation Gemini Pro : pas de Service (on n'est pas l'OPCO) ni de Dataset (lourd).
+   ============================================================================= */}}
+{{ $desc       := .Description }}
+{{ $nomCourt   := .Params.branche_nom_court | strings.TrimPrefix "\"" | strings.TrimSuffix "\"" }}
+{{ $nomBranche := .Params.branche_nom       | strings.TrimPrefix "\"" | strings.TrimSuffix "\"" }}
+{{ $opcoLabel  := .Params.branche_opco_label | strings.TrimPrefix "\"" | strings.TrimSuffix "\"" }}
+{{ $opcoSlug   := .Params.branche_opco_slug }}
+{{ $idcc       := .Params.branche_idcc_primary }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "{{ .Permalink }}#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "{{ .Site.BaseURL }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Simulateur OPCO 2026",
+          "item": "{{ .Site.BaseURL }}simulateur-opco/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Conventions collectives",
+          "item": "{{ .Site.BaseURL }}simulateur-opco/branches/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": {{ $nomCourt | jsonify }},
+          "item": "{{ .Permalink }}"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "{{ .Permalink }}#webpage",
+      "url": "{{ .Permalink }}",
+      "name": {{ .Title | jsonify }},
+      "description": {{ $desc | jsonify }},
+      "inLanguage": "fr-FR",
+      "isPartOf": {
+        "@id": "{{ .Site.BaseURL }}simulateur-opco/#webapp"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": {{ printf "Convention collective %s (IDCC %v)" $nomBranche $idcc | jsonify }},
+        "identifier": "{{ $idcc }}",
+        "url": "https://www.legifrance.gouv.fr/conv_coll/id/KALICONT0000{{ $idcc }}/"
+      },
+      "datePublished": "{{ .PublishDate.Format "2006-01-02" }}",
+      "dateModified": "{{ .Lastmod.Format "2006-01-02" }}",
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "{{ .Site.BaseURL }}assets/images/logo-agence-sauvage.svg"
+      },
+      "breadcrumb": {
+        "@id": "{{ .Permalink }}#breadcrumb"
+      }
+    }
+    {{ if .Params.faq }}
+    ,{
+      "@type": "FAQPage",
+      "@id": "{{ .Permalink }}#faq",
+      "mainEntity": [
+        {{ range $index, $faq := .Params.faq }}
+        {{ if $index }},{{ end }}
+        {{ $q := $faq.question | strings.TrimPrefix "\"" | strings.TrimSuffix "\"" }}
+        {{ $a := $faq.answer   | strings.TrimPrefix "\"" | strings.TrimSuffix "\"" }}
+        {
+          "@type": "Question",
+          "name": {{ $q | jsonify }},
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": {{ $a | jsonify }}
+          }
+        }
+        {{ end }}
+      ]
+    }
+    {{ end }}
+  ]
+}
+</script>
