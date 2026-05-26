@@ -2,92 +2,110 @@
 title: OPCO AKTO 2026 — Budget formation, dispositifs et conventions
 description: 'AKTO finance la formation des salariés des secteurs services à forte intensité de main-d''œuvre. Dispositifs activables 2026 (PDC, Période de reconversion, AFEST, abondement CPF), branches couvertes, sources officielles. '
 date: 2026-05-23
-lastmod: 2026-05-23
-layout: "single"
-robots: "index, follow"
-canonical: "/simulateur-opco/akto/"
-ogImage: "/assets/images/logo-agence-sauvage.svg"
+lastmod: '2026-05-26'
+layout: opco-fiche
+robots: index, follow
+canonical: /simulateur-opco/akto/
+ogImage: /assets/images/logo-agence-sauvage.svg
 opco_slug: akto
 opco_nom_court: AKTO
 opco_label: OPCO AKTO
-opco_nom_officiel: 'AKTO — Opérateur de Compétences des services à forte intensité de main-d''œuvre'
-opco_url_racine: 'https://www.akto.fr/'
-opco_url_criteres: 'https://www.akto.fr/financer-une-formation/regles-de-prise-en-charge/'
+opco_nom_officiel: AKTO — Opérateur de Compétences des services à forte intensité de main-d'œuvre
+opco_url_racine: https://www.akto.fr/
+opco_url_criteres: https://www.akto.fr/financer-une-formation/regles-de-prise-en-charge/
 opco_nb_idcc: 22
-opco_audience: 'services à forte intensité de main-d''œuvre'
+opco_audience: services à forte intensité de main-d'œuvre
 opco_annee: 2026
 opco_date_maj: 2026-05-18
 keywords:
-  - "OPCO AKTO 2026"
-  - "budget formation AKTO"
-  - "simulateur OPCO AKTO"
-  - "convention collective AKTO"
-  - "financement formation services à forte intensité de main-d'œuvre"
+- OPCO AKTO 2026
+- budget formation AKTO
+- simulateur OPCO AKTO
+- convention collective AKTO
+- financement formation services à forte intensité de main-d'œuvre
 faq:
-  - question: "Quelles entreprises sont rattachées à OPCO AKTO ?"
-    answer: "L'OPCO AKTO couvre les entreprises dont la convention collective figure parmi les 22 branches couvertes (services à forte intensité de main-d'œuvre). Le rattachement est automatique selon l'IDCC de votre convention. Si vous ne le connaissez pas, notre <a href=\"/simulateur-opco/\">simulateur identifie automatiquement votre OPCO</a> depuis votre raison sociale ou votre SIREN."
-  - question: "Quels prérequis pour financer une formation via OPCO AKTO ?"
-    answer: "Trois prérequis : (1) votre entreprise doit être à jour de sa contribution formation professionnelle (CFP) versée à l'URSSAF, (2) l'organisme de formation doit être <a href=\"https://travail-emploi.gouv.fr/qualiopi-marque-de-certification-qualite-des-prestataires-de-formation\" rel=\"noopener\" target=\"_blank\">certifié Qualiopi</a> (obligatoire depuis le 1er janvier 2022), et (3) la demande de financement doit être déposée <strong>avant le démarrage de la formation</strong> (pas de prise en charge rétroactive)."
-  - question: "Le dispositif Pro-A est-il encore disponible chez OPCO AKTO ?"
-    answer: "Non. La loi du 24 octobre 2025 a remplacé Pro-A par la <strong>Période de reconversion</strong> depuis le 1er janvier 2026. OPCO AKTO a basculé ses critères vers ce nouveau dispositif. Les exigences restent comparables : alternance, certification RNCP ou CQP obligatoire, tuteur identifié dans l'entreprise."
+- question: Quelles entreprises sont rattachées à OPCO AKTO ?
+  answer: L'OPCO AKTO couvre les entreprises dont la convention collective figure parmi les 22 branches couvertes (services à forte intensité de main-d'œuvre). Le rattachement est automatique selon l'IDCC de votre convention. Si vous ne le connaissez pas, notre <a href="/simulateur-opco/">simulateur identifie automatiquement votre OPCO</a> depuis votre raison sociale ou votre SIREN.
+- question: Quels prérequis pour financer une formation via OPCO AKTO ?
+  answer: 'Trois prérequis : (1) votre entreprise doit être à jour de sa contribution formation professionnelle (CFP) versée à l''URSSAF, (2) l''organisme de formation doit être <a href="https://travail-emploi.gouv.fr/qualiopi-marque-de-certification-qualite-des-prestataires-de-formation" rel="noopener" target="_blank">certifié Qualiopi</a> (obligatoire depuis le 1er janvier 2022), et (3) la demande de financement doit être déposée <strong>avant le démarrage de la formation</strong> (pas de prise en charge rétroactive).'
+- question: Le dispositif Pro-A est-il encore disponible chez OPCO AKTO ?
+  answer: 'Non. La loi du 24 octobre 2025 a remplacé Pro-A par la <strong>Période de reconversion</strong> depuis le 1er janvier 2026. OPCO AKTO a basculé ses critères vers ce nouveau dispositif. Les exigences restent comparables : alternance, certification RNCP ou CQP obligatoire, tuteur identifié dans l''entreprise.'
+dispositifs_2026:
+- nom: Plan de Développement des Compétences (PDC)
+  statut: eligible
+  note: 'Cibles : moins-11, 11-49'
+- nom: Contrat de professionnalisation
+  statut: eligible
+  note: 'Forfait horaire : 11.0€/h'
+- nom: Période de reconversion
+  statut: eligible
+  note: Remplace Pro-A depuis le 1er janvier 2026 — certification RNCP, CQP requise
+- nom: FNE-Formation
+  statut: a-verifier
+  note: Instruit par l'OPCO
+- nom: POEC (Préparation Opérationnelle à l'Emploi Collective)
+  statut: a-verifier
+  note: —
+- nom: Abondement CPF par l'OPCO
+  statut: a-verifier
+  note: —
+branches_idcc:
+- nom: Activités du déchet
+  idcc: 2149
+- nom: Autoroutes
+  idcc: 2583
+- nom: Cafétérias et chaînes de restaurants
+  idcc: 2060
+- nom: Commerces de gros
+  idcc: 573
+  slug: akto-commerces-gros-573
+- nom: Commerces de quincaillerie et fournitures industrielles
+  idcc: 3243
+- nom: Enseignement privé indépendant
+  idcc: 2691
+- nom: Enseignement privé non lucratif
+  idcc: 3218
+- nom: Entretien et location textile
+  idcc: 2002
+- nom: Exploitations forestières et scieries agricoles
+- nom: Hôtels, cafés, restaurants
+  idcc: 1979
+  slug: akto-hcr-1979
+- nom: Organismes de formation
+  idcc: 1516
+- nom: Portage salarial
+  idcc: 3219
+  slug: akto-portage-salarial-3219
+- nom: Prévention, sécurité
+  idcc: 1351
+  slug: akto-prevention-securite-1351
+- nom: Propreté et services
+  idcc: 3043
+  slug: akto-proprete-services-3043
+- nom: Restauration collective
+  idcc: 1266
+- nom: Restauration rapide
+  idcc: 1501
+  slug: akto-restauration-rapide-1501
+- nom: Services de l'eau et assainissement
+  idcc: 2147
+- nom: Transport et travail aérien
+  idcc: 275
+- nom: Travail mécanique du bois
+  idcc: 158
+- nom: Travail Temporaire
+  idcc: 1413
+  slug: akto-travail-temporaire-1413-2378
+- nom: Autres entreprises ressortissantes AKTO
 ---
 
 AKTO finance la formation professionnelle des salariés des **services à forte intensité de main-d'œuvre** : hôtellerie-restauration, propreté, prévention-sécurité, restauration rapide, travail temporaire, etc. Si votre entreprise dépend de l'une des 22 conventions couvertes, votre budget formation 2026 est mobilisable via les dispositifs ci-dessous.
 
-[**Calculez votre budget formation OPCO 2026 en 30 secondes →**](/simulateur-opco/)
+{{< opco-kpi >}}
 
-## Carte d'identité — OPCO AKTO
+{{< opco-dispositifs >}}
 
-| Information | Détail |
-|---|---|
-| Nom officiel | AKTO — Opérateur de Compétences des services à forte intensité de main-d'œuvre |
-| Périmètre | Services à forte intensité de main-d'œuvre |
-| Nombre de conventions couvertes | 22 |
-| Site officiel | [https://www.akto.fr/](https://www.akto.fr/) |
-| Critères de financement | [Voir la page officielle](https://www.akto.fr/financer-une-formation/regles-de-prise-en-charge/) |
-| Année d'application des critères | 2026 |
-| Dernière mise à jour humaine | 2026-05-18 |
-
-## Dispositifs OPCO AKTO activables en 2026
-
-Voici un récapitulatif des dispositifs de financement formation pris en charge par OPCO AKTO en 2026. Les conditions précises varient selon votre convention collective (IDCC) et la taille de votre entreprise.
-
-| Dispositif | Éligibilité 2026 | Note |
-|---|---|---|
-| Plan de Développement des Compétences (PDC) | ✅ Éligible | Cibles : moins-11, 11-49 |
-| Contrat de professionnalisation | ✅ Éligible | Forfait horaire : 11.0€/h |
-| Période de reconversion | ✅ Éligible | Remplace Pro-A depuis le 1er janvier 2026 — certification RNCP, CQP requise |
-| FNE-Formation | À vérifier | Instruit par l'OPCO |
-| POEC (Préparation Opérationnelle à l'Emploi Collective) | À vérifier auprès de l'OPCO | — |
-| Abondement CPF par l'OPCO | À vérifier auprès de l'OPCO | — |
-
-## Branches principales couvertes par OPCO AKTO
-
-Les 22 conventions collectives suivantes sont rattachées à OPCO AKTO. Si vous n'êtes pas certain de la vôtre, notre simulateur la détecte automatiquement depuis votre SIREN.
-
-- Activités du déchet (IDCC 2149)
-- Autoroutes (IDCC 2583)
-- Cafétérias et chaînes de restaurants (RCLS — IDCC 2060)
-- Commerces de gros (IDCC 573)
-- Commerces de quincaillerie et fournitures industrielles (IDCC 3243)
-- Enseignement privé indépendant (IDCC 2691)
-- Enseignement privé non lucratif (IDCC 3218 et 7520)
-- Entretien et location textile (IDCC 2002)
-- Exploitations forestières et scieries agricoles (IDCC non publié)
-- Hôtels, cafés, restaurants (HCR — IDCC 1979)
-- Organismes de formation (IDCC 1516)
-- Portage salarial (IDCC 3219)
-- Prévention, sécurité (IDCC 1351)
-- Propreté et services (IDCC 3043)
-- Restauration collective (IDCC 1266)
-- Restauration rapide (IDCC 1501)
-- Services de l'eau et assainissement (IDCC 2147)
-- Transport et travail aérien (IDCC 275 et 1944)
-- Travail mécanique du bois (IDCC 158)
-- Travail Temporaire (IDCC 1413 et 2378)
-- Autres entreprises ressortissantes AKTO (Interprofession)
-
-[Calculez votre budget OPCO AKTO 2026 →](/simulateur-opco/)
+{{< opco-branches >}}
 
 ## Analyse détaillée — OPCO AKTO en 2026
 
@@ -186,8 +204,6 @@ Toutes les données de cette page proviennent des publications officielles de OP
 
 - [https://www.akto.fr/financer-une-formation/regles-de-prise-en-charge/](https://www.akto.fr/financer-une-formation/regles-de-prise-en-charge/) (consulté le 2026-05-18)
 - [https://www.akto.fr/regles-de-prise-en-charge-hotels-cafes-restaurants/](https://www.akto.fr/regles-de-prise-en-charge-hotels-cafes-restaurants/) (consulté le 2026-05-18)
-
-## Calculez votre budget OPCO AKTO 2026
 
 Notre simulateur identifie automatiquement votre rattachement à OPCO AKTO depuis votre raison sociale ou votre numéro SIREN. Aucune connaissance préalable de votre IDCC n'est requise. Le calcul prend 30 secondes et reste sans engagement.
 

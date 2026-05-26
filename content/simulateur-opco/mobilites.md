@@ -2,85 +2,77 @@
 title: OPCO Mobilités 2026 — Budget formation, dispositifs et conventions
 description: OPCO Mobilités finance la formation des salariés des secteurs transports, automobile et logistique. Dispositifs activables 2026 (PDC, Période de reconversion, AFEST, abondement CPF), branches couvertes, sources officiell
 date: 2026-05-23
-lastmod: 2026-05-23
-layout: "single"
-robots: "index, follow"
-canonical: "/simulateur-opco/mobilites/"
-ogImage: "/assets/images/logo-agence-sauvage.svg"
+lastmod: '2026-05-26'
+layout: opco-fiche
+robots: index, follow
+canonical: /simulateur-opco/mobilites/
+ogImage: /assets/images/logo-agence-sauvage.svg
 opco_slug: mobilites
 opco_nom_court: OPCO Mobilités
 opco_label: OPCO Mobilités
 opco_nom_officiel: OPCO Mobilités — Opérateur de Compétences des transports et de la mobilité
-opco_url_racine: 'https://www.opcomobilites.fr/'
-opco_url_criteres: 'https://www.opcomobilites.fr/dispositifs-formation/'
+opco_url_racine: https://www.opcomobilites.fr/
+opco_url_criteres: https://www.opcomobilites.fr/dispositifs-formation/
 opco_nb_idcc: —
 opco_audience: transports, automobile et logistique
 opco_annee: 2026
 opco_date_maj: 2026-05-18
 keywords:
-  - "OPCO Mobilités 2026"
-  - "budget formation OPCO Mobilités"
-  - "simulateur OPCO Mobilités"
-  - "convention collective OPCO Mobilités"
-  - "financement formation transports"
+- OPCO Mobilités 2026
+- budget formation OPCO Mobilités
+- simulateur OPCO Mobilités
+- convention collective OPCO Mobilités
+- financement formation transports
 faq:
-  - question: "Quelles entreprises sont rattachées à OPCO Mobilités ?"
-    answer: "L'OPCO Mobilités couvre les entreprises dont la convention collective figure parmi les plusieurs branches couvertes (transports, automobile et logistique). Le rattachement est automatique selon l'IDCC de votre convention. Si vous ne le connaissez pas, notre <a href=\"/simulateur-opco/\">simulateur identifie automatiquement votre OPCO</a> depuis votre raison sociale ou votre SIREN."
-  - question: "Quels prérequis pour financer une formation via OPCO Mobilités ?"
-    answer: "Trois prérequis : (1) votre entreprise doit être à jour de sa contribution formation professionnelle (CFP) versée à l'URSSAF, (2) l'organisme de formation doit être <a href=\"https://travail-emploi.gouv.fr/qualiopi-marque-de-certification-qualite-des-prestataires-de-formation\" rel=\"noopener\" target=\"_blank\">certifié Qualiopi</a> (obligatoire depuis le 1er janvier 2022), et (3) la demande de financement doit être déposée <strong>avant le démarrage de la formation</strong> (pas de prise en charge rétroactive)."
-  - question: "Le dispositif Pro-A est-il encore disponible chez OPCO Mobilités ?"
-    answer: "Non. La loi du 24 octobre 2025 a remplacé Pro-A par la <strong>Période de reconversion</strong> depuis le 1er janvier 2026. OPCO Mobilités a basculé ses critères vers ce nouveau dispositif. Les exigences restent comparables : alternance, certification RNCP ou CQP obligatoire, tuteur identifié dans l'entreprise."
+- question: Quelles entreprises sont rattachées à OPCO Mobilités ?
+  answer: L'OPCO Mobilités couvre les entreprises dont la convention collective figure parmi les plusieurs branches couvertes (transports, automobile et logistique). Le rattachement est automatique selon l'IDCC de votre convention. Si vous ne le connaissez pas, notre <a href="/simulateur-opco/">simulateur identifie automatiquement votre OPCO</a> depuis votre raison sociale ou votre SIREN.
+- question: Quels prérequis pour financer une formation via OPCO Mobilités ?
+  answer: 'Trois prérequis : (1) votre entreprise doit être à jour de sa contribution formation professionnelle (CFP) versée à l''URSSAF, (2) l''organisme de formation doit être <a href="https://travail-emploi.gouv.fr/qualiopi-marque-de-certification-qualite-des-prestataires-de-formation" rel="noopener" target="_blank">certifié Qualiopi</a> (obligatoire depuis le 1er janvier 2022), et (3) la demande de financement doit être déposée <strong>avant le démarrage de la formation</strong> (pas de prise en charge rétroactive).'
+- question: Le dispositif Pro-A est-il encore disponible chez OPCO Mobilités ?
+  answer: 'Non. La loi du 24 octobre 2025 a remplacé Pro-A par la <strong>Période de reconversion</strong> depuis le 1er janvier 2026. OPCO Mobilités a basculé ses critères vers ce nouveau dispositif. Les exigences restent comparables : alternance, certification RNCP ou CQP obligatoire, tuteur identifié dans l''entreprise.'
+dispositifs_2026:
+- nom: Plan de Développement des Compétences (PDC)
+  statut: eligible
+  note: 'Cibles : moins-11, 11-49'
+- nom: Contrat de professionnalisation
+  statut: eligible
+  note: —
+- nom: Période de reconversion
+  statut: eligible
+  note: Remplace Pro-A depuis le 1er janvier 2026 — certification RNCP, CQP requise
+- nom: FNE-Formation
+  statut: a-verifier
+  note: Instruit par l'OPCO
+- nom: POEC (Préparation Opérationnelle à l'Emploi Collective)
+  statut: a-verifier
+  note: —
+- nom: Abondement CPF par l'OPCO
+  statut: a-verifier
+  note: —
+branches_idcc:
+- nom: Distributeurs conseils hors domicile
+- nom: Ferroviaire
+- nom: Manutention ferroviaire et travaux connexes
+- nom: Opérateurs de voyages et des guides
+- nom: Ports de plaisance
+- nom: Ports et manutention portuaire
+- nom: RATP
+- nom: Services de l'automobile
+- nom: Transport fluvial
+- nom: Transports maritimes
+- nom: Transports publics urbains de voyageurs
+- nom: Transports routiers de voyageurs
+- nom: Transports routiers et activités auxiliaires du transport
+- nom: Transports sanitaires
 ---
 
 L'OPCO Mobilités finance la formation professionnelle des salariés des secteurs **transports, services de l'automobile et logistique** : transport routier de marchandises et de voyageurs, services de l'automobile, taxis, transport sanitaire, transport urbain, etc. Si votre entreprise relève de l'une des conventions Mobilités, votre budget formation 2026 est mobilisable via les dispositifs ci-dessous.
 
-[**Calculez votre budget formation OPCO 2026 en 30 secondes →**](/simulateur-opco/)
+{{< opco-kpi >}}
 
-## Carte d'identité — OPCO Mobilités
+{{< opco-dispositifs >}}
 
-| Information | Détail |
-|---|---|
-| Nom officiel | OPCO Mobilités — Opérateur de Compétences des transports et de la mobilité |
-| Périmètre | Transports, automobile et logistique |
-| Nombre de conventions couvertes | — |
-| Site officiel | [https://www.opcomobilites.fr/](https://www.opcomobilites.fr/) |
-| Critères de financement | [Voir la page officielle](https://www.opcomobilites.fr/dispositifs-formation/) |
-| Année d'application des critères | 2026 |
-| Dernière mise à jour humaine | 2026-05-18 |
-
-## Dispositifs OPCO Mobilités activables en 2026
-
-Voici un récapitulatif des dispositifs de financement formation pris en charge par OPCO Mobilités en 2026. Les conditions précises varient selon votre convention collective (IDCC) et la taille de votre entreprise.
-
-| Dispositif | Éligibilité 2026 | Note |
-|---|---|---|
-| Plan de Développement des Compétences (PDC) | ✅ Éligible | Cibles : moins-11, 11-49 |
-| Contrat de professionnalisation | ✅ Éligible |  |
-| Période de reconversion | ✅ Éligible | Remplace Pro-A depuis le 1er janvier 2026 — certification RNCP, CQP requise |
-| FNE-Formation | À vérifier | Instruit par l'OPCO |
-| POEC (Préparation Opérationnelle à l'Emploi Collective) | À vérifier auprès de l'OPCO | — |
-| Abondement CPF par l'OPCO | À vérifier auprès de l'OPCO | — |
-
-## Branches principales couvertes par OPCO Mobilités
-
-Les — conventions collectives suivantes sont rattachées à OPCO Mobilités. Si vous n'êtes pas certain de la vôtre, notre simulateur la détecte automatiquement depuis votre SIREN.
-
-- Distributeurs conseils hors domicile — grossistes en boissons
-- Ferroviaire
-- Manutention ferroviaire et travaux connexes
-- Opérateurs de voyages et des guides
-- Ports de plaisance
-- Ports et manutention portuaire
-- RATP
-- Services de l'automobile
-- Transport fluvial
-- Transports maritimes
-- Transports publics urbains de voyageurs
-- Transports routiers de voyageurs
-- Transports routiers et activités auxiliaires du transport
-- Transports sanitaires
-
-[Calculez votre budget OPCO Mobilités 2026 →](/simulateur-opco/)
+{{< opco-branches >}}
 
 ## Analyse détaillée — OPCO Mobilités en 2026
 
@@ -180,8 +172,6 @@ Fiche transversale uniquement. Les barèmes horaires, critères de certification
 Toutes les données de cette page proviennent des publications officielles de OPCO Mobilités, vérifiées à la date indiquée.
 
 - [https://www.opcomobilites.fr/dispositifs-formation/le-plan-de-developpement-des-competences/](https://www.opcomobilites.fr/dispositifs-formation/le-plan-de-developpement-des-competences/) (consulté le 2026-05-18)
-
-## Calculez votre budget OPCO Mobilités 2026
 
 Notre simulateur identifie automatiquement votre rattachement à OPCO Mobilités depuis votre raison sociale ou votre numéro SIREN. Aucune connaissance préalable de votre IDCC n'est requise. Le calcul prend 30 secondes et reste sans engagement.
 

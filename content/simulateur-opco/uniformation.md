@@ -2,84 +2,79 @@
 title: OPCO Uniformation 2026 — Budget formation, dispositifs et conventions
 description: Uniformation finance la formation des salariés des secteurs cohésion sociale — associatif et économie sociale. Dispositifs activables 2026 (PDC, Période de reconversion, AFEST, abondement CPF), branches couvertes, source
 date: 2026-05-23
-lastmod: 2026-05-23
-layout: "single"
-robots: "index, follow"
-canonical: "/simulateur-opco/uniformation/"
-ogImage: "/assets/images/logo-agence-sauvage.svg"
+lastmod: '2026-05-26'
+layout: opco-fiche
+robots: index, follow
+canonical: /simulateur-opco/uniformation/
+ogImage: /assets/images/logo-agence-sauvage.svg
 opco_slug: uniformation
 opco_nom_court: Uniformation
 opco_label: OPCO Uniformation
 opco_nom_officiel: Uniformation — OPCO de la Cohésion Sociale
-opco_url_racine: 'https://www.uniformation.fr/'
-opco_url_criteres: 'https://www.uniformation.fr/entreprise/formation/dispositifs-de-formation/plan-de-developpement-des-competences/financement'
+opco_url_racine: https://www.uniformation.fr/
+opco_url_criteres: https://www.uniformation.fr/entreprise/formation/dispositifs-de-formation/plan-de-developpement-des-competences/financement
 opco_nb_idcc: —
 opco_audience: cohésion sociale — associatif et économie sociale
 opco_annee: 2026
 opco_date_maj: 2026-05-18
 keywords:
-  - "OPCO Uniformation 2026"
-  - "budget formation Uniformation"
-  - "simulateur OPCO Uniformation"
-  - "convention collective Uniformation"
-  - "financement formation cohésion sociale — associatif et économie sociale"
+- OPCO Uniformation 2026
+- budget formation Uniformation
+- simulateur OPCO Uniformation
+- convention collective Uniformation
+- financement formation cohésion sociale — associatif et économie sociale
 faq:
-  - question: "Quelles entreprises sont rattachées à OPCO Uniformation ?"
-    answer: "L'OPCO Uniformation couvre les entreprises dont la convention collective figure parmi les plusieurs branches couvertes (cohésion sociale — associatif et économie sociale). Le rattachement est automatique selon l'IDCC de votre convention. Si vous ne le connaissez pas, notre <a href=\"/simulateur-opco/\">simulateur identifie automatiquement votre OPCO</a> depuis votre raison sociale ou votre SIREN."
-  - question: "Quels prérequis pour financer une formation via OPCO Uniformation ?"
-    answer: "Trois prérequis : (1) votre entreprise doit être à jour de sa contribution formation professionnelle (CFP) versée à l'URSSAF, (2) l'organisme de formation doit être <a href=\"https://travail-emploi.gouv.fr/qualiopi-marque-de-certification-qualite-des-prestataires-de-formation\" rel=\"noopener\" target=\"_blank\">certifié Qualiopi</a> (obligatoire depuis le 1er janvier 2022), et (3) la demande de financement doit être déposée <strong>avant le démarrage de la formation</strong> (pas de prise en charge rétroactive)."
-  - question: "Comment est calculé le budget OPCO de mon entreprise chez OPCO Uniformation ?"
-    answer: "Le budget est calculé à partir de votre Contribution Formation Professionnelle (CFP) versée à l'URSSAF (0,55% de la masse salariale brute sous 11 salariés, 1% au-delà) et des barèmes 2026 publiés par OPCO Uniformation pour votre convention collective. Notre <a href=\"/simulateur-opco/\">simulateur calcule ce montant en 30 secondes</a> depuis votre SIREN."
+- question: Quelles entreprises sont rattachées à OPCO Uniformation ?
+  answer: L'OPCO Uniformation couvre les entreprises dont la convention collective figure parmi les plusieurs branches couvertes (cohésion sociale — associatif et économie sociale). Le rattachement est automatique selon l'IDCC de votre convention. Si vous ne le connaissez pas, notre <a href="/simulateur-opco/">simulateur identifie automatiquement votre OPCO</a> depuis votre raison sociale ou votre SIREN.
+- question: Quels prérequis pour financer une formation via OPCO Uniformation ?
+  answer: 'Trois prérequis : (1) votre entreprise doit être à jour de sa contribution formation professionnelle (CFP) versée à l''URSSAF, (2) l''organisme de formation doit être <a href="https://travail-emploi.gouv.fr/qualiopi-marque-de-certification-qualite-des-prestataires-de-formation" rel="noopener" target="_blank">certifié Qualiopi</a> (obligatoire depuis le 1er janvier 2022), et (3) la demande de financement doit être déposée <strong>avant le démarrage de la formation</strong> (pas de prise en charge rétroactive).'
+- question: Comment est calculé le budget OPCO de mon entreprise chez OPCO Uniformation ?
+  answer: Le budget est calculé à partir de votre Contribution Formation Professionnelle (CFP) versée à l'URSSAF (0,55% de la masse salariale brute sous 11 salariés, 1% au-delà) et des barèmes 2026 publiés par OPCO Uniformation pour votre convention collective. Notre <a href="/simulateur-opco/">simulateur calcule ce montant en 30 secondes</a> depuis votre SIREN.
+dispositifs_2026:
+- nom: Plan de Développement des Compétences (PDC)
+  statut: eligible
+  note: 'Cibles : moins-11, 11-49'
+- nom: Contrat de professionnalisation
+  statut: eligible
+  note: —
+- nom: Période de reconversion
+  statut: eligible
+  note: Remplace Pro-A depuis le 1er janvier 2026 — certification RNCP, CQP requise
+- nom: FNE-Formation
+  statut: a-verifier
+  note: Instruit par l'OPCO
+- nom: POEC (Préparation Opérationnelle à l'Emploi Collective)
+  statut: a-verifier
+  note: —
+- nom: Abondement CPF par l'OPCO
+  statut: a-verifier
+  note: —
+branches_idcc:
+- nom: Aide, accompagnement, soins et services à domicile
+  slug: uniformation-saad
+- nom: ALISFA
+- nom: Ateliers et Chantiers d'Insertion
+- nom: Éclat / Animation
+  idcc: 1518
+- nom: Entreprises Sociales pour l'Habitat
+- nom: Habitat et Logement Accompagné
+- nom: Institutions de Retraite Complémentaire et de Prévoyance
+- nom: Mutualité
+  idcc: 2128
+- nom: Organismes Publics et Coopératifs de l'Habitat Social
+- nom: Régies de Quartier
+- nom: Missions Locales
+- nom: Régime Général de la Sécurité Sociale
+- nom: Tourisme Social et Familial
 ---
 
 Uniformation est l'OPCO de la **cohésion sociale**. Il finance la formation professionnelle des salariés des associations, mutuelles, économie sociale et solidaire, sport associatif, animation, services à domicile (SAAD), aide à domicile (BAD), centres sociaux, etc. Si votre structure relève de l'une de ces conventions, votre budget formation 2026 est mobilisable via les dispositifs ci-dessous.
 
-[**Calculez votre budget formation OPCO 2026 en 30 secondes →**](/simulateur-opco/)
+{{< opco-kpi >}}
 
-## Carte d'identité — OPCO Uniformation
+{{< opco-dispositifs >}}
 
-| Information | Détail |
-|---|---|
-| Nom officiel | Uniformation — OPCO de la Cohésion Sociale |
-| Périmètre | Cohésion sociale — associatif et économie sociale |
-| Nombre de conventions couvertes | — |
-| Site officiel | [https://www.uniformation.fr/](https://www.uniformation.fr/) |
-| Critères de financement | [Voir la page officielle](https://www.uniformation.fr/entreprise/formation/dispositifs-de-formation/plan-de-developpement-des-competences/financement) |
-| Année d'application des critères | 2026 |
-| Dernière mise à jour humaine | 2026-05-18 |
-
-## Dispositifs OPCO Uniformation activables en 2026
-
-Voici un récapitulatif des dispositifs de financement formation pris en charge par OPCO Uniformation en 2026. Les conditions précises varient selon votre convention collective (IDCC) et la taille de votre entreprise.
-
-| Dispositif | Éligibilité 2026 | Note |
-|---|---|---|
-| Plan de Développement des Compétences (PDC) | ✅ Éligible | Cibles : moins-11, 11-49 |
-| Contrat de professionnalisation | ✅ Éligible |  |
-| Période de reconversion | ✅ Éligible | Remplace Pro-A depuis le 1er janvier 2026 — certification RNCP, CQP requise |
-| FNE-Formation | À vérifier | Instruit par l'OPCO |
-| POEC (Préparation Opérationnelle à l'Emploi Collective) | À vérifier auprès de l'OPCO | — |
-| Abondement CPF par l'OPCO | À vérifier auprès de l'OPCO | — |
-
-## Branches principales couvertes par OPCO Uniformation
-
-Les — conventions collectives suivantes sont rattachées à OPCO Uniformation. Si vous n'êtes pas certain de la vôtre, notre simulateur la détecte automatiquement depuis votre SIREN.
-
-- Aide, accompagnement, soins et services à domicile (SAAD)
-- ALISFA — Lien social et familial
-- Ateliers et Chantiers d'Insertion (ACI)
-- Éclat / Animation (IDCC 1518)
-- Entreprises Sociales pour l'Habitat (ESH)
-- Habitat et Logement Accompagné (HLA)
-- Institutions de Retraite Complémentaire et de Prévoyance (IRC)
-- Mutualité (IDCC 2128)
-- Organismes Publics et Coopératifs de l'Habitat Social (OPCHS)
-- Régies de Quartier
-- Missions Locales
-- Régime Général de la Sécurité Sociale (RGSS)
-- Tourisme Social et Familial
-
-[Calculez votre budget OPCO Uniformation 2026 →](/simulateur-opco/)
+{{< opco-branches >}}
 
 ## Analyse détaillée — OPCO Uniformation en 2026
 
@@ -149,8 +144,6 @@ Toutes les données de cette page proviennent des publications officielles de OP
 
 - [https://www.uniformation.fr/entreprise/formation/dispositifs-de-formation/plan-de-developpement-des-competences/financement](https://www.uniformation.fr/entreprise/formation/dispositifs-de-formation/plan-de-developpement-des-competences/financement) (consulté le 2026-05-18)
 - [https://www.uniformation.fr/entreprise/uniformation-lopco-de-la-cohesion-sociale/branches-professionnelles-de-la-cohesion-sociale](https://www.uniformation.fr/entreprise/uniformation-lopco-de-la-cohesion-sociale/branches-professionnelles-de-la-cohesion-sociale) (consulté le 2026-05-18)
-
-## Calculez votre budget OPCO Uniformation 2026
 
 Notre simulateur identifie automatiquement votre rattachement à OPCO Uniformation depuis votre raison sociale ou votre numéro SIREN. Aucune connaissance préalable de votre IDCC n'est requise. Le calcul prend 30 secondes et reste sans engagement.
 

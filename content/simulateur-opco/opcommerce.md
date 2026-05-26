@@ -1,52 +1,91 @@
 ---
-title: 'L''Opcommerce 2026 — Budget formation, dispositifs et conventions'
-description: 'L''Opcommerce finance la formation des salariés des secteurs commerce et distribution. Dispositifs activables 2026 (PDC, Période de reconversion, AFEST, abondement CPF), branches couvertes, sources officielles. Calcul aut'
+title: L'Opcommerce 2026 — Budget formation, dispositifs et conventions
+description: L'Opcommerce finance la formation des salariés des secteurs commerce et distribution. Dispositifs activables 2026 (PDC, Période de reconversion, AFEST, abondement CPF), branches couvertes, sources officielles. Calcul aut
 date: 2026-05-23
-lastmod: 2026-05-23
-layout: "single"
-robots: "index, follow"
-canonical: "/simulateur-opco/opcommerce/"
-ogImage: "/assets/images/logo-agence-sauvage.svg"
+lastmod: '2026-05-26'
+layout: opco-fiche
+robots: index, follow
+canonical: /simulateur-opco/opcommerce/
+ogImage: /assets/images/logo-agence-sauvage.svg
 opco_slug: opcommerce
-opco_nom_court: 'L''Opcommerce'
-opco_label: 'L''Opcommerce'
-opco_nom_officiel: 'L''Opcommerce — Opérateur de Compétences du Commerce'
-opco_url_racine: 'https://www.lopcommerce.com/'
-opco_url_criteres: 'https://www.lopcommerce.com/entreprise/criteres-de-prise-en-charge-par-branche-professionnelle/'
+opco_nom_court: L'Opcommerce
+opco_label: L'Opcommerce
+opco_nom_officiel: L'Opcommerce — Opérateur de Compétences du Commerce
+opco_url_racine: https://www.lopcommerce.com/
+opco_url_criteres: https://www.lopcommerce.com/entreprise/criteres-de-prise-en-charge-par-branche-professionnelle/
 opco_nb_idcc: —
 opco_audience: commerce et distribution
 opco_annee: 2026
 opco_date_maj: 2026-05-18
 keywords:
-  - "L'Opcommerce 2026"
-  - "budget formation L'Opcommerce"
-  - "simulateur L'Opcommerce"
-  - "convention collective L'Opcommerce"
-  - "financement formation commerce et distribution"
+- L'Opcommerce 2026
+- budget formation L'Opcommerce
+- simulateur L'Opcommerce
+- convention collective L'Opcommerce
+- financement formation commerce et distribution
 faq:
-  - question: "Quelles entreprises sont rattachées à L'Opcommerce ?"
-    answer: "L'Opcommerce couvre les entreprises dont la convention collective figure parmi les plusieurs branches couvertes (commerce et distribution). Le rattachement est automatique selon l'IDCC de votre convention. Si vous ne le connaissez pas, notre <a href=\"/simulateur-opco/\">simulateur identifie automatiquement votre OPCO</a> depuis votre raison sociale ou votre SIREN."
-  - question: "Quels prérequis pour financer une formation via L'Opcommerce ?"
-    answer: "Trois prérequis : (1) votre entreprise doit être à jour de sa contribution formation professionnelle (CFP) versée à l'URSSAF, (2) l'organisme de formation doit être <a href=\"https://travail-emploi.gouv.fr/qualiopi-marque-de-certification-qualite-des-prestataires-de-formation\" rel=\"noopener\" target=\"_blank\">certifié Qualiopi</a> (obligatoire depuis le 1er janvier 2022), et (3) la demande de financement doit être déposée <strong>avant le démarrage de la formation</strong> (pas de prise en charge rétroactive)."
-  - question: "Comment est calculé le budget OPCO de mon entreprise chez L'Opcommerce ?"
-    answer: "Le budget est calculé à partir de votre Contribution Formation Professionnelle (CFP) versée à l'URSSAF (0,55% de la masse salariale brute sous 11 salariés, 1% au-delà) et des barèmes 2026 publiés par L'Opcommerce pour votre convention collective. Notre <a href=\"/simulateur-opco/\">simulateur calcule ce montant en 30 secondes</a> depuis votre SIREN."
+- question: Quelles entreprises sont rattachées à L'Opcommerce ?
+  answer: L'Opcommerce couvre les entreprises dont la convention collective figure parmi les plusieurs branches couvertes (commerce et distribution). Le rattachement est automatique selon l'IDCC de votre convention. Si vous ne le connaissez pas, notre <a href="/simulateur-opco/">simulateur identifie automatiquement votre OPCO</a> depuis votre raison sociale ou votre SIREN.
+- question: Quels prérequis pour financer une formation via L'Opcommerce ?
+  answer: 'Trois prérequis : (1) votre entreprise doit être à jour de sa contribution formation professionnelle (CFP) versée à l''URSSAF, (2) l''organisme de formation doit être <a href="https://travail-emploi.gouv.fr/qualiopi-marque-de-certification-qualite-des-prestataires-de-formation" rel="noopener" target="_blank">certifié Qualiopi</a> (obligatoire depuis le 1er janvier 2022), et (3) la demande de financement doit être déposée <strong>avant le démarrage de la formation</strong> (pas de prise en charge rétroactive).'
+- question: Comment est calculé le budget OPCO de mon entreprise chez L'Opcommerce ?
+  answer: Le budget est calculé à partir de votre Contribution Formation Professionnelle (CFP) versée à l'URSSAF (0,55% de la masse salariale brute sous 11 salariés, 1% au-delà) et des barèmes 2026 publiés par L'Opcommerce pour votre convention collective. Notre <a href="/simulateur-opco/">simulateur calcule ce montant en 30 secondes</a> depuis votre SIREN.
+dispositifs_2026:
+- nom: Plan de Développement des Compétences (PDC)
+  statut: eligible
+  note: 'Cibles : moins-11, 11-49'
+- nom: Contrat de professionnalisation
+  statut: eligible
+  note: —
+- nom: Période de reconversion
+  statut: eligible
+  note: Remplace Pro-A depuis le 1er janvier 2026 — certification RNCP, CQP requise
+- nom: FNE-Formation
+  statut: a-verifier
+  note: Instruit par l'OPCO
+- nom: POEC (Préparation Opérationnelle à l'Emploi Collective)
+  statut: eligible
+  note: —
+- nom: Abondement CPF par l'OPCO
+  statut: a-verifier
+  note: —
+branches_idcc:
+- nom: Bricolage
+- nom: Commerce à distance et e-commerce
+  idcc: 2198
+  slug: opcommerce-cad-2198
+- nom: Commerce à prédominance alimentaire
+- nom: Commerce de détail alimentaire non spécialisé
+- nom: Commerce de détail de l'horlogerie-bijouterie
+- nom: Commerce succursaliste de la chaussure
+- nom: Commerce succursaliste de l'habillement
+- nom: Commerces de détail non alimentaires
+  idcc: 1517
+  slug: opcommerce-cdna-1517
+- nom: Commerces de gros habillement, mercerie, chaussure, jouet
+  slug: akto-commerces-gros-573
+- nom: Commerces et services de l'audiovisuel, électronique, équipement ménager
+- nom: Coopératives de consommateurs
+- nom: Entreprises de la filière Sport-Loisirs
+- nom: Entreprises du bureau et du numérique
+  idcc: 1539
+- nom: Grands magasins et Magasins populaires
+  idcc: 2156
+- nom: Import-Export et Commerce international
+- nom: Jardineries et graineteries
+- nom: Métiers du commerce de détail alimentaire spécialisé
+- nom: Négoce de l'ameublement
+- nom: Optique-lunetterie de détail
+- nom: Professions de la photographie
 ---
 
 L'Opcommerce finance la formation professionnelle des salariés des entreprises du **commerce et de la distribution** : grande distribution, commerce de gros, commerce de détail non alimentaire, négoce, commerces alimentaires spécialisés, vente à distance. Si votre entreprise relève de l'une des conventions du commerce, votre budget formation 2026 est mobilisable via les dispositifs ci-dessous.
 
-[**Calculez votre budget formation OPCO 2026 en 30 secondes →**](/simulateur-opco/)
+{{< opco-kpi >}}
 
-## Carte d'identité — L'Opcommerce
+{{< opco-dispositifs >}}
 
-| Information | Détail |
-|---|---|
-| Nom officiel | L'Opcommerce — Opérateur de Compétences du Commerce |
-| Périmètre | Commerce et distribution |
-| Nombre de conventions couvertes | — |
-| Site officiel | [https://www.lopcommerce.com/](https://www.lopcommerce.com/) |
-| Critères de financement | [Voir la page officielle](https://www.lopcommerce.com/entreprise/criteres-de-prise-en-charge-par-branche-professionnelle/) |
-| Année d'application des critères | 2026 |
-| Dernière mise à jour humaine | 2026-05-18 |
+{{< opco-branches >}}
 
 ## Dispositifs L'Opcommerce activables en 2026
 
@@ -60,33 +99,6 @@ Voici un récapitulatif des dispositifs de financement formation pris en charge 
 | FNE-Formation | À vérifier | Instruit par l'OPCO |
 | POEC (Préparation Opérationnelle à l'Emploi Collective) | ✅ Éligible | — |
 | Abondement CPF par l'OPCO | À vérifier |  |
-
-## Branches principales couvertes par L'Opcommerce
-
-Les — conventions collectives suivantes sont rattachées à L'Opcommerce. Si vous n'êtes pas certain de la vôtre, notre simulateur la détecte automatiquement depuis votre SIREN.
-
-- Bricolage
-- Commerce à distance et e-commerce (IDCC 2198)
-- Commerce à prédominance alimentaire (détail et gros)
-- Commerce de détail alimentaire non spécialisé
-- Commerce de détail de l'horlogerie-bijouterie
-- Commerce succursaliste de la chaussure
-- Commerce succursaliste de l'habillement
-- Commerces de détail non alimentaires (IDCC 1517)
-- Commerces de gros habillement, mercerie, chaussure, jouet
-- Commerces et services de l'audiovisuel, électronique, équipement ménager
-- Coopératives de consommateurs
-- Entreprises de la filière Sport-Loisirs
-- Entreprises du bureau et du numérique — IDCC 1539
-- Grands magasins et Magasins populaires (IDCC 2156)
-- Import-Export et Commerce international
-- Jardineries et graineteries
-- Métiers du commerce de détail alimentaire spécialisé
-- Négoce de l'ameublement
-- Optique-lunetterie de détail
-- Professions de la photographie
-
-[Calculez votre budget L'Opcommerce 2026 →](/simulateur-opco/)
 
 ## Analyse détaillée — L'Opcommerce en 2026
 

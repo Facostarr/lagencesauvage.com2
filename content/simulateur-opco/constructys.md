@@ -2,75 +2,67 @@
 title: OPCO Constructys 2026 — Budget formation, dispositifs et conventions
 description: Constructys finance la formation des salariés des secteurs construction et bâtiment. Dispositifs activables 2026 (PDC, Période de reconversion, AFEST, abondement CPF), branches couvertes, sources officielles. Calcul auto
 date: 2026-05-23
-lastmod: 2026-05-23
-layout: "single"
-robots: "index, follow"
-canonical: "/simulateur-opco/constructys/"
-ogImage: "/assets/images/logo-agence-sauvage.svg"
+lastmod: '2026-05-26'
+layout: opco-fiche
+robots: index, follow
+canonical: /simulateur-opco/constructys/
+ogImage: /assets/images/logo-agence-sauvage.svg
 opco_slug: constructys
 opco_nom_court: Constructys
 opco_label: OPCO Constructys
 opco_nom_officiel: Constructys — OPCO de la Construction
-opco_url_racine: 'https://www.constructys.fr/'
-opco_url_criteres: 'https://www.constructys.fr/financer-vos-projets-de-formation/modalites-demandes-de-prise-charge/conditions-de-prise-en-charge-2/'
+opco_url_racine: https://www.constructys.fr/
+opco_url_criteres: https://www.constructys.fr/financer-vos-projets-de-formation/modalites-demandes-de-prise-charge/conditions-de-prise-en-charge-2/
 opco_nb_idcc: —
 opco_audience: construction et bâtiment
 opco_annee: 2026
 opco_date_maj: 2026-05-18
 keywords:
-  - "OPCO Constructys 2026"
-  - "budget formation Constructys"
-  - "simulateur OPCO Constructys"
-  - "convention collective Constructys"
-  - "financement formation construction et bâtiment"
+- OPCO Constructys 2026
+- budget formation Constructys
+- simulateur OPCO Constructys
+- convention collective Constructys
+- financement formation construction et bâtiment
 faq:
-  - question: "Quelles entreprises sont rattachées à OPCO Constructys ?"
-    answer: "L'OPCO Constructys couvre les entreprises dont la convention collective figure parmi les plusieurs branches couvertes (construction et bâtiment). Le rattachement est automatique selon l'IDCC de votre convention. Si vous ne le connaissez pas, notre <a href=\"/simulateur-opco/\">simulateur identifie automatiquement votre OPCO</a> depuis votre raison sociale ou votre SIREN."
-  - question: "Quels prérequis pour financer une formation via OPCO Constructys ?"
-    answer: "Trois prérequis : (1) votre entreprise doit être à jour de sa contribution formation professionnelle (CFP) versée à l'URSSAF, (2) l'organisme de formation doit être <a href=\"https://travail-emploi.gouv.fr/qualiopi-marque-de-certification-qualite-des-prestataires-de-formation\" rel=\"noopener\" target=\"_blank\">certifié Qualiopi</a> (obligatoire depuis le 1er janvier 2022), et (3) la demande de financement doit être déposée <strong>avant le démarrage de la formation</strong> (pas de prise en charge rétroactive)."
-  - question: "Le dispositif Pro-A est-il encore disponible chez OPCO Constructys ?"
-    answer: "Non. La loi du 24 octobre 2025 a remplacé Pro-A par la <strong>Période de reconversion</strong> depuis le 1er janvier 2026. OPCO Constructys a basculé ses critères vers ce nouveau dispositif. Les exigences restent comparables : alternance, certification RNCP ou CQP obligatoire, tuteur identifié dans l'entreprise."
+- question: Quelles entreprises sont rattachées à OPCO Constructys ?
+  answer: L'OPCO Constructys couvre les entreprises dont la convention collective figure parmi les plusieurs branches couvertes (construction et bâtiment). Le rattachement est automatique selon l'IDCC de votre convention. Si vous ne le connaissez pas, notre <a href="/simulateur-opco/">simulateur identifie automatiquement votre OPCO</a> depuis votre raison sociale ou votre SIREN.
+- question: Quels prérequis pour financer une formation via OPCO Constructys ?
+  answer: 'Trois prérequis : (1) votre entreprise doit être à jour de sa contribution formation professionnelle (CFP) versée à l''URSSAF, (2) l''organisme de formation doit être <a href="https://travail-emploi.gouv.fr/qualiopi-marque-de-certification-qualite-des-prestataires-de-formation" rel="noopener" target="_blank">certifié Qualiopi</a> (obligatoire depuis le 1er janvier 2022), et (3) la demande de financement doit être déposée <strong>avant le démarrage de la formation</strong> (pas de prise en charge rétroactive).'
+- question: Le dispositif Pro-A est-il encore disponible chez OPCO Constructys ?
+  answer: 'Non. La loi du 24 octobre 2025 a remplacé Pro-A par la <strong>Période de reconversion</strong> depuis le 1er janvier 2026. OPCO Constructys a basculé ses critères vers ce nouveau dispositif. Les exigences restent comparables : alternance, certification RNCP ou CQP obligatoire, tuteur identifié dans l''entreprise.'
+dispositifs_2026:
+- nom: Plan de Développement des Compétences (PDC)
+  statut: eligible
+  note: 'Cibles : moins-11, 11-49, 50-299'
+- nom: Contrat de professionnalisation
+  statut: eligible
+  note: 'Forfait horaire : 13.0€/h'
+- nom: Période de reconversion
+  statut: eligible
+  note: Remplace Pro-A depuis le 1er janvier 2026 — certification RNCP, CQP requise
+- nom: FNE-Formation
+  statut: a-verifier
+  note: Instruit par l'OPCO
+- nom: POEC (Préparation Opérationnelle à l'Emploi Collective)
+  statut: eligible
+  note: —
+- nom: Abondement CPF par l'OPCO
+  statut: a-verifier
+  note: 'CPF co-construit : Constructys rembourse la dotation ou l''abondement versé à la CDC. Pour TP <11 sal : prise en charg…'
+branches_idcc:
+- nom: Bâtiment et Travaux Publics
+- nom: Travaux Publics
+- nom: Négoce des matériaux de construction
+- nom: Négoce de bois
 ---
 
 Constructys est l'OPCO de la **construction et du bâtiment**. Il finance la formation professionnelle des salariés des entreprises du gros œuvre, du second œuvre, des travaux publics et du négoce des matériaux. Si votre entreprise relève de l'une des conventions BTP, votre budget formation 2026 est mobilisable via les dispositifs ci-dessous.
 
-[**Calculez votre budget formation OPCO 2026 en 30 secondes →**](/simulateur-opco/)
+{{< opco-kpi >}}
 
-## Carte d'identité — OPCO Constructys
+{{< opco-dispositifs >}}
 
-| Information | Détail |
-|---|---|
-| Nom officiel | Constructys — OPCO de la Construction |
-| Périmètre | Construction et bâtiment |
-| Nombre de conventions couvertes | — |
-| Site officiel | [https://www.constructys.fr/](https://www.constructys.fr/) |
-| Critères de financement | [Voir la page officielle](https://www.constructys.fr/financer-vos-projets-de-formation/modalites-demandes-de-prise-charge/conditions-de-prise-en-charge-2/) |
-| Année d'application des critères | 2026 |
-| Dernière mise à jour humaine | 2026-05-18 |
-
-## Dispositifs OPCO Constructys activables en 2026
-
-Voici un récapitulatif des dispositifs de financement formation pris en charge par OPCO Constructys en 2026. Les conditions précises varient selon votre convention collective (IDCC) et la taille de votre entreprise.
-
-| Dispositif | Éligibilité 2026 | Note |
-|---|---|---|
-| Plan de Développement des Compétences (PDC) | ✅ Éligible | Cibles : moins-11, 11-49, 50-299 |
-| Contrat de professionnalisation | ✅ Éligible | Forfait horaire : 13.0€/h |
-| Période de reconversion | ✅ Éligible | Remplace Pro-A depuis le 1er janvier 2026 — certification RNCP, CQP requise |
-| FNE-Formation | À vérifier | Instruit par l'OPCO |
-| POEC (Préparation Opérationnelle à l'Emploi Collective) | ✅ Éligible | — |
-| Abondement CPF par l'OPCO | À vérifier | CPF co-construit : Constructys rembourse la dotation ou l'abondement versé à la CDC. Pour TP <11 sal : prise en charg… |
-
-## Branches principales couvertes par OPCO Constructys
-
-Les — conventions collectives suivantes sont rattachées à OPCO Constructys. Si vous n'êtes pas certain de la vôtre, notre simulateur la détecte automatiquement depuis votre SIREN.
-
-- Bâtiment et Travaux Publics (BTP)
-- Travaux Publics (TP) — critères différenciés, plus favorables pour <11 sal
-- Négoce des matériaux de construction
-- Négoce de bois
-
-[Calculez votre budget OPCO Constructys 2026 →](/simulateur-opco/)
+{{< opco-branches >}}
 
 ## Analyse détaillée — OPCO Constructys en 2026
 
@@ -192,8 +184,6 @@ Toutes les données de cette page proviennent des publications officielles de OP
 - [https://www.constructys.fr/decouvrez-les-modalites-de-participation-financiere-2026/](https://www.constructys.fr/decouvrez-les-modalites-de-participation-financiere-2026/) (consulté le 2026-05-18)
 - [https://www.constructys.fr/financer-vos-projets-de-formation/modalites-demandes-de-prise-charge/conditions-de-prise-en-charge-2/](https://www.constructys.fr/financer-vos-projets-de-formation/modalites-demandes-de-prise-charge/conditions-de-prise-en-charge-2/) (consulté le 2026-05-18)
 - [https://www.constructys.fr/wp-content/uploads/TP-Modalites-2026.zip](https://www.constructys.fr/wp-content/uploads/TP-Modalites-2026.zip) (consulté le 2026-05-18)
-
-## Calculez votre budget OPCO Constructys 2026
 
 Notre simulateur identifie automatiquement votre rattachement à OPCO Constructys depuis votre raison sociale ou votre numéro SIREN. Aucune connaissance préalable de votre IDCC n'est requise. Le calcul prend 30 secondes et reste sans engagement.
 

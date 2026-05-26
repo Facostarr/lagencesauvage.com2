@@ -2,84 +2,76 @@
 title: OPCO Afdas 2026 — Budget formation, dispositifs et conventions
 description: Afdas finance la formation des salariés des secteurs culture, médias, communication, sport et loisirs. Dispositifs activables 2026 (PDC, Période de reconversion, AFEST, abondement CPF), branches couvertes, sources offici
 date: 2026-05-23
-lastmod: 2026-05-23
-layout: "single"
-robots: "index, follow"
-canonical: "/simulateur-opco/afdas/"
-ogImage: "/assets/images/logo-agence-sauvage.svg"
+lastmod: '2026-05-26'
+layout: opco-fiche
+robots: index, follow
+canonical: /simulateur-opco/afdas/
+ogImage: /assets/images/logo-agence-sauvage.svg
 opco_slug: afdas
 opco_nom_court: Afdas
 opco_label: OPCO Afdas
 opco_nom_officiel: Afdas — Opérateur de Compétences des loisirs, de la culture, de la communication, des médias et du sport
-opco_url_racine: 'https://www.afdas.com/'
-opco_url_criteres: 'https://www.afdas.com/entreprise/financer-vos-actions-de-formation.html'
+opco_url_racine: https://www.afdas.com/
+opco_url_criteres: https://www.afdas.com/entreprise/financer-vos-actions-de-formation.html
 opco_nb_idcc: —
 opco_audience: culture, médias, communication, sport et loisirs
 opco_annee: 2026
 opco_date_maj: 2026-05-18
 keywords:
-  - "OPCO Afdas 2026"
-  - "budget formation Afdas"
-  - "simulateur OPCO Afdas"
-  - "convention collective Afdas"
-  - "financement formation culture"
+- OPCO Afdas 2026
+- budget formation Afdas
+- simulateur OPCO Afdas
+- convention collective Afdas
+- financement formation culture
 faq:
-  - question: "Quelles entreprises sont rattachées à OPCO Afdas ?"
-    answer: "L'OPCO Afdas couvre les entreprises dont la convention collective figure parmi les plusieurs branches couvertes (culture, médias, communication, sport et loisirs). Le rattachement est automatique selon l'IDCC de votre convention. Si vous ne le connaissez pas, notre <a href=\"/simulateur-opco/\">simulateur identifie automatiquement votre OPCO</a> depuis votre raison sociale ou votre SIREN."
-  - question: "Quels prérequis pour financer une formation via OPCO Afdas ?"
-    answer: "Trois prérequis : (1) votre entreprise doit être à jour de sa contribution formation professionnelle (CFP) versée à l'URSSAF, (2) l'organisme de formation doit être <a href=\"https://travail-emploi.gouv.fr/qualiopi-marque-de-certification-qualite-des-prestataires-de-formation\" rel=\"noopener\" target=\"_blank\">certifié Qualiopi</a> (obligatoire depuis le 1er janvier 2022), et (3) la demande de financement doit être déposée <strong>avant le démarrage de la formation</strong> (pas de prise en charge rétroactive)."
-  - question: "Le dispositif Pro-A est-il encore disponible chez OPCO Afdas ?"
-    answer: "Non. La loi du 24 octobre 2025 a remplacé Pro-A par la <strong>Période de reconversion</strong> depuis le 1er janvier 2026. OPCO Afdas a basculé ses critères vers ce nouveau dispositif. Les exigences restent comparables : alternance, certification RNCP ou CQP obligatoire, tuteur identifié dans l'entreprise."
+- question: Quelles entreprises sont rattachées à OPCO Afdas ?
+  answer: L'OPCO Afdas couvre les entreprises dont la convention collective figure parmi les plusieurs branches couvertes (culture, médias, communication, sport et loisirs). Le rattachement est automatique selon l'IDCC de votre convention. Si vous ne le connaissez pas, notre <a href="/simulateur-opco/">simulateur identifie automatiquement votre OPCO</a> depuis votre raison sociale ou votre SIREN.
+- question: Quels prérequis pour financer une formation via OPCO Afdas ?
+  answer: 'Trois prérequis : (1) votre entreprise doit être à jour de sa contribution formation professionnelle (CFP) versée à l''URSSAF, (2) l''organisme de formation doit être <a href="https://travail-emploi.gouv.fr/qualiopi-marque-de-certification-qualite-des-prestataires-de-formation" rel="noopener" target="_blank">certifié Qualiopi</a> (obligatoire depuis le 1er janvier 2022), et (3) la demande de financement doit être déposée <strong>avant le démarrage de la formation</strong> (pas de prise en charge rétroactive).'
+- question: Le dispositif Pro-A est-il encore disponible chez OPCO Afdas ?
+  answer: 'Non. La loi du 24 octobre 2025 a remplacé Pro-A par la <strong>Période de reconversion</strong> depuis le 1er janvier 2026. OPCO Afdas a basculé ses critères vers ce nouveau dispositif. Les exigences restent comparables : alternance, certification RNCP ou CQP obligatoire, tuteur identifié dans l''entreprise.'
+dispositifs_2026:
+- nom: Plan de Développement des Compétences (PDC)
+  statut: eligible
+  note: 'Cibles : moins-11, 11-49'
+- nom: Contrat de professionnalisation
+  statut: eligible
+  note: —
+- nom: Période de reconversion
+  statut: eligible
+  note: Remplace Pro-A depuis le 1er janvier 2026 — certification RNCP, CQP requise
+- nom: FNE-Formation
+  statut: a-verifier
+  note: Instruit par l'OPCO
+- nom: POEC (Préparation Opérationnelle à l'Emploi Collective)
+  statut: a-verifier
+  note: —
+- nom: Abondement CPF par l'OPCO
+  statut: a-verifier
+  note: —
+branches_idcc:
+- nom: Audiovisuel et production cinématographique
+- nom: Espaces de loisirs, d'attraction et culturels
+- nom: Exploitation cinématographique
+- nom: Golf
+- nom: Hôtellerie de Plein Air
+- nom: Organismes de tourisme
+- nom: Presse Quotidienne Nationale
+- nom: Presse Quotidienne Régionale / Hebdomadaire Régionale / Quotidienne Départementale
+- nom: Presse magazine
+- nom: Publicité
+- nom: Spectacle vivant
+- nom: Sport
+- nom: Télécommunications
 ---
 
 L'Afdas finance la formation professionnelle des salariés des entreprises des secteurs **culture, médias, communication, sport et loisirs**. Si votre convention collective figure parmi les 13 branches couvertes (audiovisuel, presse, télécommunications, sport, spectacle, publicité, tourisme, etc.), votre budget formation 2026 est mobilisable via les dispositifs ci-dessous.
 
-[**Calculez votre budget formation OPCO 2026 en 30 secondes →**](/simulateur-opco/)
+{{< opco-kpi >}}
 
-## Carte d'identité — OPCO Afdas
+{{< opco-dispositifs >}}
 
-| Information | Détail |
-|---|---|
-| Nom officiel | Afdas — Opérateur de Compétences des loisirs, de la culture, de la communication, des médias et du sport |
-| Périmètre | Culture, médias, communication, sport et loisirs |
-| Nombre de conventions couvertes | — |
-| Site officiel | [https://www.afdas.com/](https://www.afdas.com/) |
-| Critères de financement | [Voir la page officielle](https://www.afdas.com/entreprise/financer-vos-actions-de-formation.html) |
-| Année d'application des critères | 2026 |
-| Dernière mise à jour humaine | 2026-05-18 |
-
-## Dispositifs OPCO Afdas activables en 2026
-
-Voici un récapitulatif des dispositifs de financement formation pris en charge par OPCO Afdas en 2026. Les conditions précises varient selon votre convention collective (IDCC) et la taille de votre entreprise.
-
-| Dispositif | Éligibilité 2026 | Note |
-|---|---|---|
-| Plan de Développement des Compétences (PDC) | ✅ Éligible | Cibles : moins-11, 11-49 |
-| Contrat de professionnalisation | ✅ Éligible |  |
-| Période de reconversion | ✅ Éligible | Remplace Pro-A depuis le 1er janvier 2026 — certification RNCP, CQP requise |
-| FNE-Formation | À vérifier | Instruit par l'OPCO |
-| POEC (Préparation Opérationnelle à l'Emploi Collective) | À vérifier auprès de l'OPCO | — |
-| Abondement CPF par l'OPCO | À vérifier auprès de l'OPCO | — |
-
-## Branches principales couvertes par OPCO Afdas
-
-Les — conventions collectives suivantes sont rattachées à OPCO Afdas. Si vous n'êtes pas certain de la vôtre, notre simulateur la détecte automatiquement depuis votre SIREN.
-
-- Audiovisuel et production cinématographique
-- Espaces de loisirs, d'attraction et culturels
-- Exploitation cinématographique
-- Golf
-- Hôtellerie de Plein Air (HPA)
-- Organismes de tourisme
-- Presse Quotidienne Nationale (PQN)
-- Presse Quotidienne Régionale / Hebdomadaire Régionale / Quotidienne Départementale
-- Presse magazine
-- Publicité
-- Spectacle vivant
-- Sport
-- Télécommunications
-
-[Calculez votre budget OPCO Afdas 2026 →](/simulateur-opco/)
+{{< opco-branches >}}
 
 ## Analyse détaillée — OPCO Afdas en 2026
 
@@ -174,8 +166,6 @@ Toutes les données de cette page proviennent des publications officielles de OP
 - [https://www.afdas.com/actualites/entreprise/criteres-de-financements-2026-ce-qui-change-pour-les-entreprises.html](https://www.afdas.com/actualites/entreprise/criteres-de-financements-2026-ce-qui-change-pour-les-entreprises.html) (consulté le 2026-05-18)
 - [https://www.afdas.com/entreprise/financer-vos-actions-de-formation/choisir-le-bon-financement/financement-de-la-formation-pour-les-structures-de-moins-de-50-salaries.html](https://www.afdas.com/entreprise/financer-vos-actions-de-formation/choisir-le-bon-financement/financement-de-la-formation-pour-les-structures-de-moins-de-50-salaries.html) (consulté le 2026-05-18)
 - [https://www.afdas.com/entreprise/financer-vos-actions-de-formation/choisir-le-bon-financement/le-financement-de-la-formation-avec-le-fonds-conventionnel-des-branches-professionnelles.html](https://www.afdas.com/entreprise/financer-vos-actions-de-formation/choisir-le-bon-financement/le-financement-de-la-formation-avec-le-fonds-conventionnel-des-branches-professionnelles.html) (consulté le 2026-05-18)
-
-## Calculez votre budget OPCO Afdas 2026
 
 Notre simulateur identifie automatiquement votre rattachement à OPCO Afdas depuis votre raison sociale ou votre numéro SIREN. Aucune connaissance préalable de votre IDCC n'est requise. Le calcul prend 30 secondes et reste sans engagement.
 
