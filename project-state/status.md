@@ -15,6 +15,22 @@
 | Phase 6 — Bascule | ✅ Logo validé, merge main | 2026-03-23 | 2026-03-23 |
 | Phase 7 — Post-bascule | 🔄 En cours | 2026-03-23 | — |
 
+## Session 2026-05-26 — Refonte visuelle pages OPCO + branches (Sprint S10)
+
+| # | Sprint | Statut | Commits |
+|---|--------|--------|---------|
+| S10.1 | Diagnostic + plugin @tailwindcss/typography v4 | ✅ Prod | 72d40f0 |
+| S10.2 | Layout pilote `opco-fiche` + 3 shortcodes + Atlas pilote | ✅ Prod | 72d40f0 |
+| S10.3 | Script migration + 10 OPCO restantes | ✅ Prod | 13df5ac |
+| S10.4 | Layout `branche-fiche` + 20 fiches branches IDCC | ✅ Prod | b6734cc |
+| S10.5 | Merge `feat/refonte-pages-opco` → `main` | ✅ Prod | ebacc4c |
+
+**31 pages refondues en prod** (11 OPCO + 20 branches) — pattern Doc-Landing (Stripe/Vercel) :
+- Plugin `@tailwindcss/typography` activé (était silencieusement absent → bug racine du mur de texte)
+- 3 colonnes desktop ≥1024px : TOC sticky | article prose | CTA sticky (simulateur + OPCO parent + diagnostic)
+- KPI cards / table dispositifs badges colorés / chips IDCC cliquables (shortcodes Hugo)
+- Contenu narratif et sources intégralement préservés (validation Franck sur Preview avant merge)
+
 ## Phase 0 — Tâches détaillées
 
 - [x] Préparation docs (audit, playbook, stratégie skills)

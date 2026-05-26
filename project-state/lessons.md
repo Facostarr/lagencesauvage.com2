@@ -1,5 +1,40 @@
 # Lessons Learned — Refonte lagencesauvage.com
 
+## Tailwind v4 — plugins doivent être déclarés explicitement (lesson 2026-05-26)
+
+**Symptôme** : pendant des semaines, les pages `/simulateur-opco/{opco}/` et `/simulateur-opco/branches/{idcc}/` rendaient un mur de texte plat (H2/H3 sans hiérarchie, tables sans bordures, prose linéaire serrée), alors que le layout Hugo contenait des classes `prose prose-slate prose-h2:text-2xl prose-h2:sm:text-3xl prose-th:bg-slate-50 ...`. Aucune erreur de build.
+
+**Diagnostic** : Tailwind CSS v4 (config CSS-first via `@theme`) **n'inclut PAS** automatiquement les plugins de l'écosystème v3 comme `@tailwindcss/typography`. Sans `@plugin "@tailwindcss/typography";` dans `main.css`, toutes les classes `prose-*` sont des classes inexistantes silencieusement ignorées — le markdown s'affiche en HTML browser-default.
+
+**Règle dev** : pour Tailwind v4, **vérifier explicitement** que chaque plugin attendu est déclaré dans le CSS via `@plugin "..."`. Si une classe utilitaire qui devrait marcher n'a aucun effet visible et n'apparaît pas dans le CSS généré, soupçonner un plugin manquant **avant** de recoder en CSS pur.
+
+**Bonus Gemini** : ne JAMAIS recréer en CSS pur ce qu'un plugin officiel maintenu fait gratuitement (j'avais initialement proposé une classe `.opco-prose` custom). Gemini m'a corrigé direct : "Tu réinventes la roue, install le plugin." 1 ligne d'import vs 200 lignes de CSS custom à maintenir.
+
+## Pattern Doc-Landing > accordéons pour pages B2B fact-heavy (lesson 2026-05-26)
+
+**Symptôme** : tentation initiale de cacher les sections "Analyse détaillée" (200+ lignes par page OPCO) dans des accordéons ou tabs pour aérer visuellement.
+
+**Diagnostic Gemini** :
+1. **UX cible RH/Dirigeants** : ce public fait du `Ctrl+F`. Si "FNE", "Plafond" ou "Alternance" est dans un accordéon fermé, le browser ne trouve pas. Frustration immédiate.
+2. **SEO** : Google déprécie le contenu caché dans accordéons depuis Page Experience.
+3. **GEO (Generative Engine Optimization)** : les crawlers LLM (Perplexity, ChatGPT, Claude) scrapent le DOM via parsers basiques. Contenu dans `<details closed>` ou `display:none` souvent ignoré ou dévalué.
+
+**Règle UX/SEO/GEO** : pour les pages fact-heavy B2B (Wikipedia + landing), pattern **"Linear + Sticky TOC"** = standard 2024-2026. Contenu intégralement déplié + sticky TOC desktop pour donner l'illusion de navigation rapide. Références : Stripe Docs, Vercel Docs, gov.uk, service-public.fr.
+
+**Anti-pattern à éviter** : remplacer une table de données factuelles par une card-grid "pour faire moderne". Les tables sont meilleures pour le scanning comparatif horizontal + les LLMs adorent `<table>` pour générer des réponses factuelles ("Quels dispositifs OPCO Atlas finance ?" → réponse directe depuis la `<table>`). Card-grid casse cette propriété.
+
+## Script Python idempotent pour migrations en masse (lesson 2026-05-26)
+
+**Symptôme** : 11 pages OPCO à migrer vers un nouveau layout (changement front matter + remplacement de 3 sections markdown par des shortcodes). Faire 10 Edits manuels = risque d'erreur + lent.
+
+**Pattern** : un script Python qui (1) parse YAML+body, (2) extrait les données structurées des sections markdown via regex robustes, (3) réécrit le fichier avec le nouveau format, (4) **skip les fichiers déjà migrés** via une garde idempotente (`if fm.get("layout") == "new-layout": return False`).
+
+**Bénéfice idempotence** : permet de relancer le script après bug fix (ex: ma regex initiale ne matchait pas "Dispositifs L'Opcommerce" car cherchait "Dispositifs OPCO"). Je `git checkout` les fichiers cassés et relance — le script saute les 9 déjà OK et ne refait que celui qui était cassé.
+
+**Règle** : pour toute migration touchant >3 fichiers similaires, écrire un script idempotent **avant** d'éditer à la main. Le temps d'écrire le script (~30 min) est amorti dès la 2e itération de fix.
+
+**Bonus YAML** : `yaml.dump(..., allow_unicode=True, default_flow_style=False, sort_keys=False, width=1000)` produit du YAML stable et lisible. Toujours `write_bytes(text.replace("\r\n", "\n").encode())` sur Windows (cf. ancienne leçon CRLF Hugo YAML parser bug).
+
 ## GTM / Product — biais "complétude BDD" vs "qualification ICP" (lesson 2026-05-24)
 
 **Symptôme** : en construisant un simulateur lead magnet, j'ai voulu prioriser la complétude (couvrir le maximum de conventions collectives FR pour atteindre 100%). Gemini Pro a remonté que c'était un biais classique de product : optimiser pour le volume de données plutôt que pour la qualification du ICP.

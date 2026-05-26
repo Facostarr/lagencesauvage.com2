@@ -1,5 +1,22 @@
 # Next Tasks — Refonte lagencesauvage.com
 
+## Suite Sprint S10 — Refonte visuelle OPCO (2026-05-26)
+
+### Points à surveiller post-merge prod
+
+- [ ] **Vérifier en prod** sur lagencesauvage.com : 3 pages échantillon sur mobile (Atlas, Syntec, AKTO HCR) — confirmer que les sticky TOC/CTA disparaissent bien <1024px et que le contenu reste lisible
+- [ ] **Détails KPI à corriger** (déjà identifiés, non bloquants) :
+  - Afdas et OPCO Santé ont `opco_nb_idcc: —` → la card "X branches" affichera "—" (lecture acceptable mais améliorable : utiliser `len(branches_idcc)` à la place)
+  - AKTO Travail Temporaire : le parser n'a retenu que le 1er IDCC (1413), la branche a 2 IDCC (1413+2378). Slug match quand même via fallback IDCC dans le nom du slug.
+- [ ] **Demander recrawl GSC** pour les 31 pages refondues (rendu enfin propre = indexation utile cette fois)
+- [ ] **Monitoring Plausible** sur le bounce rate /simulateur-opco/* avant/après merge (hypothèse : baisse de 5-10 pts vu l'amélioration UX)
+
+### Améliorations possibles si retour positif
+
+- [ ] Ajouter une **scrollspy JS** sur la sticky TOC : highlight l'item actif quand on scroll dans la page (actuellement classe `.is-active` définie dans CSS mais pas mise à jour dynamiquement)
+- [ ] **Étendre le pattern** aux 39 fiches branches IDCC restantes (sur ~59 disponibles dans `data/opco-database.json`) — le layout `branche-fiche.html` est déjà prêt, juste basculer `layout:` au moment de leur création
+- [ ] **Page `/simulateur-opco/actions-collectives/`** : utilise encore `layout: "single"` (page éditoriale sans `opco_slug`). Possible de la migrer aussi sur `opco-fiche` ou sur un layout `editorial-fiche` dédié si on veut l'aligner visuellement.
+
 ## Phase 7 — Post-bascule (en cours)
 
 ### Fait (2026-03-23)

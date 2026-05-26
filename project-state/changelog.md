@@ -1,5 +1,53 @@
 # Changelog — Refonte lagencesauvage.com
 
+## 2026-05-26 — Sprint S10 Refonte visuelle 31 pages OPCO + branches (pattern Doc-Landing)
+
+### Diagnostic — bug racine `@tailwindcss/typography` (commit 72d40f0)
+
+Franck remonte un screenshot prod `/simulateur-opco/atlas/` montrant un mur de texte non stylé (H2/H3 sans hiérarchie, tables sans bordures, prose plate). Diagnostic : Tailwind CSS v4 sans plugin `@tailwindcss/typography` → toutes les classes `prose prose-h2:* prose-th:*` du layout sont **silencieusement ignorées** (pas d'erreur build). Rendu = browser defaults bruts.
+
+**Co-diagnostic Claude + Gemini Pro** sur la solution : Gemini me corrige 3 décisions clés.
+1. ❌ Recréer `.opco-prose` CSS pur → ✅ installer le plugin officiel (1 ligne `@plugin "@tailwindcss/typography";` dans main.css)
+2. ❌ Accordéons sur "Analyse détaillée" → ✅ contenu **linéaire déplié** (Ctrl+F user-friendly + crawlers LLM Perplexity/ChatGPT ingèrent le DOM tel quel, accordéons ignorés)
+3. ❌ Card-grid pour table dispositifs → ✅ **table stylée** (meilleur scanning comparatif + `<table>` adoré par LLMs pour réponses factuelles)
+
+### Pilote Atlas (commit 72d40f0)
+
+- Plugin `@tailwindcss/typography` installé (`npm i -D` + `@plugin` dans main.css)
+- Nouveau layout `layouts/simulateur-opco/opco-fiche.html` : pattern Doc-Landing 3 colonnes desktop ≥1024px (TOC sticky gauche `.opco-toc` | article central prose | CTA sticky droite avec 2 cards : simulateur + diagnostic)
+- 3 shortcodes Hugo dans `layouts/shortcodes/` :
+  - `opco-kpi.html` : 4 cards carte d'identité (nb branches, audience, MAJ, site officiel) — lit le front matter sans args
+  - `opco-dispositifs.html` : table stylée avec badges colorés (`eligible` vert, `a-verifier` orange, `non-eligible` slate) — lit `dispositifs_2026`
+  - `opco-branches.html` : chips IDCC cliquables vers fiches branches (auto-détection via `site.GetPage`) — lit `branches_idcc`
+- CSS `.opco-toc` dans main.css pour table des matières (border-left indicator + état actif)
+- `content/simulateur-opco/atlas.md` migré sur `layout: opco-fiche` avec nouveaux params `dispositifs_2026` + `branches_idcc`
+- Typographie FR resserrée (espaces insécables, italiques, suppression phrase technique "snapshot raw")
+
+### Propagation 10 OPCO restantes (commit 13df5ac)
+
+- `scripts/migrate-opco-to-fiche-layout.py` : script Python idempotent (`skip si layout == opco-fiche`) qui :
+  1. Parse YAML front matter + body markdown
+  2. Extrait dispositifs depuis table `## Dispositifs ... activables` (couvre "Dispositifs OPCO X" et "Dispositifs L'Opcommerce" via regex assouplie)
+  3. Extrait branches depuis liste `## Branches principales` + IDCC depuis `(IDCC NNNN)` + slug via mapping nom/IDCC vers fiches branches existantes
+  4. Strip les 3 sections markdown remplacées + CTAs inline répétés
+  5. Réécrit le `.md` avec shortcodes
+- 10 OPCO migrés : afdas (6/13), akto (6/21 + 7 slugs liés), constructys (6/4), ep (6/5), mobilites (6/14), ocapiat (6/5), opco-sante (6/4 + 2 slugs), opco2i (6/30 + 2 slugs), opcommerce (6/20 + 2 slugs), uniformation (6/13 + 1 slug)
+- Bug fix : note "Période de reconversion" perdait son tiret cadratin (`—`) à cause d'un `.replace("—", "")` trop agressif. Corrigé pour ne supprimer que les notes placeholder.
+
+### Refonte 20 fiches branches IDCC (commit b6734cc)
+
+- Nouveau layout `layouts/simulateur-opco/branches/branche-fiche.html` jumeau d'`opco-fiche` mais adapté contexte branche :
+  - CTA sticky droite = 3 cards (simulateur + **OPCO parent** via `branche_opco_slug` + diagnostic)
+  - Variante blockquote indigo pour callouts `> ℹ️ ...`
+- Migration batch PowerShell : `layout: "single"` → `layout: "branche-fiche"` sur les 20 fichiers. Aucune modif éditoriale (le contenu HTML inline carte d'identité `<dl>` + tableau plafonds HTML était déjà bien structuré, il s'intègre nativement dans la colonne `prose` via `not-prose`)
+- 20 branches concernées : syntec-1486, banque-2120, assurances-1672, 7 akto, constructys-bat, ep-immobilier-1527, mobilites-services-auto-1090, 2 opco-sante, 2 opco2i, 2 opcommerce, uniformation-saad
+
+### Merge prod (commit ebacc4c)
+
+- Validation visuelle Franck sur Preview Vercel (pilote atlas + 10 OPCO + 20 branches en 2 itérations)
+- Merge `feat/refonte-pages-opco` → `main` avec `--no-ff` (historique du pilote préservé)
+- Deploy production Vercel READY — 31 pages refondues live sur lagencesauvage.com
+
 ## 2026-05-24 — Sprint 3 Simulateur OPCO (3.1 + 3.2 + UX bonus + roadmap GTM Q2)
 
 ### Sprint 3.1 — Pages programmatiques par IDCC (commit 6bfda20)
