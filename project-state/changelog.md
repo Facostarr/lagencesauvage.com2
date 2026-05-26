@@ -1,5 +1,45 @@
 # Changelog — Refonte lagencesauvage.com
 
+## 2026-05-24 — Sprint 3 Simulateur OPCO (3.1 + 3.2 + UX bonus + roadmap GTM Q2)
+
+### Sprint 3.1 — Pages programmatiques par IDCC (commit 6bfda20)
+
+- **20 fiches branches publiées** sous `/simulateur-opco/branches/{slug}/` à partir des 59 fiches disponibles dans la BDD `data/opco-database.json`. Whitelist priorisée : Syntec, HCR, CDNA, Métallurgie, Médico-social privé, Propreté, Services auto, Aide à domicile, Prévention-sécurité, Banque, Hospitalisation privée, Assurances, Immobilier, Restauration rapide, Industrie pharmaceutique, Commerces de gros, Travail temporaire, Bâtiment, E-commerce, Portage salarial.
+- **Consensus Claude+Gemini Pro 8.5 → 9.5/10 ajusté** avec 3 ajustements stricts : hub `/simulateur-opco/branches/` obligatoire (anti-orphan), H1 transactionnel "Simulateur Budget Formation X (IDCC n) — 2026", pivot 50 salariés explicite (TPE/PME/ETI) dans tableau HTML.
+- **Script `scripts/generate-opco-branches.py`** : whitelist de 20 slugs + mapping `BRANCHE_SHORT_NAMES` SEO-friendly (nom_branche complet jusqu'à 80+ chars). Sections conditionnelles selon données disponibles (AFEST, bonus, parcours stratégique).
+- **Layouts** : `layouts/simulateur-opco/branches/single.html` (H1 + tableau Tailwind plafonds par tranche + FAQ + branches voisines) + `branches/list.html` (hub groupé par OPCO).
+- **Schema** : `layouts/partials/schema/branche.html` @graph BreadcrumbList 4 niveaux + WebPage (mainEntity Légifrance KALICONT) + FAQPage. Pas de Service ni Dataset (recommandation Gemini).
+- **Bonus maillage** : section "Conventions collectives couvertes" ajoutée aux 11 pages OPCO existantes, affichée uniquement si au moins une branche publiée.
+- **Risque thin content écarté** : notes_libres BDD (1000-3700 chars rédigés sourcés) + tableau HTML unique + sections conditionnelles.
+
+### Sprint 3.2 — NAFs commerce détail (commit 48709f5)
+
+- **17 NAFs commerce détail non alimentaire** ajoutés à `api/_simulateur/naf-suggestions.js` mappés sur IDCC 1517 CDNA (L'Opcommerce) en `auto: false`.
+- Comble le trou identifié via tableau ADIFLOformation (libraires, boutiques sport/vêtements/chaussures qui tombaient en idcc_inconnu sans suggestion utile).
+- Codes ajoutés : 47.61Z (livres), 47.62Z (journaux), 47.51Z (textiles), 47.53Z (tapis), 47.54Z (électroménager), 47.59A/B (meubles/équipements foyer), 47.63Z (multimédia), 47.64Z (sport), 47.65Z (jeux-jouets), 47.71Z (habillement), 47.72A/B (chaussures/maroquinerie), 47.75Z (parfumerie), 47.77Z (bijouterie-horlogerie), 47.78C (autres détail), 47.79Z (occasion).
+- `auto: false` systématique : secteur fragmenté entre L'Opcommerce, OPCO EP, conventions sectorielles (1431 optique, 1487 horlogerie absents BDD).
+
+### UX bonus — Cards OPCO cliquables (commit 84bc4d9)
+
+- Les 11 cards "OPCO français couverts" sur `/simulateur-opco/` deviennent des `<a>` vers `/simulateur-opco/{slug}/` (mapping explicite anti-collision : Afdas→afdas, OPCO Mobilités→mobilites, OPCO 2i→opco2i, L'Opcommerce→opcommerce, etc.). Hover indigo, focus accessible.
+- **Maillage interne gratuit** depuis la page la plus visible du simulateur vers les 11 sous-pages OPCO. Boost SEO direct.
+
+### Roadmap GTM Q2 2026 — Plan consolidé dans next-tasks.md (commit 84bc4d9)
+
+- **Consensus Claude+Gemini Pro 8/10 → 9.5/10 ajusté** avec 3 inversions GTM critiques :
+  1. **Priorité TNS/FAF avant volume salariés** (time-to-revenue ICP — SASU IT/freelances = cible la plus chaude pour abonnement IA 500€/mois ASV)
+  2. **Sourcing assisté par IA** (Claude/GPT extrait PDFs OPCO en 45min/convention au lieu de 3-4h manuel — on est une agence IA)
+  3. **Veille no-code Visualping** au lieu de scraper maison (fragile, dette technique solo founder)
+- **4 Sprints d'exécution** (~20h total) :
+  - Sprint 1 "Fix the Leaky Bucket" TNS/FAF (~8h) — page dirigeants-non-salariés + routing flow effectif=0 + email nurturing FAF
+  - Sprint 2 "The Big 5" sourcing IA-assisté (~8h) — IDCC 2216, 16, 3017, 1431, vérif 3127/3248 → +15% couverture salariés (64% → 79%)
+  - Sprint 3 Capture intent + Drip SEO (continu) — champ qualification IA dans form + 39 branches restantes à 4/semaine
+  - Sprint 4 Lean Maintenance (~2h setup) — Visualping no-code sur 11 URLs critères OPCO + lien feedback prospect
+- **Cible** : 80% du trafic réel (Pareto), pas 100% des ~700 IDCCs FR
+- **Métriques de succès** chiffrées par sprint : drop-off TNS<10%, taux conv non couverte<15%, qualif "IA"≥40%, maintenance <2h/trimestre
+
+---
+
 ## 2026-05-23 (soirée) — Sprint SEO/GEO Simulateur OPCO (S1 + S2 complets)
 
 Suite du Sprint 7 simulateur OPCO mergé en prod le matin (cf. plus bas). Session après-midi/soirée dédiée à l'optimisation SEO/GEO complète du cluster simulateur OPCO. Consensus Claude + Gemini Deep Research + 4 PRs livrées sur main.

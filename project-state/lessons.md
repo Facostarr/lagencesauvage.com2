@@ -1,5 +1,62 @@
 # Lessons Learned — Refonte lagencesauvage.com
 
+## GTM / Product — biais "complétude BDD" vs "qualification ICP" (lesson 2026-05-24)
+
+**Symptôme** : en construisant un simulateur lead magnet, j'ai voulu prioriser la complétude (couvrir le maximum de conventions collectives FR pour atteindre 100%). Gemini Pro a remonté que c'était un biais classique de product : optimiser pour le volume de données plutôt que pour la qualification du ICP.
+
+**Diagnostic** : pour un lead magnet B2B avec offre abonnement IA 500€/mois, une PME de transport routier (700k salariés couverts) est un enfer à convertir. À l'inverse, une SASU IT/freelance sans salarié (hors OPCO classique, dépend d'Agéfice/FIFPL) est la cible la plus chaude — ce sont les early adopters évidents de l'IA.
+
+**Règle product** : prioriser les sprints par **time-to-revenue ICP** plutôt que par volume de population couverte. Pour ASV : SASU IT/freelances > PME transport ou supermarchés. Mesurer en `taux_conversion_diag_par_segment`, pas en `nb_salaries_couverts`.
+
+**Cible réaliste** : 80% du trafic réel (Pareto + data Plausible des trous récurrents) plutôt que 100% des IDCCs FR. Une fois les "Big 5" comblés, le sourcing devient à la demande, pas en masse.
+
+## Sourcing manuel vs IA-assisté (lesson 2026-05-24)
+
+**Symptôme** : j'ai estimé 3-4h de sourcing manuel pour extraire les barèmes 2026 d'une convention collective (lecture PDF OPCO + Légifrance + Service-Public + structuration JSON).
+
+**Diagnostic Gemini** : "Tu es une agence IA, utilise tes outils." Pour une convention complète (PDC + AFEST + bonus + parcours stratégique + sources), un Claude Sonnet ou GPT-4o avec prompt structuré sort le JSON et les `notes_libres` rédigés en **45 min/convention** au lieu de 3-4h.
+
+**Règle dev** : ne JAMAIS faire en manuel ce qu'un LLM peut faire en structurant correctement le prompt. Le coût marginal de l'IA est négligeable vs le temps fondateur. Surtout pour les agences IA — c'est notre dogfooding.
+
+**Prompt type** :
+```
+Voici le PDF des critères de financement [OPCO] pour [IDCC X].
+Extrais en JSON conforme à ce schéma : {plan_developpement_competences: {tranches_effectifs: [...]}, afest, bonus_thematiques, parcours_strategique, sources}.
+Pour les `notes_libres`, rédige 1500-3000 chars de synthèse éditoriale orientée TPE/PME en français vouvoiement.
+```
+
+## Maintenance automatisée — scraper maison ≠ valeur pour solo founder (lesson 2026-05-24)
+
+**Symptôme** : tentation de coder un scraper Python qui re-télécharge trimestriellement les sites OPCO pour détecter les changements de barèmes (Phase D de la roadmap initiale).
+
+**Diagnostic Gemini** : les sites OPCO sont des "usines à gaz gouvernementales qui cassent le DOM tous les 4 matins". Automatiser le re-scraping = dette technique permanente + temps de maintenance > économie de veille.
+
+**Règle ops solo founder** : préférer l'outil no-code + veille manuelle intelligente :
+- **Visualping (free tier)** sur les URLs "Critères de financement" des OPCO → notification email si changement de texte
+- **Abonnement newsletter Centre Inffo / France Compétences** pour alertes officielles
+- 1h/trimestre de vérification manuelle > 3 jours de dev d'un scraper fragile
+
+**Méta-règle** : pour un fondateur solo, le temps est la ressource la plus rare. Tout dev custom doit avoir un ROI > 10× son coût de maintenance. Sinon → no-code.
+
+## Pages programmatiques SEO — drip vs publication massive (lesson 2026-05-24)
+
+**Symptôme** : j'avais 59 fiches branches en BDD, tentation de publier les 39 restantes en une seule fois.
+
+**Diagnostic Gemini** : Google Helpful Content Update pénalise les patterns programmatiques massifs même avec contenu unique (1000-3700 chars `notes_libres` par fiche). Le signal "publication explosive" est plus fort que le signal "contenu unique par page".
+
+**Règle SEO** : publier en **drip** 3-5 pages/semaine maximum. Maîtriser le maillage interne progressivement (lien depuis la page mère vers les pages branches petit à petit). Choix data-driven via Plausible : prioriser les branches dont les NAFs ressortent en `simulator_idcc_not_in_list`.
+
+## Hugo `where` pour filtrer pages avec param défini (lesson 2026-05-24)
+
+**Pattern utilisé** dans les layouts `simulateur-opco/single.html` (section "Conventions associées") et `branches/single.html` (section "Branches voisines") :
+
+```go
+{{ $branches := where site.RegularPages "Params.branche_slug" "!=" nil }}
+{{ $opcoBranches := where $branches "Params.branche_opco_slug" $opcoSlug }}
+```
+
+Astuce : `"Params.X" "!=" nil` filtre toutes les pages qui ont défini le param `X`, quelle que soit sa valeur. Permet de constituer une collection dynamique de pages programmatiques sans hardcoder une liste de slugs.
+
 ## Vercel env vars — bakées au build time pour Node.js serverless
 
 - **Toute modification d'env var (ajout, valeur, scope Production/Preview) nécessite un nouveau build**. Vercel n'expose pas dynamiquement les nouvelles valeurs aux lambdas existantes. Symptôme typique : tu cliques "Save" dans Settings → Environment Variables, mais `process.env.MA_VAR` retourne toujours `undefined` côté lambda → c'est normal, fais un commit (vide si besoin : `git commit --allow-empty -m "force redeploy"`) et push.
