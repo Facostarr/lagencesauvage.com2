@@ -156,6 +156,40 @@ export const NAF_TO_IDCC_SUGGESTION = {
   '45.31Z': { value: '1090', auto: false },
   '45.32Z': { value: '1090', auto: false },
   '45.40Z': { value: '1090', auto: false },
+
+  // ===== COMMERCE DE DÉTAIL NON ALIMENTAIRE (S3.2 — ~75-85% confiance) =====
+  // Mappés sur IDCC 1517 (Commerces détail non alimentaires, L'Opcommerce).
+  // auto: false systématique car le secteur est fragmenté entre :
+  //   - L'Opcommerce (CDNA 1517, le plus large)
+  //   - OPCO EP (petits commerces spécialisés type librairie 3013, optique 1431…)
+  //   - Conventions sectorielles spécifiques (horlogerie-bijouterie 1487 hors BDD)
+  // Le prospect modifie via le select si le mapping CDNA ne correspond pas
+  // à sa convention exacte.
+
+  // Livres, journaux, papeterie (CDNA si grand format ; OPCO EP si petite libraire/marchand journaux)
+  '47.61Z': { value: '1517', auto: false },  // Livres
+  '47.62Z': { value: '1517', auto: false },  // Journaux et papeterie
+
+  // Équipement maison, électronique et culture
+  '47.51Z': { value: '1517', auto: false },  // Textiles
+  '47.53Z': { value: '1517', auto: false },  // Tapis, moquettes, revêtements
+  '47.54Z': { value: '1517', auto: false },  // Électroménager
+  '47.59A': { value: '1517', auto: false },  // Meubles
+  '47.59B': { value: '1517', auto: false },  // Autres équipements du foyer
+  '47.63Z': { value: '1517', auto: false },  // Disques, vidéos, multimédia
+  '47.64Z': { value: '1517', auto: false },  // Articles de sport
+  '47.65Z': { value: '1517', auto: false },  // Jeux et jouets
+
+  // Habillement, chaussures, accessoires
+  '47.71Z': { value: '1517', auto: false },  // Habillement
+  '47.72A': { value: '1517', auto: false },  // Chaussures
+  '47.72B': { value: '1517', auto: false },  // Maroquinerie et articles de voyage
+
+  // Beauté, bijouterie, autres spécialisés
+  '47.75Z': { value: '1517', auto: false },  // Parfumerie et cosmétiques
+  '47.77Z': { value: '1517', auto: false },  // Horlogerie et bijouterie
+  '47.78C': { value: '1517', auto: false },  // Autres commerces de détail spécialisés
+  '47.79Z': { value: '1517', auto: false },  // Biens d'occasion en magasin
 };
 
 // Retourne soit { type, value, naf, auto } soit null.
