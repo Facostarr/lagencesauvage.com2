@@ -1,0 +1,59 @@
+{{/*
+  opco-kpi — Carte d'identité OPCO en 4 KPI cards
+  Lit le front matter de la page courante :
+    opco_nb_idcc, opco_audience, opco_date_maj, opco_url_racine, opco_url_criteres
+*/}}
+{{ $nb        := .Page.Params.opco_nb_idcc }}
+{{ $audience  := .Page.Params.opco_audience }}
+{{ $maj       := .Page.Params.opco_date_maj }}
+{{ $url       := .Page.Params.opco_url_racine }}
+{{ $urlCrit   := .Page.Params.opco_url_criteres }}
+{{ $urlLabel  := $url | replaceRE "^https?://(www\\.)?" "" | replaceRE "/$" "" }}
+
+<div class="not-prose my-8 grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+
+  {{ with $nb }}
+  <div class="rounded-xl border border-slate-200 bg-white p-4 sm:p-5">
+    <div class="flex items-center gap-2 text-xs font-medium text-slate-500 uppercase tracking-wide mb-2">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/><path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"/></svg>
+      Conventions
+    </div>
+    <div class="text-2xl sm:text-3xl font-bold text-slate-900 leading-none">{{ . }}</div>
+    <div class="mt-1 text-xs sm:text-sm text-slate-600">branches couvertes</div>
+  </div>
+  {{ end }}
+
+  {{ with $audience }}
+  <div class="rounded-xl border border-slate-200 bg-white p-4 sm:p-5">
+    <div class="flex items-center gap-2 text-xs font-medium text-slate-500 uppercase tracking-wide mb-2">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"/></svg>
+      Audience
+    </div>
+    <div class="text-sm sm:text-base font-semibold text-slate-900 leading-snug">{{ . }}</div>
+  </div>
+  {{ end }}
+
+  {{ with $maj }}
+  <div class="rounded-xl border border-slate-200 bg-white p-4 sm:p-5">
+    <div class="flex items-center gap-2 text-xs font-medium text-slate-500 uppercase tracking-wide mb-2">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
+      Critères
+    </div>
+    <div class="text-base sm:text-lg font-semibold text-slate-900 leading-none">Maj <time datetime="{{ . }}">{{ dateFormat "02/01/2006" . }}</time></div>
+    <div class="mt-1 text-xs sm:text-sm text-slate-600">données vérifiées</div>
+  </div>
+  {{ end }}
+
+  {{ with $url }}
+  <a href="{{ . }}" target="_blank" rel="noopener noreferrer"
+     class="rounded-xl border border-slate-200 bg-white p-4 sm:p-5 hover:border-indigo-300 hover:bg-indigo-50/30 transition-colors group">
+    <div class="flex items-center gap-2 text-xs font-medium text-slate-500 uppercase tracking-wide mb-2">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4.083 9h1.946c.089-1.546.383-2.97.837-4.118A6.004 6.004 0 004.083 9zM10 2a8 8 0 100 16 8 8 0 000-16zm0 2c-.076 0-.232.032-.465.262-.238.234-.497.623-.737 1.182-.389.907-.673 2.142-.766 3.556h3.936c-.093-1.414-.377-2.649-.766-3.556-.24-.56-.5-.948-.737-1.182C10.232 4.032 10.076 4 10 4zm3.971 5c-.089-1.546-.383-2.97-.837-4.118A6.004 6.004 0 0115.917 9h-1.946zm-2.003 2H8.032c.093 1.414.377 2.649.766 3.556.24.56.5.948.737 1.182.233.23.389.262.465.262.076 0 .232-.032.465-.262.238-.234.498-.623.737-1.182.389-.907.673-2.142.766-3.556zm1.166 4.118c.454-1.147.748-2.572.837-4.118h1.946a6.004 6.004 0 01-2.783 4.118zm-6.268 0C6.412 13.97 6.118 12.546 6.03 11H4.083a6.004 6.004 0 002.783 4.118z" clip-rule="evenodd"/></svg>
+      Site officiel
+    </div>
+    <div class="text-sm sm:text-base font-semibold text-indigo-700 group-hover:text-indigo-900 leading-snug break-all">{{ $urlLabel }}</div>
+    {{ with $urlCrit }}<div class="mt-1 text-xs text-slate-500">+ page critères de financement</div>{{ end }}
+  </a>
+  {{ end }}
+
+</div>
