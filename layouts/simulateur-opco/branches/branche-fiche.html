@@ -1,0 +1,202 @@
+{{ define "head" }}
+  {{ partial "schema/branche.html" . }}
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="{{ .Title }}">
+  <meta property="og:description" content="{{ .Params.description }}">
+  <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:locale" content="fr_FR">
+  <meta name="twitter:card" content="summary_large_image">
+{{ end }}
+
+{{ define "main" }}
+
+{{ $nomCourt    := .Params.branche_nom_court }}
+{{ $opcoSlug    := .Params.branche_opco_slug }}
+{{ $opcoLabel   := .Params.branche_opco_label }}
+{{ $idcc        := .Params.branche_idcc_primary }}
+{{ $currentSlug := .Params.branche_slug }}
+
+{{/* ============================================================
+     BREADCRUMB — 4 niveaux
+     ============================================================ */}}
+<nav class="bg-white border-b border-slate-100" aria-label="Fil d'Ariane">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 py-3">
+    <ol class="flex items-center gap-2 text-sm text-slate-600 flex-wrap">
+      <li><a href="/" class="hover:text-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-indigo-500 rounded">Accueil</a></li>
+      <li aria-hidden="true" class="text-slate-300">›</li>
+      <li><a href="/simulateur-opco/" class="hover:text-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-indigo-500 rounded">Simulateur OPCO 2026</a></li>
+      <li aria-hidden="true" class="text-slate-300">›</li>
+      <li><a href="/simulateur-opco/branches/" class="hover:text-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-indigo-500 rounded">Conventions</a></li>
+      <li aria-hidden="true" class="text-slate-300">›</li>
+      <li aria-current="page" class="text-slate-900 font-medium">{{ $nomCourt }}</li>
+    </ol>
+  </div>
+</nav>
+
+{{/* ============================================================
+     HERO transactionnel (inchangé, validé Sprint 3.1)
+     ============================================================ */}}
+<section class="bg-slate-deep text-white pt-12 pb-12 sm:pt-16 sm:pb-16">
+  <div class="mx-auto max-w-3xl px-4 sm:px-6">
+    <div class="flex justify-center mb-5">
+      <span class="inline-flex items-center gap-2 rounded-full bg-indigo-500/15 border border-indigo-400/30 px-4 py-1.5 text-xs sm:text-sm font-medium text-indigo-200">
+        IDCC {{ $idcc }} · {{ $opcoLabel }} · Barèmes <time datetime="2026">2026</time>
+      </span>
+    </div>
+    <h1 class="text-center text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-5">
+      Simulateur Budget Formation<br class="hidden sm:block">
+      <span class="text-indigo-300">{{ $nomCourt }} (IDCC {{ $idcc }}) — 2026</span>
+    </h1>
+    <p class="text-center text-base sm:text-lg text-slate-300 max-w-2xl mx-auto">
+      {{ .Params.description }}
+    </p>
+    <div class="mt-8 flex justify-center">
+      <a href="/simulateur-opco/" class="inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-6 py-3 text-base font-bold text-white hover:bg-indigo-700 transition-colors focus:outline-none focus:ring-4 focus:ring-indigo-300">
+        Calculer mon budget {{ $nomCourt }} 2026 →
+      </a>
+    </div>
+  </div>
+</section>
+
+{{/* ============================================================
+     CORPS — Pattern 3 colonnes Doc-Landing (mêmes choix que opco-fiche)
+     ============================================================ */}}
+<section class="bg-white py-10 sm:py-14">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6">
+    <div class="lg:grid lg:grid-cols-12 lg:gap-8">
+
+      {{/* ----- COL GAUCHE : TOC sticky (desktop only) ----- */}}
+      <aside class="hidden lg:block lg:col-span-3">
+        <div class="sticky top-24">
+          <p class="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-3">Sur cette page</p>
+          <nav class="opco-toc text-sm" aria-label="Table des matières">
+            {{ .TableOfContents }}
+          </nav>
+        </div>
+      </aside>
+
+      {{/* ----- COL CENTRE : Contenu ----- */}}
+      <article class="lg:col-span-6 prose prose-slate max-w-none
+                      prose-headings:font-bold prose-headings:text-slate-900
+                      prose-h2:text-2xl prose-h2:sm:text-3xl prose-h2:mt-12 prose-h2:mb-5 prose-h2:scroll-mt-24
+                      prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3 prose-h3:scroll-mt-24
+                      prose-p:leading-relaxed
+                      prose-a:text-indigo-700 prose-a:no-underline hover:prose-a:underline
+                      prose-strong:text-slate-900 prose-strong:font-semibold
+                      prose-table:text-sm prose-table:my-6
+                      prose-th:bg-slate-50 prose-th:text-slate-700 prose-th:font-semibold
+                      prose-td:py-2.5 prose-td:align-top
+                      prose-li:my-1
+                      prose-blockquote:border-l-4 prose-blockquote:border-indigo-200 prose-blockquote:bg-indigo-50/30 prose-blockquote:py-1 prose-blockquote:px-4 prose-blockquote:not-italic prose-blockquote:text-slate-700">
+        {{ .Content }}
+      </article>
+
+      {{/* ----- COL DROITE : CTA sticky (desktop only) ----- */}}
+      <aside class="hidden lg:block lg:col-span-3">
+        <div class="sticky top-24 space-y-4">
+          <div class="rounded-xl border border-indigo-200 bg-indigo-50/40 p-5">
+            <p class="text-xs font-semibold text-indigo-700 uppercase tracking-wide mb-2">{{ $nomCourt }} · IDCC {{ $idcc }}</p>
+            <h3 class="text-base font-bold text-slate-900 leading-snug mb-3">Calculez votre budget en 30 secondes</h3>
+            <p class="text-sm text-slate-700 mb-4 leading-relaxed">Notre simulateur identifie automatiquement votre rattachement à {{ $nomCourt }} depuis votre SIREN et calcule vos plafonds {{ $opcoLabel }} 2026.</p>
+            <a href="/simulateur-opco/" class="block w-full rounded-lg bg-indigo-600 px-4 py-2.5 text-center text-sm font-bold text-white hover:bg-indigo-700 transition-colors">
+              Lancer le simulateur →
+            </a>
+          </div>
+          {{ if $opcoSlug }}
+          <a href="/simulateur-opco/{{ $opcoSlug }}/" class="block rounded-xl border border-slate-200 bg-white p-5 hover:border-indigo-300 hover:bg-indigo-50/30 transition-colors group">
+            <p class="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-2">OPCO de rattachement</p>
+            <h3 class="text-base font-bold text-slate-900 leading-snug mb-2 group-hover:text-indigo-700">{{ $opcoLabel }}</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">Vue complète des dispositifs, branches couvertes, sources officielles.</p>
+            <p class="mt-3 text-sm font-semibold text-indigo-700">Consulter la fiche OPCO →</p>
+          </a>
+          {{ end }}
+          <div class="rounded-xl border border-slate-200 bg-white p-5">
+            <p class="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-2">Échange direct</p>
+            <h3 class="text-base font-bold text-slate-900 leading-snug mb-3">30 min avec un expert IA</h3>
+            <p class="text-sm text-slate-600 mb-4 leading-relaxed">Question financement, montage de dossier, ingénierie pédagogique ?</p>
+            <a href="/diagnostic/" class="block w-full rounded-lg border-2 border-indigo-600 px-4 py-2.5 text-center text-sm font-bold text-indigo-700 hover:bg-indigo-50 transition-colors">
+              Réserver un créneau
+            </a>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+{{/* ============================================================
+     FAQ
+     ============================================================ */}}
+{{ if .Params.faq }}
+<section id="section-faq" class="bg-slate-50 py-12 sm:py-16">
+  <div class="mx-auto max-w-3xl px-4 sm:px-6">
+    <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-6">
+      Questions fréquentes — {{ $nomCourt }}
+    </h2>
+    <div class="space-y-3">
+      {{ range $i, $faq := .Params.faq }}
+      <details class="group bg-white rounded-xl border border-slate-200 hover:border-indigo-300 transition-colors" {{ if eq $i 0 }}open{{ end }}>
+        <summary class="cursor-pointer list-none p-5 sm:p-6 flex items-start justify-between gap-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-indigo-500 rounded-xl">
+          <h3 class="text-base sm:text-lg font-bold text-slate-900 leading-snug">{{ $faq.question }}</h3>
+          <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 h-5 w-5 text-indigo-600 mt-0.5 transition-transform group-open:rotate-180" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.06l3.71-3.83a.75.75 0 111.08 1.04l-4.25 4.39a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z" clip-rule="evenodd"></path>
+        </svg>
+        </summary>
+        <div class="px-5 pb-5 sm:px-6 sm:pb-6 text-sm sm:text-base text-slate-700 leading-relaxed">
+          {{ $faq.answer | safeHTML }}
+        </div>
+      </details>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+{{/* ============================================================
+     BRANCHES VOISINES (même OPCO, max 6)
+     ============================================================ */}}
+{{ $voisines := slice }}
+{{ range where (where site.RegularPages "Section" "simulateur-opco") "Params.branche_opco_slug" $opcoSlug }}
+  {{ if and (ne .Params.branche_slug $currentSlug) .Params.branche_slug }}
+    {{ $voisines = $voisines | append . }}
+  {{ end }}
+{{ end }}
+{{ if gt (len $voisines) 0 }}
+<section class="bg-white border-t border-slate-100 py-10 sm:py-12">
+  <div class="mx-auto max-w-5xl px-4 sm:px-6">
+    <h2 class="text-xl sm:text-2xl font-bold text-slate-900 mb-3">Autres conventions {{ $opcoLabel }}</h2>
+    <p class="text-sm sm:text-base text-slate-600 mb-5 max-w-2xl">
+      Si votre IDCC est différent de {{ $idcc }}, consultez les autres branches couvertes par {{ $opcoLabel }}.
+    </p>
+    <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+      {{ range first 6 $voisines }}
+        <li>
+          <a href="{{ .RelPermalink }}" class="block h-full rounded-xl border border-slate-200 bg-white p-4 hover:border-indigo-300 hover:shadow-sm transition-all">
+            <span class="text-sm font-bold text-slate-900 leading-snug">{{ .Params.branche_nom_court }}</span>
+            {{ if .Params.branche_idcc_primary }}<span class="block text-xs text-indigo-600 font-semibold mt-1">IDCC {{ .Params.branche_idcc_primary }}</span>{{ end }}
+          </a>
+        </li>
+      {{ end }}
+    </ul>
+  </div>
+</section>
+{{ end }}
+
+{{/* ============================================================
+     CTA FINAL
+     ============================================================ */}}
+<section class="bg-slate-50 border-t border-slate-100 py-10 sm:py-12">
+  <div class="mx-auto max-w-3xl px-4 sm:px-6">
+    <div class="flex flex-col sm:flex-row gap-3">
+      <a href="/simulateur-opco/" class="flex-1 rounded-lg bg-slate-deep px-6 py-3 text-center text-base font-bold text-white hover:bg-slate-900 transition-colors focus:outline-none focus:ring-4 focus:ring-slate-300">
+        Lancer le simulateur {{ $nomCourt }} 2026
+      </a>
+      <a href="/diagnostic/" class="flex-1 rounded-lg border-2 border-indigo-600 px-6 py-3 text-center text-base font-bold text-indigo-700 hover:bg-indigo-50 transition-colors focus:outline-none focus:ring-4 focus:ring-indigo-200">
+        Échanger 30 minutes avec un expert
+      </a>
+    </div>
+  </div>
+</section>
+
+{{ end }}

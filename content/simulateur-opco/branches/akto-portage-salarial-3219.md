@@ -3,7 +3,7 @@ title: Simulateur Budget Formation Portage salarial (IDCC 3219) — 2026
 description: 'Calculez votre budget formation 2026 pour la convention Portage salarial (AKTO, IDCC 3219). Plafonds PDC par tranche d''effectif, dispositifs activables, sources officielles. Simulation en 30 secondes.'
 date: 2026-05-23
 lastmod: 2026-05-23
-layout: "single"
+layout: "branche-fiche"
 robots: "index, follow"
 canonical: "/simulateur-opco/branches/akto-portage-salarial-3219/"
 ogImage: "/assets/images/logo-agence-sauvage.svg"
