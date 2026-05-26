@@ -166,3 +166,67 @@ Quota dépassé aujourd'hui. Demander l'indexation pour les 6 case studies :
 - [ ] Se faire citer dans un classement tiers (codeur.com, koino.fr, jedha.co)
 - [ ] Contenu ciblant requêtes génériques ("comment choisir agence IA TPE", etc.)
 - [ ] Renforcer E-E-A-T (témoignages, case studies, apparitions presse)
+
+---
+
+## Sprint 3 — Simulateur OPCO : extensions (à creuser)
+
+Suite des Sprints 1+2 SEO/GEO (cf. changelog 2026-05-23). 3 axes proposés en fin de session :
+
+### Idée 1 — Pages programmatiques par IDCC (sous-pages branches)
+
+**Hypothèse** : générer des sous-pages branche (`/simulateur-opco/branches/{slug}/`) depuis la BDD OPCO normalisée du projet voisin `OPCO/` qui contient **59 fiches branches** (~80-100 lignes de contenu sourcé par fiche, validé humainement). Notamment **22 branches AKTO** déjà documentées (HCR IDCC 1979, Propreté 3043, Prévention-Sécurité 1351, Restauration rapide 1501, Travail temporaire 1413+2378, etc.).
+
+**Démarche à scoper** :
+- Format URL : `/simulateur-opco/branches/{slug}/` (ex : `hcr-1979`, `proprete-3043`) ou autre pattern à valider
+- Contenu : intro client + dispositifs spécifiques branche + plafonds chiffrés + sources officielles + simulateur pré-filtré
+- Réutiliser le script `scripts/generate-opco-subpages.py` (adapter pour les fiches branches)
+- Risque thin content : à mitiger via contenu unique par fiche (les notes_libres BDD ont 1-3k chars chacune, suffisant)
+- Volume cible Sprint 3 : 15-20 fiches branches top trafic potentiel (Syntec 1486, HCR 1979, Banque 2120, BTP, Pharmacie, etc.)
+
+**Bénéfice SEO/GEO attendu** :
+- Longue traîne par IDCC (volume très faible mais conversion proche de 100%)
+- Maillage interne dense entre OPCO ↔ branches ↔ simulateur
+- Couverture entité sémantique massive (Google + LLMs comprennent que ASV couvre l'intégralité du sujet)
+
+### Idée 2 — Article blog complémentaire "Choisir son organisme Qualiopi pour formation IA"
+
+**Hypothèse** : un article pilier complémentaire à `/blog/dispositifs-opco-2026-financer-formation-ia-pme/`. L'AI Act + le PDC OPCO exigent Qualiopi mais peu d'articles francophones expliquent comment **choisir** un OF Qualiopi pour l'IA.
+
+**Démarche à scoper** :
+- Plan : critères Qualiopi RNQ V9, vérifier NDA + audit DREETS, signaux qualité spécifiques formations IA (programme pédagogique, modalités e-learning, tutorat, certifications visées), pièges à éviter, comment vérifier un OF (annuaire France Compétences, DataDock historique, etc.)
+- Cible : ~2000 mots, 6-7 H2, FAQ 4-5 Q/R, takeaways 3
+- Maillage : article OPCO 2026 + page actions collectives + formation Claude
+- Sources : France Compétences, Ministère du Travail Qualiopi, annuaire Mon Compte Formation, Décret n° 2019-565
+
+**Bénéfice SEO/GEO attendu** :
+- Cluster "Qualiopi + IA" sous-exploité en SEO
+- Différenciateur autorité ASV (formateur via partenaire certifié Qualiopi déjà mentionné dans l'article OPCO)
+
+### Idée 3 — Lead magnet "Checklist montage dossier OPCO 2026" (PDF)
+
+**Hypothèse** : 4e lead magnet ASV (après les 3 PDFs déjà déployés) — checklist opérationnelle qui matérialise la "Procédure 5 étapes" de l'article blog OPCO. Cible : dirigeants TPE/PME qui veulent **agir** sur leur budget OPCO 2026.
+
+**Démarche à scoper** :
+- Contenu : checklist 30-40 items pour monter un dossier OPCO (identification OPCO → vérification éligibilité → choix OF Qualiopi → constitution dossier → dépôt + subrogation), avec liens vers les ressources officielles
+- Format : docx → PDF (workflow LM existant validé, cf. mémoire `project_lead_magnets.md`)
+- Tag déclencheur blog : "Checklist OPCO" (à insérer dans l'article blog OPCO via front matter)
+- API : `/api/submit-checklist-opco.js` (réutiliser pattern existant)
+- Notion source : "Lead Magnet - Checklist OPCO"
+- Plausible event : "Checklist OPCO Download"
+- URL cible : `https://www.lagencesauvage.com/assets/downloads/checklist-montage-dossier-opco-2026.pdf`
+
+**Bénéfice conversion** :
+- Capture lead post-lecture article blog OPCO (2388 mots = audience qualifiée)
+- Ressource opérationnelle = perception de valeur immédiate
+- Nurturing : récap email automatique + propose diagnostic 30 min
+
+### Dette technique Sprint 3 — Bug schema doubled quotes
+
+**Symptôme** : valeurs string JSON-LD avec guillemets littéraux (`"\"value\""` au lieu de `"value"`). Affecte WebApplication, Service, FAQPage sur `/simulateur-opco/`, les 11 sous-pages OPCO et `/simulateur-opco/actions-collectives/`.
+
+**Cause supposée** : bug Hugo 0.158 `jsonify` ou parser YAML Go-YAML. 5 approches testées sans succès (Trim, .Description, LF endings, YAML plain/single-quoted, jsonify-bypass).
+
+**Impact** : cosmétique (JSON valide, Google parse). Pas bloquant production mais sub-optimal pour rich snippets.
+
+**Fix à prévoir** : custom JSON template Hugo via `printf` + `replaceRE` manuel (bypass complet de `jsonify`) OU upgrade Hugo si bug fix amont. Estimer 1-2h.

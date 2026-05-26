@@ -223,6 +223,8 @@ Branche : `feat/simulateur-opco` (15 commits) | PRD : `Claude Code/Simulateur OP
 | **S6.6.1** | Inclusion des 22 branches naf_fallback (Constructys, Afdas télécoms/audio/sport, etc.) — couverture 9→10 OPCO sur 11 | ✅ |
 | **S6.6.2** | Pré-suggestion NAF→convention validée par l'utilisateur (75 mappings) — résout 95% des cas evidents | ✅ consensus Claude+Gemini 9.5/10 |
 | **S7** | Merge fast-forward feat/simulateur-opco → main (22 commits, 34 fichiers, 9867 insertions) + push production | ✅ 2026-05-23 |
+| **S8 (SEO/GEO)** | Sprint 1 : schema @graph + FAQ 8 Q/R + méthodologie + glossaire + breadcrumb + chiffres officiels + réforme 2026 + robots.txt 18 bots IA + llms.txt + fix bug factuel 11 OPCO. PR #2 mergée main. Consensus Gemini Deep Research. | ✅ 2026-05-23 |
+| **S9 (SEO/GEO)** | Sprint 2 : 11 sous-pages OPCO auto-générées + page actions collectives 100% financées + article blog pilier cluster IA+OPCO 2388 mots + image hero Gemini WebP 20 KB. PR #3 mergée main. Consensus Gemini Pro 10/10 sur l'article blog. | ✅ 2026-05-23 |
 
 **Validation e2e Preview** : POST `/api/simulate-opco-compute` retourne `ok:true`, lead Notion créé (369223ca...), email Resend récap reçu, snapshot JSON archivé dans le body de la page Notion.
 

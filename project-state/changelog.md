@@ -1,5 +1,72 @@
 # Changelog — Refonte lagencesauvage.com
 
+## 2026-05-23 (soirée) — Sprint SEO/GEO Simulateur OPCO (S1 + S2 complets)
+
+Suite du Sprint 7 simulateur OPCO mergé en prod le matin (cf. plus bas). Session après-midi/soirée dédiée à l'optimisation SEO/GEO complète du cluster simulateur OPCO. Consensus Claude + Gemini Deep Research + 4 PRs livrées sur main.
+
+### Sprint 1 — Schema @graph + FAQ + méthodologie + glossaire (PR #2 mergée)
+
+- **Gemini Deep Research** consulté pour challenger plan SEO/GEO 2026 → rapport complet exploitable (score 9/10 sur consensus final)
+- **Bug factuel M11 corrigé** : liste 11 OPCO erronée (retrait "Cohésion sociale" qui n'est pas un OPCO, ajout "L'Opcommerce" manquant — vérifié contre `paysage-formation-pro-fr.md` du projet voisin OPCO/)
+- **Schema.org @graph enrichi** : WebApplication + BreadcrumbList + HowTo (3 steps) + FAQPage (8 Q/R) + Dataset + SpeakableSpecification — référencent l'Organization sitewide via `@id`
+- **FAQ 8 Q/R rendue serveur** (`<details>/<summary>` natifs, DOM initial, zéro JS, alimente FAQPage schema depuis `.Params.faq`)
+- **Section méthodologie de calcul** ~300 mots avec 5+ liens sortants `.gouv.fr` (API DINUM, siret2idcc, Article R6332-9 Légifrance, France Compétences, Qualiopi)
+- **Glossaire compact `<dl>`** : OPCO, IDCC, NAF/APE, CFP, PDC, AFEST, Période de reconversion, Subrogation, Qualiopi (9 termes)
+- **Breadcrumb visible** Accueil > Simulateur OPCO 2026
+- **Section "Chiffres officiels 2026"** : 521 M€ (Jaune budgétaire Assemblée Nationale), 0,55%/1% (Service Public F22570), 11 OPCO (France Compétences)
+- **Section "Réforme 1er janvier 2026"** : Pro-A → Période de reconversion (loi 24 octobre 2025), CPF plafond RS 1500€
+- **Title optimisé** : "Simulateur OPCO 2026 — Budget formation TPE/PME en 30 secondes" (62 char, consensus Claude+Gemini+Franck)
+- **robots.txt créé** avec allow explicite pour 18 bots IA (GPTBot, ChatGPT-User, OAI-SearchBot, PerplexityBot, ClaudeBot, CCBot, Google-Extended, Applebot-Extended, MistralAI-User, anthropic-ai, cohere-ai, etc.)
+- **llms.txt enrichi** avec section "Outils gratuits" décrivant le simulateur (11 OPCO + dispositifs + réforme 2026)
+- **BDD OPCO consolidée copiée** dans `data/opco-database.json` (570 KB JSON depuis le projet voisin OPCO/) — source de vérité pour les sous-pages OPCO
+
+### Sprint 2 — 11 sous-pages OPCO + actions collectives + article blog pilier (PR #3 mergée)
+
+**P1+P2 — 11 sous-pages OPCO auto-générées** depuis `data/opco-database.json` :
+- Script `scripts/generate-opco-subpages.py` génère 1 fichier .md par OPCO (Afdas, AKTO, Atlas, Constructys, OPCO EP, OPCO Mobilités, OCAPIAT, OPCO Santé, OPCO 2i, L'Opcommerce, Uniformation)
+- Approche hybride : intro client vouvoiement + tableau dispositifs + branches couvertes + analyse détaillée (`notes_libres` brutes BDD validées humainement, 1-8k chars) + sources officielles + 3 FAQ spécifiques + CTAs
+- Helper `compute_opco_label()` anti-doublon "OPCO OPCO EP" / "OPCO L'Opcommerce"
+- Layout `layouts/simulateur-opco/single.html` avec breadcrumb visible + hero slate-deep + grid cross-link vers les 10 autres OPCO
+- Schema partial `layouts/partials/schema/opco-subpage.html` : BreadcrumbList + Service + FAQPage
+
+**P3 — Page actions collectives 100% financées** (`/simulateur-opco/actions-collectives/`, ~1120 mots) :
+- 7 H2 + 4 FAQ + 11 sources officielles
+- Couvre : Atlas Parcours stratégique TPE/PME (80% × 15 000€ HT), Atlas catalogues captifs (campusAtlas, microlearningAtlas, Savoirs d'Avenirs, PIX I Atlas, expertAtlas), Opcommerce IA Box NextGenerationEU
+- Différenciateur SEO/GEO majeur (concurrents ne couvrent pas)
+- Layout refactor : `single.html` conditionne sections OPCO-specific via `{{ if .Params.opco_slug }}`
+- Nouveau schema partial `simulateur-opco-editorial.html` : BreadcrumbList + Article + FAQPage
+
+**P4 — Article blog pilier cluster IA + OPCO** (`/blog/dispositifs-opco-2026-financer-formation-ia-pme/`, ~2388 mots) :
+- Consensus Claude + Gemini Pro **10/10** (8.5/10 plan initial + 3 améliorations Gemini intégrées : FNE-Formation avec caveat statut 2026, élargissement OPCO au-delà d'Atlas/Opcommerce, GEO definition blocks 40-50 mots sous chaque H2)
+- 7 H2 + 5 FAQ + 3 takeaways + 22 liens externes dont 6 `.gouv.fr` + 11 sources officielles
+- Couvre les 6 dispositifs 2026 : PDC, actions collectives, Parcours stratégique Atlas, FNE-Formation, Période de reconversion (loi 24 oct 2025), abondement CPF
+- Maillage interne : 5× simulateur, 1× actions collectives, 1× article AI Act, 1× formation Claude
+- **Image hero Gemini-generated** : 6 cubes indigo interconnectés sur fond slate-deep, style éditorial tech B2B (Stripe/Linear), WebP 20.1 KB (1600×900, quality 85)
+
+### 3 bugs débuggés en cascade (cf. lessons.md)
+
+1. **Bug factuel liste 11 OPCO** : "Cohésion sociale" qui n'est pas un OPCO. Vérifié contre BDD OPCO normalisée (`OPCO/docs/references/paysage-formation-pro-fr.md`).
+2. **Bug front matter YAML** : indentation cassée par `dedent` + injection multi-lignes FAQ → réécriture en liste de strings explicite. Puis CRLF vs LF (Python Path.write_text sur Windows = CRLF par défaut) → write_bytes avec replace().
+3. **Bug schema doubled quotes** : `jsonify` produit `"\"value\""` au lieu de `"value"`. 5 approches testées sans succès (TrimPrefix/TrimSuffix, .Description vs .Params, force LF, YAML plain/single-quoted, refactor partial). Cause Hugo 0.158 confirmée mais root cause exacte non identifiée. **Reporté dette technique Sprint 3** (fix dédié via custom JSON template à prévoir, 1-2h).
+
+### Métriques Sprint complet (S1+S2)
+
+- **6 PRs/branches** : feat/simulateur-opco-seo-geo (S1) + feat/simulateur-opco-subpages (S2)
+- **2 merges sur main** : PR #2 + PR #3
+- **14 nouveaux fichiers content** : 11 sous-pages OPCO + 1 page actions collectives + 1 article blog + 1 image hero
+- **4 nouveaux layouts/partials** : single.html refactor + opco-subpage schema + simulateur-opco-editorial schema + faq enrichie
+- **2 nouveaux fichiers data/infra** : opco-database.json (570 KB) + robots.txt
+- **1 nouveau script Python** : generate-opco-subpages.py (533 lignes, helpers compute_opco_label + label_with_article + yaml_escape avec fallback plain/single-quoted)
+
+### Impact SEO/GEO attendu (à mesurer dans 3-6 semaines)
+
+- **11 nouvelles URLs** indexables sur cluster OPCO (longue traîne par OPCO)
+- **1 page différenciatrice** "actions collectives 100% financées" (opportunité SERP unique en 2026)
+- **1 article pilier 2388 mots** avec 22 sources officielles → autorité topique
+- **Maillage interne dense** : article → simulateur (5×), actions collectives, 2 sous-pages OPCO ciblées, article AI Act, formation Claude
+- **11 sources `.gouv.fr` exposées** sur le cluster simulateur → boost E-E-A-T
+- **Bots IA explicitement autorisés** (18 user-agents dans robots.txt)
+
 ## 2026-05-23 — Simulateur OPCO S3 + S4 + S5 + debug end-to-end
 
 - **Sprint massif sur le Simulateur OPCO** (PRD 2026-05-22 validé consensus dual-LLM Claude+Gemini DR). Branche `feat/simulateur-opco`, 15 commits, flow complet validé en Preview Vercel.
