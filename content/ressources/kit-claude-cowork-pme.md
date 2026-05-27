@@ -3,6 +3,8 @@ title: "10 prompts Claude pour PME"
 description: "Copiez, collez, récupérez votre temps. Le kit opérationnel de L'Agence Sauvage."
 date: 2026-04-20
 layout: "single"
+sitemap:
+  disable: true
 ---
 
 <blockquote>
