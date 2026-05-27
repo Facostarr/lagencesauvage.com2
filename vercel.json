@@ -34,6 +34,7 @@
     { "source": "/blog/categories/:path*", "destination": "/blog/", "statusCode": 301 },
     { "source": "/blog/categories/:path*/", "destination": "/blog/", "statusCode": 301 },
     { "source": "/contact/", "destination": "/diagnostic/", "statusCode": 301 },
+    { "source": "/ressources/", "destination": "/blog/", "statusCode": 301 },
     { "source": "/diagnostic-ia", "destination": "/diagnostic/", "statusCode": 301 },
     { "source": "/diagnostic-ia/", "destination": "/diagnostic/", "statusCode": 301 },
     { "source": "/blog/automatiser-emails-gmail-ia-n8n.html", "destination": "/blog/automatiser-emails-gmail-ia/", "statusCode": 301 },
