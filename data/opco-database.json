@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-05-19T09:07:14.061709",
-    "version": "2026-05-19",
+    "generated_at": "2026-05-28T15:03:41.061277",
+    "version": "2026-05-28",
     "nb_opcos": 11,
-    "nb_branches": 59,
+    "nb_branches": 62,
     "nb_actions_collectives": 2
   },
   "opcos": [
@@ -5215,6 +5215,144 @@
       "_source_file": "data\\normalized\\branches\\assurances-1672.md"
     },
     {
+      "slug": "atlas-experts-comptables-787",
+      "nom_branche": "Cabinets d'experts-comptables et de commissaires aux comptes",
+      "opco_slug": "atlas",
+      "idcc_couverts": [
+        787
+      ],
+      "idcc_a_confirmer": false,
+      "source_legale_unique": null,
+      "annee_application": 2026,
+      "contribution_conventionnelle_requise": false,
+      "subrogation_possible": null,
+      "plan_developpement_competences": {
+        "financement_sur_devis": false,
+        "acces_of_tiers": true,
+        "type_fonds": "OPCO_CLASSIQUE",
+        "date_derniere_maj_dispositif": "2026-01-05",
+        "note": "PDC mutualisé Atlas réservé aux cabinets <50 salariés. Les ≥50 sal financent via fonds propres (1% MS) ou dispositifs interprofessionnels.",
+        "eligible": true,
+        "tranches_effectifs": [
+          {
+            "effectif_min": 1,
+            "effectif_max": 10,
+            "plafond_annuel_eur": 2800.0,
+            "plafond_horaire_eur": null,
+            "plafond_par_dossier_eur": null,
+            "taux_prise_en_charge": null,
+            "note": "2 800€ HT/an/entreprise + 1 000€ HT/an/salarié pour formations DEC/CAC"
+          },
+          {
+            "effectif_min": 11,
+            "effectif_max": 49,
+            "plafond_annuel_eur": 9000.0,
+            "plafond_horaire_eur": null,
+            "plafond_par_dossier_eur": null,
+            "taux_prise_en_charge": null,
+            "note": "9 000€ HT/an/entreprise + 1 000€ HT/an/salarié pour formations DEC/CAC"
+          }
+        ],
+        "cout_pedagogique_seul": false,
+        "frais_annexes": {
+          "salaire_pendant_formation": false,
+          "repas": false,
+          "repas_montant_eur": null,
+          "hebergement": false,
+          "hebergement_montant_eur": null,
+          "deplacement": false,
+          "premier_equipement_eur": null
+        },
+        "duree_max_action_h": null,
+        "majoration_certifiant": {
+          "applicable": false,
+          "description": null
+        },
+        "thematiques_prioritaires": [],
+        "thematiques_exclues": []
+      },
+      "bonus_thematiques": [],
+      "parcours_strategique": null,
+      "afest": {
+        "financement_sur_devis": false,
+        "acces_of_tiers": true,
+        "type_fonds": "OPCO_CLASSIQUE",
+        "date_derniere_maj_dispositif": "2026-01-05",
+        "note": "Adapté à la formation IA appliquée aux outils du cabinet (Pennylane, Cegid, automatisation factures).",
+        "eligible": true,
+        "forfait_horaire_eur": 20.0,
+        "plafond_heures_par_formation": 150,
+        "tranches_effectifs": [
+          {
+            "effectif_min": 1,
+            "effectif_max": 49,
+            "plafond_annuel_eur": null,
+            "plafond_horaire_eur": 20.0,
+            "plafond_par_dossier_eur": null,
+            "taux_prise_en_charge": null,
+            "note": "20€ HT/h, 150h max par formation, dans plafond annuel entreprise"
+          }
+        ],
+        "bonus_referent_afest": null
+      },
+      "contrat_professionnalisation": null,
+      "contrat_apprentissage": null,
+      "periode_reconversion": {
+        "financement_sur_devis": false,
+        "acces_of_tiers": true,
+        "type_fonds": "OPCO_CLASSIQUE",
+        "date_derniere_maj_dispositif": "2026-01-05",
+        "note": "Sur RNCP, blocs RNCP ou CQP. Remplace Pro-A depuis 01/01/2026.",
+        "eligible": true,
+        "duree_min_h": 150,
+        "duree_max_h": 450,
+        "duree_max_mois": 12,
+        "plafond_horaire_standard_eur": 15.0,
+        "plafond_horaire_majore_eur": 18.0,
+        "publics_majores": [
+          "BOETH (Bénéficiaires de l'Obligation d'Emploi des Travailleurs Handicapés)",
+          "Salariés 50 ans et plus",
+          "Certifications prioritaires de branche Atlas"
+        ],
+        "prerequis_certification": [
+          "RNCP",
+          "CQP"
+        ]
+      },
+      "abondement_cpf": null,
+      "vae": {
+        "financement_sur_devis": false,
+        "acces_of_tiers": true,
+        "type_fonds": "OPCO_CLASSIQUE",
+        "date_derniere_maj_dispositif": "2026-01-05",
+        "note": "Jusqu'à 3 000€ HT/parcours pour cabinets <50 sal.",
+        "eligible": true,
+        "plafond_par_parcours_eur": 3000.0,
+        "plafond_certif_branche_eur": null
+      },
+      "tutorat": null,
+      "documents_requis": [],
+      "delai_depot_dossier": {
+        "description": "Dossier à déposer avant le début de la formation. Pas de prise en charge rétroactive.",
+        "jours_avant_demarrage_min": 1
+      },
+      "date_scraping": "2026-05-26",
+      "date_derniere_maj_humaine": "2026-05-28",
+      "sources": [
+        {
+          "url": "https://www.opco-atlas.fr/criteres-financement/experts-comptables-et-commissaires-aux-comptes",
+          "date_consulte": "2026-05-26"
+        },
+        {
+          "url": "https://www.dicotravail.com/convention-collective/experts-comptables-jo-3020-idcc-787/",
+          "date_consulte": "2026-05-26"
+        }
+      ],
+      "schema_version": "1.1",
+      "notes_libres": "## Convention collective des cabinets d'experts-comptables (IDCC 787)\n\nLa CCN 787 régit les cabinets d'expertise comptable et de commissariat aux comptes en France. Avec environ 150 000 salariés, c'est le 2e employeur du conseil aux entreprises après le Syntec (IDCC 1486).\n\nLes cabinets sont rattachés à **Opco Atlas** (services financiers, conseil, ingénierie), qui propose des dispositifs spécifiques au secteur via le Plan de développement des compétences (PDC).\n\n> ⚠️ **Correction OPCO** : l'IDCC 787 relève bien d'**Opco Atlas**, et non d'OPCO EP — confirmé sur la page critères de financement Atlas dédiée aux experts-comptables.\n\n### Plafonds 2026 Opco Atlas pour le PDC\n\nPour les cabinets de **moins de 50 salariés**, Atlas finance les actions de formation selon ces plafonds :\n\n- **1 à 10 salariés** : 2 800 € HT/an/entreprise + 1 000 € HT/an/salarié spécifique formations DEC/CAC\n- **11 à 49 salariés** : 9 000 € HT/an/entreprise + 1 000 € HT/an/salarié spécifique formations DEC/CAC\n\n### AFEST (formation en situation de travail)\n\nAtlas finance l'AFEST à **20 € HT/h**, dans la limite de 150 h par formation et dans le plafond annuel entreprise. Particulièrement adapté à la formation IA appliquée aux outils du cabinet (Pennylane, Cegid, automatisation factures).\n\n### Période de reconversion et VAE\n\n- **Période de reconversion** : 150 à 450 h, jusqu'à 12 mois, 15 € HT/h (18 € HT/h pour les BOETH, 50+ ans ou certifications de branche). Éligibles : certifications RNCP, blocs RNCP, CQP. Remplace Pro-A depuis le 01/01/2026.\n- **VAE** : jusqu'à 3 000 € HT/parcours pour cabinets <50 sal.\n\n### Le cas IA et automatisation\n\nLes cabinets d'expertise comptable font face à une double pression : pénurie de profils qualifiés et explosion des volumes (facturation électronique 2026, automatisation Pennylane, agents IA pour la collecte WhatsApp). Les formations IA (Claude, ChatGPT, agents conversationnels) sont **finançables** par Atlas via le PDC ou la période de reconversion, à condition que l'organisme soit certifié Qualiopi. Pour un cabinet de 5-10 salariés, le plafond annuel de 2 800 € HT couvre 2 à 3 jours de formation collective IA par an (à raison de 1 000 € HT/jour-formateur).\n\n### Cabinets ≥50 salariés\n\nLe cabinet finance par fonds propres (contribution légale 1% MS) ou par dispositifs interprofessionnels (Pro-A, COatlas grands comptes). La part Atlas mutualisée n'intervient plus en pré-financement automatique.",
+      "_source_file": "data\\normalized\\branches\\atlas-experts-comptables-787.md"
+    },
+    {
       "slug": "banque-2120",
       "nom_branche": "Banque",
       "opco_slug": "atlas",
@@ -5388,11 +5526,16 @@
     },
     {
       "slug": "constructys-bat",
-      "nom_branche": "Bâtiment",
+      "nom_branche": "Bâtiment (Ouvriers, ETAM et Cadres)",
       "opco_slug": "constructys",
-      "idcc_couverts": [],
-      "idcc_a_confirmer": true,
-      "source_legale_unique": null,
+      "idcc_couverts": [
+        1596,
+        1597,
+        2609,
+        2420
+      ],
+      "idcc_a_confirmer": false,
+      "source_legale_unique": "https://www.constructys.fr/wp-content/uploads/2025/07/BATIMENT-Modalites-2026.zip",
       "annee_application": 2026,
       "contribution_conventionnelle_requise": true,
       "subrogation_possible": null,
@@ -5557,7 +5700,7 @@
         "jours_avant_demarrage_min": 15
       },
       "date_scraping": "2026-05-18",
-      "date_derniere_maj_humaine": "2026-05-18",
+      "date_derniere_maj_humaine": "2026-05-28",
       "sources": [
         {
           "url": "https://www.constructys.fr/financer-vos-projets-de-formation/modalites-demandes-de-prise-charge/conditions-de-prise-en-charge-2/",
@@ -5566,10 +5709,18 @@
         {
           "url": "https://www.constructys.fr/wp-content/uploads/2025/07/BATIMENT-Modalites-2026.zip",
           "date_consulte": "2026-05-18"
+        },
+        {
+          "url": "https://code.travail.gouv.fr/convention-collective/1597-batiment-ouvriers-entreprises-occupant-plus-de-10-salaries",
+          "date_consulte": "2026-05-28"
+        },
+        {
+          "url": "https://code.travail.gouv.fr/convention-collective/2609-batiment-etam",
+          "date_consulte": "2026-05-28"
         }
       ],
       "schema_version": "1.1",
-      "notes_libres": "## Présentation de la branche\n\nLa branche **Bâtiment** est la plus grande des 3 branches Constructys (avec TP et Négoce). Elle couvre les entreprises de construction de bâtiments, second-œuvre, finitions, etc.\n\n**Différence structurelle avec TP** : le Bâtiment a un taux horaire PDC de **24€/h** (vs 32€/h pour TP), sans mécanisme \"hors quota numérique/écologique <11 sal\". Le financement numérique passe principalement par le **Diag Performance** (1 000€/j, hors quota).\n\nLa contribution conventionnelle est requise pour accéder aux dispositifs de branche.\n\n## PDC — Particularités Bâtiment\n\n| Critère | Bâtiment | TP (comparaison) |\n|---------|----------|-----------------|\n| Taux horaire standard | **24€/h** | 32€/h |\n| Plafond annuel <50 sal | Non publié | 4 000€ |\n| Hors quota numérique <11 sal | Non | ✅ 32€/h |\n| Frais salaires <11 sal | 15€/h | 15€/h |\n| Frais salaires 11-49 qualif | 10€/h | n/a |\n| Frais annexes qualif | 8% + 1 500€/stag | Non |\n| Diag Performance | ✅ 1 000€/j | ✅ 1 000€/j |\n\n**Plafond annuel** : le document PDF Constructys Bâtiment ne publie pas de plafond global annuel par taille d'entreprise (contrairement à TP). L'enveloppe réelle est à confirmer avec un conseiller Constructys. Les indicateurs disponibles : max 3 stagiaires/an pour qualifiantes, durée max 300h/stag non qualifiant, 1 200h/stag qualifiant.\n\n## Frais annexes qualifiantes\n\nPour les actions qualifiantes (CCN Bâtiment, RNCP, CQP, blocs) : Constructys prend en charge **8% des coûts pédagogiques** avec un plafond de **1 500€ HT/stagiaire**. Ce mécanisme n'existe pas pour TP.\n\n## Diag Performance — porte d'entrée numérique\n\nLe **Diag Performance \"Numérique / Écologique / RSE\"** est disponible pour les entreprises Bâtiment <300 sal :\n- **1 000€ HT/jour** × 2j diagnostic + 6j accompagnement = **8 000€ HT max**\n- Hors budget annuel PDC\n- Thématiques : RH, Numérique, Écologique dont RSE — **les formations IA/numérique peuvent y entrer** si elles sont présentées comme diagnostic de maturité + plan de transformation numérique\n\n## Alternance Bâtiment\n\nLes forfaits ContratPro et tutorat sont **identiques à TP** (13€/h métiers BTP, 16€/h conduite/engins, 7€/h tertiaire). La particularité Bâtiment : aide tutorale apprentissage **250€ nets/an** pour tuteur d'un CAP technique (vs aide mensuelle ContratPro 230€/mois).\n\n## IDCCs à confirmer\n\nLes IDCCs de la branche Bâtiment ne sont pas publiés sur le site Constructys. Candidats probables à vérifier via France Compétences :\n- Ouvriers du Bâtiment : IDCC 1597 (à confirmer)\n- ETAM du Bâtiment : IDCC 2609 (à confirmer)\n\n## Signaux commerciaux pour OF tiers\n\n1. **Diag Performance numérique** (<300 sal) : 1 000€/j → 8 000€ max — porte d'entrée conseil transformation numérique\n2. **PDC qualifiantes 11-49 sal** : frais annexes 8% + frais salaires 10€/h — les formations certifiantes RNCP/CQP sont les plus financées\n3. **ContratPro métiers techniques BTP** : 13-19€/h (22€ conduite/engins prioritaires)\n4. **Absence de mécanisme hors quota numérique** : contrairement à TP, le financement IA passe par le PDC standard (24€/h) ou le Diag Performance\n\nBâtiment est moins favorable que TP pour les formations numériques pures (<11 sal), mais reste attractif sur les certifications qualifiantes et le Diag Performance.",
+      "notes_libres": "## Présentation de la branche\n\nLa branche **Bâtiment** est la plus grande des 3 branches Constructys (avec TP et Négoce). Elle couvre les entreprises de construction de bâtiments, second-œuvre, finitions, etc.\n\n**Différence structurelle avec TP** : le Bâtiment a un taux horaire PDC de **24€/h** (vs 32€/h pour TP), sans mécanisme \"hors quota numérique/écologique <11 sal\". Le financement numérique passe principalement par le **Diag Performance** (1 000€/j, hors quota).\n\nLa contribution conventionnelle est requise pour accéder aux dispositifs de branche.\n\n## PDC — Particularités Bâtiment\n\n| Critère | Bâtiment | TP (comparaison) |\n|---------|----------|-----------------|\n| Taux horaire standard | **24€/h** | 32€/h |\n| Plafond annuel <50 sal | Non publié | 4 000€ |\n| Hors quota numérique <11 sal | Non | ✅ 32€/h |\n| Frais salaires <11 sal | 15€/h | 15€/h |\n| Frais salaires 11-49 qualif | 10€/h | n/a |\n| Frais annexes qualif | 8% + 1 500€/stag | Non |\n| Diag Performance | ✅ 1 000€/j | ✅ 1 000€/j |\n\n**Plafond annuel** : le document PDF Constructys Bâtiment ne publie pas de plafond global annuel par taille d'entreprise (contrairement à TP). L'enveloppe réelle est à confirmer avec un conseiller Constructys. Les indicateurs disponibles : max 3 stagiaires/an pour qualifiantes, durée max 300h/stag non qualifiant, 1 200h/stag qualifiant.\n\n## Frais annexes qualifiantes\n\nPour les actions qualifiantes (CCN Bâtiment, RNCP, CQP, blocs) : Constructys prend en charge **8% des coûts pédagogiques** avec un plafond de **1 500€ HT/stagiaire**. Ce mécanisme n'existe pas pour TP.\n\n## Diag Performance — porte d'entrée numérique\n\nLe **Diag Performance \"Numérique / Écologique / RSE\"** est disponible pour les entreprises Bâtiment <300 sal :\n- **1 000€ HT/jour** × 2j diagnostic + 6j accompagnement = **8 000€ HT max**\n- Hors budget annuel PDC\n- Thématiques : RH, Numérique, Écologique dont RSE — **les formations IA/numérique peuvent y entrer** si elles sont présentées comme diagnostic de maturité + plan de transformation numérique\n\n## Alternance Bâtiment\n\nLes forfaits ContratPro et tutorat sont **identiques à TP** (13€/h métiers BTP, 16€/h conduite/engins, 7€/h tertiaire). La particularité Bâtiment : aide tutorale apprentissage **250€ nets/an** pour tuteur d'un CAP technique (vs aide mensuelle ContratPro 230€/mois).\n\n## IDCCs couverts (confirmés)\n\nLe financement Constructys Bâtiment est **identique quelle que soit la catégorie de personnel** (un seul document « Bâtiment Modalités 2026 »). La fiche couvre donc les 4 conventions Bâtiment, confirmées via Code du travail numérique / Légifrance :\n- **IDCC 1596** : Bâtiment Ouvriers (entreprises ≤10 salariés)\n- **IDCC 1597** : Bâtiment Ouvriers (entreprises >10 salariés)\n- **IDCC 2609** : Bâtiment ETAM (employés, techniciens, agents de maîtrise)\n- **IDCC 2420** : Bâtiment Cadres\n\n> ⚠️ Le brief Sprint 2 indiquait à tort « 1597 = ETAM ». En réalité 1597 = Ouvriers >10 sal ; les ETAM relèvent du 2609. Mapping corrigé ici sur source officielle.\n\n## Signaux commerciaux pour OF tiers\n\n1. **Diag Performance numérique** (<300 sal) : 1 000€/j → 8 000€ max — porte d'entrée conseil transformation numérique\n2. **PDC qualifiantes 11-49 sal** : frais annexes 8% + frais salaires 10€/h — les formations certifiantes RNCP/CQP sont les plus financées\n3. **ContratPro métiers techniques BTP** : 13-19€/h (22€ conduite/engins prioritaires)\n4. **Absence de mécanisme hors quota numérique** : contrairement à TP, le financement IA passe par le PDC standard (24€/h) ou le Diag Performance\n\nBâtiment est moins favorable que TP pour les formations numériques pures (<11 sal), mais reste attractif sur les certifications qualifiantes et le Diag Performance.",
       "_source_file": "data\\normalized\\branches\\constructys-bat.md"
     },
     {
@@ -5948,6 +6099,179 @@
       "_source_file": "data\\normalized\\branches\\constructys-tp.md"
     },
     {
+      "slug": "ep-cabinets-avocats-1000",
+      "nom_branche": "Cabinets d'avocats (personnel salarié)",
+      "opco_slug": "ep",
+      "idcc_couverts": [
+        1000
+      ],
+      "idcc_a_confirmer": false,
+      "source_legale_unique": null,
+      "annee_application": 2026,
+      "contribution_conventionnelle_requise": false,
+      "subrogation_possible": null,
+      "plan_developpement_competences": {
+        "financement_sur_devis": false,
+        "acces_of_tiers": true,
+        "type_fonds": "BRANCHE_CONVENTIONNELLE",
+        "date_derniere_maj_dispositif": "2026-03-24",
+        "note": "MAJ critères 24/03/2026. Frais annexes : nuitée 112€ HT (Paris/grandes métropoles/DROM) ou 96€ HT (Province), repas 19€ HT, transport 0,32€/km. Frais salaire 12€/h. Actions Développement HORS PLAFOND : titres juridiques (attaché 218h, assistant 166h, juriste 525h) 85€/h, cycles formations juridiques 60€/h, autres formations longues >140h/RNCP 60€/h, bilan de compétences 24h à 85€/h. DROM <50 sal : complément +15% + frais déplacement 1 300€ A/R/an. 'IA appliquée aux cabinets' est une formation commune explicitement listée à 60€/h — voie directe pour un OF IA.",
+        "eligible": true,
+        "tranches_effectifs": [
+          {
+            "effectif_min": 1,
+            "effectif_max": 49,
+            "plafond_annuel_eur": 15000.0,
+            "plafond_horaire_eur": null,
+            "plafond_par_dossier_eur": null,
+            "taux_prise_en_charge": null,
+            "note": "Plafond entreprise 15 000 € HT/an (toutes tailles <50). Barèmes horaires par type de formation : formations juridiques avocats/non-avocats 85€/h (max 28h), formation personnel des barreaux 100€/h (max 100h), RPVA 60€/h (max 7h), formations communes cabinets (dont 'IA appliquée aux cabinets') 60€/h (max 35h), langues juridiques 60€/h (max 150h), transverses socle + santé-sécurité 25€/h (max 21h). Frais de salaire 12€/h. Durée minimale action 4h."
+          },
+          {
+            "effectif_min": 50,
+            "effectif_max": null,
+            "plafond_annuel_eur": null,
+            "plafond_horaire_eur": null,
+            "plafond_par_dossier_eur": null,
+            "taux_prise_en_charge": null,
+            "note": "≥50 sal : financé à 150% de la cotisation conventionnelle sur fonds conventionnels et/ou versements volontaires. Barèmes horaires identiques."
+          }
+        ],
+        "cout_pedagogique_seul": false,
+        "frais_annexes": {
+          "salaire_pendant_formation": true,
+          "repas": true,
+          "repas_montant_eur": 19.0,
+          "hebergement": true,
+          "hebergement_montant_eur": 112.0,
+          "deplacement": true,
+          "premier_equipement_eur": null
+        },
+        "duree_max_action_h": null,
+        "majoration_certifiant": {
+          "applicable": false,
+          "description": null
+        },
+        "thematiques_prioritaires": [
+          "IA appliquée aux cabinets",
+          "Logiciels professionnels",
+          "Techniques rédactionnelles"
+        ],
+        "thematiques_exclues": []
+      },
+      "bonus_thematiques": [],
+      "parcours_strategique": null,
+      "afest": {
+        "financement_sur_devis": false,
+        "acces_of_tiers": true,
+        "type_fonds": "BRANCHE_CONVENTIONNELLE",
+        "date_derniere_maj_dispositif": "2026-03-24",
+        "note": "Structure AFEST standard EP : sans prestataire 420€/stag, avec prestataire 2 400€ fixe + 420€/salarié formé. Levier pour formations IA en situation de travail au sein des cabinets.",
+        "eligible": true,
+        "forfait_horaire_eur": null,
+        "plafond_heures_par_formation": null,
+        "tranches_effectifs": [
+          {
+            "effectif_min": 1,
+            "effectif_max": null,
+            "plafond_annuel_eur": null,
+            "plafond_horaire_eur": null,
+            "plafond_par_dossier_eur": null,
+            "taux_prise_en_charge": null,
+            "note": "Sans prestataire externe : 420 € HT / stagiaire. Avec prestataire externe : 2 400 € HT (fixe) + 420 € HT / salarié formé."
+          }
+        ],
+        "bonus_referent_afest": null
+      },
+      "contrat_professionnalisation": {
+        "financement_sur_devis": false,
+        "acces_of_tiers": true,
+        "type_fonds": "BRANCHE_CONVENTIONNELLE",
+        "date_derniere_maj_dispositif": "2026-03-24",
+        "note": "Titres juridiques de branche + contrats renforcés : 15€/h. Autres RNCP/CQP/qualif conventionnelle : 9,15€/h. Durée 6-12 mois (jusqu'à 36 mois publics prioritaires). Formation 15-25% durée contrat (min 150h), jusqu'à 45% sur décision de branche.",
+        "eligible": true,
+        "forfait_horaire_eur": 9.15,
+        "forfaits_par_public": {
+          "titre_attache_juridique": 15.0,
+          "titre_assistant_juridique": 15.0,
+          "titre_juriste": 15.0,
+          "tp_assistant_direction_niv5": 15.0,
+          "contrat_renforce_secretaire_juridique": 15.0,
+          "contrat_renforce_publics_prioritaires": 15.0,
+          "autres_rncp": 9.15,
+          "cqp": 9.15,
+          "qualification_conventionnelle": 9.15
+        },
+        "duree_contrat_mois_min": 6,
+        "duree_contrat_mois_max": 36,
+        "prise_en_charge_remuneration": false
+      },
+      "contrat_apprentissage": {
+        "financement_sur_devis": false,
+        "acces_of_tiers": true,
+        "type_fonds": "OPCO_CLASSIQUE",
+        "date_derniere_maj_dispositif": "2026-03-24",
+        "note": "NPEC France compétences. RQTH : majoration jusqu'à 4 000 € HT/an (demande expresse CFA). Frais annexes CFA : 3€/repas, 6€/nuit, 500€ premier équipement.",
+        "eligible": true,
+        "niveaux_pec_url": null,
+        "majoration_drom_pct": null,
+        "majoration_handicap_eur": 4000.0,
+        "frais_annexes": {
+          "salaire_pendant_formation": false,
+          "repas": true,
+          "repas_montant_eur": 3.0,
+          "hebergement": true,
+          "hebergement_montant_eur": 6.0,
+          "deplacement": false,
+          "premier_equipement_eur": 500.0
+        }
+      },
+      "periode_reconversion": null,
+      "abondement_cpf": null,
+      "vae": {
+        "financement_sur_devis": false,
+        "acces_of_tiers": true,
+        "type_fonds": "BRANCHE_CONVENTIONNELLE",
+        "date_derniere_maj_dispositif": "2026-03-24",
+        "note": "VAE Titres professionnels de branche (hors plafond) : recevabilité 175€, accompagnement 85€/h max 30h, jury certificateur 1 500€, compilation ADDSA 100€, frais de jury 150€/membre. Accompagnement VAE générique : 85€/h max 48h (plafond théorique 4 080€).",
+        "eligible": true,
+        "plafond_par_parcours_eur": null,
+        "plafond_certif_branche_eur": null
+      },
+      "tutorat": {
+        "financement_sur_devis": false,
+        "acces_of_tiers": true,
+        "type_fonds": "BRANCHE_CONVENTIONNELLE",
+        "date_derniere_maj_dispositif": "2026-03-24",
+        "note": "Formation tuteur/maître d'apprentissage : 40h max à 15€/h. Aide tutorale : 230€/mois (345€ si tuteur ≥45 ans ou public prioritaire) — 6 mois (tutorat ContratPro), 12 mois (maître d'apprentissage).",
+        "eligible": true,
+        "formation_tuteur_duree_h": 40,
+        "formation_tuteur_forfait_eur": 15.0,
+        "aide_fonction_mensuelle_eur": 230.0,
+        "majoration_mensuelle_eur": 345.0
+      },
+      "documents_requis": [],
+      "delai_depot_dossier": {
+        "description": "Dans la limite des fonds disponibles ; en cas d'épuisement, refus de financement. Critères peuvent évoluer en cours d'année (MAJ 24/03/2026). Demandes via le portail Mes Services en ligne EP.",
+        "jours_avant_demarrage_min": null
+      },
+      "date_scraping": "2026-05-28",
+      "date_derniere_maj_humaine": "2026-05-28",
+      "sources": [
+        {
+          "url": "https://www.opcoep.fr/criteres-de-financement?branche=206",
+          "date_consulte": "2026-05-28"
+        },
+        {
+          "url": "https://code.travail.gouv.fr/convention-collective/1000-avocats-personnel-salarie-des-cabinets",
+          "date_consulte": "2026-05-28"
+        }
+      ],
+      "schema_version": "1.1",
+      "notes_libres": "## Présentation de la branche\n\nLa branche **Cabinets d'avocats** (IDCC 1000, « Personnel salarié des cabinets d'avocats ») couvre les salariés non-avocats et avocats salariés employés par les cabinets d'avocats : secrétaires juridiques, assistants juridiques, juristes, personnel administratif. Elle est gérée par OPCO EP, qui publie des barèmes de financement spécifiques validés par la Section Paritaire Professionnelle.\n\n**Mapping EP** : `branche=206` → IDCC 1000 (l'identifiant IDCC est affiché directement sur la page de critères EP).\n\n## PDC — Barèmes horaires par type de formation (spécificité EP)\n\nContrairement aux OPCO à taux unique, EP applique des **barèmes horaires différenciés** selon le type d'action :\n\n| Type de formation | Coût péda | Durée max |\n|---|---|---|\n| Formation personnel des barreaux (réglementation, déontologie barreaux) | **100 € HT/h** | 100 h |\n| Formations juridiques avocats/non-avocats (examen comptes/bilans, déontologie) | **85 € HT/h** | 28 h |\n| Formations communes cabinets (dont **IA appliquée aux cabinets**) | **60 € HT/h** | 35 h |\n| RPVA (réseau privé virtuel des avocats) | 60 € HT/h | 7 h |\n| Langues appliquées au juridique | 60 € HT/h | 150 h |\n| Transverses socle (compta, bureautique, management) | 25 € HT/h | 21 h |\n| Santé-sécurité (secourisme, AFGSU, SST, SSIAP) | 25 € HT/h | 21 h |\n\n**Plafond entreprise : 15 000 € HT/an** (<50 sal). Frais de salaire 12 € HT/h. ≥50 sal : 150 % de la cotisation conventionnelle.\n\n## IA appliquée aux cabinets — formation explicitement éligible\n\nLe point saillant pour un OF IA : la branche liste **« IA appliquée aux cabinets »** parmi les formations communes éligibles, financées à **60 € HT/h sur 35 h** (soit jusqu'à 2 100 € HT de coûts pédagogiques), avec frais de salaire (12 €/h) et frais annexes. C'est l'un des très rares libellés OPCO qui nomme explicitement l'IA comme thématique de formation finançable au PDC.\n\n## Actions Développement — hors plafond\n\nLes titres juridiques et formations longues sont **hors plafond annuel** :\n- Titre de juriste : 525 h à 85 €/h\n- Titre d'attaché juridique : 218 h à 85 €/h ; assistant juridique : 166 h à 85 €/h\n- Cycles formations juridiques : 155,5 h à 60 €/h\n- Autres formations longues >140 h / RNCP : 600 h à 60 €/h\n- Bilan de compétences : 24 h à 85 €/h\n\n## FSE+ — co-financement jusqu'à 100 %\n\nEP co-finance via le **FSE+** :\n- **<50 sal** : jusqu'à 100 % des coûts pédagogiques (50 % FSE + 50 % fonds EP), plafond 350 €/j/stagiaire, 2 500 €/groupe/jour, forfait rémunération 12 €/h.\n- **≥50 sal** : 50 % (175 €/stag/j, 1 250 €/groupe/j, 150 000 €/entreprise) + abondement conventionnel jusqu'à 335 €/stag/j.\n\n## Sélexion — catalogue captif\n\n**Sélexion** est le catalogue EP présélectionné : <50 sal financé à 100 %, ≥50 sal à 50 %. Les OF tiers non référencés passent par le PDC standard.\n\n## Signaux commerciaux pour OF tiers\n\n1. **« IA appliquée aux cabinets » explicitement listée** (60 €/h, 35 h) — argument frontal pour une formation IA en cabinet d'avocats.\n2. **AFEST** (2 400 € + 420 €/salarié avec prestataire) — IA en situation de travail.\n3. **FSE+ <50 sal jusqu'à 100 %** — la majorité des cabinets sont <50 sal.\n4. **Plafond annuel élevé (15 000 €)** — confortable pour des parcours IA + bureautique + logiciels.\n5. **Cas d'usage IA branche** : recherche jurisprudentielle assistée, rédaction d'actes, synthèse de dossiers, automatisation du secrétariat juridique.",
+      "_source_file": "data\\normalized\\branches\\ep-cabinets-avocats-1000.md"
+    },
+    {
       "slug": "ep-immobilier-1527",
       "nom_branche": "Immobilier",
       "opco_slug": "ep",
@@ -6118,6 +6442,180 @@
       "schema_version": "1.1",
       "notes_libres": "## Présentation de la branche\n\nLa branche **Immobilier** (IDCC 1527) couvre les entreprises d'administration de biens, de gestion locative, de transaction immobilière (agences, mandataires, réseaux). Elle regroupe les agents immobiliers, gestionnaires de copropriété, administrateurs de biens et promoteurs.\n\n**Mapping EP** : branche=187 → IDCC 1527 (confirmé depuis le contenu de la page EP).\n\n## PDC — Barèmes multi-niveaux (spécificité EP)\n\nContrairement aux autres OPCO (taux unique), EP applique des **barèmes horaires différenciés** selon le type de formation :\n\n| Type de formation | Barème horaire |\n|---|---|\n| Formations métier obligatoires / réglementaires | **40 € HT/h** |\n| Formations cœur de métier | **30 € HT/h** |\n| Formations transverses / socles | **25 € HT/h** |\n| Développement hors plafond (bilan, CléA…) | **9,15 € HT/h** |\n\n**Pas de frais de salaires** — EP ne rembourse que les coûts pédagogiques.\n\n**Plafonds annuels :**\n- <11 sal : 2 500 € HT\n- 11-50 sal : 4 500 € HT\n- 50+ sal : 100% de la cotisation conventionnelle\n\n## VAE et Bilan de compétences — Hors plafond\n\nLes actions de développement individuel sont **hors plafond PDC** :\n- VAE : max 48h à **50 € HT/h** (plafond théorique 2 400 €)\n- Bilan de compétences : max 24h à **85 € HT/h** (plafond théorique 2 040 €)\n\nLes taux 50€/h et 85€/h sont les plus élevés observés dans la BDD — ils reflètent le coût réel des prestations accompagnement certifiant.\n\n## Sélexion — Catalogue captif\n\n**Sélexion** est le catalogue EP de formations présélectionnées :\n- <50 sal : **100% des coûts pédagogiques** pris en charge\n- 50 sal et + : **50%**\n\nPour les OF tiers **non référencés dans Sélexion**, les formations passent par le PDC standard (2 500-4 500 €). L'inscription dans Sélexion est une opportunité pour les OF souhaitant maximiser l'accès.\n\n## FSE+ — Levier de co-financement exceptionnel\n\nEP co-finance via le **FSE+** (Fonds Social Européen) :\n- **<50 sal** : jusqu'à **100%** des coûts pédagogiques éligibles (50% FSE + 50% fonds EP). Plafond 350€/j/stagiaire, 2 500€/groupe/j. Forfait rémunération : **12€/h/stagiaire**.\n- **50 sal et +** : 50% coûts péda. Plafond 175€/stag/j, 1 250€/groupe/j, 150 000€/entreprise.\n\n**Argument commercial** : pour une agence immobilière <50 sal, le FSE+ peut permettre une formation IA 100% prise en charge — à mettre en avant si la formation est éligible aux axes FSE+ prioritaires.\n\n## Contrat de Professionnalisation — CQP Immobilier\n\nLes certifications spécifiques à l'immobilier sont mieux financées :\n- **RNCP immo, licences/masters immo, CQP Négociateur** : 12 € HT/h\n- **BTS Professions Immobilières, autres RNCP/CQP** : 9,15 € HT/h\n- **Contrat renforcé publics prioritaires** : 15 € HT/h\n\nLe **CQP Négociateur immobilier (RNCP 38277)** est la certification de branche — à 12€/h pour les OF habilités.\n\n## Signaux commerciaux pour OF tiers\n\n1. **FSE+ <50 sal** : argument de financement jusqu'à 100% — puissant pour les petites agences immobilières\n2. **PDC réglementaire/métier oblig** : 40€/h le plus élevé du projet — formations DDA (Directive Distribution Assurances), sécurité informatique, conformité RGPD pouvant intégrer des modules IA\n3. **AFEST** : 2 400€ + 420€/salarié avec prestataire — pour des formations IA en situation de travail dans les agences\n4. **VAE hors plafond** : 50€/h max 48h — accompagnement certifiant valorisable\n5. **Pas de catalogue captif IA identifié** — le champ est libre pour les OF tiers en immobilier",
       "_source_file": "data\\normalized\\branches\\ep-immobilier-1527.md"
+    },
+    {
+      "slug": "ep-pharmacie-officine-1996",
+      "nom_branche": "Pharmacie d'officine",
+      "opco_slug": "ep",
+      "idcc_couverts": [
+        1996
+      ],
+      "idcc_a_confirmer": false,
+      "source_legale_unique": null,
+      "annee_application": 2026,
+      "contribution_conventionnelle_requise": false,
+      "subrogation_possible": null,
+      "plan_developpement_competences": {
+        "financement_sur_devis": false,
+        "acces_of_tiers": true,
+        "type_fonds": "BRANCHE_CONVENTIONNELLE",
+        "date_derniere_maj_dispositif": "2026-04-09",
+        "note": "MAJ critères 09/04/2026. Plafonds différenciés : <11 sal = 7 500€, 11-49 sal = 15 000€. Frais annexes (nuitée 112€/96€, repas 19€, transport 0,32€/km) ET frais salaire 12€/h UNIQUEMENT pour <11 sal. Durée min 4h (sauf réglementaire). Exclusions : pas de PEC après 19h/dimanche/jours fériés, pas de PEC sur site sauf FOAD/classes virtuelles (max 25 sal/classe). Actions Développement HORS PLAFOND à 20€/h : CQP dermocosmétique/DMMO/phyto, formations longues pharmacie, DU pharmacie, DEUST préparateur, Licence Pro, post-universitaire. Bilan compétences 24h à 85€/h. 'Santé numérique/digitalisation' (25€/h, 14h) = axe numérique le plus proche pour un OF IA.",
+        "eligible": true,
+        "tranches_effectifs": [
+          {
+            "effectif_min": 1,
+            "effectif_max": 10,
+            "plafond_annuel_eur": 7500.0,
+            "plafond_horaire_eur": null,
+            "plafond_par_dossier_eur": null,
+            "taux_prise_en_charge": null,
+            "note": "Plafond entreprise 7 500 € HT/an. Frais annexes ET frais de salaire (12€/h) réservés aux <11 sal. Barèmes horaires par type : cœur de métier 40€/h (max 28h), transverses 25€/h (max 28h), santé numérique/digitalisation 25€/h (max 14h), secourisme/AFGSU 25€/h (max 21h). FOAD 100% sans interactivité : 20€/h max 10h."
+          },
+          {
+            "effectif_min": 11,
+            "effectif_max": 49,
+            "plafond_annuel_eur": 15000.0,
+            "plafond_horaire_eur": null,
+            "plafond_par_dossier_eur": null,
+            "taux_prise_en_charge": null,
+            "note": "Plafond entreprise 15 000 € HT/an. PAS de frais de salaire ni frais annexes (réservés <11 sal). Barèmes horaires identiques."
+          },
+          {
+            "effectif_min": 50,
+            "effectif_max": null,
+            "plafond_annuel_eur": null,
+            "plafond_horaire_eur": null,
+            "plafond_par_dossier_eur": null,
+            "taux_prise_en_charge": null,
+            "note": "≥50 sal : financé sur fonds conventionnels et/ou versements volontaires."
+          }
+        ],
+        "cout_pedagogique_seul": false,
+        "frais_annexes": {
+          "salaire_pendant_formation": true,
+          "repas": true,
+          "repas_montant_eur": 19.0,
+          "hebergement": true,
+          "hebergement_montant_eur": 112.0,
+          "deplacement": true,
+          "premier_equipement_eur": null
+        },
+        "duree_max_action_h": null,
+        "majoration_certifiant": {
+          "applicable": false,
+          "description": null
+        },
+        "thematiques_prioritaires": [
+          "Santé numérique / digitalisation des activités",
+          "Informatique / logiciels professionnels"
+        ],
+        "thematiques_exclues": [
+          "EPP (évaluation des pratiques professionnelles)",
+          "Gestion des risques"
+        ]
+      },
+      "bonus_thematiques": [],
+      "parcours_strategique": null,
+      "afest": {
+        "financement_sur_devis": false,
+        "acces_of_tiers": true,
+        "type_fonds": "BRANCHE_CONVENTIONNELLE",
+        "date_derniere_maj_dispositif": "2026-04-09",
+        "note": "AFEST non détaillée spécifiquement sur la page critères pharmacie 2026 (contrairement à d'autres branches EP). Le dispositif AFEST EP standard reste mobilisable via le conseiller. Montants à confirmer auprès d'OPCO EP.",
+        "eligible": true,
+        "forfait_horaire_eur": null,
+        "plafond_heures_par_formation": null,
+        "tranches_effectifs": [],
+        "bonus_referent_afest": null
+      },
+      "contrat_professionnalisation": {
+        "financement_sur_devis": false,
+        "acces_of_tiers": true,
+        "type_fonds": "BRANCHE_CONVENTIONNELLE",
+        "date_derniere_maj_dispositif": "2026-04-09",
+        "note": "CQP DMMO 25€/h (FS 10€/h), DEUST + CQP dermocosmétique/cosméto/phyto 20€/h (FS 10€/h sauf DEUST), autres RNCP/CQP/qualif 9,15€/h (FS non). Durée 6-12 mois (jusqu'à 36 publics prio, jusqu'à 24 mois BP préparateur/DEUST). Formation 15-25% durée (jusqu'à 35% BP/DEUST). Rémunérations spécifiques selon coefficients de branche.",
+        "eligible": true,
+        "forfait_horaire_eur": 9.15,
+        "forfaits_par_public": {
+          "cqp_dmmo": 25.0,
+          "deust_preparateur": 20.0,
+          "cqp_dermocosmetique": 20.0,
+          "cqp_produits_cosmetiques_hygiene": 20.0,
+          "cqp_phytotherapie": 20.0,
+          "contrat_renforce_publics_prioritaires": 20.0,
+          "autres_rncp": 9.15,
+          "autres_cqp": 9.15,
+          "qualification_conventionnelle": 9.15
+        },
+        "duree_contrat_mois_min": 6,
+        "duree_contrat_mois_max": 36,
+        "prise_en_charge_remuneration": false
+      },
+      "contrat_apprentissage": {
+        "financement_sur_devis": false,
+        "acces_of_tiers": true,
+        "type_fonds": "OPCO_CLASSIQUE",
+        "date_derniere_maj_dispositif": "2026-04-09",
+        "note": "NPEC France compétences. RQTH +4 000 € HT/an. Bac+3 et plus : participation forfaitaire employeur 750 € HT (contrats ≥ 01/07/2025). Frais annexes : 3€/repas, 6€/nuit, 500€ premier équipement. Rémunérations spécifiques BP préparateur en pharmacie / DEUST selon coefficients de branche.",
+        "eligible": true,
+        "niveaux_pec_url": null,
+        "majoration_drom_pct": null,
+        "majoration_handicap_eur": 4000.0,
+        "frais_annexes": {
+          "salaire_pendant_formation": false,
+          "repas": true,
+          "repas_montant_eur": 3.0,
+          "hebergement": true,
+          "hebergement_montant_eur": 6.0,
+          "deplacement": false,
+          "premier_equipement_eur": 500.0
+        }
+      },
+      "periode_reconversion": null,
+      "abondement_cpf": null,
+      "vae": {
+        "financement_sur_devis": false,
+        "acces_of_tiers": true,
+        "type_fonds": "BRANCHE_CONVENTIONNELLE",
+        "date_derniere_maj_dispositif": "2026-04-09",
+        "note": "Accompagnement VAE : 48h max à 40 € HT/h (plafond théorique 1 920 €), hors plafond PDC.",
+        "eligible": true,
+        "plafond_par_parcours_eur": null,
+        "plafond_certif_branche_eur": null
+      },
+      "tutorat": {
+        "financement_sur_devis": false,
+        "acces_of_tiers": true,
+        "type_fonds": "BRANCHE_CONVENTIONNELLE",
+        "date_derniere_maj_dispositif": "2026-04-09",
+        "note": "Formation tuteur/maître d'apprentissage : 40h max à 15€/h. Aide fonction tutorale : 230€/mois max 6 mois — UNIQUEMENT si le bénéficiaire a un niveau ≤4 (Bac) à l'entrée en contrat (pas de majoration 345€ pour cette branche, contrairement à l'immobilier/avocats).",
+        "eligible": true,
+        "formation_tuteur_duree_h": 40,
+        "formation_tuteur_forfait_eur": 15.0,
+        "aide_fonction_mensuelle_eur": 230.0,
+        "majoration_mensuelle_eur": null
+      },
+      "documents_requis": [],
+      "delai_depot_dossier": {
+        "description": "Dans la limite des fonds disponibles ; en cas d'épuisement, refus de financement. Critères peuvent évoluer en cours d'année (MAJ 09/04/2026). Demandes via le portail Mes Services en ligne EP.",
+        "jours_avant_demarrage_min": null
+      },
+      "date_scraping": "2026-05-28",
+      "date_derniere_maj_humaine": "2026-05-28",
+      "sources": [
+        {
+          "url": "https://www.opcoep.fr/criteres-de-financement?branche=175",
+          "date_consulte": "2026-05-28"
+        },
+        {
+          "url": "https://code.travail.gouv.fr/convention-collective/1996-pharmacie-dofficine",
+          "date_consulte": "2026-05-28"
+        }
+      ],
+      "schema_version": "1.1",
+      "notes_libres": "## Présentation de la branche\n\nLa branche **Pharmacie d'officine** (IDCC 1996) couvre les officines de pharmacie de ville et leurs salariés : pharmaciens adjoints, préparateurs en pharmacie, rayonnistes, personnel administratif. Elle est gérée par OPCO EP, avec des barèmes validés par la Section Paritaire Professionnelle. NAF dédié : 47.73Z.\n\n**Mapping EP** : `branche=175` → IDCC 1996 (l'identifiant IDCC est affiché directement sur la page de critères EP).\n\n## PDC — Plafonds différenciés par taille\n\nEP applique deux plafonds annuels distincts pour la pharmacie :\n\n| Effectif | Plafond annuel | Frais salaire/annexes |\n|---|---|---|\n| **<11 salariés** | **7 500 € HT** | Oui (12 €/h + frais annexes) |\n| **11-49 salariés** | **15 000 € HT** | Non |\n| ≥50 salariés | Fonds conventionnels | — |\n\nBarèmes horaires par type de formation :\n\n| Type | Coût péda | Durée max |\n|---|---|---|\n| Cœur de métier (pharmacologie, interactions, conseil, TROD, vaccinations, DPC…) | **40 € HT/h** | 28 h |\n| Transverses socle + autres transverses | 25 € HT/h | 28 h |\n| **Santé numérique / digitalisation des activités** | **25 € HT/h** | 14 h |\n| Secourisme / AFGSU / SSIAP / PSSM | 25 € HT/h | 21 h |\n| FOAD 100 % sans interactivité | 20 € HT/h | 10 h |\n\n## Numérique / IA — où se rattacher\n\nLa pharmacie d'officine **ne liste pas l'IA explicitement**, mais deux portes existent :\n- **« Santé numérique / digitalisation des activités »** : 25 € HT/h, max 14 h — axe le plus direct pour une formation IA appliquée à l'officine (gestion des stocks, dispensation, télésoin).\n- **« Informatique / logiciels professionnels »** (dans les autres transverses) : 25 € HT/h, max 28 h.\n\nExclusions notables : pas de prise en charge après 19h / dimanche / jours fériés, pas de formation sur site (sauf FOAD et classes virtuelles ≤25 salariés).\n\n## Actions Développement — hors plafond\n\nCQP et diplômes pharmaceutiques financés **hors plafond annuel** à 20 € HT/h (CQP dermocosmétique, DMMO, phytothérapie ; DEUST préparateur ; DU pharmacie ; Licence Pro ; post-universitaire). Bilan de compétences : 24 h à 85 €/h. Accompagnement VAE : 48 h à 40 €/h.\n\n## FSE+ — co-financement jusqu'à 100 %\n\n- **<50 sal** : jusqu'à 100 % des coûts pédagogiques (50 % FSE + 50 % fonds EP), 350 €/j/stagiaire, 2 500 €/groupe/j, forfait rémunération 12 €/h.\n- **≥50 sal** : 50 % (175 €/stag/j, 1 250 €/groupe/j, 150 000 €/entreprise).\n\n## Sélexion — catalogue captif\n\n<50 sal financé à 100 %, ≥50 sal à 50 %. Les OF tiers non référencés passent par le PDC standard.\n\n## Signaux commerciaux pour OF tiers\n\n1. **« Santé numérique / digitalisation »** (25 €/h, 14 h) — rattachement le plus direct pour une formation IA en officine.\n2. **FSE+ <50 sal jusqu'à 100 %** — la quasi-totalité des officines sont <11 ou <50 sal.\n3. **Plafond <11 sal = 7 500 €** avec frais de salaire pris en charge — favorable aux petites officines.\n4. **Cas d'usage IA branche** : aide à la dispensation et détection d'interactions médicamenteuses, optimisation des stocks et commandes, gestion des ordonnances numériques, accueil/conseil patient assisté.\n5. **Limite** : volume horaire numérique plafonné à 14 h — viser des formats courts et opérationnels.",
+      "_source_file": "data\\normalized\\branches\\ep-pharmacie-officine-1996.md"
     },
     {
       "slug": "mobilites-chd",
@@ -6717,9 +7215,12 @@
       "slug": "opco-sante-hp",
       "nom_branche": "Hospitalisation Privée et Thermalisme",
       "opco_slug": "opco-sante",
-      "idcc_couverts": [],
-      "idcc_a_confirmer": true,
-      "source_legale_unique": null,
+      "idcc_couverts": [
+        2264,
+        2104
+      ],
+      "idcc_a_confirmer": false,
+      "source_legale_unique": "https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000005635813 — fusion du champ CCN thermalisme (IDCC 2104) dans la CCN hospitalisation privée (IDCC 2264), mars 2019",
       "annee_application": 2026,
       "contribution_conventionnelle_requise": true,
       "subrogation_possible": null,
@@ -6865,10 +7366,14 @@
         {
           "url": "https://www.opco-sante.fr/app/uploads/2026/05/opco0275_synthese-des-prise-en-charge-hp_pdf_site.pdf",
           "date_consulte": "2026-05-18"
+        },
+        {
+          "url": "https://code.travail.gouv.fr/convention-collective/2264-hospitalisation-privee",
+          "date_consulte": "2026-05-28"
         }
       ],
       "schema_version": "1.1",
-      "notes_libres": "## Présentation de la branche\n\nLa branche **Hospitalisation Privée et Thermalisme (HP)** regroupe les cliniques privées, les établissements de soins privés à but lucratif et les établissements thermaux. Elle est couverte par OPCO Santé avec une synthèse PDF dédiée mise à jour annuellement.\n\nLa contribution conventionnelle FMB est requise pour accéder aux fonds de branche.\n\n## FMB HP : IA et Numérique explicitement financés\n\nLe **Fonds Mutualisé de Branche HP** comprend deux axes directement pertinents pour les OF numériques :\n- **Axe \"Numérique\"** — cofinancement FMB\n- **Axe \"IA\"** — **programme IA explicitement mentionné** comme axe de cofinancement prioritaire\n\nIl s'agit d'un des rares cas dans le panorama des 11 OPCO où l'IA est nommée explicitement comme axe de financement. Les **montants ne sont pas publiés** dans la synthèse 2026 — ils font l'objet d'un dossier à soumettre à OPCO Santé (cofinancement sur devis/projet).\n\nLes autres axes FMB HP couverts : Prévention des risques, QVT, Écologie.\n\n**Qualifications prioritaires FMB HP** (financement majoré) : IBODE, Cuisine, DEAS, DEAES, DEI, Imagerie, Pharmacie, VAE hors plateforme.\n\n## Tutorat : structure spécifique HP\n\nContrairement aux autres OPCO (qui versent une aide mensuelle sur 4-6 mois), OPCO Santé HP utilise un **forfait global versé après 6 mois** :\n- 1 salarié encadré : **500€**\n- 2 salariés encadrés : **750€**\n\n## IDCCs à confirmer\n\nLes IDCCs du secteur HP ne sont pas mentionnés dans la synthèse PDF 2026. Candidats à vérifier :\n- IDCC 651 — Convention collective nationale de l'hospitalisation privée (à confirmer)\n- IDCC thermalisme (à identifier)\n\n## Signaux commerciaux pour OF tiers\n\n1. **FMB axe IA** → voie la plus directe pour un OF IA dans le secteur HP. Dossier à monter avec OPCO Santé pour valoriser les montants disponibles.\n2. **FMB axe Numérique** → formations numériques plus larges (non IA spécifiquement) couvertes dans le même fonds.\n3. **PDC <50 sal** → 2 500€/an standard pour les formations classiques.\n4. **ContratPro** → 13-18€/h selon public, notamment pour les qualifications paramédicales.",
+      "notes_libres": "## Présentation de la branche\n\nLa branche **Hospitalisation Privée et Thermalisme (HP)** regroupe les cliniques privées, les établissements de soins privés à but lucratif et les établissements thermaux. Elle est couverte par OPCO Santé avec une synthèse PDF dédiée mise à jour annuellement.\n\nLa contribution conventionnelle FMB est requise pour accéder aux fonds de branche.\n\n## FMB HP : IA et Numérique explicitement financés\n\nLe **Fonds Mutualisé de Branche HP** comprend deux axes directement pertinents pour les OF numériques :\n- **Axe \"Numérique\"** — cofinancement FMB\n- **Axe \"IA\"** — **programme IA explicitement mentionné** comme axe de cofinancement prioritaire\n\nIl s'agit d'un des rares cas dans le panorama des 11 OPCO où l'IA est nommée explicitement comme axe de financement. Les **montants ne sont pas publiés** dans la synthèse 2026 — ils font l'objet d'un dossier à soumettre à OPCO Santé (cofinancement sur devis/projet).\n\nLes autres axes FMB HP couverts : Prévention des risques, QVT, Écologie.\n\n**Qualifications prioritaires FMB HP** (financement majoré) : IBODE, Cuisine, DEAS, DEAES, DEI, Imagerie, Pharmacie, VAE hors plateforme.\n\n## Tutorat : structure spécifique HP\n\nContrairement aux autres OPCO (qui versent une aide mensuelle sur 4-6 mois), OPCO Santé HP utilise un **forfait global versé après 6 mois** :\n- 1 salarié encadré : **500€**\n- 2 salariés encadrés : **750€**\n\n## IDCC couvert\n\n**IDCC 2264** — Convention collective nationale de l'hospitalisation privée du 18 avril 2002, portée côté employeurs par la **FHP** (Fédération de l'hospitalisation privée). Confirmé sur Légifrance et code.travail.gouv.fr (2026-05-28).\n\nLe secteur **thermalisme** (ex-IDCC 2104) a vu son champ d'application **fusionné dans l'IDCC 2264 en mars 2019** — d'où le libellé « Hospitalisation Privée et Thermalisme » de la synthèse OPCO Santé. La fiche couvre donc **2264 ET 2104** : bien que 2104 soit juridiquement absorbé, des établissements thermaux continuent de le déclarer en paie/DSN, et le rattacher ici garantit qu'un prospect thermal soit correctement reconnu par le simulateur. Source légale unique du groupement : la fusion des champs conventionnels (Légifrance KALICONT000005635813).\n\n## Signaux commerciaux pour OF tiers\n\n1. **FMB axe IA** → voie la plus directe pour un OF IA dans le secteur HP. Dossier à monter avec OPCO Santé pour valoriser les montants disponibles.\n2. **FMB axe Numérique** → formations numériques plus larges (non IA spécifiquement) couvertes dans le même fonds.\n3. **PDC <50 sal** → 2 500€/an standard pour les formations classiques.\n4. **ContratPro** → 13-18€/h selon public, notamment pour les qualifications paramédicales.",
       "_source_file": "data\\normalized\\branches\\opco-sante-hp.md"
     },
     {
@@ -8627,9 +9132,18 @@
     "1413": "data\\normalized\\branches\\akto-travail-temporaire-1413-2378.md",
     "2378": "data\\normalized\\branches\\akto-travail-temporaire-1413-2378.md",
     "1672": "data\\normalized\\branches\\assurances-1672.md",
+    "787": "data\\normalized\\branches\\atlas-experts-comptables-787.md",
     "2120": "data\\normalized\\branches\\banque-2120.md",
+    "1596": "data\\normalized\\branches\\constructys-bat.md",
+    "1597": "data\\normalized\\branches\\constructys-bat.md",
+    "2609": "data\\normalized\\branches\\constructys-bat.md",
+    "2420": "data\\normalized\\branches\\constructys-bat.md",
+    "1000": "data\\normalized\\branches\\ep-cabinets-avocats-1000.md",
     "1527": "data\\normalized\\branches\\ep-immobilier-1527.md",
+    "1996": "data\\normalized\\branches\\ep-pharmacie-officine-1996.md",
     "1090": "data\\normalized\\branches\\mobilites-services-auto-1090.md",
+    "2264": "data\\normalized\\branches\\opco-sante-hp.md",
+    "2104": "data\\normalized\\branches\\opco-sante-hp.md",
     "?897": "data\\normalized\\branches\\opco-sante-spsti.md",
     "176": "data\\normalized\\branches\\opco2i-industrie-pharmaceutique-176.md",
     "3127": "data\\normalized\\branches\\opco2i-metallurgie-3127.md",

@@ -1,10 +1,10 @@
 {
-  "content_hash_sha256": "42ffb8eac7e50844198f4f2924bca77c52211ca3251363179128833f97b8e1b9",
-  "generated_at": "2026-05-23T08:42:50Z",
+  "content_hash_sha256": "4ebdcebcba68467e8dbe1f7b22d6ed566d1e208796fa20abe4d61b1e221c7465",
+  "generated_at": "2026-05-28T14:18:29Z",
   "nb_branches": 59,
-  "nb_idcc_couverts": 97,
+  "nb_idcc_couverts": 104,
   "nb_naf_fallback": 22,
   "nb_opcos": 11,
-  "source_bdd_version": "2026-05-19",
+  "source_bdd_version": "2026-05-28",
   "version": "2026.Q2.1"
 }

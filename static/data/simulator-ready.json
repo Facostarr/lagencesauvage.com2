@@ -1,32 +1,77 @@
 {
   "idcc_index": {
     "1000": {
-      "branche_details_disponibles": false,
+      "branche_details_disponibles": true,
       "branche_idcc_a_confirmer": false,
-      "branche_nom": null,
-      "branche_slug": null,
-      "contribution_conventionnelle_requise": null,
+      "branche_nom": "Cabinets d'avocats (personnel salarié)",
+      "branche_slug": "ep-cabinets-avocats-1000",
+      "contribution_conventionnelle_requise": false,
       "opco_nom": "OPCO EP",
       "opco_slug": "ep",
-      "provenance_budget": "OPCO_TRANSVERSAL_SANS_DETAIL_BRANCHE",
+      "provenance_budget": "CUMUL_OPCO_BRANCHE",
       "regles": {
-        "afest": null,
+        "afest": {
+          "acces_of_tiers": true,
+          "eligible": true,
+          "forfait_horaire_eur": null,
+          "tranches": [
+            {
+              "effectif_max": null,
+              "effectif_min": 1,
+              "formule_max_lisible": "Sans prestataire externe : 420 € HT / stagiaire. Avec prestataire externe : 2 400 € HT (fixe) + 420 € HT / salarié formé.",
+              "plafond_horaire_eur": null,
+              "plafond_par_dossier_eur": null,
+              "plancher_garanti_eur": null
+            }
+          ],
+          "type_fonds": "BRANCHE_CONVENTIONNELLE"
+        },
         "bonus_thematiques": [],
         "fne_formation": {
           "instruit_par_opco": true
         },
         "parcours_strategique": null,
         "pdc": {
+          "acces_of_tiers": true,
           "cible_taille_entreprise": [
             "moins_11",
             "11_49",
             "50_299"
           ],
           "eligible": true,
-          "formule_max_lisible": "Les détails de plafonds pour cette convention collective ne sont pas encore dans notre base. Pour un calcul précis, contactez-nous.",
-          "tranches": []
+          "formule_max_lisible": "MAJ critères 24/03/2026. Frais annexes : nuitée 112€ HT (Paris/grandes métropoles/DROM) ou 96€ HT (Province), repas 19€ HT, transport 0,32€/km. Frais salaire 12€/h. Actions Développement HORS PLAFOND : titres juridiques (attaché 218h, assistant 166h, juriste 525h) 85€/h, cycles formations juridiques 60€/h, autres formations longues >140h/RNCP 60€/h, bilan de compétences 24h à 85€/h. DROM <50 sal : complément +15% + frais déplacement 1 300€ A/R/an. 'IA appliquée aux cabinets' est une formation commune explicitement listée à 60€/h — voie directe pour un OF IA.",
+          "frais_annexes": {
+            "deplacement": true,
+            "hebergement_eur": 112.0,
+            "repas_eur": 19.0
+          },
+          "majoration_certifiant": null,
+          "tranches": [
+            {
+              "effectif_max": 49,
+              "effectif_min": 1,
+              "formule_max_lisible": "Plafond entreprise 15 000 € HT/an (toutes tailles <50). Barèmes horaires par type de formation : formations juridiques avocats/non-avocats 85€/h (max 28h), formation personnel des barreaux 100€/h (max 100h), RPVA 60€/h (max 7h), formations communes cabinets (dont 'IA appliquée aux cabinets') 60€/h (max 35h), langues juridiques 60€/h (max 150h), transverses socle + santé-sécurité 25€/h (max 21h). Frais de salaire 12€/h. Durée minimale action 4h.",
+              "plafond_horaire_eur": null,
+              "plafond_par_dossier_eur": null,
+              "plancher_garanti_eur": 15000
+            },
+            {
+              "effectif_max": null,
+              "effectif_min": 50,
+              "formule_max_lisible": "≥50 sal : financé à 150% de la cotisation conventionnelle sur fonds conventionnels et/ou versements volontaires. Barèmes horaires identiques.",
+              "plafond_horaire_eur": null,
+              "plafond_par_dossier_eur": null,
+              "plancher_garanti_eur": null
+            }
+          ],
+          "type_fonds": "BRANCHE_CONVENTIONNELLE"
         },
-        "vae": null
+        "vae": {
+          "acces_of_tiers": true,
+          "eligible": true,
+          "plafond_par_parcours_eur": null,
+          "type_fonds": "BRANCHE_CONVENTIONNELLE"
+        }
       }
     },
     "1043": {
@@ -1314,6 +1359,188 @@
         "vae": null
       }
     },
+    "1596": {
+      "branche_details_disponibles": true,
+      "branche_idcc_a_confirmer": false,
+      "branche_nom": "Bâtiment (Ouvriers, ETAM et Cadres)",
+      "branche_slug": "constructys-bat",
+      "contribution_conventionnelle_requise": true,
+      "opco_nom": "Constructys",
+      "opco_slug": "constructys",
+      "provenance_budget": "OPCO_CLASSIQUE",
+      "regles": {
+        "afest": {
+          "acces_of_tiers": true,
+          "eligible": true,
+          "forfait_horaire_eur": null,
+          "tranches": [
+            {
+              "effectif_max": null,
+              "effectif_min": 1,
+              "formule_max_lisible": "Ingénierie AFEST : 900 € HT/j × max 4 jours = 3 600 € HT max. Hors budget annuel PDC.",
+              "plafond_horaire_eur": null,
+              "plafond_par_dossier_eur": 3600,
+              "plancher_garanti_eur": null
+            }
+          ],
+          "type_fonds": "OPCO_CLASSIQUE"
+        },
+        "bonus_thematiques": [
+          {
+            "acces_of_tiers": true,
+            "cumulable_avec_pdc": true,
+            "libelle": "Diag Performance (Numérique, Écologique, RH)",
+            "thematique": "numerique_ia",
+            "tranches": [
+              {
+                "effectif_max": 299,
+                "effectif_min": 1,
+                "formule_max_lisible": "2j diag + 6j accompagnement × 1 000 € HT/j = 8 000 € HT max",
+                "plafond_horaire_eur": null,
+                "plafond_par_dossier_eur": 8000,
+                "plancher_garanti_eur": null
+              }
+            ],
+            "type_fonds": "OPCO_CLASSIQUE"
+          }
+        ],
+        "fne_formation": {
+          "instruit_par_opco": true
+        },
+        "parcours_strategique": null,
+        "pdc": {
+          "acces_of_tiers": true,
+          "cible_taille_entreprise": [
+            "moins_11",
+            "11_49"
+          ],
+          "eligible": true,
+          "formule_max_lisible": "Taux horaire coûts péda standard : 24 € HT/h (≠ TP à 32€/h). Intra : 840 € HT/j/groupe plafond. Actions non qualifiantes : max 300h/stagiaire. Actions qualifiantes : max 1 200h/stagiaire + 3 stagiaires max/an/entreprise. Frais annexes qualifiantes : 8% des coûts péda financés (plafond 1 500 € HT/stagiaire). FEEBAT : barème spécifique régional. Coaching <300 sal : 125 € HT/h/groupe, max 5 000 € HT/an (délai carence 1 an si 2 ans consécutifs). Délai : 15 jours calendaires avant démarrage via eGestion.",
+          "frais_annexes": {
+            "deplacement": false,
+            "hebergement_eur": null,
+            "repas_eur": null
+          },
+          "majoration_certifiant": null,
+          "tranches": [
+            {
+              "effectif_max": 10,
+              "effectif_min": 1,
+              "formule_max_lisible": "Plafond annuel non communiqué publiquement (source PDF Constructys Bâtiment). Frais salaires : 15 € HT/h standard (100 € HT/j pour FEEBAT). 3 stagiaires max/an pour actions qualifiantes.",
+              "plafond_horaire_eur": 24,
+              "plafond_par_dossier_eur": null,
+              "plancher_garanti_eur": null
+            },
+            {
+              "effectif_max": 49,
+              "effectif_min": 11,
+              "formule_max_lisible": "Plafond annuel non communiqué publiquement. Frais salaires qualifiantes : 10 € HT/h. Frais salaires pérennisation/AFEST : 15 € HT/h. 3 stagiaires max/an pour actions qualifiantes.",
+              "plafond_horaire_eur": 24,
+              "plafond_par_dossier_eur": null,
+              "plancher_garanti_eur": null
+            }
+          ],
+          "type_fonds": "OPCO_CLASSIQUE"
+        },
+        "vae": {
+          "acces_of_tiers": true,
+          "eligible": true,
+          "plafond_par_parcours_eur": 2000,
+          "type_fonds": "OPCO_CLASSIQUE"
+        }
+      }
+    },
+    "1597": {
+      "branche_details_disponibles": true,
+      "branche_idcc_a_confirmer": false,
+      "branche_nom": "Bâtiment (Ouvriers, ETAM et Cadres)",
+      "branche_slug": "constructys-bat",
+      "contribution_conventionnelle_requise": true,
+      "opco_nom": "Constructys",
+      "opco_slug": "constructys",
+      "provenance_budget": "OPCO_CLASSIQUE",
+      "regles": {
+        "afest": {
+          "acces_of_tiers": true,
+          "eligible": true,
+          "forfait_horaire_eur": null,
+          "tranches": [
+            {
+              "effectif_max": null,
+              "effectif_min": 1,
+              "formule_max_lisible": "Ingénierie AFEST : 900 € HT/j × max 4 jours = 3 600 € HT max. Hors budget annuel PDC.",
+              "plafond_horaire_eur": null,
+              "plafond_par_dossier_eur": 3600,
+              "plancher_garanti_eur": null
+            }
+          ],
+          "type_fonds": "OPCO_CLASSIQUE"
+        },
+        "bonus_thematiques": [
+          {
+            "acces_of_tiers": true,
+            "cumulable_avec_pdc": true,
+            "libelle": "Diag Performance (Numérique, Écologique, RH)",
+            "thematique": "numerique_ia",
+            "tranches": [
+              {
+                "effectif_max": 299,
+                "effectif_min": 1,
+                "formule_max_lisible": "2j diag + 6j accompagnement × 1 000 € HT/j = 8 000 € HT max",
+                "plafond_horaire_eur": null,
+                "plafond_par_dossier_eur": 8000,
+                "plancher_garanti_eur": null
+              }
+            ],
+            "type_fonds": "OPCO_CLASSIQUE"
+          }
+        ],
+        "fne_formation": {
+          "instruit_par_opco": true
+        },
+        "parcours_strategique": null,
+        "pdc": {
+          "acces_of_tiers": true,
+          "cible_taille_entreprise": [
+            "moins_11",
+            "11_49"
+          ],
+          "eligible": true,
+          "formule_max_lisible": "Taux horaire coûts péda standard : 24 € HT/h (≠ TP à 32€/h). Intra : 840 € HT/j/groupe plafond. Actions non qualifiantes : max 300h/stagiaire. Actions qualifiantes : max 1 200h/stagiaire + 3 stagiaires max/an/entreprise. Frais annexes qualifiantes : 8% des coûts péda financés (plafond 1 500 € HT/stagiaire). FEEBAT : barème spécifique régional. Coaching <300 sal : 125 € HT/h/groupe, max 5 000 € HT/an (délai carence 1 an si 2 ans consécutifs). Délai : 15 jours calendaires avant démarrage via eGestion.",
+          "frais_annexes": {
+            "deplacement": false,
+            "hebergement_eur": null,
+            "repas_eur": null
+          },
+          "majoration_certifiant": null,
+          "tranches": [
+            {
+              "effectif_max": 10,
+              "effectif_min": 1,
+              "formule_max_lisible": "Plafond annuel non communiqué publiquement (source PDF Constructys Bâtiment). Frais salaires : 15 € HT/h standard (100 € HT/j pour FEEBAT). 3 stagiaires max/an pour actions qualifiantes.",
+              "plafond_horaire_eur": 24,
+              "plafond_par_dossier_eur": null,
+              "plancher_garanti_eur": null
+            },
+            {
+              "effectif_max": 49,
+              "effectif_min": 11,
+              "formule_max_lisible": "Plafond annuel non communiqué publiquement. Frais salaires qualifiantes : 10 € HT/h. Frais salaires pérennisation/AFEST : 15 € HT/h. 3 stagiaires max/an pour actions qualifiantes.",
+              "plafond_horaire_eur": 24,
+              "plafond_par_dossier_eur": null,
+              "plancher_garanti_eur": null
+            }
+          ],
+          "type_fonds": "OPCO_CLASSIQUE"
+        },
+        "vae": {
+          "acces_of_tiers": true,
+          "eligible": true,
+          "plafond_par_parcours_eur": 2000,
+          "type_fonds": "OPCO_CLASSIQUE"
+        }
+      }
+    },
     "1605": {
       "branche_details_disponibles": false,
       "branche_idcc_a_confirmer": false,
@@ -1861,32 +2088,76 @@
       }
     },
     "1996": {
-      "branche_details_disponibles": false,
+      "branche_details_disponibles": true,
       "branche_idcc_a_confirmer": false,
-      "branche_nom": null,
-      "branche_slug": null,
-      "contribution_conventionnelle_requise": null,
+      "branche_nom": "Pharmacie d'officine",
+      "branche_slug": "ep-pharmacie-officine-1996",
+      "contribution_conventionnelle_requise": false,
       "opco_nom": "OPCO EP",
       "opco_slug": "ep",
-      "provenance_budget": "OPCO_TRANSVERSAL_SANS_DETAIL_BRANCHE",
+      "provenance_budget": "CUMUL_OPCO_BRANCHE",
       "regles": {
-        "afest": null,
+        "afest": {
+          "acces_of_tiers": true,
+          "eligible": true,
+          "forfait_horaire_eur": null,
+          "tranches": [],
+          "type_fonds": "BRANCHE_CONVENTIONNELLE"
+        },
         "bonus_thematiques": [],
         "fne_formation": {
           "instruit_par_opco": true
         },
         "parcours_strategique": null,
         "pdc": {
+          "acces_of_tiers": true,
           "cible_taille_entreprise": [
             "moins_11",
             "11_49",
             "50_299"
           ],
           "eligible": true,
-          "formule_max_lisible": "Les détails de plafonds pour cette convention collective ne sont pas encore dans notre base. Pour un calcul précis, contactez-nous.",
-          "tranches": []
+          "formule_max_lisible": "MAJ critères 09/04/2026. Plafonds différenciés : <11 sal = 7 500€, 11-49 sal = 15 000€. Frais annexes (nuitée 112€/96€, repas 19€, transport 0,32€/km) ET frais salaire 12€/h UNIQUEMENT pour <11 sal. Durée min 4h (sauf réglementaire). Exclusions : pas de PEC après 19h/dimanche/jours fériés, pas de PEC sur site sauf FOAD/classes virtuelles (max 25 sal/classe). Actions Développement HORS PLAFOND à 20€/h : CQP dermocosmétique/DMMO/phyto, formations longues pharmacie, DU pharmacie, DEUST préparateur, Licence Pro, post-universitaire. Bilan compétences 24h à 85€/h. 'Santé numérique/digitalisation' (25€/h, 14h) = axe numérique le plus proche pour un OF IA.",
+          "frais_annexes": {
+            "deplacement": true,
+            "hebergement_eur": 112.0,
+            "repas_eur": 19.0
+          },
+          "majoration_certifiant": null,
+          "tranches": [
+            {
+              "effectif_max": 10,
+              "effectif_min": 1,
+              "formule_max_lisible": "Plafond entreprise 7 500 € HT/an. Frais annexes ET frais de salaire (12€/h) réservés aux <11 sal. Barèmes horaires par type : cœur de métier 40€/h (max 28h), transverses 25€/h (max 28h), santé numérique/digitalisation 25€/h (max 14h), secourisme/AFGSU 25€/h (max 21h). FOAD 100% sans interactivité : 20€/h max 10h.",
+              "plafond_horaire_eur": null,
+              "plafond_par_dossier_eur": null,
+              "plancher_garanti_eur": 7500
+            },
+            {
+              "effectif_max": 49,
+              "effectif_min": 11,
+              "formule_max_lisible": "Plafond entreprise 15 000 € HT/an. PAS de frais de salaire ni frais annexes (réservés <11 sal). Barèmes horaires identiques.",
+              "plafond_horaire_eur": null,
+              "plafond_par_dossier_eur": null,
+              "plancher_garanti_eur": 15000
+            },
+            {
+              "effectif_max": null,
+              "effectif_min": 50,
+              "formule_max_lisible": "≥50 sal : financé sur fonds conventionnels et/ou versements volontaires.",
+              "plafond_horaire_eur": null,
+              "plafond_par_dossier_eur": null,
+              "plancher_garanti_eur": null
+            }
+          ],
+          "type_fonds": "BRANCHE_CONVENTIONNELLE"
         },
-        "vae": null
+        "vae": {
+          "acces_of_tiers": true,
+          "eligible": true,
+          "plafond_par_parcours_eur": null,
+          "type_fonds": "BRANCHE_CONVENTIONNELLE"
+        }
       }
     },
     "2002": {
@@ -2018,6 +2289,68 @@
           "eligible": true,
           "formule_max_lisible": "Les détails de plafonds pour cette convention collective ne sont pas encore dans notre base. Pour un calcul précis, contactez-nous.",
           "tranches": []
+        },
+        "vae": null
+      }
+    },
+    "2104": {
+      "branche_details_disponibles": true,
+      "branche_idcc_a_confirmer": false,
+      "branche_nom": "Hospitalisation Privée et Thermalisme",
+      "branche_slug": "opco-sante-hp",
+      "contribution_conventionnelle_requise": true,
+      "opco_nom": "OPCO Santé",
+      "opco_slug": "opco-sante",
+      "provenance_budget": "OPCO_CLASSIQUE",
+      "regles": {
+        "afest": null,
+        "bonus_thematiques": [
+          {
+            "acces_of_tiers": true,
+            "cumulable_avec_pdc": true,
+            "libelle": "FMB HP — Axe Numérique",
+            "thematique": "numerique_ia",
+            "tranches": [],
+            "type_fonds": "BRANCHE_CONVENTIONNELLE"
+          },
+          {
+            "acces_of_tiers": true,
+            "cumulable_avec_pdc": true,
+            "libelle": "FMB HP — Axe IA",
+            "thematique": "numerique_ia",
+            "tranches": [],
+            "type_fonds": "BRANCHE_CONVENTIONNELLE"
+          }
+        ],
+        "fne_formation": {
+          "instruit_par_opco": true
+        },
+        "parcours_strategique": null,
+        "pdc": {
+          "acces_of_tiers": true,
+          "cible_taille_entreprise": [
+            "moins_11",
+            "11_49"
+          ],
+          "eligible": true,
+          "formule_max_lisible": "Actions collectives catalogue : 1 200 € HT / jour max + rémunération max 1 SMIC. Forfait journalier applicable aux actions de branche planifiées via OPCO Santé.",
+          "frais_annexes": {
+            "deplacement": false,
+            "hebergement_eur": null,
+            "repas_eur": null
+          },
+          "majoration_certifiant": null,
+          "tranches": [
+            {
+              "effectif_max": 49,
+              "effectif_min": 1,
+              "formule_max_lisible": "Coûts pédagogiques 100% + rémunération max 1 SMIC + frais",
+              "plafond_horaire_eur": null,
+              "plafond_par_dossier_eur": null,
+              "plancher_garanti_eur": 2500
+            }
+          ],
+          "type_fonds": "OPCO_CLASSIQUE"
         },
         "vae": null
       }
@@ -2390,6 +2723,68 @@
         "vae": null
       }
     },
+    "2264": {
+      "branche_details_disponibles": true,
+      "branche_idcc_a_confirmer": false,
+      "branche_nom": "Hospitalisation Privée et Thermalisme",
+      "branche_slug": "opco-sante-hp",
+      "contribution_conventionnelle_requise": true,
+      "opco_nom": "OPCO Santé",
+      "opco_slug": "opco-sante",
+      "provenance_budget": "OPCO_CLASSIQUE",
+      "regles": {
+        "afest": null,
+        "bonus_thematiques": [
+          {
+            "acces_of_tiers": true,
+            "cumulable_avec_pdc": true,
+            "libelle": "FMB HP — Axe Numérique",
+            "thematique": "numerique_ia",
+            "tranches": [],
+            "type_fonds": "BRANCHE_CONVENTIONNELLE"
+          },
+          {
+            "acces_of_tiers": true,
+            "cumulable_avec_pdc": true,
+            "libelle": "FMB HP — Axe IA",
+            "thematique": "numerique_ia",
+            "tranches": [],
+            "type_fonds": "BRANCHE_CONVENTIONNELLE"
+          }
+        ],
+        "fne_formation": {
+          "instruit_par_opco": true
+        },
+        "parcours_strategique": null,
+        "pdc": {
+          "acces_of_tiers": true,
+          "cible_taille_entreprise": [
+            "moins_11",
+            "11_49"
+          ],
+          "eligible": true,
+          "formule_max_lisible": "Actions collectives catalogue : 1 200 € HT / jour max + rémunération max 1 SMIC. Forfait journalier applicable aux actions de branche planifiées via OPCO Santé.",
+          "frais_annexes": {
+            "deplacement": false,
+            "hebergement_eur": null,
+            "repas_eur": null
+          },
+          "majoration_certifiant": null,
+          "tranches": [
+            {
+              "effectif_max": 49,
+              "effectif_min": 1,
+              "formule_max_lisible": "Coûts pédagogiques 100% + rémunération max 1 SMIC + frais",
+              "plafond_horaire_eur": null,
+              "plafond_par_dossier_eur": null,
+              "plancher_garanti_eur": 2500
+            }
+          ],
+          "type_fonds": "OPCO_CLASSIQUE"
+        },
+        "vae": null
+      }
+    },
     "2272": {
       "branche_details_disponibles": false,
       "branche_idcc_a_confirmer": false,
@@ -2561,6 +2956,97 @@
         "vae": null
       }
     },
+    "2420": {
+      "branche_details_disponibles": true,
+      "branche_idcc_a_confirmer": false,
+      "branche_nom": "Bâtiment (Ouvriers, ETAM et Cadres)",
+      "branche_slug": "constructys-bat",
+      "contribution_conventionnelle_requise": true,
+      "opco_nom": "Constructys",
+      "opco_slug": "constructys",
+      "provenance_budget": "OPCO_CLASSIQUE",
+      "regles": {
+        "afest": {
+          "acces_of_tiers": true,
+          "eligible": true,
+          "forfait_horaire_eur": null,
+          "tranches": [
+            {
+              "effectif_max": null,
+              "effectif_min": 1,
+              "formule_max_lisible": "Ingénierie AFEST : 900 € HT/j × max 4 jours = 3 600 € HT max. Hors budget annuel PDC.",
+              "plafond_horaire_eur": null,
+              "plafond_par_dossier_eur": 3600,
+              "plancher_garanti_eur": null
+            }
+          ],
+          "type_fonds": "OPCO_CLASSIQUE"
+        },
+        "bonus_thematiques": [
+          {
+            "acces_of_tiers": true,
+            "cumulable_avec_pdc": true,
+            "libelle": "Diag Performance (Numérique, Écologique, RH)",
+            "thematique": "numerique_ia",
+            "tranches": [
+              {
+                "effectif_max": 299,
+                "effectif_min": 1,
+                "formule_max_lisible": "2j diag + 6j accompagnement × 1 000 € HT/j = 8 000 € HT max",
+                "plafond_horaire_eur": null,
+                "plafond_par_dossier_eur": 8000,
+                "plancher_garanti_eur": null
+              }
+            ],
+            "type_fonds": "OPCO_CLASSIQUE"
+          }
+        ],
+        "fne_formation": {
+          "instruit_par_opco": true
+        },
+        "parcours_strategique": null,
+        "pdc": {
+          "acces_of_tiers": true,
+          "cible_taille_entreprise": [
+            "moins_11",
+            "11_49"
+          ],
+          "eligible": true,
+          "formule_max_lisible": "Taux horaire coûts péda standard : 24 € HT/h (≠ TP à 32€/h). Intra : 840 € HT/j/groupe plafond. Actions non qualifiantes : max 300h/stagiaire. Actions qualifiantes : max 1 200h/stagiaire + 3 stagiaires max/an/entreprise. Frais annexes qualifiantes : 8% des coûts péda financés (plafond 1 500 € HT/stagiaire). FEEBAT : barème spécifique régional. Coaching <300 sal : 125 € HT/h/groupe, max 5 000 € HT/an (délai carence 1 an si 2 ans consécutifs). Délai : 15 jours calendaires avant démarrage via eGestion.",
+          "frais_annexes": {
+            "deplacement": false,
+            "hebergement_eur": null,
+            "repas_eur": null
+          },
+          "majoration_certifiant": null,
+          "tranches": [
+            {
+              "effectif_max": 10,
+              "effectif_min": 1,
+              "formule_max_lisible": "Plafond annuel non communiqué publiquement (source PDF Constructys Bâtiment). Frais salaires : 15 € HT/h standard (100 € HT/j pour FEEBAT). 3 stagiaires max/an pour actions qualifiantes.",
+              "plafond_horaire_eur": 24,
+              "plafond_par_dossier_eur": null,
+              "plancher_garanti_eur": null
+            },
+            {
+              "effectif_max": 49,
+              "effectif_min": 11,
+              "formule_max_lisible": "Plafond annuel non communiqué publiquement. Frais salaires qualifiantes : 10 € HT/h. Frais salaires pérennisation/AFEST : 15 € HT/h. 3 stagiaires max/an pour actions qualifiantes.",
+              "plafond_horaire_eur": 24,
+              "plafond_par_dossier_eur": null,
+              "plancher_garanti_eur": null
+            }
+          ],
+          "type_fonds": "OPCO_CLASSIQUE"
+        },
+        "vae": {
+          "acces_of_tiers": true,
+          "eligible": true,
+          "plafond_par_parcours_eur": 2000,
+          "type_fonds": "OPCO_CLASSIQUE"
+        }
+      }
+    },
     "2564": {
       "branche_details_disponibles": false,
       "branche_idcc_a_confirmer": false,
@@ -2679,6 +3165,97 @@
           "tranches": []
         },
         "vae": null
+      }
+    },
+    "2609": {
+      "branche_details_disponibles": true,
+      "branche_idcc_a_confirmer": false,
+      "branche_nom": "Bâtiment (Ouvriers, ETAM et Cadres)",
+      "branche_slug": "constructys-bat",
+      "contribution_conventionnelle_requise": true,
+      "opco_nom": "Constructys",
+      "opco_slug": "constructys",
+      "provenance_budget": "OPCO_CLASSIQUE",
+      "regles": {
+        "afest": {
+          "acces_of_tiers": true,
+          "eligible": true,
+          "forfait_horaire_eur": null,
+          "tranches": [
+            {
+              "effectif_max": null,
+              "effectif_min": 1,
+              "formule_max_lisible": "Ingénierie AFEST : 900 € HT/j × max 4 jours = 3 600 € HT max. Hors budget annuel PDC.",
+              "plafond_horaire_eur": null,
+              "plafond_par_dossier_eur": 3600,
+              "plancher_garanti_eur": null
+            }
+          ],
+          "type_fonds": "OPCO_CLASSIQUE"
+        },
+        "bonus_thematiques": [
+          {
+            "acces_of_tiers": true,
+            "cumulable_avec_pdc": true,
+            "libelle": "Diag Performance (Numérique, Écologique, RH)",
+            "thematique": "numerique_ia",
+            "tranches": [
+              {
+                "effectif_max": 299,
+                "effectif_min": 1,
+                "formule_max_lisible": "2j diag + 6j accompagnement × 1 000 € HT/j = 8 000 € HT max",
+                "plafond_horaire_eur": null,
+                "plafond_par_dossier_eur": 8000,
+                "plancher_garanti_eur": null
+              }
+            ],
+            "type_fonds": "OPCO_CLASSIQUE"
+          }
+        ],
+        "fne_formation": {
+          "instruit_par_opco": true
+        },
+        "parcours_strategique": null,
+        "pdc": {
+          "acces_of_tiers": true,
+          "cible_taille_entreprise": [
+            "moins_11",
+            "11_49"
+          ],
+          "eligible": true,
+          "formule_max_lisible": "Taux horaire coûts péda standard : 24 € HT/h (≠ TP à 32€/h). Intra : 840 € HT/j/groupe plafond. Actions non qualifiantes : max 300h/stagiaire. Actions qualifiantes : max 1 200h/stagiaire + 3 stagiaires max/an/entreprise. Frais annexes qualifiantes : 8% des coûts péda financés (plafond 1 500 € HT/stagiaire). FEEBAT : barème spécifique régional. Coaching <300 sal : 125 € HT/h/groupe, max 5 000 € HT/an (délai carence 1 an si 2 ans consécutifs). Délai : 15 jours calendaires avant démarrage via eGestion.",
+          "frais_annexes": {
+            "deplacement": false,
+            "hebergement_eur": null,
+            "repas_eur": null
+          },
+          "majoration_certifiant": null,
+          "tranches": [
+            {
+              "effectif_max": 10,
+              "effectif_min": 1,
+              "formule_max_lisible": "Plafond annuel non communiqué publiquement (source PDF Constructys Bâtiment). Frais salaires : 15 € HT/h standard (100 € HT/j pour FEEBAT). 3 stagiaires max/an pour actions qualifiantes.",
+              "plafond_horaire_eur": 24,
+              "plafond_par_dossier_eur": null,
+              "plancher_garanti_eur": null
+            },
+            {
+              "effectif_max": 49,
+              "effectif_min": 11,
+              "formule_max_lisible": "Plafond annuel non communiqué publiquement. Frais salaires qualifiantes : 10 € HT/h. Frais salaires pérennisation/AFEST : 15 € HT/h. 3 stagiaires max/an pour actions qualifiantes.",
+              "plafond_horaire_eur": 24,
+              "plafond_par_dossier_eur": null,
+              "plancher_garanti_eur": null
+            }
+          ],
+          "type_fonds": "OPCO_CLASSIQUE"
+        },
+        "vae": {
+          "acces_of_tiers": true,
+          "eligible": true,
+          "plafond_par_parcours_eur": 2000,
+          "type_fonds": "OPCO_CLASSIQUE"
+        }
       }
     },
     "2691": {
@@ -3988,6 +4565,79 @@
           "tranches": []
         },
         "vae": null
+      }
+    },
+    "787": {
+      "branche_details_disponibles": true,
+      "branche_idcc_a_confirmer": false,
+      "branche_nom": "Cabinets d'experts-comptables et de commissaires aux comptes",
+      "branche_slug": "atlas-experts-comptables-787",
+      "contribution_conventionnelle_requise": false,
+      "opco_nom": "Opco Atlas",
+      "opco_slug": "atlas",
+      "provenance_budget": "OPCO_CLASSIQUE",
+      "regles": {
+        "afest": {
+          "acces_of_tiers": true,
+          "eligible": true,
+          "forfait_horaire_eur": 20,
+          "tranches": [
+            {
+              "effectif_max": 49,
+              "effectif_min": 1,
+              "formule_max_lisible": "20€ HT/h, 150h max par formation, dans plafond annuel entreprise",
+              "plafond_horaire_eur": 20,
+              "plafond_par_dossier_eur": null,
+              "plancher_garanti_eur": null
+            }
+          ],
+          "type_fonds": "OPCO_CLASSIQUE"
+        },
+        "bonus_thematiques": [],
+        "fne_formation": {
+          "instruit_par_opco": true
+        },
+        "parcours_strategique": null,
+        "pdc": {
+          "acces_of_tiers": true,
+          "cible_taille_entreprise": [
+            "moins_11",
+            "11_49"
+          ],
+          "eligible": true,
+          "formule_max_lisible": "PDC mutualisé Atlas réservé aux cabinets <50 salariés. Les ≥50 sal financent via fonds propres (1% MS) ou dispositifs interprofessionnels.",
+          "frais_annexes": {
+            "deplacement": false,
+            "hebergement_eur": null,
+            "repas_eur": null
+          },
+          "majoration_certifiant": null,
+          "tranches": [
+            {
+              "effectif_max": 10,
+              "effectif_min": 1,
+              "formule_max_lisible": "2 800€ HT/an/entreprise + 1 000€ HT/an/salarié pour formations DEC/CAC",
+              "plafond_horaire_eur": null,
+              "plafond_par_dossier_eur": null,
+              "plancher_garanti_eur": 2800
+            },
+            {
+              "effectif_max": 49,
+              "effectif_min": 11,
+              "formule_max_lisible": "9 000€ HT/an/entreprise + 1 000€ HT/an/salarié pour formations DEC/CAC",
+              "plafond_horaire_eur": null,
+              "plafond_par_dossier_eur": null,
+              "plancher_garanti_eur": 9000
+            }
+          ],
+          "type_fonds": "OPCO_CLASSIQUE"
+        },
+        "vae": {
+          "acces_of_tiers": true,
+          "eligible": true,
+          "plafond_par_parcours_eur": 3000,
+          "type_fonds": "OPCO_CLASSIQUE"
+        }
       }
     },
     "843": {
