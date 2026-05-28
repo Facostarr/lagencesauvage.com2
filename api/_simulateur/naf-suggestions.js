@@ -83,33 +83,41 @@ export const NAF_TO_IDCC_SUGGESTION = {
   '96.02A': { value: '2596', auto: true },
   '96.02B': { value: '2596', auto: true },
 
+  // Experts-comptables / commissaires aux comptes (Opco Atlas, IDCC 787) — NAF dédié (~98%)
+  '69.20Z': { value: '787', auto: true },
+
   // ===== SUGGESTION-ONLY (80-94% confiance OU métier fragmenté) =====
 
   // CONSTRUCTYS — Bâtiment (~95% mais BTP fragmenté : artisanat / PME / ETAM / Cadres)
-  '41.10A': { value: 'constructys-bat', auto: false },
-  '41.10B': { value: 'constructys-bat', auto: false },
-  '41.20A': { value: 'constructys-bat', auto: false },
-  '41.20B': { value: 'constructys-bat', auto: false },
-  '43.11Z': { value: 'constructys-bat', auto: false },
-  '43.12A': { value: 'constructys-bat', auto: false },
-  '43.12B': { value: 'constructys-bat', auto: false },
-  '43.13Z': { value: 'constructys-bat', auto: false },
-  '43.21A': { value: 'constructys-bat', auto: false },
-  '43.22A': { value: 'constructys-bat', auto: false },
-  '43.22B': { value: 'constructys-bat', auto: false },
-  '43.29A': { value: 'constructys-bat', auto: false },
-  '43.29B': { value: 'constructys-bat', auto: false },
-  '43.31Z': { value: 'constructys-bat', auto: false },
-  '43.32A': { value: 'constructys-bat', auto: false },
-  '43.32B': { value: 'constructys-bat', auto: false },
-  '43.32C': { value: 'constructys-bat', auto: false },
-  '43.33Z': { value: 'constructys-bat', auto: false },
-  '43.34Z': { value: 'constructys-bat', auto: false },
-  '43.39Z': { value: 'constructys-bat', auto: false },
-  '43.91A': { value: 'constructys-bat', auto: false },
-  '43.91B': { value: 'constructys-bat', auto: false },
-  '43.99A': { value: 'constructys-bat', auto: false },
-  '43.99C': { value: 'constructys-bat', auto: false },
+  // Résolu via IDCC 1597 (idcc_index) plutôt que le slug constructys-bat
+  // (naf_fallback) depuis Sprint 2 Big Five : les 4 IDCC Bâtiment (1596/1597/
+  // 2609/2420) ont des règles identiques et l'entrée idcc_index porte des
+  // formules plus riches + branche_idcc_a_confirmer:false (pas de warning "à
+  // confirmer"). Budget identique. auto:false conservé (fragmentation BTP).
+  '41.10A': { value: '1597', auto: false },
+  '41.10B': { value: '1597', auto: false },
+  '41.20A': { value: '1597', auto: false },
+  '41.20B': { value: '1597', auto: false },
+  '43.11Z': { value: '1597', auto: false },
+  '43.12A': { value: '1597', auto: false },
+  '43.12B': { value: '1597', auto: false },
+  '43.13Z': { value: '1597', auto: false },
+  '43.21A': { value: '1597', auto: false },
+  '43.22A': { value: '1597', auto: false },
+  '43.22B': { value: '1597', auto: false },
+  '43.29A': { value: '1597', auto: false },
+  '43.29B': { value: '1597', auto: false },
+  '43.31Z': { value: '1597', auto: false },
+  '43.32A': { value: '1597', auto: false },
+  '43.32B': { value: '1597', auto: false },
+  '43.32C': { value: '1597', auto: false },
+  '43.33Z': { value: '1597', auto: false },
+  '43.34Z': { value: '1597', auto: false },
+  '43.39Z': { value: '1597', auto: false },
+  '43.91A': { value: '1597', auto: false },
+  '43.91B': { value: '1597', auto: false },
+  '43.99A': { value: '1597', auto: false },
+  '43.99C': { value: '1597', auto: false },
 
   // CONSTRUCTYS — Travaux Publics (~95% mais même fragmentation)
   '42.11Z': { value: 'constructys-tp', auto: false },
@@ -156,6 +164,20 @@ export const NAF_TO_IDCC_SUGGESTION = {
   '45.31Z': { value: '1090', auto: false },
   '45.32Z': { value: '1090', auto: false },
   '45.40Z': { value: '1090', auto: false },
+
+  // Cabinets d'avocats (Opco EP, IDCC 1000) — 69.10Z partagé avec notaires,
+  // huissiers, juristes d'entreprise → suggestion, pas auto.
+  '69.10Z': { value: '1000', auto: false },
+
+  // Hospitalisation privée (OPCO Santé, IDCC 2264) — auto:false IMPÉRATIF :
+  // le NAF 86.x ne distingue PAS public / privé lucratif (2264) / privé non
+  // lucratif (FEHAP-CCN51). Auto-appliquer 2264 ferait des faux positifs sur
+  // les hôpitaux publics et le secteur associatif. Suggestion + clic.
+  '86.10Z': { value: '2264', auto: false },  // Activités hospitalières
+  '86.21Z': { value: '2264', auto: false },  // Médecine générale
+  '86.22A': { value: '2264', auto: false },  // Spécialistes médicaux
+  '86.22B': { value: '2264', auto: false },
+  '86.22C': { value: '2264', auto: false },
 
   // ===== COMMERCE DE DÉTAIL NON ALIMENTAIRE (S3.2 — ~75-85% confiance) =====
   // Mappés sur IDCC 1517 (Commerces détail non alimentaires, L'Opcommerce).
