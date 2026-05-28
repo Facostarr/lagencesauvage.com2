@@ -1,5 +1,19 @@
 # Lessons Learned — Refonte lagencesauvage.com
 
+## Simulateur — pas de port Python ; vérifier les prémisses avant de coder (lesson 2026-05-28)
+
+**Symptôme** : la tâche demandait de maintenir la « parité avec `scripts/compute_budget.py`, validé par `cross_validate.py` ». Ces fichiers n'existent pas (ni dans l'arbre, ni dans `git log --all`). L'en-tête de `lib/simulateur-opco/compute_budget.js` lui-même affirme être « un port JS du moteur Python » — ce qui a induit tout le monde en erreur.
+
+**Diagnostic** : le moteur de budget du simulateur OPCO a une **source de vérité unique** = le fichier JS. La QA de référence est `scripts/qa-simulator-delivery.mjs` (régression OLD vs NEW) + `tests/simulateur-opco/test-compute-units.mjs`, 100% JS. `generate-opco-branches.py` n'est qu'un générateur de pages statiques.
+
+**Règle** : avant d'accepter une contrainte de parité/synchro entre fichiers, **vérifier que les deux fichiers existent** (`git ls-files`, `git log --all -- chemin`). Un en-tête de fichier qui décrit une architecture peut être périmé. NB : le test unitaire « IDCC null toléré » échoue de façon pré-existante — ne pas l'imputer à ses propres changements (toujours faire un `git stash` avant/après pour isoler).
+
+## Simulateur — plancher garanti ≠ plafond par dossier (sémantique min/max) (lesson 2026-05-28)
+
+**Contexte** : certaines branches (BTP notamment) encodent leurs barèmes en `plafond_horaire_eur` et `plafond_par_dossier_eur` sans `plancher_garanti_eur`. Le moteur ne sommait que les planchers → budget non chiffrable.
+
+**Règle data/moteur** : un `plafond_par_dossier_eur` est un **plafond** (montant maximum d'un dossier), jamais un plancher garanti. Dans le calcul de fourchette, il n'alimente donc que le **budget max** (« jusqu'à X € »), jamais le **budget min**. Mélanger les deux gonflerait artificiellement le plancher affiché au prospect. Le fallback per-dossier est réservé au max (`useDossierFallback` dans `_sumPlanchers`).
+
 ## Tailwind v4 — plugins doivent être déclarés explicitement (lesson 2026-05-26)
 
 **Symptôme** : pendant des semaines, les pages `/simulateur-opco/{opco}/` et `/simulateur-opco/branches/{idcc}/` rendaient un mur de texte plat (H2/H3 sans hiérarchie, tables sans bordures, prose linéaire serrée), alors que le layout Hugo contenait des classes `prose prose-slate prose-h2:text-2xl prose-h2:sm:text-3xl prose-th:bg-slate-50 ...`. Aucune erreur de build.
