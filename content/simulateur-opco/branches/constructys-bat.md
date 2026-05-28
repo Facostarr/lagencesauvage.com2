@@ -1,6 +1,6 @@
 ---
-title: Simulateur Budget Formation Bâtiment — 2026
-description: 'Calculez votre budget formation 2026 pour la convention Bâtiment (Constructys, IDCC à confirmer). Plafonds PDC par tranche d''effectif, dispositifs activables, sources officielles. Simulation en 30 secondes.'
+title: Simulateur Budget Formation Bâtiment (IDCC 1596) — 2026
+description: 'Calculez votre budget formation 2026 pour la convention Bâtiment (Constructys, IDCC 1596, 1597, 2609, 2420). Plafonds PDC par tranche d''effectif, dispositifs activables, sources officielles. Simulation en 30 secondes.'
 date: 2026-05-23
 lastmod: 2026-05-23
 layout: "branche-fiche"
@@ -8,27 +8,29 @@ robots: "index, follow"
 canonical: "/simulateur-opco/branches/constructys-bat/"
 ogImage: "/assets/images/logo-agence-sauvage.svg"
 branche_slug: constructys-bat
-branche_nom: Bâtiment
+branche_nom: Bâtiment (Ouvriers, ETAM et Cadres)
 branche_nom_court: Bâtiment
 branche_opco_slug: constructys
 branche_opco_label: Constructys
-branche_idcc_primary: null
-branche_idccs: à confirmer
+branche_idcc_primary: 1596
+branche_idccs: 1596, 1597, 2609, 2420
 keywords:
   - "budget formation Bâtiment"
   - "OPCO Bâtiment"
+  - "IDCC 1596"
+  - "simulateur IDCC 1596"
   - "Constructys Bâtiment"
   - "financement formation 2026"
 faq:
-  - question: "Comment savoir si mon entreprise relève de la convention Bâtiment ?"
-    answer: "Votre IDCC (Identifiant De Convention Collective) est indiqué sur vos bulletins de paie et sur votre Déclaration Sociale Nominative (DSN). Si vous ne le connaissez pas, notre <a href=\"/simulateur-opco/\">simulateur identifie automatiquement votre convention</a> depuis votre raison sociale ou votre SIREN, en interrogeant les bases publiques DINUM et siret2idcc. Pour la branche Bâtiment, l'IDCC est non rattachée."
+  - question: "Comment savoir si mon entreprise relève de la convention Bâtiment (Ouvriers, ETAM et Cadres) ?"
+    answer: "Votre IDCC (Identifiant De Convention Collective) est indiqué sur vos bulletins de paie et sur votre Déclaration Sociale Nominative (DSN). Si vous ne le connaissez pas, notre <a href=\"/simulateur-opco/\">simulateur identifie automatiquement votre convention</a> depuis votre raison sociale ou votre SIREN, en interrogeant les bases publiques DINUM et siret2idcc. Pour la branche Bâtiment (Ouvriers, ETAM et Cadres), l'IDCC est 1596, 1597, 2609, 2420."
   - question: "La contribution conventionnelle est-elle obligatoire pour bénéficier du financement Constructys ?"
-    answer: "Oui. La branche Bâtiment prévoit une <strong>contribution conventionnelle</strong> versée à Constructys en plus de la contribution légale (0,55% sous 11 salariés, 1% au-delà). Cette cotisation finance les dispositifs branche (AFEST, bonus thématiques, parcours stratégique). Vérifiez votre situation auprès de votre expert-comptable ou directement auprès de L'Constructys. Notre simulateur le précise dans le récapitulatif de votre simulation."
-  - question: "Quel budget formation 2026 puis-je espérer pour la branche Bâtiment ?"
+    answer: "Oui. La branche Bâtiment (Ouvriers, ETAM et Cadres) prévoit une <strong>contribution conventionnelle</strong> versée à Constructys en plus de la contribution légale (0,55% sous 11 salariés, 1% au-delà). Cette cotisation finance les dispositifs branche (AFEST, bonus thématiques, parcours stratégique). Vérifiez votre situation auprès de votre expert-comptable ou directement auprès de Constructys. Notre simulateur le précise dans le récapitulatif de votre simulation."
+  - question: "Quel budget formation 2026 puis-je espérer pour la branche Bâtiment (Ouvriers, ETAM et Cadres) ?"
     answer: "Le budget dépend de votre <strong>tranche d'effectif</strong> (TPE moins de 11 salariés, PME de 11 à 49, ETI au-delà de 50) et des dispositifs activés. La fourchette typique va de <strong>2 000 € à 15 000 € par an</strong> pour le seul Plan de Développement des Compétences, hors bonus thématiques et parcours stratégique. Pour un calcul précis basé sur les barèmes officiels Constructys 2026, <a href=\"/simulateur-opco/\">lancez le simulateur en 30 secondes</a>."
 ---
 
-Vous dirigez une entreprise relevant de la convention **Bâtiment** (IDCC à confirmer) ? Votre budget formation 2026 est financé par Constructys, avec des barèmes spécifiques à votre branche. Cette page récapitule les plafonds officiels, les dispositifs activables (PDC, AFEST, bonus thématiques) et les démarches pour mobiliser ces fonds.
+Vous dirigez une entreprise relevant de la convention **Bâtiment** (IDCC 1596, 1597, 2609, 2420) ? Votre budget formation 2026 est financé par Constructys, avec des barèmes spécifiques à votre branche. Cette page récapitule les plafonds officiels, les dispositifs activables (PDC, AFEST, bonus thématiques) et les démarches pour mobiliser ces fonds.
 
 [**Calculez votre budget Constructys 2026 en 30 secondes →**](/simulateur-opco/)
 
@@ -41,7 +43,7 @@ Vous dirigez une entreprise relevant de la convention **Bâtiment** (IDCC à con
     </div>
     <div>
       <dt class="text-slate-500 mb-1">IDCC(s) couvert(s)</dt>
-      <dd class="text-slate-900 font-semibold">À confirmer</dd>
+      <dd class="text-slate-900 font-semibold">1596, 1597, 2609, 2420</dd>
     </div>
     <div>
       <dt class="text-slate-500 mb-1">Contribution conventionnelle</dt>
@@ -53,14 +55,14 @@ Vous dirigez une entreprise relevant de la convention **Bâtiment** (IDCC à con
     </div>
     <div class="sm:col-span-2">
       <dt class="text-slate-500 mb-1">Année d'application des barèmes</dt>
-      <dd class="text-slate-900"><time datetime="2026">2026</time> · Données vérifiées le 2026-05-18</dd>
+      <dd class="text-slate-900"><time datetime="2026">2026</time> · Données vérifiées le 2026-05-28</dd>
     </div>
   </dl>
 </div>
 
 ## Plafonds PDC Constructys 2026 par tranche d'effectif
 
-Voici les plafonds officiels du Plan de Développement des Compétences pour la convention Bâtiment en 2026, ventilés selon votre tranche d'effectif. Le pivot **50 salariés** marque la bascule réglementaire entre PME et ETI.
+Voici les plafonds officiels du Plan de Développement des Compétences pour la convention Bâtiment (Ouvriers, ETAM et Cadres) en 2026, ventilés selon votre tranche d'effectif. Le pivot **50 salariés** marque la bascule réglementaire entre PME et ETI.
 
 <div class="not-prose my-8 overflow-x-auto rounded-xl border border-slate-200">
   <table class="w-full text-left">
@@ -114,9 +116,9 @@ En plus du PDC standard, Constructys peut majorer le financement sur certaines t
 
 - **Diag Performance (Numérique, Écologique, RH)**
 
-## Analyse détaillée — Bâtiment
+## Analyse détaillée — Bâtiment (Ouvriers, ETAM et Cadres)
 
-Cette section restitue notre analyse complète des critères de financement publiés officiellement par Constructys pour la branche Bâtiment. Données sourcées, vérifiées et mises à jour régulièrement.
+Cette section restitue notre analyse complète des critères de financement publiés officiellement par Constructys pour la branche Bâtiment (Ouvriers, ETAM et Cadres). Données sourcées, vérifiées et mises à jour régulièrement.
 
 ## Présentation de la branche
 
@@ -155,11 +157,15 @@ Le **Diag Performance "Numérique / Écologique / RSE"** est disponible pour les
 
 Les forfaits ContratPro et tutorat sont **identiques à TP** (13€/h métiers BTP, 16€/h conduite/engins, 7€/h tertiaire). La particularité Bâtiment : aide tutorale apprentissage **250€ nets/an** pour tuteur d'un CAP technique (vs aide mensuelle ContratPro 230€/mois).
 
-## IDCCs à confirmer
+## IDCCs couverts (confirmés)
 
-Les IDCCs de la branche Bâtiment ne sont pas publiés sur le site Constructys. Candidats probables à vérifier via France Compétences :
-- Ouvriers du Bâtiment : IDCC 1597 (à confirmer)
-- ETAM du Bâtiment : IDCC 2609 (à confirmer)
+Le financement Constructys Bâtiment est **identique quelle que soit la catégorie de personnel** (un seul document « Bâtiment Modalités 2026 »). La fiche couvre donc les 4 conventions Bâtiment, confirmées via Code du travail numérique / Légifrance :
+- **IDCC 1596** : Bâtiment Ouvriers (entreprises ≤10 salariés)
+- **IDCC 1597** : Bâtiment Ouvriers (entreprises >10 salariés)
+- **IDCC 2609** : Bâtiment ETAM (employés, techniciens, agents de maîtrise)
+- **IDCC 2420** : Bâtiment Cadres
+
+> ⚠️ Le brief Sprint 2 indiquait à tort « 1597 = ETAM ». En réalité 1597 = Ouvriers >10 sal ; les ETAM relèvent du 2609. Mapping corrigé ici sur source officielle.
 
 ## Signaux commerciaux pour OF tiers
 
@@ -176,6 +182,8 @@ Toutes les données chiffrées de cette page proviennent des publications offici
 
 - [https://www.constructys.fr/financer-vos-projets-de-formation/modalites-demandes-de-prise-charge/conditions-de-prise-en-charge-2/](https://www.constructys.fr/financer-vos-projets-de-formation/modalites-demandes-de-prise-charge/conditions-de-prise-en-charge-2/) (consulté le 2026-05-18)
 - [https://www.constructys.fr/wp-content/uploads/2025/07/BATIMENT-Modalites-2026.zip](https://www.constructys.fr/wp-content/uploads/2025/07/BATIMENT-Modalites-2026.zip) (consulté le 2026-05-18)
+- [https://code.travail.gouv.fr/convention-collective/1597-batiment-ouvriers-entreprises-occupant-plus-de-10-salaries](https://code.travail.gouv.fr/convention-collective/1597-batiment-ouvriers-entreprises-occupant-plus-de-10-salaries) (consulté le 2026-05-28)
+- [https://code.travail.gouv.fr/convention-collective/2609-batiment-etam](https://code.travail.gouv.fr/convention-collective/2609-batiment-etam) (consulté le 2026-05-28)
 
 ## Pour aller plus loin
 
@@ -183,8 +191,8 @@ Toutes les données chiffrées de cette page proviennent des publications offici
 - 📊 **Actions collectives** : [Formations 100% financées par votre OPCO](/simulateur-opco/actions-collectives/)
 - 📖 **Guide complet** : [Financer la formation IA via OPCO 2026](/blog/dispositifs-opco-2026-financer-formation-ia-pme/)
 
-## Calculez votre budget Bâtiment 2026
+## Calculez votre budget Bâtiment (Ouvriers, ETAM et Cadres) 2026
 
-Notre simulateur identifie automatiquement votre rattachement à la branche Bâtiment depuis votre raison sociale ou votre numéro SIREN. Aucune connaissance de votre IDCC n'est requise. Le calcul prend 30 secondes et reste sans engagement.
+Notre simulateur identifie automatiquement votre rattachement à la branche Bâtiment (Ouvriers, ETAM et Cadres) depuis votre raison sociale ou votre numéro SIREN. Aucune connaissance de votre IDCC n'est requise. Le calcul prend 30 secondes et reste sans engagement.
 
 [**Lancer le simulateur OPCO 2026 →**](/simulateur-opco/)

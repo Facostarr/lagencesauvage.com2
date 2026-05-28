@@ -52,6 +52,9 @@ WHITELIST: list[str] = [
     "constructys-bat",                          # 1100k sal, BTP bâtiment
     "opcommerce-cad-2198",                      # e-commerce
     "akto-portage-salarial-3219",               # portage, niche B2B fit
+    "atlas-experts-comptables-787",             # Sprint 2 Big Five — experts-comptables/CAC
+    "ep-cabinets-avocats-1000",                 # Sprint 2 Big Five — avocats (IA nommément éligible)
+    "ep-pharmacie-officine-1996",               # Sprint 2 Big Five — pharmacie d'officine
 ]
 
 # Mapping slug branche → nom court SEO-friendly (titre H1, breadcrumb, FAQ).
@@ -78,6 +81,9 @@ BRANCHE_SHORT_NAMES: dict[str, str] = {
     "constructys-bat": "Bâtiment",
     "opcommerce-cad-2198": "E-commerce et VAD",
     "akto-portage-salarial-3219": "Portage salarial",
+    "atlas-experts-comptables-787": "Experts-comptables",
+    "ep-cabinets-avocats-1000": "Cabinets d'avocats",
+    "ep-pharmacie-officine-1996": "Pharmacie d'officine",
 }
 
 # Mapping OPCO slug → label canonique (anti-doublon, cf. compute_opco_label)
@@ -124,9 +130,10 @@ def yaml_escape(value) -> str:
 
 
 def label_with_article(label: str) -> str:
-    if label.startswith("L'"):
-        return label
-    return f"L'{label}"
+    # Les noms d'OPCO sont des noms propres / acronymes (Constructys, AKTO, OPCO
+    # Santé, Opco Atlas…). Forcer "L'" produit une grammaire fausse ("L'Constructys").
+    # On conserve l'article seulement quand le label le porte déjà (L'Opcommerce).
+    return label
 
 
 # -----------------------------------------------------------------------------
@@ -428,7 +435,7 @@ def build_page(b: dict) -> str:
         f"description: {yaml_escape(description)}",
         "date: 2026-05-23",
         "lastmod: 2026-05-23",
-        'layout: "single"',
+        'layout: "branche-fiche"',
         'robots: "index, follow"',
         f'canonical: "/simulateur-opco/branches/{slug}/"',
         'ogImage: "/assets/images/logo-agence-sauvage.svg"',

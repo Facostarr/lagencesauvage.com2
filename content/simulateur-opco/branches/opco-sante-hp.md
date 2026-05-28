@@ -1,6 +1,6 @@
 ---
-title: Simulateur Budget Formation Hospitalisation privée — 2026
-description: 'Calculez votre budget formation 2026 pour la convention Hospitalisation privée (OPCO Santé, IDCC à confirmer). Plafonds PDC par tranche d''effectif, dispositifs activables, sources officielles. Simulation en 30 secondes.'
+title: Simulateur Budget Formation Hospitalisation privée (IDCC 2264) — 2026
+description: 'Calculez votre budget formation 2026 pour la convention Hospitalisation privée (OPCO Santé, IDCC 2264, 2104). Plafonds PDC par tranche d''effectif, dispositifs activables, sources officielles. Simulation en 30 secondes.'
 date: 2026-05-23
 lastmod: 2026-05-23
 layout: "branche-fiche"
@@ -12,23 +12,25 @@ branche_nom: Hospitalisation Privée et Thermalisme
 branche_nom_court: Hospitalisation privée
 branche_opco_slug: opco-sante
 branche_opco_label: OPCO Santé
-branche_idcc_primary: null
-branche_idccs: à confirmer
+branche_idcc_primary: 2264
+branche_idccs: 2264, 2104
 keywords:
   - "budget formation Hospitalisation privée"
   - "OPCO Hospitalisation privée"
+  - "IDCC 2264"
+  - "simulateur IDCC 2264"
   - "OPCO Santé Hospitalisation privée"
   - "financement formation 2026"
 faq:
   - question: "Comment savoir si mon entreprise relève de la convention Hospitalisation Privée et Thermalisme ?"
-    answer: "Votre IDCC (Identifiant De Convention Collective) est indiqué sur vos bulletins de paie et sur votre Déclaration Sociale Nominative (DSN). Si vous ne le connaissez pas, notre <a href=\"/simulateur-opco/\">simulateur identifie automatiquement votre convention</a> depuis votre raison sociale ou votre SIREN, en interrogeant les bases publiques DINUM et siret2idcc. Pour la branche Hospitalisation Privée et Thermalisme, l'IDCC est non rattachée."
+    answer: "Votre IDCC (Identifiant De Convention Collective) est indiqué sur vos bulletins de paie et sur votre Déclaration Sociale Nominative (DSN). Si vous ne le connaissez pas, notre <a href=\"/simulateur-opco/\">simulateur identifie automatiquement votre convention</a> depuis votre raison sociale ou votre SIREN, en interrogeant les bases publiques DINUM et siret2idcc. Pour la branche Hospitalisation Privée et Thermalisme, l'IDCC est 2264, 2104."
   - question: "La contribution conventionnelle est-elle obligatoire pour bénéficier du financement OPCO Santé ?"
-    answer: "Oui. La branche Hospitalisation Privée et Thermalisme prévoit une <strong>contribution conventionnelle</strong> versée à OPCO Santé en plus de la contribution légale (0,55% sous 11 salariés, 1% au-delà). Cette cotisation finance les dispositifs branche (AFEST, bonus thématiques, parcours stratégique). Vérifiez votre situation auprès de votre expert-comptable ou directement auprès de L'OPCO Santé. Notre simulateur le précise dans le récapitulatif de votre simulation."
+    answer: "Oui. La branche Hospitalisation Privée et Thermalisme prévoit une <strong>contribution conventionnelle</strong> versée à OPCO Santé en plus de la contribution légale (0,55% sous 11 salariés, 1% au-delà). Cette cotisation finance les dispositifs branche (AFEST, bonus thématiques, parcours stratégique). Vérifiez votre situation auprès de votre expert-comptable ou directement auprès de OPCO Santé. Notre simulateur le précise dans le récapitulatif de votre simulation."
   - question: "Quel budget formation 2026 puis-je espérer pour la branche Hospitalisation Privée et Thermalisme ?"
     answer: "Le budget dépend de votre <strong>tranche d'effectif</strong> (TPE moins de 11 salariés, PME de 11 à 49, ETI au-delà de 50) et des dispositifs activés. La fourchette typique va de <strong>2 000 € à 15 000 € par an</strong> pour le seul Plan de Développement des Compétences, hors bonus thématiques et parcours stratégique. Pour un calcul précis basé sur les barèmes officiels OPCO Santé 2026, <a href=\"/simulateur-opco/\">lancez le simulateur en 30 secondes</a>."
 ---
 
-Vous dirigez une entreprise relevant de la convention **Hospitalisation privée** (IDCC à confirmer) ? Votre budget formation 2026 est financé par OPCO Santé, avec des barèmes spécifiques à votre branche. Cette page récapitule les plafonds officiels, les dispositifs activables (PDC, AFEST, bonus thématiques) et les démarches pour mobiliser ces fonds.
+Vous dirigez une entreprise relevant de la convention **Hospitalisation privée** (IDCC 2264, 2104) ? Votre budget formation 2026 est financé par OPCO Santé, avec des barèmes spécifiques à votre branche. Cette page récapitule les plafonds officiels, les dispositifs activables (PDC, AFEST, bonus thématiques) et les démarches pour mobiliser ces fonds.
 
 [**Calculez votre budget OPCO Santé 2026 en 30 secondes →**](/simulateur-opco/)
 
@@ -41,7 +43,7 @@ Vous dirigez une entreprise relevant de la convention **Hospitalisation privée*
     </div>
     <div>
       <dt class="text-slate-500 mb-1">IDCC(s) couvert(s)</dt>
-      <dd class="text-slate-900 font-semibold">À confirmer</dd>
+      <dd class="text-slate-900 font-semibold">2264, 2104</dd>
     </div>
     <div>
       <dt class="text-slate-500 mb-1">Contribution conventionnelle</dt>
@@ -128,11 +130,11 @@ Contrairement aux autres OPCO (qui versent une aide mensuelle sur 4-6 mois), OPC
 - 1 salarié encadré : **500€**
 - 2 salariés encadrés : **750€**
 
-## IDCCs à confirmer
+## IDCC couvert
 
-Les IDCCs du secteur HP ne sont pas mentionnés dans la synthèse PDF 2026. Candidats à vérifier :
-- IDCC 651 — Convention collective nationale de l'hospitalisation privée (à confirmer)
-- IDCC thermalisme (à identifier)
+**IDCC 2264** — Convention collective nationale de l'hospitalisation privée du 18 avril 2002, portée côté employeurs par la **FHP** (Fédération de l'hospitalisation privée). Confirmé sur Légifrance et code.travail.gouv.fr (2026-05-28).
+
+Le secteur **thermalisme** (ex-IDCC 2104) a vu son champ d'application **fusionné dans l'IDCC 2264 en mars 2019** — d'où le libellé « Hospitalisation Privée et Thermalisme » de la synthèse OPCO Santé. La fiche couvre donc **2264 ET 2104** : bien que 2104 soit juridiquement absorbé, des établissements thermaux continuent de le déclarer en paie/DSN, et le rattacher ici garantit qu'un prospect thermal soit correctement reconnu par le simulateur. Source légale unique du groupement : la fusion des champs conventionnels (Légifrance KALICONT000005635813).
 
 ## Signaux commerciaux pour OF tiers
 
@@ -146,6 +148,7 @@ Les IDCCs du secteur HP ne sont pas mentionnés dans la synthèse PDF 2026. Cand
 Toutes les données chiffrées de cette page proviennent des publications officielles de OPCO Santé et des sources gouvernementales, vérifiées à la date indiquée.
 
 - [https://www.opco-sante.fr/app/uploads/2026/05/opco0275_synthese-des-prise-en-charge-hp_pdf_site.pdf](https://www.opco-sante.fr/app/uploads/2026/05/opco0275_synthese-des-prise-en-charge-hp_pdf_site.pdf) (consulté le 2026-05-18)
+- [https://code.travail.gouv.fr/convention-collective/2264-hospitalisation-privee](https://code.travail.gouv.fr/convention-collective/2264-hospitalisation-privee) (consulté le 2026-05-28)
 
 ## Pour aller plus loin
 
