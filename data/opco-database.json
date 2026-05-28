@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-05-28T15:03:41.061277",
+    "generated_at": "2026-05-28T17:04:24.844033",
     "version": "2026-05-28",
     "nb_opcos": 11,
     "nb_branches": 62,
@@ -6100,13 +6100,15 @@
     },
     {
       "slug": "ep-cabinets-avocats-1000",
-      "nom_branche": "Cabinets d'avocats (personnel salarié)",
+      "nom_branche": "Cabinets d'avocats (personnel salarié et avocats salariés)",
       "opco_slug": "ep",
       "idcc_couverts": [
-        1000
+        1000,
+        1850,
+        3253
       ],
       "idcc_a_confirmer": false,
-      "source_legale_unique": null,
+      "source_legale_unique": "CCN des salariés des cabinets d'avocats du 21/06/2024 (IDCC 3253), étendue par arrêté du 18/09/2025 (JORF 26/09/2025) — fusionne les IDCC 1000 (personnel salarié, 1979) et 1850 (avocats salariés, 1995). https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000052331573",
       "annee_application": 2026,
       "contribution_conventionnelle_requise": false,
       "subrogation_possible": null,
@@ -6265,10 +6267,22 @@
         {
           "url": "https://code.travail.gouv.fr/convention-collective/1000-avocats-personnel-salarie-des-cabinets",
           "date_consulte": "2026-05-28"
+        },
+        {
+          "url": "https://code.travail.gouv.fr/convention-collective/3253-salaries-des-cabinets-davocats",
+          "date_consulte": "2026-05-28"
+        },
+        {
+          "url": "https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000052331573",
+          "date_consulte": "2026-05-28"
+        },
+        {
+          "url": "https://www.opco.fr/trouver/ape-6910Z/idcc-1850",
+          "date_consulte": "2026-05-28"
         }
       ],
       "schema_version": "1.1",
-      "notes_libres": "## Présentation de la branche\n\nLa branche **Cabinets d'avocats** (IDCC 1000, « Personnel salarié des cabinets d'avocats ») couvre les salariés non-avocats et avocats salariés employés par les cabinets d'avocats : secrétaires juridiques, assistants juridiques, juristes, personnel administratif. Elle est gérée par OPCO EP, qui publie des barèmes de financement spécifiques validés par la Section Paritaire Professionnelle.\n\n**Mapping EP** : `branche=206` → IDCC 1000 (l'identifiant IDCC est affiché directement sur la page de critères EP).\n\n## PDC — Barèmes horaires par type de formation (spécificité EP)\n\nContrairement aux OPCO à taux unique, EP applique des **barèmes horaires différenciés** selon le type d'action :\n\n| Type de formation | Coût péda | Durée max |\n|---|---|---|\n| Formation personnel des barreaux (réglementation, déontologie barreaux) | **100 € HT/h** | 100 h |\n| Formations juridiques avocats/non-avocats (examen comptes/bilans, déontologie) | **85 € HT/h** | 28 h |\n| Formations communes cabinets (dont **IA appliquée aux cabinets**) | **60 € HT/h** | 35 h |\n| RPVA (réseau privé virtuel des avocats) | 60 € HT/h | 7 h |\n| Langues appliquées au juridique | 60 € HT/h | 150 h |\n| Transverses socle (compta, bureautique, management) | 25 € HT/h | 21 h |\n| Santé-sécurité (secourisme, AFGSU, SST, SSIAP) | 25 € HT/h | 21 h |\n\n**Plafond entreprise : 15 000 € HT/an** (<50 sal). Frais de salaire 12 € HT/h. ≥50 sal : 150 % de la cotisation conventionnelle.\n\n## IA appliquée aux cabinets — formation explicitement éligible\n\nLe point saillant pour un OF IA : la branche liste **« IA appliquée aux cabinets »** parmi les formations communes éligibles, financées à **60 € HT/h sur 35 h** (soit jusqu'à 2 100 € HT de coûts pédagogiques), avec frais de salaire (12 €/h) et frais annexes. C'est l'un des très rares libellés OPCO qui nomme explicitement l'IA comme thématique de formation finançable au PDC.\n\n## Actions Développement — hors plafond\n\nLes titres juridiques et formations longues sont **hors plafond annuel** :\n- Titre de juriste : 525 h à 85 €/h\n- Titre d'attaché juridique : 218 h à 85 €/h ; assistant juridique : 166 h à 85 €/h\n- Cycles formations juridiques : 155,5 h à 60 €/h\n- Autres formations longues >140 h / RNCP : 600 h à 60 €/h\n- Bilan de compétences : 24 h à 85 €/h\n\n## FSE+ — co-financement jusqu'à 100 %\n\nEP co-finance via le **FSE+** :\n- **<50 sal** : jusqu'à 100 % des coûts pédagogiques (50 % FSE + 50 % fonds EP), plafond 350 €/j/stagiaire, 2 500 €/groupe/jour, forfait rémunération 12 €/h.\n- **≥50 sal** : 50 % (175 €/stag/j, 1 250 €/groupe/j, 150 000 €/entreprise) + abondement conventionnel jusqu'à 335 €/stag/j.\n\n## Sélexion — catalogue captif\n\n**Sélexion** est le catalogue EP présélectionné : <50 sal financé à 100 %, ≥50 sal à 50 %. Les OF tiers non référencés passent par le PDC standard.\n\n## Signaux commerciaux pour OF tiers\n\n1. **« IA appliquée aux cabinets » explicitement listée** (60 €/h, 35 h) — argument frontal pour une formation IA en cabinet d'avocats.\n2. **AFEST** (2 400 € + 420 €/salarié avec prestataire) — IA en situation de travail.\n3. **FSE+ <50 sal jusqu'à 100 %** — la majorité des cabinets sont <50 sal.\n4. **Plafond annuel élevé (15 000 €)** — confortable pour des parcours IA + bureautique + logiciels.\n5. **Cas d'usage IA branche** : recherche jurisprudentielle assistée, rédaction d'actes, synthèse de dossiers, automatisation du secrétariat juridique.",
+      "notes_libres": "## Présentation de la branche\n\nLa branche **Cabinets d'avocats** couvre l'ensemble du personnel employé par les cabinets d'avocats (NAF 69.10Z) : salariés non-avocats (secrétaires juridiques, assistants juridiques, juristes, personnel administratif) **et avocats salariés**. Elle est gérée par OPCO EP, qui publie des barèmes de financement spécifiques validés par la Section Paritaire Professionnelle.\n\n### Trois IDCC couverts (consolidation conventionnelle 2025)\n\nCette fiche couvre **3 IDCC** qui visent tous le même employeur (cabinet d'avocats) et relèvent tous d'OPCO EP avec **des barèmes identiques** (même page de critères EP `branche=206`) :\n\n| IDCC | Intitulé | Statut |\n|---|---|---|\n| **3253** | CCN des salariés des cabinets d'avocats du 21/06/2024 | **Convention de fusion** — en vigueur ~1er octobre 2025, étendue par arrêté du 18/09/2025 (JORF 26/09/2025). Issue de la fusion de 1000 + 1850. C'est l'IDCC que l'API DINUM/recensement renvoie désormais le plus souvent pour un cabinet d'avocats (NAF 6910Z). |\n| **1000** | Avocats et leur personnel — personnel salarié des cabinets d'avocats (20/02/1979) | Convention historique « personnel salarié » (fusionnée dans 3253). Encore renvoyée pour des établissements n'ayant pas migré leur déclaration. |\n| **1850** | Avocats salariés (17/02/1995) | Convention historique « avocats salariés » (fusionnée dans 3253). |\n\n**Rattachement OPCO EP** : la collecte du paritarisme, anciennement confiée à KERIALIS jusqu'au 31/12/2024, est désormais assurée par OPCO EP pour l'ensemble de ces conventions.\n\n**Mapping EP** : `branche=206` (page de critères EP, encore libellée « Personnel salarié des cabinets d'avocats / 1000 » au 24/03/2026, mais dont les barèmes visent explicitement « personnel non-avocats ou avocats salariés »). Les barèmes ci-dessous s'appliquent donc indistinctement aux 3 IDCC.\n\n## PDC — Barèmes horaires par type de formation (spécificité EP)\n\nContrairement aux OPCO à taux unique, EP applique des **barèmes horaires différenciés** selon le type d'action :\n\n| Type de formation | Coût péda | Durée max |\n|---|---|---|\n| Formation personnel des barreaux (réglementation, déontologie barreaux) | **100 € HT/h** | 100 h |\n| Formations juridiques avocats/non-avocats (examen comptes/bilans, déontologie) | **85 € HT/h** | 28 h |\n| Formations communes cabinets (dont **IA appliquée aux cabinets**) | **60 € HT/h** | 35 h |\n| RPVA (réseau privé virtuel des avocats) | 60 € HT/h | 7 h |\n| Langues appliquées au juridique | 60 € HT/h | 150 h |\n| Transverses socle (compta, bureautique, management) | 25 € HT/h | 21 h |\n| Santé-sécurité (secourisme, AFGSU, SST, SSIAP) | 25 € HT/h | 21 h |\n\n**Plafond entreprise : 15 000 € HT/an** (<50 sal). Frais de salaire 12 € HT/h. ≥50 sal : 150 % de la cotisation conventionnelle.\n\n## IA appliquée aux cabinets — formation explicitement éligible\n\nLe point saillant pour un OF IA : la branche liste **« IA appliquée aux cabinets »** parmi les formations communes éligibles, financées à **60 € HT/h sur 35 h** (soit jusqu'à 2 100 € HT de coûts pédagogiques), avec frais de salaire (12 €/h) et frais annexes. C'est l'un des très rares libellés OPCO qui nomme explicitement l'IA comme thématique de formation finançable au PDC.\n\n## Actions Développement — hors plafond\n\nLes titres juridiques et formations longues sont **hors plafond annuel** :\n- Titre de juriste : 525 h à 85 €/h\n- Titre d'attaché juridique : 218 h à 85 €/h ; assistant juridique : 166 h à 85 €/h\n- Cycles formations juridiques : 155,5 h à 60 €/h\n- Autres formations longues >140 h / RNCP : 600 h à 60 €/h\n- Bilan de compétences : 24 h à 85 €/h\n\n## FSE+ — co-financement jusqu'à 100 %\n\nEP co-finance via le **FSE+** :\n- **<50 sal** : jusqu'à 100 % des coûts pédagogiques (50 % FSE + 50 % fonds EP), plafond 350 €/j/stagiaire, 2 500 €/groupe/jour, forfait rémunération 12 €/h.\n- **≥50 sal** : 50 % (175 €/stag/j, 1 250 €/groupe/j, 150 000 €/entreprise) + abondement conventionnel jusqu'à 335 €/stag/j.\n\n## Sélexion — catalogue captif\n\n**Sélexion** est le catalogue EP présélectionné : <50 sal financé à 100 %, ≥50 sal à 50 %. Les OF tiers non référencés passent par le PDC standard.\n\n## Signaux commerciaux pour OF tiers\n\n1. **« IA appliquée aux cabinets » explicitement listée** (60 €/h, 35 h) — argument frontal pour une formation IA en cabinet d'avocats.\n2. **AFEST** (2 400 € + 420 €/salarié avec prestataire) — IA en situation de travail.\n3. **FSE+ <50 sal jusqu'à 100 %** — la majorité des cabinets sont <50 sal.\n4. **Plafond annuel élevé (15 000 €)** — confortable pour des parcours IA + bureautique + logiciels.\n5. **Cas d'usage IA branche** : recherche jurisprudentielle assistée, rédaction d'actes, synthèse de dossiers, automatisation du secrétariat juridique.",
       "_source_file": "data\\normalized\\branches\\ep-cabinets-avocats-1000.md"
     },
     {
@@ -6279,7 +6293,7 @@
         1527
       ],
       "idcc_a_confirmer": false,
-      "source_legale_unique": null,
+      "source_legale_unique": "https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000052018197/?idConteneur=KALICONT000005635413",
       "annee_application": 2026,
       "contribution_conventionnelle_requise": true,
       "subrogation_possible": null,
@@ -6432,15 +6446,23 @@
         "jours_avant_demarrage_min": null
       },
       "date_scraping": "2026-05-18",
-      "date_derniere_maj_humaine": "2026-05-18",
+      "date_derniere_maj_humaine": "2026-05-28",
       "sources": [
         {
           "url": "https://www.opcoep.fr/criteres-de-financement?branche=187",
           "date_consulte": "2026-05-18"
+        },
+        {
+          "url": "https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000052018197/?idConteneur=KALICONT000005635413",
+          "date_consulte": "2026-05-28"
+        },
+        {
+          "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000052290473",
+          "date_consulte": "2026-05-28"
         }
       ],
       "schema_version": "1.1",
-      "notes_libres": "## Présentation de la branche\n\nLa branche **Immobilier** (IDCC 1527) couvre les entreprises d'administration de biens, de gestion locative, de transaction immobilière (agences, mandataires, réseaux). Elle regroupe les agents immobiliers, gestionnaires de copropriété, administrateurs de biens et promoteurs.\n\n**Mapping EP** : branche=187 → IDCC 1527 (confirmé depuis le contenu de la page EP).\n\n## PDC — Barèmes multi-niveaux (spécificité EP)\n\nContrairement aux autres OPCO (taux unique), EP applique des **barèmes horaires différenciés** selon le type de formation :\n\n| Type de formation | Barème horaire |\n|---|---|\n| Formations métier obligatoires / réglementaires | **40 € HT/h** |\n| Formations cœur de métier | **30 € HT/h** |\n| Formations transverses / socles | **25 € HT/h** |\n| Développement hors plafond (bilan, CléA…) | **9,15 € HT/h** |\n\n**Pas de frais de salaires** — EP ne rembourse que les coûts pédagogiques.\n\n**Plafonds annuels :**\n- <11 sal : 2 500 € HT\n- 11-50 sal : 4 500 € HT\n- 50+ sal : 100% de la cotisation conventionnelle\n\n## VAE et Bilan de compétences — Hors plafond\n\nLes actions de développement individuel sont **hors plafond PDC** :\n- VAE : max 48h à **50 € HT/h** (plafond théorique 2 400 €)\n- Bilan de compétences : max 24h à **85 € HT/h** (plafond théorique 2 040 €)\n\nLes taux 50€/h et 85€/h sont les plus élevés observés dans la BDD — ils reflètent le coût réel des prestations accompagnement certifiant.\n\n## Sélexion — Catalogue captif\n\n**Sélexion** est le catalogue EP de formations présélectionnées :\n- <50 sal : **100% des coûts pédagogiques** pris en charge\n- 50 sal et + : **50%**\n\nPour les OF tiers **non référencés dans Sélexion**, les formations passent par le PDC standard (2 500-4 500 €). L'inscription dans Sélexion est une opportunité pour les OF souhaitant maximiser l'accès.\n\n## FSE+ — Levier de co-financement exceptionnel\n\nEP co-finance via le **FSE+** (Fonds Social Européen) :\n- **<50 sal** : jusqu'à **100%** des coûts pédagogiques éligibles (50% FSE + 50% fonds EP). Plafond 350€/j/stagiaire, 2 500€/groupe/j. Forfait rémunération : **12€/h/stagiaire**.\n- **50 sal et +** : 50% coûts péda. Plafond 175€/stag/j, 1 250€/groupe/j, 150 000€/entreprise.\n\n**Argument commercial** : pour une agence immobilière <50 sal, le FSE+ peut permettre une formation IA 100% prise en charge — à mettre en avant si la formation est éligible aux axes FSE+ prioritaires.\n\n## Contrat de Professionnalisation — CQP Immobilier\n\nLes certifications spécifiques à l'immobilier sont mieux financées :\n- **RNCP immo, licences/masters immo, CQP Négociateur** : 12 € HT/h\n- **BTS Professions Immobilières, autres RNCP/CQP** : 9,15 € HT/h\n- **Contrat renforcé publics prioritaires** : 15 € HT/h\n\nLe **CQP Négociateur immobilier (RNCP 38277)** est la certification de branche — à 12€/h pour les OF habilités.\n\n## Signaux commerciaux pour OF tiers\n\n1. **FSE+ <50 sal** : argument de financement jusqu'à 100% — puissant pour les petites agences immobilières\n2. **PDC réglementaire/métier oblig** : 40€/h le plus élevé du projet — formations DDA (Directive Distribution Assurances), sécurité informatique, conformité RGPD pouvant intégrer des modules IA\n3. **AFEST** : 2 400€ + 420€/salarié avec prestataire — pour des formations IA en situation de travail dans les agences\n4. **VAE hors plafond** : 50€/h max 48h — accompagnement certifiant valorisable\n5. **Pas de catalogue captif IA identifié** — le champ est libre pour les OF tiers en immobilier",
+      "notes_libres": "## Présentation de la branche\n\nLa branche **Immobilier** (IDCC 1527) couvre les entreprises d'administration de biens, de gestion locative, de transaction immobilière (agences, mandataires, réseaux). Elle regroupe les agents immobiliers, gestionnaires de copropriété, administrateurs de biens et promoteurs.\n\n**Mapping EP** : branche=187 → IDCC 1527 (confirmé depuis le contenu de la page EP).\n\n## Contribution conventionnelle formation — base du financement de branche\n\n`contribution_conventionnelle_requise: true` est confirmé sur source officielle (vérifié le 2026-05-28, après suspicion de valeur non sourcée).\n\nL'**avenant n° 105 du 28 mai 2025** à la CCN de l'immobilier instaure une contribution conventionnelle formation professionnelle **obligatoire pour toutes les entreprises de l'IDCC 1527** (« L'ensemble des entreprises relevant du champ d'application […] sont débitrices de la contribution conventionnelle », art. 1). Étendu par arrêté du 18 septembre 2025 (JORF 21/11/2025), **applicable au 1er janvier 2026**.\n\n**Taux (% masse salariale brute N-1)** :\n- 1 à 10 sal : **0,1125 %**\n- 11 à 49 sal : **0,0675 %**\n- 50 à 299 sal : **0,0450 %**\n- 300 sal et + : **0,0135 %**\n\nPour les **entreprises de 50 salariés et plus**, la prise en charge est strictement égale à « 100 % de la contribution conventionnelle versée par ses soins » (art. 2) — l'accès au financement de branche est donc directement conditionné au versement. Cela aligne le critère sur le modèle Atlas/Syntec : c'est pourquoi `type_fonds: BRANCHE_CONVENTIONNELLE` est conservé sur le PDC.\n\n## PDC — Barèmes multi-niveaux (spécificité EP)\n\nContrairement aux autres OPCO (taux unique), EP applique des **barèmes horaires différenciés** selon le type de formation :\n\n| Type de formation | Barème horaire |\n|---|---|\n| Formations métier obligatoires / réglementaires | **40 € HT/h** |\n| Formations cœur de métier | **30 € HT/h** |\n| Formations transverses / socles | **25 € HT/h** |\n| Développement hors plafond (bilan, CléA…) | **9,15 € HT/h** |\n\n**Pas de frais de salaires** — EP ne rembourse que les coûts pédagogiques.\n\n**Plafonds annuels :**\n- <11 sal : 2 500 € HT\n- 11-50 sal : 4 500 € HT\n- 50+ sal : 100% de la cotisation conventionnelle\n\n## VAE et Bilan de compétences — Hors plafond\n\nLes actions de développement individuel sont **hors plafond PDC** :\n- VAE : max 48h à **50 € HT/h** (plafond théorique 2 400 €)\n- Bilan de compétences : max 24h à **85 € HT/h** (plafond théorique 2 040 €)\n\nLes taux 50€/h et 85€/h sont les plus élevés observés dans la BDD — ils reflètent le coût réel des prestations accompagnement certifiant.\n\n## Sélexion — Catalogue captif\n\n**Sélexion** est le catalogue EP de formations présélectionnées :\n- <50 sal : **100% des coûts pédagogiques** pris en charge\n- 50 sal et + : **50%**\n\nPour les OF tiers **non référencés dans Sélexion**, les formations passent par le PDC standard (2 500-4 500 €). L'inscription dans Sélexion est une opportunité pour les OF souhaitant maximiser l'accès.\n\n## FSE+ — Levier de co-financement exceptionnel\n\nEP co-finance via le **FSE+** (Fonds Social Européen) :\n- **<50 sal** : jusqu'à **100%** des coûts pédagogiques éligibles (50% FSE + 50% fonds EP). Plafond 350€/j/stagiaire, 2 500€/groupe/j. Forfait rémunération : **12€/h/stagiaire**.\n- **50 sal et +** : 50% coûts péda. Plafond 175€/stag/j, 1 250€/groupe/j, 150 000€/entreprise.\n\n**Argument commercial** : pour une agence immobilière <50 sal, le FSE+ peut permettre une formation IA 100% prise en charge — à mettre en avant si la formation est éligible aux axes FSE+ prioritaires.\n\n## Contrat de Professionnalisation — CQP Immobilier\n\nLes certifications spécifiques à l'immobilier sont mieux financées :\n- **RNCP immo, licences/masters immo, CQP Négociateur** : 12 € HT/h\n- **BTS Professions Immobilières, autres RNCP/CQP** : 9,15 € HT/h\n- **Contrat renforcé publics prioritaires** : 15 € HT/h\n\nLe **CQP Négociateur immobilier (RNCP 38277)** est la certification de branche — à 12€/h pour les OF habilités.\n\n## Signaux commerciaux pour OF tiers\n\n1. **FSE+ <50 sal** : argument de financement jusqu'à 100% — puissant pour les petites agences immobilières\n2. **PDC réglementaire/métier oblig** : 40€/h le plus élevé du projet — formations DDA (Directive Distribution Assurances), sécurité informatique, conformité RGPD pouvant intégrer des modules IA\n3. **AFEST** : 2 400€ + 420€/salarié avec prestataire — pour des formations IA en situation de travail dans les agences\n4. **VAE hors plafond** : 50€/h max 48h — accompagnement certifiant valorisable\n5. **Pas de catalogue captif IA identifié** — le champ est libre pour les OF tiers en immobilier",
       "_source_file": "data\\normalized\\branches\\ep-immobilier-1527.md"
     },
     {
@@ -9139,6 +9161,8 @@
     "2609": "data\\normalized\\branches\\constructys-bat.md",
     "2420": "data\\normalized\\branches\\constructys-bat.md",
     "1000": "data\\normalized\\branches\\ep-cabinets-avocats-1000.md",
+    "1850": "data\\normalized\\branches\\ep-cabinets-avocats-1000.md",
+    "3253": "data\\normalized\\branches\\ep-cabinets-avocats-1000.md",
     "1527": "data\\normalized\\branches\\ep-immobilier-1527.md",
     "1996": "data\\normalized\\branches\\ep-pharmacie-officine-1996.md",
     "1090": "data\\normalized\\branches\\mobilites-services-auto-1090.md",
@@ -9211,6 +9235,7 @@
       "3127": "ep",
       "3235": "ep",
       "3239": "ep",
+      "3253": "ep",
       "2120": "atlas",
       "1486": "atlas",
       "1672": "atlas",
@@ -9314,9 +9339,11 @@
           ]
         },
         {
-          "branche": "Personnel des cabinets d'avocats",
+          "branche": "Cabinets d'avocats (personnel salarié et avocats salariés)",
           "idcc": [
-            1000
+            1000,
+            1850,
+            3253
           ]
         },
         {
@@ -9419,12 +9446,6 @@
           "branche": "Répartition pharmaceutique",
           "idcc": [
             1621
-          ]
-        },
-        {
-          "branche": "Avocats salariés",
-          "idcc": [
-            1850
           ]
         },
         {
