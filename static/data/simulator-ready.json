@@ -5343,7 +5343,7 @@
        "formule_max_lisible": "Fonds conventionnel : 200% de la contribution conventionnelle nette N-1, sans être inférieur à 5 000 € HT. Pour les petites structures ce plancher de 5 000 € est la garantie minimale.",
        "plafond_horaire_eur": null,
        "plafond_par_dossier_eur": null,
-       "plancher_garanti_eur": null
+       "plancher_garanti_eur": 5000
       }
      ],
      "type_fonds": "BRANCHE_CONVENTIONNELLE"
@@ -5437,7 +5437,7 @@
        "formule_max_lisible": "1 700 € HT + 200% de la part plan de formation de la contribution conventionnelle.",
        "plafond_horaire_eur": null,
        "plafond_par_dossier_eur": null,
-       "plancher_garanti_eur": null
+       "plancher_garanti_eur": 1700
       },
       {
        "effectif_max": null,
@@ -5545,10 +5545,10 @@
       {
        "effectif_max": null,
        "effectif_min": 1,
-       "formule_max_lisible": "Toutes entreprises : 1 200 € HT + 100% de la contribution conventionnelle nette N-1.",
+       "formule_max_lisible": "Toutes entreprises : 1 200 € HT + 100% de la contribution conventionnelle nette N-1. Plancher de fait = 1 200 € (part fixe garantie même sans contribution).",
        "plafond_horaire_eur": null,
        "plafond_par_dossier_eur": null,
-       "plancher_garanti_eur": null
+       "plancher_garanti_eur": 1200
       }
      ],
      "type_fonds": "BRANCHE_CONVENTIONNELLE"
@@ -5610,7 +5610,7 @@
        "formule_max_lisible": "100% de la contribution conventionnelle (MSB N-1) sans être inférieur à 2 000 € HT. Frais annexes finançables.",
        "plafond_horaire_eur": null,
        "plafond_par_dossier_eur": null,
-       "plancher_garanti_eur": null
+       "plancher_garanti_eur": 2000
       }
      ],
      "type_fonds": "BRANCHE_CONVENTIONNELLE"
@@ -5707,7 +5707,7 @@
        "formule_max_lisible": "100% de la contribution conventionnelle N-1 sans être inférieur à 3 000 € HT.",
        "plafond_horaire_eur": null,
        "plafond_par_dossier_eur": null,
-       "plancher_garanti_eur": null
+       "plancher_garanti_eur": 3000
       }
      ],
      "type_fonds": "BRANCHE_CONVENTIONNELLE"
@@ -5784,7 +5784,7 @@
        "formule_max_lisible": "130% de la contribution conventionnelle sans être inférieur à 3 000 € HT. Inclut aussi le reste à charge ContratPro (complément 5 € HT/h) pour les ≥11 sal.",
        "plafond_horaire_eur": null,
        "plafond_par_dossier_eur": null,
-       "plancher_garanti_eur": null
+       "plancher_garanti_eur": 3000
       },
       {
        "effectif_max": null,
@@ -5895,7 +5895,7 @@
        "formule_max_lisible": "1 200 € HT + 100% de la contribution nette N-1, sans être inférieur à 1 400 € HT.",
        "plafond_horaire_eur": null,
        "plafond_par_dossier_eur": null,
-       "plancher_garanti_eur": null
+       "plancher_garanti_eur": 1400
       },
       {
        "effectif_max": 49,
@@ -5903,15 +5903,15 @@
        "formule_max_lisible": "1 200 € HT + 100% de la contribution nette N-1, sans être inférieur à 2 000 € HT.",
        "plafond_horaire_eur": null,
        "plafond_par_dossier_eur": null,
-       "plancher_garanti_eur": null
+       "plancher_garanti_eur": 2000
       },
       {
        "effectif_max": null,
        "effectif_min": 50,
-       "formule_max_lisible": "1 200 € HT + 100% de la contribution nette N-1.",
+       "formule_max_lisible": "1 200 € HT + 100% de la contribution nette N-1. Plancher de fait = 1 200 € (part fixe garantie ; pas de min explicite plus élevé pour cette tranche).",
        "plafond_horaire_eur": null,
        "plafond_par_dossier_eur": null,
-       "plancher_garanti_eur": null
+       "plancher_garanti_eur": 1200
       }
      ],
      "type_fonds": "BRANCHE_CONVENTIONNELLE"
@@ -5992,7 +5992,7 @@
        "formule_max_lisible": "Actions individuelles : 300% de la contribution conventionnelle sans être inférieur à 4 000 € HT. Si le parcours vise un titre inscrit au RNCP : plancher porté à 8 500 € HT. Barème horaire : ≤70h = 32 € HT/h ; >70h jusqu'au niveau 5 RNCP = 10 € HT/h ; >70h à partir du niveau 6 RNCP = 12 € HT/h. Frais annexes non financés pour les actions individuelles.",
        "plafond_horaire_eur": null,
        "plafond_par_dossier_eur": null,
-       "plancher_garanti_eur": null
+       "plancher_garanti_eur": 4000
       }
      ],
      "type_fonds": "BRANCHE_CONVENTIONNELLE"
@@ -6168,7 +6168,7 @@
        "formule_max_lisible": "100% de la contribution conventionnelle sans être inférieur à 3 000 € HT.",
        "plafond_horaire_eur": null,
        "plafond_par_dossier_eur": null,
-       "plancher_garanti_eur": null
+       "plancher_garanti_eur": 3000
       },
       {
        "effectif_max": null,
@@ -6176,7 +6176,7 @@
        "formule_max_lisible": "100% de la contribution conventionnelle sans être inférieur à 5 900 € HT. Le plancher élevé de 5 900€ est notable — garantit un budget significatif même pour les structures ≥50 sal avec faible contribution.",
        "plafond_horaire_eur": null,
        "plafond_par_dossier_eur": null,
-       "plancher_garanti_eur": null
+       "plancher_garanti_eur": 5900
       }
      ],
      "type_fonds": "BRANCHE_CONVENTIONNELLE"
