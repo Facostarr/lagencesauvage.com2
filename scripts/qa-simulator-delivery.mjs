@@ -1,7 +1,10 @@
 // QA differentielle livraison simulateur Sprint 2.
-// 1. Regression : computeBudget identique (old prod vs nouveau) pour les 95 IDCC
-//    existants inchanges, sur une matrice de TEFEN. 1000/1996 (enrichis) : juste
-//    pas d'exception + budget desormais chiffrable attendu.
+// 1. Regression MONTANTS : computeBudget identique (old prod vs nouveau) pour les
+//    IDCC existants inchanges, sur une matrice de TEFEN. Les champs d'AFFICHAGE
+//    enrichis depuis l'export source (formule_max_lisible, cible_taille_entreprise,
+//    majoration_certifiant...) sont retires avant comparaison : on valide les
+//    montants, pas la prose. 1000/1996 (enrichis) et 1850/3253 (avocats rattaches)
+//    sont des changements attendus, verifies separement (1b/1c).
 // 2. Progression : 7 nouveaux IDCC -> pas d'exception, report budget/cas.
 // 3. NAF : suggestFromNaf des nouveaux mappings resout dans le bon index.
 // Usage : node scripts/qa-simulator-delivery.mjs
@@ -18,12 +21,22 @@ const OLD = JSON.parse(readFileSync(path.join(ROOT, ".tmp/old-simulator-ready.js
 const TEFENS = ["NN", "00", "01", "03", "11", "12", "21", "32", "53"];
 const ENRICHED = new Set(["1000", "1996"]);
 const NEW_IDCC = ["787", "1596", "1597", "2104", "2264", "2420", "2609"];
+// Progressions voulues hors liste NEW_IDCC : rattachement avocats (commit 5ee2677)
+// branche_a_confirmer -> convention chiffrable. Skip en regression, verifie comme progression.
+const PROGRESSED = new Set(["1850", "3253"]);
+// Champs d'AFFICHAGE enrichis depuis l'export source (libelles, pas montants).
+// La regression valide les MONTANTS, pas la prose : on les retire avant comparaison.
+const DISPLAY_FIELDS = new Set([
+  "formule_max_lisible", "cible_taille_entreprise", "majoration_certifiant",
+  "notes_libres", "detail_lisible", "libelle", "explication",
+]);
+const scrub = (o) => JSON.parse(JSON.stringify(o, (k, v) => (DISPLAY_FIELDS.has(k) ? undefined : v)));
 
 let pass = 0, fail = 0;
 const fails = [];
 function check(cond, msg) { if (cond) pass++; else { fail++; fails.push(msg); } }
 
-// ---- 1. Regression sur les IDCC existants ----
+// ---- 1. Regression MONTANTS sur les IDCC existants (champs d'affichage ignores) ----
 const oldKeys = Object.keys(OLD.idcc_index);
 let regrChecked = 0;
 for (const idcc of oldKeys) {
@@ -33,9 +46,9 @@ for (const idcc of oldKeys) {
     catch (e) { check(false, `OLD throw idcc=${idcc} tefen=${tefen}: ${e.message}`); continue; }
     try { rNew = computeBudget({ idcc: Number(idcc), tefen_code: tefen, simulator_data: NEW }); }
     catch (e) { check(false, `NEW throw idcc=${idcc} tefen=${tefen}: ${e.message}`); continue; }
-    if (ENRICHED.has(idcc)) continue; // change attendu
-    const a = JSON.stringify(rOld), b = JSON.stringify(rNew);
-    check(a === b, `REGRESSION idcc=${idcc} tefen=${tefen}`);
+    if (ENRICHED.has(idcc) || PROGRESSED.has(idcc)) continue; // change attendu
+    const a = JSON.stringify(scrub(rOld)), b = JSON.stringify(scrub(rNew));
+    check(a === b, `REGRESSION MONTANT idcc=${idcc} tefen=${tefen}`);
     regrChecked++;
   }
 }
@@ -45,6 +58,13 @@ for (const idcc of ENRICHED) {
   const r = computeBudget({ idcc: Number(idcc), tefen_code: "12", simulator_data: NEW });
   check(r && (r.budget_chiffrable || r.cas_particulier == null),
     `ENRICHI idcc=${idcc} : attendu chiffrable, got chiffrable=${r?.budget_chiffrable} cas=${r?.cas_particulier}`);
+}
+
+// ---- 1c. Progressions avocats : branche_a_confirmer -> chiffrable ----
+for (const idcc of PROGRESSED) {
+  const r = computeBudget({ idcc: Number(idcc), tefen_code: "12", simulator_data: NEW });
+  check(r && r.budget_chiffrable && r.cas_particulier == null,
+    `PROGRESSION idcc=${idcc} : attendu chiffrable sans cas, got chiffrable=${r?.budget_chiffrable} cas=${r?.cas_particulier}`);
 }
 
 // ---- 2. Nouveaux IDCC : pas d'exception ----
