@@ -447,7 +447,13 @@
     const { simulation, entreprise } = data;
     if (simulation.cas_particulier) {
       el.manual.title.textContent = labelCasParticulier(simulation.cas_particulier);
-      el.manual.message.textContent = simulation.message_cas_particulier || 'Votre situation nécessite une analyse manuelle. Notre équipe vous recontacte rapidement.';
+      let manualMessage = simulation.message_cas_particulier || 'Votre situation nécessite une analyse manuelle. Notre équipe vous recontacte rapidement.';
+      // branche_a_confirmer : l'OPCO de rattachement est identifié, on le nomme
+      // explicitement pour rassurer le prospect (« OPCO identifié, budget à confirmer »).
+      if (simulation.cas_particulier === 'branche_a_confirmer' && simulation.opco_nom) {
+        manualMessage = `Votre OPCO de rattachement est ${simulation.opco_nom}. Les plafonds détaillés de votre convention ne sont pas encore dans notre base — réservez un échange de 30 minutes pour une simulation précise.`;
+      }
+      el.manual.message.textContent = manualMessage;
       renderTefenOverrideForm(simulation.cas_particulier);
       renderIdccOverrideForm(simulation.cas_particulier);
       showState('manual');
