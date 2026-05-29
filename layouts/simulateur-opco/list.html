@@ -243,16 +243,18 @@
              ============================================================ */}}
         {{ $simData := transform.Unmarshal (os.ReadFile "static/data/simulator-ready.json") }}
         {{ $idccItems := slice }}
-        {{/* 45 conventions avec libellé branche issues du idcc_index, valeur = IDCC numérique */}}
+        {{/* Conventions chiffrables du idcc_index, valeur = IDCC numérique. Filtre
+             branche_details_disponibles : seules les ~56 conventions documentées
+             apparaissent (sinon ~333 options dont la majorité non chiffrables). */}}
         {{ range $idcc, $entry := $simData.idcc_index }}
-          {{ if $entry.branche_nom }}
+          {{ if and $entry.branche_nom $entry.branche_details_disponibles }}
             {{ $idccItems = $idccItems | append (dict "value" $idcc "branche" $entry.branche_nom "opco" (or $entry.opco_nom "Autre OPCO")) }}
           {{ end }}
         {{ end }}
-        {{/* 22 branches du naf_fallback_index (Afdas, Constructys, Mobilités, Santé, Uniformation
+        {{/* Branches du naf_fallback_index (Afdas, Constructys, Mobilités, Santé, Uniformation
              qui n'ont pas d'IDCC déclaré). Valeur préfixée naf: pour distinguer au backend. */}}
         {{ range $slug, $entry := $simData.naf_fallback_index }}
-          {{ if $entry.branche_nom }}
+          {{ if and $entry.branche_nom $entry.branche_details_disponibles }}
             {{ $idccItems = $idccItems | append (dict "value" (printf "naf:%s" $slug) "branche" $entry.branche_nom "opco" (or $entry.opco_nom "Autre OPCO")) }}
           {{ end }}
         {{ end }}
