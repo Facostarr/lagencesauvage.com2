@@ -1,5 +1,36 @@
 # Changelog — Refonte lagencesauvage.com
 
+## 2026-05-28 — Simulateur OPCO : fix moteur budget "non chiffrable" pour barèmes horaire/par-dossier
+
+### Problème
+
+Les branches Bâtiment (IDCC 1596/1597/2609/2420, slug `constructys-bat`) ressortaient toujours « À calculer en entretien » alors que les barèmes existent. Cause racine : `_sumPlanchers` dans `lib/simulateur-opco/compute_budget.js` ne sommait que les `plancher_garanti_eur`. Or les barèmes BTP sont encodés en `plafond_horaire_eur` (PDC 24 €/h) et `plafond_par_dossier_eur` (AFEST 3 600, bonus Diag Perf 8 000), avec `plancher_garanti_eur: null` → somme null → `budget_chiffrable: false`.
+
+### Décision (validée Franck)
+
+**Fallback per-dossier, SANS estimation horaire.** N'utilise que des plafonds réels du barème (zéro chiffre inventé, conforme règle #1). L'option "estimer un volume d'heures × taux horaire" a été écartée car le volume d'heures serait une hypothèse fabriquée.
+
+### Implémentation (seul fichier moteur touché : `lib/simulateur-opco/compute_budget.js`)
+
+- Nouveau champ `plafond_par_dossier_eur` porté sur chaque `DispositifActive` (PDC, AFEST, bonus, parcours, VAE, FNE).
+- Helper `_montantMaxDispositif` : plancher garanti, sinon plafond par dossier.
+- `_sumPlanchers(items, inclusOnly, useDossierFallback)` : le **budget min** reste les planchers réels (un plafond par dossier est un plafond, jamais un plancher → exclu du min) ; le **budget max** retombe sur le plafond par dossier quand le plancher est absent.
+- Warning de transparence quand le PDC de la branche est en horaire-only : prévient que l'enveloppe PDC (financée à l'heure) n'est pas chiffrée dans le « jusqu'à X € ».
+
+### Résultat
+
+- 4 branches BTP ≤49 sal : `chiffrable=true`, **« Jusqu'à 11 600 € »** (AFEST 3 600 + bonus 8 000) + warning. ≥50 sal : hors tranches (inchangé).
+- Effet de bord : IDCC 897 (Santé au travail) passe de « Jusqu'à 2 500 € » → « Entre 2 500 € et 3 500 € » (son bonus 1 000 €/dossier réel rejoint le max). Seule branche déjà chiffrable impactée. **À valider par Franck.**
+- QA `scripts/qa-simulator-delivery.mjs` : 883 OK / 0 FAIL (855 régressions comparées). `tests/simulateur-opco/test-compute-units.mjs` : 46/1 — l'unique échec (« IDCC null toléré ») est **pré-existant** (confirmé stash avant/après), sans lien.
+
+### Découverte importante
+
+**Aucun port Python du moteur n'existe** : `scripts/compute_budget.py` et `scripts/cross_validate.py` sont absents de l'arbre ET de tout l'historique git. L'en-tête de `compute_budget.js` qui prétend être « un port validé par cross_validate.py » est trompeur. Source de vérité unique = le fichier JS ; QA 100% JS. (Tâche de nettoyage du commentaire d'en-tête flaggée.)
+
+### Hors scope / en attente
+
+- `static/data/simulator-ready.json` apparaît modifié dans le working tree (45 IDCC + 20 NAF enrichis : ajout `cible_taille_entreprise`, `formule_max_lisible`, `frais_annexes` sur de nombreuses entrées). **Ce n'est pas le fruit de cette session** (le moteur ne réécrit jamais la data). Probable reliquat d'enrichissement Sprint 2. NON commité — décision Franck.
+
 ## 2026-05-26 — Sprint S10 Refonte visuelle 31 pages OPCO + branches (pattern Doc-Landing)
 
 ### Diagnostic — bug racine `@tailwindcss/typography` (commit 72d40f0)

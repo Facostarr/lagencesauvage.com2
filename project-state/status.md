@@ -246,6 +246,7 @@ Branche : `feat/simulateur-opco` (15 commits) | PRD : `Claude Code/Simulateur OP
 | **S3.2 (NAFs commerce)** | 17 NAFs commerce détail ajoutés à naf-suggestions (livres, presse, sport, vêtements, parfumerie, bijouterie, électroménager, etc.) → IDCC 1517 CDNA `auto: false`. | ✅ 2026-05-24 |
 | **UX bonus** | Cards "11 OPCO français couverts" sur `/simulateur-opco/` transformées en liens vers `/simulateur-opco/{slug}/`. Maillage interne gratuit. | ✅ 2026-05-24 |
 | **Roadmap GTM Q2** | Plan 4 Sprints (~20h) consolidé consensus Claude+Gemini 8/10 → 9.5/10 ajusté. Inversions critiques : TNS/FAF avant volume, sourcing IA-assisté, veille no-code. Détail dans next-tasks.md. | ✅ scopé 2026-05-24 |
+| **Fix moteur budget (per-dossier)** | Branches BTP (+897) désormais chiffrables : fallback `plafond_par_dossier_eur` sur le budget max quand `plancher_garanti_eur` absent. Zéro chiffre inventé. QA 883 OK / 0 FAIL. compute_budget.js seul modifié. | 🔄 2026-05-28 commit en attente |
 
 **Validation e2e Preview** : POST `/api/simulate-opco-compute` retourne `ok:true`, lead Notion créé (369223ca...), email Resend récap reçu, snapshot JSON archivé dans le body de la page Notion.
 

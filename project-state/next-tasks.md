@@ -1,5 +1,17 @@
 # Next Tasks — Refonte lagencesauvage.com
 
+## Simulateur OPCO — Fix moteur budget per-dossier (2026-05-28)
+
+### À trancher (Franck)
+
+- [ ] **Commit `compute_budget.js`** : décider si on commite le fix moteur seul maintenant (recommandé) ou si on attend de clarifier `simulator-ready.json`.
+- [ ] **Effet de bord IDCC 897** : valider que « Entre 2 500 € et 3 500 € » (au lieu de « Jusqu'à 2 500 € ») te convient. Sinon : restreindre le fallback aux seules branches PDC-horaire-only (897 garde son ancien rendu, BTP inchangé).
+- [ ] **`static/data/simulator-ready.json` modifié dans le working tree** : 45 IDCC + 20 NAF enrichis (`cible_taille_entreprise`, `formule_max_lisible`, `frais_annexes`). **Pas produit par cette session.** Décider : committer cet enrichissement, ou `git checkout` pour revenir à HEAD. Si revert, re-lancer `node scripts/qa-simulator-delivery.mjs` pour confirmer que le fix moteur reste vert sur la data committée.
+
+### Nettoyage flaggé (tâche séparée)
+
+- [ ] Réécrire l'en-tête trompeur de `lib/simulateur-opco/compute_budget.js` (prétend être un port de `compute_budget.py`/`cross_validate.py` qui n'existent pas) → pointer vers la vraie QA JS.
+
 ## Suite Sprint S10 — Refonte visuelle OPCO (2026-05-26)
 
 ### Points à surveiller post-merge prod
