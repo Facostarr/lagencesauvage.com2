@@ -1,5 +1,32 @@
 # Changelog — Refonte lagencesauvage.com
 
+## 2026-06-02 — Article blog "L'IA prépare, vous décidez : le mode copilote pour les dirigeants non-tech"
+
+### Contexte
+
+Session d'analyse stratégique du contenu existant (18 articles blog × vault Obsidian projet Hermes) → identification de 7 lacunes structurelles → priorisation article "mode copilote" comme contenu manquant le plus différenciant.
+
+### Livrable
+
+**Article** : `content/blog/ia-prepare-vous-decidez-mode-copilote-pme.md`
+- ~2 200 mots, 6 H2, 5 FAQ GEO, 3 takeaways
+- Framework A/B/C opérationnel (ce que l'agent fait seul / soumet / ne fait jamais)
+- Exemples tirés du setup Hermes live en production (v0.14.0, Kanban 47 tâches)
+- Liens internes : AI Act + agent-ia-definition
+- Sources : AI Act art. 14, CNIL, Gartner, Bpifrance, McKinsey
+
+**Image hero** : `static/assets/images/blog/ia-prepare-vous-decidez-mode-copilote-pme.webp`
+- Cockpit digital illustration — rupture de style vs série abstraite habituelle du blog
+- Générée via Gemini (2 752×1 536 px source), convertie Python Pillow q62, 90 KB WebP
+
+**Commit** : `daed912` sur `main` — push direct (go explicite Franck)
+
+### Différenciation vs articles existants
+
+- `agent-ia-operationnel` : "comment brancher les câbles" → ce nouvel article : "comment définir les règles avant de brancher"
+- Cible différente : dirigeant réticent (frein "perte de contrôle") vs dirigeant convaincu cherchant le comment
+- Framework A/B/C absent de tout autre article du blog
+
 ## 2026-05-28 — Simulateur OPCO : fix moteur budget "non chiffrable" pour barèmes horaire/par-dossier
 
 ### Problème

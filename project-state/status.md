@@ -15,6 +15,16 @@
 | Phase 6 — Bascule | ✅ Logo validé, merge main | 2026-03-23 | 2026-03-23 |
 | Phase 7 — Post-bascule | 🔄 En cours | 2026-03-23 | — |
 
+## Session 2026-06-02 — Analyse contenu + article blog "Mode copilote IA"
+
+| # | Sprint | Statut | Commits |
+|---|--------|--------|---------|
+| S11.1 | Analyse blog existant (18 articles) × vault Obsidian Hermes — 7 lacunes identifiées | ✅ | — |
+| S11.2 | Plan article "L'IA prépare, vous décidez" — enrichi via Hermes Kanban live (v0.14.0) | ✅ | — |
+| S11.3 | Rédaction article (~2 200 mots) + image hero cockpit Gemini (WebP 90 KB) + push main | ✅ | daed912 |
+
+**Article livré en prod** : `ia-prepare-vous-decidez-mode-copilote-pme` — framework A/B/C, 5 étapes, 4 cas d'usage, AI Act + RGPD, image cockpit illustrative (rupture de style vs série abstraite).
+
 ## Session 2026-05-26 — Refonte visuelle pages OPCO + branches (Sprint S10)
 
 | # | Sprint | Statut | Commits |
@@ -206,6 +216,8 @@ Aucun pour le moment.
 - [x] Test e2e validé : email reçu sur beforbiz@gmail.com depuis endpoint submit-kit en production (2026-05-06)
 - [ ] **BLOQUANT** : RESEND_API_KEY manquante/expirée Vercel → formulaires diagnostic + formation retournent 500. Action Franck : Vercel Dashboard → lagencesauvageavecnotion → Settings → Env Vars → vérifier RESEND_API_KEY
 - [ ] Supprimer entrée test Notion "Test / beforbiz@gmail.com" (action manuelle Franck)
+- [x] Article "L'IA prépare, vous décidez : le mode copilote pour les dirigeants non-tech" — framework A/B/C, 5 étapes, 4 cas d'usage, AI Act RGPD, image cockpit Gemini 90 KB, pushé 2026-06-02 (commit daed912)
+- [ ] Soumettre article mode copilote dans Search Console
 - [ ] Rédiger article 3/4 : "Agents IA autonomes en PME : 3 cas d'usage réels"
 - [ ] Rédiger article 4/4 : "IA et professions juridiques : gain de temps et secret professionnel"
 - [ ] Second lead magnet "Checklist IA PME 2026" (concept validé, pas démarré)
@@ -246,7 +258,9 @@ Branche : `feat/simulateur-opco` (15 commits) | PRD : `Claude Code/Simulateur OP
 | **S3.2 (NAFs commerce)** | 17 NAFs commerce détail ajoutés à naf-suggestions (livres, presse, sport, vêtements, parfumerie, bijouterie, électroménager, etc.) → IDCC 1517 CDNA `auto: false`. | ✅ 2026-05-24 |
 | **UX bonus** | Cards "11 OPCO français couverts" sur `/simulateur-opco/` transformées en liens vers `/simulateur-opco/{slug}/`. Maillage interne gratuit. | ✅ 2026-05-24 |
 | **Roadmap GTM Q2** | Plan 4 Sprints (~20h) consolidé consensus Claude+Gemini 8/10 → 9.5/10 ajusté. Inversions critiques : TNS/FAF avant volume, sourcing IA-assisté, veille no-code. Détail dans next-tasks.md. | ✅ scopé 2026-05-24 |
-| **Fix moteur budget (per-dossier)** | Branches BTP (+897) désormais chiffrables : fallback `plafond_par_dossier_eur` sur le budget max quand `plancher_garanti_eur` absent. Zéro chiffre inventé. QA 883 OK / 0 FAIL. compute_budget.js seul modifié. | 🔄 2026-05-28 commit en attente |
+| **Fix moteur budget (per-dossier)** | Branches BTP (+897) désormais chiffrables : fallback `plafond_par_dossier_eur` sur le budget max quand `plancher_garanti_eur` absent. Zéro chiffre inventé. compute_budget.js seul modifié. | ✅ mergé PR #4 (commit 226b61e) |
+| **Sprint 2 Big Five (data + fiches)** | +7 IDCC (787 EC, 2264 Hospi, 1596/1597/2420/2609 BTP), 1000/1996 enrichis, 1850/3253 avocats rattachés, mappings NAF, 5 fiches SEO programmatiques. | ✅ mergé `main` + prod via PR #4 (2026-05-28) |
+| **Fix QA gate** | `qa-simulator-delivery.mjs` comparait en égalité JSON stricte → 209 fausses régressions (libellés d'affichage enrichis depuis l'export OPCO, montants intacts). Scrub des champs d'affichage + 1850/3253 en progressions voulues. **876 OK / 0 FAIL.** Confirme a posteriori : aucune régression de budget sur la data en prod. Réconciliation `.gitignore` (divergence remote). | ✅ mergé `main` PR #5 (2026-05-29) |
 
 **Validation e2e Preview** : POST `/api/simulate-opco-compute` retourne `ok:true`, lead Notion créé (369223ca...), email Resend récap reçu, snapshot JSON archivé dans le body de la page Notion.
 

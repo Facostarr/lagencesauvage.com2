@@ -12,6 +12,13 @@
 
 - [ ] Réécrire l'en-tête trompeur de `lib/simulateur-opco/compute_budget.js` (prétend être un port de `compute_budget.py`/`cross_validate.py` qui n'existent pas) → pointer vers la vraie QA JS.
 
+## Post-session 2026-06-02 — Article mode copilote
+
+- [ ] **Vérifier le rendu sur Vercel** : TOC flottant, takeaways, FAQ schema, image hero cockpit, liens internes vers AI Act + agent-ia-definition
+- [ ] **Soumettre dans Search Console** : `https://www.lagencesauvage.com/blog/ia-prepare-vous-decidez-mode-copilote-pme/`
+- [ ] **Maillage entrant** : ajouter un lien vers cet article depuis `agent-ia-operationnel-pme-guide-deploiement` (paragraph "human-in-the-loop") et depuis `zero-human-company` (section garde-fous)
+- [ ] **Suite articles blog** : article 3/4 "Agents IA pour cabinets comptables 2026 : 5 tâches répétitives à déléguer" (timing post-fiscal — priorité juin)
+
 ## Suite Sprint S10 — Refonte visuelle OPCO (2026-05-26)
 
 ### Points à surveiller post-merge prod
