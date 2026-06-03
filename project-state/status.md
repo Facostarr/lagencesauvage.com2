@@ -15,6 +15,20 @@
 | Phase 6 — Bascule | ✅ Logo validé, merge main | 2026-03-23 | 2026-03-23 |
 | Phase 7 — Post-bascule | 🔄 En cours | 2026-03-23 | — |
 
+## Session 2026-06-03 — Article blog "Hermes Agent : agent IA autonome pour dirigeant TPME"
+
+| # | Sprint | Statut | Commits |
+|---|--------|--------|---------|
+| S12.1 | Recherche multi-sources : vault Obsidian Hermes + projet Claude Code Hermes Agent + WebSearch releases v0.13/v0.14/v0.15 + Hermes Desktop v0.15.2 | ✅ | — |
+| S12.2 | Choix de l'angle (3 propositions A/B/C) — angle A retenu : dirigeant TPME + intro harness + section nouveautés mai | ✅ | — |
+| S12.3 | Rédaction article (~2 300 mots) + 6 itérations de feedback Franck (128 Go mémoire unifiée, scope ASV2 sans avocats, TMA recentré sur bénéfice mobile, CTA L'Agence Sauvage, verdict chiffré 1h30-2h/jour ouvré) | ✅ | — |
+| S12.4 | Image hero V1 (line art + logo Pillow incrusté) refusée → V2 (overlay Kanban PIL) refusée → V3 (Gemini dithering style Nous Research avec "l'agence sauvage" + Kanban 3 colonnes + zone chat dans l'écran) validée | ✅ | — |
+| S12.5 | Push direct main (stash modif OPCO, checkout main, commit, push, retour branche OPCO + pop) | ✅ | `6bfa812` |
+
+**Article livré en prod** : `hermes-agent-ia-autonome-dirigeant-tpme` — concept de harness agent IA (Claude Code / Codex CLI / OpenClaw / Hermes), 3 piliers Hermes (mémoire FTS5+Honcho, skills auto-créées, multi-canal), 5 cas d'usage dirigeant après 6 semaines en prod, nouveautés mai 2026 (Desktop v0.15.2 + Kanban swarm topology + Promptware defense + Skill Bundles), CTA double piste (Desktop self-serve OU audit IA L'Agence Sauvage).
+
+---
+
 ## Session 2026-06-02 — Analyse contenu + article blog "Mode copilote IA"
 
 | # | Sprint | Statut | Commits |

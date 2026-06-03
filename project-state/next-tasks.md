@@ -12,6 +12,18 @@
 
 - [ ] Réécrire l'en-tête trompeur de `lib/simulateur-opco/compute_budget.js` (prétend être un port de `compute_budget.py`/`cross_validate.py` qui n'existent pas) → pointer vers la vraie QA JS.
 
+## Post-session 2026-06-03 — Article Hermes Agent
+
+- [ ] **Vérifier le rendu sur Vercel** : TOC flottant, takeaways, 4 FAQ schema FAQPage JSON-LD, image hero dithering (127 KB — à valider visuellement, c'est le plus gros hero du blog), CTA `/diagnostic/`
+- [ ] **Soumettre dans Search Console** : `https://www.lagencesauvage.com/blog/hermes-agent-ia-autonome-dirigeant-tpme/`
+- [ ] **Maillage entrant** : ajouter un lien vers cet article depuis :
+  - `agent-ia-operationnel-pme-guide-deploiement` (section stack technique ou conclusion)
+  - `ia-prepare-vous-decidez-mode-copilote-pme` (section orchestrateur / mode copilote → mention Hermes comme runtime)
+  - `zero-human-company-agents-ia-pme-france-2026` (section infra)
+- [ ] **Post LinkedIn** : utiliser skill `linkedin-content-creator` pour pousser le retex personnel (mention Strix Halo + Hermes Desktop + chiffre 1h30-2h/jour) — angle créateur/dirigeant
+- [ ] **Optimisation poids image (optionnelle)** : si tu trouves 127 KB trop lourd, tester pré-traitement (réduction du bruit dithering avant compression) ou re-rendu Gemini en version moins dense
+- [ ] **Mesure SEO** : tracker positions sur "Hermes Agent" + "agent IA autonome" + "harness agent IA" + "Hermes Desktop" dans 4-6 semaines (mots-clés rares en FR → fenêtre d'autorité)
+
 ## Post-session 2026-06-02 — Article mode copilote
 
 - [ ] **Vérifier le rendu sur Vercel** : TOC flottant, takeaways, FAQ schema, image hero cockpit, liens internes vers AI Act + agent-ia-definition

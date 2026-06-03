@@ -1,5 +1,46 @@
 # Changelog — Refonte lagencesauvage.com
 
+## 2026-06-03 — Article blog "Hermes Agent : agent IA autonome pour dirigeant TPME"
+
+### Contexte
+
+Demande Franck : article sur Hermes Agent profitant des nombreuses nouveautés récentes (v0.13 "Tenacity" 7 mai, v0.14 "Foundation" 16 mai, v0.15 "Velocity" 28 mai, Desktop v0.15.2) et du quasi-vide éditorial FR sur le sujet. Recherche multi-sources : vault Obsidian projet Hermes Agent (cas-usage-ecosysteme-200, project-state, lessons), projet Claude Code Hermes Agent (CLAUDE.md, SETUP, lessons techniques), WebSearch (NVIDIA blog, releases GitHub, blog Nous Research). Brainstorm 3 angles (A=dirigeant, B=tech harness, C=narratif journal de bord) → angle A enrichi de l'intro pédagogique "harness" + section v0.15.
+
+### Livrable
+
+**Article** : `content/blog/hermes-agent-ia-autonome-dirigeant-tpme.md`
+- ~2 300 mots, 6 H2, 4 FAQ GEO, 3 takeaways
+- Intro pédagogique sur le concept de harness agent IA (Claude Code, Codex CLI, OpenClaw, Aider, Hermes)
+- 3 piliers Hermes : mémoire FTS5+Honcho, skills auto-créées, gateways multi-canal (Telegram, Discord, Slack, WhatsApp, Signal, ntfy, 23 plateformes)
+- 5 cas d'usage dirigeant after 6 semaines de prod : veille IA matin, briefing Telegram, enrichissement base prospection (ASV2 — pas mentionné scrape-avocats), pilotage mobile via TMA Kanban, délégation Claude Code via skill officielle
+- Section nouveautés mai 2026 mise en avant : Hermes Desktop (vraie bascule pour non-dev), Kanban multi-agent + swarm topology, worktree-per-task, Promptware defense, Skill Bundles + MCP Catalog
+- Verdict chiffré : 1h30-2h/jour ouvré gagnées (veille -45 min, briefings -20 min, surveillance prospection -1 h, délégation nuit)
+- CTA double piste : "explorer" (Desktop self-serve) OU "réservez votre audit IA gratuit" (`/diagnostic/`) → conversion prestation clé en main L'Agence Sauvage
+- Sources : 8 liens vers Nous Research officiel, GitHub releases, NVIDIA Blog. Zéro source concurrente, zéro page d'accueil utilisée comme source d'argument.
+
+**Image hero** : `static/assets/images/blog/hermes-agent-autonome-dirigeant.webp`
+- Style dithering halftone bleu cobalt + crème inspiré directement de la page `hermes-agent.nousresearch.com/desktop` (que Franck aime)
+- Femme casque trois-quarts arrière devant laptop. Écran montre : "l'agence sauvage" en haut à gauche, Kanban 3 colonnes (2 cartes chacune, lignes simulant le texte), zone chat en bas avec curseur clignotant ("typing a messa|")
+- Génération Gemini Imagen 2K → conversion Pillow 960×540 q55 → 127 KB WebP
+- 2 itérations précédentes refusées avant validation : V1 (gravure line art + logo SVG Pillow incrusté → "horrible"), V2 (overlay Kanban PIL fait main → décevant), V3 validée car Gemini gère mieux le rendu complet avec contenu d'écran en un seul prompt
+
+**Commit** : `6bfa812` sur `main` — push direct (GO explicite Franck après validation visuelle V3)
+
+### Process push (workflow stash branches non-liées)
+
+Session démarrée sur branche `data/afdas-planchers-conventionnels` avec modif locale non-commitée sur `tests/simulateur-opco/test-compute-units.mjs` (sprint OPCO précédent). Pour pousser sur `main` (règle 3 CLAUDE.md) sans embarquer la modif OPCO ni l'écraser :
+1. `git stash push -m "wip-simulateur-opco-test" -- tests/simulateur-opco/test-compute-units.mjs`
+2. `git checkout main && git pull origin main`
+3. `git add` 3 fichiers Hermes (article + script + image) + `git commit` + `git push origin main`
+4. `git checkout data/afdas-planchers-conventionnels && git stash pop`
+État final post-session = état initial restauré au bit près sur la branche OPCO.
+
+### Différenciation vs articles existants
+
+- Quasi-vide éditorial FR sur Hermes Agent (peu d'articles en français mentionnés dans la SERP) → angle d'autorité disponible
+- Approche dirigeant non-dev × concept de harness × retex 6 semaines en prod = combinaison inédite
+- Mise en avant explicite de Hermes Desktop comme barrière à l'entrée tombée pour les non-tech
+
 ## 2026-06-02 — Article blog "L'IA prépare, vous décidez : le mode copilote pour les dirigeants non-tech"
 
 ### Contexte
