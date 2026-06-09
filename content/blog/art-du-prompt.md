@@ -1,7 +1,7 @@
 ---
 title: "L'Art du Prompt : Le Guide Complet pour les Entrepreneurs"
 date: 2025-12-19T10:00:00+01:00
-lastmod: 2026-05-21
+lastmod: 2026-06-10
 description: "Découvrez comment maîtriser l'art du prompt pour exploiter tout le potentiel de l'IA dans votre business."
 keywords: ['art du prompt', 'prompt engineering', 'guide prompt entrepreneur', 'écrire un bon prompt IA', 'prompts pour PME', 'framework ROCF']
 categories:
@@ -26,6 +26,15 @@ takeaways:
   - "Un bon prompt est un brief professionnel : rôle, contexte, contraintes et format attendu"
   - "Le framework RICE (Rôle, Instructions, Contexte, Exemples) structure les prompts efficaces"
   - "Les entrepreneurs qui maîtrisent le prompting réduisent leurs temps de décision de 40%"
+faq:
+  - question: "Qu'est-ce qu'un prompt efficace ?"
+    answer: "C'est un brief professionnel, pas une simple question. Un prompt efficace définit le rôle que l'IA doit jouer, le contexte (données, public, objectifs), la tâche précise attendue, les contraintes (longueur, format, ton) et idéalement un exemple du résultat souhaité. Sans cette structure, l'IA produit des réponses génériques."
+  - question: "Quels sont les éléments d'un bon prompt ?"
+    answer: "Cinq piliers : le rôle (qui l'IA doit être), le contexte (les éléments clés de votre situation), la tâche (ce que vous attendez, formulé avec des verbes d'action), les contraintes (longueur, format, ton, langue) et les exemples, la technique du few-shot prompting qui montre à l'IA le format attendu."
+  - question: "Qu'est-ce que le Chain-of-Thought prompting ?"
+    answer: "Une technique qui consiste à demander à l'IA d'expliciter son raisonnement étape par étape avant de donner sa réponse finale. Popularisée par les travaux de Google Research, elle produit des réponses plus logiques et moins aléatoires sur les problèmes complexes."
+  - question: "Quelles erreurs éviter quand on écrit un prompt ?"
+    answer: "Les cinq plus courantes : un prompt trop court qui prive l'IA de contexte, l'absence de contraintes qui donne des réponses trop longues ou hors sujet, plusieurs questions posées en une seule fois, l'absence d'itération quand le résultat est imparfait, et la confiance aveugle sans vérifier les données fournies par l'IA."
 ---
 
 ## Introduction : L'IA comme levier stratégique pour les entrepreneurs

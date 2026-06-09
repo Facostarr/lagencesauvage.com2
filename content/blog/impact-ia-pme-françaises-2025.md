@@ -1,7 +1,7 @@
 ---
 title: "Ce que j'ai vu dans les PME françaises en 2025 : l'IA ne frappe pas où on l'attend"
 date: 2026-02-23
-lastmod: 2026-03-23
+lastmod: 2026-06-10
 description: "Après des dizaines de missions chez des TPE et PME françaises, voici ce que l'IA transforme vraiment — et où les dirigeants se trompent de cible."
 summary: "L'IA ne transforme pas les PME françaises là où on l'attendait. Observations de terrain, cas client réel, et les 3 erreurs que je vois partout."
 
@@ -33,6 +33,15 @@ takeaways:
   - "L'IA transforme d'abord les postes administratifs et le back-office, pas la production"
   - "Les 3 erreurs les plus fréquentes : viser trop gros, négliger les données, oublier l'humain"
   - "Les PME qui réussissent leur transformation IA commencent par un processus unique et mesurable"
+faq:
+  - question: "Où l'IA crée-t-elle le plus de valeur dans une PME ?"
+    answer: "D'abord dans les postes administratifs et le back-office, pas dans la production : relances clients, support de niveau 1, comptes-rendus, devis, reporting. Tout ce qui est répétitif, structuré et basé sur de l'information s'automatise pour quelques dizaines d'euros par mois, là où robotiser un poste manuel coûte au moins 50 000 €."
+  - question: "Combien de PME françaises utilisent l'IA en 2025 ?"
+    answer: "32 % des TPE et PME françaises utilisent au moins un outil d'IA en 2025, un chiffre qui a doublé en un an, mais seulement 11 % en font un usage avancé et structuré selon le baromètre France Num. D'après Bpifrance Le Lab, 58 % des dirigeants considèrent l'IA comme un enjeu de survie à 3-5 ans."
+  - question: "Quelles sont les erreurs les plus fréquentes des PME avec l'IA ?"
+    answer: "Trois erreurs reviennent partout : attendre que la technologie se stabilise pendant que les concurrents construisent une avance structurelle, acheter des outils sans stratégie ni vision des processus, et traiter l'IA comme un projet informatique alors que 73 % des projets réussis sont portés par le dirigeant lui-même."
+  - question: "La transformation IA supprime-t-elle des emplois en PME ?"
+    answer: "Pas dans les transformations bien menées. Dans le cas de la PME industrielle de 80 personnes décrit dans l'article, aucun poste n'a été supprimé : le temps libéré par l'automatisation des relances, du SAV et du planning a été réinvesti sur la relation client, la prospection et la qualité de service."
 ---
 
 *Février 2026 | Par **Franck Sauvage**, Fondateur de [L'Agence Sauvage](https://www.lagencesauvage.com) — 25 ans d'expérience SaaS B2B*

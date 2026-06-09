@@ -1,7 +1,7 @@
 ---
 title: "L'IA Abordable en 2025 : Comment les Petites Entreprises Profitent de la Révolution des Modèles Légers Selon le Rapport Stanford"
 date: 2025-11-27
-lastmod: 2026-03-23
+lastmod: 2026-06-10
 description: "Découvrez comment la chute des coûts d'inférence et la montée des modèles légers démocratisent l'IA pour les PME, selon le dernier rapport AI Index 2025 de Stanford."
 keywords: ['IA abordable PME', 'coût IA petite entreprise', 'modèles IA légers', 'rapport Stanford AI Index 2025', 'IA générative TPE PME', 'démocratisation intelligence artificielle']
 categories:
@@ -24,6 +24,15 @@ takeaways:
   - "Les coûts d'inférence IA ont chuté de 280x — l'IA est désormais accessible aux budgets PME"
   - "Les modèles légers open-source rivalisent avec les grands modèles pour les tâches métier courantes"
   - "Le rapport Stanford AI Index 2025 confirme la démocratisation de l'IA pour les petites entreprises"
+faq:
+  - question: "Combien coûte l'IA pour une petite entreprise en 2025 ?"
+    answer: "Beaucoup moins qu'avant : selon le rapport AI Index 2025 de Stanford, le coût d'inférence d'un système équivalent à GPT-3.5 a été divisé par plus de 280 entre fin 2022 et fin 2024. Une tâche automatisée qui coûtait plusieurs dollars revient désormais à une fraction de centime, certains modèles légers facturant environ 0,07 dollar par million de tokens."
+  - question: "Les petits modèles IA sont-ils assez performants pour un usage professionnel ?"
+    answer: "Oui pour la plupart des tâches métier courantes. Stanford mesure que l'écart de performance entre modèles ouverts et modèles propriétaires fermés est passé de 8 % à 1,7 % en un an. Les modèles légers sont en plus rapides et peuvent tourner sur des serveurs privés, un avantage pour la confidentialité des données."
+  - question: "Quels gains concrets les entreprises tirent-elles de l'IA ?"
+    answer: "78 % des organisations déclarent utiliser l'IA en 2025 contre 55 % un an plus tôt. En marketing et ventes, 71 % des utilisateurs rapportent une hausse de revenus, et 49 % constatent une baisse des coûts sur les opérations de service. Les gains unitaires restent souvent inférieurs à 10 %, mais ils représentent de la marge nette."
+  - question: "Qu'est-ce que le rapport AI Index de Stanford ?"
+    answer: "C'est une publication annuelle de l'Université de Stanford qui compile les données mondiales sur l'intelligence artificielle : coûts, performances des modèles, adoption par les entreprises et perception du public. Son édition 2025 met en avant la démocratisation de l'IA portée par la chute des coûts et la montée des modèles légers."
 ---
 
 ## Introduction
