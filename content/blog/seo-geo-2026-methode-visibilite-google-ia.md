@@ -11,7 +11,7 @@ canonical: ""
 
 # Catégories & Tags
 categories: ["Expertise terrain"]
-tags: ["SEO", "GEO", "Visibilité IA", "Stratégie digitale", "Génération de leads", "ChatGPT"]
+tags: ["SEO", "GEO", "Visibilité IA", "Stratégie digitale", "Génération de leads", "ChatGPT", "Pilotage SEO GEO"]
 
 # Auteur & Crédibilité (E-E-A-T)
 author: "Franck Sauvage"
@@ -132,7 +132,7 @@ Notre meilleur exemple est le [simulateur de financement OPCO](/simulateur-opco/
 
 Presque tous ceux qui commencent vont au bout. C'est l'effet d'un aimant pensé pour la friction zéro : il donne de la valeur avant de demander quoi que ce soit. À côté, notre [programme de formation](/formation/maitriser-claude-entreprise/) téléchargeable a généré 14 demandes, et nos autres formulaires une vingtaine de contacts supplémentaires.
 
-Le principe à retenir : **un aimant par intention de recherche**. À quelqu'un qui veut connaître son budget formation, on propose un simulateur. À quelqu'un qui veut des prompts opérationnels, un kit prêt à l'emploi. À un dirigeant qui veut piloter son prestataire digital, on propose un cahier des charges. Chaque ressource répond exactement à ce que le visiteur essayait de faire en arrivant.
+Le principe à retenir : **un aimant par intention de recherche**. À quelqu'un qui veut connaître son budget formation, on propose un simulateur. À quelqu'un qui veut des prompts opérationnels, un kit prêt à l'emploi. À un dirigeant qui veut piloter son prestataire digital, on propose une grille de pilotage. Chaque ressource répond exactement à ce que le visiteur essayait de faire en arrivant.
 
 ## Votre feuille de route pour le trimestre
 
@@ -144,12 +144,7 @@ Si vous deviez appliquer cette méthode à votre propre site, voici l'ordre des 
 4. **Mesurez votre visibilité IA.** Vous ne pouvez pas améliorer ce que vous ne suivez pas. Posez vos questions métier aux principales IA, ou faites-le mesurer.
 5. **Installez vos aimants à leads.** Une ressource utile par grande intention de recherche, avec le moins de friction possible.
 
-Pour passer de la lecture à l'action sans perdre la main, nous avons condensé ces critères dans un document que vous pouvez remettre à votre agence ou à votre équipe.
-
-> **📄 À télécharger — Le cahier des charges SEO + GEO 2026**
-> Les exigences techniques à imposer, la grille E-E-A-T, les 5 critères spécifiques au GEO, les KPI à exiger dans le reporting et une grille de notation sur 20 à faire remplir à votre prestataire actuel. De quoi savoir, en dix minutes, si votre site est armé pour 2026.
-<!-- [TODO: rebrancher ce CTA vers le vrai téléchargement (PDF + formulaire) du cahier des charges une fois le lead magnet prêt] -->
-> *[Téléchargez le cahier des charges →](/#audit-form)*
+Pour passer de la lecture à l'action sans perdre la main, nous avons condensé ces critères dans notre **grille de pilotage SEO + GEO 2026** — proposée plus haut dans cet article. Dix indicateurs à noter sur 20, la preuve à exiger pour chacun, et deux tests que vous pouvez faire vous-même en une minute. De quoi savoir, à votre prochain point mensuel, si votre site est armé pour 2026 — et de quoi tenir votre prestataire, agence ou équipe, sur les bons critères.
 
 ---
 

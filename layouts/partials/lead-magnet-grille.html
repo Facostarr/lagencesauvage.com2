@@ -1,0 +1,73 @@
+<div class="lm-grille rounded-xl border border-indigo-200 bg-indigo-50 p-6 sm:p-8 my-10" id="lm-grille">
+  <div class="mb-3 inline-flex items-center gap-2 rounded-full bg-indigo-100 px-3 py-1 text-xs font-semibold text-indigo-700">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/></svg>
+    PDF gratuit · Grille de notation /20 · Pour dirigeants
+  </div>
+  <h3 class="text-lg font-bold text-slate-900 mb-2">Et votre site, où en est-il ? Téléchargez la grille de pilotage SEO + GEO 2026</h3>
+  <p class="text-sm text-slate-600 mb-4">Les 10 indicateurs concrets pour vérifier, à votre prochain point mensuel, que votre prestataire (agence, freelance ou équipe interne) a pris le virage de l'IA. Notez, faites le total sur 20, et sachez où vous en êtes.</p>
+  <ul class="mb-5 space-y-1.5 text-sm text-slate-700">
+    <li class="flex items-center gap-2"><span class="font-bold text-indigo-500">✓</span> 10 indicateurs + la preuve à exiger pour chacun (pour détecter le flou)</li>
+    <li class="flex items-center gap-2"><span class="font-bold text-indigo-500">✓</span> 2 tests à faire vous-même en 1 minute (robots.txt, llms.txt)</li>
+    <li class="flex items-center gap-2"><span class="font-bold text-indigo-500">✓</span> Une grille de notation /20 + 5 questions de pilotage à poser</li>
+  </ul>
+  <form id="lmg-form-{{ if .File }}{{ .File.UniqueID }}{{ else }}blog{{ end }}" class="flex flex-col gap-2">
+    <div class="flex flex-col sm:flex-row gap-2">
+      <input type="text" class="lmg-firstname min-w-0 flex-1 rounded-lg border border-indigo-200 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-200" placeholder="Votre prénom" required autocomplete="given-name">
+      <input type="email" class="lmg-email min-w-0 flex-1 rounded-lg border border-indigo-200 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-200" placeholder="votre@email.com" required autocomplete="email">
+    </div>
+    <div class="flex flex-col sm:flex-row gap-2">
+      <input type="tel" class="lmg-phone min-w-0 flex-1 rounded-lg border border-indigo-200 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-200" placeholder="Téléphone (optionnel)" autocomplete="tel">
+      <button type="submit" class="lmg-btn whitespace-nowrap rounded-lg bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-indigo-700 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-400">
+        Recevoir la grille →
+      </button>
+    </div>
+  </form>
+  <p class="lmg-success hidden mt-3 text-sm font-semibold text-indigo-700"></p>
+  <p class="lmg-error hidden mt-3 text-sm text-red-600"></p>
+  <p class="mt-2 text-xs text-slate-400">Pas de spam. Votre email reste chez nous.</p>
+</div>
+<script>
+(function() {
+  var el = document.querySelector('.lm-grille');
+  if (!el) return;
+  var form = el.querySelector('form');
+  if (!form) return;
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    var btn = el.querySelector('.lmg-btn');
+    var success = el.querySelector('.lmg-success');
+    var error = el.querySelector('.lmg-error');
+    btn.disabled = true;
+    btn.textContent = 'Envoi…';
+    error.classList.add('hidden');
+    try {
+      var r = await fetch('/api/submit-grille-seo-geo', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          firstName: el.querySelector('.lmg-firstname').value,
+          email: el.querySelector('.lmg-email').value,
+          phone: el.querySelector('.lmg-phone').value
+        })
+      });
+      var d = await r.json();
+      if (d.success) {
+        form.style.display = 'none';
+        success.textContent = '✓ Votre grille est en route ! Vérifiez votre boîte mail (pensez aux spams).';
+        success.classList.remove('hidden');
+        if (window.plausible) { plausible('Grille SEO GEO Download', {props: {source: 'Lead Magnet Grille SEO GEO'}}); }
+      } else {
+        error.textContent = d.message || 'Une erreur est survenue. Réessayez.';
+        error.classList.remove('hidden');
+        btn.disabled = false;
+        btn.textContent = 'Recevoir la grille →';
+      }
+    } catch (_) {
+      error.textContent = 'Erreur réseau. Réessayez dans quelques instants.';
+      error.classList.remove('hidden');
+      btn.disabled = false;
+      btn.textContent = 'Recevoir la grille →';
+    }
+  });
+})();
+</script>
