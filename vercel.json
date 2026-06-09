@@ -5,6 +5,13 @@
       "HUGO_VERSION": "0.158.0"
     }
   },
+  "rewrites": [
+    { "source": "/api/submit-checklist", "destination": "/api/submit-lead-magnet?magnet=checklist" },
+    { "source": "/api/submit-prompts", "destination": "/api/submit-lead-magnet?magnet=prompts" },
+    { "source": "/api/submit-kit", "destination": "/api/submit-lead-magnet?magnet=kit" },
+    { "source": "/api/submit-grille-seo-geo", "destination": "/api/submit-lead-magnet?magnet=grille-seo-geo" },
+    { "source": "/api/submit-programme", "destination": "/api/submit-lead-magnet?magnet=programme" }
+  ],
   "redirects": [
     { "source": "/services.html", "destination": "/services/", "statusCode": 301 },
     { "source": "/realisations.html", "destination": "/realisations/", "statusCode": 301 },

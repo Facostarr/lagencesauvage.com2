@@ -41,10 +41,11 @@
     btn.textContent = 'Envoi…';
     error.classList.add('hidden');
     try {
-      var r = await fetch('/api/submit-checklist', {
+      var r = await fetch('/api/submit-lead-magnet', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
+          magnet: 'checklist',
           firstName: el.querySelector('.lmc-firstname').value,
           email: el.querySelector('.lmc-email').value,
           phone: el.querySelector('.lmc-phone').value

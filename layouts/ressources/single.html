@@ -244,10 +244,11 @@
       errEl.style.display = 'none';
 
       try {
-        const res = await fetch('/api/submit-kit', {
+        const res = await fetch('/api/submit-lead-magnet', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
+            magnet: 'kit',
             firstName: document.getElementById('kit-firstname').value,
             email: document.getElementById('kit-email').value
           })

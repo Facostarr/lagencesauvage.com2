@@ -343,10 +343,10 @@
     err.classList.add('hidden');
 
     try {
-      var res = await fetch('/api/submit-programme', {
+      var res = await fetch('/api/submit-lead-magnet', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ firstName, lastName, email, company, phone: document.getElementById('pf-phone').value.trim() })
+        body: JSON.stringify({ magnet: 'programme', firstName, lastName, email, company, phone: document.getElementById('pf-phone').value.trim() })
       });
       var data = await res.json();
       if (data.success) {
