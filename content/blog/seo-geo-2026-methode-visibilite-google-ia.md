@@ -124,13 +124,13 @@ Nous ne refaisons pas ici la théorie complète du fonctionnement des IA — nou
 
 Voici l'erreur la plus courante. Une entreprise travaille son SEO et son GEO, fait grimper son trafic… et ne capte rien. Le trafic sans capture, c'est de la vanité. Il faut un aimant à leads à chaque étape.
 
-Notre meilleur exemple est le [simulateur de financement OPCO](/simulateur-opco/). Le principe : un dirigeant entre le nom de son entreprise et obtient immédiatement une estimation de son budget formation mobilisable. Aucune barrière, aucun formulaire avant le résultat. Les chiffres de ce parcours valent toutes les démonstrations :
+Notre meilleur exemple est le [simulateur de financement OPCO](/simulateur-opco/), mis en ligne le 23 mai 2026. Le principe : un dirigeant entre le nom de son entreprise et obtient immédiatement une estimation de son budget formation mobilisable. Aucune barrière, aucun formulaire avant le résultat. En moins de trois semaines d'exploitation, les chiffres de ce parcours valent toutes les démonstrations :
 
 - **22** visiteurs ont lancé une recherche d'entreprise
 - **20** ont sélectionné leur société
 - **19** sont devenus des contacts qualifiés
 
-Presque tous ceux qui commencent vont au bout. C'est l'effet d'un aimant pensé pour la friction zéro : il donne de la valeur avant de demander quoi que ce soit. À côté, notre [programme de formation](/formation/maitriser-claude-entreprise/) téléchargeable a généré 14 demandes, et nos autres formulaires une vingtaine de contacts supplémentaires.
+Presque tous ceux qui commencent vont au bout : dix-neuf contacts qualifiés en dix-sept jours, sans un euro de publicité. C'est l'effet d'un aimant pensé pour la friction zéro : il donne de la valeur avant de demander quoi que ce soit. À côté, notre [programme de formation](/formation/maitriser-claude-entreprise/) téléchargeable, en ligne depuis début mai 2026, a généré 14 demandes en un peu plus d'un mois, et nos autres formulaires une vingtaine de contacts supplémentaires.
 
 Le principe à retenir : **un aimant par intention de recherche**. À quelqu'un qui veut connaître son budget formation, on propose un simulateur. À quelqu'un qui veut des prompts opérationnels, un kit prêt à l'emploi. À un dirigeant qui veut piloter son prestataire digital, on propose une grille de pilotage. Chaque ressource répond exactement à ce que le visiteur essayait de faire en arrivant.
 
