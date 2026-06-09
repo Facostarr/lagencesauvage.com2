@@ -236,4 +236,4 @@ Le plus dur ? C'est de commencer. Une fois les automatisations en place, elles t
 
 *Cet article est rédigé par L'Agence Sauvage, spécialiste de l'automatisation e-commerce pour les PME françaises. Nous accompagnons des boutiques WooCommerce dans la mise en place de solutions CRM et marketing automation adaptées à leur budget.*
 
-**Vous souhaitez être accompagné ?** [Demandez un audit gratuit de 15 minutes](https://www.lagencesauvage.com/contact) pour identifier vos opportunités d'automatisation, ou [contactez-nous](https://www.lagencesauvage.com/contact) pour discuter de votre projet.
+**Vous souhaitez être accompagné ?** [Demandez un audit gratuit de 30 minutes](https://www.lagencesauvage.com/contact) pour identifier vos opportunités d'automatisation, ou [contactez-nous](https://www.lagencesauvage.com/contact) pour discuter de votre projet.

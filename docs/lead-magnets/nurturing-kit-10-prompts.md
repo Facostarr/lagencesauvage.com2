@@ -35,7 +35,7 @@ www.lagencesauvage.com
 ## Email 2 — J+6 · L'offre de diagnostic
 
 **Objet :** Copier-coller des prompts, c'est bien. Et la suite ?
-**Pré-en-tête :** Diagnostic gratuit de 15 minutes, sans engagement.
+**Pré-en-tête :** Diagnostic gratuit de 30 minutes, sans engagement.
 
 Bonjour {{prénom}},
 
@@ -43,7 +43,7 @@ Les prompts du kit traitent des tâches une par une. C'est la première marche. 
 
 C'est ce que nous installons chez nos clients TPE et PME, accompagnement inclus.
 
-Pour savoir par où commencer dans votre cas, je propose un diagnostic découverte de 15 minutes, gratuit et sans engagement. Vous repartez avec les automatisations les plus rentables pour votre activité, que vous travailliez avec nous ensuite ou non.
+Pour savoir par où commencer dans votre cas, je propose un diagnostic découverte de 30 minutes, gratuit et sans engagement. Vous repartez avec les automatisations les plus rentables pour votre activité, que vous travailliez avec nous ensuite ou non.
 
 **[Réservez votre créneau →](https://calendly.com/franck-lagencesauvage/30min)**
 

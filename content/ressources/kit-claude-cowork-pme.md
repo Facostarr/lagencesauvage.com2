@@ -296,9 +296,9 @@ Claude devient vraiment puissant quand il est **configuré pour votre entreprise
 
 C'est exactement ce que nous faisons chez L'Agence Sauvage.
 
-**Diagnostic Découverte — 15 min offertes**
+**Diagnostic Découverte — 30 min offertes**
 
-En 15 minutes, nous identifions le processus qui vous coûte le plus de temps  
+En 30 minutes, nous identifions le processus qui vous coûte le plus de temps  
 et comment l'automatiser. Aucune présentation commerciale.
 
 <a class="cta-btn" href="https://www.lagencesauvage.com/#audit-form">Réserver mon diagnostic gratuit</a>
