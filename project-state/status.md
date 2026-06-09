@@ -32,7 +32,9 @@
 - [ ] Relire + programmer les 3 séquences nurturing dans MailWizz (listes par source Notion)
 - [ ] ⚠️ Les **totaux** des Goals Plausible vont baisser (fin du double comptage) — les visiteurs uniques ne changent pas
 
-**Backlog ouvert** : FAQ front matter sur 6 anciens articles (éditorial à rédiger + valider), lead magnet C kit comptable (= 1 entrée config MAGNETS, zéro fonction), incohérence durée 15 min (copy) vs Calendly 30 min à trancher.
+**Backlog ouvert** : lead magnet C kit comptable (= 1 entrée config MAGNETS, zéro fonction).
+
+**Suite 2026-06-10 (S14.8-S14.9, validées Franck, EN PROD)** : durée diagnostic harmonisée sur 30 min partout (Calendly = créneau 30 min) ; FAQ front matter + schema FAQPage ajoutés aux 7 articles restants → couverture 21/21 articles (4 reprises mot pour mot du corps, 3 rédigées depuis le contenu existant), lastmod à jour.
 
 **Setup local** : build Hugo local rétabli — `subst S:` + binaire 0.158.0 dans `C:/tmp/hugo158` (espaces du chemin OneDrive cassent postcss ; Hugo 0.163 winget incompatible). Cf. mémoire `build-hugo-local`.
 
