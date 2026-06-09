@@ -6,6 +6,7 @@
 import { Client } from '@notionhq/client';
 import { Resend } from 'resend';
 import { notifyFounder } from './_notify.js';
+import { findExistingLead } from './_leads.js';
 
 const notion = new Client({ auth: process.env.NOTION_API_KEY });
 const DATABASE_ID = process.env.NOTION_DATABASE_ID;
@@ -31,11 +32,18 @@ export default async function handler(req, res) {
   }
 
   let notionUrl;
+  let dejaConnu = false;
 
-  // 1. Notion — bloquant (si ça échoue, on renvoie 500)
+  // 1. Notion — bloquant (si ça échoue, on renvoie 500 ; anti-doublon si le lead existe déjà)
   try {
     if (process.env.NOTION_API_KEY && DATABASE_ID) {
-      const page = await notion.pages.create({
+      const existing = await findExistingLead({ email: email.trim().toLowerCase(), source: 'Lead Magnet - Kit Claude Cowork' });
+      if (existing) {
+        dejaConnu = true;
+        notionUrl = existing.url;
+        console.log('♻️ Lead existant réutilisé:', existing.id);
+      }
+      const page = dejaConnu ? null : await notion.pages.create({
         parent: { database_id: DATABASE_ID },
         properties: {
           'Name': { title: [{ text: { content: firstName.trim() } }] },
@@ -48,8 +56,10 @@ export default async function handler(req, res) {
           'Date Soumission': { date: { start: new Date().toISOString().split('T')[0] } },
         },
       });
-      notionUrl = page.url;
-      console.log('✅ Notion créé:', page.id);
+      if (page) {
+        notionUrl = page.url;
+        console.log('✅ Notion créé:', page.id);
+      }
     }
   } catch (err) {
     console.error('❌ Notion error:', err.message);
@@ -93,6 +103,7 @@ export default async function handler(req, res) {
       email,
       source: 'Kit Claude Cowork PME',
       notionUrl,
+      extra: dejaConnu ? '♻️ Lead déjà connu (re-téléchargement, pas de doublon Notion)' : undefined,
     });
   } catch (err) {
     console.error('⚠️ notifyFounder échoué (non bloquant):', err.message);

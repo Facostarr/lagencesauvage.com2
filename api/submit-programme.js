@@ -7,6 +7,7 @@
 import { Client } from '@notionhq/client';
 import { Resend } from 'resend';
 import { notifyFounder } from './_notify.js';
+import { findExistingLead } from './_leads.js';
 
 const notion = new Client({ auth: process.env.NOTION_API_KEY });
 const DATABASE_ID = process.env.NOTION_DATABASE_ID;
@@ -40,11 +41,18 @@ export default async function handler(req, res) {
   const companyNorm = company.trim();
 
   let notionUrl;
+  let dejaConnu = false;
 
-  // 1. Notion — bloquant
+  // 1. Notion — bloquant (anti-doublon : pas de nouvelle page si le lead existe déjà)
   try {
     if (process.env.NOTION_API_KEY && DATABASE_ID) {
-      const page = await notion.pages.create({
+      const existing = await findExistingLead({ email: emailNorm, source: 'Lead Magnet - Programme Formation' });
+      if (existing) {
+        dejaConnu = true;
+        notionUrl = existing.url;
+        console.log('♻️ Lead existant réutilisé:', existing.id);
+      }
+      const page = dejaConnu ? null : await notion.pages.create({
         parent: { database_id: DATABASE_ID },
         properties: {
           'Name': { title: [{ text: { content: fullName } }] },
@@ -58,8 +66,10 @@ export default async function handler(req, res) {
           'Téléphone': { phone_number: phone.trim() || null },
         },
       });
-      notionUrl = page.url;
-      console.log('✅ Notion créé:', page.id);
+      if (page) {
+        notionUrl = page.url;
+        console.log('✅ Notion créé:', page.id);
+      }
     }
   } catch (err) {
     console.error('❌ Notion error:', err.message);
@@ -117,6 +127,7 @@ export default async function handler(req, res) {
       companyNorm ? `🏢 Entreprise : ${companyNorm}` : null,
       lastName.trim() ? `👤 Nom complet : ${fullName}` : null,
       phone.trim() ? `📞 Téléphone : ${phone.trim()}` : null,
+      dejaConnu ? '♻️ Lead déjà connu (re-téléchargement, pas de doublon Notion)' : null,
     ].filter(Boolean).join('\n');
 
     await notifyFounder({
