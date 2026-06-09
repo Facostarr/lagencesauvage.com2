@@ -15,6 +15,27 @@
 | Phase 6 — Bascule | ✅ Logo validé, merge main | 2026-03-23 | 2026-03-23 |
 | Phase 7 — Post-bascule | 🔄 En cours | 2026-03-23 | — |
 
+## Session 2026-06-09 (soir) — Audit complet + optimisation funnel (S14) — EN PROD
+
+| # | Sprint | Statut | Commits |
+|---|--------|--------|---------|
+| S14.1 | Audit 4 axes (CRO, funnel lead gen, SEO/GEO technique, état projet) — 4 agents parallèles + vérification manuelle des constats critiques | ✅ | — |
+| S14.2 | Quick wins funnel : step2 formation rattachée au lead Notion + event Plausible, email confirmation diagnostic, dédup Notion (`api/_leads.js`), fin du double comptage Plausible (6 formulaires trackaient client+serveur → server-side only), event `Lead Step 1` homepage | ✅ | `4daa534`→`be1c20d` |
+| S14.3 | Consolidation API : 5 endpoints lead magnets → `api/submit-lead-magnet.js` (config MAGNETS). **11→7 fonctions Vercel, 5 slots libres** — lead magnet C débloqué. Rewrites legacy `?magnet=`, 11 tests routage (`tests/api/`) | ✅ | `a3e3ced` |
+| S14.4 | SEO : suppression `static/sitemap.xml` (figé fév., écrasait le sitemap Hugo auto = 77 URLs dont 30+ pages OPCO/formation), lastmod git sur 9 articles modifiés, keywords sur 5 articles | ✅ | `3ea1156` |
+| S14.5 | RGPD : mention consentement email + lien /privacy/ sur les 6 formulaires magnets | ✅ | `5fe72df` |
+| S14.6 | Nurturing : 3 séquences rédigées (50 prompts, checklist 30j, kit) sur le pattern grille — `docs/lead-magnets/nurturing-*.md` | ✅ | `f59f7a3` |
+| S14.7 | Calendly post-submit : bouton "Réserver mon créneau" sur les 3 confirmations (homepage, diagnostic, formation) + email diagnostic + CTA nurturing. Signature Franck. Merge ff → main | ✅ | `03fa932` |
+
+**Actions Franck en attente** :
+- [ ] Créer 2 Goals Plausible : `Lead Step 1` et `Programme Formation Qualification`
+- [ ] Relire + programmer les 3 séquences nurturing dans MailWizz (listes par source Notion)
+- [ ] ⚠️ Les **totaux** des Goals Plausible vont baisser (fin du double comptage) — les visiteurs uniques ne changent pas
+
+**Backlog ouvert** : FAQ front matter sur 6 anciens articles (éditorial à rédiger + valider), lead magnet C kit comptable (= 1 entrée config MAGNETS, zéro fonction), incohérence durée 15 min (copy) vs Calendly 30 min à trancher.
+
+**Setup local** : build Hugo local rétabli — `subst S:` + binaire 0.158.0 dans `C:/tmp/hugo158` (espaces du chemin OneDrive cassent postcss ; Hugo 0.163 winget incompatible). Cf. mémoire `build-hugo-local`.
+
 ## Session 2026-05-26 — Refonte visuelle pages OPCO + branches (Sprint S10)
 
 | # | Sprint | Statut | Commits |
