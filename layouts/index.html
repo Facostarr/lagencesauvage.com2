@@ -543,6 +543,9 @@
         if (!name) { showError('Merci de renseigner votre nom.'); return; }
         if (!email || !validateEmail(email)) { showError('Merci de renseigner une adresse email valide.'); return; }
 
+        // Mesure d'abandon étape 1 → 2 (l'event final 'Lead' est tracké server-side par l'API)
+        if (window.plausible) { plausible('Lead Step 1', {props: {source: 'Homepage'}}); }
+
         step1.classList.add('hidden');
         step2.classList.remove('hidden');
         step2Circle.classList.remove('bg-slate-border', 'text-slate-muted');
@@ -596,7 +599,7 @@
                 form.classList.add('hidden');
                 document.getElementById('form-steps-indicator').classList.add('hidden');
                 formSuccess.classList.remove('hidden');
-                if (window.plausible) { plausible('Lead', {props: {source: 'Homepage'}}); }
+                // Event 'Lead' tracké server-side par /api/submit-lead (adblock-proof, pas de double comptage)
             } else {
                 btn.disabled = false;
                 btn.textContent = 'Demander mon diagnostic gratuit';

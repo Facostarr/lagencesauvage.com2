@@ -55,7 +55,7 @@
         form.style.display = 'none';
         success.textContent = '✓ Votre grille est en route ! Vérifiez votre boîte mail (pensez aux spams).';
         success.classList.remove('hidden');
-        if (window.plausible) { plausible('Grille SEO GEO Download', {props: {source: 'Lead Magnet Grille SEO GEO'}}); }
+        // Event 'Grille SEO GEO Download' tracké server-side par /api/submit-grille-seo-geo (pas de double comptage)
       } else {
         error.textContent = d.message || 'Une erreur est survenue. Réessayez.';
         error.classList.remove('hidden');

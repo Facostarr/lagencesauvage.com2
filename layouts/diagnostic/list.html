@@ -767,7 +767,7 @@
         .then(function() {
             form.classList.add('hidden');
             successEl.classList.remove('hidden');
-            if (window.plausible) { plausible('Lead', {props: {source: 'Diagnostic'}}); }
+            // Event 'Lead' tracké server-side par /api/submit-diagnostic (adblock-proof, pas de double comptage)
         })
         .catch(function() {
             btnSubmit.disabled = false;
