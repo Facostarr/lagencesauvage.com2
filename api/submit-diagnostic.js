@@ -5,21 +5,20 @@
  * Pipeline :
  *   1. Valide les champs requis
  *   2. Crée une entrée dans la base Notion "Leads Diagnostic"
- *   3. Envoie une notification email à franck@lagencesauvage.com
+ *   3. Envoie un email de confirmation au prospect (Resend)
+ *   4. Envoie une notification à Franck (email + Telegram via _notify.js)
+ *   5. Event Plausible server-side
  *
  * Variables d'environnement requises (Vercel > Settings > Environment Variables) :
  *   NOTION_TOKEN          — clé secrète de l'integration Notion
  *   NOTION_DATABASE_ID    — ID de la base de données Notion "Leads Diagnostic"
- *   SMTP_HOST             — serveur SMTP (ex: smtp.gmail.com ou SMTP Brevo)
- *   SMTP_PORT             — port SMTP (ex: 587)
- *   SMTP_USER             — email expéditeur (ex: hello@lagencesauvage.com)
- *   SMTP_PASS             — mot de passe SMTP ou app password
- *
- * Note : Si SMTP non configuré, la fonction crée quand même la lead Notion.
- *        L'email est optionnel (notifications peuvent être configurées dans Notion directement).
+ *   RESEND_API_KEY        — envoi des emails (confirmation prospect + notification)
  */
 
+import { Resend } from 'resend';
 import { notifyFounder } from './_notify.js';
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 const ALLOWED_ORIGINS = [
   'https://www.lagencesauvage.com',
@@ -133,9 +132,41 @@ export default async function handler(req, res) {
     console.warn('[Notion] Variables NOTION_TOKEN / NOTION_DATABASE_ID non configurées. Lead non enregistrée.');
   }
 
+  const firstName = nom.split(' ')[0];
+
+  // === EMAIL DE CONFIRMATION au prospect (non bloquant) ===
+  try {
+    await resend.emails.send({
+      from: "Franck Sauvage — L'Agence Sauvage <hello@lagencesauvage.com>",
+      to: email.trim().toLowerCase(),
+      subject: 'Votre demande de diagnostic IA est bien reçue',
+      text: `Bonjour ${firstName},\n\nVotre demande est bien arrivée. Je vous recontacte sous 24h ouvrées pour convenir d'un créneau d'échange de 15 minutes.\n\nD'ici là, vous pouvez estimer le budget formation que votre OPCO peut financer avec notre simulateur :\nhttps://www.lagencesauvage.com/simulateur-opco/\n\nEt voir comment d'autres TPE et PME utilisent l'IA au quotidien :\nhttps://www.lagencesauvage.com/realisations/\n\nSi c'est urgent, répondez directement à cet email.\n\nBonne journée,\n\nFranck Sauvage\nFondateur, L'Agence Sauvage\nhello@lagencesauvage.com`,
+      html: `<div style="font-family:system-ui,-apple-system,sans-serif;max-width:560px;margin:0 auto;color:#0F172A">
+<div style="background:#4F46E5;padding:24px 32px;border-radius:8px 8px 0 0">
+  <h1 style="color:#fff;margin:0;font-size:20px;font-weight:700">Demande bien reçue</h1>
+  <p style="color:#C7D2FE;margin:6px 0 0;font-size:14px">Diagnostic de transformation IA</p>
+</div>
+<div style="background:#fff;border:1px solid #E2E8F0;border-top:none;padding:32px;border-radius:0 0 8px 8px">
+  <p style="margin:0 0 16px">Bonjour <strong>${firstName}</strong>,</p>
+  <p style="margin:0 0 20px;color:#374151">Votre demande est bien arrivée. Je vous recontacte sous 24h ouvrées pour convenir d'un créneau d'échange de 15 minutes.</p>
+  <div style="background:#F1F5F9;border-radius:8px;padding:20px;margin:0 0 24px">
+    <p style="margin:0 0 10px;font-weight:700;color:#0F172A;font-size:14px">D'ici là</p>
+    <p style="margin:0 0 8px;font-size:14px;color:#374151">Estimez le budget formation que votre OPCO peut financer : <a href="https://www.lagencesauvage.com/simulateur-opco/" style="color:#4F46E5;font-weight:600">simulateur OPCO</a></p>
+    <p style="margin:0;font-size:14px;color:#374151">Voyez comment d'autres TPE et PME utilisent l'IA au quotidien : <a href="https://www.lagencesauvage.com/realisations/" style="color:#4F46E5;font-weight:600">nos réalisations</a></p>
+  </div>
+  <p style="margin:0 0 8px;color:#374151;font-size:14px">Si c'est urgent, répondez directement à cet email.</p>
+  <hr style="border:none;border-top:1px solid #E2E8F0;margin:28px 0">
+  <p style="margin:0;font-size:12px;color:#94A3B8">L'Agence Sauvage · <a href="mailto:hello@lagencesauvage.com" style="color:#94A3B8">hello@lagencesauvage.com</a></p>
+</div>
+</div>`,
+    });
+    console.log('[Resend] Email de confirmation envoyé au prospect:', email);
+  } catch (e) {
+    console.warn('[Resend] Email confirmation prospect échoué (non bloquant):', e.message);
+  }
+
   // === NOTIFICATION Franck via _notify.js ===
   try {
-    const firstName = nom.split(' ')[0];
     await notifyFounder({
       firstName,
       email,
