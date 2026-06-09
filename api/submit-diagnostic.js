@@ -140,7 +140,7 @@ export default async function handler(req, res) {
       from: "Franck Sauvage — L'Agence Sauvage <hello@lagencesauvage.com>",
       to: email.trim().toLowerCase(),
       subject: 'Votre demande de diagnostic IA est bien reçue',
-      text: `Bonjour ${firstName},\n\nVotre demande est bien arrivée. Je vous recontacte sous 24h ouvrées pour convenir d'un créneau d'échange de 15 minutes.\n\nD'ici là, vous pouvez estimer le budget formation que votre OPCO peut financer avec notre simulateur :\nhttps://www.lagencesauvage.com/simulateur-opco/\n\nEt voir comment d'autres TPE et PME utilisent l'IA au quotidien :\nhttps://www.lagencesauvage.com/realisations/\n\nSi c'est urgent, répondez directement à cet email.\n\nBonne journée,\n\nFranck Sauvage\nFondateur, L'Agence Sauvage\nhello@lagencesauvage.com`,
+      text: `Bonjour ${firstName},\n\nVotre demande est bien arrivée. Vous pouvez réserver directement votre créneau d'échange ici :\nhttps://calendly.com/franck-lagencesauvage/30min\n\nSi aucun créneau ne vous convient, je vous recontacte sous 24h ouvrées.\n\nD'ici là, vous pouvez estimer le budget formation que votre OPCO peut financer avec notre simulateur :\nhttps://www.lagencesauvage.com/simulateur-opco/\n\nEt voir comment d'autres TPE et PME utilisent l'IA au quotidien :\nhttps://www.lagencesauvage.com/realisations/\n\nSi c'est urgent, répondez directement à cet email.\n\nBonne journée,\n\nFranck Sauvage\n06 86 50 20 30\nL'Agence Sauvage – IA & automation pour PME\nwww.lagencesauvage.com`,
       html: `<div style="font-family:system-ui,-apple-system,sans-serif;max-width:560px;margin:0 auto;color:#0F172A">
 <div style="background:#4F46E5;padding:24px 32px;border-radius:8px 8px 0 0">
   <h1 style="color:#fff;margin:0;font-size:20px;font-weight:700">Demande bien reçue</h1>
@@ -148,7 +148,10 @@ export default async function handler(req, res) {
 </div>
 <div style="background:#fff;border:1px solid #E2E8F0;border-top:none;padding:32px;border-radius:0 0 8px 8px">
   <p style="margin:0 0 16px">Bonjour <strong>${firstName}</strong>,</p>
-  <p style="margin:0 0 20px;color:#374151">Votre demande est bien arrivée. Je vous recontacte sous 24h ouvrées pour convenir d'un créneau d'échange de 15 minutes.</p>
+  <p style="margin:0 0 20px;color:#374151">Votre demande est bien arrivée. Vous pouvez réserver directement votre créneau d'échange, sinon je vous recontacte sous 24h ouvrées.</p>
+
+  <a href="https://calendly.com/franck-lagencesauvage/30min" style="display:inline-block;background:#4F46E5;color:#fff;padding:13px 28px;border-radius:6px;text-decoration:none;font-weight:700;font-size:15px;margin:0 0 24px">Réserver mon créneau maintenant →</a>
+
   <div style="background:#F1F5F9;border-radius:8px;padding:20px;margin:0 0 24px">
     <p style="margin:0 0 10px;font-weight:700;color:#0F172A;font-size:14px">D'ici là</p>
     <p style="margin:0 0 8px;font-size:14px;color:#374151">Estimez le budget formation que votre OPCO peut financer : <a href="https://www.lagencesauvage.com/simulateur-opco/" style="color:#4F46E5;font-weight:600">simulateur OPCO</a></p>
@@ -156,7 +159,7 @@ export default async function handler(req, res) {
   </div>
   <p style="margin:0 0 8px;color:#374151;font-size:14px">Si c'est urgent, répondez directement à cet email.</p>
   <hr style="border:none;border-top:1px solid #E2E8F0;margin:28px 0">
-  <p style="margin:0;font-size:12px;color:#94A3B8">L'Agence Sauvage · <a href="mailto:hello@lagencesauvage.com" style="color:#94A3B8">hello@lagencesauvage.com</a></p>
+  <p style="margin:0;font-size:13px;color:#64748B;line-height:1.7">Franck Sauvage<br>06 86 50 20 30<br>L'Agence Sauvage – IA &amp; automation pour PME<br><a href="https://www.lagencesauvage.com" style="color:#4F46E5">www.lagencesauvage.com</a></p>
 </div>
 </div>`,
     });

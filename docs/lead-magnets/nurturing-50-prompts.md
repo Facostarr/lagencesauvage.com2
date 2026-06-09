@@ -27,7 +27,9 @@ C'est tout. Un seul prompt, sur une vraie tâche, aujourd'hui. C'est le test qui
 Dites-moi quel prompt vous avez testé, je suis curieux du résultat.
 
 Franck Sauvage
-Fondateur, L'Agence Sauvage
+06 86 50 20 30
+L'Agence Sauvage – IA & automation pour PME
+www.lagencesauvage.com
 
 ---
 
@@ -47,7 +49,9 @@ Un exemple de réglage rapide : reprenez un prompt que vous avez testé et doubl
 Le prompting est la première marche. La deuxième, c'est de ne plus avoir à copier-coller du tout : des agents qui enchaînent ces tâches sans vous. On en reparle bientôt.
 
 Franck Sauvage
-Fondateur, L'Agence Sauvage
+06 86 50 20 30
+L'Agence Sauvage – IA & automation pour PME
+www.lagencesauvage.com
 
 ---
 
@@ -64,7 +68,9 @@ C'est ce que nous installons chez nos clients : des automatisations et des agent
 
 Par où commencer dans votre cas ? C'est exactement l'objet du diagnostic découverte : 30 minutes, gratuit, sans engagement. Vous repartez avec les deux ou trois automatisations les plus rentables pour votre activité, que vous travailliez avec nous ensuite ou non.
 
-**[Réservez votre créneau →](https://www.lagencesauvage.com/#audit-form)**
+**[Réservez votre créneau →](https://calendly.com/franck-lagencesauvage/30min)**
 
 Franck Sauvage
-Fondateur, L'Agence Sauvage
+06 86 50 20 30
+L'Agence Sauvage – IA & automation pour PME
+www.lagencesauvage.com

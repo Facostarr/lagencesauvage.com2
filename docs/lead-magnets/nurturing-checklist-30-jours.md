@@ -25,7 +25,9 @@ Dix minutes suffisent. Ouvrez la checklist à la semaine 1 et cochez cette case 
 Si vous bloquez sur la rédaction des instructions, répondez à cet email avec une phrase sur votre activité. Je vous renvoie une trame.
 
 Franck Sauvage
-Fondateur, L'Agence Sauvage
+06 86 50 20 30
+L'Agence Sauvage – IA & automation pour PME
+www.lagencesauvage.com
 
 ---
 
@@ -45,7 +47,9 @@ Votre checklist contient deux parades concrètes. Les projets partagés de la se
 Conseil : ne lancez pas l'outil auprès de tout le monde en même temps. Commencez avec une ou deux personnes motivées sur un cas d'usage précis, et laissez leurs résultats convaincre les autres.
 
 Franck Sauvage
-Fondateur, L'Agence Sauvage
+06 86 50 20 30
+L'Agence Sauvage – IA & automation pour PME
+www.lagencesauvage.com
 
 ---
 
@@ -62,7 +66,9 @@ Si vous êtes bloqué quelque part (un cas d'usage qui ne décolle pas, une équ
 
 Je vous propose de faire le point : un diagnostic découverte de 30 minutes, gratuit et sans engagement. On regarde où vous en êtes, ce qui bloque, et vous repartez avec vos prochaines étapes claires, que vous travailliez avec nous ensuite ou non.
 
-**[Réservez votre créneau →](https://www.lagencesauvage.com/#audit-form)**
+**[Réservez votre créneau →](https://calendly.com/franck-lagencesauvage/30min)**
 
 Franck Sauvage
-Fondateur, L'Agence Sauvage
+06 86 50 20 30
+L'Agence Sauvage – IA & automation pour PME
+www.lagencesauvage.com

@@ -26,7 +26,9 @@ Dix minutes, pas plus. Si le résultat vous fait gagner du temps sur cette tâch
 Dites-moi ce que vous avez testé, je lis toutes les réponses.
 
 Franck Sauvage
-Fondateur, L'Agence Sauvage
+06 86 50 20 30
+L'Agence Sauvage – IA & automation pour PME
+www.lagencesauvage.com
 
 ---
 
@@ -43,7 +45,9 @@ C'est ce que nous installons chez nos clients TPE et PME, accompagnement inclus.
 
 Pour savoir par où commencer dans votre cas, je propose un diagnostic découverte de 15 minutes, gratuit et sans engagement. Vous repartez avec les automatisations les plus rentables pour votre activité, que vous travailliez avec nous ensuite ou non.
 
-**[Réservez votre créneau →](https://www.lagencesauvage.com/#audit-form)**
+**[Réservez votre créneau →](https://calendly.com/franck-lagencesauvage/30min)**
 
 Franck Sauvage
-Fondateur, L'Agence Sauvage
+06 86 50 20 30
+L'Agence Sauvage – IA & automation pour PME
+www.lagencesauvage.com
