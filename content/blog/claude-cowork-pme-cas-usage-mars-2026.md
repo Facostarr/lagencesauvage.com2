@@ -1,7 +1,7 @@
 ---
 title: "Claude Cowork en mars 2026 : 3 cas d'usage concrets pour les PME (et gains de temps chiffrés)"
 date: 2026-03-24
-lastmod: 2026-03-24
+lastmod: 2026-05-21
 description: "Claude Cowork transforme la comptabilité, le marketing et le SAV des PME. Découvrez 3 cas d'usage concrets avec gains de temps mesurés — reportings divisés par 6, contenu accéléré de 40 à 60%, tickets traités 3x plus vite."
 summary: "Anthropic a lancé Claude Cowork en janvier 2026, un agent IA autonome qui travaille directement sur votre ordinateur. Trois métiers en tirent un bénéfice immédiat : la comptabilité, le marketing et le service client. Voici comment, avec des résultats chiffrés."
 

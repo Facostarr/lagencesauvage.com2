@@ -1,8 +1,9 @@
 ---
 title: "L'Art du Prompt : Le Guide Complet pour les Entrepreneurs"
 date: 2025-12-19T10:00:00+01:00
-lastmod: 2025-12-19
+lastmod: 2026-05-21
 description: "Découvrez comment maîtriser l'art du prompt pour exploiter tout le potentiel de l'IA dans votre business."
+keywords: ['art du prompt', 'prompt engineering', 'guide prompt entrepreneur', 'écrire un bon prompt IA', 'prompts pour PME', 'framework ROCF']
 categories:
   - "IA & Automation"
 tags:

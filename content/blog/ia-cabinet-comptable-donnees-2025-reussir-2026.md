@@ -1,8 +1,9 @@
 ---
 title: "Automatisation Cabinet Comptable : Pourquoi 91% des Experts-Comptables Misent sur l'IA en 2026"
 description: "91% des experts-comptables voient l'IA comme une opportunité, mais seuls 29% ont structuré leur approche. Découvrez les cas concrets de cabinets français, les gains mesurés et la méthode pour démarrer en 2026."
+keywords: ['IA cabinet comptable', 'automatisation expert-comptable', 'intelligence artificielle expertise comptable', 'digitalisation cabinet comptable 2026', 'IA experts-comptables France', 'automatisation comptabilité']
 date: 2025-12-29
-lastmod: 2025-12-29
+lastmod: 2026-03-23
 author: "L'Agence Sauvage"
 categories: ["Intelligence Artificielle", "Expertise Comptable"]
 tags: ["IA", "expert-comptable", "automatisation", "productivité", "cabinet comptable", "digitalisation"]
