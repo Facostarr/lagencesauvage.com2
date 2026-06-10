@@ -1,0 +1,328 @@
+{{ define "head" }}
+  {{ partial "schema/scan-geo.html" . }}
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Scan GEO gratuit — Votre entreprise est-elle visible dans ChatGPT ?">
+  <meta property="og:description" content="{{ .Params.description }}">
+  <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:locale" content="fr_FR">
+  <meta name="twitter:card" content="summary">
+{{ end }}
+
+{{ define "main" }}
+
+{{/* ============================================================
+     BREADCRUMB
+     ============================================================ */}}
+<nav class="bg-white border-b border-slate-100" aria-label="Fil d'Ariane">
+  <div class="mx-auto max-w-5xl px-4 sm:px-6 py-3">
+    <ol class="flex items-center gap-2 text-sm text-slate-600">
+      <li><a href="/" class="hover:text-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-indigo-500 rounded">Accueil</a></li>
+      <li aria-hidden="true" class="text-slate-300">›</li>
+      <li aria-current="page" class="text-slate-900 font-medium">Scan GEO</li>
+    </ol>
+  </div>
+</nav>
+
+{{/* ============================================================
+     HERO + CARD à états
+     ============================================================ */}}
+<section id="geo-hero" class="bg-slate-deep text-white pt-12 pb-16 sm:pt-16 sm:pb-20">
+  <div class="mx-auto max-w-3xl px-4 sm:px-6">
+
+    <div class="flex justify-center mb-6">
+      <span class="inline-flex items-center gap-2 rounded-full bg-indigo-500/15 border border-indigo-400/30 px-4 py-1.5 text-xs sm:text-sm font-medium text-indigo-200">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+        Test en conditions réelles — Perplexity · Gemini · ChatGPT
+      </span>
+    </div>
+
+    <h1 class="text-center text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-4">
+      <span class="block">Votre entreprise est-elle</span>
+      <span class="block text-indigo-300">visible dans ChatGPT ?</span>
+    </h1>
+    <p class="text-center text-base sm:text-lg text-slate-300 mb-8 max-w-2xl mx-auto">
+      Vos prospects posent leurs questions aux IA. Découvrez en 2 minutes si elles vous citent — ou si elles recommandent vos concurrents.
+    </p>
+
+    <div id="geo-sr-announce" role="status" aria-live="polite" class="sr-only"></div>
+
+    <div id="geo-card" class="bg-white rounded-2xl shadow-2xl mx-auto max-w-2xl"
+         data-api-base="{{ .Params.geo_api_base }}"
+         data-turnstile-sitekey="{{ .Params.turnstile_sitekey }}">
+
+      {{/* ----- ÉTAT 1 — HOOK : recherche entreprise ----- */}}
+      <div id="geo-state-hook" class="p-6 sm:p-8">
+        <label for="geo-search" class="block text-sm font-semibold text-slate-700 mb-2">
+          Votre entreprise
+        </label>
+        <div class="relative">
+          <input type="text" id="geo-search" name="search"
+            autocomplete="organization"
+            placeholder="Ex : Menuiserie Dupont ou 499823920"
+            aria-label="Nom de votre entreprise ou SIREN"
+            aria-autocomplete="list" aria-controls="geo-dropdown" aria-expanded="false"
+            class="w-full rounded-lg border-2 border-slate-200 px-4 py-3.5 text-base text-slate-900 placeholder-slate-400 focus:border-indigo-500 focus:outline-none focus:ring-4 focus:ring-indigo-100 transition-colors">
+          <div id="geo-search-spinner" class="hidden absolute right-3 top-1/2 -translate-y-1/2">
+            <svg class="animate-spin h-5 w-5 text-indigo-500" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+            </svg>
+          </div>
+        </div>
+
+        <ul id="geo-dropdown" role="listbox" aria-label="Suggestions d'entreprises"
+          class="hidden mt-2 border border-slate-200 rounded-lg max-h-72 overflow-y-auto divide-y divide-slate-100" aria-live="polite"></ul>
+
+        <p id="geo-search-error" class="hidden mt-3 text-sm text-red-600" role="alert"></p>
+
+        <p class="mt-5 text-xs text-slate-500 flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
+          <span>Gratuit</span><span aria-hidden="true">·</span>
+          <span>Résultat en ~2 minutes</span><span aria-hidden="true">·</span>
+          <span>Sans création de compte</span>
+        </p>
+      </div>
+
+      {{/* ----- ÉTAT 2 — CONFIRM : entreprise + site web obligatoire ----- */}}
+      <div id="geo-state-confirm" class="hidden p-6 sm:p-8">
+        <div class="rounded-xl bg-emerald-50 border border-emerald-200 p-4 sm:p-5 mb-6">
+          <p class="text-xs font-semibold uppercase tracking-wide text-emerald-700 mb-1">Entreprise identifiée</p>
+          <h2 id="geo-picked-name" class="text-lg font-bold text-slate-900 leading-tight"></h2>
+          <dl class="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5 text-sm">
+            <div class="flex gap-2"><dt class="text-slate-500">SIREN :</dt><dd id="geo-picked-siren" class="text-slate-900 font-medium"></dd></div>
+            <div class="flex gap-2"><dt class="text-slate-500">Code NAF :</dt><dd id="geo-picked-naf" class="text-slate-900 font-medium"></dd></div>
+            <div class="flex gap-2 sm:col-span-2"><dt class="text-slate-500">Localisation :</dt><dd id="geo-picked-ville" class="text-slate-900 font-medium"></dd></div>
+          </dl>
+          <button type="button" id="geo-change-company" class="mt-3 text-xs text-emerald-700 underline hover:text-emerald-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 rounded">
+            Changer d'entreprise
+          </button>
+        </div>
+
+        <form id="geo-confirm-form" novalidate>
+          <label for="geo-website" class="block text-xs font-semibold text-slate-700 mb-1">
+            Site web de votre entreprise <span class="text-red-500" aria-hidden="true">*</span>
+          </label>
+          <input type="text" id="geo-website" name="website" required inputmode="url" autocomplete="url"
+            placeholder="www.votre-entreprise.fr"
+            class="w-full rounded-lg border border-slate-200 px-3 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-100">
+          <p class="mt-2 text-xs text-slate-500">
+            Indispensable : c'est sur votre site que nous détectons les citations des IA et analysons votre activité réelle.
+          </p>
+          <div id="geo-turnstile-confirm" class="mt-4"></div>
+          <p id="geo-confirm-error" class="hidden mt-3 text-sm text-red-600" role="alert"></p>
+          <button type="submit" id="geo-confirm-btn"
+            class="mt-4 w-full inline-flex items-center justify-center gap-2 rounded-lg bg-indigo-600 hover:bg-indigo-700 px-5 py-3 text-sm font-semibold text-white transition-colors focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-200 disabled:opacity-60">
+            <span id="geo-confirm-label">Générer mes 3 questions test</span>
+            <svg id="geo-confirm-spinner" class="hidden animate-spin h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+            </svg>
+          </button>
+        </form>
+      </div>
+
+      {{/* ----- ÉTAT 3 — QUERIES : 3 requêtes éditables ----- */}}
+      <div id="geo-state-queries" class="hidden p-6 sm:p-8">
+        <p class="text-xs font-semibold uppercase tracking-wide text-indigo-600 mb-1">Activité détectée</p>
+        <p id="geo-activity" class="text-sm text-slate-700 mb-5"></p>
+
+        <p class="text-sm font-semibold text-slate-900 mb-2">Les 3 questions que nous allons poser aux IA <span class="font-normal text-slate-500">(modifiables)</span> :</p>
+        <div class="space-y-2 mb-4">
+          <input type="text" id="geo-query-1" maxlength="200" class="w-full rounded-lg border border-slate-200 px-3 py-2.5 text-sm text-slate-900 focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-100" aria-label="Question test 1">
+          <input type="text" id="geo-query-2" maxlength="200" class="w-full rounded-lg border border-slate-200 px-3 py-2.5 text-sm text-slate-900 focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-100" aria-label="Question test 2">
+          <input type="text" id="geo-query-3" maxlength="200" class="w-full rounded-lg border border-slate-200 px-3 py-2.5 text-sm text-slate-900 focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-100" aria-label="Question test 3">
+        </div>
+        <p id="geo-queries-error" class="hidden mb-3 text-sm text-red-600" role="alert"></p>
+
+        <button type="button" id="geo-queries-btn"
+          class="w-full rounded-lg bg-indigo-600 hover:bg-indigo-700 px-5 py-3 text-sm font-semibold text-white transition-colors focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-200">
+          C'est bien ça — continuer
+        </button>
+        <button type="button" id="geo-queries-back" class="mt-3 w-full text-xs text-slate-500 underline hover:text-slate-700">Retour</button>
+      </div>
+
+      {{/* ----- ÉTAT 4 — EMAIL : capture au lancement ----- */}}
+      <div id="geo-state-email" class="hidden p-6 sm:p-8">
+        <h2 class="text-lg font-bold text-slate-900 mb-1">Le scan prend environ 2 minutes</h2>
+        <p class="text-sm text-slate-600 mb-5">Où envoie-t-on votre rapport détaillé ? Vous pouvez rester pour suivre le test en direct — le rapport arrive par email dans tous les cas.</p>
+
+        <form id="geo-launch-form" novalidate>
+          <label for="geo-email" class="block text-xs font-semibold text-slate-700 mb-1">Email professionnel <span class="text-red-500" aria-hidden="true">*</span></label>
+          <input type="email" id="geo-email" name="email" required autocomplete="email"
+            placeholder="vous@entreprise.fr"
+            class="w-full rounded-lg border border-slate-200 px-3 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-100">
+
+          <div class="mt-4 space-y-2.5">
+            <label class="flex items-start gap-2.5 text-xs text-slate-600">
+              <input type="checkbox" id="geo-consent-report" class="mt-0.5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500">
+              <span>J'accepte de recevoir le rapport de ce scan par email. <span class="text-red-500">*</span></span>
+            </label>
+            <label class="flex items-start gap-2.5 text-xs text-slate-600">
+              <input type="checkbox" id="geo-consent-marketing" class="mt-0.5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500">
+              <span>J'accepte que L'Agence Sauvage me recontacte au sujet de ma visibilité IA (optionnel).</span>
+            </label>
+          </div>
+
+          <div id="geo-turnstile" class="mt-4"></div>
+
+          <p id="geo-launch-error" class="hidden mt-3 text-sm text-red-600" role="alert"></p>
+
+          <button type="submit" id="geo-launch-btn"
+            class="mt-4 w-full inline-flex items-center justify-center gap-2 rounded-lg bg-indigo-600 hover:bg-indigo-700 px-5 py-3 text-sm font-semibold text-white transition-colors focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-200 disabled:opacity-60">
+            <span id="geo-launch-label">Lancer le scan</span>
+            <svg id="geo-launch-spinner" class="hidden animate-spin h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+            </svg>
+          </button>
+          <p class="mt-3 text-[11px] leading-relaxed text-slate-400">
+            Données traitées conformément à notre <a href="/privacy/" class="underline">politique de confidentialité</a> : résultats conservés 30 jours, IP hachée purgée à 3 mois, données de scan supprimées à 12 mois. Les scores moyens sectoriels sont calculés de façon agrégée et anonymisée.
+          </p>
+        </form>
+      </div>
+
+      {{/* ----- ÉTAT 5 — PROGRESS : live engine par engine ----- */}}
+      <div id="geo-state-progress" class="hidden p-6 sm:p-8">
+        <h2 class="text-lg font-bold text-slate-900 mb-1">Scan en cours…</h2>
+        <p id="geo-progress-note" class="text-sm text-slate-600 mb-5">Nous posons vos 3 questions aux assistants IA, en conditions réelles.</p>
+
+        <div class="w-full bg-slate-100 rounded-full h-2.5 mb-4" role="progressbar" aria-label="Progression du scan" aria-valuemin="0" aria-valuemax="100" id="geo-progressbar-wrap">
+          <div id="geo-progressbar" class="bg-indigo-600 h-2.5 rounded-full transition-all duration-500" style="width: 4%"></div>
+        </div>
+
+        <p id="geo-progress-engine" class="text-sm text-indigo-700 font-medium mb-5">Mise en file d'attente…</p>
+
+        <div class="rounded-lg bg-slate-50 border border-slate-200 p-3.5 text-xs text-slate-500">
+          Vous pouvez fermer cette page : le rapport complet arrive par email quoi qu'il arrive.
+        </div>
+      </div>
+
+      {{/* ----- ÉTAT 6 — RESULT : teaser anonymisé ----- */}}
+      <div id="geo-state-result" class="hidden p-6 sm:p-8">
+        <div class="text-center mb-5">
+          <p class="text-xs font-semibold uppercase tracking-wide text-slate-500 mb-1">Votre score de visibilité IA</p>
+          <p id="geo-result-score" class="text-5xl font-bold text-slate-900">—</p>
+          <p id="geo-result-benchmark" class="mt-2 text-xs text-slate-500"></p>
+        </div>
+
+        <div id="geo-result-queries" class="space-y-2.5 mb-5"></div>
+
+        <div id="geo-result-competitors" class="hidden rounded-lg bg-amber-50 border border-amber-200 p-4 text-sm text-amber-900 mb-5"></div>
+
+        <div class="rounded-lg bg-slate-50 border border-slate-200 p-3.5 text-xs text-slate-500 mb-5">
+          <strong>Méthodologie :</strong> test instantané sur un échantillon de 3 questions. Un audit complet couvre 20+ requêtes avec mesures répétées. <span id="geo-result-email-note"></span>
+        </div>
+
+        <a href="/diagnostic/" id="geo-result-cta"
+          class="block w-full text-center rounded-lg bg-indigo-600 hover:bg-indigo-700 px-5 py-3 text-sm font-semibold text-white transition-colors">
+          Obtenir mon diagnostic GEO complet
+        </a>
+        <p class="mt-3 text-center text-xs text-slate-500">
+          Ou monitoring GEO en continu à partir de 500€/mois — <a href="/services/" class="underline hover:text-slate-700">découvrir l'offre</a>
+        </p>
+      </div>
+
+      {{/* ----- ÉTAT ERROR ----- */}}
+      <div id="geo-state-error" class="hidden p-6 sm:p-8 text-center">
+        <p class="text-3xl mb-3" aria-hidden="true">⚠️</p>
+        <h2 class="text-lg font-bold text-slate-900 mb-2">Le scan est momentanément indisponible</h2>
+        <p id="geo-error-message" class="text-sm text-slate-600 mb-5">Une erreur est survenue. Vous pouvez réessayer dans quelques instants.</p>
+        <button type="button" id="geo-error-retry"
+          class="rounded-lg bg-indigo-600 hover:bg-indigo-700 px-5 py-2.5 text-sm font-semibold text-white transition-colors">
+          Réessayer
+        </button>
+        <p class="mt-4 text-xs text-slate-500">
+          Ou écrivez-nous directement : <a href="mailto:franck@lagencesauvage.com" class="underline">franck@lagencesauvage.com</a>
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{{/* ============================================================
+     COMMENT ÇA MARCHE — 3 étapes
+     ============================================================ */}}
+<section class="bg-white py-14 sm:py-16">
+  <div class="mx-auto max-w-5xl px-4 sm:px-6">
+    <h2 class="text-center text-2xl sm:text-3xl font-bold text-slate-900 mb-10">Comment fonctionne le scan ?</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="rounded-2xl border border-slate-200 p-6">
+        <p class="text-3xl font-bold text-indigo-600 mb-3">1</p>
+        <h3 class="font-bold text-slate-900 mb-2">3 questions sur mesure</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">Depuis votre SIREN et votre site web, nous générons les 3 questions que vos prospects posent réellement aux IA — adaptées à votre métier et votre zone d'intervention. Vous les validez avant le lancement.</p>
+      </div>
+      <div class="rounded-2xl border border-slate-200 p-6">
+        <p class="text-3xl font-bold text-indigo-600 mb-3">2</p>
+        <h3 class="font-bold text-slate-900 mb-2">Test en conditions réelles</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">Chaque question est posée à Perplexity, Gemini et ChatGPT, exactement comme le ferait un prospect. Nous détectons si votre marque est nommée et si votre site est cité en source.</p>
+      </div>
+      <div class="rounded-2xl border border-slate-200 p-6">
+        <p class="text-3xl font-bold text-indigo-600 mb-3">3</p>
+        <h3 class="font-bold text-slate-900 mb-2">Rapport détaillé par email</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">Score de visibilité, verdict par question et par moteur, entreprises citées à votre place, et premières pistes d'action. Le tout en ~2 minutes, gratuitement.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{/* ============================================================
+     POURQUOI LE GEO — contexte marché
+     ============================================================ */}}
+<section class="bg-slate-50 py-14 sm:py-16">
+  <div class="mx-auto max-w-3xl px-4 sm:px-6">
+    <h2 class="text-center text-2xl sm:text-3xl font-bold text-slate-900 mb-6">Pourquoi tester maintenant ?</h2>
+    <div class="prose prose-slate max-w-none text-slate-700 text-sm sm:text-base leading-relaxed">
+      <p>Une part croissante des recherches de prestataires commence dans un assistant IA, sans jamais passer par Google. Quand un dirigeant demande à ChatGPT « quel expert-comptable recommandez-vous à Bordeaux ? », l'IA cite 3 à 5 entreprises — et l'immense majorité des TPE/PME n'y figure jamais.</p>
+      <p><strong>Environ 90% des TPE/PME sont invisibles dans les réponses des assistants IA.</strong> Ce n'est pas une fatalité : c'est un terrain encore largement à prendre. Les entreprises qui structurent leur présence GEO maintenant occupent les places que leurs concurrents découvriront dans deux ans.</p>
+    </div>
+  </div>
+</section>
+
+{{/* ============================================================
+     FAQ — accordéon (FAQPage schema dans le head)
+     ============================================================ */}}
+<section class="bg-white py-14 sm:py-16" id="faq">
+  <div class="mx-auto max-w-3xl px-4 sm:px-6">
+    <h2 class="text-center text-2xl sm:text-3xl font-bold text-slate-900 mb-8">Questions fréquentes</h2>
+    <div class="space-y-3">
+      {{ range .Params.faq }}
+      <details class="group rounded-xl border border-slate-200 bg-white">
+        <summary class="flex cursor-pointer items-center justify-between gap-3 p-4 sm:p-5 text-sm sm:text-base font-semibold text-slate-900 list-none [&::-webkit-details-marker]:hidden">
+          {{ .question }}
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 flex-shrink-0 text-slate-400 transition-transform group-open:rotate-180" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+        </summary>
+        <div class="px-4 sm:px-5 pb-4 sm:pb-5 text-sm text-slate-600 leading-relaxed">
+          {{ .answer | safeHTML }}
+        </div>
+      </details>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+{{/* ============================================================
+     BANDEAU MÉTHODO — E-E-A-T
+     ============================================================ */}}
+<section class="bg-white border-t border-slate-100 py-10">
+  <div class="mx-auto max-w-3xl px-4 sm:px-6">
+    <div class="rounded-2xl bg-slate-50 border border-slate-200 p-5 sm:p-6">
+      <div class="text-sm text-slate-700 leading-relaxed">
+        <p class="font-semibold text-slate-900 mb-1.5">Un outil développé par L'Agence Sauvage</p>
+        <p>
+          Ce scan s'appuie sur notre plateforme interne de monitoring GEO, qui mesure chaque semaine la visibilité IA sur 5 moteurs (ChatGPT, Claude, Perplexity, Gemini, Grok) avec mesures répétées. Les résultats reflètent les réponses des assistants IA à la date du test et ne constituent pas une évaluation des entreprises citées.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ end }}
+
+{{ define "scripts" }}
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" defer></script>
+  {{ $geoJS := resources.Get "js/scan-geo.js" }}
+  {{ if hugo.IsProduction }}
+    {{ $geoJS = $geoJS | minify | fingerprint }}
+  {{ end }}
+  <script defer src="{{ $geoJS.RelPermalink }}"></script>
+{{ end }}
