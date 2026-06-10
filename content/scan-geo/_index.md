@@ -15,10 +15,9 @@ keywords:
   - référencement IA TPE PME
 canonical: "/scan-geo/"
 ogImage: "/assets/images/logo-agence-sauvage.svg"
-# Cloudflare Turnstile — cle de TEST (toujours valide, widget visible).
-# Remplacer par la sitekey reelle apres creation du site Turnstile,
-# et renseigner TURNSTILE_SECRET_KEY dans le .env du VPS geo.
-turnstile_sitekey: "1x00000000000000000000AA"
+# Cloudflare Turnstile — sitekey reelle (site "Scan GEO lagencesauvage").
+# Le secret correspondant est dans TURNSTILE_SECRET_KEY (.env du VPS geo).
+turnstile_sitekey: "0x4AAAAAADh4eRI4HJmcOwE4"
 geo_api_base: "https://geo.lagencesauvage.com"
 faq:
   - question: "Qu'est-ce que le GEO (Generative Engine Optimization) ?"
