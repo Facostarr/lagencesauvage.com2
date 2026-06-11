@@ -1,0 +1,21 @@
+# CI tests unitaires — zéro réseau, zéro secret.
+# Couvre : moteur compute (47 asserts), cascade resolve SIRET (36),
+# routage lead magnets (11). Les tests live (test-endpoints-live.mjs,
+# test-isolated.mjs) restent hors CI : ils exigent les APIs externes.
+name: Tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm test

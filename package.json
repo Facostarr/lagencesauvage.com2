@@ -7,7 +7,7 @@
     "dev": "vercel dev",
     "build": "hugo --gc --minify",
     "deploy": "vercel --prod",
-    "test": "node tests/simulateur-opco/test-compute-units.mjs && node tests/simulateur-opco/test-resolve-cascade.mjs"
+    "test": "node tests/simulateur-opco/test-compute-units.mjs && node tests/simulateur-opco/test-resolve-cascade.mjs && node tests/api/test-submit-lead-magnet-routing.mjs"
   },
   "dependencies": {
     "@notionhq/client": "^2.2.15",

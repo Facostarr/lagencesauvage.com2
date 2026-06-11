@@ -4,7 +4,8 @@
 
 - [ ] **Supprimer la branche `blog/seo-geo-cas-concret`** : tout son contenu utile est désormais sur main (article S13 cherry-pické le 09/06, commits qualité cherry-pickés le 11/06). Ne garder que si on veut l'historique.
 - [ ] **Docx grille de pilotage modifié** dans le working tree de la branche (`docs/lead-magnets/grille-pilotage-seo-geo-2026.docx`) : non commité, pas produit par les sessions code. Décider : committer ou revert.
-- [ ] (Optionnel) Chaîner `tests/api/` (routage lead magnets) dans le script `npm test`.
+- [x] Chaîner `tests/api/` (routage lead magnets) dans `npm test` + CI GitHub Actions (`.github/workflows/test.yml`) — fait 2026-06-11 (GO Franck, option B). 94 asserts à chaque push, zéro secret requis.
+- [ ] (Optionnel, cohérence) `submit-diagnostic.js:21` et `submit-lead.js:12` ont encore un `new Resend(...)` top-level (crash à l'import si RESEND_API_KEY absente — sans impact prod, la clé y est). Appliquer la même init paresseuse que `_notify.js`/`submit-lead-magnet.js` à l'occasion d'une retouche de ces endpoints.
 - [ ] (Optionnel, flaggé CodeGraph) `compute_opco_label` dans `scripts/generate-opco-subpages.py` : 2 appelants, aucun test — risque faible (générateur interne), à couvrir si on retouche le script.
 
 ## Simulateur OPCO — Fix moteur budget per-dossier (2026-05-28)
