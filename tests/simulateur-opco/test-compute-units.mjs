@@ -149,7 +149,7 @@ const payloadManual = buildLeadPayload({
 });
 assert('cas particulier idcc_inconnu présent', payloadManual.properties?.['Cas particulier']?.select?.name === 'idcc_inconnu');
 assert('Niveau confiance = Manuel', payloadManual.properties?.['Niveau confiance IDCC']?.select?.name === 'Manuel');
-assert('IDCC null toléré', payloadManual.properties?.IDCC?.number === null);
+assert('IDCC absent quand inconnu (pas de valeur périmée en CRM)', payloadManual.properties?.IDCC === undefined);
 assert('Qualification = À qualifier', payloadManual.properties?.['Qualification (auto)']?.select?.name === 'À qualifier');
 
 // -------- Résumé

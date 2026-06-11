@@ -23,15 +23,23 @@ export class ResolveError extends Error {
   }
 }
 
-export async function resolveSiretWithCascade(siret, { logger = () => {} } = {}) {
+// `deps` permet d'injecter clients + cache en test unitaire (zéro réseau).
+// Les appelants de prod n'ont rien à passer : défauts = vrais clients.
+export async function resolveSiretWithCascade(siret, { logger = () => {}, deps = {} } = {}) {
+  const {
+    dinumGet = dinumGetBySiret,
+    s2iLookup = siret2idccLookup,
+    cache = resolveCache,
+  } = deps;
+
   const cacheKey = `siret::${siret}`;
-  const cached = resolveCache.get(cacheKey);
+  const cached = cache.get(cacheKey);
   if (cached) return { payload: cached, cacheHit: true };
 
   const t0 = Date.now();
   let dinumRaw;
   try {
-    dinumRaw = await dinumGetBySiret(siret);
+    dinumRaw = await dinumGet(siret);
   } catch (err) {
     if (err instanceof DinumError) {
       logger('resolve.dinum_error', { code: err.code, status: err.status, siret });
@@ -61,7 +69,7 @@ export async function resolveSiretWithCascade(siret, { logger = () => {} } = {})
 
   if (!idcc) {
     try {
-      const fb = await siret2idccLookup(siret);
+      const fb = await s2iLookup(siret);
       if (fb.idcc) {
         idcc = fb.idcc;
         listeIdccRaw = fb.listeIdcc;
@@ -108,6 +116,6 @@ export async function resolveSiretWithCascade(siret, { logger = () => {} } = {})
     fallback_used: fallbackUsed,
     upstream_ms: upstreamMs,
   };
-  resolveCache.set(cacheKey, payload);
+  cache.set(cacheKey, payload);
   return { payload, cacheHit: false };
 }

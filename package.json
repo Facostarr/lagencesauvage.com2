@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vercel dev",
     "build": "hugo --gc --minify",
-    "deploy": "vercel --prod"
+    "deploy": "vercel --prod",
+    "test": "node tests/simulateur-opco/test-compute-units.mjs && node tests/simulateur-opco/test-resolve-cascade.mjs"
   },
   "dependencies": {
     "@notionhq/client": "^2.2.15",
