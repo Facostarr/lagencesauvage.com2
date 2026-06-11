@@ -1,0 +1,19 @@
+# Bumps de dépendances en PR hebdomadaires — chaque PR est validée par la CI
+# (.github/workflows/test.yml, 94 asserts) avant merge manuel.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+    groups:
+      # Les mineures/patchs groupées en 1 seule PR pour limiter le bruit
+      minor-and-patch:
+        update-types: ["minor", "patch"]
+    # Les majeures restent en PR individuelles (breaking potentiels)
+    open-pull-requests-limit: 5
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
