@@ -1,12 +1,18 @@
 # Lessons Learned — Refonte lagencesauvage.com
 
+## CodeGraph — une alerte « sans test » peut être un faux positif de couverture indirecte (lesson 2026-06-11)
+
+**Symptôme** : le blast radius CodeGraph signalait `computeBudget` « ⚠️ aucun test couvrant ». En réalité son unique appelant prod (`runCompute`) est testé par 5 scénarios — le moteur était donc couvert indirectement, l'outil ne suit que les imports directs des fichiers de test.
+
+**Règle** : avant d'écrire des tests sur une alerte de couverture, remonter d'un cran avec `codegraph_callers` : si l'appelant immédiat est testé et que le wrapper est trivial, le trou est ailleurs. Ici le vrai trou était `resolveSiretWithCascade` (chemin critique réseau, couvert seulement par des tests live). Pattern utile pour tester du code à dépendances réseau : injection de dépendances optionnelle (`opts.deps = {}` avec défauts = vrais clients) → tests unitaires sans mock de module ni réseau, appelants prod inchangés.
+
 ## Simulateur — pas de port Python ; vérifier les prémisses avant de coder (lesson 2026-05-28)
 
 **Symptôme** : la tâche demandait de maintenir la « parité avec `scripts/compute_budget.py`, validé par `cross_validate.py` ». Ces fichiers n'existent pas (ni dans l'arbre, ni dans `git log --all`). L'en-tête de `lib/simulateur-opco/compute_budget.js` lui-même affirme être « un port JS du moteur Python » — ce qui a induit tout le monde en erreur.
 
 **Diagnostic** : le moteur de budget du simulateur OPCO a une **source de vérité unique** = le fichier JS. La QA de référence est `scripts/qa-simulator-delivery.mjs` (régression OLD vs NEW) + `tests/simulateur-opco/test-compute-units.mjs`, 100% JS. `generate-opco-branches.py` n'est qu'un générateur de pages statiques.
 
-**Règle** : avant d'accepter une contrainte de parité/synchro entre fichiers, **vérifier que les deux fichiers existent** (`git ls-files`, `git log --all -- chemin`). Un en-tête de fichier qui décrit une architecture peut être périmé. NB : le test unitaire « IDCC null toléré » échoue de façon pré-existante — ne pas l'imputer à ses propres changements (toujours faire un `git stash` avant/après pour isoler).
+**Règle** : avant d'accepter une contrainte de parité/synchro entre fichiers, **vérifier que les deux fichiers existent** (`git ls-files`, `git log --all -- chemin`). Un en-tête de fichier qui décrit une architecture peut être périmé. NB : le test unitaire « IDCC null toléré » échouait de façon pré-existante — corrigé le 2026-06-11 (assertion alignée sur le comportement réel : propriété IDCC absente, commit `40b00a1`). Le réflexe reste valable : toujours faire un `git stash` avant/après pour isoler un échec pré-existant de ses propres changements.
 
 ## Simulateur — plancher garanti ≠ plafond par dossier (sémantique min/max) (lesson 2026-05-28)
 

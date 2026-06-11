@@ -15,6 +15,19 @@
 | Phase 6 — Bascule | ✅ Logo validé, merge main | 2026-03-23 | 2026-03-23 |
 | Phase 7 — Post-bascule | 🔄 En cours | 2026-03-23 | — |
 
+## Session 2026-06-11 — Qualité code via CodeGraph (S15) — cherry-pick sur main
+
+| # | Sprint | Statut | Commits (main) |
+|---|--------|--------|----------------|
+| S15.1 | Première exploitation du MCP CodeGraph (index 47 fichiers / 582 symboles) : blast radius simulateur analysé, alerte Opus requalifiée (computeBudget couvert indirectement via runCompute ; vrai trou = resolveSiretWithCascade) | ✅ | — |
+| S15.2 | Tests unitaires cascade resolve SIRET : injection de dépendances optionnelle (`opts.deps`) dans resolve-service.js + `test-resolve-cascade.mjs` (36 asserts, zéro réseau : DINUM, fallback siret2idcc succès/vide/erreur, ResolveError 404/502/500, cache LRU, normalizeDinumResult) + script `npm test` + fix assertion « IDCC null toléré » pré-existante | ✅ | `40b00a1` |
+| S15.3 | `.codegraph/` ajouté au .gitignore (index SQLite local) | ✅ | `949c281` |
+| S15.4 | Suppression code mort (GO Franck) : `test-github-claude.js` + `docs/lead-magnets/create-doc.js` (doublon de create-doc.cjs, −1 123 lignes) + `main` corrigé dans package.json lead-magnets | ✅ | `bbf8f71` |
+
+**Méthode** : travail sur `blog/seo-geo-cas-concret` (commits originaux `321dd58`/`5dcc105`/`7a72cf9`) puis cherry-pick sur `main` via worktree isolé (méthode S13.4). Tests re-validés sur la base main post-consolidation API : 83 asserts verts (47 compute + 36 cascade). NB : `npm test` ne couvre pas encore `tests/api/` (routage lead magnets) — à chaîner si utile.
+
+---
+
 ## Session 2026-06-09 (soir) — Audit complet + optimisation funnel (S14) — EN PROD
 
 | # | Sprint | Statut | Commits |

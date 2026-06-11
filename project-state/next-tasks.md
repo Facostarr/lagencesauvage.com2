@@ -1,5 +1,12 @@
 # Next Tasks — Refonte lagencesauvage.com
 
+## Post-session 2026-06-11 — Qualité code CodeGraph
+
+- [ ] **Supprimer la branche `blog/seo-geo-cas-concret`** : tout son contenu utile est désormais sur main (article S13 cherry-pické le 09/06, commits qualité cherry-pickés le 11/06). Ne garder que si on veut l'historique.
+- [ ] **Docx grille de pilotage modifié** dans le working tree de la branche (`docs/lead-magnets/grille-pilotage-seo-geo-2026.docx`) : non commité, pas produit par les sessions code. Décider : committer ou revert.
+- [ ] (Optionnel) Chaîner `tests/api/` (routage lead magnets) dans le script `npm test`.
+- [ ] (Optionnel, flaggé CodeGraph) `compute_opco_label` dans `scripts/generate-opco-subpages.py` : 2 appelants, aucun test — risque faible (générateur interne), à couvrir si on retouche le script.
+
 ## Simulateur OPCO — Fix moteur budget per-dossier (2026-05-28)
 
 ### À trancher (Franck)

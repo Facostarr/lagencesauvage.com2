@@ -1,5 +1,20 @@
 # Changelog — Refonte lagencesauvage.com
 
+## 2026-06-11 — Qualité code via CodeGraph : tests cascade SIRET + nettoyage code mort
+
+### Contexte
+Première exploitation du MCP CodeGraph fraîchement installé (index SQLite : 47 fichiers, 582 symboles, 1 244 relations). Objectif : vérifier le blast radius remonté par Opus (3 fonctions « sans test ») et améliorer le projet en conséquence.
+
+### Diagnostic (graphe d'appels)
+- `computeBudget` : alerte requalifiée — couvert **indirectement** via son unique appelant prod `runCompute` (5 scénarios dans test-compute-units.mjs) + appel direct par `qa-simulator-delivery.mjs`. Faux positif partiel.
+- `resolveSiretWithCascade` : **vrai trou** — chemin critique de chaque lead simulateur (cascade DINUM → siret2idcc → manuel), couvert uniquement par des tests live dépendant des APIs externes.
+- `compute_opco_label` (Python) : sans test mais interne au générateur de pages, risque faible — laissé tel quel.
+
+### Livrables (cherry-pick sur `main`, commits originaux sur `blog/seo-geo-cas-concret`)
+- `40b00a1` — `tests/simulateur-opco/test-resolve-cascade.mjs` (36 asserts, zéro réseau) : 3 branches de la cascade, mapping `ResolveError` 404/502/500, cache LRU, `normalizeDinumResult`. Rendu possible par une injection de dépendances optionnelle (`opts.deps`) dans `resolve-service.js` (appelants prod inchangés). Script `npm test` ajouté (2 suites, 83 asserts verts, re-validés sur main post-consolidation API). Fix de l'assertion pré-existante « IDCC null toléré » → « IDCC absent quand inconnu ».
+- `949c281` — `.codegraph/` ignoré par git (index local régénéré par le watcher).
+- `bbf8f71` — code mort supprimé (GO Franck) : `test-github-claude.js` (vestige test push mars) + `docs/lead-magnets/create-doc.js` (doublon de `create-doc.cjs`, −1 123 lignes) + champ `main` corrigé dans le package.json lead-magnets.
+
 ## 2026-05-28 — Simulateur OPCO : fix moteur budget "non chiffrable" pour barèmes horaire/par-dossier
 
 ### Problème
