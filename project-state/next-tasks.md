@@ -8,6 +8,7 @@
 
 - [x] Supprimer la branche `blog/seo-geo-cas-concret` + 9 autres branches mortes — fait 2026-06-11 (GO Franck). Restent : `main` + `refonte-2026` (archive volontaire).
 - [x] Branche `data/afdas-planchers-conventionnels` : véracité vérifiée contre le projet OPCO (mêmes 922 clés IDCC que l'export canonique) → portée sur main le 2026-06-11 avec l'export plus frais du 04/06 (+ IDCC 2098 chiffré). Branche supprimée.
+- [ ] **PRs Dependabot à trancher (Franck)** : merger #9 + #10 (actions v6, triviales) si CI verte ; #11 (pdfkit) obsolète après suppression de la dep ; **#12 (@notionhq/client v2→v5) : ne pas merger sur foi de la CI verte** — les tests unitaires s'arrêtent avant les appels Notion réels et la v5 change l'API (data sources). Fermer, ou planifier une vraie migration avec test e2e Notion.
 - [ ] **Docx grille de pilotage modifié** (`docs/lead-magnets/grille-pilotage-seo-geo-2026.docx`) : non commité dans le working tree, pas produit par les sessions code. Décider : committer ou revert.
 - [ ] **metadata.json non régénéré** avec l'index 922 : `static/data/metadata.json` date de l'index 105 → le `content_hash_sha256` archivé dans les snapshots de leads ne correspond plus à la data servie. Cosmétique (traçabilité), mais à régénérer depuis le projet OPCO au prochain export.
 - [x] Chaîner `tests/api/` (routage lead magnets) dans `npm test` + CI GitHub Actions (`.github/workflows/test.yml`) — fait 2026-06-11 (GO Franck, option B). 94 asserts à chaque push, zéro secret requis.

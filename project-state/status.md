@@ -33,7 +33,12 @@
 | S15.5 | CI GitHub Actions (option B) : `npm test` chaîne les 3 suites (94 asserts zéro réseau), workflow sur chaque push/PR, actions v5. La CI a immédiatement attrapé un vrai bug : `new Resend()` top-level dans `_notify.js`/`submit-lead-magnet.js` = crash à l'import sans RESEND_API_KEY → init paresseuse | ✅ | `1cce53a` `7caddc3` `027228e` |
 | S15.6 | Sauvetage branche `data/afdas-planchers-conventionnels` : véracité vérifiée 3 voies contre le projet OPCO (922 clés IDCC identiques à l'export canonique, 1 seul écart = IDCC 2098 chiffré le 04/06) → cherry-pick du commit code (filtre dropdown 77 conventions chiffrables + OPCO nommé dans branche_a_confirmer) + bascule de l'export frais du 04/06. **Couverture simulateur : 105 → 922 IDCC.** npm test 94/94 + build Hugo local OK (85 options) | ✅ | `14e70f5` `572a464` |
 | S15.7 | Deps : vercel CLI 33→54 (21 majeures de retard), resend 6.12.4, engines >=22 (>=18.x était faux), Dependabot hebdo groupé. `npm audit --omit=dev` : **0 vulnérabilité runtime** | ✅ | `b7e3ffc` |
-| S15.8 | Nettoyage : 10 branches remote mortes supprimées (7 mergées + 2 claude/* nov. 2025 + blog/seo-geo-cas-concret + data/afdas), working dir repassé sur `main` | ✅ | — |
+| S15.8 | Nettoyage : 11 refs remote mortes nettoyées (9 supprimées + 2 périmées prunées), 7 branches locales supprimées, worktree scan-geo démonté, working dir repassé sur `main`. Restent `main` + `refonte-2026` | ✅ | — |
+| S15.9 | `pdfkit` supprimé (dépendance morte, zéro import — vestige pré-refonte lead magnets). Dependabot opérationnel : 4 PRs ouvertes dans la foulée, chacune validée par la CI | ✅ | `65a6104` |
+
+**Vérification prod live** : `/simulateur-opco/` sert l'index 922 (85 options dans le dropdown, IDCC 2098 présent). Tous les déploiements Vercel READY, 7 fonctions.
+
+**PRs Dependabot en attente de décision Franck** : #9 + #10 (actions v6, triviales, merger si CI verte), #11 (pdfkit, obsolète — se fermera seule), **#12 (@notionhq/client v2→v5 : NE PAS merger sur foi de la CI** — les tests unitaires s'arrêtent avant les appels Notion réels, la v5 change l'API ; fermer ou planifier une migration délibérée).
 
 ---
 

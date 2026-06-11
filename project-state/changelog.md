@@ -12,7 +12,10 @@ La branche dormante `data/afdas-planchers-conventionnels` (29/05) contenait l'in
 vercel CLI 33.7→54.11 (source de la quasi-totalité des alertes npm audit), resend 6.12.4, minors Tailwind/postcss. `npm audit --omit=dev` : **0 vulnérabilité sur les deps runtime**. Les ~30 alertes restantes sont des transitives embarquées dans le CLI vercel (upstream, tooling local uniquement). `engines: >=22` (le `>=18.x` était faux : `with { type: 'json' }` exige Node ≥ 20.10). Dependabot : bumps npm hebdo groupés minor/patch + actions mensuels — chaque PR auto-validée par la CI.
 
 ### Nettoyage git
-10 branches remote supprimées : 7 mergées (`feat/simulateur-opco` ×3, `feat/refonte-pages-opco`, `feat/opco-sprint2-bigfive`, `fix/funnel-quick-wins`, `feat/scan-geo`), 2 `claude/*` (nov. 2025), `blog/seo-geo-cas-concret` (porté sur main) et `data/afdas-planchers-conventionnels` (porté sur main). Conservée : `refonte-2026` (archive volontaire). Working dir principal repassé sur `main`.
+11 refs remote nettoyées (9 supprimées + 2 périmées prunées) : 7 mergées (`feat/simulateur-opco` ×3, `feat/refonte-pages-opco`, `feat/opco-sprint2-bigfive`, `fix/funnel-quick-wins`, `feat/scan-geo`), 2 `claude/*` (nov. 2025), `blog/seo-geo-cas-concret` (porté sur main) et `data/afdas-planchers-conventionnels` (porté sur main). Conservée : `refonte-2026` (archive volontaire). 7 branches locales supprimées, worktree scan-geo démonté, working dir principal repassé sur `main`.
+
+### pdfkit supprimé + premières PRs Dependabot
+`pdfkit` n'était importé par aucun fichier (vestige des fonctions PDF d'avant la refonte lead magnets docx) → dépendance supprimée plutôt que bumpée. Dependabot a ouvert 4 PRs dans la foulée (#9/#10 actions v6, #11 pdfkit devenue obsolète, #12 @notionhq/client v2→v5). ⚠️ #12 : ne pas merger sur CI verte seule, les tests s'arrêtent avant les appels Notion réels et la v5 change l'API.
 
 ## 2026-06-11 — Qualité code via CodeGraph : tests cascade SIRET + nettoyage code mort
 
