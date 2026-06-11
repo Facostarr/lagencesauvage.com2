@@ -23,7 +23,10 @@ import { findExistingLead } from './_leads.js';
 
 const notion = new Client({ auth: process.env.NOTION_API_KEY });
 const DATABASE_ID = process.env.NOTION_DATABASE_ID;
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Init paresseuse : new Resend() jette si la clé est absente (crash à l'import,
+// avant toute validation). L'envoi email est déjà dans un try/catch non bloquant.
+let _resend = null;
+const getResend = () => (_resend ??= new Resend(process.env.RESEND_API_KEY));
 
 const DIAGNOSTIC_URL = 'https://www.lagencesauvage.com/#audit-form';
 const FROM_FRANCK = "Franck Sauvage — L'Agence Sauvage <hello@lagencesauvage.com>";
@@ -361,7 +364,7 @@ export default async function handler(req, res) {
   // 2. Email prospect avec lien PDF — non bloquant
   try {
     const { subject, text, html } = magnet.email({ firstName: firstName.trim(), pdfUrl: magnet.pdfUrl });
-    await resend.emails.send({
+    await getResend().emails.send({
       from: magnet.emailFrom,
       to: emailNorm,
       subject,

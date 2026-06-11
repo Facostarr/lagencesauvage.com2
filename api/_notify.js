@@ -7,7 +7,11 @@
 
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Init paresseuse : new Resend() jette si la clé est absente — instancier à
+// l'import casserait tout endpoint qui importe ce module (et les tests unitaires)
+// dès que RESEND_API_KEY manque, avant même la validation de la requête.
+let _resend = null;
+const getResend = () => (_resend ??= new Resend(process.env.RESEND_API_KEY));
 
 /**
  * Notifie Franck via email (Resend) + Telegram en parallèle.
@@ -63,7 +67,7 @@ async function sendEmail(subject, text, attachments) {
     text,
   };
   if (attachments?.length) payload.attachments = attachments;
-  const { error } = await resend.emails.send(payload);
+  const { error } = await getResend().emails.send(payload);
   if (error) throw new Error(`Resend error: ${error.message}`);
 }
 
