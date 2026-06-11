@@ -31,6 +31,9 @@ resources/
 # Claude Code local settings
 .claude/
 
+# CodeGraph — index SQLite local (régénéré par le watcher)
+.codegraph/
+
 # OS
 .DS_Store
 Thumbs.db
