@@ -24,7 +24,16 @@
 | S15.3 | `.codegraph/` ajouté au .gitignore (index SQLite local) | ✅ | `949c281` |
 | S15.4 | Suppression code mort (GO Franck) : `test-github-claude.js` + `docs/lead-magnets/create-doc.js` (doublon de create-doc.cjs, −1 123 lignes) + `main` corrigé dans package.json lead-magnets | ✅ | `bbf8f71` |
 
-**Méthode** : travail sur `blog/seo-geo-cas-concret` (commits originaux `321dd58`/`5dcc105`/`7a72cf9`) puis cherry-pick sur `main` via worktree isolé (méthode S13.4). Tests re-validés sur la base main post-consolidation API : 83 asserts verts (47 compute + 36 cascade). NB : `npm test` ne couvre pas encore `tests/api/` (routage lead magnets) — à chaîner si utile.
+**Méthode** : travail sur `blog/seo-geo-cas-concret` (commits originaux `321dd58`/`5dcc105`/`7a72cf9`) puis cherry-pick sur `main` via worktree isolé (méthode S13.4). Tests re-validés sur la base main post-consolidation API : 83 asserts verts (47 compute + 36 cascade).
+
+**Suite S15 (même jour, GO Franck)** :
+
+| # | Sprint | Statut | Commits (main) |
+|---|--------|--------|----------------|
+| S15.5 | CI GitHub Actions (option B) : `npm test` chaîne les 3 suites (94 asserts zéro réseau), workflow sur chaque push/PR, actions v5. La CI a immédiatement attrapé un vrai bug : `new Resend()` top-level dans `_notify.js`/`submit-lead-magnet.js` = crash à l'import sans RESEND_API_KEY → init paresseuse | ✅ | `1cce53a` `7caddc3` `027228e` |
+| S15.6 | Sauvetage branche `data/afdas-planchers-conventionnels` : véracité vérifiée 3 voies contre le projet OPCO (922 clés IDCC identiques à l'export canonique, 1 seul écart = IDCC 2098 chiffré le 04/06) → cherry-pick du commit code (filtre dropdown 77 conventions chiffrables + OPCO nommé dans branche_a_confirmer) + bascule de l'export frais du 04/06. **Couverture simulateur : 105 → 922 IDCC.** npm test 94/94 + build Hugo local OK (85 options) | ✅ | `14e70f5` `572a464` |
+| S15.7 | Deps : vercel CLI 33→54 (21 majeures de retard), resend 6.12.4, engines >=22 (>=18.x était faux), Dependabot hebdo groupé. `npm audit --omit=dev` : **0 vulnérabilité runtime** | ✅ | `b7e3ffc` |
+| S15.8 | Nettoyage : 10 branches remote mortes supprimées (7 mergées + 2 claude/* nov. 2025 + blog/seo-geo-cas-concret + data/afdas), working dir repassé sur `main` | ✅ | — |
 
 ---
 

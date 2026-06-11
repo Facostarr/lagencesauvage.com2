@@ -1,5 +1,19 @@
 # Changelog — Refonte lagencesauvage.com
 
+## 2026-06-11 (suite) — CI, index OPCO 105→922, deps, nettoyage git
+
+### CI GitHub Actions (option B validée Franck)
+`npm test` chaîne désormais 3 suites unitaires zéro réseau (compute 47 + cascade SIRET 36 + routage lead magnets 11 = 94 asserts) ; `.github/workflows/test.yml` les exécute sur chaque push/PR (Node 24, actions v5, aucun secret). La mise en place a immédiatement révélé un vrai bug : `new Resend(clé)` instancié à l'import dans `_notify.js` et `submit-lead-magnet.js` jette si la clé manque (crash avant toute validation de requête) → init paresseuse, comportement identique en prod.
+
+### Sauvetage de la branche data/afdas — couverture simulateur 105 → 922 IDCC
+La branche dormante `data/afdas-planchers-conventionnels` (29/05) contenait l'index OPCO enrichi du Temps 1 projet OPCO. Vérification 3 voies (export OPCO canonique vs branche vs prod) : mêmes 922 clés IDCC, même tefen, 20 naf_fallback identiques ; **un seul écart**, IDCC 2098 chiffré dans l'export du 04/06. Livraison : cherry-pick du commit code (dropdown filtré sur `branche_details_disponibles` → 77 conventions chiffrables au lieu de ~334 à libellé, + OPCO nommé explicitement dans le message branche_a_confirmer) + bascule de l'export du 04/06. Validé par npm test (94/94, scénarios Aixoise/Syntec sur la vraie data) + build Hugo local (page simulateur 74 Ko, 85 options). Reste : `metadata.json` à régénérer au prochain export (content_hash des snapshots de leads).
+
+### Dépendances
+vercel CLI 33.7→54.11 (source de la quasi-totalité des alertes npm audit), resend 6.12.4, minors Tailwind/postcss. `npm audit --omit=dev` : **0 vulnérabilité sur les deps runtime**. Les ~30 alertes restantes sont des transitives embarquées dans le CLI vercel (upstream, tooling local uniquement). `engines: >=22` (le `>=18.x` était faux : `with { type: 'json' }` exige Node ≥ 20.10). Dependabot : bumps npm hebdo groupés minor/patch + actions mensuels — chaque PR auto-validée par la CI.
+
+### Nettoyage git
+10 branches remote supprimées : 7 mergées (`feat/simulateur-opco` ×3, `feat/refonte-pages-opco`, `feat/opco-sprint2-bigfive`, `fix/funnel-quick-wins`, `feat/scan-geo`), 2 `claude/*` (nov. 2025), `blog/seo-geo-cas-concret` (porté sur main) et `data/afdas-planchers-conventionnels` (porté sur main). Conservée : `refonte-2026` (archive volontaire). Working dir principal repassé sur `main`.
+
 ## 2026-06-11 — Qualité code via CodeGraph : tests cascade SIRET + nettoyage code mort
 
 ### Contexte

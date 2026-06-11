@@ -1,9 +1,15 @@
 # Next Tasks — Refonte lagencesauvage.com
 
+## Lead magnet C (kit cabinet comptable) — AVANT le wiring
+
+- [ ] **Factoriser les scripts docx `docs/lead-magnets/create-*.cjs`** (GO Franck 2026-06-11) : les 3 scripts existants (create-doc.cjs, create-checklist.cjs, create-grille-seo-geo.cjs) dupliquent ~50 Ko chacun de branding/styles docx/helpers. Extraire un module commun `docs/lead-magnets/_docx-helpers.cjs` (couleurs ASV, styles titres/tableaux, header/footer, logo) AVANT de créer le script du magnet C — qui devient alors un simple fichier de contenu. Rappel : côté API, magnet C = 1 entrée config MAGNETS dans submit-lead-magnet.js, zéro fonction Vercel.
+
 ## Post-session 2026-06-11 — Qualité code CodeGraph
 
-- [ ] **Supprimer la branche `blog/seo-geo-cas-concret`** : tout son contenu utile est désormais sur main (article S13 cherry-pické le 09/06, commits qualité cherry-pickés le 11/06). Ne garder que si on veut l'historique.
-- [ ] **Docx grille de pilotage modifié** dans le working tree de la branche (`docs/lead-magnets/grille-pilotage-seo-geo-2026.docx`) : non commité, pas produit par les sessions code. Décider : committer ou revert.
+- [x] Supprimer la branche `blog/seo-geo-cas-concret` + 9 autres branches mortes — fait 2026-06-11 (GO Franck). Restent : `main` + `refonte-2026` (archive volontaire).
+- [x] Branche `data/afdas-planchers-conventionnels` : véracité vérifiée contre le projet OPCO (mêmes 922 clés IDCC que l'export canonique) → portée sur main le 2026-06-11 avec l'export plus frais du 04/06 (+ IDCC 2098 chiffré). Branche supprimée.
+- [ ] **Docx grille de pilotage modifié** (`docs/lead-magnets/grille-pilotage-seo-geo-2026.docx`) : non commité dans le working tree, pas produit par les sessions code. Décider : committer ou revert.
+- [ ] **metadata.json non régénéré** avec l'index 922 : `static/data/metadata.json` date de l'index 105 → le `content_hash_sha256` archivé dans les snapshots de leads ne correspond plus à la data servie. Cosmétique (traçabilité), mais à régénérer depuis le projet OPCO au prochain export.
 - [x] Chaîner `tests/api/` (routage lead magnets) dans `npm test` + CI GitHub Actions (`.github/workflows/test.yml`) — fait 2026-06-11 (GO Franck, option B). 94 asserts à chaque push, zéro secret requis.
 - [ ] (Optionnel, cohérence) `submit-diagnostic.js:21` et `submit-lead.js:12` ont encore un `new Resend(...)` top-level (crash à l'import si RESEND_API_KEY absente — sans impact prod, la clé y est). Appliquer la même init paresseuse que `_notify.js`/`submit-lead-magnet.js` à l'occasion d'une retouche de ces endpoints.
 - [ ] (Optionnel, flaggé CodeGraph) `compute_opco_label` dans `scripts/generate-opco-subpages.py` : 2 appelants, aucun test — risque faible (générateur interne), à couvrir si on retouche le script.
