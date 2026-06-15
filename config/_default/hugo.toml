@@ -80,6 +80,13 @@ disableKinds = ["taxonomy", "term"]
 # Sécurité
 [security]
   [security.exec]
-    allow = ["^dart-sass-embedded$", "^go$", "^npx$", "^postcss$"]
+    allow = ["^dart-sass-embedded$", "^go$", "^node$", "^npx$", "^postcss$"]
   [security.funcs]
     getenv = ["^HUGO_", "^CI$"]
+  # Hugo >=0.163 active par défaut le modèle de permissions Node, qui bloque le
+  # chargement de l'addon natif lightningcss (tiré par Tailwind v4) avec
+  # "loading addons is disabled". On désactive ce durcissement (comportement
+  # d'avant 0.163) — sans risque, c'est un outil de build local/CI de confiance.
+  [security.node]
+    [security.node.permissions]
+      disable = true
