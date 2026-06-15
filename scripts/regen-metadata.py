@@ -12,7 +12,7 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-ROOT = Path(r"C:\Users\franc\OneDrive\Documents\Agence SAUVAGE\Claude Code\lagencesauvage.com2")
+ROOT = Path(r"C:\Claude\lagencesauvage.com2")
 SIM = ROOT / "static" / "data" / "simulator-ready.json"
 META = ROOT / "static" / "data" / "metadata.json"
 

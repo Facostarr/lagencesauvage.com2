@@ -14,8 +14,8 @@ import json
 import sys
 from pathlib import Path
 
-SRC = Path(r"C:\Users\franc\OneDrive\Documents\Agence SAUVAGE\Claude Code\OPCO\data\exports\simulator-ready.json")
-PROD = Path(r"C:\Users\franc\OneDrive\Documents\Agence SAUVAGE\Claude Code\lagencesauvage.com2\static\data\simulator-ready.json")
+SRC = Path(r"C:\Claude\OPCO\data\exports\simulator-ready.json")
+PROD = Path(r"C:\Claude\lagencesauvage.com2\static\data\simulator-ready.json")
 
 
 def load(p):

@@ -10,7 +10,7 @@ import os
 from PIL import Image
 
 SRC = r"C:\tmp\hermes-hero-v3-raw.jpeg"
-DEST = r"C:\Users\franc\OneDrive\Documents\Agence SAUVAGE\Claude Code\lagencesauvage.com2\static\assets\images\blog\hermes-agent-autonome-dirigeant.webp"
+DEST = r"C:\Claude\lagencesauvage.com2\static\assets\images\blog\hermes-agent-autonome-dirigeant.webp"
 
 src = Image.open(SRC).convert("RGB")
 print(f"Source: {src.size[0]}x{src.size[1]}")
