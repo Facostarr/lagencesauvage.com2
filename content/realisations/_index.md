@@ -1,5 +1,5 @@
 ---
-title: "Réalisations IA | Cas clients concrets — L'Agence Sauvage"
+title: "Réalisations IA — Cas clients concrets"
 description: "Découvrez nos réalisations concrètes : agents IA, automatisations métier, intégrations sur-mesure. Des cas clients réels, pas des promesses."
 keywords:
   - réalisations IA entreprise

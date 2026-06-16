@@ -1,5 +1,5 @@
 ---
-title: "Questions fréquentes — L'Agence Sauvage"
+title: "Questions fréquentes"
 description: "Retrouvez les réponses à toutes vos questions sur l'intégration de l'IA en entreprise : budget, outils, sécurité des données, méthodologie et accompagnement."
 
 # === Catégories FAQ ===
