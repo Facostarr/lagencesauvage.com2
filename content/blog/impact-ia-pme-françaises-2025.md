@@ -1,5 +1,7 @@
 ---
 title: "Ce que j'ai vu dans les PME françaises en 2025 : l'IA ne frappe pas où on l'attend"
+seo_title: "L'IA dans les PME françaises : ce que j'ai vu en 2025"
+seo_description: "Retour de terrain sur l'IA dans les PME françaises : ce qu'elle change concrètement, pourquoi elle touche les cols blancs d'abord, et 3 erreurs fréquentes."
 date: 2026-02-23
 lastmod: 2026-06-10
 description: "Après des dizaines de missions chez des TPE et PME françaises, voici ce que l'IA transforme vraiment — et où les dirigeants se trompent de cible."

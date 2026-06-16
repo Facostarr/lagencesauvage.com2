@@ -1,5 +1,7 @@
 ---
 title: "Financer la formation IA de votre PME en 2026 : les 6 dispositifs OPCO à connaître"
+seo_title: "Financer la formation IA en 2026 : 6 dispositifs OPCO"
+seo_description: "Les 6 dispositifs OPCO pour financer la formation IA de votre PME en 2026 : PDC, actions collectives, FNE, reconversion. Plafonds et procédure en 5 étapes."
 date: 2026-05-23
 lastmod: 2026-05-23
 description: "Plan de Développement des Compétences, actions collectives Atlas/Opcommerce, FNE-Formation, Période de reconversion : les 6 dispositifs OPCO 2026 pour financer la formation IA de votre PME. Chiffres sourcés, procédure pas-à-pas."

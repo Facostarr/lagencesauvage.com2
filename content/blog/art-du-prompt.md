@@ -1,5 +1,7 @@
 ---
 title: "L'Art du Prompt : Le Guide Complet pour les Entrepreneurs"
+seo_title: "L'art du prompt : le guide complet pour dirigeants"
+seo_description: "Le guide du prompt pour dirigeants : les 5 piliers d'un bon prompt, les techniques avancées et des cas d'usage business concrets pour tirer parti de l'IA."
 date: 2025-12-19T10:00:00+01:00
 lastmod: 2026-06-10
 description: "Découvrez comment maîtriser l'art du prompt pour exploiter tout le potentiel de l'IA dans votre business."
