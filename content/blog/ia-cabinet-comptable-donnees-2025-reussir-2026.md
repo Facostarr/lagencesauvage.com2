@@ -1,5 +1,7 @@
 ---
 title: "Automatisation Cabinet Comptable : Pourquoi 91% des Experts-Comptables Misent sur l'IA en 2026"
+seo_title: "IA en cabinet comptable : 5 cas d'usage concrets en 2026"
+seo_description: "Les 5 cas d'usage IA à fort ROI pour votre cabinet comptable : saisie, relances, reporting, détection d'anomalies. Méthode progressive et gains chiffrés."
 description: "91% des experts-comptables voient l'IA comme une opportunité, mais seuls 29% ont structuré leur approche. Découvrez les cas concrets de cabinets français, les gains mesurés et la méthode pour démarrer en 2026."
 keywords: ['IA cabinet comptable', 'automatisation expert-comptable', 'intelligence artificielle expertise comptable', 'digitalisation cabinet comptable 2026', 'IA experts-comptables France', 'automatisation comptabilité']
 date: 2025-12-29

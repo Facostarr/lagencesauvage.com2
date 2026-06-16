@@ -1,5 +1,7 @@
 ---
 title: "Facturation électronique 2026 : ce que Pennylane ne fait pas (et comment l'IA comble les trous)"
+seo_title: "Facturation électronique 2026 : les angles morts de Pennylane"
+seo_description: "Facturation électronique 2026 : le vrai calendrier, ce que Pennylane et Dext gèrent, et les 5 angles morts que l'IA comble. Comparatif PDP seule vs PDP + IA."
 date: 2026-03-23
 lastmod: 2026-03-23
 description: "72% des entreprises se disent prêtes pour la réforme 2026, mais 61% ont des incertitudes pratiques. Découvrez les 5 angles morts de votre logiciel comptable et comment les agents IA automatisent ce qui déborde."

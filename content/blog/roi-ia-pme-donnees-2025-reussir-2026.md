@@ -1,5 +1,7 @@
 ---
 title: "ROI de l'IA en PME : Ce que Révèlent les Données 2025 pour Réussir en 2026"
+seo_title: "ROI de l'IA en PME : les chiffres 2025 et le calcul"
+seo_description: "Le ROI de l'IA en PME en chiffres : 159% de retour médian en 2025, les cas d'usage les plus rentables et une méthode simple pour calculer le vôtre."
 description: "Découvrez les vrais chiffres du ROI de l'IA en PME : 159% de retour médian, cas concrets et méthodologie pour mesurer vos gains. Bilan 2025 et perspectives 2026."
 keywords: ['ROI IA PME', 'retour sur investissement intelligence artificielle', 'rentabilité IA entreprise', 'mesurer gains IA', 'ROI automatisation PME', 'chiffres IA PME 2025']
 date: 2025-12-29
