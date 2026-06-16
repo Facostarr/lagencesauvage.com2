@@ -1,5 +1,5 @@
 ---
-title: "Services IA pour professionnels | L'Agence Sauvage"
+title: "Services IA pour professionnels"
 description: "Automatisation, formation et transformation IA pour les entreprises. Agents IA sur-mesure, workflows automatisés, ateliers pratiques. À partir de 500€/mois."
 keywords:
   - services IA entreprise

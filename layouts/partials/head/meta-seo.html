@@ -4,17 +4,22 @@
    ============================================================================= */}}
 {{/* Variables */}}
 {{ $title := .Title | default .Site.Title }}
+{{ with .Params.seo_title }}{{ $title = . }}{{ end }}
 {{ $description := .Description | default .Summary | default .Site.Params.description | truncate 160 }}
+{{ with .Params.seo_description }}{{ $description = . }}{{ end }}
 {{ $image := .Params.image | default .Site.Params.defaultImage }}
 {{ $imageAlt := .Params.imageAlt | default $title }}
 {{ $keywords := .Params.keywords | default .Params.tags | default .Site.Params.keywords }}
 {{ $author := .Params.author | default .Site.Params.defaultAuthor.name }}
 {{ $canonical := .Params.canonical | default .Permalink }}
-{{/* Titre optimisé */}}
+{{/* Titre optimisé — seo_title surchargé TEL QUEL (0 suffixe), sinon .Title + suffixe court.
+     Le suffixe long .Site.Title (53c) tronquait les titres en SERP → CTR effondré (audit GSC juin 2026). */}}
 {{ if .IsHome }}
 <title>{{ .Site.Title }}</title>
+{{ else if .Params.seo_title }}
+<title>{{ $title }}</title>
 {{ else }}
-<title>{{ $title }} | {{ .Site.Title }}</title>
+<title>{{ $title }} | L'Agence Sauvage</title>
 {{ end }}
 {{/* Meta description - Crucial pour SEO et GEO */}}
 <meta name="description" content="{{ $description }}">

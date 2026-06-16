@@ -1,5 +1,5 @@
 ---
-title: "Diagnostic de Transformation IA pour entreprises | L'Agence Sauvage"
+title: "Diagnostic de Transformation IA pour entreprises"
 description: "5 jours d'immersion sur site pour identifier où l'IA peut transformer vos opérations, combien vous pouvez gagner, et par où commencer. Approche 360° : technique, business, humain."
 keywords:
   - diagnostic transformation IA entreprise
