@@ -1,5 +1,6 @@
 ---
 title: "Base de connaissances IA : comment donner une mémoire infaillible à votre PME (méthode Karpathy)"
+bofu_links: true
 date: 2026-04-16
 lastmod: 2026-04-16
 description: "Découvrez comment la méthode LLM Knowledge Base d'Andrej Karpathy permet à une PME de créer une mémoire d'entreprise persistante avec Obsidian, Claude et n8n — sans équipe technique dédiée."
