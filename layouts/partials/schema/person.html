@@ -1,0 +1,31 @@
+{{/* =============================================================================
+   Schema.org Person — Entité canonique de Franck Sauvage (E-E-A-T / GEO)
+   @id stable (#franck-sauvage) réutilisé partout : author d'article,
+   author de case-study, mainEntity de /about. Émis sur toutes les pages
+   via baseof.html pour que le graphe d'entités soit toujours résoluble.
+   ============================================================================= */}}
+{{ with .Site.Params.person }}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "{{ $.Site.BaseURL }}#franck-sauvage",
+    "name": "{{ .name }}",
+    "jobTitle": "{{ .jobTitle }}",
+    "description": "{{ .description }}",
+    "url": "{{ .url }}",
+    "image": "{{ .image }}",
+    "worksFor": {
+        "@id": "{{ $.Site.BaseURL }}#organization"
+    },
+    "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "{{ .alumniOf }}"
+    },
+    "knowsAbout": [{{ range $i, $k := .knowsAbout }}{{ if $i }}, {{ end }}"{{ $k }}"{{ end }}],
+    "sameAs": [
+        "{{ .linkedin }}"
+    ]
+}
+</script>
+{{ end }}

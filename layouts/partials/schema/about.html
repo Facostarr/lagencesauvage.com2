@@ -1,35 +1,17 @@
-{{/* Schema.org AboutPage + Person — Page À propos */}}
-{{ with .Params.schema.person }}
+{{/* Schema.org AboutPage — référence l'entité Person canonique (cf. schema/person.html)
+   et l'Organization, toutes deux émises via baseof.html. */}}
 <script type="application/ld+json">
 {
     "@context": "https://schema.org",
     "@type": "AboutPage",
+    "@id": "{{ .Permalink }}#aboutpage",
+    "url": "{{ .Permalink }}",
+    "name": "{{ .Title }}",
     "mainEntity": {
-        "@type": "Person",
-        "name": "{{ .name }}",
-        "jobTitle": "{{ .jobTitle }}",
-        "description": "{{ .description }}",
-        "worksFor": {
-            "@type": "Organization",
-            "name": "{{ $.Site.Title }}",
-            "url": "{{ $.Site.Params.organization.url }}",
-            "description": "{{ $.Site.Params.organization.description }}",
-            "foundingDate": "{{ $.Site.Params.organization.foundingDate }}",
-            "areaServed": {
-                "@type": "Country",
-                "name": "France"
-            },
-            "knowsAbout": ["Automatisation IA", "n8n", "Claude AI", "Supabase", "Intelligence artificielle pour PME"]
-        },
-        "knowsAbout": [{{ range $i, $k := .knowsAbout }}{{ if $i }}, {{ end }}"{{ $k }}"{{ end }}],
-        "alumniOf": {
-            "@type": "EducationalOrganization",
-            "name": "{{ .alumniOf }}"
-        },
-        "sameAs": [
-            "{{ .linkedin }}"
-        ]
+        "@id": "{{ .Site.BaseURL }}#franck-sauvage"
+    },
+    "about": {
+        "@id": "{{ .Site.BaseURL }}#organization"
     }
 }
 </script>
-{{ end }}
