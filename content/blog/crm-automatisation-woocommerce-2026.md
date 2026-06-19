@@ -29,8 +29,6 @@ faq:
     answer: "Non. Les CRM modernes comme HubSpot ou Brevo proposent des plugins WordPress à installer en quelques clics, avec synchronisation automatique. Aucune compétence en code n'est nécessaire. La configuration des automatisations demande en revanche du temps et une bonne compréhension de vos parcours clients."
 ---
 
-# CRM et automatisation pour WooCommerce : le guide complet pour booster vos ventes en 2026
-
 Vous gérez une boutique en ligne sous WooCommerce et vous avez l'impression de passer à côté de ventes ? Vous n'êtes pas seul. Selon l'institut Baymard (2024), **70,19% des paniers sont abandonnés** avant la finalisation de l'achat. Autrement dit, sur 10 clients qui remplissent leur panier, 7 repartent sans acheter.
 
 La bonne nouvelle ? Une grande partie de ces ventes perdues peut être récupérée. La solution tient en deux mots : **CRM** et **automatisation**.
