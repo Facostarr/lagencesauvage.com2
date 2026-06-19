@@ -1,5 +1,12 @@
 # Next Tasks — Refonte lagencesauvage.com
 
+## Article "Financer l'IA dans votre PME" (publié 2026-06-19) — suivi
+
+- [x] **Hero image remplacé** (PR #16 mergée 2026-06-19) : visuel "pont PME→IA" généré par Hermes via Gemini, WebP 1366×762 / 92 Ko. _Option v2_ : refaire sans les labels « AI » (anglais → « IA ») si on veut peaufiner.
+- [ ] **Publier le post LinkedIn** (rédigé en fin de session, angle CAPEX/OPEX, lien article en 1er commentaire). 2 variantes de hook dispo.
+- [ ] **Recrawl Search Console** : soumettre `https://www.lagencesauvage.com/blog/financer-ia-pme-aides-subventions-2026/`.
+- [ ] **Maillage entrant** : ajouter un lien vers ce nouvel article depuis l'article OPCO formation (`dispositifs-opco-2026-financer-formation-ia-pme`) et éventuellement l'article AI Act, pour renforcer le cluster financement (lien retour hub↔spoke).
+
 ## Lead magnet C (kit cabinet comptable) — AVANT le wiring
 
 - [ ] **Factoriser les scripts docx `docs/lead-magnets/create-*.cjs`** (GO Franck 2026-06-11) : les 3 scripts existants (create-doc.cjs, create-checklist.cjs, create-grille-seo-geo.cjs) dupliquent ~50 Ko chacun de branding/styles docx/helpers. Extraire un module commun `docs/lead-magnets/_docx-helpers.cjs` (couleurs ASV, styles titres/tableaux, header/footer, logo) AVANT de créer le script du magnet C — qui devient alors un simple fichier de contenu. Rappel : côté API, magnet C = 1 entrée config MAGNETS dans submit-lead-magnet.js, zéro fonction Vercel.

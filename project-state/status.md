@@ -15,6 +15,19 @@
 | Phase 6 — Bascule | ✅ Logo validé, merge main | 2026-03-23 | 2026-03-23 |
 | Phase 7 — Post-bascule | 🔄 En cours | 2026-03-23 | — |
 
+## Session 2026-06-19 — Article "Financer l'IA dans votre PME" (aides & subventions)
+
+| # | Livrable | Statut | Commit |
+|---|----------|--------|--------|
+| — | Article pilier BOFU "Financer l'IA dans votre PME en 2026 : toutes les aides et subventions" (~2 300 mots, 7 H2, CAPEX/OPEX, matrice + parcours type chiffré) | ✅ Publié main | `ce78927` (PR #15) |
+| — | Plan validé Claude + Gemini + DeepSeek (8/10) ; chiffres re-vérifiés sources off. (2 hallucinations Gemini corrigées : Diag Data IA 25 %/RAC 7,5k€, EDIH 30) ; 0 source concurrente | ✅ | — |
+| — | Passe humanizer + critique Gemini appliquée ; prix retiré ; Qualiopi "via partenaire" ; maillage hub→spoke OPCO+simulateur | ✅ | — |
+| — | Post LinkedIn (myth-buster CAPEX/OPEX, lien en 1er commentaire) rédigé, prêt à copier-coller | 🔄 À publier par Franck | — |
+
+**Hero image final** : ✅ visuel "pont PME→IA" (TPE/PME → pont au-dessus d'une rivière de pièces € → monde IA doré) généré par Hermes via Gemini, converti WebP 1366×762 / 92 Ko, **PR #16 mergée sur main** (`c0ef235`). Réserve mineure : labels « AI » en anglais (v2 « IA » possible).
+
+**Reste à faire** : (1) Franck publie le post LinkedIn ; (2) recrawl GSC de la nouvelle URL.
+
 ## Session 2026-06-11 — Qualité code via CodeGraph (S15) — cherry-pick sur main
 
 | # | Sprint | Statut | Commits (main) |

@@ -1,5 +1,20 @@
 # Changelog — Refonte lagencesauvage.com
 
+## 2026-06-19 — Article "Financer l'IA dans votre PME en 2026" (aides & subventions) + post LinkedIn
+
+### Article pilier BOFU publié sur main (PR #15, commit `ce78927`)
+- `content/blog/financer-ia-pme-aides-subventions-2026.md` — ~2 300 mots, 7 H2, angle **CAPEX/OPEX** ("les aides financent le lancement, pas les abonnements récurrents"). Panorama complet : OPCO (PDC / actions collectives / CPF), Diag Data IA Bpifrance, Pack IA régional, EDIH, Prêt Boost IA, FSE+, France Travail.
+- **Matrice de décision** (Besoin→Dispositif→Taux→Délai→Éligibilité), **parcours type chiffré cumulé**, 3 idées reçues désamorcées.
+- **Plan validé Claude + Gemini + DeepSeek** : Gemini (6,5→recadrage matrice/CAPEX-OPEX/parcours), DeepSeek (8/10) corrige Gemini → structure "répondre à l'intention d'abord, éduquer au milieu, pont vers l'offre à la fin". Passe humanizer + critique Gemini appliquée (logique des familles 3+cumul, retrait tics "Concrètement/remet à plat", CTA en vocabulaire d'expert).
+- **Chiffres re-vérifiés sources officielles** (Bpifrance, France Num, Assemblée Nationale) : Gemini avait **halluciné** le Diag Data IA (vrai = 10 000 € HT / 25 % / RAC 7 500 €) et le nombre d'EDIH (vrai = 30). **0 source concurrente** (règle #12).
+- Maillage hub→spoke : 2× article OPCO formation + 5× simulateur (anti-cannibalisation). Qualiopi "via partenaire". **Prix retiré** (dépend du périmètre, décision Franck).
+- Front matter YAML **single-quoted** (apostrophes doublées) → JSON-LD propre (apostrophes en `'`, pas de double-quote). Confirme le contournement du bug `feedback_hugo_yaml_bug`.
+- Hero image : d'abord un **placeholder cubes indigo** (outil Gemini image **dégradé** ce jour, 18 essais → fog systématique ; fallback style maison boosté via `sharp`, WebP 54 Ko). **Remplacé le même jour (PR #16, `c0ef235`)** par le vrai hero "pont PME→IA" généré par **Hermes** via Gemini (TPE/PME → pont au-dessus d'une rivière de pièces € → monde IA doré), converti WebP 1366×762 / 92 Ko. Réserve : labels « AI » en anglais (v2 « IA » possible). Source jpeg racine nettoyée.
+- Validation Franck explicite ("JE valide, GO") → PR #15 mergée en squash sur main. Build local Hugo OK (exit 0). Vercel prod déployée.
+
+### Post LinkedIn (à publier par Franck)
+- Rédigé (skill `linkedin-content-creator` croisée avec `agence-sauvage-tone`), angle myth-buster CAPEX/OPEX, hook statement, **lien en 1er commentaire** (portée). Prêt à copier-coller. 2 variantes de hook fournies.
+
 ## 2026-06-11 (suite) — CI, index OPCO 105→922, deps, nettoyage git
 
 ### CI GitHub Actions (option B validée Franck)
