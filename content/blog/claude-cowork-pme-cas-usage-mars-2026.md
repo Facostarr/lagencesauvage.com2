@@ -1,5 +1,6 @@
 ---
 title: "Claude Cowork en mars 2026 : 3 cas d'usage concrets pour les PME (et gains de temps chiffrés)"
+bofu_links: true
 date: 2026-03-24
 lastmod: 2026-05-21
 description: "Claude Cowork transforme la comptabilité, le marketing et le SAV des PME. Découvrez 3 cas d'usage concrets avec gains de temps mesurés — reportings divisés par 6, contenu accéléré de 40 à 60%, tickets traités 3x plus vite."
@@ -99,7 +100,7 @@ Claude produit un document complet : analyse comparative des canaux, recommandat
 
 Les [Projects de Cowork](https://cybersecuritynews.com/projects-feature-claude-cowork-desktop/) permettent de regrouper fichiers, instructions et historique de conversation dans un espace dédié. Vos directives de marque, vos personas et vos données restent accessibles à chaque session — pas besoin de tout réexpliquer à chaque fois.
 
-> Les PME qui veulent structurer leur production de contenu IA (blog SEO/GEO, LinkedIn, newsletters) peuvent s'appuyer sur [notre offre Formation IA](/services/) : une journée pour maîtriser les workflows Claude Cowork adaptés à votre stratégie éditoriale.
+> Les PME qui veulent structurer leur production de contenu IA (blog SEO/GEO, LinkedIn, newsletters) peuvent s'appuyer sur notre [formation Maîtriser Claude en entreprise](/formation/maitriser-claude-entreprise/) : une journée pour maîtriser les workflows Claude Cowork adaptés à votre stratégie éditoriale.
 
 ---
 
@@ -164,7 +165,7 @@ L'outil est accessible. Mais identifier les bons workflows, configurer les conne
 
 **Deux approches selon votre maturité :**
 
-- **[Formation IA](/services/)** : une journée intensive pour que vos équipes maîtrisent Claude Cowork dans leur contexte métier — comptabilité, marketing ou SAV. Vous repartez avec des workflows testés et un playbook d'utilisation adapté à vos cas d'usage
+- **[Formation IA](/formation/maitriser-claude-entreprise/)** : une journée intensive pour que vos équipes maîtrisent Claude Cowork dans leur contexte métier — comptabilité, marketing ou SAV. Vous repartez avec des workflows testés et un playbook d'utilisation adapté à vos cas d'usage. Formation **finançable par votre OPCO** — [testez votre prise en charge](/simulateur-opco/)
 - **[Transformation IA](/services/)** : un déploiement complet sur mesure. Audit de vos processus, configuration des connecteurs MCP, création de workflows automatisés, formation des équipes et suivi post-déploiement. Pour les PME qui veulent des résultats immédiats sans mobiliser leurs ressources internes
 
 Dans les deux cas, le point de départ est le même : un [diagnostic IA gratuit de 30 minutes](/diagnostic-ia/) pour cartographier vos cas d'usage et mesurer le potentiel de gains.

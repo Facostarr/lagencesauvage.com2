@@ -207,6 +207,12 @@
                             Réserver un appel &rarr;
                         </a>
                     </div>
+                    {{/* Maillage interne BOFU — articles locomotives (front matter bofu_links) */}}
+                    {{ if .Params.bofu_links }}
+                    <p class="text-sm text-slate-muted mt-4 leading-relaxed">
+                        L'Agence Sauvage est une <a href="/services/" class="text-indigo hover:text-indigo-dark font-medium">agence IA pour PME</a> : automatisation, formation et agents IA. Pour repérer où l'IA peut vous faire gagner du temps, commencez par un <a href="/diagnostic/" class="text-indigo hover:text-indigo-dark font-medium">diagnostic de transformation IA</a>.
+                    </p>
+                    {{ end }}
                 </div>
             </div>
         </div>

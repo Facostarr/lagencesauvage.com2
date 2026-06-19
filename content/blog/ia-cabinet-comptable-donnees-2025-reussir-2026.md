@@ -156,6 +156,8 @@ L'IA Act européen, entré en vigueur progressivement, impose aux organisations 
 
 Au-delà de la conformité, la formation est le levier principal d'adoption. Les études Bpifrance sont formelles : **76% des salariés français n'ont reçu aucune formation à l'IA**, ce qui explique largement les résistances au changement.
 
+Bonne nouvelle : cette montée en compétences est **finançable**. La plupart des cabinets d'expertise comptable relèvent de l'OPCO Atlas, qui peut prendre en charge tout ou partie d'une formation à l'IA. [Testez votre éligibilité au financement en 2 minutes](/simulateur-opco/) ou découvrez notre [formation Maîtriser Claude en entreprise](/formation/maitriser-claude-entreprise/).
+
 ## Par où commencer en 2026 : la méthode progressive
 
 ### Phase 1 : Initiation (1-2 semaines)

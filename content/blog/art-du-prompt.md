@@ -1,5 +1,6 @@
 ---
 title: "L'Art du Prompt : Le Guide Complet pour les Entrepreneurs"
+bofu_links: true
 seo_title: "L'art du prompt : le guide complet pour dirigeants"
 seo_description: "Le guide du prompt pour dirigeants : les 5 piliers d'un bon prompt, les techniques avancées et des cas d'usage business concrets pour tirer parti de l'IA."
 date: 2025-12-19T10:00:00+01:00
@@ -226,6 +227,7 @@ Découpez une tâche complexe en **sous-prompts successifs**. La sortie d'un pro
 
 ### Formations
 
+- **L'Agence Sauvage** : [*Maîtriser Claude en entreprise*](/formation/maitriser-claude-entreprise/) — une journée en français, orientée PME, **finançable par votre OPCO** ([testez votre éligibilité](/simulateur-opco/)).
 - **Udemy** : *« Master Prompt Engineering »* (4.5/5).
 - **Coursera** : *« Generative AI for Business »* (par l'Université de Michigan).
 
