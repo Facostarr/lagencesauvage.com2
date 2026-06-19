@@ -6,13 +6,7 @@
     "headline": "{{ .Title }}",
     "description": "{{ .Description }}",
     "author": {
-        "@type": "Person",
-        "name": "Franck Sauvage",
-        "jobTitle": "Fondateur",
-        "worksFor": {
-            "@type": "Organization",
-            "name": "{{ .Site.Params.organization.name }}"
-        }
+        "@id": "{{ .Site.BaseURL }}#franck-sauvage"
     },
     "publisher": {
         "@type": "Organization",

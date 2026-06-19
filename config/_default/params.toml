@@ -37,11 +37,23 @@ favicon = "/assets/images/favicon.svg"
   
   # Adresse
   [organization.address]
-    streetAddress = ""
+    streetAddress = "47 Rue Berger"
     addressLocality = "Paris"
     addressRegion = "Île-de-France"
-    postalCode = ""
+    postalCode = "75001"
     addressCountry = "FR"
+
+# Personne (Schema.org) — entité canonique du fondateur (E-E-A-T / GEO)
+# Source unique réutilisée par schema/person.html via @id #franck-sauvage
+[person]
+  name = "Franck Sauvage"
+  jobTitle = "Fondateur"
+  description = "Entrepreneur et expert B2B SaaS avec plus de 20 ans d'expérience. Fondateur de L'Agence Sauvage, agence d'automatisation IA pour les TPE/PME françaises."
+  url = "https://www.lagencesauvage.com/about/"
+  image = "https://www.lagencesauvage.com/assets/images/franck-sauvage.jpg"
+  alumniOf = "NEOMA Business School"
+  linkedin = "https://www.linkedin.com/in/franck-sauvage/"
+  knowsAbout = ["SaaS B2B", "Automatisation IA", "Vente complexe", "Process métier", "n8n", "Claude (Anthropic)", "Intelligence artificielle pour PME"]
 
 # Auteur par défaut des articles
 [defaultAuthor]

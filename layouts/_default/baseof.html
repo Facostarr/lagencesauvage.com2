@@ -10,6 +10,9 @@
     {{/* Schema.org Organization (sur toutes les pages) */}}
     {{ partial "schema/organization.html" . }}
 
+    {{/* Schema.org Person — fondateur, entité canonique E-E-A-T (toutes pages) */}}
+    {{ partial "schema/person.html" . }}
+
     {{/* Schema.org WebSite (homepage uniquement) */}}
     {{ if .IsHome }}
     <script type="application/ld+json">

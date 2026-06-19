@@ -15,8 +15,10 @@
     "areaServed": "{{ .Site.Params.organization.areaServed }}",
     "address": {
         "@type": "PostalAddress",
+        "streetAddress": "{{ .Site.Params.organization.address.streetAddress }}",
         "addressLocality": "{{ .Site.Params.organization.address.addressLocality }}",
         "addressRegion": "{{ .Site.Params.organization.address.addressRegion }}",
+        "postalCode": "{{ .Site.Params.organization.address.postalCode }}",
         "addressCountry": "{{ .Site.Params.organization.address.addressCountry }}"
     },
     "sameAs": [
