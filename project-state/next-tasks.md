@@ -1,5 +1,26 @@
 # Next Tasks — Refonte lagencesauvage.com
 
+## Session 2026-06-21 — Suite SEO/GEO (priorités)
+
+### Immédiat (post-publication)
+- [ ] **GSC → Inspection d'URL** : demander l'indexation de `/blog/choisir-organisme-formation-ia-qualiopi/` ET `/blog/visibilite-ia-entreprise-cite-par-chatgpt/` (titre modifié).
+- [ ] **Vérifier le lien Légifrance** (décret 2019-565, ELI) dans l'article Qualiopi — 1 clic (403 anti-bot à la vérif auto, lien très probablement bon).
+
+### Chantier F — Autorité / backlinks (LE levier, à lancer)
+- [ ] Candidater **France Num Activateurs** (annuaire `.gouv`, ICP exact, gratuit ; condition « 1er RDV gratuit » déjà remplie).
+- [ ] **Pennylane Partenaires** (case study réel) : demande de partenariat intégrateur.
+- [ ] **Hub France IA** : être listé dans la cartographie publique avec lien dofollow (déjà adhérent).
+- [ ] **n8n Experts** + Creators ; **Google Business Profile** + **Bing Places** ; profils Sortlist / YouFeel / Malt (Franck) / Codeur.
+- [ ] _(Claude peut rédiger les candidatures France Num / Pennylane / n8n sur demande.)_ Objectif : 2 backlinks qualité/mois.
+
+### Mesure (dans 4-8 semaines)
+- [ ] Re-lancer `gsc_pull.py` (avant/après CTR des pages du gisement + nouvelles requêtes).
+- [ ] Suivre le `geo_score` brand/winnable/discovery hebdo (email tracker) après refonte des requêtes.
+
+### GEO Tracker — dette / suivi (repo VPS `/opt/geo-citation-tracker`)
+- [ ] Coût plugin web Exa non compté dans `daily_budget_eur` (surveiller ; marge OpenRouter 99 $ OK).
+- [ ] Boutons « tester un moteur » du dashboard (`api.py`) encore sur les clés natives (migrer si utilisés).
+
 ## Article "Financer l'IA dans votre PME" (publié 2026-06-19) — suivi
 
 - [x] **Hero image remplacé** (PR #16 mergée 2026-06-19) : visuel "pont PME→IA" généré par Hermes via Gemini, WebP 1366×762 / 92 Ko. _Option v2_ : refaire sans les labels « AI » (anglais → « IA ») si on veut peaufiner.

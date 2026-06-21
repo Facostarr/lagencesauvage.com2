@@ -1,5 +1,19 @@
 # Changelog — Refonte lagencesauvage.com
 
+## 2026-06-21 — Outillage visibilité SEO/GEO + article pilier Qualiopi/OF
+
+### GEO Citation Tracker réparé et amélioré (repo VPS `/opt/geo-citation-tracker`)
+Diagnostic data : l'audit hebdo tournait à moitié dans le noir (ChatGPT erreur 429 quota, Perplexity 401 clé morte depuis ~le 8/06), ce qui faussait le `geo_score`. **Migration hybride OpenRouter** (`d25a612`) : nouveau connecteur générique `OpenRouterEngine` (OpenAI-compatible, plugin web Exa), ChatGPT/Claude/Perplexity/Grok routés via une seule clé `OPENROUTER_API_KEY`, **Gemini reste natif** (Google Search grounding, à ne pas dégrader). Smoke test 5/5 vert, `geo-dashboard.service` redémarré → fix live pour l'audit interne ET le scan public (même `AuditManager`). Puis **refonte des requêtes** (`0b094bb`, taxonomie `brand/winnable/discovery` 6/22/7 via workflow multi-agents), **score winnable séparé** dans l'email hebdo (`e93cc85`), et **ingestion GSC** OAuth (`gsc_pull.py`, `318239d`+`a8dd0b0`).
+
+### Quick-win CTR (repo site, `f5e4e6f`, poussé main)
+GSC (vraies données, enfin accessibles) révélait des pages page-1 à CTR ridicule (titres). Vérification : 3/4 déjà corrigées la semaine passée (`44560ea`/`66e5d1c`). La 4ᵉ oubliée (`visibilite-ia-entreprise-cite-par-chatgpt`, titre 95 car. qui tronquait) corrigée : seo_title 54 car. + seo_description + lastmod bumpé. Build vérifié (title + FAQ schema OK).
+
+### Article pilier « Choisir un organisme de formation IA Qualiopi » (repo site, `b6c279a`, poussé main)
+`content/blog/choisir-organisme-formation-ia-qualiopi.md` — ~1 700 mots, 6 H2, cluster Formation/OPCO (3ᵉ du cluster). **Silo anti-cannibalisation** : les 2 articles existants = « comment financer », celui-ci = « quel organisme choisir ». **Thèse** : l'OF Qualiopi débloque le financement, le **formateur** fait la qualité → ASV se positionne comme formateur via OF partenaires (neutre sur le choix de l'OF). Process : plan validé **consensus GLM 5.2 (8/10)** puis **2 red-teams** (DeepSeek V4 Pro + Qwen 3.7-plus via MCP orouter) → reframe v3 (transparence dès l'intro, méthode neutre data.gouv, H2 délais+CPF). Sources **100 % officielles** (France Num Baromètre 2025 : 26 % des TPE/PME utilisent l'IA en 2025 vs 5 % en 2023 ; RNQ V9 ; data.gouv liste Qualiopi ; quel-est-mon-opco). Image hero **risograph duotone** (rupture volontaire avec le style abstrait des autres hero ; Gemini → WebP 1366×762 37 Ko via `sharp --no-save`). Contrôle ton/anti-IA clean.
+
+### Outillage de mesure (réponse de fond à la demande)
+**Ahrefs MCP** connecté (plan gratuit → seul `public-domain-rating-free` marche : **DR lagencesauvage.com = 11**, quantifie le déficit d'autorité). **Bing Webmaster Tools** configuré (import GSC, par Franck) = index ChatGPT Search. **GSC connecté en OAuth** (compte de service bloqué par org policy `iam.disableServiceAccountKeyCreation`) → premières vraies requêtes Google. **Diagnostic triangulé** (GSC + GEO Tracker + Plausible) : le goulot est l'**autorité**, pas la technique. **Liste de cibles backlinks** (chantier F) livrée.
+
 ## 2026-06-19 — Article "Financer l'IA dans votre PME en 2026" (aides & subventions) + post LinkedIn
 
 ### Article pilier BOFU publié sur main (PR #15, commit `ce78927`)

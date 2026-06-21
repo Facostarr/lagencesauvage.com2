@@ -15,6 +15,27 @@
 | Phase 6 — Bascule | ✅ Logo validé, merge main | 2026-03-23 | 2026-03-23 |
 | Phase 7 — Post-bascule | 🔄 En cours | 2026-03-23 | — |
 
+## Session 2026-06-21 — Outillage visibilité SEO/GEO + article pilier Qualiopi/OF
+
+**Contexte** : demande Franck « comprendre et améliorer notre visibilité SEO/GEO ». Session double : (A) réparer/outiller la mesure, (B) publier le 1er pilier du plan.
+
+### A. GEO Citation Tracker (repo VPS `/opt/geo-citation-tracker`, hors repo site)
+- **Migration hybride OpenRouter** (commit tracker `d25a612`) : ChatGPT (429) + Perplexity (401) morts depuis ~le 8/06 → audit hebdo à moitié dans le noir. Nouveau connecteur `OpenRouterEngine`, 4 moteurs via OpenRouter (1 clé), Gemini natif. Smoke 5/5, service redémarré. Répare aussi le scan public (même `AuditManager`).
+- **Refonte des requêtes** (`0b094bb`) : 35 requêtes `brand(6)/winnable(22)/discovery(7)` (workflow multi-agents), ancien set désactivé.
+- **Score winnable séparé** (`e93cc85`) : bloc « Score par catégorie » dans l'email hebdo.
+- **Ingestion GSC** (`318239d`+`a8dd0b0`) : `gsc_pull.py` OAuth utilisateur.
+
+### B. Repo site (poussés sur main)
+- **Quick-win CTR** (`f5e4e6f`) : seo_title/seo_description sur l'article visibilité-IA (seule page oubliée du gisement CTR ; 3 autres déjà faites `44560ea`/`66e5d1c`).
+- **Article pilier** (`b6c279a`) : « Formation IA finançable : comment choisir votre organisme Qualiopi (guide 2026) » + image hero **risograph** (rupture du style abstrait). Consensus GLM 5.2 (8/10) + 2 red-teams (DeepSeek V4 Pro + Qwen 3.7). Positionnement : **ASV = formateur via OF partenaires certifiés** (pas OF elle-même).
+
+### Outillage / diagnostic visibilité
+- **Ahrefs MCP** connecté (plan gratuit → seul le DR exploitable : **lagencesauvage.com DR = 11**).
+- **Bing Webmaster Tools** configuré (import GSC, par Franck) = index ChatGPT Search couvert.
+- **GSC connecté** (OAuth) → vraies requêtes Google tirées pour la 1ʳᵉ fois.
+- **Diagnostic** : GSC + GEO Tracker + Plausible convergent → déficit = **autorité** (pas technique).
+- **Liste cibles backlinks** (chantier F) livrée : France Num Activateurs, Pennylane Partenaires, Hub France IA (déjà adhérent), n8n Experts, Google/Bing, marketplaces.
+
 ## Session 2026-06-19 — Article "Financer l'IA dans votre PME" (aides & subventions)
 
 | # | Livrable | Statut | Commit |

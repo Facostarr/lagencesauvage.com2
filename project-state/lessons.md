@@ -1,5 +1,23 @@
 # Lessons Learned — Refonte lagencesauvage.com
 
+## MCP orouter (OpenRouter) — formats et timeouts pour le multi-LLM (lesson 2026-06-21)
+
+**Contexte** : brainstorm + double red-team d'un plan d'article via GLM 5.2, DeepSeek V4 Pro, Qwen 3.7.
+
+**Règles outil** : `set_active_model` attend `{model:"slug"}` (objet, pas string) ; le modèle actif est **global** (state.json partagé). `ask` attend `{prompt, priority}` avec `priority ∈ fast|default|deep`. `red_team_validate` attend `{hypothesis: string, evidence: string[]}` (evidence = **liste**). **Le mode `deep` (et red_team_validate sur gros modèles type qwen3.7-max) dépasse le timeout transport MCP (~60 s)** → rester en `priority: default` et préférer les modèles "plus/flash" aux "max" pour les appels longs. Penser à remettre le modèle voulu en actif à la fin (j'ai laissé GLM 5.2).
+
+## Hero image — sortir du « flat corporate 2023 » + conversion WebP (lesson 2026-06-21)
+
+**Symptôme** : Gemini en style « editorial flat vector » sort des illustrations type Corporate Memphis/Alegria, datées « IA 2023 ». **Règle DA** : bannir « flat vector / corporate » dans le prompt, demander explicitement un style premium et texturé (`risograph screenprint`, `editorial illustration with grain`, `painterly gouache`) ; Gemini réussit les **scènes concrètes** (pas les métaphores abstraites floues). **Conversion WebP** : ni `sharp` ni `cwebp` ne sont installés dans le repo site → `npm install --no-save sharp` (n'altère pas package.json) puis `sharp(src).resize({width:1366}).webp({quality:80})` ; sortie ~37 Ko pour un risograph (cible <100 Ko OK).
+
+## Mesure SEO/GEO — limites des connecteurs (lesson 2026-06-21)
+
+**Ahrefs MCP** : sur plan gratuit, seul `public-domain-rating-free` répond (DR) ; tout le reste (Site Explorer, Keywords, GSC, Brand Radar) = `Insufficient plan`. Pas un outil de mesure exploitable sans abonnement. **GSC** : pas de connecteur dans le registre MCP, et les **clés de compte de service Google sont bloquées** par l'org policy `iam.disableServiceAccountKeyCreation` → passer par **OAuth utilisateur** (client Desktop réutilisé, refresh_token durable, consent screen Interne), token stocké dans `secrets/` côté VPS. **SimilarWeb MCP** : OAuth bloqué CloudFront, inexploitable.
+
+## Positionnement formation ASV — ne plus dire « certifié Qualiopi » (lesson 2026-06-21)
+
+**Contexte** : la skill `agence-sauvage-brand-identity` liste « Certifié Qualiopi » comme preuve. **Réalité actuelle (Franck)** : ASV **n'est pas un organisme de formation**, elle **intervient comme formateur via plusieurs OF partenaires certifiés Qualiopi** (ne collabore plus spécifiquement avec GhG). **Règle contenu** : écrire « formateur IA via des organismes partenaires certifiés Qualiopi », jamais « ASV est certifiée Qualiopi » (risque factuel/juridique + E-E-A-T). Vérifier les affirmations sensibles de la brand-skill contre la réalité avant publication.
+
 ## CodeGraph — une alerte « sans test » peut être un faux positif de couverture indirecte (lesson 2026-06-11)
 
 **Symptôme** : le blast radius CodeGraph signalait `computeBudget` « ⚠️ aucun test couvrant ». En réalité son unique appelant prod (`runCompute`) est testé par 5 scénarios — le moteur était donc couvert indirectement, l'outil ne suit que les imports directs des fichiers de test.
