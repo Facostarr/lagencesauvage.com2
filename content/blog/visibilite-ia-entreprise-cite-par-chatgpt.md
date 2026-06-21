@@ -1,7 +1,9 @@
 ---
 title: "Comment être cité par ChatGPT en 2026 : le guide complet de la visibilité IA pour les entreprises"
+seo_title: "Être cité par ChatGPT : le guide GEO pour entreprises"
+seo_description: "36 % des sources citées par les IA sont des entreprises. La méthode GEO concrète pour que ChatGPT, Perplexity et Gemini recommandent la vôtre."
 date: 2026-03-23
-lastmod: 2026-03-23
+lastmod: 2026-06-21
 description: "60 % des Français consultent l'IA avant un achat. Découvrez comment les chatbots choisissent leurs sources, et les actions concrètes pour que votre entreprise soit citée par ChatGPT, Perplexity et Gemini."
 summary: "Les IA sont devenues des prescripteurs. Une étude Occurrence/Ifop révèle que 36 % des sources citées par les chatbots sont des entreprises. Voici comment devenir l'une d'elles."
 
