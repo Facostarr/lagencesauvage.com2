@@ -1,5 +1,6 @@
 ---
 title: "AI Act : former vos collaborateurs à l'IA est désormais une obligation légale"
+seo_title: "AI Act 2026 : la formation IA devient obligatoire"
 date: 2026-04-16
 lastmod: 2026-04-16
 description: "Depuis le 2 février 2025, l'article 4 de l'AI Act impose à toute entreprise utilisant des outils d'IA de former ses équipes. Voici ce que cela change pour votre PME — et comment financer la formation jusqu'à 100 % via les OPCO et le CPF."

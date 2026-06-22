@@ -1,5 +1,6 @@
 ---
 title: L'Opcommerce 2026 — Budget formation, dispositifs et conventions
+seo_title: "OPCO L'Opcommerce 2026 : budget & dispositifs formation"
 description: L'Opcommerce finance la formation des salariés des secteurs commerce et distribution. Dispositifs activables 2026 (PDC, Période de reconversion, AFEST, abondement CPF), branches couvertes, sources officielles. Calcul aut
 date: 2026-05-23
 lastmod: '2026-05-26'

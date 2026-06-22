@@ -1,5 +1,6 @@
 ---
 title: "SaaSpocalypse : comment les TPE/PME peuvent transformer la menace IA en avantage concurrentiel"
+seo_title: "SaaSpocalypse : l'IA, menace ou atout pour les TPE/PME ?"
 date: 2026-02-10
 lastmod: 2026-06-10
 description: "L'IA va remplacer vos logiciels métier. Découvrez ce qu'est la SaaSpocalypse et comment préparer votre TPE/PME à cette révolution."

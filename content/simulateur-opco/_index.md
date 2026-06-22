@@ -1,5 +1,6 @@
 ---
 title: "Simulateur OPCO 2026 — Budget formation TPE/PME en 30 secondes"
+seo_title: "Simulateur OPCO 2026 : budget formation TPE/PME"
 description: "Calculez en 30 secondes le budget formation OPCO 2026 de votre PME depuis votre SIREN. Données officielles DGEFP, France Compétences, 11 OPCO. Gratuit, sans compte."
 date: 2026-05-23
 lastmod: 2026-05-23

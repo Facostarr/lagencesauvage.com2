@@ -419,6 +419,16 @@ def build_page(b: dict) -> str:
     else:
         title = f"Simulateur Budget Formation {nom_court} — 2026"
 
+    # seo_title court (<=60 car, Bing « Title too long ») — sans IDCC, OPCO en suffixe
+    _opco_court = opco_label
+    for _pre in ("OPCO ", "Opco "):
+        if _opco_court.startswith(_pre):
+            _opco_court = _opco_court[len(_pre):]
+            break
+    seo_title = f"Budget formation {nom_court} 2026 — {_opco_court}"
+    if len(seo_title) > 60:
+        seo_title = f"Budget formation {nom_court} 2026"
+
     description = (
         f"Calculez votre budget formation 2026 pour la convention {nom_court} ({opco_label}, "
         f"IDCC {idccs_str}). Plafonds PDC par tranche d'effectif, dispositifs activables, "
@@ -432,6 +442,7 @@ def build_page(b: dict) -> str:
     fm_lines = [
         "---",
         f"title: {yaml_escape(title)}",
+        f"seo_title: {yaml_escape(seo_title)}",
         f"description: {yaml_escape(description)}",
         "date: 2026-05-23",
         "lastmod: 2026-05-23",

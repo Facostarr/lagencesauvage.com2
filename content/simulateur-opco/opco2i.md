@@ -1,5 +1,6 @@
 ---
 title: OPCO 2i 2026 — Budget formation, dispositifs et conventions
+seo_title: "OPCO 2i 2026 : budget & dispositifs formation"
 description: OPCO 2i finance la formation des salariés des secteurs industrie (interindustriel). Dispositifs activables 2026 (PDC, Période de reconversion, AFEST, abondement CPF), branches couvertes, sources officielles. Calcul autom
 date: 2026-05-23
 lastmod: '2026-05-26'

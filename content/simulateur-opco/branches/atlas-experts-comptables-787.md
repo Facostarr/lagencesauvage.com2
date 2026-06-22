@@ -1,5 +1,6 @@
 ---
 title: Simulateur Budget Formation Experts-comptables (IDCC 787) — 2026
+seo_title: "Budget formation Experts-comptables 2026 — Atlas"
 description: 'Calculez votre budget formation 2026 pour la convention Experts-comptables (Opco Atlas, IDCC 787). Plafonds PDC par tranche d''effectif, dispositifs activables, sources officielles. Simulation en 30 secondes.'
 date: 2026-05-23
 lastmod: 2026-05-23

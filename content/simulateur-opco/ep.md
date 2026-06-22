@@ -1,5 +1,6 @@
 ---
 title: OPCO EP 2026 — Budget formation, dispositifs et conventions
+seo_title: "OPCO EP 2026 : budget & dispositifs formation"
 description: OPCO EP finance la formation des salariés des secteurs entreprises de proximité — artisanat, professions libérales, services. Dispositifs activables 2026 (PDC, Période de reconversion, AFEST, abondement CPF), branches co
 date: 2026-05-23
 lastmod: '2026-05-26'

@@ -1,5 +1,6 @@
 ---
 title: "Conventions collectives — Budget formation OPCO 2026 par branche"
+seo_title: "Budget formation OPCO 2026 par convention collective"
 description: "20 fiches détaillées par convention collective : plafonds PDC, dispositifs activables, sources officielles. Syntec, HCR, Métallurgie, Médico-social, Propreté, BTP, Banque, Pharmacie et plus."
 date: 2026-05-23
 lastmod: 2026-05-23

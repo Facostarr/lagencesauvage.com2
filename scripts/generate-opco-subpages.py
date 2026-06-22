@@ -377,6 +377,15 @@ def build_page(opco: dict) -> str:
 
     opco_label = compute_opco_label(nom_court)
     title = f"{opco_label} 2026 — Budget formation, dispositifs et conventions"
+    # seo_title court (<=60 car, Bing « Title too long »)
+    _opco_court = opco_label
+    for _pre in ("OPCO ", "Opco "):
+        if _opco_court.startswith(_pre):
+            _opco_court = _opco_court[len(_pre):]
+            break
+    seo_title = f"OPCO {_opco_court} 2026 : budget & dispositifs formation"
+    if len(seo_title) > 60:
+        seo_title = f"OPCO {_opco_court} 2026 : budget formation"
     description = (
         f"{nom_court} finance la formation des salariés des secteurs {audience}. "
         f"Dispositifs activables 2026 (PDC, Période de reconversion, AFEST, abondement CPF), "
@@ -389,6 +398,7 @@ def build_page(opco: dict) -> str:
     fm_lines = [
         "---",
         f"title: {yaml_escape(title)}",
+        f"seo_title: {yaml_escape(seo_title)}",
         f"description: {yaml_escape(description)}",
         "date: 2026-05-23",
         "lastmod: 2026-05-23",

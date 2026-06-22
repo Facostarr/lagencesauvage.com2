@@ -1,6 +1,7 @@
 ---
 weight: 3
 title: "Usine à Contenu B2B : 3 mois de visibilité SEO et LinkedIn générés en 2 heures"
+seo_title: "Usine à Contenu B2B : SEO et LinkedIn automatisés"
 description: "Découvrez comment 5 workflows IA automatisent la veille, la rédaction d'articles SEO/GEO et la publication LinkedIn — sans community manager."
 keywords:
   - automatisation contenu B2B

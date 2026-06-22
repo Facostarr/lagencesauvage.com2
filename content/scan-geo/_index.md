@@ -1,5 +1,6 @@
 ---
 title: "Scan GEO gratuit — Votre entreprise est-elle visible dans ChatGPT ?"
+seo_title: "Scan GEO gratuit : êtes-vous visible dans ChatGPT ?"
 description: "Testez en 2 minutes si ChatGPT, Perplexity et Gemini citent votre entreprise. Scan GEO gratuit depuis votre SIREN, rapport détaillé par email. Sans compte."
 date: 2026-06-10
 lastmod: 2026-06-10

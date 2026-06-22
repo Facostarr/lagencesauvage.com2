@@ -1,5 +1,6 @@
 ---
 title: "Actions collectives OPCO 2026 — Formations 100% financées TPE/PME"
+seo_title: "Actions collectives OPCO 2026 : formations financées"
 description: "Comment activer une action collective OPCO en 2026 : formations 100% financées hors quota PDC. Catalogues Atlas (campusAtlas, Parcours stratégique), Opcommerce IA Box, AKTO Espace Formation. Données sourcées."
 date: 2026-05-23
 lastmod: 2026-05-23

@@ -1,5 +1,6 @@
 ---
 title: "L'IA Abordable en 2025 : Comment les Petites Entreprises Profitent de la Révolution des Modèles Légers Selon le Rapport Stanford"
+seo_title: "IA abordable : les modèles légers au service des PME (2025)"
 date: 2025-11-27
 lastmod: 2026-06-10
 description: "Découvrez comment la chute des coûts d'inférence et la montée des modèles légers démocratisent l'IA pour les PME, selon le dernier rapport AI Index 2025 de Stanford."

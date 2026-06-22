@@ -1,5 +1,6 @@
 ---
 title: "Claude for Small Business : la fin des chatbots, l'ère des agents IA pour les PME"
+seo_title: "Claude for Small Business : les agents IA pour PME"
 date: 2026-05-15
 lastmod: 2026-05-15
 description: "Anthropic lance Claude for Small Business avec 15 workflows agentiques. Ce que ça change pour les PME françaises — et comment adapter ces agents à Pennylane, Pipedrive et vos outils métiers via n8n."

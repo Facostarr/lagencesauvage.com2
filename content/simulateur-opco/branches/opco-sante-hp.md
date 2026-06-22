@@ -1,5 +1,6 @@
 ---
 title: Simulateur Budget Formation Hospitalisation privée (IDCC 2264) — 2026
+seo_title: "Budget formation Hospitalisation privée 2026 — Santé"
 description: 'Calculez votre budget formation 2026 pour la convention Hospitalisation privée (OPCO Santé, IDCC 2264, 2104). Plafonds PDC par tranche d''effectif, dispositifs activables, sources officielles. Simulation en 30 secondes.'
 date: 2026-05-23
 lastmod: 2026-05-23

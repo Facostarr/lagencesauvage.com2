@@ -1,5 +1,6 @@
 ---
 title: "Base de connaissances IA : comment donner une mémoire infaillible à votre PME (méthode Karpathy)"
+seo_title: "Base de connaissances IA pour PME (méthode Karpathy)"
 bofu_links: true
 date: 2026-04-16
 lastmod: 2026-04-16

@@ -1,5 +1,6 @@
 ---
 title: "Qu'est-ce qu'un agent IA ? Définition, cas d'usage et ROI pour les PME françaises"
+seo_title: "Agent IA : définition, cas d'usage et ROI pour les PME"
 date: 2026-05-06
 lastmod: 2026-05-06
 description: "Comprendre les agents IA en entreprise : définition précise, différence avec un chatbot, 3 cas d'usage chiffrés pour les PME françaises, ROI mesuré et feuille de route pour démarrer sans risque."

@@ -1,5 +1,6 @@
 ---
 title: OPCO OCAPIAT 2026 — Budget formation, dispositifs et conventions
+seo_title: "OPCO OCAPIAT 2026 : budget & dispositifs formation"
 description: OCAPIAT finance la formation des salariés des secteurs coopération agricole, agriculture, pêche et agroalimentaire. Dispositifs activables 2026 (PDC, Période de reconversion, AFEST, abondement CPF), branches couvertes, s
 date: 2026-05-23
 lastmod: '2026-05-26'

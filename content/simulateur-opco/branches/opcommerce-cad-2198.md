@@ -1,5 +1,6 @@
 ---
 title: Simulateur Budget Formation E-commerce et VAD (IDCC 2198) — 2026
+seo_title: "Budget formation E-commerce et VAD 2026 — L'Opcommerce"
 description: 'Calculez votre budget formation 2026 pour la convention E-commerce et VAD (L''Opcommerce, IDCC 2198). Plafonds PDC par tranche d''effectif, dispositifs activables, sources officielles. Simulation en 30 secondes.'
 date: 2026-05-23
 lastmod: 2026-05-23

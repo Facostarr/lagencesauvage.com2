@@ -1,5 +1,6 @@
 ---
 title: "L'IA prépare, vous décidez : le mode copilote pour les dirigeants non-tech"
+seo_title: "Mode copilote IA : l'IA prépare, le dirigeant décide"
 date: 2026-06-02
 lastmod: 2026-06-02
 description: "Avant de confier quoi que ce soit à un agent IA, vous devez définir ce qu'il peut faire seul, ce qu'il doit vous soumettre, et ce qu'il ne fera jamais sans votre accord. La méthode opérationnelle en 3 catégories pour garder le contrôle."
