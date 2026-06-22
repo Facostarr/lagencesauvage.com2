@@ -13,10 +13,10 @@
         {{ if $index }},{{ end }}
         {
             "@type": "Question",
-            "name": "{{ $faq.question }}",
+            "name": {{ $faq.question | jsonify | safeJS }},
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "{{ $faq.answer }}"
+                "text": {{ $faq.answer | jsonify | safeJS }}
             }
         }
         {{ end }}
