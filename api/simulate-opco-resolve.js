@@ -19,6 +19,7 @@ import { resolveSiretWithCascade, ResolveError } from './_simulateur/resolve-ser
 import { applyCors, sendError, sendOk, logJson } from './_simulateur/http-utils.js';
 import { getValidIdccOverrides, getValidBrancheOverrides } from './_simulateur/compute-engine.js';
 import { suggestFromNaf } from './_simulateur/naf-suggestions.js';
+import { emitResolvedNoEmail } from './_simulateur/abandon-emitter.js';
 
 export default async function handler(req, res) {
   applyCors(req, res);
@@ -67,6 +68,19 @@ export default async function handler(req, res) {
     upstream_ms: payload.upstream_ms,
     suggestion_kind: suggestion ? (suggestion.auto ? 'auto' : 'manual') : 'none',
   });
+
+  // OPCO Radar — capture des sociétés résolues sans email (abandons).
+  // Émis uniquement sur cache-miss : dédup naturelle (1 capture / société / instance
+  // chaude) + latence ajoutée sur le chemin froid uniquement. Fail-open : une erreur
+  // de capture ne casse jamais le resolve. No-op tant que NOTION_DATABASE_OPCO_RADAR
+  // n'est pas définie → déploiement sans risque.
+  if (!cacheHit) {
+    try {
+      await emitResolvedNoEmail({ entreprise: payload.entreprise, suggestion });
+    } catch (err) {
+      logJson('simulator.resolve.abandon_emit_failed', { message: err?.message, siret: siret.value });
+    }
+  }
 
   return sendOk(res, { ...payload, suggestion }, { cacheHit });
 }
