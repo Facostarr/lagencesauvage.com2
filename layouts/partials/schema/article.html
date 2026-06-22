@@ -4,6 +4,11 @@
    ============================================================================= */}}
 
 {{ $image := .Params.image | default .Site.Params.defaultImage }}
+{{/* htmlUnescape annule l'échappement HTML appliqué par `truncate`
+     (' -> &#39;) avant jsonify, qui produit ensuite un JSON valide. */}}
+{{ $description := .Description | default .Summary | truncate 160 | htmlUnescape }}
+{{ $keywords := "" }}
+{{ if .Params.keywords }}{{ $keywords = delimit .Params.keywords ", " }}{{ else if .Params.tags }}{{ $keywords = delimit .Params.tags ", " }}{{ end }}
 
 <script type="application/ld+json">
 {
@@ -14,8 +19,8 @@
         "@type": "WebPage",
         "@id": "{{ .Permalink }}"
     },
-    "headline": "{{ .Title }}",
-    "description": "{{ .Description | default .Summary | truncate 160 }}",
+    "headline": {{ .Title | jsonify | safeJS }},
+    "description": {{ $description | jsonify | safeJS }},
     "image": {
         "@type": "ImageObject",
         "url": "{{ $image | absURL }}",
@@ -30,7 +35,7 @@
     "publisher": {
         "@type": "Organization",
         "@id": "{{ .Site.BaseURL }}#organization",
-        "name": "{{ .Site.Params.organization.name }}",
+        "name": {{ .Site.Params.organization.name | jsonify | safeJS }},
         "logo": {
             "@type": "ImageObject",
             "url": "{{ .Site.Params.organization.logo }}"
@@ -38,15 +43,15 @@
     },
     "inLanguage": "fr-FR",
     "isAccessibleForFree": true,
-    "keywords": "{{ if .Params.keywords }}{{ delimit .Params.keywords ", " }}{{ else if .Params.tags }}{{ delimit .Params.tags ", " }}{{ end }}",
+    "keywords": {{ $keywords | jsonify | safeJS }},
     {{ if .Params.categories }}
-    "articleSection": "{{ index .Params.categories 0 }}",
+    "articleSection": {{ index .Params.categories 0 | jsonify | safeJS }},
     {{ end }}
     "wordCount": {{ .WordCount }},
     "timeRequired": "PT{{ .ReadingTime }}M",
     "about": {
         "@type": "Thing",
-        "name": "{{ .Title }}"
+        "name": {{ .Title | jsonify | safeJS }}
     },
     "speakable": {
         "@type": "SpeakableSpecification",
@@ -76,7 +81,7 @@
         {
             "@type": "ListItem",
             "position": 3,
-            "name": "{{ .Title }}",
+            "name": {{ .Title | jsonify | safeJS }},
             "item": "{{ .Permalink }}"
         }
     ]
