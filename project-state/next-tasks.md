@@ -12,6 +12,15 @@
 
 ## Session 2026-06-21 — Suite SEO/GEO (priorités)
 
+### ⚠️ GEO Tracker / scan-geo — optimisation COÛT (cron hebdo PAUSÉ le 2026-06-22)
+**Problème** : depuis la migration OpenRouter, chaque audit coûte ~13 $ réel (base sur-estime à 32-39 €) vs ~1 € avant. Causes : modèles **reasoning** gourmands (`perplexity/sonar-reasoning-pro` + `x-ai/grok-4.3` à `max_tokens 2000` → ~4 M tokens/audit) + 35 requêtes + plugin web Exa. Le manuel #28 (mon run) + le cron #29 ont fait grimper la facture OpenRouter à ~26 $. **Cron hebdo désactivé** (crontab commenté `# [PAUSE 2026-06-22 cout]`, backup `crontab.bak-20260622` sur vps1-prod).
+**Objectif : coût très faible + résultats présentables, priorité au scan-geo public lead-gen (`/scan-geo/`)** :
+- [ ] Remplacer les modèles reasoning par du non-reasoning grounded : `perplexity/sonar-reasoning-pro` → `perplexity/sonar` ; `x-ai/grok-4.3` → variante non-reasoning ou retirer du run. Garder `gpt-5.1-chat` + `gemini-3.5-flash` (natif).
+- [ ] `runs_per_query` 3 → 2 ; `web_max_results` 5 → 3 ; limiter le plugin web Exa aux moteurs qui en ont besoin.
+- [ ] Scan public : viser 3 moteurs grounded (Perplexity sonar + Gemini + ChatGPT-web), coût/scan minimal, résultat clair à montrer au prospect.
+- [ ] Mesurer le coût réel/audit après optim (viser ~2 $/audit interne) avant de réactiver.
+- [ ] Réactiver le cron (décommenter / `crontab crontab.bak-20260622`) une fois optimisé, OU le passer en manuel/mensuel.
+
 ### Immédiat (post-publication)
 - [ ] **GSC → Inspection d'URL** : demander l'indexation de `/blog/choisir-organisme-formation-ia-qualiopi/` ET `/blog/visibilite-ia-entreprise-cite-par-chatgpt/` (titre modifié).
 - [ ] **Vérifier le lien Légifrance** (décret 2019-565, ELI) dans l'article Qualiopi — 1 clic (403 anti-bot à la vérif auto, lien très probablement bon).
