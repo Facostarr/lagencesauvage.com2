@@ -1,5 +1,6 @@
 ---
 title: OPCO Santé 2026 — Budget formation, dispositifs et conventions
+seo_title: "OPCO Santé 2026 : budget & dispositifs formation"
 description: OPCO Santé finance la formation des salariés des secteurs santé privée et médico-social privé. Dispositifs activables 2026 (PDC, Période de reconversion, AFEST, abondement CPF), branches couvertes, sources officielles. C
 date: 2026-05-23
 lastmod: '2026-05-26'

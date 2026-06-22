@@ -1,6 +1,7 @@
 ---
 weight: 2
 title: "GEO Citation Tracker : savez-vous ce que les IA disent de votre marque ?"
+seo_title: "GEO Citation Tracker : ce que les IA disent de vous"
 description: "Outil SaaS de monitoring de la visibilité IA sur 5 plateformes (ChatGPT, Claude, Perplexity, Gemini, Grok). Scoring pondéré, dashboard interactif, alertes automatiques. MVP validé par 301 tests et 3 audits réels."
 keywords:
   - visibilité IA marque

@@ -1,6 +1,6 @@
 ---
 title: "Facturation électronique 2026 : ce que Pennylane ne fait pas (et comment l'IA comble les trous)"
-seo_title: "Facturation électronique 2026 : les angles morts de Pennylane"
+seo_title: "Facturation électronique 2026 : angles morts de Pennylane"
 seo_description: "Facturation électronique 2026 : le vrai calendrier, ce que Pennylane et Dext gèrent, et les 5 angles morts que l'IA comble. Comparatif PDP seule vs PDP + IA."
 date: 2026-03-23
 lastmod: 2026-03-23

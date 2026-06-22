@@ -1,5 +1,6 @@
 ---
 title: OPCO AKTO 2026 — Budget formation, dispositifs et conventions
+seo_title: "OPCO AKTO 2026 : budget & dispositifs formation"
 description: 'AKTO finance la formation des salariés des secteurs services à forte intensité de main-d''œuvre. Dispositifs activables 2026 (PDC, Période de reconversion, AFEST, abondement CPF), branches couvertes, sources officielles. '
 date: 2026-05-23
 lastmod: '2026-05-26'

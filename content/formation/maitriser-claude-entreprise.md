@@ -1,6 +1,7 @@
 ---
-title: "Maîtriser Claude en entreprise — Formation IA certifiée Qualiopi"
-description: "Formation Claude en entreprise sur 3 jours : Projects, Skills, MCP, Cowork, Office add-ins. Certifiée Qualiopi, finançable jusqu'à 100% via votre OPCO. Intra-entreprise, 4 à 8 participants."
+title: "Maîtriser Claude en entreprise — Formation IA finançable OPCO"
+seo_title: "Formation Maîtriser Claude en entreprise (finançable OPCO)"
+description: "Formation Claude en entreprise sur 3 jours : Projects, Skills, MCP, Cowork, Office add-ins. Dispensée par un OF certifié Qualiopi, finançable jusqu'à 100% via votre OPCO. Intra-entreprise, 4 à 8 participants."
 date: 2026-05-04
 lastmod: 2026-05-04
 

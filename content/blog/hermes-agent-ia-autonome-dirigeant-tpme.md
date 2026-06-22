@@ -1,5 +1,6 @@
 ---
 title: "Hermes Agent : l'agent IA autonome qui travaille pour vous 24/7, depuis votre propre infrastructure"
+seo_title: "Hermes : l'agent IA autonome pour dirigeants de PME"
 date: 2026-06-03
 lastmod: 2026-06-03
 description: "Hermes Agent (Nous Research) est l'agent IA open-source le plus utilisé au monde en 2026. Retour d'expérience de six semaines en production, cas d'usage dirigeant et analyse des nouveautés (Desktop, Kanban multi-agent, Swarm)."

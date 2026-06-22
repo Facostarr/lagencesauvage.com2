@@ -1,5 +1,6 @@
 ---
 title: Simulateur Budget Formation Bâtiment (IDCC 1596) — 2026
+seo_title: "Budget formation Bâtiment 2026 — Constructys"
 description: 'Calculez votre budget formation 2026 pour la convention Bâtiment (Constructys, IDCC 1596, 1597, 2609, 2420). Plafonds PDC par tranche d''effectif, dispositifs activables, sources officielles. Simulation en 30 secondes.'
 date: 2026-05-23
 lastmod: 2026-05-23

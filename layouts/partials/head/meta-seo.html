@@ -19,7 +19,14 @@
 {{ else if .Params.seo_title }}
 <title>{{ $title }}</title>
 {{ else }}
-<title>{{ $title }} | L'Agence Sauvage</title>
+{{/* Suffixe marque conditionnel : ajouté seulement s'il tient en <=60 caractères
+     (Bing « Title too long »). Sinon, titre seul. RuneCount pour compter les accents. */}}
+{{ $suffixed := printf "%s | L'Agence Sauvage" $title }}
+{{ if le (strings.RuneCount $suffixed) 60 }}
+<title>{{ $suffixed }}</title>
+{{ else }}
+<title>{{ $title }}</title>
+{{ end }}
 {{ end }}
 {{/* Meta description - Crucial pour SEO et GEO */}}
 <meta name="description" content="{{ $description }}">

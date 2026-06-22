@@ -1,5 +1,6 @@
 ---
 title: "Claude Cowork en mars 2026 : 3 cas d'usage concrets pour les PME (et gains de temps chiffrés)"
+seo_title: "Claude Cowork : 3 cas d'usage concrets pour PME (2026)"
 bofu_links: true
 date: 2026-03-24
 lastmod: 2026-05-21

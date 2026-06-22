@@ -1,6 +1,7 @@
 ---
 weight: 4
 title: "Le Chef de Cabinet IA : Libérez 10 à 15 heures par semaine en déléguant votre charge mentale"
+seo_title: "Chef de Cabinet IA : 10 à 15 h gagnées par semaine"
 description: "Découvrez comment un assistant IA proactif trie vos emails, prépare vos rendez-vous et assure le suivi client — pour que vous dirigiez au lieu de subir votre journée."
 keywords:
   - assistant IA dirigeant

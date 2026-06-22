@@ -1,5 +1,6 @@
 ---
 title: "Zero Human Company : le mythe américain face à la réalité des PME françaises"
+seo_title: "Zero Human Company : le mythe face aux PME françaises"
 date: 2026-04-16
 lastmod: 2026-04-16
 description: "Paperclip AI franchit 42 000 étoiles GitHub en trois semaines. Medvi génère 401 M$ de CA avec un seul fondateur. La Zero Human Company est une réalité en avril 2026. Décryptage du concept et feuille de route concrète pour les PME françaises."

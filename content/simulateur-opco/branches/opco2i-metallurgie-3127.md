@@ -1,5 +1,6 @@
 ---
 title: Simulateur Budget Formation Métallurgie (IDCC 3127) — 2026
+seo_title: "Budget formation Métallurgie 2026 — 2i"
 description: 'Calculez votre budget formation 2026 pour la convention Métallurgie (OPCO 2i, IDCC 3127). Plafonds PDC par tranche d''effectif, dispositifs activables, sources officielles. Simulation en 30 secondes.'
 date: 2026-05-23
 lastmod: 2026-05-23

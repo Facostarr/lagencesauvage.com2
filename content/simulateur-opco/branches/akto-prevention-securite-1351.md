@@ -1,5 +1,6 @@
 ---
 title: Simulateur Budget Formation Prévention et sécurité (IDCC 1351) — 2026
+seo_title: "Budget formation Prévention et sécurité 2026 — AKTO"
 description: 'Calculez votre budget formation 2026 pour la convention Prévention et sécurité (AKTO, IDCC 1351). Plafonds PDC par tranche d''effectif, dispositifs activables, sources officielles. Simulation en 30 secondes.'
 date: 2026-05-23
 lastmod: 2026-05-23

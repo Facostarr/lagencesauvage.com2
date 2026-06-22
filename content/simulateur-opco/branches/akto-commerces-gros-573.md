@@ -1,5 +1,6 @@
 ---
 title: Simulateur Budget Formation Commerces de gros (IDCC 573) — 2026
+seo_title: "Budget formation Commerces de gros 2026 — AKTO"
 description: 'Calculez votre budget formation 2026 pour la convention Commerces de gros (AKTO, IDCC 573). Plafonds PDC par tranche d''effectif, dispositifs activables, sources officielles. Simulation en 30 secondes.'
 date: 2026-05-23
 lastmod: 2026-05-23

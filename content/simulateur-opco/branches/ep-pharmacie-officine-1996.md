@@ -1,5 +1,6 @@
 ---
 title: 'Simulateur Budget Formation Pharmacie d''officine (IDCC 1996) — 2026'
+seo_title: "Budget formation Pharmacie d'officine 2026 — EP"
 description: 'Calculez votre budget formation 2026 pour la convention Pharmacie d''officine (OPCO EP, IDCC 1996). Plafonds PDC par tranche d''effectif, dispositifs activables, sources officielles. Simulation en 30 secondes.'
 date: 2026-05-23
 lastmod: 2026-05-23

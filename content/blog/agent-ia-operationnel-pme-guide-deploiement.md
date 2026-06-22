@@ -1,5 +1,6 @@
 ---
 title: "Déployer un agent IA opérationnel dans votre PME : guide pratique et roadmap 6 semaines"
+seo_title: "Déployer un agent IA en PME : guide en 6 semaines"
 date: 2026-05-15
 lastmod: 2026-05-15
 description: "Comment passer de ChatGPT à un agent IA qui agit dans vos logiciels — workflow par workflow. Guide opérationnel pour PME françaises avec Pennylane, Pipedrive, Sage et n8n."

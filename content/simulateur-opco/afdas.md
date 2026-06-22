@@ -1,5 +1,6 @@
 ---
 title: OPCO Afdas 2026 — Budget formation, dispositifs et conventions
+seo_title: "OPCO Afdas 2026 : budget & dispositifs formation"
 description: Afdas finance la formation des salariés des secteurs culture, médias, communication, sport et loisirs. Dispositifs activables 2026 (PDC, Période de reconversion, AFEST, abondement CPF), branches couvertes, sources offici
 date: 2026-05-23
 lastmod: '2026-05-26'

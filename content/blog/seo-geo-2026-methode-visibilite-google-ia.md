@@ -1,5 +1,6 @@
 ---
 title: "SEO et GEO en 2026 : la méthode qu'on applique sur nous-mêmes pour être trouvé sur Google et cité par les IA"
+seo_title: "SEO & GEO 2026 : être trouvé sur Google et cité par l'IA"
 date: 2026-06-09
 lastmod: 2026-06-09
 description: "Pas de théorie : on ouvre notre tableau de bord. Trafic ×10 en six mois, une cinquantaine de leads, des visites réelles depuis ChatGPT et Claude. Voici la méthode SEO + GEO exacte, appliquée sur notre propre site."
