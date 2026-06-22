@@ -30,6 +30,7 @@
     { "source": "/blog/saaspocalypse-tpe-pme.html", "destination": "/blog/saaspocalypse-tpe-pme/", "statusCode": 301 },
     { "source": "/blog/ia-cabinet-comptable-donnees-2025-reussir-2026.html", "destination": "/blog/ia-cabinet-comptable-donnees-2025-reussir-2026/", "statusCode": 301 },
     { "source": "/blog/roi-ia-pme-donnees-2025-reussir-2026.html", "destination": "/blog/roi-ia-pme-donnees-2025-reussir-2026/", "statusCode": 301 },
+    { "source": "/blog/roi-ia-pme-donnees-2026-reussir-2026.html", "destination": "/blog/roi-ia-pme-donnees-2025-reussir-2026/", "statusCode": 301 },
     { "source": "/blog/crm-automatisation-woocommerce-2026.html", "destination": "/blog/crm-automatisation-woocommerce-2026/", "statusCode": 301 },
     { "source": "/blog/l-ia-abordable-en-2025.html", "destination": "/blog/l-ia-abordable-en-2025/", "statusCode": 301 },
     { "source": "/blog/automatiser-emails-gmail-ia.html", "destination": "/blog/automatiser-emails-gmail-ia/", "statusCode": 301 },

@@ -1,5 +1,15 @@
 # Next Tasks — Refonte lagencesauvage.com
 
+## Session 2026-06-22 — Backlinks (rapport Ahrefs)
+
+**Contexte** : rapport backlinks complet (141 liens, DR 11). ~50 % spam nofollow → **ne PAS désavouer** (Google l'ignore). ~25-30 domaines référents genuine. **Insight clé** : l'article `roi-ia-pme-donnees-2025` est un AIMANT À LIENS massif (~25 citations comme source de données, jusqu'à l'international) → le **data-first est le moteur d'autorité prouvé** d'ASV.
+
+- [x] **Redirection lien cassé nextbrain** : `/blog/roi-ia-pme-donnees-2026-reussir-2026.html` (typo 2026) → article correct, ajoutée dans `vercel.json` (2026-06-22).
+- [ ] **302 → 301 sur les domaines variantes** (LE quick win backlinks) : `lagencesauvage.info`, `lagencesauvage.click`, `lagencesauvage.cloud`, `lagencesauvage.blog`, `sauvage.click` redirigent en **302 (temporaire)** → passer en **301 (permanent)** pour consolider l'autorité vers le domaine principal. ⚠️ D'abord confirmer la propriété + identifier où c'est configuré (dashboard Vercel ? registrar OVH/Gandi/Namecheap ?). Selon le cas, fix dans le dashboard du domaine (pas dans le repo Hugo).
+- [ ] **Nouvelle étude data-first** (moteur d'autorité prouvé) : produire une étude originale citable à partir du GEO Citation Tracker maison (ex. « Nous avons audité N marques IA : voici ce que disent vraiment ChatGPT / Perplexity / Gemini »). Objectif : répliquer le succès de l'article ROI comme aimant à liens.
+- [ ] **Outreach tiède** : relancer les domaines qui citent **déjà** ASV (findskill.ai, nextbrain.be, paulantoinetual.fr, datamarketingparis.com, zevra.tech…) pour transformer la citation en relation (guest post / lien plus profond).
+- [ ] **Annuaires** : déjà listé sur `singulareety.com` → en viser d'autres (voir Chantier F ci-dessous, listes déjà cadrées).
+
 ## Session 2026-06-21 — Suite SEO/GEO (priorités)
 
 ### Immédiat (post-publication)
