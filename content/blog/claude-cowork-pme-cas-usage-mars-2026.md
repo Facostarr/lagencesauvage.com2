@@ -1,5 +1,5 @@
 ---
-title: "Claude Cowork en mars 2026 : 3 cas d'usage concrets pour les PME (et gains de temps chiffrés)"
+title: "Claude Cowork en 2026 : 3 cas d'usage concrets pour les PME (et gains de temps chiffrés)"
 seo_title: "Claude Cowork : 3 cas d'usage concrets pour PME (2026)"
 bofu_links: true
 date: 2026-03-24
@@ -52,7 +52,7 @@ faq:
     answer: "Oui, depuis le 7 juillet 2026. Claude Cowork est disponible sur le web (claude.ai) et sur mobile (iOS et Android), en plus de l'application de bureau Mac et Windows. Les sessions tournent sur les serveurs d'Anthropic : vous pouvez lancer une tâche depuis votre ordinateur, suivre son avancement depuis votre téléphone, et récupérer le résultat plus tard, y compris si vos appareils sont éteints entre-temps. Utile pour un dirigeant qui veut vérifier ses agents en déplacement, sans rester devant son poste."
 ---
 
-*Mars 2026 | Par **Franck Sauvage**, Fondateur de [L'Agence Sauvage](https://www.lagencesauvage.com), 25 ans d'expérience SaaS B2B*
+*Mars 2026, mis à jour juillet 2026 | Par **Franck Sauvage**, Fondateur de [L'Agence Sauvage](https://www.lagencesauvage.com), 25 ans d'expérience SaaS B2B*
 
 Depuis le [12 janvier 2026](https://www.anthropic.com/product/claude-cowork), les PME disposent d'un nouvel outil : **Claude Cowork**, un agent IA qui ne se contente plus de répondre à vos questions : il exécute vos tâches directement sur votre ordinateur. Création de tableurs, organisation de fichiers, rédaction de rapports, interactions avec vos outils métier : Claude Cowork agit comme un collaborateur autonome.
 
