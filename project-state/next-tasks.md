@@ -185,7 +185,9 @@ Quota dépassé aujourd'hui. Demander l'indexation pour les 6 case studies :
 - [x] Soumettre article claude-cowork dans Search Console (re-indexation après ajout tag "Checklist IA" — 2026-05-21)
 - [ ] Ajouter `related_realisations: automatisation-pole-financier-pennylane-expert-comptable` au front matter du nouvel article
 - [ ] Article 3/4 : "Agents IA autonomes en PME : 3 cas d'usage réels qui remplacent les SaaS" — Guides pratiques (attention : différencier de l'article déploiement déjà publié — angle "SaaS-replacement" vs "guide opérationnel")
-- [ ] Article 4/4 : "IA et professions juridiques : gain de temps et secret professionnel en 2026" — Expertise terrain (reporté)
+- [x] Article 4/4 : "Secret professionnel et IA : comment protéger votre cabinet d'avocats en 2026" — recherche multi-sources (3 flux) + fact-check/audit indépendants, publié 2026-07-15 (commit 74ea4c3). Angle final : secret professionnel avocat (pas "professions juridiques" au sens large), CTA financement OPCO EP + FSE+ (ligne "IA appliquée aux cabinets", sourcée opcoep.fr). Notaires en mention secondaire seulement (CSN a son propre partenariat Mistral/Scaleway, non vendable pour ASV).
+- [ ] Soumettre `/blog/secret-professionnel-ia-avocats-2026/` à l'indexation Search Console
+- [ ] Article 3/4 : "Agents IA autonomes en PME : 3 cas d'usage réels qui remplacent les SaaS" — Guides pratiques (attention : différencier de l'article déploiement déjà publié — angle "SaaS-replacement" vs "guide opérationnel"). Reste seul article de la série des 4 non publié.
 
 ### Lead magnets (en cours)
 
