@@ -15,6 +15,28 @@
 | Phase 6 — Bascule | ✅ Logo validé, merge main | 2026-03-23 | 2026-03-23 |
 | Phase 7 — Post-bascule | 🔄 En cours | 2026-03-23 | — |
 
+## Session 2026-07-15 — Update Cowork + article avocats + réalisation Hermes Agent
+
+**Contexte** : demande Franck « suggère des idées d'articles blog ». Analyse Plausible 91j (top pages) + inventaire blog + skills SEO/GEO → priorisation. Session finalement centrée sur 3 livrables validés en cours de route par Franck, plus une correction.
+
+### 1. Mise à jour article Cowork (top #2 trafic, 302 visiteurs/91j) — commits `5a7a087` + `4f403a0`
+Article publié mars 2026, jamais rafraîchi sur le fond. Recherche web a révélé un décalage factuel important : Sonnet 4.6→**Sonnet 5** (30/06), Opus 4.6→**Opus 4.8** (28/05), Cowork **web+mobile depuis le 7/07** (l'article le décrivait encore comme desktop-only), Team plan restructuré (5-150 pers., Standard/Premium), **Claude Tag** Slack (juin). Mise à jour complète + `description`/`summary` raccourcis sous les seuils SEO/GEO (skills chargées a posteriori suite à question de Franck, audit propre). **Suite** (2e commit, sur remarque Franck) : titre H1 et signature retiraient encore "mars 2026" alors que le contenu était à jour → corrigé, URL/slug inchangés (rank déjà bien).
+
+### 2. Article "Secret professionnel et IA" pour cabinets d'avocats — commit `74ea4c3`
+4e et dernier article de la série SEO/GEO validée en mars (reporté depuis avril). Recherche via Workflow (3 flux web parallèles : réglementaire FR, marché US, marché FR — le 4e flux Gemini Deep Research a échoué silencieusement, résultat vide, à surveiller). **Correction de trajectoire en cours de session** : Franck proposait un CTA financement basé sur Atlas/FNE/bonus écologique — vérification a montré que les avocats sont rattachés à **OPCO EP** (pas Atlas, qui concerne son deal réel Syntec/expert-comptable) et que FNE-Formation est **suspendu en 2026**. Exploration du projet voisin `C:\Claude\OPCO` a révélé un mécanisme réel et meilleur : ligne "IA appliquée aux cabinets" (60€/h, 35h, jusqu'à 2100€ HT) + **FSE+ jusqu'à 100% des coûts pédagogiques pour cabinets <50 salariés** (source primaire opcoep.fr). Fact-check + audit style/SEO/GEO/humanizer indépendant avant publication (8 corrections factuelles dont un chiffre non sourcé et une sanction US mal caractérisée).
+
+### 3. Nouvelle réalisation "Hermes Agent" (IA souveraine) — commit `643a9b1`
+7e case study, angle différenciant vs Chef de Cabinet IA existant (proprio n8n/Claude API) : Hermes = harness open-source (Nous Research) qu'ASV utilise en interne, positionné souveraineté/local vs simplicité cloud. Contenu ancré sur les vrais setups Franck (`C:\Claude\Hermes Agent` local PX13 + `lamyr/` cloud compagne), enrichi par une recherche communautaire réelle sur r/hermesagent via Scrapling (megathread "Mac + MLX Apple Silicon" confirmant l'angle Mac Studio suggéré par Franck). **Point de vigilance traité** : `lamyr/project-state/status.md` contenait des infos privées réelles (prénom, email, domaine, handle bot) — audit privacy dédié avant publication, zéro fuite confirmée en double (workflow + vérification manuelle).
+
+### Règle transverse posée cette session : zéro tiret cadratin
+Franck a explicitement banni le tiret cadratin (—) de tout contenu produit, y compris le blog (la skill `agence-sauvage-tone` l'interdisait déjà mais je la croyais scopée aux emails/LinkedIn, à tort). Appliqué rétroactivement à l'article Cowork (47 occurrences retirées) et respecté nativement sur les 2 nouvelles pages. Ajouté à `CLAUDE.md` (section Copywriting) pour que ce soit visible sans dépendre de la mémoire d'une session à l'autre.
+
+### Reste en attente (voir `next-tasks.md` pour détail)
+- Soumission Search Console des 3 URLs (2 mises à jour + 1 nouvelle)
+- Urgent : mise à jour article AI Act avec la date de sanction confirmée (2 août 2026)
+- Étude data-first GEO Tracker (meilleur levier d'autorité identifié, pas encore scopée)
+- Article 3/4 restant de la série SEO/GEO ("SaaS-replacement")
+
 ## Session 2026-06-21 — Outillage visibilité SEO/GEO + article pilier Qualiopi/OF
 
 **Contexte** : demande Franck « comprendre et améliorer notre visibilité SEO/GEO ». Session double : (A) réparer/outiller la mesure, (B) publier le 1er pilier du plan.

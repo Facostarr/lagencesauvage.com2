@@ -64,6 +64,7 @@ Phase en cours → voir `project-state/status.md`. Ne jamais commencer une phase
 Clair > créatif. Spécifique > vague. Actif > passif. Framework PAS (Pain-Agitate-Solve) pour homepage/landing pages.
 Stack technique = crédibilité (page About, case studies), PAS argument de vente. Le client veut gagner du temps, pas "automatiser avec n8n".
 Mots interdits : révolutionner, disruptif, innovant, solution de pointe, game-changer, cutting-edge, next-gen, booster, leverager.
+**Zéro tiret cadratin (—) ni demi-cadratin (–), nulle part, y compris le blog** (règle Franck 2026-07-15). Remplacer par virgule, point, "et"/"mais", deux-points ou parenthèses. Vérifier par grep `[—–]` avant toute publication.
 
 ## Conventions
 

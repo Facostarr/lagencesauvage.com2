@@ -1,5 +1,21 @@
 # Changelog — Refonte lagencesauvage.com
 
+## 2026-07-15 — Update Cowork + article avocats + réalisation Hermes Agent
+
+**4 commits sur main** : `5a7a087` (update Cowork factuel), `74ea4c3` (article secret professionnel avocats), `4f403a0` (fix titre Cowork "mars 2026" obsolète), `643a9b1` (réalisation Hermes Agent).
+
+### Update article Claude Cowork (`5a7a087`, `4f403a0`)
+Article top #2 trafic (302 visiteurs/91j, Plausible), publié mars 2026, contenu jamais rafraîchi. Recherche web : Sonnet 5 (30/06) et Opus 4.8 (28/05) remplacent les versions citées, Cowork disponible **web + mobile depuis le 7/07/2026** (jusque-là présenté comme desktop-only), Team plan restructuré (5→150 personnes, Standard/Premium), Claude Tag (Slack, juin). `description`/`summary` raccourcis sous les seuils SEO/GEO. Titre H1 et signature corrigés dans un second commit (retiraient encore "mars 2026").
+
+### Article "Secret professionnel et IA : comment protéger votre cabinet d'avocats en 2026" (`74ea4c3`)
+4e/dernier article de la série SEO/GEO validée en mars. Recherche multi-sources via Workflow (3 flux parallèles web + 1 flux Gemini Deep Research resté vide). Sources : Légifrance (art. 66-5 loi 1971, art. 226-13 code pénal), guide déontologique CNB (17/03/2026), 4 décisions de justice françaises sur les hallucinations IA fin 2025 (Grenoble x2, Périgueux, Orléans — qualifiées avertissements judiciaires, pas sanctions disciplinaires), comparaison marché US (ABA, sanctions Oregon/Nebraska/Alabama). **CTA financement corrigé en cours de session** : hypothèse initiale Atlas/FNE/bonus écologique invalidée (avocats = OPCO EP, FNE suspendu 2026) ; mécanisme réel trouvé via projet voisin `C:\Claude\OPCO` = ligne "IA appliquée aux cabinets" (60€/h, 35h) + FSE+ (100% coûts péda si <50 sal., source primaire opcoep.fr). Fact-check + audit style indépendants : 8 corrections (dont amende Oregon mal caractérisée, chiffre "12-18 mois de décalage" non sourcé retiré).
+
+### Réalisation "Hermes Agent : votre agent IA souverain" (`643a9b1`)
+7e case study, weight 7. Angle souveraineté/open-source, différencié explicitement (FAQ dédiée) de la réalisation Chef de Cabinet IA (build proprio n8n). Contenu ancré sur les setups réels Franck : PX13 local (AMD Strix Halo, 128 Go RAM unifiée, Qwen3 local) + instance VPS cloud pour un membre de la famille (anonymisée). Diagramme d'architecture généré (Gemini, DAG n8n→Hermes→Claude Code). Recherche communautaire via `mcp__scrapling__stealthy_fetch` sur r/hermesagent (Browser standard bloqué par policy sur reddit.com, non indexé par WebSearch) : megathread "Mac + MLX Apple Silicon" confirmant que le Mac Studio 64 Go suggéré par Franck est une config locale réellement pratiquée par la communauté. **Audit privacy dédié avant publication** : `Hermes Agent/lamyr/project-state/status.md` contient des infos réelles sensibles (prénom, email, domaine, handle bot Telegram de la compagne de Franck) — zéro fuite confirmée en double (workflow de vérification + grep manuel).
+
+### Règle transverse : zéro tiret cadratin
+Franck a banni le tiret cadratin de tout contenu, y compris blog (précédemment cru limité aux emails/LinkedIn par la skill `agence-sauvage-tone`). Retiré rétroactivement de l'article Cowork (47 occurrences) et de l'article avocats (14 occurrences trouvées en vérification). Ajouté à `CLAUDE.md` § Copywriting.
+
 ## 2026-06-21 — Outillage visibilité SEO/GEO + article pilier Qualiopi/OF
 
 ### GEO Citation Tracker réparé et amélioré (repo VPS `/opt/geo-citation-tracker`)

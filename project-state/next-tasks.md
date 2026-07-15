@@ -1,5 +1,21 @@
 # Next Tasks — Refonte lagencesauvage.com
 
+## Session 2026-07-15 — Update Cowork + article avocats + réalisation Hermes Agent
+
+**Contexte** : session content-focused (recherche articles + mise à jour Cowork + nouvel article + nouvelle réalisation). Détail complet dans `status.md` et `changelog.md`.
+
+### Immédiat (post-publication)
+- [ ] **GSC → Inspection d'URL** : soumettre `/blog/claude-cowork-pme-cas-usage-mars-2026/` (mise à jour majeure : Sonnet 5, Opus 4.8, mobile/web) et `/blog/secret-professionnel-ia-avocats-2026/` (nouvel article) à la réindexation.
+- [ ] Soumettre `/realisations/hermes-agent-ia-souveraine-dirigeant/` (nouvelle page) à l'indexation.
+
+### Priorités identifiées pour la prochaine session content (non traitées)
+- [ ] **Urgent — AI Act** : le Digital Omnibus (accord 7/05/2026) a confirmé que l'obligation de formation (Article 4) n'est **pas reportée**, contrairement au reste du règlement. Sanctions applicables dès le **2 août 2026**. L'article existant (`ai-act-formation-ia-obligatoire-opco-qualiopi-2026.md`, publié 16/04) ne mentionne pas cette date précise confirmée. Fenêtre courte avant que l'actu soit périmée : ajouter une section/mise à jour avec la date de sanction.
+- [ ] **Étude data-first GEO Tracker** : exploiter les données du GEO Citation Tracker maison pour un article étude originale type "Nous avons audité N marques IA : ce que disent vraiment ChatGPT/Perplexity/Gemini". Rejoue le pattern qui a fait de `roi-ia-pme-donnees-2025` un aimant à liens (cf. session 2026-06-22 ci-dessous) — meilleur levier d'autorité identifié à ce jour.
+- [ ] Article 3/4 restant de la série (cf. section dédiée plus bas) : "Agents IA autonomes en PME : 3 cas d'usage qui remplacent des SaaS".
+
+### Dette mineure repérée (non bloquante)
+- [ ] `/diagnostic-ia/` fait un hop de redirection 301 vers `/diagnostic/` (vercel.json) sur plusieurs articles existants (Cowork, avocats). Pas cassé, mais à uniformiser sur `/diagnostic/` directement lors d'une prochaine passe de contenu.
+
 ## Session 2026-06-22 — Backlinks (rapport Ahrefs)
 
 **Contexte** : rapport backlinks complet (141 liens, DR 11). ~50 % spam nofollow → **ne PAS désavouer** (Google l'ignore). ~25-30 domaines référents genuine. **Insight clé** : l'article `roi-ia-pme-donnees-2025` est un AIMANT À LIENS massif (~25 citations comme source de données, jusqu'à l'international) → le **data-first est le moteur d'autorité prouvé** d'ASV.
@@ -184,7 +200,6 @@ Quota dépassé aujourd'hui. Demander l'indexation pour les 6 case studies :
 - [x] Article "Déployer un agent IA opérationnel dans votre PME : guide pratique et roadmap 6 semaines" — pushé 2026-05-15 (keyword: agent IA opérationnel PME)
 - [x] Soumettre article claude-cowork dans Search Console (re-indexation après ajout tag "Checklist IA" — 2026-05-21)
 - [ ] Ajouter `related_realisations: automatisation-pole-financier-pennylane-expert-comptable` au front matter du nouvel article
-- [ ] Article 3/4 : "Agents IA autonomes en PME : 3 cas d'usage réels qui remplacent les SaaS" — Guides pratiques (attention : différencier de l'article déploiement déjà publié — angle "SaaS-replacement" vs "guide opérationnel")
 - [x] Article 4/4 : "Secret professionnel et IA : comment protéger votre cabinet d'avocats en 2026" — recherche multi-sources (3 flux) + fact-check/audit indépendants, publié 2026-07-15 (commit 74ea4c3). Angle final : secret professionnel avocat (pas "professions juridiques" au sens large), CTA financement OPCO EP + FSE+ (ligne "IA appliquée aux cabinets", sourcée opcoep.fr). Notaires en mention secondaire seulement (CSN a son propre partenariat Mistral/Scaleway, non vendable pour ASV).
 - [ ] Soumettre `/blog/secret-professionnel-ia-avocats-2026/` à l'indexation Search Console
 - [ ] Article 3/4 : "Agents IA autonomes en PME : 3 cas d'usage réels qui remplacent les SaaS" — Guides pratiques (attention : différencier de l'article déploiement déjà publié — angle "SaaS-replacement" vs "guide opérationnel"). Reste seul article de la série des 4 non publié.
