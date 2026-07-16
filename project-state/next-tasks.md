@@ -1,5 +1,16 @@
 # Next Tasks — Refonte lagencesauvage.com
 
+## Session 2026-07-16 — 2 articles cluster agents IA (gouvernance ANSSI + outils/frameworks)
+
+**Contexte** : détail complet dans `status.md`. 2 articles publiés (commit `568b886`) : gouvernance-agents-ia-pme-2026 et outils-agents-ia-pme-2026.
+
+### Immédiat (post-publication)
+- [ ] **GSC → Inspection d'URL** : soumettre `/blog/gouvernance-agents-ia-pme-2026/` et `/blog/outils-agents-ia-pme-2026/` à la réindexation.
+
+### Non traité (reporté)
+- [ ] Article 3/4 de la série précédente : "Agents IA autonomes en PME : 3 cas d'usage réels qui remplacent des SaaS" (angle SaaS-replacement) — toujours en attente, distinct des 2 articles publiés cette session.
+- [ ] Longueur des 2 nouveaux articles sous la cible habituelle (1863 et 1645 mots vs 2000-2500) — pas bloquant, à garder en tête si on veut étoffer une section plus tard (ex. développer le H2 "piliers de gouvernance" ou ajouter un cas d'usage PME concret dans l'article outils).
+
 ## Session 2026-07-15 — Update Cowork + article avocats + réalisation Hermes Agent
 
 **Contexte** : session content-focused (recherche articles + mise à jour Cowork + nouvel article + nouvelle réalisation). Détail complet dans `status.md` et `changelog.md`.

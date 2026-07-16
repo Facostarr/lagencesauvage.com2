@@ -1,5 +1,21 @@
 # Changelog — Refonte lagencesauvage.com
 
+## 2026-07-16 — 2 articles cluster agents IA (gouvernance ANSSI + outils/frameworks)
+
+**1 commit sur main** : `568b886` (2 articles + 2 images hero).
+
+### Contexte : angle initial refusé, 2 angles frais validés
+Franck voulait un article "état de l'art agents IA autonomes vs assistés 2026". Audit du blog avant rédaction : 7 articles existants couvraient déjà ce terrain quasi mot pour mot (définition/ROI, déploiement opérationnel, "zero human company", "mode copilote", "manager une IA", Hermes Agent, Claude for Small Business) → risque de cannibalisation signalé, plus confirmation que le marché français est saturé sur cet angle générique. `AskUserQuestion` a proposé 4 directions ; Franck a choisi de cumuler 2 angles frais.
+
+### "Gouvernance des agents IA en 2026 : ce que l'alerte ANSSI change pour votre PME" (`568b886`)
+Hook : bulletin CERT-FR/ANSSI CERTFR-2026-ACT-016 (13 avril 2026) déconseillant le déploiement en production d'agents IA autonomes type Claude Cowork, mentionné nommément par l'ANSSI. Données : Gartner (40 % des apps entreprise avec agents IA fin 2026 vs <5 % en 2025), McKinsey *State of AI Trust 2026* (score maturité gouvernance agentique 2,3/4, 30 % seulement des organisations matures), CNIL (fiches pratiques IA n°5 AIPD et n°12 sécurité), Conseil de l'IA et du numérique (note février 2026, risque de "dérive de l'orchestration"). Framework original "test des 3 serrures" (données/action/identité). Plan challengé Gemini 9/10.
+
+### "Quel outil derrière un agent IA en 2026 ? Les 3 familles pour une PME" (`568b886`)
+3 familles traduites en grille de décision : orchestrateur visuel (n8n) / frameworks développeur (LangGraph, CrewAI, Claude Agent SDK, Microsoft Agent Framework) / harness autonome (type Hermes Agent). Hook : T2 2026 dense en annonces (fusion Semantic Kernel + AutoGen Microsoft 3/04, orchestration multi-agent Claude Agent SDK 6/05, certification HIPAA CrewAI). Métaphore "stagiaire" filée avec le reste du blog. Plan challengé Gemini 8,5/10.
+
+### Process qualité
+Sources vérifiées en direct (WebFetch cert.ssi.gouv.fr, cnil.fr, conseil-ia-numerique.fr), zéro source concurrente. **Audit rétroactif Workflow** (skills copywriting + humanizer, vérification adversariale, 43 agents) après coup, faute d'avoir chargé ces skills avant la rédaction : a corrigé une métaphore grandiloquente et 2 généralisations non sourcées. **Build Hugo local avant push** a attrapé un bug silencieux : `date: 2026-07-16` excluait les 2 articles du build (comparaison UTC, minuit local déjà passé mais pas UTC) → corrigé en `2026-07-15`. Détail complet dans `lessons.md`.
+
 ## 2026-07-15 — Update Cowork + article avocats + réalisation Hermes Agent
 
 **4 commits sur main** : `5a7a087` (update Cowork factuel), `74ea4c3` (article secret professionnel avocats), `4f403a0` (fix titre Cowork "mars 2026" obsolète), `643a9b1` (réalisation Hermes Agent).

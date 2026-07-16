@@ -15,6 +15,26 @@
 | Phase 6 — Bascule | ✅ Logo validé, merge main | 2026-03-23 | 2026-03-23 |
 | Phase 7 — Post-bascule | 🔄 En cours | 2026-03-23 | — |
 
+## Session 2026-07-16 — 2 articles cluster agents IA (gouvernance ANSSI + outils/frameworks)
+
+**Contexte** : Franck voulait un article "état de l'art des agents IA en 2026, autonomes vs assistés". Avant d'écrire, audit du blog : ce terrain est **déjà couvert par 7 articles existants** (définition/ROI, déploiement opérationnel, "zero human company" autonome, "mode copilote" assisté, "manager une IA", Hermes Agent, Claude for Small Business). Risque de cannibalisation SEO signalé à Franck avant toute rédaction. Recherche web a confirmé : le marché français est saturé de contenus quasi identiques "copilote vs agent autonome 2026" chez des concurrents. Deux angles frais proposés et validés par Franck ("on est ambitieux, on fait les deux") via `AskUserQuestion`.
+
+### 1. "Gouvernance des agents IA en 2026 : ce que l'alerte ANSSI change pour votre PME" — commit `568b886`
+Angle : le fossé entre l'adoption des agents IA (Gartner : 40 % des apps entreprise fin 2026 vs <5 % en 2025) et la gouvernance pour les maîtriser (McKinsey *State of AI Trust 2026* : score de maturité 2,3/4, seulement 30 % des organisations matures sur la gouvernance agentique). Hook fort et jamais utilisé sur le blog : l'ANSSI/CERT-FR a publié le 13 avril 2026 (bulletin CERTFR-2026-ACT-016) une alerte déconseillant le déploiement en production d'agents IA autonomes type **Claude Cowork**, l'outil vedette de notre article le plus lu du site. Framework original "test des 3 serrures" (données/action/identité) dérivé des 5 risques identifiés par l'ANSSI. Sources 100 % officielles/primaires (ANSSI, McKinsey, Gartner, CNIL fiches pratiques IA, Conseil de l'IA et du numérique). Plan challengé par Gemini : 9/10.
+
+### 2. "Quel outil derrière un agent IA en 2026 ? Les 3 familles pour une PME" — commit `568b886`
+Angle : 3 familles d'outils (orchestrateur visuel n8n / frameworks développeur LangGraph-CrewAI-Claude Agent SDK / harness autonome type Hermes) traduites en grille de décision PME, pas un comparatif technique pour développeurs. Hook : le T2 2026 a été le plus dense pour ces outils (fusion Semantic Kernel + AutoGen chez Microsoft le 3/04, orchestration multi-agent Claude Agent SDK le 6/05, certification HIPAA CrewAI). Métaphore "stagiaire" filée, cohérente avec le reste du blog et le positionnement 500 €/mois. Sources officielles (devblog Microsoft, docs Anthropic, CrewAI Trust Center, docs n8n). Plan challengé par Gemini : 8,5/10.
+
+### Process qualité appliqué
+- Vérification des sources primaires par WebFetch direct (cert.ssi.gouv.fr, cnil.fr, conseil-ia-numerique.fr) plutôt que citation de blogs tiers qui les résument — zéro source concurrente.
+- **Audit rétroactif via Workflow** (skills `copywriting` + `humanizer`, vérification adversariale, 43 agents, ~8 min) après avoir réalisé que ces 2 skills n'avaient pas été chargées avant la rédaction. A détecté et fait corriger de vrais tics d'écriture IA : métaphore grandiloquente ("changement d'ère" pour une simple alerte ANSSI) et généralisations non sourcées ("la plupart des dirigeants..." répété 2 fois sans source, alors que le reste de l'article est scrupuleusement sourcé). Voir `lessons.md`.
+- **Build Hugo local avant push** : a attrapé un vrai bug silencieux. `date: 2026-07-16` rendait les 2 articles invisibles au build Hugo (comparaison en UTC ; minuit venait de passer en heure locale mais pas encore en UTC → articles jugés "futurs" et exclus sans erreur). Corrigé en `date: 2026-07-15`, rebuild vérifié (100 pages, les 2 articles présents, FAQ schema + images OK). Voir `lessons.md`.
+
+### Publié
+GO explicite de Franck obtenu avant push. Poussé sur `main` (commit `568b886`), déploiement Vercel automatique. URLs : `/blog/gouvernance-agents-ia-pme-2026/` et `/blog/outils-agents-ia-pme-2026/`.
+
+**Point d'attention** : longueur finale sous la cible habituelle (1863 et 1645 mots vs 2000-2500 visés) — l'audit humanizer a fait perdre du volume en coupant du remplissage/généralisations non sourcées, un compromis sain mais à garder en tête si on veut étoffer plus tard.
+
 ## Session 2026-07-15 — Update Cowork + article avocats + réalisation Hermes Agent
 
 **Contexte** : demande Franck « suggère des idées d'articles blog ». Analyse Plausible 91j (top pages) + inventaire blog + skills SEO/GEO → priorisation. Session finalement centrée sur 3 livrables validés en cours de route par Franck, plus une correction.
