@@ -11,10 +11,10 @@
   },
   "dependencies": {
     "@notionhq/client": "^2.2.15",
-    "resend": "^6.12.4"
+    "resend": "^6.17.2"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4.2.2",
+    "@tailwindcss/postcss": "^4.3.3",
     "@tailwindcss/typography": "^0.5.19",
     "postcss": "^8.5.8",
     "postcss-cli": "^11.0.1",
