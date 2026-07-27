@@ -20,7 +20,7 @@ expertise: "Fondateur L'Agence Sauvage, spécialiste déploiement de projets IA 
 
 # Image & Affichage
 image: "/assets/images/blog/pourquoi-projet-ia-cale-avant-la-production.webp"
-imageAlt: "Grille abstraite de sept signaux avec voyants verts, orange et rouges symbolisant l'évaluation d'un projet IA avant sa mise en production, palette indigo et slate sur fond sombre"
+imageAlt: "Façade de bureau impeccable maintenue debout par des étais en bois, sans bâtiment derrière, métaphore d'un projet IA parfait en démonstration mais inexistant en production"
 emoji: ""
 <!-- [ASSET: image hero, grille 7 signaux avec voyants vert/orange/rouge, style abstrait géométrique indigo/slate, 16:9, WebP <100 Ko] -->
 
