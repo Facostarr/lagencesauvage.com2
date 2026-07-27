@@ -29,7 +29,7 @@ let _resend = null;
 const getResend = () => (_resend ??= new Resend(process.env.RESEND_API_KEY));
 
 const DIAGNOSTIC_URL = 'https://www.lagencesauvage.com/#audit-form';
-const FROM_FRANCK = "Franck Sauvage — L'Agence Sauvage <hello@lagencesauvage.com>";
+const FROM_FRANCK = "Franck Sauvage · L'Agence Sauvage <hello@lagencesauvage.com>";
 
 // -----------------------------------------------------------------------------
 // Configuration par magnet — contenus portés à l'identique depuis les anciens
@@ -51,7 +51,7 @@ const MAGNETS = {
     emailFrom: FROM_FRANCK,
     email: ({ firstName, pdfUrl }) => ({
       subject: 'Votre checklist 30 jours pour déployer Claude dans votre équipe',
-      text: `Bonjour ${firstName},\n\nVoici votre checklist (téléchargement direct) :\n${pdfUrl}\n\nCe guide semaine par semaine vous accompagne du premier prompt jusqu'à un déploiement complet de Claude dans votre équipe. Semaine 1 fondations, semaine 2 cas d'usage métier, semaine 3 adoption équipe, semaine 4 mesure du ROI.\n\nSi vous voulez aller plus loin — un accompagnement personnalisé pour votre déploiement IA — je propose un diagnostic découverte de 30 minutes :\n${DIAGNOSTIC_URL}\n\nBonne utilisation,\n\nFranck Sauvage\nFondateur — L'Agence Sauvage\nhello@lagencesauvage.com`,
+      text: `Bonjour ${firstName},\n\nVoici votre checklist (téléchargement direct) :\n${pdfUrl}\n\nCe guide semaine par semaine vous accompagne du premier prompt jusqu'à un déploiement complet de Claude dans votre équipe. Semaine 1 fondations, semaine 2 cas d'usage métier, semaine 3 adoption équipe, semaine 4 mesure du ROI.\n\nSi vous voulez aller plus loin — un accompagnement personnalisé pour votre déploiement IA — je propose un diagnostic découverte de 30 minutes :\n${DIAGNOSTIC_URL}\n\nBonne utilisation,\n\nFranck Sauvage\n01 85 09 75 92\nL'Agence Sauvage · IA & automation pour PME\nwww.lagencesauvage.com`,
       html: `<div style="font-family:system-ui,-apple-system,sans-serif;max-width:560px;margin:0 auto;color:#0F172A">
 <div style="background:#4F46E5;padding:24px 32px;border-radius:8px 8px 0 0">
   <h1 style="color:#fff;margin:0;font-size:20px;font-weight:700">Checklist 30 jours — Déployer Claude dans votre PME</h1>
@@ -83,6 +83,12 @@ const MAGNETS = {
   <p style="margin:0 0 8px;color:#374151;font-size:14px">Vous préférez un accompagnement personnalisé pour votre déploiement IA ?</p>
   <a href="${DIAGNOSTIC_URL}" style="color:#4F46E5;font-size:14px;font-weight:600">Réservez un diagnostic découverte de 30 min →</a>
   <hr style="border:none;border-top:1px solid #E2E8F0;margin:28px 0">
+  <div style="font-size:13px;color:#374151;line-height:1.55;margin-bottom:24px">
+    <strong>Franck Sauvage</strong><br>
+    01 85 09 75 92<br>
+    L'Agence Sauvage · IA &amp; automation pour PME<br>
+    <a href="https://www.lagencesauvage.com" style="color:#4F46E5;text-decoration:none">www.lagencesauvage.com</a>
+  </div>
   <p style="margin:0;font-size:12px;color:#94A3B8">L'Agence Sauvage · Paris · <a href="mailto:hello@lagencesauvage.com" style="color:#94A3B8">hello@lagencesauvage.com</a></p>
 </div>
 </div>`,
@@ -102,7 +108,7 @@ const MAGNETS = {
     emailFrom: FROM_FRANCK,
     email: ({ firstName, pdfUrl }) => ({
       subject: 'Vos 50 prompts IA pour PME — à copier-coller dans Claude',
-      text: `Bonjour ${firstName},\n\nVoici vos 50 prompts (téléchargement direct) :\n${pdfUrl}\n\nCe PDF de 20 pages regroupe 50 prompts construits sur le framework ROCF (Rôle, Objectif, Contexte, Format), répartis en 6 catégories métier : Finance, RH, Commercial, Communication, Direction & Opérations, et GEO/Référencement. Chaque prompt est prêt à copier-coller dans Claude.\n\nSi vous voulez aller plus loin — déployer l'IA dans votre équipe ou automatiser des process métier — je propose un diagnostic découverte de 30 minutes :\n${DIAGNOSTIC_URL}\n\nBonne utilisation,\n\nFranck Sauvage\nFondateur — L'Agence Sauvage\nhello@lagencesauvage.com`,
+      text: `Bonjour ${firstName},\n\nVoici vos 50 prompts (téléchargement direct) :\n${pdfUrl}\n\nCe PDF de 20 pages regroupe 50 prompts construits sur le framework ROCF (Rôle, Objectif, Contexte, Format), répartis en 6 catégories métier : Finance, RH, Commercial, Communication, Direction & Opérations, et GEO/Référencement. Chaque prompt est prêt à copier-coller dans Claude.\n\nSi vous voulez aller plus loin — déployer l'IA dans votre équipe ou automatiser des process métier — je propose un diagnostic découverte de 30 minutes :\n${DIAGNOSTIC_URL}\n\nBonne utilisation,\n\nFranck Sauvage\n01 85 09 75 92\nL'Agence Sauvage · IA & automation pour PME\nwww.lagencesauvage.com`,
       html: `<div style="font-family:system-ui,-apple-system,sans-serif;max-width:560px;margin:0 auto;color:#0F172A">
 <div style="background:#4F46E5;padding:24px 32px;border-radius:8px 8px 0 0">
   <h1 style="color:#fff;margin:0;font-size:20px;font-weight:700">50 Prompts IA Prêts à l'Emploi pour PME</h1>
@@ -135,6 +141,12 @@ const MAGNETS = {
   <p style="margin:0 0 8px;color:#374151;font-size:14px">Vous souhaitez aller plus loin — déployer l'IA dans votre équipe ou automatiser des process métier ?</p>
   <a href="${DIAGNOSTIC_URL}" style="color:#4F46E5;font-size:14px;font-weight:600">Réservez un diagnostic découverte de 30 min →</a>
   <hr style="border:none;border-top:1px solid #E2E8F0;margin:28px 0">
+  <div style="font-size:13px;color:#374151;line-height:1.55;margin-bottom:24px">
+    <strong>Franck Sauvage</strong><br>
+    01 85 09 75 92<br>
+    L'Agence Sauvage · IA &amp; automation pour PME<br>
+    <a href="https://www.lagencesauvage.com" style="color:#4F46E5;text-decoration:none">www.lagencesauvage.com</a>
+  </div>
   <p style="margin:0;font-size:12px;color:#94A3B8">L'Agence Sauvage · Paris · <a href="mailto:hello@lagencesauvage.com" style="color:#94A3B8">hello@lagencesauvage.com</a></p>
 </div>
 </div>`,
@@ -155,7 +167,7 @@ const MAGNETS = {
     emailFrom: "L'Agence Sauvage <hello@lagencesauvage.com>",
     email: ({ firstName, pdfUrl }) => ({
       subject: 'Votre kit PDF — 10 prompts Claude pour PME',
-      text: `Bonjour ${firstName},\n\nVoici votre kit en PDF (téléchargement direct) :\n${pdfUrl}\n\nSi vous avez des questions sur l'automatisation IA dans votre entreprise, je suis disponible pour un diagnostic découverte de 30 minutes : https://www.lagencesauvage.com/#audit-form\n\nBonne utilisation,\n\nFranck Sauvage\nL'Agence Sauvage\nhello@lagencesauvage.com`,
+      text: `Bonjour ${firstName},\n\nVoici votre kit en PDF (téléchargement direct) :\n${pdfUrl}\n\nSi vous avez des questions sur l'automatisation IA dans votre entreprise, je suis disponible pour un diagnostic découverte de 30 minutes : https://www.lagencesauvage.com/#audit-form\n\nBonne utilisation,\n\nFranck Sauvage\n01 85 09 75 92\nL'Agence Sauvage · IA & automation pour PME\nwww.lagencesauvage.com`,
       html: `<div style="font-family:system-ui,sans-serif;max-width:560px;margin:0 auto;color:#0F172A">
 <div style="background:#4F46E5;padding:24px 32px;border-radius:8px 8px 0 0">
   <h1 style="color:#fff;margin:0;font-size:20px">10 prompts Claude pour PME</h1>
@@ -169,6 +181,12 @@ const MAGNETS = {
   <p style="margin:0 0 8px;color:#374151;font-size:14px">Ce kit vous a donné des idées pour votre entreprise ?</p>
   <p style="margin:0;font-size:14px"><a href="https://www.lagencesauvage.com/#audit-form" style="color:#4F46E5">Réservez un diagnostic découverte de 30 min →</a></p>
   <hr style="border:none;border-top:1px solid #E2E8F0;margin:32px 0">
+  <div style="font-size:13px;color:#374151;line-height:1.55;margin-bottom:24px">
+    <strong>Franck Sauvage</strong><br>
+    01 85 09 75 92<br>
+    L'Agence Sauvage · IA &amp; automation pour PME<br>
+    <a href="https://www.lagencesauvage.com" style="color:#4F46E5;text-decoration:none">www.lagencesauvage.com</a>
+  </div>
   <p style="margin:0;font-size:12px;color:#94A3B8">L'Agence Sauvage · Paris · <a href="mailto:hello@lagencesauvage.com" style="color:#94A3B8">hello@lagencesauvage.com</a></p>
 </div>
 </div>`,
@@ -188,7 +206,7 @@ const MAGNETS = {
     emailFrom: FROM_FRANCK,
     email: ({ firstName, pdfUrl }) => ({
       subject: 'Votre grille de pilotage SEO + GEO 2026',
-      text: `Bonjour ${firstName},\n\nVoici votre grille de pilotage (téléchargement direct) :\n${pdfUrl}\n\n10 indicateurs concrets pour vérifier, à votre prochain point mensuel, que votre prestataire — agence, freelance ou équipe interne — a pris le virage de l'IA. Notez chaque indicateur sur 2, faites le total sur 20, et vous saurez où vous en êtes.\n\nUn conseil : commencez par les 2 tests d'une minute (page 4). Ils vous diront tout de suite si les IA ont le droit de lire votre site.\n\nVous préférez un regard extérieur ? Je propose un audit IA gratuit de 30 minutes qui passe votre site au crible de ces 10 indicateurs :\n${DIAGNOSTIC_URL}\n\nBonne lecture,\n\nFranck Sauvage\nFondateur — L'Agence Sauvage\nhello@lagencesauvage.com`,
+      text: `Bonjour ${firstName},\n\nVoici votre grille de pilotage (téléchargement direct) :\n${pdfUrl}\n\n10 indicateurs concrets pour vérifier, à votre prochain point mensuel, que votre prestataire — agence, freelance ou équipe interne — a pris le virage de l'IA. Notez chaque indicateur sur 2, faites le total sur 20, et vous saurez où vous en êtes.\n\nUn conseil : commencez par les 2 tests d'une minute (page 4). Ils vous diront tout de suite si les IA ont le droit de lire votre site.\n\nVous préférez un regard extérieur ? Je propose un audit IA gratuit de 30 minutes qui passe votre site au crible de ces 10 indicateurs :\n${DIAGNOSTIC_URL}\n\nBonne lecture,\n\nFranck Sauvage\n01 85 09 75 92\nL'Agence Sauvage · IA & automation pour PME\nwww.lagencesauvage.com`,
       html: `<div style="font-family:system-ui,-apple-system,sans-serif;max-width:560px;margin:0 auto;color:#0F172A">
 <div style="background:#4F46E5;padding:24px 32px;border-radius:8px 8px 0 0">
   <h1 style="color:#fff;margin:0;font-size:20px;font-weight:700">Grille de pilotage SEO + GEO 2026</h1>
@@ -219,6 +237,12 @@ const MAGNETS = {
   <p style="margin:0 0 8px;color:#374151;font-size:14px">Vous préférez un regard extérieur sur ces 10 indicateurs ?</p>
   <a href="${DIAGNOSTIC_URL}" style="color:#4F46E5;font-size:14px;font-weight:600">Réservez votre audit IA gratuit de 30 min →</a>
   <hr style="border:none;border-top:1px solid #E2E8F0;margin:28px 0">
+  <div style="font-size:13px;color:#374151;line-height:1.55;margin-bottom:24px">
+    <strong>Franck Sauvage</strong><br>
+    01 85 09 75 92<br>
+    L'Agence Sauvage · IA &amp; automation pour PME<br>
+    <a href="https://www.lagencesauvage.com" style="color:#4F46E5;text-decoration:none">www.lagencesauvage.com</a>
+  </div>
   <p style="margin:0;font-size:12px;color:#94A3B8">L'Agence Sauvage · Paris · <a href="mailto:hello@lagencesauvage.com" style="color:#94A3B8">hello@lagencesauvage.com</a></p>
 </div>
 </div>`,
@@ -238,7 +262,7 @@ const MAGNETS = {
     emailFrom: FROM_FRANCK,
     email: ({ firstName, pdfUrl }) => ({
       subject: 'Votre programme de formation Claude — finançable jusqu\'à 100% OPCO',
-      text: `Bonjour ${firstName},\n\nVoici la proposition de formation "Maîtriser Claude en entreprise" :\n${pdfUrl}\n\nCe document de 7 pages présente la promesse de la formation, le programme sur 3 jours espacés (21 heures), 3 cas d'usage métier concrets, les modalités pratiques et les conditions de financement via votre OPCO. Vous pouvez le partager directement avec votre OPCO ou votre service RH pour déposer un dossier de prise en charge.\n\nPour cadrer cette formation pour vos équipes ou calculer votre reste à charge, je suis disponible pour un échange de 30 minutes :\n${DIAGNOSTIC_URL}\n\nCordialement,\n\nFranck Sauvage\nFondateur — L'Agence Sauvage\nhello@lagencesauvage.com`,
+      text: `Bonjour ${firstName},\n\nVoici la proposition de formation "Maîtriser Claude en entreprise" :\n${pdfUrl}\n\nCe document de 7 pages présente la promesse de la formation, le programme sur 3 jours espacés (21 heures), 3 cas d'usage métier concrets, les modalités pratiques et les conditions de financement via votre OPCO. Vous pouvez le partager directement avec votre OPCO ou votre service RH pour déposer un dossier de prise en charge.\n\nPour cadrer cette formation pour vos équipes ou calculer votre reste à charge, je suis disponible pour un échange de 30 minutes :\n${DIAGNOSTIC_URL}\n\nCordialement,\n\nFranck Sauvage\n01 85 09 75 92\nL'Agence Sauvage · IA & automation pour PME\nwww.lagencesauvage.com`,
       html: `<div style="font-family:system-ui,-apple-system,sans-serif;max-width:560px;margin:0 auto;color:#0F172A">
 <div style="background:#4F46E5;padding:24px 32px;border-radius:8px 8px 0 0">
   <h1 style="color:#fff;margin:0;font-size:20px;font-weight:700">Maîtriser Claude en entreprise</h1>
@@ -268,6 +292,12 @@ const MAGNETS = {
   <p style="margin:0 0 8px;color:#374151;font-size:14px">Pour cadrer cette formation pour vos équipes ou calculer votre reste à charge OPCO :</p>
   <a href="${DIAGNOSTIC_URL}" style="color:#4F46E5;font-size:14px;font-weight:600">Réservez un premier échange de 30 min →</a>
   <hr style="border:none;border-top:1px solid #E2E8F0;margin:28px 0">
+  <div style="font-size:13px;color:#374151;line-height:1.55;margin-bottom:24px">
+    <strong>Franck Sauvage</strong><br>
+    01 85 09 75 92<br>
+    L'Agence Sauvage · IA &amp; automation pour PME<br>
+    <a href="https://www.lagencesauvage.com" style="color:#4F46E5;text-decoration:none">www.lagencesauvage.com</a>
+  </div>
   <p style="margin:0;font-size:12px;color:#94A3B8">L'Agence Sauvage · Paris · <a href="mailto:hello@lagencesauvage.com" style="color:#94A3B8">hello@lagencesauvage.com</a> · Dispensateur : GHG Formations (certifié Qualiopi)</p>
 </div>
 </div>`,
