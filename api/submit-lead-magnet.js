@@ -289,7 +289,7 @@ const MAGNETS = {
       text: `Bonjour ${firstName},\n\nVoici votre rapport détaillé (téléchargement direct) :\n${pdfUrl}\n\nPour chaque signal, vous y trouverez ce qui fait tenir un projet IA en production, ce qui le fait caler, et l'action concrète à mener. Les trois premiers signaux (un responsable, l'adoption, la confiance) sont ceux qui prédisent le mieux le passage en production : commencez par eux.\n\nVous voulez un regard extérieur sur votre projet ? Je propose un audit IA gratuit de 30 minutes qui passe votre projet au crible des 7 signaux :\n${DIAGNOSTIC_URL}\n\nBonne lecture,\n\nFranck Sauvage\nFondateur de L'Agence Sauvage\nhello@lagencesauvage.com`,
       html: `<div style="font-family:system-ui,-apple-system,sans-serif;max-width:560px;margin:0 auto;color:#0F172A">
 <div style="background:#4F46E5;padding:24px 32px;border-radius:8px 8px 0 0">
-  <h1 style="color:#fff;margin:0;font-size:20px;font-weight:700">Le test des 7 signaux — votre projet IA en production</h1>
+  <h1 style="color:#fff;margin:0;font-size:20px;font-weight:700">Le test des 7 signaux : votre projet IA en production</h1>
   <p style="color:#C7D2FE;margin:6px 0 0;font-size:14px">7 signaux · Ce qui fait tenir un projet · Ce qui le fait caler</p>
 </div>
 <div style="background:#fff;border:1px solid #E2E8F0;border-top:none;padding:32px;border-radius:0 0 8px 8px">
