@@ -116,7 +116,9 @@
             {{ range $i, $section := after 1 $sections }}
                 {{/* CTA inline #1 — Lead magnet après ~30% (après le 2e H2) */}}
                 {{ if eq $i 2 }}
-                {{ if in $.Params.tags "Formation IA" }}
+                {{ if eq $.Params.lead_magnet "scorecard" }}
+                {{ partial "lead-magnet-scorecard.html" $ }}
+                {{ else if in $.Params.tags "Formation IA" }}
                 {{ partial "lead-magnet-formation.html" $ }}
                 {{ else if in $.Params.tags "Prompts IA" }}
                 {{ partial "lead-magnet-prompts.html" $ }}

@@ -1,6 +1,7 @@
 ---
 title: "Pourquoi votre projet IA cale avant la production (le test des 7 signaux)"
 seo_title: "Pourquoi votre projet IA cale avant la production"
+lead_magnet: "scorecard"
 date: 2026-07-27
 lastmod: 2026-07-27
 description: "95% des pilotes d'IA générative n'ont pas d'impact mesurable. Le blocage n'est presque jamais la technique. Notez votre projet sur 14 avant de généraliser."
