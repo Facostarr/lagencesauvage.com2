@@ -1,5 +1,19 @@
 # Lessons Learned — Refonte lagencesauvage.com
 
+## Lire le CONTENU des articles voisins (pas juste les noms) avant de figer un angle (lesson 2026-07-27)
+
+**Symptôme** : plan d'article RAG construit autour de l'angle "démo bluffante vs production + test des questions à poser". Or l'article voisin `pourquoi-projet-ia-cale-avant-la-production` (test des 7 signaux), en cours de finalisation par une session parallèle le même jour, occupait déjà exactement ce terrain : même hook démo-vs-prod, même device "test nommé", même contenu confiance/sources. Franck l'a repéré ("cela risque d'être sur le même angle ?"), pas moi.
+
+**Diagnostic** : à l'audit initial, j'avais grep les noms de fichiers + lu l'article Karpathy, mais PAS lu le corps de l'article "projet IA cale" (untracked, créé le jour même). Un fichier untracked ou très récent = travail en cours, potentiellement sur un angle proche.
+
+**Règle** : avant de figer l'angle d'un nouvel article, LIRE le corps (pas juste le titre/slug) des articles thématiquement proches, surtout untracked ou récents. En cas de collision, séparer nettement les périmètres (ici : 7 signaux = lentille organisationnelle/readiness ; RAG = lentille technique/fiabilité) et croiser les liens, plutôt que dupliquer hook + device.
+
+## Hero de blog : lisibilité immédiate > métaphore intelligente (lesson 2026-07-27)
+
+**Symptôme** : 1er hero RAG (concept "L'Empreinte", linogravure : un trait relie la source à la réponse, points = citations, bulles déconnectées = hallucinations) rejeté par Franck : "si je me mets à la place du lecteur il comprendra rien".
+
+**Règle** : un hero doit se comprendre en 1 seconde sans qu'on explique le code visuel. Préférer une scène littérale (document surligné → flèche → réponse) à une métaphore codée, même élégante. L'illustration éditoriale à aplats marche bien ; un accent chaud (surligneur ambre) est acceptable ; remplir la composition (une image "un peu vide" a aussi été reprochée). Challenger les concepts via GLM 5.2 mais garder la lisibilité lecteur comme juge final. Note orouter : un challenge "deep" (Kimi K3 / GLM 5.2) passe par `submit_reasoning` + `poll_result` async (`ask` synchrone timeout à ~60s ; `priority` ∈ fast/default/deep). Complète la mémoire `hero-images-concretes`.
+
 ## Zéro tiret cadratin, partout, y compris le blog (lesson 2026-07-15)
 
 **Symptôme** : article Cowork mis à jour + article avocats rédigés avec des tirets cadratins (—) partout, y compris dans les listes de sources ("Auteur — Titre"). Franck a explicitement corrigé : "je ne veux jamais de tiret cadratin".

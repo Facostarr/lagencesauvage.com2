@@ -15,6 +15,20 @@
 | Phase 6 — Bascule | ✅ Logo validé, merge main | 2026-03-23 | 2026-03-23 |
 | Phase 7 — Post-bascule | 🔄 En cours | 2026-03-23 | — |
 
+## Session 2026-07-27 — Article pilier "RAG en entreprise" (pivot techno/fiabilité)
+
+**Contexte** : Franck voulait un grand article sur le RAG (état de l'art juillet 2026), fort SEO/GEO, plan challengé par Kimi K3. Point de départ : brief RAG SOTA d'une mission voisine (dossier `C:\Claude\Job Hunt\candidatures\okuden-ai-rag-assurance\`).
+
+**Recherche** : workflow 6 agents (retrieval SOTA, frontières archi, hallucination/éval, SEO FR, GEO, framing business) + synthèse. 3 agents ont rendu des stubs "test" → rattrapage par 2 agents directs (SOTA technique + fact-check, 31 recherches web réelles). Fact-check strict de chaque chiffre.
+
+**Plan challengé par Kimi K3** (`moonshotai/kimi-k3`, orouter async, critique adverse) : a détecté un angle cliché, un trou GEO (aucun *information gain* : on cite Stanford/McKinsey à notre place), le trou build-vs-buy, et l'incohérence "prêcher la défiance vendeur en citant des stats vendeur".
+
+**Pivot majeur** : angle initial "démo vs système + test des questions" ABANDONNÉ — **collision frontale** avec l'article `pourquoi-projet-ia-cale-avant-la-production` (test des 7 signaux, publié le même jour par une session parallèle) : même hook démo-vs-prod, même device "test nommé". Franck a tiqué le premier. Pivot vers un angle **techno/fiabilité** strictement RAG, complémentaire : 7 signaux = lentille organisationnelle, RAG = lentille technique. Liens croisés dans les deux sens.
+
+**Publié** : `/blog/rag-en-entreprise/` (~3000 mots, 6 H2, actif propriétaire "les 3 garde-fous d'un RAG de confiance", RGPD + AI Act, build-vs-buy), commit `55ccd73` + lien réciproque `c8e7e24`. Sources primaires 100 % (Stanford RegLab, Bpifrance 82e baromètre, McKinsey, CNIL verbatim, Anthropic, Chroma, Google Research, DGE, AI Act EUR-Lex). Écartés : "73 % des échecs RAG = récupération" (folklore non sourçable) et ROI IDC-Microsoft 3,70 $ (incohérent avec l'angle).
+
+**Hero** : nouvelle ligne éditoriale. 5 concepts challengés via GLM 5.2 (`z-ai/glm-5.2`) ; abandon de l'abstrait géométrique. 1er rendu (linogravure "trait = citation") rejeté par Franck car trop codé pour le lecteur → pivot vers **illustration éditoriale à aplats lisible** (document surligné → flèche → réponse, sur pile de docs), WebP 47 Ko. Leçon lisibilité > métaphore (voir `lessons.md`).
+
 ## Session 2026-07-16 — 2 articles cluster agents IA (gouvernance ANSSI + outils/frameworks)
 
 **Contexte** : Franck voulait un article "état de l'art des agents IA en 2026, autonomes vs assistés". Avant d'écrire, audit du blog : ce terrain est **déjà couvert par 7 articles existants** (définition/ROI, déploiement opérationnel, "zero human company" autonome, "mode copilote" assisté, "manager une IA", Hermes Agent, Claude for Small Business). Risque de cannibalisation SEO signalé à Franck avant toute rédaction. Recherche web a confirmé : le marché français est saturé de contenus quasi identiques "copilote vs agent autonome 2026" chez des concurrents. Deux angles frais proposés et validés par Franck ("on est ambitieux, on fait les deux") via `AskUserQuestion`.

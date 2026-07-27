@@ -1,5 +1,11 @@
 # Changelog — Refonte lagencesauvage.com
 
+## 2026-07-27 — Article pilier "RAG en entreprise" (pivot techno/fiabilité)
+
+**2 commits sur main** : `55ccd73` (article + hero) et `c8e7e24` (lien réciproque 7 signaux → RAG). En parallèle, une autre session poussait l'outil interactif 7 signaux + l'aimant scorecard + l'activation cluster (`7a66ff9`, `cab00df`, etc.) — historique linéaire, aucun conflit.
+
+Article `/blog/rag-en-entreprise/`, ~3000 mots, angle "faire répondre une IA sur vos documents sans qu'elle invente". Actif propriétaire nommé "les 3 garde-fous d'un RAG de confiance" (sourcing vérifiable / abstention / contrôle d'accès). Couvre RAG naïf vs fiable (recherche hybride, reranking, chunking), cas d'usage PME, RGPD + AI Act (art. 50, 2 août 2026), build-vs-buy. Pivot depuis un angle "démo vs système" abandonné pour cause de collision avec l'article 7 signaux publié le même jour. Recherche multi-agents + fact-check strict ; plan passé au crible de Kimi K3 (critique adverse) ; 5 concepts de hero challengés via GLM 5.2. Hero = nouvelle ligne visuelle (illustration éditoriale à aplats, fin de l'abstrait géométrique). Détail dans `status.md` et `lessons.md`.
+
 ## 2026-07-16 — 2 articles cluster agents IA (gouvernance ANSSI + outils/frameworks)
 
 **1 commit sur main** : `568b886` (2 articles + 2 images hero).

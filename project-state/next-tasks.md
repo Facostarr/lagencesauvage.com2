@@ -1,5 +1,15 @@
 # Next Tasks — Refonte lagencesauvage.com
 
+## Session 2026-07-27 — Article pilier RAG en entreprise
+
+### Immédiat (post-publication)
+- [ ] **GSC → Inspection d'URL** : soumettre `/blog/rag-en-entreprise/` à la réindexation.
+- [ ] Vérifier le rendu live (hero + liens croisés RAG ↔ 7 signaux) une fois le déploiement Vercel terminé.
+
+### Reporté / à considérer
+- [ ] **Lead magnet RAG technique** (checklist "questions à poser à un prestataire RAG") : envisagé mais NON fait, pour éviter deux devices nommés à quelques jours d'écart du "test des 7 signaux". À décider plus tard.
+- [ ] Coordonner avec la session cluster "7 signaux" : les deux articles sont liés (organisationnel ↔ technique), garder la complémentarité si l'un des deux évolue.
+
 ## Session 2026-07-16 — 2 articles cluster agents IA (gouvernance ANSSI + outils/frameworks)
 
 **Contexte** : détail complet dans `status.md`. 2 articles publiés (commit `568b886`) : gouvernance-agents-ia-pme-2026 et outils-agents-ia-pme-2026.
