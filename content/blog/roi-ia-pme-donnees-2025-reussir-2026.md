@@ -69,6 +69,8 @@ Ces chiffres encourageants méritent d'être tempérés. L'[étude McKinsey Stat
 
 Autrement dit, le ROI existe — mais il se mérite.
 
+Ce sont d'ailleurs ces mêmes facteurs qui déterminent [si votre projet IA passera vraiment en production](/blog/pourquoi-projet-ia-cale-avant-la-production/), là où se joue le retour sur investissement réel.
+
 ## Les cas d'usage à fort ROI pour TPE et PME
 
 ### L'automatisation administrative : le quick win par excellence

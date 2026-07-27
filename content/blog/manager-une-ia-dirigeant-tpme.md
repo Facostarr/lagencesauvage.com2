@@ -68,7 +68,7 @@ Cet article n'est pas un tutoriel technique. C'est ce que deux mois à encadrer 
 
 Manager une IA, c'est encadrer un agent autonome comme on encadre un collaborateur. La différence avec une discussion sur ChatGPT tient en un mot : la continuité. Un chatbot répond quand vous lui parlez, puis oublie tout. Un agent bien cadré travaille en tâche de fond, garde la mémoire de vos consignes, et exécute des tâches planifiées sans que vous soyez devant l'écran.
 
-Ce déplacement a une conséquence pratique. Votre valeur de dirigeant ne se joue plus dans l'exécution, mais dans la qualité de votre cadrage. Un collaborateur mal briefé livre un travail à côté de la plaque. Une IA mal briefée fait pareil, en plus rapide. La compétence qui compte devient celle du manager : savoir dire clairement ce que vous attendez.
+Ce déplacement a une conséquence pratique. Votre valeur de dirigeant ne se joue plus dans l'exécution, mais dans la qualité de votre cadrage. Un collaborateur mal briefé livre un travail à côté de la plaque. Une IA mal briefée fait pareil, en plus rapide. La compétence qui compte devient celle du manager : savoir dire clairement ce que vous attendez. C'est d'ailleurs le premier facteur qui explique [pourquoi un projet IA cale avant la production](/blog/pourquoi-projet-ia-cale-avant-la-production/) : rarement la technologie, presque toujours le cadrage du responsable métier.
 
 J'ai détaillé ma configuration technique et mes cas d'usage dans un [retour d'expérience complet sur mon agent IA autonome](/blog/hermes-agent-ia-autonome-dirigeant-tpme/). Ici, je reste sur la posture, parce que c'est elle qui est transférable. Vous n'avez pas besoin de mon serveur pour appliquer la méthode.
 

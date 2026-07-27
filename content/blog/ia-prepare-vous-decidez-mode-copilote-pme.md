@@ -173,7 +173,7 @@ Une tâche peut passer de B à A uniquement lorsque vous avez corrigé moins de 
 
 ## Ce que le mode copilote ne résout pas
 
-Cette section est la plus importante à lire avant de démarrer. Un déploiement qui commence avec des attentes réalistes a beaucoup plus de chances de tenir dans la durée.
+Cette section est la plus importante à lire avant de démarrer. Un déploiement qui commence avec des attentes réalistes a beaucoup plus de chances de tenir dans la durée. C'est souvent faute d'avoir évalué ces conditions en amont qu'un projet cale avant la mise en production : pour aller plus loin, vous pouvez [noter la viabilité de votre projet IA sur 14](/blog/pourquoi-projet-ia-cale-avant-la-production/) avant de vous lancer.
 
 **Le dirigeant reste un goulot d'étranglement potentiel.** En catégorie B, chaque action de l'agent attend votre validation. Si vous n'avez pas le réflexe de valider dans un délai raisonnable, l'agent s'arrête. L'IA est rapide — si le frein devient humain, le mode copilote perd une partie de sa valeur opérationnelle. Il faut intégrer le temps de validation dans votre organisation dès le départ.
 

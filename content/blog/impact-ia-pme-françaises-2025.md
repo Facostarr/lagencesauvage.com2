@@ -116,6 +116,8 @@ Après des dizaines d'audits chez des PME françaises, trois erreurs récurrente
 
 **Erreur 3 — Traiter ça comme un projet IT.** La transformation IA n'est pas un projet technique. C'est un projet de direction. Les données Bpifrance le confirment : 73% des projets IA réussis en PME sont portés par le dirigeant lui-même, pas par la DSI. La DSI choisit les meilleurs outils. Mais seul le dirigeant sait quels processus ont le plus de valeur business à transformer.
 
+Ces trois erreurs ont une racine commune : un projet lancé sans vérifier au préalable qu'il tiendra la route jusqu'en production. Avant de vous engager, passez votre idée au [test des 7 signaux de viabilité d'un projet IA](/blog/pourquoi-projet-ia-cale-avant-la-production/) : c'est ce qui sépare un projet qui atteint la production d'un projet qui cale en chemin.
+
 ---
 
 ## Qu'est-ce qui distingue les PME qui réussissent leur transformation IA ?
