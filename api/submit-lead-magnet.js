@@ -286,7 +286,7 @@ const MAGNETS = {
     emailFrom: FROM_FRANCK,
     email: ({ firstName, pdfUrl }) => ({
       subject: 'Votre rapport : le test des 7 signaux de votre projet IA',
-      text: `Bonjour ${firstName},\n\nVoici votre rapport détaillé (téléchargement direct) :\n${pdfUrl}\n\nPour chaque signal, vous y trouverez ce qui fait tenir un projet IA en production, ce qui le fait caler, et l'action concrète à mener. Les trois premiers signaux (un responsable, l'adoption, la confiance) sont ceux qui prédisent le mieux le passage en production : commencez par eux.\n\nVous voulez un regard extérieur sur votre projet ? Je propose un audit IA gratuit de 30 minutes qui passe votre projet au crible des 7 signaux :\n${DIAGNOSTIC_URL}\n\nBonne lecture,\n\nFranck Sauvage\nFondateur de L'Agence Sauvage\nhello@lagencesauvage.com`,
+      text: `Bonjour ${firstName},\n\nVoici votre rapport détaillé (téléchargement direct) :\n${pdfUrl}\n\nPour chaque signal, vous y trouverez ce qui fait tenir un projet IA en production, ce qui le fait caler, et l'action concrète à mener. Les trois premiers signaux (un responsable, l'adoption, la confiance) sont ceux qui prédisent le mieux le passage en production : commencez par eux.\n\nVous voulez un regard extérieur sur votre projet ? Je propose un audit IA gratuit de 30 minutes qui passe votre projet au crible des 7 signaux :\n${DIAGNOSTIC_URL}\n\nBonne lecture,\n\nFranck Sauvage\n01 85 09 75 92\nL'Agence Sauvage · IA & automation pour PME\nwww.lagencesauvage.com`,
       html: `<div style="font-family:system-ui,-apple-system,sans-serif;max-width:560px;margin:0 auto;color:#0F172A">
 <div style="background:#4F46E5;padding:24px 32px;border-radius:8px 8px 0 0">
   <h1 style="color:#fff;margin:0;font-size:20px;font-weight:700">Le test des 7 signaux : votre projet IA en production</h1>
@@ -316,6 +316,12 @@ const MAGNETS = {
   <p style="margin:0 0 8px;color:#374151;font-size:14px">Vous voulez un regard extérieur sur votre projet ?</p>
   <a href="${DIAGNOSTIC_URL}" style="color:#4F46E5;font-size:14px;font-weight:600">Réservez votre audit IA gratuit de 30 min →</a>
   <hr style="border:none;border-top:1px solid #E2E8F0;margin:28px 0">
+  <div style="font-size:13px;color:#374151;line-height:1.55;margin-bottom:24px">
+    <strong>Franck Sauvage</strong><br>
+    01 85 09 75 92<br>
+    L'Agence Sauvage · IA &amp; automation pour PME<br>
+    <a href="https://www.lagencesauvage.com" style="color:#4F46E5;text-decoration:none">www.lagencesauvage.com</a>
+  </div>
   <p style="margin:0;font-size:12px;color:#94A3B8">L'Agence Sauvage · Paris · <a href="mailto:hello@lagencesauvage.com" style="color:#94A3B8">hello@lagencesauvage.com</a></p>
 </div>
 </div>`,
