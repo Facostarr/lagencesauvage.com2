@@ -273,6 +273,54 @@ const MAGNETS = {
 </div>`,
     }),
   },
+
+  'scorecard-ia': {
+    pdfUrl: 'https://www.lagencesauvage.com/assets/downloads/test-7-signaux-projet-ia.pdf',
+    landingUrl: 'https://www.lagencesauvage.com/test-projet-ia/',
+    notionSource: 'Lead Magnet - Test 7 signaux',
+    notionEntreprise: '(Test projet IA 7 signaux)',
+    notionDefi: 'Test projet IA (7 signaux)',
+    notifySource: 'Test projet IA (7 signaux)',
+    eventName: 'Scorecard IA Download',
+    eventSource: 'Lead Magnet Scorecard IA',
+    emailFrom: FROM_FRANCK,
+    email: ({ firstName, pdfUrl }) => ({
+      subject: 'Votre rapport : le test des 7 signaux de votre projet IA',
+      text: `Bonjour ${firstName},\n\nVoici votre rapport détaillé (téléchargement direct) :\n${pdfUrl}\n\nPour chaque signal, vous y trouverez ce qui fait tenir un projet IA en production, ce qui le fait caler, et l'action concrète à mener. Les trois premiers signaux (un responsable, l'adoption, la confiance) sont ceux qui prédisent le mieux le passage en production : commencez par eux.\n\nVous voulez un regard extérieur sur votre projet ? Je propose un audit IA gratuit de 30 minutes qui passe votre projet au crible des 7 signaux :\n${DIAGNOSTIC_URL}\n\nBonne lecture,\n\nFranck Sauvage\nFondateur de L'Agence Sauvage\nhello@lagencesauvage.com`,
+      html: `<div style="font-family:system-ui,-apple-system,sans-serif;max-width:560px;margin:0 auto;color:#0F172A">
+<div style="background:#4F46E5;padding:24px 32px;border-radius:8px 8px 0 0">
+  <h1 style="color:#fff;margin:0;font-size:20px;font-weight:700">Le test des 7 signaux — votre projet IA en production</h1>
+  <p style="color:#C7D2FE;margin:6px 0 0;font-size:14px">7 signaux · Ce qui fait tenir un projet · Ce qui le fait caler</p>
+</div>
+<div style="background:#fff;border:1px solid #E2E8F0;border-top:none;padding:32px;border-radius:0 0 8px 8px">
+  <p style="margin:0 0 16px">Bonjour <strong>${firstName}</strong>,</p>
+  <p style="margin:0 0 20px;color:#374151">Voici votre rapport détaillé. Pour chaque signal, vous y trouverez ce qui fait tenir un projet IA en production, ce qui le fait caler, et l'action concrète à mener.</p>
+
+  <a href="${pdfUrl}" style="display:inline-block;background:#4F46E5;color:#fff;padding:13px 28px;border-radius:6px;text-decoration:none;font-weight:700;font-size:15px">Télécharger mon rapport (PDF) →</a>
+
+  <div style="background:#F1F5F9;border-radius:8px;padding:20px;margin:28px 0">
+    <p style="margin:0 0 10px;font-weight:700;color:#0F172A;font-size:14px">Les 7 signaux de votre projet</p>
+    <ul style="margin:0;padding-left:20px;color:#374151;font-size:14px;line-height:1.8">
+      <li><strong>Un responsable, un vrai problème</strong> et <strong>l'adoption au quotidien</strong></li>
+      <li><strong>La confiance et les garde-fous</strong> (les trois premiers, qui pèsent le plus)</li>
+      <li>Le branchement aux données, la qualité mesurée, la valeur et le coût, les équipes embarquées</li>
+    </ul>
+  </div>
+
+  <div style="background:#EEF2FF;border-left:4px solid #4F46E5;padding:16px 20px;margin-bottom:28px;border-radius:0 6px 6px 0">
+    <p style="margin:0;font-size:14px;color:#3730A3;font-weight:600">Par où commencer</p>
+    <p style="margin:6px 0 0;font-size:14px;color:#374151">Les trois premiers signaux (un responsable, l'adoption, la confiance) prédisent le passage en production mieux que le modèle choisi. Un seul point rouge sur ces trois, et le projet s'essouffle en général en quelques mois.</p>
+  </div>
+
+  <hr style="border:none;border-top:1px solid #E2E8F0;margin:28px 0">
+  <p style="margin:0 0 8px;color:#374151;font-size:14px">Vous voulez un regard extérieur sur votre projet ?</p>
+  <a href="${DIAGNOSTIC_URL}" style="color:#4F46E5;font-size:14px;font-weight:600">Réservez votre audit IA gratuit de 30 min →</a>
+  <hr style="border:none;border-top:1px solid #E2E8F0;margin:28px 0">
+  <p style="margin:0;font-size:12px;color:#94A3B8">L'Agence Sauvage · Paris · <a href="mailto:hello@lagencesauvage.com" style="color:#94A3B8">hello@lagencesauvage.com</a></p>
+</div>
+</div>`,
+    }),
+  },
 };
 
 // Fallback URL legacy → clé magnet (pages en cache qui POSTent sur les anciens
@@ -301,6 +349,7 @@ export default async function handler(req, res) {
     email,
     company = '',
     phone = '',
+    note = '',
   } = req.body;
 
   const resolvedKey = (magnetKey && MAGNETS[magnetKey] ? magnetKey : null) || magnetFromLegacyUrl(req.url, req.query || {});
@@ -322,6 +371,7 @@ export default async function handler(req, res) {
   const emailNorm = email.trim().toLowerCase();
   const fullName = [firstName.trim(), lastName.trim()].filter(Boolean).join(' ');
   const companyNorm = company.trim();
+  const noteNorm = (note || '').trim().slice(0, 300);
 
   let notionUrl;
   let dejaConnu = false;
@@ -340,7 +390,7 @@ export default async function handler(req, res) {
           'Email': { email: emailNorm },
           'Entreprise': { rich_text: [{ text: { content: magnet.usesCompanyAndLastName ? (companyNorm || '(non renseigné)') : magnet.notionEntreprise } }] },
           'Taille': { select: { name: '1-5' } },
-          'Défi': { rich_text: [{ text: { content: magnet.notionDefi } }] },
+          'Défi': { rich_text: [{ text: { content: noteNorm ? `${magnet.notionDefi} · ${noteNorm}` : magnet.notionDefi } }] },
           'Statut': { select: { name: 'Nouveau' } },
           'Source': { select: { name: magnet.notionSource } },
           'Date Soumission': { date: { start: new Date().toISOString().split('T')[0] } },
@@ -379,6 +429,7 @@ export default async function handler(req, res) {
   // 3. Notification Franck — non bloquant
   try {
     const extra = [
+      noteNorm ? `📊 ${noteNorm}` : null,
       companyNorm && magnet.usesCompanyAndLastName ? `🏢 Entreprise : ${companyNorm}` : null,
       lastName.trim() && magnet.usesCompanyAndLastName ? `👤 Nom complet : ${fullName}` : null,
       phone.trim() ? `📞 Téléphone : ${phone.trim()}` : null,

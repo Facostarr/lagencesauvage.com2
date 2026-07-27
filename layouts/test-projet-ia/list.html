@@ -1,0 +1,205 @@
+{{ define "head" }}
+  {{ partial "schema/test-projet-ia.html" . }}
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ .Title }}">
+  <meta property="og:description" content="{{ .Params.description }}">
+  <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:locale" content="fr_FR">
+  <meta name="twitter:card" content="summary">
+  <style>
+    .sc-option { display:flex; gap:.75rem; align-items:flex-start; border:1px solid #e2e8f0; border-radius:.75rem; padding:.85rem 1rem; cursor:pointer; transition:border-color .15s, background-color .15s; }
+    .sc-option:hover { border-color:#a5b4fc; background:#f5f3ff; }
+    .sc-option-selected { border-color:#4f46e5; background:#eef2ff; box-shadow:0 0 0 1px #4f46e5 inset; }
+    .sc-radio { margin-top:.2rem; width:1.05rem; height:1.05rem; accent-color:#4f46e5; flex:0 0 auto; }
+    .sc-option-text { font-size:.9rem; line-height:1.5; color:#334155; }
+    .sc-band-badge { display:inline-block; font-weight:700; font-size:.95rem; padding:.35rem 1rem; border-radius:9999px; }
+    .sc-band-vert { background:#dcfce7; color:#166534; }
+    .sc-band-orange { background:#ffedd5; color:#9a3412; }
+    .sc-band-rouge { background:#fee2e2; color:#991b1b; }
+    .sc-bd-row { display:flex; align-items:center; gap:.65rem; padding:.5rem 0; border-bottom:1px solid #f1f5f9; }
+    .sc-bd-name { flex:1 1 auto; font-size:.88rem; color:#334155; }
+    .sc-bd-pts { font-variant-numeric:tabular-nums; font-weight:700; font-size:.82rem; color:#475569; }
+    .sc-dot { width:.7rem; height:.7rem; border-radius:9999px; flex:0 0 auto; }
+    .sc-dot-vert { background:#16a34a; }
+    .sc-dot-orange { background:#d97706; }
+    .sc-dot-rouge { background:#dc2626; }
+    .sc-reco-item { font-size:.88rem; line-height:1.55; color:#334155; margin-bottom:.55rem; }
+    #sc-fieldset:focus { outline:none; }
+  </style>
+{{ end }}
+
+{{ define "main" }}
+
+{{/* ============================================================ BREADCRUMB ============================================================ */}}
+<nav class="bg-white border-b border-slate-100" aria-label="Fil d'Ariane">
+  <div class="mx-auto max-w-5xl px-4 sm:px-6 py-3">
+    <ol class="flex items-center gap-2 text-sm text-slate-600">
+      <li><a href="/" class="hover:text-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-indigo-500 rounded">Accueil</a></li>
+      <li aria-hidden="true" class="text-slate-300">›</li>
+      <li aria-current="page" class="text-slate-900 font-medium">Test projet IA</li>
+    </ol>
+  </div>
+</nav>
+
+{{/* ============================================================ HERO + CARD à états ============================================================ */}}
+<section id="sc-hero" class="bg-slate-deep text-white pt-12 pb-16 sm:pt-16 sm:pb-20">
+  <div class="mx-auto max-w-3xl px-4 sm:px-6">
+
+    <div class="flex justify-center mb-6">
+      <span class="inline-flex items-center gap-2 rounded-full bg-indigo-500/15 border border-indigo-400/30 px-4 py-1.5 text-xs sm:text-sm font-medium text-indigo-200">
+        Diagnostic gratuit · 7 signaux · Sans inscription pour voir votre score
+      </span>
+    </div>
+
+    <h1 class="text-center text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-4">
+      <span class="block">Votre projet IA passera-t-il</span>
+      <span class="block text-indigo-300">en production ?</span>
+    </h1>
+    <p class="text-center text-base sm:text-lg text-slate-300 mb-8 max-w-2xl mx-auto">
+      La plupart des projets IA ne calent pas pour des raisons techniques, mais sur trois questions : qui en répond, si les équipes s’en servent, et si on peut lui faire confiance. Notez le vôtre sur 14.
+    </p>
+
+    <div id="sc-live" role="status" aria-live="polite" class="sr-only"></div>
+
+    <div id="scorecard-card" class="bg-white rounded-2xl shadow-2xl mx-auto max-w-2xl text-slate-900">
+
+      {{/* ----- ÉTAT 1 — INTRO ----- */}}
+      <div id="sc-intro" class="p-6 sm:p-8">
+        <h2 class="text-xl font-bold text-slate-900 mb-2">Le test des 7 signaux</h2>
+        <p class="text-sm text-slate-600 mb-5">Vous avez un projet IA, un pilote ou une démo qui rend bien, et vous hésitez à engager le budget pour le généraliser. Ce test vous donne un verdict clair, dimension par dimension.</p>
+        <ul class="space-y-2 mb-6 text-sm text-slate-700">
+          <li class="flex items-start gap-2"><span class="font-bold text-indigo-600">1.</span> 7 questions, une réponse par écran</li>
+          <li class="flex items-start gap-2"><span class="font-bold text-indigo-600">2.</span> Un score sur 14 et une bande de lecture (vert, orange, rouge)</li>
+          <li class="flex items-start gap-2"><span class="font-bold text-indigo-600">3.</span> Les points à traiter en priorité avant de généraliser</li>
+        </ul>
+        <button type="button" id="sc-start"
+          class="w-full inline-flex items-center justify-center gap-2 rounded-lg bg-indigo-600 hover:bg-indigo-700 px-5 py-3 text-sm font-semibold text-white transition-colors focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-200">
+          Commencer le test →
+        </button>
+        <p class="mt-4 text-xs text-slate-500 text-center">Environ 2 minutes. Aucune inscription pour voir votre score.</p>
+      </div>
+
+      {{/* ----- ÉTAT 2 — QUIZ ----- */}}
+      <div id="sc-quiz" class="hidden p-6 sm:p-8">
+        <div class="mb-5">
+          <div class="flex items-center justify-between mb-2">
+            <p id="sc-progress-text" class="text-xs font-semibold uppercase tracking-wide text-indigo-600">Question 1 sur 7</p>
+          </div>
+          <div class="w-full bg-slate-100 rounded-full h-2" role="progressbar" aria-label="Progression du test" aria-valuemin="0" aria-valuemax="100">
+            <div id="sc-progress-bar" class="bg-indigo-600 h-2 rounded-full transition-all duration-300" style="width:14%"></div>
+          </div>
+        </div>
+
+        <fieldset id="sc-fieldset" class="border-0 p-0 m-0">
+          <legend id="sc-legend" class="text-lg font-bold text-slate-900 mb-1">1. Un responsable, un vrai problème</legend>
+          <p id="sc-question-text" class="text-sm text-slate-700 mb-1"></p>
+          <p id="sc-hint" class="hidden text-xs text-slate-500 italic mb-3"></p>
+          <div id="sc-options" class="space-y-2.5 mt-3"></div>
+        </fieldset>
+
+        <div class="mt-6 flex items-center justify-between gap-3">
+          <button type="button" id="sc-prev"
+            class="text-sm font-medium text-slate-500 underline hover:text-slate-700 disabled:opacity-40 disabled:no-underline">
+            Précédent
+          </button>
+          <button type="button" id="sc-next" disabled
+            class="rounded-lg bg-indigo-600 hover:bg-indigo-700 px-6 py-2.5 text-sm font-semibold text-white transition-colors focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-200 disabled:opacity-50 disabled:cursor-not-allowed">
+            Suivant
+          </button>
+        </div>
+      </div>
+
+      {{/* ----- ÉTAT 3 — RÉSULTAT ----- */}}
+      <div id="sc-result" class="hidden p-6 sm:p-8">
+        <div class="text-center mb-5">
+          <p class="text-xs font-semibold uppercase tracking-wide text-slate-500 mb-1">Votre score de viabilité</p>
+          <p id="sc-score-value" class="text-5xl font-bold text-slate-900">— / 14</p>
+          <p class="mt-3"><span id="sc-band-badge" class="sc-band-badge">—</span></p>
+        </div>
+
+        <p id="sc-verdict" class="text-sm text-slate-700 leading-relaxed text-center mb-5"></p>
+
+        <div id="sc-alert" class="hidden rounded-lg bg-red-50 border border-red-200 p-4 text-sm text-red-800 mb-5">
+          <strong>Attention à un point fondamental.</strong> Vous avez un voyant rouge sur : <strong><span id="sc-alert-dims"></span></strong>. Sur les trois premiers signaux (le responsable, l’adoption, la confiance), un seul 0 suffit à faire caler un projet, quel que soit le reste du score. Traitez ce point avant de généraliser.
+        </div>
+
+        <p class="text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">Le détail, signal par signal</p>
+        <div id="sc-breakdown" class="mb-6"></div>
+
+        <div id="sc-recos" class="hidden rounded-xl bg-indigo-50 border border-indigo-100 p-4 sm:p-5 mb-6">
+          <p class="text-sm font-bold text-slate-900 mb-2">À traiter en priorité</p>
+          <ul id="sc-recos-list" class="list-none p-0 m-0"></ul>
+        </div>
+
+        {{/* Capture email — le score reste visible sans email */}}
+        <div class="rounded-xl border border-indigo-200 bg-indigo-50 p-5 sm:p-6 mb-6">
+          <h3 class="text-base font-bold text-slate-900 mb-1">Recevez votre rapport détaillé</h3>
+          <p class="text-sm text-slate-600 mb-4">Les 7 signaux développés, ce qui fait tenir un projet et ce qui le fait caler, avec l’action concrète pour chacun. Votre score est rappelé en tête.</p>
+          <form id="sc-email-form" class="flex flex-col gap-2" novalidate>
+            <div class="flex flex-col sm:flex-row gap-2">
+              <input type="text" id="sc-firstname" class="min-w-0 flex-1 rounded-lg border border-indigo-200 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-200" placeholder="Votre prénom" required autocomplete="given-name">
+              <input type="email" id="sc-email" class="min-w-0 flex-1 rounded-lg border border-indigo-200 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-200" placeholder="votre@email.com" required autocomplete="email">
+            </div>
+            <div class="flex flex-col sm:flex-row gap-2">
+              <input type="tel" id="sc-phone" class="min-w-0 flex-1 rounded-lg border border-indigo-200 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-200" placeholder="Téléphone (optionnel)" autocomplete="tel">
+              <button type="submit" id="sc-email-btn" class="whitespace-nowrap rounded-lg bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-indigo-700 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-400">
+                Recevoir mon rapport →
+              </button>
+            </div>
+          </form>
+          <p id="sc-email-success" class="hidden mt-3 text-sm font-semibold text-indigo-700"></p>
+          <p id="sc-email-error" class="hidden mt-3 text-sm text-red-600" role="alert"></p>
+          <p class="mt-2 text-xs text-slate-400">En recevant ce rapport, vous acceptez de recevoir nos conseils IA par email. Désinscription en un clic. <a href="/privacy/" class="underline hover:text-slate-600">Politique de confidentialité</a></p>
+        </div>
+
+        {{/* CTA principal unique */}}
+        <div class="rounded-xl bg-slate-50 border border-slate-200 p-5 text-center">
+          <p id="sc-cta-message" class="text-sm text-slate-700 mb-3"></p>
+          <a href="/diagnostic/" id="sc-cta" class="inline-flex items-center justify-center gap-2 rounded-lg bg-indigo-600 hover:bg-indigo-700 px-6 py-3 text-sm font-semibold text-white transition-colors">
+            Réservez votre audit IA gratuit (30 min) →
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{{/* ============================================================ CONTENU SEO (rendu du body markdown) ============================================================ */}}
+<section class="bg-white py-12 sm:py-16">
+  <article class="mx-auto max-w-3xl px-4 sm:px-6 prose prose-slate prose-headings:font-bold prose-h2:text-2xl prose-h2:sm:text-3xl prose-h2:mt-12 prose-h2:mb-5 prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3 prose-a:text-indigo-600 prose-a:underline hover:prose-a:text-indigo-800 prose-strong:text-slate-900 max-w-none">
+    {{ .Content }}
+  </article>
+</section>
+
+{{/* ============================================================ FAQ ============================================================ */}}
+{{ if .Params.faq }}
+<section class="bg-slate-50 py-12 sm:py-16" id="faq">
+  <div class="mx-auto max-w-3xl px-4 sm:px-6">
+    <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-6">Questions fréquentes</h2>
+    <div class="space-y-3">
+      {{ range $i, $faq := .Params.faq }}
+      <details class="group bg-white rounded-xl border border-slate-200 hover:border-indigo-300 transition-colors" {{ if eq $i 0 }}open{{ end }}>
+        <summary class="cursor-pointer list-none p-5 sm:p-6 flex items-start justify-between gap-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-indigo-500 rounded-xl">
+          <h3 class="text-base sm:text-lg font-bold text-slate-900 leading-snug">{{ $faq.question }}</h3>
+          <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 h-5 w-5 text-indigo-600 mt-0.5 transition-transform group-open:rotate-180" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.06l3.71-3.83a.75.75 0 111.08 1.04l-4.25 4.39a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z" clip-rule="evenodd"></path></svg>
+        </summary>
+        <div class="px-5 pb-5 sm:px-6 sm:pb-6 text-sm sm:text-base text-slate-700 leading-relaxed">
+          {{ $faq.answer | safeHTML }}
+        </div>
+      </details>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+{{ end }}
+
+{{ define "scripts" }}
+  {{ $scJS := resources.Get "js/scorecard-ia.js" }}
+  {{ if hugo.IsProduction }}
+    {{ $scJS = $scJS | minify | fingerprint }}
+  {{ end }}
+  <script defer src="{{ $scJS.RelPermalink }}"></script>
+{{ end }}

@@ -1,0 +1,86 @@
+{{/* =============================================================================
+     Schema.org @graph — Test projet IA (scorecard 7 signaux)
+     WebApplication + BreadcrumbList + FAQPage, references Organization sitewide.
+     Meme pattern que schema/scan-geo.html.
+     ============================================================================= */}}
+{{ $desc := .Description }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "{{ .Permalink }}#webapp",
+      "name": "Test projet IA — Le test des 7 signaux",
+      "alternateName": "Votre projet IA passera-t-il en production ?",
+      "url": "{{ .Permalink }}",
+      "description": {{ $desc | jsonify }},
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "fr-FR",
+      "isAccessibleForFree": true,
+      "datePublished": "2026-07-28",
+      "dateModified": {{ .Lastmod.Format "2006-01-02" | jsonify }},
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock"
+      },
+      "audience": {
+        "@type": "BusinessAudience",
+        "audienceType": "TPE/PME françaises"
+      },
+      "featureList": [
+        "Diagnostic auto-scoré de la viabilité en production d'un projet IA",
+        "Grille de 7 signaux notés de 0 à 2, pour un total sur 14",
+        "Verdict par bande (vert, orange, rouge) et alerte sur les signaux fondamentaux",
+        "Recommandations personnalisées selon les points à combler",
+        "Rapport détaillé envoyé par email, gratuitement"
+      ],
+      "provider": { "@id": "{{ .Site.BaseURL }}#organization" },
+      "publisher": { "@id": "{{ .Site.BaseURL }}#organization" },
+      "potentialAction": {
+        "@type": "Action",
+        "name": "Noter la viabilité de son projet IA",
+        "target": "{{ .Permalink }}#sc-hero"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "{{ .Permalink }}#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "{{ .Site.BaseURL }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Test projet IA",
+          "item": "{{ .Permalink }}"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "{{ .Permalink }}#faq",
+      "mainEntity": [
+        {{ range $i, $item := .Params.faq }}{{ if $i }},{{ end }}
+        {
+          "@type": "Question",
+          "name": {{ $item.question | jsonify }},
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": {{ $item.answer | plainify | jsonify }}
+          }
+        }
+        {{ end }}
+      ]
+    }
+  ]
+}
+</script>
