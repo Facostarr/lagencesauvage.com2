@@ -1,5 +1,6 @@
 ---
 title: "L'IA prépare, vous décidez : le mode copilote pour les dirigeants non-tech"
+lead_magnet: "scorecard"
 seo_title: "Mode copilote IA : l'IA prépare, le dirigeant décide"
 date: 2026-06-02
 lastmod: 2026-06-02

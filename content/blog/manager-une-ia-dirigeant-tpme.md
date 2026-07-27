@@ -1,5 +1,6 @@
 ---
 title: "Manager une IA : vous venez d'être promu (et elle va vous manager en retour)"
+lead_magnet: "scorecard"
 seo_title: "Manager une IA : le guide du dirigeant (2026)"
 date: 2026-06-21
 lastmod: 2026-06-21

@@ -1,5 +1,6 @@
 ---
 title: "Gouvernance des agents IA en 2026 : ce que l'alerte ANSSI change pour votre PME"
+lead_magnet: "scorecard"
 seo_title: "Gouvernance des agents IA 2026 : l'alerte ANSSI pour PME"
 date: 2026-07-15
 lastmod: 2026-07-15

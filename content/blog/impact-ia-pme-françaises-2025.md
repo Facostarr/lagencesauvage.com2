@@ -1,5 +1,6 @@
 ---
 title: "Ce que j'ai vu dans les PME françaises en 2025 : l'IA ne frappe pas où on l'attend"
+lead_magnet: "scorecard"
 seo_title: "L'IA dans les PME françaises : ce que j'ai vu en 2025"
 seo_description: "Retour de terrain sur l'IA dans les PME françaises : ce qu'elle change concrètement, pourquoi elle touche les cols blancs d'abord, et 3 erreurs fréquentes."
 date: 2026-02-23
