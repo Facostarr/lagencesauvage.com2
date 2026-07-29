@@ -2,7 +2,7 @@
 title: "Qu'est-ce qu'un agent IA ? Définition, cas d'usage et ROI pour les PME françaises"
 seo_title: "Agent IA : définition, cas d'usage et ROI pour les PME"
 date: 2026-05-06
-lastmod: 2026-05-06
+lastmod: 2026-07-28
 description: "Comprendre les agents IA en entreprise : définition précise, différence avec un chatbot, 3 cas d'usage chiffrés pour les PME françaises, ROI mesuré et feuille de route pour démarrer sans risque."
 summary: "En 2026, les agents IA passent de la démonstration à l'adoption industrielle. Ce guide explique ce qu'est réellement un agent IA — la différence avec un chatbot, comment il s'intègre dans les processus d'une PME, ce qu'il rapporte concrètement et les conditions pour le déployer en conformité avec l'AI Act européen."
 
@@ -43,7 +43,7 @@ faq:
   - question: "Combien coûte un agent IA pour une PME ?"
     answer: "Le coût dépend de trois variables : le nombre de processus ciblés, la complexité des intégrations avec vos outils existants (messagerie, CRM, logiciel de gestion), et le niveau de gouvernance requis. Un premier pilote sur un processus isolé n'a pas le même périmètre qu'une organisation multi-agents connectée à l'ensemble de votre système d'information. La meilleure façon d'obtenir une estimation honnête est d'en parler lors d'un audit de 30 minutes — nous analysons votre contexte avant de chiffrer quoi que ce soit."
   - question: "L'AI Act européen oblige-t-il à changer ses pratiques si on déploie un agent IA ?"
-    answer: "Cela dépend du type d'utilisation. Les systèmes d'IA classés à haut risque (RH, évaluation financière, données sensibles) sont soumis à des obligations strictes à partir du 2 août 2026 : documentation technique, journaux d'activité, supervision humaine effective. Les sanctions en cas de non-conformité peuvent atteindre 35 millions d'euros ou 7 % du chiffre d'affaires mondial."
+    answer: "Cela dépend du type d'utilisation. Les obligations de transparence (signaler un chatbot, marquer un contenu généré par IA) s'appliquent depuis le 2 août 2026. Les systèmes classés à haut risque (RH, évaluation financière, données sensibles) sont soumis à des obligations plus strictes (documentation technique, journaux d'activité, supervision humaine), reportées au 2 décembre 2027 par le Digital Omnibus. Les sanctions peuvent atteindre 35 millions d'euros ou 7 % du chiffre d'affaires mondial."
   - question: "Peut-on déployer un agent IA sans violer le RGPD ?"
     answer: "Oui, à condition d'anticiper. Tout agent traitant des données personnelles doit faire l'objet d'une analyse d'impact (DPIA) si le traitement présente un risque. La transparence est obligatoire : si un agent interagit avec vos clients, ils doivent être informés qu'ils échangent avec un système automatisé. Ces obligations sont gérables si elles sont intégrées dès la conception du système."
 ---
@@ -159,7 +159,7 @@ L'autonomie d'un agent IA ne signifie pas une absence de contrôle. C'est préci
 
 ### L'AI Act européen : les obligations qui s'appliquent dès 2026
 
-L'**AI Act européen** impose un cadre contraignant dont les principales obligations pour les systèmes à haut risque entrent en vigueur le 2 août 2026. Les systèmes d'IA utilisés dans les ressources humaines (tri de CV, évaluation des performances), l'évaluation financière ou la gestion de données sensibles sont classés à haut risque et soumis à des exigences strictes : [documentation technique exhaustive, journaux d'activité auditables, supervision humaine effective et tests de robustesse](https://www.ibm.com/topics/eu-ai-act).
+L'**AI Act européen** impose un cadre contraignant à plusieurs échéances. Depuis le 2 août 2026, les obligations de transparence de l'article 50 s'appliquent : signaler les chatbots, marquer les contenus générés par IA, divulguer les deepfakes. Les systèmes d'IA à haut risque (tri de CV, évaluation des performances, évaluation financière, gestion de données sensibles) sont soumis à des exigences plus strictes ([documentation technique, journaux d'activité auditables, supervision humaine effective](https://www.ibm.com/topics/eu-ai-act)), dont l'entrée en application a été reportée au 2 décembre 2027 par le Digital Omnibus. Nous détaillons ce calendrier dans notre article sur [l'échéance AI Act du 2 août 2026](/blog/ai-act-2-aout-2026-obligations-pme/).
 
 Les sanctions sont significatives : jusqu'à **35 millions d'euros ou 7 % du chiffre d'affaires mondial** en cas de violation des interdictions, et jusqu'à 15 millions d'euros ou 3 % du CA pour les manquements aux obligations des systèmes à haut risque. Ignorer ce cadre en 2026 n'est pas une option envisageable.
 

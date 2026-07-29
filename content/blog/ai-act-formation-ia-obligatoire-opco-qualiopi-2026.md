@@ -2,7 +2,7 @@
 title: "AI Act : former vos collaborateurs à l'IA est désormais une obligation légale"
 seo_title: "AI Act 2026 : la formation IA devient obligatoire"
 date: 2026-04-16
-lastmod: 2026-04-16
+lastmod: 2026-07-28
 description: "Depuis le 2 février 2025, l'article 4 de l'AI Act impose à toute entreprise utilisant des outils d'IA de former ses équipes. Voici ce que cela change pour votre PME — et comment financer la formation jusqu'à 100 % via les OPCO et le CPF."
 summary: "L'article 4 du Règlement (UE) 2024/1689 — dit AI Act — est entré en application le 2 février 2025. Il impose à toute organisation qui déploie des systèmes d'IA de garantir un niveau suffisant de maîtrise de l'IA pour ses collaborateurs. Une PME qui utilise ChatGPT, Copilot ou un outil de transcription est concernée. Bonne nouvelle : la formation peut être financée jusqu'à 100 % via les OPCO et le CPF, à condition de passer par un organisme certifié Qualiopi."
 
@@ -82,7 +82,7 @@ Cet article est [entré en application le 2 février 2025](https://liftia.ai/ai-
 | 1er août 2024 | Entrée en vigueur du règlement |
 | **2 février 2025** | **Article 4 (AI literacy) applicable — obligation de formation** |
 | 2 août 2025 | Obligations pour les modèles d'IA à usage général (GPAI) |
-| 2 août 2026 | Application complète — systèmes à haut risque (recrutement, crédit, biométrie) |
+| 2 août 2026 | Obligations de transparence (article 50) ; haut risque reporté au 2 décembre 2027 par le Digital Omnibus |
 
 *Source : [EU Artificial Intelligence Act — Implementation Timeline](https://artificialintelligenceact.eu/implementation-timeline/)*
 
@@ -121,7 +121,7 @@ Il est important d'être précis sur ce point — et honnête sur la nuance juri
 
 Pour les systèmes d'IA à haut risque (recrutement, gestion de crédit, outils de notation), les amendes peuvent atteindre **15 millions d'euros ou 3 % du chiffre d'affaires mondial annuel**, le montant le plus élevé étant retenu. Le règlement prévoit des plafonds proportionnés pour les PME.
 
-**Une nuance réglementaire à connaître :** en novembre 2025, le Parlement européen a examiné via le "Digital Omnibus" une proposition de transformer l'obligation stricte de l'article 4 en politique d'incitation promue par les États membres. Cette révision est encore en discussion. Mais même si elle aboutissait, la responsabilité de l'employeur de garantir un environnement de travail sûr — notamment au regard du RGPD et du Code du travail français — demeurerait entière.
+**Une nuance réglementaire à connaître :** adopté en juillet 2026, le Digital Omnibus (règlement (UE) 2026/1744) a assoupli l'article 4. L'obligation de garantir un niveau suffisant de maîtrise de l'IA est devenue une obligation de moyens : soutenir la montée en compétence de vos équipes. Former reste néanmoins nécessaire et protecteur, car la responsabilité de l'employeur de garantir un environnement de travail sûr, au regard du RGPD et du Code du travail, demeure entière. Nous détaillons le calendrier complet et les nouvelles obligations de transparence dans notre article sur [l'échéance AI Act du 2 août 2026](/blog/ai-act-2-aout-2026-obligations-pme/).
 
 En résumé : ne pas former vos équipes aujourd'hui, c'est transformer une obligation gérable en risque juridique majeur le jour où quelque chose tourne mal.
 
