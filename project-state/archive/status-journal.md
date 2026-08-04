@@ -1,0 +1,432 @@
+> Archive. Ancien `project-state/status.md`, tel qu'il etait le 2026-08-04 avant scission.
+> Il melangeait l'etat courant, les recits de session et les checklists des phases 0 a 7.
+> L'etat vit maintenant dans `project-state/status.md`, le recit des sessions dans `project-state/changelog.md`.
+> Conserve pour retrouver un detail historique, pas a lire au demarrage.
+
+# Status — Refonte lagencesauvage.com
+
+## Phase en cours : 7 — Post-bascule 🔄
+
+## Progression
+
+| Phase | Statut | Date début | Date fin |
+|-------|--------|-----------|---------|
+| Phase 0 — Setup technique | ✅ Terminée | 2026-03-22 | 2026-03-22 |
+| Phase 1 — Design system | ✅ Terminée | 2026-03-22 | 2026-03-22 |
+| Phase 2 — Homepage | ✅ Terminée | 2026-03-22 | 2026-03-22 |
+| Phase 3 — Pages secondaires | ✅ Terminée | 2026-03-22 | 2026-03-22 |
+| Phase 4 — Intégration blog | ✅ Terminée | 2026-03-22 | 2026-03-22 |
+| Phase 5 — Quality gate | ✅ Terminée | 2026-03-22 | 2026-03-22 |
+| Phase 6 — Bascule | ✅ Logo validé, merge main | 2026-03-23 | 2026-03-23 |
+| Phase 7 — Post-bascule | 🔄 En cours | 2026-03-23 | — |
+
+## Session 2026-07-29 — Article AI Act "2 août 2026" (transparence art. 50) + corrections calendrier
+
+**Contexte** : Franck voulait un article sur l'AI Act et l'échéance du 2 août 2026, fort SEO/GEO, anti-cannibalisme, posture "directeur de publication".
+
+**Fait pivot vérifié (sources primaires)** : le Digital Omnibus (règlement (UE) 2026/1744, publié JOUE le 24/07, en vigueur le 27/07/2026) REPORTE le haut risque Annexe III au 2 décembre 2027 (Annexe I → 2 août 2028). Ce qui s'applique le 2 août 2026 = transparence art. 50 (chatbots signalés, contenus IA marqués, deepfakes divulgués), sanctions, gouvernance. En France, contrôle art. 50 = DGCCRF + Arcom (pas la CNIL, référente art. 5). Art. 4 (AI literacy) assoupli en obligation de moyens. Sanctions art. 99 : 35 M€/7 %, 15 M€/3 % (dont art. 50), 7,5 M€/1 % ; PME plafonnées au montant le plus bas.
+
+**Anti-cannibalisme** : cartographie de 10 articles réglementation (agent Explore). Terrains saturés évités (art. 4/formation/OPCO = pilier `ai-act-formation`, calendrier générique, sanctions chez `agent-ia-definition`). Angle libre retenu : date-pivot + transparence art. 50 + report Digital Omnibus.
+
+**Publié sur main** (commits `aec0542` + `b7f4d4b`) :
+- Nouvel article `/blog/ai-act-2-aout-2026-obligations-pme/` (~2700 mots, 6 H2). Actifs propriétaires (challenge Kimi K3) : device "Test F-D-H" (Fournisseur/Déployeur/Hors champ) + piège art. 25, matrice de transparence (usage→obligation→autorité FR), calendrier consolidé 2025-2028, calcul sanction PME concret. Titre data-driven via analyse SERP (Ahrefs plan insuffisant, GSC via Ahrefs KO).
+- Corrections calendrier (report haut risque) : `ai-act-formation` (tableau + Digital Omnibus adopté) + `agent-ia-definition` (corps + FAQ), lastmod à jour, liens entrants vers le nouvel article.
+- Hero : emblème AI Act officiel (UE bleu/or généré par Gemini) + marquage "Généré par IA"^New composé via sharp = mise en abyme art. 50, honnête (visuel réellement IA). Bandeau blanc net retenu après itérations rejetées (surligneur jaune, effet brillance/étincelles). Leçon : sur image statique, un "scintillement" animé n'a pas de sens.
+
+**Reste (actions Franck / suivi)** : soumission Search Console de la nouvelle URL + recrawl des 2 articles corrigés.
+
+## Session 2026-07-27 — Article pilier "RAG en entreprise" (pivot techno/fiabilité)
+
+**Contexte** : Franck voulait un grand article sur le RAG (état de l'art juillet 2026), fort SEO/GEO, plan challengé par Kimi K3. Point de départ : brief RAG SOTA d'une mission voisine (dossier `C:\Claude\Job Hunt\candidatures\okuden-ai-rag-assurance\`).
+
+**Recherche** : workflow 6 agents (retrieval SOTA, frontières archi, hallucination/éval, SEO FR, GEO, framing business) + synthèse. 3 agents ont rendu des stubs "test" → rattrapage par 2 agents directs (SOTA technique + fact-check, 31 recherches web réelles). Fact-check strict de chaque chiffre.
+
+**Plan challengé par Kimi K3** (`moonshotai/kimi-k3`, orouter async, critique adverse) : a détecté un angle cliché, un trou GEO (aucun *information gain* : on cite Stanford/McKinsey à notre place), le trou build-vs-buy, et l'incohérence "prêcher la défiance vendeur en citant des stats vendeur".
+
+**Pivot majeur** : angle initial "démo vs système + test des questions" ABANDONNÉ — **collision frontale** avec l'article `pourquoi-projet-ia-cale-avant-la-production` (test des 7 signaux, publié le même jour par une session parallèle) : même hook démo-vs-prod, même device "test nommé". Franck a tiqué le premier. Pivot vers un angle **techno/fiabilité** strictement RAG, complémentaire : 7 signaux = lentille organisationnelle, RAG = lentille technique. Liens croisés dans les deux sens.
+
+**Publié** : `/blog/rag-en-entreprise/` (~3000 mots, 6 H2, actif propriétaire "les 3 garde-fous d'un RAG de confiance", RGPD + AI Act, build-vs-buy), commit `55ccd73` + lien réciproque `c8e7e24`. Sources primaires 100 % (Stanford RegLab, Bpifrance 82e baromètre, McKinsey, CNIL verbatim, Anthropic, Chroma, Google Research, DGE, AI Act EUR-Lex). Écartés : "73 % des échecs RAG = récupération" (folklore non sourçable) et ROI IDC-Microsoft 3,70 $ (incohérent avec l'angle).
+
+**Hero** : nouvelle ligne éditoriale. 5 concepts challengés via GLM 5.2 (`z-ai/glm-5.2`) ; abandon de l'abstrait géométrique. 1er rendu (linogravure "trait = citation") rejeté par Franck car trop codé pour le lecteur → pivot vers **illustration éditoriale à aplats lisible** (document surligné → flèche → réponse, sur pile de docs), WebP 47 Ko. Leçon lisibilité > métaphore (voir `lessons.md`).
+
+## Session 2026-07-16 — 2 articles cluster agents IA (gouvernance ANSSI + outils/frameworks)
+
+**Contexte** : Franck voulait un article "état de l'art des agents IA en 2026, autonomes vs assistés". Avant d'écrire, audit du blog : ce terrain est **déjà couvert par 7 articles existants** (définition/ROI, déploiement opérationnel, "zero human company" autonome, "mode copilote" assisté, "manager une IA", Hermes Agent, Claude for Small Business). Risque de cannibalisation SEO signalé à Franck avant toute rédaction. Recherche web a confirmé : le marché français est saturé de contenus quasi identiques "copilote vs agent autonome 2026" chez des concurrents. Deux angles frais proposés et validés par Franck ("on est ambitieux, on fait les deux") via `AskUserQuestion`.
+
+### 1. "Gouvernance des agents IA en 2026 : ce que l'alerte ANSSI change pour votre PME" — commit `568b886`
+Angle : le fossé entre l'adoption des agents IA (Gartner : 40 % des apps entreprise fin 2026 vs <5 % en 2025) et la gouvernance pour les maîtriser (McKinsey *State of AI Trust 2026* : score de maturité 2,3/4, seulement 30 % des organisations matures sur la gouvernance agentique). Hook fort et jamais utilisé sur le blog : l'ANSSI/CERT-FR a publié le 13 avril 2026 (bulletin CERTFR-2026-ACT-016) une alerte déconseillant le déploiement en production d'agents IA autonomes type **Claude Cowork**, l'outil vedette de notre article le plus lu du site. Framework original "test des 3 serrures" (données/action/identité) dérivé des 5 risques identifiés par l'ANSSI. Sources 100 % officielles/primaires (ANSSI, McKinsey, Gartner, CNIL fiches pratiques IA, Conseil de l'IA et du numérique). Plan challengé par Gemini : 9/10.
+
+### 2. "Quel outil derrière un agent IA en 2026 ? Les 3 familles pour une PME" — commit `568b886`
+Angle : 3 familles d'outils (orchestrateur visuel n8n / frameworks développeur LangGraph-CrewAI-Claude Agent SDK / harness autonome type Hermes) traduites en grille de décision PME, pas un comparatif technique pour développeurs. Hook : le T2 2026 a été le plus dense pour ces outils (fusion Semantic Kernel + AutoGen chez Microsoft le 3/04, orchestration multi-agent Claude Agent SDK le 6/05, certification HIPAA CrewAI). Métaphore "stagiaire" filée, cohérente avec le reste du blog et le positionnement 500 €/mois. Sources officielles (devblog Microsoft, docs Anthropic, CrewAI Trust Center, docs n8n). Plan challengé par Gemini : 8,5/10.
+
+### Process qualité appliqué
+- Vérification des sources primaires par WebFetch direct (cert.ssi.gouv.fr, cnil.fr, conseil-ia-numerique.fr) plutôt que citation de blogs tiers qui les résument — zéro source concurrente.
+- **Audit rétroactif via Workflow** (skills `copywriting` + `humanizer`, vérification adversariale, 43 agents, ~8 min) après avoir réalisé que ces 2 skills n'avaient pas été chargées avant la rédaction. A détecté et fait corriger de vrais tics d'écriture IA : métaphore grandiloquente ("changement d'ère" pour une simple alerte ANSSI) et généralisations non sourcées ("la plupart des dirigeants..." répété 2 fois sans source, alors que le reste de l'article est scrupuleusement sourcé). Voir `lessons.md`.
+- **Build Hugo local avant push** : a attrapé un vrai bug silencieux. `date: 2026-07-16` rendait les 2 articles invisibles au build Hugo (comparaison en UTC ; minuit venait de passer en heure locale mais pas encore en UTC → articles jugés "futurs" et exclus sans erreur). Corrigé en `date: 2026-07-15`, rebuild vérifié (100 pages, les 2 articles présents, FAQ schema + images OK). Voir `lessons.md`.
+
+### Publié
+GO explicite de Franck obtenu avant push. Poussé sur `main` (commit `568b886`), déploiement Vercel automatique. URLs : `/blog/gouvernance-agents-ia-pme-2026/` et `/blog/outils-agents-ia-pme-2026/`.
+
+**Point d'attention** : longueur finale sous la cible habituelle (1863 et 1645 mots vs 2000-2500 visés) — l'audit humanizer a fait perdre du volume en coupant du remplissage/généralisations non sourcées, un compromis sain mais à garder en tête si on veut étoffer plus tard.
+
+## Session 2026-07-15 — Update Cowork + article avocats + réalisation Hermes Agent
+
+**Contexte** : demande Franck « suggère des idées d'articles blog ». Analyse Plausible 91j (top pages) + inventaire blog + skills SEO/GEO → priorisation. Session finalement centrée sur 3 livrables validés en cours de route par Franck, plus une correction.
+
+### 1. Mise à jour article Cowork (top #2 trafic, 302 visiteurs/91j) — commits `5a7a087` + `4f403a0`
+Article publié mars 2026, jamais rafraîchi sur le fond. Recherche web a révélé un décalage factuel important : Sonnet 4.6→**Sonnet 5** (30/06), Opus 4.6→**Opus 4.8** (28/05), Cowork **web+mobile depuis le 7/07** (l'article le décrivait encore comme desktop-only), Team plan restructuré (5-150 pers., Standard/Premium), **Claude Tag** Slack (juin). Mise à jour complète + `description`/`summary` raccourcis sous les seuils SEO/GEO (skills chargées a posteriori suite à question de Franck, audit propre). **Suite** (2e commit, sur remarque Franck) : titre H1 et signature retiraient encore "mars 2026" alors que le contenu était à jour → corrigé, URL/slug inchangés (rank déjà bien).
+
+### 2. Article "Secret professionnel et IA" pour cabinets d'avocats — commit `74ea4c3`
+4e et dernier article de la série SEO/GEO validée en mars (reporté depuis avril). Recherche via Workflow (3 flux web parallèles : réglementaire FR, marché US, marché FR — le 4e flux Gemini Deep Research a échoué silencieusement, résultat vide, à surveiller). **Correction de trajectoire en cours de session** : Franck proposait un CTA financement basé sur Atlas/FNE/bonus écologique — vérification a montré que les avocats sont rattachés à **OPCO EP** (pas Atlas, qui concerne son deal réel Syntec/expert-comptable) et que FNE-Formation est **suspendu en 2026**. Exploration du projet voisin `C:\Claude\OPCO` a révélé un mécanisme réel et meilleur : ligne "IA appliquée aux cabinets" (60€/h, 35h, jusqu'à 2100€ HT) + **FSE+ jusqu'à 100% des coûts pédagogiques pour cabinets <50 salariés** (source primaire opcoep.fr). Fact-check + audit style/SEO/GEO/humanizer indépendant avant publication (8 corrections factuelles dont un chiffre non sourcé et une sanction US mal caractérisée).
+
+### 3. Nouvelle réalisation "Hermes Agent" (IA souveraine) — commit `643a9b1`
+7e case study, angle différenciant vs Chef de Cabinet IA existant (proprio n8n/Claude API) : Hermes = harness open-source (Nous Research) qu'ASV utilise en interne, positionné souveraineté/local vs simplicité cloud. Contenu ancré sur les vrais setups Franck (`C:\Claude\Hermes Agent` local PX13 + `lamyr/` cloud compagne), enrichi par une recherche communautaire réelle sur r/hermesagent via Scrapling (megathread "Mac + MLX Apple Silicon" confirmant l'angle Mac Studio suggéré par Franck). **Point de vigilance traité** : `lamyr/project-state/status.md` contenait des infos privées réelles (prénom, email, domaine, handle bot) — audit privacy dédié avant publication, zéro fuite confirmée en double (workflow + vérification manuelle).
+
+### Règle transverse posée cette session : zéro tiret cadratin
+Franck a explicitement banni le tiret cadratin (—) de tout contenu produit, y compris le blog (la skill `agence-sauvage-tone` l'interdisait déjà mais je la croyais scopée aux emails/LinkedIn, à tort). Appliqué rétroactivement à l'article Cowork (47 occurrences retirées) et respecté nativement sur les 2 nouvelles pages. Ajouté à `CLAUDE.md` (section Copywriting) pour que ce soit visible sans dépendre de la mémoire d'une session à l'autre.
+
+### Reste en attente (voir `next-tasks.md` pour détail)
+- Soumission Search Console des 3 URLs (2 mises à jour + 1 nouvelle)
+- Urgent : mise à jour article AI Act avec la date de sanction confirmée (2 août 2026)
+- Étude data-first GEO Tracker (meilleur levier d'autorité identifié, pas encore scopée)
+- Article 3/4 restant de la série SEO/GEO ("SaaS-replacement")
+
+## Session 2026-06-21 — Outillage visibilité SEO/GEO + article pilier Qualiopi/OF
+
+**Contexte** : demande Franck « comprendre et améliorer notre visibilité SEO/GEO ». Session double : (A) réparer/outiller la mesure, (B) publier le 1er pilier du plan.
+
+### A. GEO Citation Tracker (repo VPS `/opt/geo-citation-tracker`, hors repo site)
+- **Migration hybride OpenRouter** (commit tracker `d25a612`) : ChatGPT (429) + Perplexity (401) morts depuis ~le 8/06 → audit hebdo à moitié dans le noir. Nouveau connecteur `OpenRouterEngine`, 4 moteurs via OpenRouter (1 clé), Gemini natif. Smoke 5/5, service redémarré. Répare aussi le scan public (même `AuditManager`).
+- **Refonte des requêtes** (`0b094bb`) : 35 requêtes `brand(6)/winnable(22)/discovery(7)` (workflow multi-agents), ancien set désactivé.
+- **Score winnable séparé** (`e93cc85`) : bloc « Score par catégorie » dans l'email hebdo.
+- **Ingestion GSC** (`318239d`+`a8dd0b0`) : `gsc_pull.py` OAuth utilisateur.
+
+### B. Repo site (poussés sur main)
+- **Quick-win CTR** (`f5e4e6f`) : seo_title/seo_description sur l'article visibilité-IA (seule page oubliée du gisement CTR ; 3 autres déjà faites `44560ea`/`66e5d1c`).
+- **Article pilier** (`b6c279a`) : « Formation IA finançable : comment choisir votre organisme Qualiopi (guide 2026) » + image hero **risograph** (rupture du style abstrait). Consensus GLM 5.2 (8/10) + 2 red-teams (DeepSeek V4 Pro + Qwen 3.7). Positionnement : **ASV = formateur via OF partenaires certifiés** (pas OF elle-même).
+
+### Outillage / diagnostic visibilité
+- **Ahrefs MCP** connecté (plan gratuit → seul le DR exploitable : **lagencesauvage.com DR = 11**).
+- **Bing Webmaster Tools** configuré (import GSC, par Franck) = index ChatGPT Search couvert.
+- **GSC connecté** (OAuth) → vraies requêtes Google tirées pour la 1ʳᵉ fois.
+- **Diagnostic** : GSC + GEO Tracker + Plausible convergent → déficit = **autorité** (pas technique).
+- **Liste cibles backlinks** (chantier F) livrée : France Num Activateurs, Pennylane Partenaires, Hub France IA (déjà adhérent), n8n Experts, Google/Bing, marketplaces.
+
+## Session 2026-06-19 — Article "Financer l'IA dans votre PME" (aides & subventions)
+
+| # | Livrable | Statut | Commit |
+|---|----------|--------|--------|
+| — | Article pilier BOFU "Financer l'IA dans votre PME en 2026 : toutes les aides et subventions" (~2 300 mots, 7 H2, CAPEX/OPEX, matrice + parcours type chiffré) | ✅ Publié main | `ce78927` (PR #15) |
+| — | Plan validé Claude + Gemini + DeepSeek (8/10) ; chiffres re-vérifiés sources off. (2 hallucinations Gemini corrigées : Diag Data IA 25 %/RAC 7,5k€, EDIH 30) ; 0 source concurrente | ✅ | — |
+| — | Passe humanizer + critique Gemini appliquée ; prix retiré ; Qualiopi "via partenaire" ; maillage hub→spoke OPCO+simulateur | ✅ | — |
+| — | Post LinkedIn (myth-buster CAPEX/OPEX, lien en 1er commentaire) rédigé, prêt à copier-coller | 🔄 À publier par Franck | — |
+
+**Hero image final** : ✅ visuel "pont PME→IA" (TPE/PME → pont au-dessus d'une rivière de pièces € → monde IA doré) généré par Hermes via Gemini, converti WebP 1366×762 / 92 Ko, **PR #16 mergée sur main** (`c0ef235`). Réserve mineure : labels « AI » en anglais (v2 « IA » possible).
+
+**Reste à faire** : (1) Franck publie le post LinkedIn ; (2) recrawl GSC de la nouvelle URL.
+
+## Session 2026-06-11 — Qualité code via CodeGraph (S15) — cherry-pick sur main
+
+| # | Sprint | Statut | Commits (main) |
+|---|--------|--------|----------------|
+| S15.1 | Première exploitation du MCP CodeGraph (index 47 fichiers / 582 symboles) : blast radius simulateur analysé, alerte Opus requalifiée (computeBudget couvert indirectement via runCompute ; vrai trou = resolveSiretWithCascade) | ✅ | — |
+| S15.2 | Tests unitaires cascade resolve SIRET : injection de dépendances optionnelle (`opts.deps`) dans resolve-service.js + `test-resolve-cascade.mjs` (36 asserts, zéro réseau : DINUM, fallback siret2idcc succès/vide/erreur, ResolveError 404/502/500, cache LRU, normalizeDinumResult) + script `npm test` + fix assertion « IDCC null toléré » pré-existante | ✅ | `40b00a1` |
+| S15.3 | `.codegraph/` ajouté au .gitignore (index SQLite local) | ✅ | `949c281` |
+| S15.4 | Suppression code mort (GO Franck) : `test-github-claude.js` + `docs/lead-magnets/create-doc.js` (doublon de create-doc.cjs, −1 123 lignes) + `main` corrigé dans package.json lead-magnets | ✅ | `bbf8f71` |
+
+**Méthode** : travail sur `blog/seo-geo-cas-concret` (commits originaux `321dd58`/`5dcc105`/`7a72cf9`) puis cherry-pick sur `main` via worktree isolé (méthode S13.4). Tests re-validés sur la base main post-consolidation API : 83 asserts verts (47 compute + 36 cascade).
+
+**Suite S15 (même jour, GO Franck)** :
+
+| # | Sprint | Statut | Commits (main) |
+|---|--------|--------|----------------|
+| S15.5 | CI GitHub Actions (option B) : `npm test` chaîne les 3 suites (94 asserts zéro réseau), workflow sur chaque push/PR, actions v5. La CI a immédiatement attrapé un vrai bug : `new Resend()` top-level dans `_notify.js`/`submit-lead-magnet.js` = crash à l'import sans RESEND_API_KEY → init paresseuse | ✅ | `1cce53a` `7caddc3` `027228e` |
+| S15.6 | Sauvetage branche `data/afdas-planchers-conventionnels` : véracité vérifiée 3 voies contre le projet OPCO (922 clés IDCC identiques à l'export canonique, 1 seul écart = IDCC 2098 chiffré le 04/06) → cherry-pick du commit code (filtre dropdown 77 conventions chiffrables + OPCO nommé dans branche_a_confirmer) + bascule de l'export frais du 04/06. **Couverture simulateur : 105 → 922 IDCC.** npm test 94/94 + build Hugo local OK (85 options) | ✅ | `14e70f5` `572a464` |
+| S15.7 | Deps : vercel CLI 33→54 (21 majeures de retard), resend 6.12.4, engines >=22 (>=18.x était faux), Dependabot hebdo groupé. `npm audit --omit=dev` : **0 vulnérabilité runtime** | ✅ | `b7e3ffc` |
+| S15.8 | Nettoyage : 11 refs remote mortes nettoyées (9 supprimées + 2 périmées prunées), 7 branches locales supprimées, worktree scan-geo démonté, working dir repassé sur `main`. Restent `main` + `refonte-2026` | ✅ | — |
+| S15.9 | `pdfkit` supprimé (dépendance morte, zéro import — vestige pré-refonte lead magnets). Dependabot opérationnel : 4 PRs ouvertes dans la foulée, chacune validée par la CI | ✅ | `65a6104` |
+
+**Vérification prod live** : `/simulateur-opco/` sert l'index 922 (85 options dans le dropdown, IDCC 2098 présent). Tous les déploiements Vercel READY, 7 fonctions.
+
+**PRs Dependabot en attente de décision Franck** : #9 + #10 (actions v6, triviales, merger si CI verte), #11 (pdfkit, obsolète — se fermera seule), **#12 (@notionhq/client v2→v5 : NE PAS merger sur foi de la CI** — les tests unitaires s'arrêtent avant les appels Notion réels, la v5 change l'API ; fermer ou planifier une migration délibérée).
+
+---
+
+## Session 2026-06-09 (soir) — Audit complet + optimisation funnel (S14) — EN PROD
+
+| # | Sprint | Statut | Commits |
+|---|--------|--------|---------|
+| S14.1 | Audit 4 axes (CRO, funnel lead gen, SEO/GEO technique, état projet) — 4 agents parallèles + vérification manuelle des constats critiques | ✅ | — |
+| S14.2 | Quick wins funnel : step2 formation rattachée au lead Notion + event Plausible, email confirmation diagnostic, dédup Notion (`api/_leads.js`), fin du double comptage Plausible (6 formulaires trackaient client+serveur → server-side only), event `Lead Step 1` homepage | ✅ | `4daa534`→`be1c20d` |
+| S14.3 | Consolidation API : 5 endpoints lead magnets → `api/submit-lead-magnet.js` (config MAGNETS). **11→7 fonctions Vercel, 5 slots libres** — lead magnet C débloqué. Rewrites legacy `?magnet=`, 11 tests routage (`tests/api/`) | ✅ | `a3e3ced` |
+| S14.4 | SEO : suppression `static/sitemap.xml` (figé fév., écrasait le sitemap Hugo auto = 77 URLs dont 30+ pages OPCO/formation), lastmod git sur 9 articles modifiés, keywords sur 5 articles | ✅ | `3ea1156` |
+| S14.5 | RGPD : mention consentement email + lien /privacy/ sur les 6 formulaires magnets | ✅ | `5fe72df` |
+| S14.6 | Nurturing : 3 séquences rédigées (50 prompts, checklist 30j, kit) sur le pattern grille — `docs/lead-magnets/nurturing-*.md` | ✅ | `f59f7a3` |
+| S14.7 | Calendly post-submit : bouton "Réserver mon créneau" sur les 3 confirmations (homepage, diagnostic, formation) + email diagnostic + CTA nurturing. Signature Franck. Merge ff → main | ✅ | `03fa932` |
+
+**Actions Franck en attente** :
+- [ ] Créer 2 Goals Plausible : `Lead Step 1` et `Programme Formation Qualification`
+- [ ] Relire + programmer les 3 séquences nurturing dans MailWizz (listes par source Notion)
+- [ ] ⚠️ Les **totaux** des Goals Plausible vont baisser (fin du double comptage) — les visiteurs uniques ne changent pas
+
+**Backlog ouvert** : lead magnet C kit comptable (= 1 entrée config MAGNETS, zéro fonction).
+
+**Suite 2026-06-10 (S14.8-S14.9, validées Franck, EN PROD)** : durée diagnostic harmonisée sur 30 min partout (Calendly = créneau 30 min) ; FAQ front matter + schema FAQPage ajoutés aux 7 articles restants → couverture 21/21 articles (4 reprises mot pour mot du corps, 3 rédigées depuis le contenu existant), lastmod à jour.
+
+**Setup local** : build Hugo local rétabli — `subst S:` + binaire 0.158.0 dans `C:/tmp/hugo158` (espaces du chemin OneDrive cassent postcss ; Hugo 0.163 winget incompatible). Cf. mémoire `build-hugo-local`.
+
+## Session 2026-05-26 — Refonte visuelle pages OPCO + branches (Sprint S10)
+
+| # | Sprint | Statut | Commits |
+|---|--------|--------|---------|
+| S10.1 | Diagnostic + plugin @tailwindcss/typography v4 | ✅ Prod | 72d40f0 |
+| S10.2 | Layout pilote `opco-fiche` + 3 shortcodes + Atlas pilote | ✅ Prod | 72d40f0 |
+| S10.3 | Script migration + 10 OPCO restantes | ✅ Prod | 13df5ac |
+| S10.4 | Layout `branche-fiche` + 20 fiches branches IDCC | ✅ Prod | b6734cc |
+| S10.5 | Merge `feat/refonte-pages-opco` → `main` | ✅ Prod | ebacc4c |
+
+**31 pages refondues en prod** (11 OPCO + 20 branches) — pattern Doc-Landing (Stripe/Vercel) :
+- Plugin `@tailwindcss/typography` activé (était silencieusement absent → bug racine du mur de texte)
+- 3 colonnes desktop ≥1024px : TOC sticky | article prose | CTA sticky (simulateur + OPCO parent + diagnostic)
+- KPI cards / table dispositifs badges colorés / chips IDCC cliquables (shortcodes Hugo)
+- Contenu narratif et sources intégralement préservés (validation Franck sur Preview avant merge)
+
+## Phase 0 — Tâches détaillées
+
+- [x] Préparation docs (audit, playbook, stratégie skills)
+- [x] Création skills custom (brand-identity, hugo-lagencesauvage, b2b-service-page-builder, conversion-audit-checklist)
+- [x] Setup Claude Code (CLAUDE.md, settings, commands, hooks)
+- [x] Cloner le repo et créer la branche `refonte-2026`
+- [x] Installer Tailwind CSS v4 (npm + PostCSS + Hugo Pipes)
+- [x] Migrer config Hugo : supprimer uglyURLs, mettre à jour menus, ajouter PostCSS aux security.exec
+- [x] Créer le vercel.json complet (redirections 301 + headers)
+- [x] Supprimer Hugo_projet/
+- [x] Ajouter .mcp.json au .gitignore
+- [x] Corriger vercel.json buildCommand (preset Hugo natif)
+- [x] Ajouter @source dans main.css
+- [x] Corriger 3 liens .html dans articles blog
+- [x] Ajouter règles CLAUDE.md (redirections vercel.json only + classes TW dynamiques)
+- [x] Configurer HUGO_VERSION dans Vercel Dashboard
+- [x] Corriger build Vercel (Hugo 0.58→0.158.0 via build.env)
+- [x] Vérifier build Vercel Preview — READY
+- [x] **Validation Franck — GO Phase 1**
+
+## Phase 1 — Tâches détaillées
+
+- [x] Palette de couleurs : Premium Tech — indigo #4F46E5 / slate #0F172A / blanc #FFFFFF
+- [x] Typographie : DM Serif Display (titres) + DM Sans (corps)
+- [x] baseof.html : Hugo Pipes PostCSS, Google Fonts, structure flex
+- [x] Header responsive : nav blanc, bordure subtile, CTA indigo
+- [x] Footer : 4 colonnes, fond slate clair, menus dynamiques
+- [x] Homepage placeholder : hero + CTA + section preuve sociale
+- [x] Build Vercel Preview validé par Franck
+- [x] Ajustements mobile (CTA resserré, espacements réduits)
+- [x] Vérification rendu mobile — validé par Franck
+- [x] **Validation Franck — Phase 1 terminée, GO Phase 2**
+
+## Phase 2 — Tâches détaillées
+
+- [x] Hero : proposition de valeur PAS + CTA audit gratuit
+- [x] Section Pain points : framework PAS (3 colonnes)
+- [x] Section "Ce qu'on livre" : refonte → bandeau chiffres + 3 mini-cartes cas clients + CTA /realisations/
+- [x] Section Social proof : Olivier Sarezinski (Eurodom) + Myriam Louergli (Optimrezo)
+- [x] Section FAQ : 6 questions avec schema FAQPage
+- [x] Formulaire audit gratuit : 2 étapes progressives → /api/submit-lead
+- [x] CTA final : fond slate dark
+- [x] Schema LocalBusiness + meta tags enrichis
+- [x] Positionnement élargi : "professionnels" (pas TPE/PME uniquement)
+- [x] Animations premium : hero fade-in, scroll reveal, hover cards, FAQ grid animé
+- [x] Témoignages textuels Olivier + Myriam (validés par Franck — consensus Claude+Gemini 9/10)
+- [x] ~~Screenshots réels pour les 4 cartes livrables~~ (remplacé par mini-cartes cas clients)
+- [x] ~~Lien Calendly pour confirmation formulaire~~ (reporté post-lancement)
+- [x] **Validation Franck — Preview Vercel Phase 2** (2026-03-22)
+
+## Phase 3 — Tâches détaillées
+
+- [x] Page À propos : bio narrative 3 actes, credentials, stack, photo Franck, schema AboutPage
+- [x] Layout single.html générique pour pages secondaires
+- [x] Photo Franck optimisée (5436x3629 → 800x800, 7.4 Mo → 52 Ko)
+- [x] Page Services : 3 offres Good-Better-Best (Assistant IA, Formation, Transformation)
+- [x] Prix validés : Assistant 500€/mois + setup 1000€, Formation 1000€/jour, Transformation 3000€
+- [x] Stack technique alignée sur toutes les pages (Make retiré, Evolution API + Hugo+Vercel ajoutés)
+- [x] Stack technique enrichie sur 4 pages (About, Services, Homepage, FAQ) — 12 technos issues des 6 case studies
+- [x] Page Réalisations : section listing + case study "Pôle Financier Augmenté" (5 piliers, 13+ workflows, sommaire cliquable, API La Poste LReL, schema TechArticle+FAQPage, assets Gemini)
+- [x] Case study "Usine à Contenu B2B" : 5 piliers (Topic Discovery, Veille RAG, Rédaction SEO/GEO, LinkedIn, Hugo Blog), 105 nodes, diagramme architecture Gemini
+- [x] Template single.html dynamique : image architecture pilotée par front matter (architecture.image)
+- [x] Page Diagnostic IA : landing page SEO fidèle à l'ancienne page (13 sections, méthode J1→J5, tableau comparatif, formulaire appel découverte)
+- [x] Page FAQ complète : 18 questions GEO-optimisées, 5 catégories, schema FAQPage, accordion par catégorie
+- [x] Pages légales : mentions légales, confidentialité, CGV — contenu migré + layout single.html + lien CGV ajouté au footer
+- [x] Case study "GEO Citation Tracker" : SaaS Python/FastAPI, 5 APIs LLM, scoring pondéré, dashboard Chart.js, diagramme architecture Gemini
+- [x] Case study "Chef de Cabinet IA" : 4 piliers (Gatekeeper, Executive Brief, Copilote Réunion, Commande Vocale), scénario journée type, diagramme architecture Gemini
+- [x] Case study "Agent Téléphonique IA" : 4 piliers (réception, réservation, escalade, 2 options déploiement), diagramme architecture Gemini
+- [x] Case study "Cerveau d'Entreprise & Veille" : 4 piliers (RAG documentaire, veille procédures collectives, veille marchés publics, agent zero papier), diagramme architecture Gemini
+- [x] Ordre des case studies par weight (1→6, meilleurs en premier)
+- [x] **Validation Franck — Preview Vercel Phase 3** (2026-03-22)
+
+## Phase 4 — Tâches détaillées
+
+- [x] Brainstorm Claude + Gemini : blog "Édition Premium IA 2026" (consensus 8/10)
+- [x] Layout blog/list.html : article vedette + grille + carte CTA intégrée + filtres catégories
+- [x] Layout blog/single.html : lecture plein écran, 4 CTAs subtils, key takeaways, TOC flottant
+- [x] Styles blog dans main.css : progress bar, prose typography, TOC panel, CTA sticky
+- [x] assets/js/blog.js : progress bar, TOC highlight, copy anchor, scroll reveal, CTA sticky
+- [x] blog.js chargé conditionnellement dans baseof.html (section blog uniquement)
+- [x] 8 hero images générées par Gemini (abstraites, géométriques, palette indigo/slate, <40Ko chacune)
+- [x] Front matter enrichi : takeaways + image + imageAlt sur les 8 articles (contenu texte inchangé)
+- [x] Corrections techniques : /blog.html→/blog/, /about.html→/about/ dans schema + params
+- [x] Fix liens blog : .Permalink → .RelPermalink (navigation cassée sur preview Vercel)
+- [x] **Validation Franck — Preview Vercel Phase 4** (2026-03-22)
+
+## Phase 5 — Tâches détaillées
+
+- [x] Audit SEO : meta tags, OG, JSON-LD, canonical, hreflang, sitemap, robots.txt — complet
+- [x] Audit redirections 301 : 23/23 conformes au playbook + 2 extras légitimes
+- [x] Audit conversion CRO : CTAs, formulaires, social proof, trust signals
+- [x] Brainstorm Claude + Gemini quality gate (consensus 8/10)
+- [x] Fix SEO : og:locale dédupliqué, og:image:width/height ajoutés, dates TechArticle ISO 8601
+- [x] Fix CRO : header sticky (top-0 z-50), CTA ajouté au footer
+- [x] Fix CRO : 7 liens ancre cassés blog (#audit-gratuit → #audit-form)
+- [x] Schema WebSite ajouté sur homepage (sans SearchAction)
+- [x] Perf : 8 images JPG → WebP (-92%, 18 Mo → 1.2 Mo)
+- [x] Nettoyage : static/diagnostic-transformation-ia.html supprimé, blog/test1.png supprimé
+- [x] Build Hugo local validé (35 pages, 0 erreur)
+- [x] Push refonte-2026 → Vercel Preview
+- [x] **Validation Franck — Phase 5 terminée** (2026-03-22)
+
+## Logo & Branding
+
+- [x] Brainstorm Claude + Gemini : direction logo (consensus 8/10)
+- [x] 4 planches de concepts générées via Gemini (séries C, D, E, F, G)
+- [x] Logo provisoire C2 intégré (carré arrondi indigo + S espace négatif + texte DM Serif/Sans)
+- [x] Favicon SVG (monogramme S seul)
+- [x] Taille logo augmentée header h-12/h-14, footer h-12
+- [x] Logo final Logo-Agence-Sauvage.svg intégré (wordmark #403eba, header+footer+params+schema.org)
+- [x] Favicon SVG mis à jour (monogramme S blanc sur carré arrondi #403eba)
+- [x] Ancien logo-lagencesauvage.svg supprimé
+- [ ] Validation Franck sur preview Vercel avec logo final
+
+## Blockers
+
+Aucun pour le moment.
+
+## Décisions prises
+
+- ✅ Typographie : DM Serif Display + DM Sans (2026-03-22)
+- ✅ Palette : abandon "Intelligence Organique", adoption "Premium Tech" indigo/slate/blanc (2026-03-22)
+- ✅ Formulaire : 2 étapes progressives (coordonnées → entreprise) (2026-03-22)
+- ✅ Social proof : Olivier Sarezinski (Eurodom) + Myriam Louergli (Optimrezo) validés (2026-03-22)
+- ✅ Positionnement : "professionnels" au lieu de "TPE/PME" — cible élargie jusqu'à 200 salariés (2026-03-22)
+- ✅ Animations : consensus Claude + Gemini — style Stripe/Linear, easing expo, prefers-reduced-motion (2026-03-22)
+- ✅ Page About : structure 4 sections (consensus Claude + Gemini), bio 3 actes, pas de faux KPIs (2026-03-22)
+- ✅ Page Services : 3 offres Good-Better-Best — consensus Claude + Gemini (2026-03-22)
+- ✅ Naming offres : "Assistant IA & Automatisation" / "Formation IA" / "Transformation IA" (2026-03-22)
+- ✅ Prix validés : Assistant 500€/mois + setup 1000€, Formation 1000€/jour, Transformation 3000€ (2026-03-22)
+- ✅ Stack technique : Make retiré, Evolution API + Hugo+Vercel ajoutés partout (2026-03-22)
+- ✅ Stack technique v2 : enrichie à 12 technos (OpenAI, Gemini, Python/FastAPI, PostgreSQL, Whisper, Google Workspace, APIs métier) alignée sur les 6 case studies (2026-03-22)
+- ✅ Page FAQ : 18 questions GEO-optimisées (consensus Claude + Gemini), 5 catégories client-centric (2026-03-22)
+- ✅ Page Réalisations : 5 use cases sélectionnés (consensus Claude + Gemini), focus file créé (2026-03-22)
+- ✅ Case study "Pôle Financier Augmenté" : page pilier 5 piliers narratifs, données réelles 13+ workflows n8n, API La Poste LReL, consensus Claude + Gemini score 9/10 (2026-03-22)
+- ✅ Page Diagnostic IA : contenu fidèle à l'ancienne page, nouveau design system, 13 sections complètes (2026-03-22)
+- ✅ Focus Réalisations v2 : 6 use cases (consensus Claude + Gemini v2, score 9/10) — fusion UC1+PennylaneAgent, ajout GEO Tracker SaaS, Jarvis repensé en Chef de Cabinet IA (2026-03-22)
+- ✅ Case study "Usine à Contenu B2B" : 5 piliers, RAG Supabase, double optim SEO/GEO, diagramme architecture Gemini, prix "à partir de" (2026-03-22)
+- ✅ 4 case studies finales : GEO Tracker (SaaS Python), Chef de Cabinet IA (4 piliers), Agent Téléphonique (2 options), Cerveau d'Entreprise (RAG + veille) — 4 diagrammes Gemini (2026-03-22)
+- ✅ Blog "Édition Premium 2026" : brainstorm Claude + Gemini (consensus 8/10), layouts Tailwind v4, 8 images abstraites Gemini, lecture plein écran, 4 CTAs subtils, key takeaways GEO, TOC flottant, progress bar (2026-03-22)
+- ✅ Ordre case studies par weight : Pôle Financier → GEO Tracker → Usine à Contenu → Chef de Cabinet → Agent Téléphonique → Cerveau d'Entreprise (2026-03-22)
+- ✅ Homepage section réalisations : approche minimaliste bandeau chiffres + 3 mini-cartes (consensus Claude + Gemini 9/10) — pas de tags stack technique, chiffre héroïque en gros, cartes cliquables (2026-03-22)
+
+- ✅ Logo provisoire C2 : monogramme S (carré arrondi indigo #4F46E5 + S espace négatif blanc) + texte "L'Agence" DM Sans / "Sauvage" DM Serif Display italic. Brainstorm Claude + Gemini (consensus 8/10). Franck consulte des avis extérieurs + explore piste monogramme A+S (2026-03-22)
+- ✅ Logo final : Logo-Agence-Sauvage.svg (wordmark SVG #403eba) intégré sur header, footer, params, schema.org. Favicon monogramme S blanc sur carré arrondi #403eba (2026-03-23)
+- ✅ Section "De la théorie à la pratique" : case studies pertinentes en fin d'article blog, entre author box et CTA final. Articles connexes déplacés après le CTA (filet de sécurité). Brainstorm Claude + Gemini consensus 8/10 (2026-03-23)
+
+## Phase 7 — Post-bascule — Tâches détaillées
+
+- [x] Merge refonte-2026 → main + push production
+- [x] Fix témoignages page Services + grille stack + redirections 301
+- [x] Recrawl Search Console (homepage, services, réalisations, about, blog, diagnostic, faq, 8 articles)
+- [x] Nouvel article blog "Comment être cité par ChatGPT" — SEO/GEO optimisé, image Gemini, sources liées
+- [x] Règle sourcing ajoutée à CLAUDE.md (liens hypertextes obligatoires sur toute citation)
+- [x] Section "De la théorie à la pratique" : case studies en fin d'article blog (partial + matching 9 articles, consensus Claude+Gemini 8/10)
+- [x] Brainstorm Claude + Gemini : 4 idées d'articles blog SEO/GEO (consensus 8/10 + 9/10)
+- [x] Article "Facturation électronique 2026 : ce que Pennylane ne fait pas" — SEO/GEO, 8 sources fraîches, 5 FAQ, image Gemini
+- [x] Recrawl Search Console : article AI Act + LP Pennylane soumis à l'indexation (2026-04-17)
+- [ ] Monitoring 404 + vérification indexation nouvelles pages (7-14 jours)
+- [ ] Créer commande `/new-article` pour workflow article répétable
+- [x] Installer Hugo en local (retrouver le setup winget + subst S:)
+- [x] Landing page campagne cold email "Collecte WhatsApp × Pennylane" experts-comptables (HTML/CSS statique, formulaire lead capture, 3 images Gemini)
+- [x] Article "LLM Knowledge Base (méthode Karpathy)" — recherche multi-sources, brainstorm Gemini 9/10, 2200 mots, image hero, wiki interne — PUSHÉ
+- [x] Validation Franck article LLM Knowledge Base — validé (2026-04-17)
+- [x] Article "Zero Human Company : le mythe américain face à la réalité des PME françaises" — 2300 mots, consensus Claude+Gemini 9/10, section interne agence-sauvage-ventes, image dashboard Paperclip, pushé 2026-04-16 — validé (2026-04-17)
+- [x] Article "AI Act : former vos collaborateurs à l'IA est désormais une obligation légale" — 2200 mots, consensus Claude+Gemini 8/10, deep research Gemini 8m15, partenaire GhG Formations Qualiopi, image hero EU+formation, validé et pushé 2026-04-16
+- [x] Bandeau métriques homepage : 10 000+ actions/mois + <1 sec./tâche + 0 intervention humaine (consensus Claude+Gemini 9/10, validé 2026-04-17)
+- [x] Lead magnet "Kit démarrage Claude Cowork pour PME" : capture email, PDF attaché via Resend, CTA blog, endpoint /api/submit-kit (2026-04-26)
+- [x] Lead magnet "Formation Claude entreprise" : landing page `/formation/maitriser-claude-entreprise/`, formulaire multi-step (step1 capture immédiate + step2 qualification), PDF programme, API submit-programme step1+step2, shortcode Hugo, nav header "Formation", CTA article AI Act (2026-05-06)
+- [x] CTA article AI Act : swap kit prompts → formulaire formation (conditionnel tag "Formation IA" dans layout blog, inline $i==2 — autres articles gardent le kit) (2026-05-06)
+- [x] Système notification leads double-canal : api/_notify.js (Resend + Telegram), migration complète des 5 endpoints api/submit-*.js, nodemailer supprimé (2026-05-06)
+- [x] SPF lagencesauvage.com mis à jour : spf.resend.com + _spf.google.com + ~all (2026-05-06)
+- [x] Test e2e validé : email reçu sur beforbiz@gmail.com depuis endpoint submit-kit en production (2026-05-06)
+- [ ] **BLOQUANT** : RESEND_API_KEY manquante/expirée Vercel → formulaires diagnostic + formation retournent 500. Action Franck : Vercel Dashboard → lagencesauvageavecnotion → Settings → Env Vars → vérifier RESEND_API_KEY
+- [ ] Supprimer entrée test Notion "Test / beforbiz@gmail.com" (action manuelle Franck)
+- [ ] Rédiger article 3/4 : "Agents IA autonomes en PME : 3 cas d'usage réels"
+- [ ] Rédiger article 4/4 : "IA et professions juridiques : gain de temps et secret professionnel"
+- [ ] Second lead magnet "Checklist IA PME 2026" (concept validé, pas démarré)
+- [x] Page formation "Maîtriser Claude en entreprise" — créée (2026-05-06)
+- [x] Article "Agent IA : définition, cas d'usage et ROI PME" — pushé (commits 6879f7d + 7dcc363, sources corrigées)
+- [x] Lead magnet kit prompts : refonte PDF gate — PDF généré (Playwright A4), layout gated, email lien PDF direct (2026-05-06)
+- [x] Email submit-programme.js : aligné sur PDF réel (7 pages, "Proposition de formation", CTA 30 min) (2026-05-06)
+- [x] Article "Claude for Small Business : agents IA pour les PME françaises" — veille Obsidian, recherche multi-sources, consensus Claude+Gemini 9/10, 2300 mots, 5 H2, FAQ schema, image hero Gemini 49 Ko, liens croisés bidirectionnels avec Claude Cowork, CTA formation OPCO, pushé 2026-05-15
+- [x] Article "Déployer un agent IA opérationnel dans votre PME : guide pratique et roadmap 6 semaines" — vault Hermes (308 cas d'usage), keyword research 8 phases, challenge Gemini Pro (6.5→9/10), 2200 mots, 6 H2, 5 FAQ GEO, maillage interne 6 liens, image hero Gemini 81 Ko (style Hermes), audit anti-cannibalisation (swap factures→reporting), pushé 2026-05-15
+- [x] Analyse Plausible (91j/28j/7j) + stratégie 3 lead magnets ciblés articles top trafic (2026-05-21)
+- [x] Lead magnet A — "50 Prompts IA Prêts à l'Emploi pour PME" : PDF 20p docx (framework ROCF, 6 catégories, 50 prompts), API /api/submit-prompts (Notion+Resend+Plausible), partial lead-magnet-prompts, intégré /blog/art-du-prompt/ (tag "Prompts IA"), Goal Plausible "50 Prompts Download" créé (2026-05-21)
+- [x] Lead magnet B — "Checklist 30 Jours pour déployer Claude dans votre PME" : PDF docx (4 semaines, quick wins, erreurs fatales, bonus email template), API /api/submit-checklist (Notion+Resend+Plausible "Checklist Download"), partial lead-magnet-checklist, intégré /blog/claude-cowork-pme-cas-usage-mars-2026/ (tag "Checklist IA"), Goal Plausible "Checklist Download" créé (2026-05-21)
+- [x] **Simulateur OPCO S3 → S7** — mergé sur `main` et déployé en production (2026-05-23). Voir section dédiée ci-dessous.
+- [ ] Lead magnet C — "Kit IA pour cabinet comptable" : article cible /blog/ia-cabinet-comptable-donnees-2025-reussir/ (131 visites), tag "Kit Comptable IA", API /api/submit-kit-comptable, Plausible "Kit Comptable Download"
+- [ ] Rédiger article 3/4 : "Agents IA autonomes en PME : 3 cas d'usage réels qui remplacent les SaaS" (angle SaaS-replacement — différencier de l'article déploiement)
+- [ ] Rédiger article 4/4 : "IA et professions juridiques : gain de temps et secret professionnel en 2026" (reporté)
+
+## Simulateur OPCO — Sprint S3-S5 (2026-05-23) ✅
+
+Branche : `feat/simulateur-opco` (15 commits) | PRD : `Claude Code/Simulateur OPCO/docs/architecture/PRD_simulateur_opco.md`
+
+| Session | Livrable | État |
+|---------|----------|------|
+| S0-S2 (R&D) | Pré-aplatissement BDD OPCO + moteur Python + port JS validé cross-langage | ✅ (autre projet) |
+| **S3** | `api/simulate-opco-lookup.js` (autocomplete DINUM) + `api/simulate-opco-resolve.js` (cascade IDCC DINUM → siret2idcc) + 6 modules partagés `api/_simulateur/` | ✅ consensus Gemini 8.5/10 |
+| **S4** | `api/simulate-opco-compute.js` (POST trust-but-verify + Notion + Resend + Plausible) + base Notion "Leads Simulateur OPCO" créée via MCP | ✅ consensus Gemini 9.5/10 |
+| **S5** | Page Hugo `/simulateur-opco/` + UI vanilla JS 5 états + schema WebApplication + menu nav | ✅ consensus Gemini 9/10 |
+| **S6** | Polish a11y + tone of voice + CORS POST + OG image Gemini + politique confidentialité RGPD réécrite | ✅ consensus Claude+Gemini 8.5/10 |
+| **S6.5** | Saisie manuelle effectif (4 paliers OPCO légaux) + recompute idempotent Notion (PATCH anti-doublon) | ✅ consensus Claude+Gemini 9/10 |
+| **S6.6** | Sélection humaine assistée IDCC (PRD étage 3) — 45 conventions groupées par OPCO | ✅ consensus Claude+Gemini 9/10 |
+| **S6.6.1** | Inclusion des 22 branches naf_fallback (Constructys, Afdas télécoms/audio/sport, etc.) — couverture 9→10 OPCO sur 11 | ✅ |
+| **S6.6.2** | Pré-suggestion NAF→convention validée par l'utilisateur (75 mappings) — résout 95% des cas evidents | ✅ consensus Claude+Gemini 9.5/10 |
+| **S7** | Merge fast-forward feat/simulateur-opco → main (22 commits, 34 fichiers, 9867 insertions) + push production | ✅ 2026-05-23 |
+| **S8 (SEO/GEO)** | Sprint 1 : schema @graph + FAQ 8 Q/R + méthodologie + glossaire + breadcrumb + chiffres officiels + réforme 2026 + robots.txt 18 bots IA + llms.txt + fix bug factuel 11 OPCO. PR #2 mergée main. Consensus Gemini Deep Research. | ✅ 2026-05-23 |
+| **S9 (SEO/GEO)** | Sprint 2 : 11 sous-pages OPCO auto-générées + page actions collectives 100% financées + article blog pilier cluster IA+OPCO 2388 mots + image hero Gemini WebP 20 KB. PR #3 mergée main. Consensus Gemini Pro 10/10 sur l'article blog. | ✅ 2026-05-23 |
+| **S6.6.3** | Auto-application NAF ≥95% confiance + option "0 salarié" au select effectif. BTP exclu (fragmentation IDCC). | ✅ 2026-05-23 consensus Gemini 7.5/10 ajusté |
+| **S3.1 (pages programmatiques)** | 20 fiches branches IDCC publiées sous `/simulateur-opco/branches/{slug}/` + hub + maillage retour depuis les 11 pages OPCO. Pivot 50 salariés explicite (TPE/PME/ETI). Schema @graph 4 niveaux. | ✅ 2026-05-24 consensus Gemini 8.5/10 ajusté |
+| **S3.2 (NAFs commerce)** | 17 NAFs commerce détail ajoutés à naf-suggestions (livres, presse, sport, vêtements, parfumerie, bijouterie, électroménager, etc.) → IDCC 1517 CDNA `auto: false`. | ✅ 2026-05-24 |
+| **UX bonus** | Cards "11 OPCO français couverts" sur `/simulateur-opco/` transformées en liens vers `/simulateur-opco/{slug}/`. Maillage interne gratuit. | ✅ 2026-05-24 |
+| **Roadmap GTM Q2** | Plan 4 Sprints (~20h) consolidé consensus Claude+Gemini 8/10 → 9.5/10 ajusté. Inversions critiques : TNS/FAF avant volume, sourcing IA-assisté, veille no-code. Détail dans next-tasks.md. | ✅ scopé 2026-05-24 |
+| **Fix moteur budget (per-dossier)** | Branches BTP (+897) désormais chiffrables : fallback `plafond_par_dossier_eur` sur le budget max quand `plancher_garanti_eur` absent. Zéro chiffre inventé. QA 883 OK / 0 FAIL. compute_budget.js seul modifié. | 🔄 2026-05-28 commit en attente |
+
+**Validation e2e Preview** : POST `/api/simulate-opco-compute` retourne `ok:true`, lead Notion créé (369223ca...), email Resend récap reçu, snapshot JSON archivé dans le body de la page Notion.
+
+**3 bugs en cascade débuggés** (cf. lessons.md) : (1) propriétés `null` rejetées par Notion à `pages.create`, (2) options Select non-créables à la volée par Notion API (Code NAF + OPCO passés en RICH_TEXT), (3) env vars Vercel build-time + intégration Notion "Formulaire Site Web" sans accès à la nouvelle base.
+
+**Action en attente** : nettoyage manuel des 5 leads test dans Notion (`debug@claude.test`, `debug2`, `debug3`, `verif@claude.test`, page MCP `[TEST MCP] Diagnostic`).
+
+## Décisions prises (post-bascule)
+
+- ✅ Infrastructure email transactionnelle : Resend (HTTPS API) pour tous les endpoints api/submit-*.js — VPS2/KumoMTA réservé aux campagnes Mailwizz bulk. Cause : KumoMTA n'autorisait le relay que pour monagencesauvage.com, pas lagencesauvage.com (silencieux). Décision 2026-05-06.
+- ✅ nodemailer supprimé du projet — aucun endpoint n'utilise SMTP direct
+- ✅ Toute citation/étude dans un article doit avoir un lien hypertexte vérifiable vers la source (consensus Claude + Gemini 8/10, 2026-03-23)
+- ✅ Section "Sources et références" obligatoire en bas de chaque article (2026-03-23)
+- ✅ CLAUDE.md enrichi avec section "Production d'articles de blog" (2026-03-23)
+- ✅ Stratégie blog semaine 2026-03-23 : 4 articles SEO/GEO validés (brainstorm Claude + Gemini, consensus 8/10 + 9/10) — facturation électronique, Claude Cowork, agents IA autonomes, professions juridiques (2026-03-23)
+- ✅ LP campagne cold email : dark mode supprimé (consensus Claude+Gemini 9/10), light mode forcé — audience B2B conservatrice, indigo sur slate dark = ratio 2.6:1 illisible (2026-03-24)
+- ✅ LP campagne : structure "Narrative Case Study" (consensus Claude+Gemini 8/10) — hero split + mockup WhatsApp above the fold + bandeau métriques + 4 pain points + escalade J+3/J+4/J+7 + architecture dédiée + FAQ 4 questions (2026-03-24)
+- ✅ Bandeau métriques homepage : remplacement des 3 chiffres figés par 10 000+ actions/mois + <1 sec./tâche + 0 intervention humaine — données issues de n8n réel (consensus Claude+Gemini 9/10, validé 2026-04-17)
+
+## Décisions en attente
+
+- ~~Logo final~~ : intégré et validé (2026-03-23)
+- ~~Calendly~~ : reporté post-lancement, Franck intégrera si besoin

@@ -1,5 +1,20 @@
 # Changelog — Refonte lagencesauvage.com
 
+## 2026-07-29 — Article AI Act "2 août 2026" (transparence art. 50) + corrections calendrier
+
+**Contexte** : Franck voulait un article sur l'AI Act et l'échéance du 2 août 2026, fort SEO/GEO, anti-cannibalisme, posture "directeur de publication".
+
+**Fait pivot vérifié (sources primaires)** : le Digital Omnibus (règlement (UE) 2026/1744, publié JOUE le 24/07, en vigueur le 27/07/2026) REPORTE le haut risque Annexe III au 2 décembre 2027 (Annexe I → 2 août 2028). Ce qui s'applique le 2 août 2026 = transparence art. 50 (chatbots signalés, contenus IA marqués, deepfakes divulgués), sanctions, gouvernance. En France, contrôle art. 50 = DGCCRF + Arcom (pas la CNIL, référente art. 5). Art. 4 (AI literacy) assoupli en obligation de moyens. Sanctions art. 99 : 35 M€/7 %, 15 M€/3 % (dont art. 50), 7,5 M€/1 % ; PME plafonnées au montant le plus bas.
+
+**Anti-cannibalisme** : cartographie de 10 articles réglementation (agent Explore). Terrains saturés évités (art. 4/formation/OPCO = pilier `ai-act-formation`, calendrier générique, sanctions chez `agent-ia-definition`). Angle libre retenu : date-pivot + transparence art. 50 + report Digital Omnibus.
+
+**Publié sur main** (commits `aec0542` + `b7f4d4b`) :
+- Nouvel article `/blog/ai-act-2-aout-2026-obligations-pme/` (~2700 mots, 6 H2). Actifs propriétaires (challenge Kimi K3) : device "Test F-D-H" (Fournisseur/Déployeur/Hors champ) + piège art. 25, matrice de transparence (usage→obligation→autorité FR), calendrier consolidé 2025-2028, calcul sanction PME concret. Titre data-driven via analyse SERP (Ahrefs plan insuffisant, GSC via Ahrefs KO).
+- Corrections calendrier (report haut risque) : `ai-act-formation` (tableau + Digital Omnibus adopté) + `agent-ia-definition` (corps + FAQ), lastmod à jour, liens entrants vers le nouvel article.
+- Hero : emblème AI Act officiel (UE bleu/or généré par Gemini) + marquage "Généré par IA"^New composé via sharp = mise en abyme art. 50, honnête (visuel réellement IA). Bandeau blanc net retenu après itérations rejetées (surligneur jaune, effet brillance/étincelles). Leçon : sur image statique, un "scintillement" animé n'a pas de sens.
+
+**Reste (actions Franck / suivi)** : soumission Search Console de la nouvelle URL + recrawl des 2 articles corrigés.
+
 ## 2026-07-27 — Article pilier "RAG en entreprise" (pivot techno/fiabilité)
 
 **2 commits sur main** : `55ccd73` (article + hero) et `c8e7e24` (lien réciproque 7 signaux → RAG). En parallèle, une autre session poussait l'outil interactif 7 signaux + l'aimant scorecard + l'activation cluster (`7a66ff9`, `cab00df`, etc.) — historique linéaire, aucun conflit.

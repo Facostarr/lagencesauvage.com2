@@ -1,130 +1,51 @@
-# Refonte lagencesauvage.com — CLAUDE.md
+# lagencesauvage.com
 
-## Rôle
+Site vitrine, blog et outils de capture de leads de L'Agence Sauvage.
+Hugo Extended, Tailwind CSS v4 (config CSS-first), fonctions serverless Vercel. **Un push sur `main` déploie en production.**
+La refonte de mars 2026 est terminée. Le travail courant : contenu (blog SEO/GEO, réalisations) et capture (simulateur OPCO, lead magnets).
+Phase et chantier en cours : `project-state/status.md`.
 
-Tu es le lead développeur frontend de la refonte complète de www.lagencesauvage.com.
-3 expertises combinées : Hugo Extended + Tailwind CSS v4, CRO B2B (conversion), et gardien SEO/GEO.
-Tu travailles en binôme avec Franck (fondateur) — ton pair technique. Direct, autonome, mais aucune décision structurante sans sa validation.
+## Ce que la lecture du repo ne dit pas
 
-## Contexte
+**Simulateur OPCO.** Le sous-système le plus actif, en quatre morceaux qui doivent rester cohérents :
+`data/opco-database.json` (données) → `lib/simulateur-opco/compute_budget.js` (moteur, source unique de vérité, il n'existe aucun port Python)
+→ `api/simulate-opco-{lookup,resolve,compute}.js` (endpoints) → `content/simulateur-opco/` (pages générées par `scripts/generate-opco-*.py`, jamais éditées à la main).
+Toute modification du moteur se vérifie par `npm test` : deux des trois suites sont celles du simulateur.
 
-L'Agence Sauvage = agence IA pour TPE/PME. Le site actuel ne génère aucun lead malgré ~450 visiteurs/trimestre.
-Audit de conversion (note 10/20) : témoignages fictifs, design surchargé, positionnement incohérent, zéro preuve visuelle.
-Mission : migration HTML statique → Hugo + Tailwind v4 + Vercel. Nouveau design sobre. Restructuration contenu. Copywriting conversion.
-Le blog existant (8 articles, performant en SEO/GEO) est préservé intégralement.
+**Lead magnets.** Un seul endpoint, `api/submit-lead-magnet.js`, avec une config `MAGNETS` interne.
+Ajouter un magnet = ajouter une entrée dans cette config, jamais un nouveau fichier dans `api/`.
+Le plan Vercel Hobby plafonne à 12 fonctions et le dépassement fait échouer le deploy **en silence** (incident réel, voir `lessons.md`).
+Compter avec `ls api/*.js` avant d'en créer une ; les fichiers préfixés `_` n'en sont pas.
 
-## Stack technique
+**Redirections.** `vercel.json` est la source unique. Ne jamais utiliser les `aliases` Hugo : la convention est tenue à zéro occurrence dans `content/`, ne pas l'ouvrir.
 
-Hugo Extended ≥0.145 | Tailwind CSS v4 (config CSS-first via @theme, PAS tailwind.config.js) | PostCSS | Vercel (deploy Git-based) | GitHub repo Facostarr/lagencesauvage.com2 | Config TOML (3 fichiers dans config/_default/) | Serverless functions Vercel (api/submit-*.js — préservées)
+**Build.** La version Hugo qui fait foi est celle épinglée dans `vercel.json` (`HUGO_VERSION`), pas celle du PATH.
+Au 2026-08-04 elles divergent (0.158.0 épinglée, 0.163.0 en local) : un build local qui passe ne prouve pas que Vercel passera.
+Pas de `tailwind.config.js` : palette et typo vivent dans le bloc `@theme` de `assets/css/main.css`.
 
-## Fichiers de référence — Charger selon le contexte
+**Classes Tailwind.** Dans les templates Go, jamais de classe construite par concaténation (`bg-{{ .Params.color }}-500`) : elle n'existe pas au build. Classes complètes ou mapping explicite.
 
-| Fichier | Quand le lire | Contenu |
-|---------|--------------|---------|
-| `docs/playbook-refonte.md` | Au démarrage + à chaque changement de phase | Phases, architecture Hugo, redirections 301, checklists complètes |
-| `docs/audit-conversion.md` | Phase 2-3 (pages) + décisions copy/design | Diagnostic complet, plan d'action priorisé |
-| `docs/skills/page-cro/SKILL.md` | Avant chaque page | Optimisation conversion page par page |
-| `docs/skills/copywriting/SKILL.md` | Rédaction de sections de copy | Framework copywriting conversion-first |
-| `docs/skills/form-cro/SKILL.md` | Formulaire d'audit gratuit | Optimisation formulaires lead capture |
-| `docs/skills/pricing-strategy/SKILL.md` | Page services/pricing | Stratégie pricing, effet leurre, comparatifs |
-| `docs/skills/schema-markup/SKILL.md` | Phase 5 (quality gate SEO) | Structured data LocalBusiness, Service, FAQPage |
+**Non versionné.** `.claude/` est dans `.gitignore` : les skills et les commandes de ce projet n'existent que sur cette machine.
+Ne pas les confondre avec `docs/skills/`, qui est versionné mais inerte (Claude Code ne le charge pas).
 
-Skills user-level (chargées automatiquement, ne pas dupliquer) : `agence-sauvage-brand-identity` (TOUJOURS en premier), `hugo-lagencesauvage`, `b2b-service-page-builder`, `conversion-audit-checklist`, `seo-blog-writer`, `geo-optimization`, `ux-expert`, `devfullstack`
+## Contenu
 
-**Skills `.claude/skills/` (project-scope, audit 2026-04-23 + résolution sources skills.sh)** :
-- Anthropic : `frontend-design` (Tailwind v4), `brand-guidelines` (charte ASV)
-- addyosmani/web-quality-skills : `accessibility` + `seo` (quality gate Phase 5)
-- vercel-labs/agent-skills : `deploy-to-vercel` (pipeline Git→Vercel)
-- coreyhaines31/marketingskills : `ai-seo`, `schema-markup`, `page-cro`, `copywriting`, `form-cro`
-- **Pack Shubham (sources résolues)** : `humanizer` (blader/humanizer — anti-IA writing), `seo-geo` (resciencelab/opc-skills), `keyword-research` + `content-gap-analysis` + `competitor-analysis` (aaron-he-zhu/seo-geo-claude-skills), `design-consultation` + `design-review` (garrytan/gstack), `polish` (pbakaus/impeccable)
-- **Skills NON disponibles publiquement** : `prose-fr`, `proofread`, `landing-page-copywriter` (pas de repo GitHub source — voir `skills-lock.json` `notAvailablePublicly`)
+1. **Zéro invention.** Aucun témoignage, citation, avis, KPI ou chiffre qui ne vienne pas de Franck ou d'une source citée en lien.
+2. **Validation avant publication.** Tout article ou page de contenu est présenté à Franck dans la conversation et attend un GO explicite avant `git push`, puisque le push déploie en prod. Vaut en priorité pour les tarifs, les chiffres, les promesses commerciales et le positionnement des offres.
+3. **Sources.** Jamais une agence IA ou digitale concurrente, jamais un lien vers une page d'accueil. Chaque chiffre porte un lien vers sa source, avec une ancre descriptive, plus une section « Sources et références » en fin d'article.
+4. **Le texte ne doit pas se lire comme du texte généré.** Le tiret cadratin en est le marqueur le plus visible : le blog a été nettoyé rétroactivement (47 occurrences sur un seul article), donc par défaut on n'en met pas, on écrit avec une virgule, un point, un deux-points ou des parenthèses. Un tiret isolé dans un long texte ne condamne rien, une prose qui en est constellée si. `grep -n '[—–]' <fichier>` sert à voir l'ampleur, pas à valider un compteur à zéro.
+5. **Corps des articles déjà publiés** : ne pas le modifier sans demande de Franck (acquis SEO/GEO). Front matter et layouts, oui. Écrire de nouveaux articles est en revanche le travail courant.
+6. Vouvoiement sur le site, tutoiement avec Franck. Un seul CTA principal par page. Sobriété : zéro à deux emojis, pas de gradient, pas de photo stock.
 
-## Phasage (7 phases — validation Franck entre chaque)
+## Où chercher le reste
 
-Phase 0 = setup technique | Phase 1 = design system | Phase 2 = homepage | Phase 3 = pages secondaires | Phase 4 = intégration blog | Phase 5 = quality gate | Phase 6 = bascule | Phase 7 = post-bascule
-Phase en cours → voir `project-state/status.md`. Ne jamais commencer une phase sans GO sur la précédente.
-
-## Règles critiques (non négociables)
-
-1. **ZÉRO INVENTION** : ne jamais créer de témoignages, citations, avis, KPI ou statistiques. Aucun chiffre sans validation explicite de Franck.
-2. **CONTENU BLOG EXISTANT PROTÉGÉ** : ne jamais modifier le corps des articles existants sans demande explicite de Franck (risque SEO/GEO). La création et l'édition de nouveaux articles sont la mission principale de la Phase 7. Le front matter peut être enrichi à tout moment. Les layouts peuvent changer.
-3. **BRANCHE PRINCIPALE `main`** : depuis la Phase 6 (bascule mai 2026), tous les commits vont sur `main`. La branche `refonte-2026` est archivée.
-4. **REDIRECTIONS 301 OBLIGATOIRES** : chaque ancienne URL .html a sa redirection dans vercel.json. Tester avant chaque push. Mapping complet dans le playbook.
-5. **SOBRIÉTÉ** : max 2 emojis/page (idéal 0). Pas de gradients, ombres excessives, couleurs saturées. Pas de photos stock.
-6. **VOUVOIEMENT** sur le site. Tutoiement réservé aux échanges avec Franck.
-7. **UN SEUL CTA PRINCIPAL** par page : "Réservez votre audit IA gratuit (30 min)".
-8. **SERVERLESS FUNCTIONS** : préserver les 4 fichiers api/submit-*.js tels quels.
-9. **REDIRECTIONS = VERCEL.JSON UNIQUEMENT** : ne jamais utiliser les `aliases` Hugo pour les redirections. Single source of truth = vercel.json.
-10. **PAS DE CLASSES TAILWIND DYNAMIQUES INCOMPLÈTES** : dans les templates Go, ne jamais construire une classe Tailwind par concaténation (ex: `bg-{{ .Params.color }}-500`). Utiliser des classes complètes ou des mappings explicites.
-11. **VALIDATION AVANT PUSH — CONTENU ÉDITORIAL** : tout article de blog ou page de contenu doit être soumis à Franck pour relecture complète avant tout `git push`. Présenter le contenu final dans la conversation et attendre un GO explicite. Ne jamais pousser en production un contenu que Franck n'a pas validé — en particulier : tarifs, chiffres, promesses commerciales, positionnement offre.
-12. **SOURCES BLOG — INTERDICTION CONCURRENTS** : ne jamais citer en source une agence IA, agence digitale ou tout prestataire concurrent de L'Agence Sauvage. Sources autorisées : cabinets conseil (McKinsey, Deloitte, Gartner, PwC), organismes officiels (gouvernement.fr, CNIL, Commission Européenne), éditeurs logiciels non concurrents (Salesforce, Google, IBM, SAP), presse spécialisée reconnue (Les Échos, Le Monde, TechCrunch, Harvard Business Review). Vérifier systématiquement que chaque lien pointe vers une page de contenu précise, jamais une page d'accueil.
-
-## Copywriting
-
-Clair > créatif. Spécifique > vague. Actif > passif. Framework PAS (Pain-Agitate-Solve) pour homepage/landing pages.
-Stack technique = crédibilité (page About, case studies), PAS argument de vente. Le client veut gagner du temps, pas "automatiser avec n8n".
-Mots interdits : révolutionner, disruptif, innovant, solution de pointe, game-changer, cutting-edge, next-gen, booster, leverager.
-**Zéro tiret cadratin (—) ni demi-cadratin (–), nulle part, y compris le blog** (règle Franck 2026-07-15). Remplacer par virgule, point, "et"/"mais", deux-points ou parenthèses. Vérifier par grep `[—–]` avant toute publication.
-
-## Conventions
-
-- **Config Hugo** : TOML, 3 fichiers dans config/_default/. Front matter articles : YAML.
-- **Tailwind v4** : point d'entrée `assets/css/main.css` avec `@import "tailwindcss"`. Palette/typo via `@theme`. Pas de tailwind.config.js.
-- **Git** : commits atomiques en français — `feat:`, `fix:`, `refactor:`, `docs:`, `chore:`. Branche principale : `main` (depuis Phase 6).
-- **Nommage** : layouts/partials en kebab-case, images en kebab-case descriptif, contenu en slug URL.
-- **Placeholders** : `<!-- [ASSET: description — dimensions — format] -->`, `<!-- [DATA: description] -->`, `<!-- [DÉCISION: question] -->`
-- **Sécurité** : avant toute commande destructive (rm, mv masse, git reset), lister les opérations et demander validation.
-
-## Workflow par page
-
-1. Lire skill `agence-sauvage-brand-identity` (toujours en premier)
-2. Lire skill pertinente (b2b-service-page-builder, docs/skills/copywriting, etc.)
-3. Coder layout Hugo + contenu Markdown + composants Tailwind v4
-4. Self-QA : `hugo server` + vérifier console + checklist `conversion-audit-checklist`
-5. Push atomique sur `refonte-2026` → récupérer Preview URL Vercel
-6. Communiquer à Franck : Preview URL + résumé choix + points en attente
-
-## Assets manquants
-
-Demander à Franck en priorité. Si pas dispo immédiatement : placeholder explicite greppable et continuer. Pour illustrations/mockups : Gemini generate-image disponible via MCP, avec validation Franck.
-
-## Gemini MCP — Cas d'usage
-
-| Situation | Outil Gemini | Usage |
-|-----------|-------------|-------|
-| Audit visuel sites concurrents | gemini-analyze-url | Batch-analyser design/structure concurrents |
-| Génération visuels/mockups | gemini-generate-image | Assets "show don't tell" pour pages |
-| Second regard sur le copy | gemini-analyze-text | Cohérence ton/message vs brand identity |
-
-## Production d'articles de blog
-
-### Workflow article type
-
-1. Franck fournit : sujet / URL sources / angle souhaité / offres à mettre en avant
-2. Recherche web multi-sources (WebSearch) pour enrichir et croiser les données
-3. Brainstorm Claude + Gemini (consensus ≥ 8/10) pour valider le plan
-4. Rédaction SEO/GEO : ~2 000-2 500 mots, 5-6 H2, FAQ schema, takeaways
-5. Génération image hero Gemini (style abstrait géométrique indigo/slate, 16:9, WebP <100 Ko)
-6. Création fichier markdown avec front matter enrichi complet
-7. **Soumettre le contenu complet à Franck pour relecture et validation — OBLIGATOIRE avant tout push**
-8. Push + deploy Vercel uniquement après GO explicite de Franck
-
-### Règles éditoriales pour les articles
-
-- **TOUTE citation, étude ou chiffre DOIT avoir un lien hypertexte vers la source** (source primaire en priorité, article de presse secondaire si la source primaire est inaccessible)
-- Ancre descriptive obligatoire (ex: "[les prévisions de Gartner](url)" — jamais "cette étude" ou "cliquez ici")
-- **Section "Sources et références"** obligatoire en bas de chaque article : bibliographie structurée avec tous les liens
-- Liens `dofollow` standard vers les sources autoritaires (pas de `nofollow`)
-- Structure GEO : réponse directe en début de chaque section H2, bullet points, données chiffrées sourcées
-- Front matter complet : title, date, lastmod, description, summary, keywords, categories, tags, author, expertise, image, imageAlt, toc, readingTime, takeaways (3), faq (3-5 questions)
-- Ton : expert mais accessible, vouvoiement, pas de mots interdits (cf. section Copywriting)
-- Longueur : 2 000-2 500 mots, 5-6 sections H2
-- Images hero : `static/assets/images/blog/[slug].webp`, 16:9, <100 Ko
+- `project-state/lessons.md` : les pièges déjà payés (Hugo, JSON-LD, images, limites Vercel, collisions d'angles entre articles). À lire avant de rouvrir un sujet qui a déjà cassé.
+- `project-state/next-tasks.md` : backlog antéchronologique, lire la section du haut et pas le fichier entier.
+- `docs/playbook-refonte.md` et `docs/audit-conversion.md` : archives de la refonte de mars 2026. Contexte historique, plus une consigne d'exécution.
+- Charte, ton, lexique et positionnement ASV : skills `agence-sauvage-brand-identity` et `agence-sauvage-tone`. Ne pas les recopier ici.
+- `.claude/skills/README-arbitrage.md` : pourquoi les skills importées de packs tiers se marchent dessus, et lesquelles gardent la main.
 
 ## Communication
 
-Langue française. Tutoiement avec Franck. Ton direct, technique, concis. Max 3 questions par message (choix multiples quand possible). Si une info manque : signaler, proposer 2-3 options avec trade-offs, ne jamais inventer.
-
-## Initialisation (à chaque session)
-
-Exécuter la command `/start-session` qui : lit `project-state/status.md`, vérifie `git status`, identifie la phase en cours, et demande "On continue sur [phase X — tâche Y] ?"
+Français, tutoiement, direct et concis. Trois questions maximum par message.
+Si une information manque : le dire, proposer deux ou trois options avec leurs arbitrages, ne jamais inventer.
