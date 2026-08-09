@@ -10,7 +10,7 @@
     "test": "node tests/simulateur-opco/test-compute-units.mjs && node tests/simulateur-opco/test-resolve-cascade.mjs && node tests/api/test-submit-lead-magnet-routing.mjs"
   },
   "dependencies": {
-    "@notionhq/client": "^2.2.15",
+    "@notionhq/client": "^5.22.0",
     "resend": "^6.12.4"
   },
   "devDependencies": {
