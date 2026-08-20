@@ -1,9 +1,9 @@
 ---
 title: "Hermes Agent : l'agent IA autonome qui travaille pour vous 24/7, depuis votre propre infrastructure"
-seo_title: "Hermes : l'agent IA autonome pour dirigeants de PME"
+seo_title: "Hermes Agent : installation, coût réel et 6 semaines d'usage"
 date: 2026-06-03
-lastmod: 2026-06-03
-description: "Hermes Agent (Nous Research) est l'agent IA open-source le plus utilisé au monde en 2026. Retour d'expérience de six semaines en production, cas d'usage dirigeant et analyse des nouveautés (Desktop, Kanban multi-agent, Swarm)."
+lastmod: 2026-08-20
+description: "Hermes Agent installé et utilisé six semaines en production : ce qu'il automatise vraiment, son coût réel, ses limites, et comment le faire tourner en France."
 summary: "ChatGPT vous oublie après chaque conversation. Claude Code attend que vous soyez devant l'écran. Hermes Agent travaille pour vous en tâche de fond — 24/7, avec mémoire persistante, depuis votre propre infrastructure. Retour d'expérience de six semaines en production, cinq cas d'usage de dirigeant et analyse des nouveautés majeures de mai 2026 (Hermes Desktop, Kanban multi-agent, Swarm topology)."
 
 # SEO
@@ -94,6 +94,14 @@ Mon installation tourne sur une station de travail AMD Strix Halo (128 Go de mé
 
 ---
 
+**Vous voulez Hermes, mais pas la partie technique ?**
+
+Depuis la version Desktop, l'installer est à la portée de tout le monde. Le calibrer sur une activité réelle l'est beaucoup moins : choisir le modèle, connecter vos outils, écrire les premières skills, et surtout décider ce qui tourne sans vous et ce qui attend votre validation. C'est le travail que nous faisons pour nos clients, sur leur infrastructure, avec des données qui ne sortent pas de chez eux.
+
+[Parlons de votre cas en 30 minutes](https://calendly.com/franck-lagencesauvage/30min)
+
+---
+
 ## Ce qui vient de changer en mai 2026 (et rend Hermes accessible aux dirigeants)
 
 Le rythme de développement de Hermes est tenu : trois versions majeures en six semaines. La nouvelle la plus importante pour un dirigeant non-développeur n'est pas dans une release note technique — c'est la sortie de **Hermes Desktop**.
@@ -132,7 +140,7 @@ La conversation autour de l'IA en 2026 va se déplacer des modèles vers les har
 
 Si vous êtes dirigeant et que cet article vous parle, deux chemins s'offrent à vous. Le premier, si vous aimez explorer : [téléchargez Hermes Desktop](https://hermes-agent.nousresearch.com/desktop), connectez votre messagerie préférée et votre vault de notes, et laissez tourner une semaine en observation. Vous verrez vite ce qui s'automatise naturellement chez vous — et ce qui ne s'automatise pas, ce qui est tout aussi instructif.
 
-Le second, si la partie configuration et architecture vous rebute : **[réservez votre audit IA gratuit (30 minutes)](/diagnostic/)** et nous regarderons ensemble si un Hermes personnalisé répond à votre contexte. Si oui, nous le concevons, l'installons et l'intégrons à vos outils existants — vous obtenez un agent IA souverain calibré sur votre activité, sans avoir à apprendre WSL2, Docker ou la configuration de modèles locaux. C'est le métier de L'Agence Sauvage.
+Le second, si la partie configuration et architecture vous rebute : **[réservons 30 minutes](https://calendly.com/franck-lagencesauvage/30min)** et nous regarderons ensemble si un Hermes personnalisé répond à votre contexte. Si oui, nous le concevons, l'installons et l'intégrons à vos outils existants. Vous obtenez un agent IA souverain calibré sur votre activité, sans avoir à apprendre WSL2, Docker ou la configuration de modèles locaux. C'est le métier de L'Agence Sauvage.
 
 ---
 
