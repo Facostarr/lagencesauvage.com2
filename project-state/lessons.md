@@ -1,5 +1,23 @@
 # Lessons Learned — Refonte lagencesauvage.com
 
+## La falaise du rang 5 (mesurée le 2026-08-19)
+
+Le CTR du site par tranche de position, hors requêtes Hermes qui écrasent le calcul : 1er 7,18 %, 4e-5e 2,68 %, puis **6e-7e 0,71 %, 8e-10e 0,34 %, 11e-20e 0,28 %**. Concrètement, 3 269 impressions en haut de première page font 116 clics, et 15 193 impressions en dessous en font 49. **18 % des impressions produisent 70 % des clics.**
+
+Conséquence opérationnelle : publier un article de plus qui atterrit au rang 8 ne rapporte rien, par construction, quel que soit son sujet, et fait baisser la moyenne du site. Les 11 articles publiés entre le 2 juin et le 28 juillet 2026 totalisent 38 clics sur 90 jours, dont 5 à zéro clic. Aucun problème technique : sitemap propre, réponses en 200, pages indexées, `seo_title` sous 60 caractères, FAQ et données structurées en place, front matter complet sur les 30 articles.
+
+Avant d'écrire, la question n'est donc pas « quel sujet » mais « ce sujet peut-il atteindre le top 5 ». Si non, deux issues seulement : remonter une page qui a déjà de la demande, ou choisir un format dont la distribution ne dépend pas du rang (étude data-first, citée et liée).
+
+⚠️ Mesuré sur les 2 132 requêtes que Search Console accepte de nommer, soit 18 462 impressions et environ 14 % du total. La position est une moyenne par requête, pas par page : une page peut afficher une moyenne de 6 en étant 1re sur la requête qui la fait vivre, ce qui est exactement le cas de l'article Karpathy (CTR 4,47 %).
+
+## Un titre se juge sur l'intention, pas sur la position (Hermes, 2026-08-20)
+
+L'article Hermes s'est classé 8e sur « hermes agent », requête de marque de l'agent open source de Nous Research, ce qui lui a valu 41 842 impressions françaises pour 275 clics, soit **0,66 % de CTR** là où la position 8 en produit normalement 2 à 3 %. Même position que l'article Karpathy, qui lui fait 4,47 %. La différence n'est pas le référencement, c'est que le titre tenait la promesse de l'intention dans un cas et pas dans l'autre.
+
+Deuxième leçon sur la même page : Plausible donnait 87 % de rebond, ce qui ressemblait à une audience hors sujet. Mais avec **2 min 50 sur la page contre 1 min 09 sur le site** et 49 % de profondeur de lecture, le diagnostic s'inverse. Ces lecteurs lisent vraiment, et repartent parce qu'il n'y a rien à faire ensuite. **Ne jamais conclure d'un taux de rebond seul : le croiser avec le temps passé et la profondeur de lecture.**
+
+Troisième leçon : l'offre existait déjà en fin d'article, mais à 71 % du corps quand la profondeur médiane est à 49 %. La moitié des lecteurs ne l'avait jamais vue. Placer le bloc de conversion **au-dessus du point de décrochage mesuré**, pas à la fin par habitude.
+
 ## Lire le CONTENU des articles voisins (pas juste les noms) avant de figer un angle (lesson 2026-07-27)
 
 **Symptôme** : plan d'article RAG construit autour de l'angle "démo bluffante vs production + test des questions à poser". Or l'article voisin `pourquoi-projet-ia-cale-avant-la-production` (test des 7 signaux), en cours de finalisation par une session parallèle le même jour, occupait déjà exactement ce terrain : même hook démo-vs-prod, même device "test nommé", même contenu confiance/sources. Franck l'a repéré ("cela risque d'être sur le même angle ?"), pas moi.

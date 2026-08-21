@@ -1,5 +1,27 @@
 # Next Tasks — Refonte lagencesauvage.com
 
+## Session 2026-08-21 — Diagnostic perf blog, correctif Hermes, étude data-first
+
+**Contexte** : audit Search Console + Plausible sur 90 jours. Deux constats structurants, détaillés dans `lessons.md`.
+
+### Immédiat (post-publication)
+- [ ] **GSC → Inspection d'URL** : soumettre `/blog/etude-citations-ia-agences-pme-2026/` à l'indexation, et demander le recrawl de `/blog/hermes-agent-ia-autonome-dirigeant-tpme/` (titre et description modifiés le 2026-08-20).
+- [ ] **Mesurer l'effet Hermes à J+30** : le CTR de la page était à 0,66 % en France pour 41 842 impressions. Rejouer `gsc_deep.py` sur vps1-prod vers le 20 septembre. Une remontée vers 2 % validerait le correctif de titre.
+- [ ] **Diffuser l'étude** : c'est un actif d'autorité, sa distribution ne passe pas par le rang Google. LinkedIn, puis les domaines qui citent déjà ASV (findskill.ai, nextbrain.be, paulantoinetual.fr, datamarketingparis.com, zevra.tech).
+
+### Décisions prises
+- **Production d'articles neufs suspendue** tant que la falaise du rang 5 n'est pas franchie sur les pages qui ont déjà de la demande. L'étude data-first est l'exception validée, parce que sa distribution ne dépend pas du classement.
+- **ScanGEO reste en attente** : coût par lancement, et verdict « aucune citation » quasi systématique faute d'information en entrée. Aucun contenu ne doit y envoyer de trafic. Le CTA de l'étude pointe vers Calendly.
+
+### Prochain chantier identifié (le plus rentable, non démarré)
+- [ ] **Remonter le simulateur OPCO au-dessus de la falaise** : 1 685 impressions en position 5 à 10 sur des requêtes d'outil (« simulateur akto » 330 impr. pos 7,4, « calculette akto » 174, « opco hcr » 160, « budget opco » 76), pour six clics. Intention transactionnelle, page déjà construite. Tout se joue sur le rang et sur le titre affiché en SERP, pas sur un nouveau contenu.
+- [ ] Autres gisements chiffrés dans le rapport : cluster visibilité IA (1 040 impr.), Claude par métier (1 393 impr., dont « formation claude paris » et « nantes », intention locale jamais servie), agence IA PME (680 impr., position 12 à 13).
+
+### Dette technique repérée
+- [ ] **Aucun point d'entrée léger sur le site.** `/contact/` redirige en 301 vers `/diagnostic/`, qui vend « 5 jours d'immersion sur site ». Un lecteur d'article qui veut juste échanger n'a rien à cliquer. Deux articles pointent désormais vers Calendly en contournement. À trancher : créer une vraie page de contact courte, ou assumer Calendly comme point d'entrée.
+- [ ] **Cron GEO toujours en pause.** L'optimisation de coût n'atteint pas la cible : 0,63 €/requête après allègement contre 1,10 € avant, parce que Grok n'a aucune variante non-reasoning. Décider entre un run mensuel restreint aux requêtes `discovery` et l'abandon du cron.
+
+
 ## Session 2026-07-27 — Article pilier RAG en entreprise
 
 ### Immédiat (post-publication)
