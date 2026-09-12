@@ -1,5 +1,32 @@
 # Lessons Learned — Refonte lagencesauvage.com
 
+## Un générateur ne produit pas toujours l'état final des pages (2026-09-12, simulateur OPCO)
+
+**Problème.** Pour réécrire les titres des 34 pages du cluster simulateur, j'ai modifié les gabarits
+`seo_title` des deux générateurs puis relancé `generate-opco-subpages.py`. Le build passait, les titres
+sortaient corrects, et j'ai annoncé un diff « propre et cadré » après avoir grepé les seules lignes de
+titre. Le diff faisait en réalité 130 lignes par page : la régénération avait remis `layout: "single"`
+à la place de `layout: opco-fiche` et **supprimé `branches_idcc`** sur les 11 fiches OPCO. Ce paramètre
+alimente le shortcode `opco-branches`, donc la grille de liens vers les fiches branches. Poussé, ça
+cassait le maillage interne du cluster sans la moindre alerte, puisque Hugo bâtit en exit 0.
+
+**Cause.** `scripts/migrate-opco-to-fiche-layout.py` tourne **après** le générateur et c'est lui qui
+produit l'état final. Le générateur n'a jamais été mis à jour pour l'intégrer. La consigne du CLAUDE.md,
+« pages générées par les scripts, jamais éditées à la main », est exacte et trompeuse à la fois : ces
+pages sortent de deux scripts en séquence, pas d'un seul.
+
+**Solution retenue.** Ne pas rejouer une migration non validée pour un changement de deux lignes. Les
+titres ont été appliqués en place par un patch qui ne réécrit que `title` et `seo_title`, en réutilisant
+le `yaml_escape` du générateur pour ne pas créer d'écart au prochain passage. Diff obtenu : 68 lignes
+pour 34 fichiers, soit exactement deux par page. L'avertissement est inscrit dans le générateur, à la
+ligne qui écrit le layout.
+
+**Règle.** Avant de régénérer des pages versionnées, vérifier sur **un seul cas** que le générateur
+reproduit l'état actuel du dépôt. Et ne jamais qualifier un diff de propre après un grep sur les lignes
+attendues : compter les champs de front matter réellement touchés avec
+`git diff | grep -E '^[+-][a-z_]+:' | sort | uniq -c`. C'est le même effort, et ça ne ment pas.
+
+
 ## Une clé présente dans un `.env` n'est pas une valeur renseignée (2026-09-12, transverse)
 
 **Problème.** Pour savoir si OpenSEO pouvait se connecter à Search Console, j'ai listé les noms de
