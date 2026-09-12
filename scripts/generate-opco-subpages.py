@@ -376,16 +376,25 @@ def build_page(opco: dict) -> str:
     notes = (opco.get("notes_libres") or "").strip()
 
     opco_label = compute_opco_label(nom_court)
-    title = f"{opco_label} 2026 — Budget formation, dispositifs et conventions"
+    title = f"{opco_label} 2026 : budget formation, dispositifs et conventions"
     # seo_title court (<=60 car, Bing « Title too long »)
     _opco_court = opco_label
     for _pre in ("OPCO ", "Opco "):
         if _opco_court.startswith(_pre):
             _opco_court = _opco_court[len(_pre):]
             break
-    seo_title = f"OPCO {_opco_court} 2026 : budget & dispositifs formation"
+    # « L'Opcommerce » : sans ce retrait, le gabarit produit « OPCO L'Opcommerce ».
+    if _opco_court.startswith("L'"):
+        _opco_court = _opco_court[2:]
+    # « Simulateur » en tête, parce que c'est le mot que tapent les gens : sur 3 mois,
+    # « simulateur akto » 458 impressions, « calculette akto » 268, « akto simulation » 139,
+    # toutes à zéro clic. Le mot manquait au titre. Témoin interne : le hub, qui le porte,
+    # fait 1,27 % de CTR en position 8,0 quand la fiche AKTO fait 0,35 % en position 7,3.
+    seo_title = f"Simulateur OPCO {_opco_court} 2026 : prise en charge & budget"
     if len(seo_title) > 60:
-        seo_title = f"OPCO {_opco_court} 2026 : budget formation"
+        seo_title = f"Simulateur OPCO {_opco_court} 2026 : prise en charge"
+    if len(seo_title) > 60:
+        seo_title = f"Simulateur OPCO {_opco_court} 2026"
     description = (
         f"{nom_court} finance la formation des salariés des secteurs {audience}. "
         f"Dispositifs activables 2026 (PDC, Période de reconversion, AFEST, abondement CPF), "
@@ -402,6 +411,11 @@ def build_page(opco: dict) -> str:
         f"description: {yaml_escape(description)}",
         "date: 2026-05-23",
         "lastmod: 2026-05-23",
+        # ATTENTION : ce generateur ne produit PAS l'etat final des fiches.
+        # scripts/migrate-opco-to-fiche-layout.py doit tourner APRES lui : c'est lui
+        # qui bascule layout en "opco-fiche" et qui ajoute branches_idcc, le parametre
+        # qui alimente la grille des branches (shortcode opco-branches).
+        # Regenerer sans rejouer la migration fait perdre les deux, en silence.
         'layout: "single"',
         'robots: "index, follow"',
         f'canonical: "/simulateur-opco/{slug}/"',

@@ -1,6 +1,6 @@
 ---
-title: Simulateur Budget Formation Médico-social privé — 2026
-seo_title: "Budget formation Médico-social privé 2026 — Santé"
+title: Simulateur budget formation Médico-social privé 2026
+seo_title: 'Médico-social privé : OPCO Santé, budget formation 2026'
 description: 'Calculez votre budget formation 2026 pour la convention Médico-social privé (OPCO Santé, IDCC à confirmer). Plafonds PDC par tranche d''effectif, dispositifs activables, sources officielles. Simulation en 30 secondes.'
 date: 2026-05-23
 lastmod: 2026-05-23

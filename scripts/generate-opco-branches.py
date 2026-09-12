@@ -415,19 +415,32 @@ def build_page(b: dict) -> str:
 
     # H1 transactionnel court (Gemini) — utilise nom_court SEO-friendly
     if primary_idcc:
-        title = f"Simulateur Budget Formation {nom_court} (IDCC {primary_idcc}) — 2026"
+        title = f"Simulateur budget formation {nom_court} (IDCC {primary_idcc}) 2026"
     else:
-        title = f"Simulateur Budget Formation {nom_court} — 2026"
+        title = f"Simulateur budget formation {nom_court} 2026"
 
-    # seo_title court (<=60 car, Bing « Title too long ») — sans IDCC, OPCO en suffixe
+    # seo_title court (<=60 car, Bing « Title too long »).
+    # La branche d'abord, l'OPCO ensuite : les requêtes entrantes demandent QUEL OPCO
+    # couvre la branche (« opco métallurgie » 106 impressions en position 10,6 et zéro
+    # clic, « opco hcr », « idcc 1486 opco »). L'ancien gabarit suffixait l'OPCO amputé
+    # de son préfixe et produisait « Budget formation Métallurgie 2026 — 2i », où le mot
+    # « OPCO » n'apparaissait nulle part.
     _opco_court = opco_label
     for _pre in ("OPCO ", "Opco "):
         if _opco_court.startswith(_pre):
             _opco_court = _opco_court[len(_pre):]
             break
-    seo_title = f"Budget formation {nom_court} 2026 — {_opco_court}"
-    if len(seo_title) > 60:
-        seo_title = f"Budget formation {nom_court} 2026"
+    if _opco_court.startswith("L'"):
+        _opco_court = _opco_court[2:]
+    for _candidat in (
+        f"{nom_court} : OPCO {_opco_court}, budget formation 2026",
+        f"{nom_court} : OPCO {_opco_court}, budget 2026",
+        f"{nom_court} : OPCO {_opco_court} 2026",
+        f"{nom_court} : OPCO {_opco_court}",
+    ):
+        seo_title = _candidat
+        if len(seo_title) <= 60:
+            break
 
     description = (
         f"Calculez votre budget formation 2026 pour la convention {nom_court} ({opco_label}, "

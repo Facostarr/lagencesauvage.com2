@@ -1,6 +1,6 @@
 ---
-title: OPCO Uniformation 2026 — Budget formation, dispositifs et conventions
-seo_title: "OPCO Uniformation 2026 : budget & dispositifs formation"
+title: 'OPCO Uniformation 2026 : budget formation, dispositifs et conventions'
+seo_title: 'Simulateur OPCO Uniformation 2026 : prise en charge & budget'
 description: Uniformation finance la formation des salariés des secteurs cohésion sociale — associatif et économie sociale. Dispositifs activables 2026 (PDC, Période de reconversion, AFEST, abondement CPF), branches couvertes, source
 date: 2026-05-23
 lastmod: '2026-05-26'

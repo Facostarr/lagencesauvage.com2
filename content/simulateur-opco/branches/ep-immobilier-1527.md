@@ -1,6 +1,6 @@
 ---
-title: Simulateur Budget Formation Immobilier (IDCC 1527) — 2026
-seo_title: "Budget formation Immobilier 2026 — EP"
+title: Simulateur budget formation Immobilier (IDCC 1527) 2026
+seo_title: 'Immobilier : OPCO EP, budget formation 2026'
 description: 'Calculez votre budget formation 2026 pour la convention Immobilier (OPCO EP, IDCC 1527). Plafonds PDC par tranche d''effectif, dispositifs activables, sources officielles. Simulation en 30 secondes.'
 date: 2026-05-23
 lastmod: 2026-05-23

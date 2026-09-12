@@ -1,6 +1,6 @@
 ---
-title: OPCO Constructys 2026 — Budget formation, dispositifs et conventions
-seo_title: "OPCO Constructys 2026 : budget & dispositifs formation"
+title: 'OPCO Constructys 2026 : budget formation, dispositifs et conventions'
+seo_title: 'Simulateur OPCO Constructys 2026 : prise en charge & budget'
 description: Constructys finance la formation des salariés des secteurs construction et bâtiment. Dispositifs activables 2026 (PDC, Période de reconversion, AFEST, abondement CPF), branches couvertes, sources officielles. Calcul auto
 date: 2026-05-23
 lastmod: '2026-05-26'

@@ -1,6 +1,6 @@
 ---
-title: Simulateur Budget Formation Propreté et services associés (IDCC 3043) — 2026
-seo_title: "Budget formation Propreté et services associés 2026 — AKTO"
+title: Simulateur budget formation Propreté et services associés (IDCC 3043) 2026
+seo_title: 'Propreté et services associés : OPCO AKTO, budget 2026'
 description: 'Calculez votre budget formation 2026 pour la convention Propreté et services associés (AKTO, IDCC 3043). Plafonds PDC par tranche d''effectif, dispositifs activables, sources officielles. Simulation en 30 secondes.'
 date: 2026-05-23
 lastmod: 2026-05-23

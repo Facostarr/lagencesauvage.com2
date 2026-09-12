@@ -1,6 +1,6 @@
 ---
-title: Simulateur Budget Formation Restauration rapide (IDCC 1501) — 2026
-seo_title: "Budget formation Restauration rapide 2026 — AKTO"
+title: Simulateur budget formation Restauration rapide (IDCC 1501) 2026
+seo_title: 'Restauration rapide : OPCO AKTO, budget formation 2026'
 description: 'Calculez votre budget formation 2026 pour la convention Restauration rapide (AKTO, IDCC 1501). Plafonds PDC par tranche d''effectif, dispositifs activables, sources officielles. Simulation en 30 secondes.'
 date: 2026-05-23
 lastmod: 2026-05-23
