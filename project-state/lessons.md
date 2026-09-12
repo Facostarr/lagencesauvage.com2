@@ -22,6 +22,14 @@ attributs est le second piège, et le plus sournois, parce qu'il rend zéro au l
 Réflexe de contrôle : quand un audit annonce qu'une propriété manque sur *toutes* les pages, c'est la
 mesure qui est cassée, pas le site.
 
+**Corollaire, sur les tirets cadratins cette fois (2026-09-12).** Le `grep -n '[—–]' <fichier>` que le
+`CLAUDE.md` recommande pour mesurer l'ampleur des tirets **produit des faux positifs sur tout texte français
+accentué** dans le Git Bash de cette machine : la classe de caractères y est évaluée octet par octet, et les
+caractères UTF-8 multi-octets (`œ`, `é`, `à`) partagent des octets avec `—` et `–`. Mesuré : 5 occurrences
+annoncées sur un fichier qui n'en contenait qu'une seule vraie. Compter en Python, ou avec
+`grep -P '\x{2014}|\x{2013}'` si la version le supporte. La leçon générale est la même dans les deux sens :
+**un motif textuel sur de l'UTF-8 ment aussi bien par excès que par défaut.**
+
 ## Un bloc `head` de layout s'ajoute au partial, il ne le remplace pas (2026-09-12, Hugo)
 
 **Problème.** 39 pages émettaient `og:type`, `og:title`, `og:description`, `og:url`, `og:locale` et

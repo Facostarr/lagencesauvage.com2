@@ -1,4 +1,4 @@
-# Brief — « Quelle agence IA choisir pour une PME »
+# Brief : « Quelle agence IA choisir pour une PME »
 
 Issu de l'audit du 12/09 (`audit-seo-geo-2026-09.md`) et du challenge à trois modèles
 (GLM 5.3, DeepSeek v4.1, Qwen 3.8 Max, verdict unanime, coût 0,056 $).
