@@ -1,5 +1,25 @@
 # Lessons Learned — Refonte lagencesauvage.com
 
+## Un bloc `head` de layout s'ajoute au partial, il ne le remplace pas (2026-09-12, Hugo)
+
+**Problème.** 39 pages émettaient `og:type`, `og:title`, `og:description`, `og:url`, `og:locale` et
+`twitter:card` en double. Huit layouts ouvraient `{{ define "head" }}` pour poser leurs balises Open Graph,
+sans savoir que `layouts/partials/head/meta-seo.html`, appelé par `baseof.html`, les avait déjà écrites.
+Les crawlers retiennent la première occurrence, celle du partial : **les valeurs écrites dans les layouts
+étaient mortes depuis leur création**. Le cas qui coûte vraiment : le hub du simulateur portait deux
+`og:image`, et c'est l'image générique du site qui gagnait, donc l'image générée sur mesure pour cette page
+ne s'est jamais affichée en partage.
+
+**Solution.** Un seul émetteur, `meta-seo.html`. Ce qu'un layout veut personnaliser passe par un paramètre
+de front matter lu par le partial, jamais par une balise concurrente : ici `ogImageSource` pour une image
+redimensionnée à la volée, et `twitter_card` pour la page qui voulait `summary`.
+
+**Règle.** Avant d'ajouter une balise `meta` dans un `{{ define "head" }}`, vérifier que le partial appelé
+par `baseof.html` ne l'écrit pas déjà. Et faire le contrôle sur le **build**, pas sur les sources, puisque
+c'est la sortie qui compte : compter les occurrences par propriété sur `public/**/index.html`. Attention,
+`grep -c` ne sert à rien sur du HTML minifié, qui tient sur une seule ligne, et il a bien failli me faire
+conclure « une seule balise » sur une page qui en portait deux. `grep -o | wc -l`, ou un compteur en Python.
+
 ## Un générateur ne produit pas toujours l'état final des pages (2026-09-12, simulateur OPCO)
 
 **Problème.** Pour réécrire les titres des 34 pages du cluster simulateur, j'ai modifié les gabarits

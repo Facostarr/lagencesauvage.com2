@@ -1,48 +1,58 @@
 # Next Tasks — Refonte lagencesauvage.com
 
-## Session 2026-09-12 (suite) — Search Console connectée, place à la donnée
+## Prochaine session — après le premier coup sur les titres
 
-**Contexte** : le contexte projet OpenSEO est rempli (4 sections, 28 pages clés, contraintes d'outillage)
-et **Search Console est connectée en natif**, propriété `sc-domain:lagencesauvage.com`, lisible par MCP
-sans consommer de crédit. Procédure et pièges dans `openseo.md`, arbitrages dans `status.md`.
-Tout ce qui suit est gratuit : rien n'appelle DataForSEO.
+**Contexte** : les 34 titres du cluster simulateur sont en production depuis le 2026-09-12 (`78d9668`),
+les balises Open Graph sont dédupliquées (`8680c9f`). Tout ce qui suit est gratuit, rien n'appelle
+DataForSEO. La mesure du résultat est automatisée et tombe le 12 octobre.
 
-### Prochaine session, sur données GSC
-- [ ] **Trancher le sujet Hermes, avant tout le reste.** 28 160 impressions sur « hermes agent » en
-  position 8,4, plus « hermes ia », « hermes ai », « hermes agent mistral » : ces gens cherchent le modèle
-  Hermes. Même dérive sur le second article, classé sur « karpathy ». Décider si on assume cette audience
-  en lui donnant une porte de sortie, ou si on cesse d'y investir. Cette décision commande le chantier
-  « falaise du rang 5 », puisqu'elle dit si monter ces pages a un sens.
-- [ ] **Sortir les requêtes en approche du cluster simulateur** avec
-  `get_search_console_performance` en croisant `query` et `page`, filtré sur `/simulateur-opco/`.
-  GSC ne sait pas filtrer par position, donc trier côté client sur les positions 4 à 10. C'est la liste
-  qui sert de base au travail de titres, et elle remplace l'export manuel.
-- [ ] **Réécrire les titres et descriptions** des pages du cluster simulateur qui ressortent de ce tri.
-  Seul levier démontré à ce jour : `art-du-prompt` est passé de 0,77 à 1,11 % de CTR par ce seul moyen.
-- [ ] **Contrôler l'indexation des pages clés** avec `inspect_urls`, **en `www`**, dix URL par appel.
-  L'apex est inconnu de Google, une inspection sur l'apex ne prouve rien.
-- [ ] **Mesurer l'effet du correctif Hermes à J+30** : le titre a été modifié le 20 août, l'échéance
-  tombe vers le 20 septembre. Se lit maintenant directement dans GSC, sans rejouer `gsc_deep.py`.
+### Ce qui se déclenche tout seul
+- [x] Tâche locale `gsc-simulateur-j30`, **12 octobre à 9h**. Elle relève d'abord `lastCrawlTime` et exclut
+  du verdict toute page non recrawlée depuis le 12 septembre. Deux réserves : elle ne tourne que si l'app
+  est ouverte (sinon au lancement suivant), et sa première exécution peut se bloquer sur une demande de
+  permission pour les outils OpenSEO, les approbations étant stockées par tâche.
 
-### En attente d'une décision de Franck
-- [ ] **Recharge DataForSEO à 50 $ : écartée pour l'instant** (2026-09-12). À reprendre au lancement du
-  link prospecting, qui est le seul usage qui la justifie vraiment.
-- [ ] **Rank tracker** : `create_rank_tracker` est bloqué par le classifieur d'auto-mode. Chiffrage
-  indicatif à partir des prix publics DataForSEO : 15 mots-clés en hebdomadaire coûtent environ 0,13 $
-  par mois, 0,88 $ en quotidien. Ce n'est pas ce poste qui pèse.
-- [ ] **Concurrents** : section laissée volontairement vide. À remplir le jour où le link prospecting
-  démarre, c'est elle qui l'alimente.
+### Action de Franck qui conditionne cette mesure
+- [ ] **Forcer le recrawl des six pages du cluster** depuis l'interface Search Console. Sans ça, la fiche
+  Atlas (dernier crawl le 3 juillet) et Syntec (8 juillet) n'auront pas leur nouveau titre en ligne le
+  12 octobre, et la mesure portera sur un tiers du cluster. Détail des six URL dans `status.md`.
 
-### Devenu actionnable
+### Décisions ouvertes
+- [ ] **Offre d'entrée « mise en place d'agent autonome »**. Le verdict des quatre modèles portait sur le
+  trafic Hermes, pas sur l'offre, qu'ils ont presque tous confondue avec l'installation du projet tiers.
+  À cadrer hors de ce trafic, sur de vrais prospects, et sous un autre nom que Hermes. La skill
+  `cadrer-tache` est faite pour ça.
+- [ ] **Porte de sortie sur la page Hermes**. Toujours absente. 185 clics par mois qui lisent 2 min 50 et
+  repartent. Les quatre modèles convergent : clarifier que ce n'est pas le Hermes de Nous Research, un seul
+  CTA doux vers l'offre existante, et laisser fondre le reste. Coût : une édition. Non fait, non décidé.
+- [ ] Point d'entrée léger sur le site (`/contact/` redirige vers `/diagnostic/`) et cron GEO : inchangés,
+  voir `status.md`.
+
+### Travail identifié, non démarré
+- [ ] **Descriptions du cluster simulateur**. Seuls les titres ont été réécrits. Les `description` sortent
+  toujours des mêmes gabarits et n'ont pas été confrontées aux requêtes réelles.
+- [ ] **Les deux pages sans Open Graph** (`/ressources/kit-claude-cowork-pme/`,
+  `/lp/collecte-whatsapp-pennylane/`) : elles n'étendent pas `baseof.html`. Dette antérieure, chiffrée
+  dans `status.md`.
+- [ ] **Resynchroniser `generate-opco-subpages.py`** avec `migrate-opco-to-fiche-layout.py`, ou fusionner les
+  deux. Aujourd'hui le générateur défait la migration si on le lance seul.
 - [ ] **Arbitrage des skills tierces** (`.claude/skills/README-arbitrage.md`, dressé le 2026-08-04, jamais
-  appliqué). Sa ligne `keyword-research` est caduque depuis l'installation d'OpenSEO. Deux jeux de skills
-  SEO cohabitent, le doublon est réel même si le préfixe évite la collision de déclencheurs.
+  appliqué). Sa ligne `keyword-research` est caduque depuis l'installation d'OpenSEO.
+
+### En attente, inchangé
+- [ ] **Recharge DataForSEO à 50 $ : toujours écartée.** Solde à 1 $, intact. À reprendre au lancement du
+  link prospecting, seul usage qui la justifie. Un `run_site_audit` a été explicitement écarté le
+  2026-09-12 : le balayage local du build a rendu le même service pour zéro crédit.
+- [ ] **Concurrents** : section du contexte OpenSEO laissée vide. C'est elle qui alimentera le link
+  prospecting le jour venu.
+- [ ] **Rank tracker** : `create_rank_tracker` est bloqué par le classifieur d'auto-mode. Environ 0,13 $ par
+  mois en hebdomadaire pour 15 mots-clés. Ce n'est pas ce poste qui pèse.
 
 ### À ne pas oublier
 - [ ] Le préfixe `openseo-` est appliqué à la main sur les 9 skills. **À remettre après chaque mise à jour**
   depuis le dépôt amont.
 - [ ] Google Analytics ne sera jamais connecté (le site mesure avec Plausible), donc
-  `get_search_opportunities` restera inutilisable, malgré un périmètre qui colle au chantier.
+  `get_search_opportunities` restera inutilisable.
 
 
 ## Session 2026-08-21 — Diagnostic perf blog, correctif Hermes, étude data-first

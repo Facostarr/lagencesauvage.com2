@@ -1,5 +1,74 @@
 # Changelog — Refonte lagencesauvage.com
 
+## 2026-09-12 (fin de journée) — Première session sur données GSC : Hermes tranché, titres du simulateur, Open Graph
+
+**Demande** : trancher le sujet Hermes, puis sortir les requêtes en approche du cluster simulateur.
+
+**Hermes.** Deux fenêtres de 20 jours autour du changement de titre du 20 août : le CTR passe de 0,76 à
+1,22 %, mais les impressions tombent de 61 % et les clics de 37 %. La chute est une marche datée au 21 août,
+pas une décrue. Le détail par requête explique le mécanisme : « hermes agent », la marque nue, perd 79 %
+de ses impressions pendant que « agent ia hermes », la requête qualifiée, en gagne. Le nouveau titre a
+resserré le matching, ce qu'un titre fait par nature. La cible de 2 % n'est pas atteinte.
+
+Franck a refusé les trois options proposées et posé une quatrième hypothèse : monter une offre simple et
+peu chère de mise en place de Hermes Agent. Quatre modèles ont été interrogés via orouter (GLM 5.3,
+Grok 4.6, GPT-6 Astra, Qwen 3.8 Max), coût total 0,19 $. **Verdict unanime : piège**, confiances 8, 8, 7 et 9.
+Argument central, économique : installer un agent autonome chez un client vaut deux à quatre jours
+d'ingénierie, donc à 800 ou 1 500 euros c'est vendu à perte et à 2 500 et plus personne n'achète depuis une
+page de blog l'installation d'un logiciel gratuit. Deux arguments non anticipés : l'ancrage de prix, qui
+rendrait l'abonnement à 500 euros injustifiable, et le support non borné d'une installation open source.
+
+**Nuance que les modèles ont ratée**, sauf GLM à demi : ils ont tous supposé qu'il s'agissait d'installer le
+Hermes de Nous Research. Or Hermes Agent est l'agent d'ASV. La question se coupe donc en deux, et les
+réponses diffèrent : ce trafic n'est pas le marché de cette offre, ce qui est acquis, mais l'offre
+elle-même peut tenir debout si elle se construit sur de vrais prospects et sous un autre nom. Non tranché.
+
+**Correction assumée en séance** : l'argument « intention d'installation à 20-50 % de CTR » que j'avais
+avancé reposait sur des requêtes à 2 à 5 impressions. Astra l'a relevé, il avait raison. Ce qui tient
+statistiquement, c'est le croisement Hermes + Claude, environ 200 impressions à 3 %.
+
+**Cluster simulateur.** Les requêtes en approche, positions 4 à 10, font 2 982 impressions pour 12 clics,
+soit 0,40 % de CTR. Diagnostic : le mot que les gens tapent manquait au titre. « simulateur akto » 458
+impressions, « calculette akto » 268, « akto simulateur » 226, toutes à zéro clic sur une fiche intitulée
+« OPCO AKTO 2026 : budget & dispositifs formation ». Témoin interne décisif : le hub, dont le titre porte
+« Simulateur », fait 1,27 % de CTR en position 8,0 quand la fiche AKTO fait 0,35 % en position 7,3, donc
+mieux classée. Facteur 3,6 pour un mot.
+
+Les 34 titres sont réécrits et poussés (78d9668). Deux défauts de gabarit corrigés au passage : le strip du
+préfixe produisait « Budget formation Métallurgie 2026 — 2i », où le mot OPCO n'apparaissait nulle part, et
+« OPCO L'Opcommerce 2026 ». Le routage s'est révélé être le même levier : la grille de liens existait déjà,
+ce qui manquait était un titre distinctif, le hub captant « simulateur opco atlas » avec un titre sans
+« Atlas ».
+
+**Incident évité de justesse.** La régénération par `generate-opco-subpages.py` a remis `layout: "single"`
+à la place de `opco-fiche` et supprimé `branches_idcc` sur les 11 fiches, ce qui aurait cassé la grille des
+branches en production sans que Hugo bronche. Cause : `migrate-opco-to-fiche-layout.py` tourne après le
+générateur et produit l'état final. J'avais annoncé un diff « propre » après avoir grepé les seules lignes
+de titre. Leçon écrite (ad1cb3c), avertissement inscrit dans le générateur, et les titres ont finalement été
+appliqués en place par un patch chirurgical : 68 lignes pour 34 fichiers, deux par page.
+
+**Audit du site : écarté, et remplacé par du gratuit.** Un `run_site_audit` consomme des crédits DataForSEO,
+dont le solde est à 1 $ et réservé au link prospecting. Le balayage local du build a rendu le même service :
+91 pages, zéro titre en doublon, zéro description en doublon, zéro titre au-dessus de 60, zéro canonical
+partagé, et six pages sur six « Submitted and indexed » avec canonical conforme et rich results PASS.
+
+Il a surtout trouvé deux choses. **39 pages émettaient six balises Open Graph en double**, huit layouts
+reposant ce que `meta-seo.html` avait déjà écrit ; corrigé (8680c9f), `meta-seo.html` devient émetteur
+unique et gagne `ogImageSource` et `twitter_card` pour absorber les intentions qui vivaient dans les
+layouts. Effet concret : le hub du simulateur portait deux `og:image` et c'est la générique qui gagnait,
+donc l'image faite sur mesure pour cette page ne s'était jamais affichée en partage.
+
+**Et le constat qui vaut mieux que les deux** : Googlebot visite ce cluster tous les 13 à 71 jours, la fiche
+Atlas n'ayant pas été crawlée depuis le 3 juillet. Un titre réécrit met donc des semaines à exister en SERP,
+et aucune passe de balises ne changera ça. C'est le diagnostic d'août vu sous un autre angle, la fréquence
+de crawl suivant l'autorité et le maillage.
+
+**Routine programmée** pour le 12 octobre à 9h (`gsc-simulateur-j30`, planificateur local et non routine
+cloud, les routines cloud n'ayant pas accès aux serveurs MCP de Claude Code). Elle commence par relever
+`lastCrawlTime` et exclut du verdict toute page non recrawlée, pour ne pas conclure « les titres n'ont rien
+fait » sur des pages où ils ne sont pas en ligne.
+
+
 ## 2026-09-12 (suite) — Contexte projet OpenSEO et connexion Search Console
 
 **Demande** : remplir le contexte projet OpenSEO, première tâche du backlog ouvert le matin même.
