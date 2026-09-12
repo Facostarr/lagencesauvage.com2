@@ -156,7 +156,7 @@ Avant de déployer un premier agent, évaluez votre situation sur cinq points. C
 
 **Score 0-1 :** Commencez par structurer vos données et documenter vos processus — c'est le fondement sans lequel aucun agent ne peut fonctionner durablement.
 
-Ces cinq critères mesurent une seule chose : êtes-vous prêt à démarrer. Une fois votre premier agent lancé, la question devient différente, ce pilote tiendra-t-il vraiment en production ? C'est un autre diagnostic, que vous pouvez faire avec [le test des 7 signaux de viabilité d'un projet IA](/blog/pourquoi-projet-ia-cale-avant-la-production/).
+Ces cinq critères mesurent une seule chose : êtes-vous prêt à démarrer. Une fois votre premier agent lancé, la question devient différente, ce pilote tiendra-t-il vraiment en production ? C'est un autre diagnostic, que vous pouvez faire avec [le test des 7 signaux de viabilité d'un projet IA](/blog/pourquoi-projet-ia-cale-avant-la-production/). Et si vous envisagez de confier ce déploiement à un prestataire plutôt que de le mener seul, [sept questions permettent de trier les agences avant de signer](/blog/choisir-agence-ia-pme-7-questions/).
 
 ---
 
