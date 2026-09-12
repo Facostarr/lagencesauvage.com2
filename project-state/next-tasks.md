@@ -1,6 +1,60 @@
 # Next Tasks — Refonte lagencesauvage.com
 
-## Prochaine session — après le premier coup sur les titres
+## Prochaine session — après l'audit SEO et GEO du 12 septembre
+
+**Contexte** : audit complet livré (`audit-seo-geo-2026-09.md`). Le diagnostic d'août est confirmé par trois
+chemins : profil de liens, absence des SERP commerciales, fréquence de crawl. La technique est saine, il n'y
+a rien à réparer côté balises. Le titre de l'accueil cible désormais « agence IA pour PME » et le lien
+interne depuis l'article de déploiement est posé.
+
+### Ce qui se déclenche tout seul
+- [x] **Recrawl des six pages du cluster simulateur demandé le 12/09**, depuis Search Console, une par une.
+  Les six sont en file d'attente d'exploration prioritaire. Plus rien à faire, plus rien à attendre de
+  Franck là-dessus. À noter pour la prochaine fois : l'API d'inspection est en lecture seule et l'Indexing
+  API de Google ne couvre que les offres d'emploi et les événements, donc ça passe par l'interface, et
+  Claude sait le faire via le navigateur (un onglet neuf par URL, l'app ne réinspecte pas deux fois
+  dans le même onglet).
+- [x] Tâche locale `gsc-simulateur-j30`, **12 octobre à 9h**. Elle mesure maintenant deux choses au lieu
+  d'une : les 34 titres du simulateur, et le nouveau titre de l'accueil poussé le 12/09. Les deux tombent
+  à J+30 le même jour.
+
+### À mesurer le 12 octobre, en plus du cluster simulateur
+- [ ] **Accueil sur « agence ia pme » et « agence ia pour pme »**. Point de départ sur 6 mois : 768
+  impressions pour 7 clics, l'accueil en position 4,9 et l'article en 18,9. Objectif : que l'accueil prenne
+  la majorité des impressions, et que le CTR du cluster décolle de 0,19 %.
+- [ ] **Requête de marque, à surveiller comme témoin de non-régression.** « l'agence sauvage » faisait
+  51,7 % de CTR en position 1,3 avant le changement de titre. Si ça baisse, c'est le titre qu'il faut revoir.
+
+### Décisions et chantiers ouverts, par ordre de rendement
+- [ ] **Remplir la section concurrents du contexte OpenSEO.** La liste existe enfin, recoupée entre SERP
+  Google et citations LLM : Stema Partners, Koïno, Juwa, La Fabrique du Net. C'est elle qui conditionne le
+  link prospecting, donc la seule dépense DataForSEO qui se justifie. Gratuit.
+- [ ] **Décider pour `/scan-geo/`** : détectée par Google, jamais indexée, et orpheline de tout lien interne.
+  Soit elle reçoit des liens et entre dans l'index, soit la décision d'août (ne lui envoyer aucun trafic)
+  est assumée jusqu'au bout et elle passe en `noindex`. L'état actuel ne sert à rien.
+- [ ] **Déclarer les dimensions des images** : 382 sur 394 n'ont ni `width` ni `height`, d'où du décalage
+  de mise en page. Le correctif se pose dans les partials d'image, pas page par page.
+- [ ] **Descriptions du cluster simulateur** : seuls les titres ont été réécrits.
+- [ ] **Les deux pages sans Open Graph ni canonical** (`/ressources/kit-claude-cowork-pme/`,
+  `/lp/collecte-whatsapp-pennylane/`) : elles n'étendent pas `baseof.html`.
+- [ ] **Resynchroniser `generate-opco-subpages.py`** avec `migrate-opco-to-fiche-layout.py`.
+- [ ] **Arbitrage des skills tierces** (`.claude/skills/README-arbitrage.md`, jamais appliqué).
+
+### Dette de prose repérée, non traitée
+- [ ] Les articles d'avant le nettoyage portent encore des tirets cadratins dans le corps et dans le champ
+  `expertise` du front matter. À traiter en une passe, pas article par article.
+- [ ] Huit liens internes pointent vers des URL redirigées en 301 (`/contact/` x5, `/diagnostic-ia/` x2,
+  `/audit-ia-gratuit/` x1). Rien n'est cassé, `vercel.json` les couvre, mais c'est un saut inutile.
+  Le CTA de l'article de déploiement en fait partie.
+
+### En attente, inchangé
+- [ ] **Recharge DataForSEO : toujours écartée.** L'audit complet a coûté 0,11 $, le solde est à 0,89 $.
+  À rouvrir au lancement du link prospecting, une fois les concurrents saisis.
+- [ ] **Ahrefs est mort** : plus aucun endpoint ne répond, Domain Rating gratuit compris. Ne plus compter
+  dessus comme source.
+
+
+## Session du 12 septembre (matin) — après le premier coup sur les titres
 
 **Contexte** : les 34 titres du cluster simulateur sont en production depuis le 2026-09-12 (`78d9668`),
 les balises Open Graph sont dédupliquées (`8680c9f`). Tout ce qui suit est gratuit, rien n'appelle
@@ -13,9 +67,8 @@ DataForSEO. La mesure du résultat est automatisée et tombe le 12 octobre.
   permission pour les outils OpenSEO, les approbations étant stockées par tâche.
 
 ### Action de Franck qui conditionne cette mesure
-- [ ] **Forcer le recrawl des six pages du cluster** depuis l'interface Search Console. Sans ça, la fiche
-  Atlas (dernier crawl le 3 juillet) et Syntec (8 juillet) n'auront pas leur nouveau titre en ligne le
-  12 octobre, et la mesure portera sur un tiers du cluster. Détail des six URL dans `status.md`.
+- [x] ~~**Forcer le recrawl des six pages du cluster** depuis l'interface Search Console.~~ **Fait le
+  12/09** par Claude via le navigateur : les six sont en file d'attente d'exploration prioritaire.
 
 ### Décisions ouvertes
 - [ ] **Offre d'entrée « mise en place d'agent autonome »**. Le verdict des quatre modèles portait sur le

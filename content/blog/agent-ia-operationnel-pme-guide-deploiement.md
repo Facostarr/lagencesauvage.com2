@@ -188,7 +188,7 @@ Activez l'agent sur son périmètre de test. La première semaine en conditions 
 
 Les workflows agentiques existent. Les outils fonctionnent sur votre stack française. L'AI Act crée une obligation qui transforme le "quand ?" en "avant août 2026".
 
-Ce qui manque le plus souvent n'est pas la technologie : c'est l'identification du bon processus à automatiser en premier, et la configuration qui tient dans la durée.
+Ce qui manque le plus souvent n'est pas la technologie : c'est l'identification du bon processus à automatiser en premier, et la configuration qui tient dans la durée. C'est précisément le métier d'une [agence IA pour PME](/) : choisir le workflow qui rapporte, le brancher sur vos outils existants, et rendre vos équipes autonomes dessus.
 
 Lors d'un audit de 30 minutes, nous identifions ensemble les 3 workflows les plus rentables à automatiser dans votre contexte. Si une formation sur mesure est pertinente pour votre équipe, nous vous expliquons comment la financer via votre OPCO.
 
