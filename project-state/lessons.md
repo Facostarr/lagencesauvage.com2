@@ -1,5 +1,27 @@
 # Lessons Learned — Refonte lagencesauvage.com
 
+## Auditer le build avec un parseur HTML, jamais avec une regex (2026-09-12, Hugo)
+
+**Problème.** Premier passage de l'audit SEO sur `public/` : 91 pages sans canonical, 91 sans JSON-LD,
+90 sans meta description, 91 pages orphelines. Des résultats absurdes, et c'est ce qui a sauvé le rapport :
+un site dont l'inspection Search Console rend « canonical conforme » partout ne peut pas n'avoir aucun canonical.
+
+**Cause.** Le build est minifié, et le minifieur de Hugo **retire les guillemets de tout attribut qui peut
+s'en passer**. Le HTML servi contient `<meta name=description content="...">`, `<link rel=canonical
+href=https://...>`, `<script type=application/ld+json>`, `<a href=/services/>`. Une regex écrite sur la
+forme canonique `rel="canonical"` ne matche donc rien, et échoue **en silence en rendant zéro**, ce qui
+ressemble à un résultat plutôt qu'à une panne.
+
+**Solution.** Auditer le build avec `html.parser` de la stdlib Python, qui gère les trois formes de quoting
+sans y penser. Le script rejouable de cet audit fait 150 lignes et sort titres, descriptions, canonical,
+H1, JSON-LD typé, Open Graph, images, maillage interne et liens morts.
+
+**Règle.** Sur du HTML minifié, toute mesure par motif textuel est suspecte, et pas seulement à cause des
+sauts de ligne absents (déjà noté pour `grep -c` dans la leçon Open Graph ci-dessous). **Le quoting des
+attributs est le second piège, et le plus sournois, parce qu'il rend zéro au lieu d'une erreur.**
+Réflexe de contrôle : quand un audit annonce qu'une propriété manque sur *toutes* les pages, c'est la
+mesure qui est cassée, pas le site.
+
 ## Un bloc `head` de layout s'ajoute au partial, il ne le remplace pas (2026-09-12, Hugo)
 
 **Problème.** 39 pages émettaient `og:type`, `og:title`, `og:description`, `og:url`, `og:locale` et
@@ -186,7 +208,7 @@ Troisième leçon : l'offre existait déjà en fin d'article, mais à 71 % du co
 
 ## Mesure SEO/GEO — limites des connecteurs (lesson 2026-06-21)
 
-**Ahrefs MCP** : sur plan gratuit, seul `public-domain-rating-free` répond (DR) ; tout le reste (Site Explorer, Keywords, GSC, Brand Radar) = `Insufficient plan`. Pas un outil de mesure exploitable sans abonnement. **GSC** : pas de connecteur dans le registre MCP, et les **clés de compte de service Google sont bloquées** par l'org policy `iam.disableServiceAccountKeyCreation` → passer par **OAuth utilisateur** (client Desktop réutilisé, refresh_token durable, consent screen Interne), token stocké dans `secrets/` côté VPS. **SimilarWeb MCP** : OAuth bloqué CloudFront, inexploitable.
+**Ahrefs MCP** : ⚠️ **plus rien ne répond depuis le 2026-09-12**, `public-domain-rating-free` inclus, qui marchait en juin. Tout renvoie `Insufficient plan`. Ce qui suit décrit l'état de juin et n'est conservé que pour l'historique : sur plan gratuit, seul `public-domain-rating-free` répondait (DR) ; tout le reste (Site Explorer, Keywords, GSC, Brand Radar) = `Insufficient plan`. Pas un outil de mesure exploitable sans abonnement. **GSC** : pas de connecteur dans le registre MCP, et les **clés de compte de service Google sont bloquées** par l'org policy `iam.disableServiceAccountKeyCreation` → passer par **OAuth utilisateur** (client Desktop réutilisé, refresh_token durable, consent screen Interne), token stocké dans `secrets/` côté VPS. **SimilarWeb MCP** : OAuth bloqué CloudFront, inexploitable.
 
 ## Positionnement formation ASV — ne plus dire « certifié Qualiopi » (lesson 2026-06-21)
 

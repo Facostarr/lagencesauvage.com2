@@ -35,7 +35,9 @@ Trois sources, aucune ne couvre les autres.
 
 OpenSEO est self-hébergé et pilotable par MCP depuis Claude Code. Son installation, ses pièges
 d'exploitation et son modèle de coût vivent dans `project-state/openseo.md`, pas ici.
-Le plan Ahrefs connecté reste limité : seul le Domain Rating en sort.
+**Ahrefs ne sort plus rien** (vérifié le 2026-09-12) : `public-domain-rating-free` comme
+`site-explorer-domain-rating` renvoient `Insufficient plan`. La note antérieure, « seul le Domain Rating
+en sort », est caduque. L'autorité se mesure désormais par `get_backlinks_overview` d'OpenSEO, à 0,10 $ l'appel.
 
 **Googlebot visite le cluster simulateur tous les 13 à 71 jours** (mesuré le 2026-09-12 par `inspect_urls`) :
 hub 13 j, métallurgie 27 j, AKTO 28 j, HCR 45 j, Syntec 66 j, Atlas 71 j. Toutes indexées, canonical conforme,
