@@ -1,5 +1,51 @@
 # Changelog — Refonte lagencesauvage.com
 
+## 2026-09-12 — OpenSEO self-hébergé : instrument de mesure backlinks et keyword gap
+
+**Demande** : mettre en place `every-app/open-seo` pour faire venir du monde sur le site, l'outillage
+existant étant jugé trop limité. Réserve posée d'entrée et maintenue : c'est un instrument de mesure,
+pas un levier d'acquisition. Ce qu'il apporte réellement en plus de GSC et du plan Ahrefs limité,
+c'est le module backlinks, donc l'autorité, et le keyword gap concurrentiel, là où GSC est aveugle
+par construction.
+
+**Vérifications avant de proposer quoi que ce soit** : projet réel (MIT, 18,5k étoiles, image GHCR
+publiée, données dans un volume local sans base externe), pas de Docker sur le poste Windows,
+mais `vps1-prod` avec Docker, nginx, un tunnel cloudflared et 7,5 Go de RAM libre. Coût réel :
+DataForSEO seul, pay-as-you-go, 1 $ offert, recharge minimum 50 $.
+
+**Installé** sur `vps1-prod` dans `/opt/open-seo`, port 3011 (3001 pris par Twenty), attaché au réseau
+`twenty_default` pour que le tunnel joigne le conteneur par son nom. Script d'exploitation `openseo.sh`.
+Publié sur `seo.lagencesauvage.com` via le tunnel, protégé par une application Cloudflare Access
+réutilisant la politique `Allow team` du CRM (une seule adresse autorisée), Managed OAuth activé
+pour le MCP. Fiche complète dans `openseo.md`.
+
+**Trois arbitrages qui ne se lisent pas dans le repo** :
+- Les 9 skills officielles sont installées **préfixées `openseo-`**, parce que `keyword-research`,
+  `competitor-analysis` et `seo-audit` existaient déjà via des packs tiers et se seraient disputé
+  les mêmes déclencheurs.
+- Le plugin Claude Code officiel est écarté : son `mcp.json` pointe vers `app.openseo.so`,
+  le service payant, pas vers l'instance. Il passe par ailleurs les trois contrôles d'import
+  (infra présente, aucun `hooks:`, aucun `git commit`).
+- **Bot Fight Mode désactivé sur la zone**, après constat vérifié et non supposé : il challengeait
+  tout client non navigateur et renvoyait un 403 sur `/mcp` avant même qu'Access réponde. Le site
+  vitrine est sur Vercel en DNS-only, donc hors proxy ; seuls `seo.` et `crm.` étaient couverts,
+  tous deux déjà derrière Access. Détail et condition d'invalidation dans `lessons.md`.
+
+**Clé DataForSEO** : compte finalisé (questionnaire d'onboarding), puis deux pièges. Le premier,
+un refus de faire transiter la credential par la conversation : le base64 n'est pas du chiffrement,
+il encode `login:motdepasse` en clair, et l'écrire depuis une commande l'aurait gravée dans
+`history.jsonl` et potentiellement dans `permissions.allow`. Transfert fait par l'entrée standard
+vers le script, aucune trace ailleurs que dans le `.env` en chmod 600, fichier local supprimé après.
+Le second, la valeur fournie était le mot de passe API brut (16 octets) et non la credential Base64 :
+détecté avant écriture en contrôlant la forme sans afficher le contenu.
+
+**Vérifié, pas supposé** : DataForSEO répond `status: Ok.` avec 1 $ de solde, le conteneur est
+`healthy`, `/mcp` renvoie 401 avec `www-authenticate: Bearer` sans authentification, et le serveur
+MCP est `✔ Connected` côté Claude Code. `npm test` passe (47, 36, routage).
+
+**Aucun fichier de contenu, de template ou de code applicatif n'a été touché.**
+
+
 ## 2026-07-29 — Article AI Act "2 août 2026" (transparence art. 50) + corrections calendrier
 
 **Contexte** : Franck voulait un article sur l'AI Act et l'échéance du 2 août 2026, fort SEO/GEO, anti-cannibalisme, posture "directeur de publication".

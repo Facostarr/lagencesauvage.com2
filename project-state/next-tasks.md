@@ -1,5 +1,28 @@
 # Next Tasks — Refonte lagencesauvage.com
 
+## Session 2026-09-12 — OpenSEO self-hébergé
+
+**Contexte** : instance opérationnelle sur `vps1-prod`, MCP connecté, 9 skills `openseo-*` installées.
+Exploitation et pièges dans `openseo.md`. Rien de tout cela ne fait venir un visiteur : ce qui suit
+sert le chantier prioritaire déjà identifié le 2026-08-21, remonter les pages qui ont de la demande
+au-dessus de la falaise du rang 5.
+
+### Immédiat
+- [ ] **Rouvrir une session** dans ce projet pour que les 46 outils MCP soient chargés. Le serveur a été déclaré en cours de session, il n'est connecté qu'au démarrage suivant.
+- [ ] **`openseo-seo-project-setup`** : remplir le contexte projet (positionnement, concurrents, pages clés). Les outils de contexte sont gratuits, aucun crédit consommé.
+- [ ] **Brancher le rank tracking sur le simulateur OPCO**, pas sur le blog. Les requêtes d'outil déjà mesurées en position 5 à 10 (« simulateur akto » 330 impressions pos 7,4, « calculette akto » 174, « opco hcr » 160, « budget opco » 76) sont exactement ce qu'un rank tracker sert à surveiller au quotidien. Estimer le coût avec `estimate_rank_tracker_cost` **avant** de créer le tracker.
+- [ ] **`openseo-link-prospecting`** sur l'étude « Personne n'est leader » : c'est l'actif d'autorité le plus récent et le déficit de backlinks est le vrai goulot. Croiser avec les domaines qui citent déjà ASV (findskill.ai, nextbrain.be, paulantoinetual.fr, datamarketingparis.com, zevra.tech).
+
+### Décision à prendre
+- [ ] **Recharger DataForSEO ou pas.** Le solde est de 1 $, le crédit de bienvenue. Assez pour quelques appels de validation, pas pour un audit ni un rank tracker qui tourne. Recharge minimum 50 $, sans abonnement. À trancher après les premiers appels réels, pas avant. Surveiller la consommation avec la commande de solde donnée dans `openseo.md`, qui est gratuite.
+
+### Devenu actionnable
+- [ ] **Arbitrage des skills tierces** (`.claude/skills/README-arbitrage.md`, dressé le 2026-08-04, jamais appliqué). Sa ligne `keyword-research` est caduque : le motif de suppression était l'absence d'outils de volume de recherche dans le projet. Les 9 skills OpenSEO sont préfixées donc il n'y a pas de collision immédiate, mais deux jeux de skills SEO cohabitent désormais et le doublon est réel.
+
+### À ne pas oublier
+- [ ] Le préfixe `openseo-` est appliqué à la main sur les 9 skills. **Il est à remettre après chaque mise à jour** depuis le dépôt amont.
+
+
 ## Session 2026-08-21 — Diagnostic perf blog, correctif Hermes, étude data-first
 
 **Contexte** : audit Search Console + Plausible sur 90 jours. Deux constats structurants, détaillés dans `lessons.md`.

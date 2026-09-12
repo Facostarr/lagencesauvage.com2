@@ -1,5 +1,31 @@
 # Lessons Learned — Refonte lagencesauvage.com
 
+## Bot Fight Mode répond avant Cloudflare Access et casse tout client non navigateur (2026-09-12, transverse)
+
+**Problème.** Un serveur MCP publié sur `seo.lagencesauvage.com` via le tunnel cloudflared, protégé par
+Cloudflare Access avec Managed OAuth correctement activé, renvoyait un `403` avec `cf-mitigated: challenge`
+sur `/mcp`, y compris avec un user-agent de navigateur. Un client MCP ne peut pas démarrer son flux OAuth
+dans ces conditions : il attend un `401` porteur de l'en-tête `www-authenticate`, et ne l'obtient jamais.
+La cause n'était pas Access mais Bot Fight Mode, actif sur la zone, qui répond **avant** lui.
+
+**Solution.** Le désactiver sur la zone. Sur le plan gratuit il s'applique à tout le trafic proxifié et
+n'accepte aucune exception par règle WAF : les exceptions demandent Super Bot Fight Mode, donc un plan payant.
+Après coupure, `/mcp` renvoie le `401` attendu et le client s'authentifie.
+
+**Règle.** Avant de publier un service destiné à des clients non navigateur (MCP, API, webhook) derrière
+Cloudflare, vérifier ce que la zone applique en amont de l'authentification. Le test tient en une ligne et
+ne demande aucune session : `curl -i -X POST https://<hôte>/<endpoint>` doit renvoyer `401`, pas `403`.
+Un `cf-mitigated: challenge` dans les en-têtes désigne le coupable.
+
+**Et surtout, l'arbitrage se fonde sur ce que la protection couvre vraiment, pas sur son nom.** Ici elle ne
+couvrait que les deux hostnames proxifiés, tous deux déjà derrière Access ; le site de production est sur
+Vercel en DNS-only, donc hors proxy, et n'était pas concerné. Cette condition est datée et peut tomber :
+ajouter un jour un hostname proxifié sans Access rouvre la question. Elle est inscrite dans `status.md`
+sous « À revérifier avant de s'y fier ».
+
+Remontée dans `C:\Claude\Setup Factory\LESSONS_TRANSVERSES.md`.
+
+
 ## La falaise du rang 5 (mesurée le 2026-08-19)
 
 Le CTR du site par tranche de position, hors requêtes Hermes qui écrasent le calcul : 1er 7,18 %, 4e-5e 2,68 %, puis **6e-7e 0,71 %, 8e-10e 0,34 %, 11e-20e 0,28 %**. Concrètement, 3 269 impressions en haut de première page font 116 clics, et 15 193 impressions en dessous en font 49. **18 % des impressions produisent 70 % des clics.**
