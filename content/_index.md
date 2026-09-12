@@ -1,9 +1,11 @@
 ---
-title: "L'Agence Sauvage | IA & Automatisation pour TPE/PME"
-description: "L'Agence Sauvage rend l'intelligence artificielle accessible aux TPE/PME. Automatisation, agents IA, marketing intelligent. Réservez votre audit IA gratuit de 30 minutes."
+title: "L'Agence Sauvage"
+seo_title: "L'Agence Sauvage | Agence IA pour TPE et PME"
+description: "Agence IA pour TPE et PME : agents IA, automatisation des tâches répétitives et formation de vos équipes. Réservez votre audit IA gratuit de 30 minutes."
 keywords:
+  - agence IA PME
+  - agence IA pour PME
   - IA TPE PME
-  - automatisation entreprise
   - agent IA
   - audit IA gratuit
   - intelligence artificielle PME

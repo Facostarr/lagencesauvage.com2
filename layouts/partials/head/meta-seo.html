@@ -26,7 +26,9 @@
 {{/* Titre optimisé — seo_title surchargé TEL QUEL (0 suffixe), sinon .Title + suffixe court.
      Le suffixe long .Site.Title (53c) tronquait les titres en SERP → CTR effondré (audit GSC juin 2026). */}}
 {{ if .IsHome }}
-<title>{{ .Site.Title }}</title>
+{{/* L'accueil porte son propre titre SEO (seo_title dans content/_index.md).
+     .Site.Title reste le nom du site, pour og:site_name et le JSON-LD. */}}
+<title>{{ .Params.seo_title | default .Site.Title }}</title>
 {{ else if .Params.seo_title }}
 <title>{{ $title }}</title>
 {{ else }}

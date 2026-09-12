@@ -6,7 +6,9 @@
 baseURL = "https://www.lagencesauvage.com"
 languageCode = "fr-FR"
 defaultContentLanguage = "fr"
-title = "L'Agence Sauvage | IA & Automatisation pour TPE/PME"
+# Nom du site, pas titre de page : alimente og:site_name, WebSite.name (JSON-LD)
+# et le flux RSS. Le titre SEO de l'accueil vit dans content/_index.md (seo_title).
+title = "L'Agence Sauvage"
 
 # Pretty URLs (sans extension .html) — redirections 301 dans vercel.json
 # uglyURLs supprimé — voir mapping complet dans docs/playbook-refonte.md
