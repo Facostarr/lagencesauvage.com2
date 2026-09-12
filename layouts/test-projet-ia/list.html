@@ -1,11 +1,5 @@
 {{ define "head" }}
   {{ partial "schema/test-projet-ia.html" . }}
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="{{ .Title }}">
-  <meta property="og:description" content="{{ .Params.description }}">
-  <meta property="og:url" content="{{ .Permalink }}">
-  <meta property="og:locale" content="fr_FR">
-  <meta name="twitter:card" content="summary">
   <style>
     .sc-option { display:flex; gap:.75rem; align-items:flex-start; border:1px solid #e2e8f0; border-radius:.75rem; padding:.85rem 1rem; cursor:pointer; transition:border-color .15s, background-color .15s; }
     .sc-option:hover { border-color:#a5b4fc; background:#f5f3ff; }

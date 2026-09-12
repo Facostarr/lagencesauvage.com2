@@ -16,6 +16,8 @@ keywords:
   - calcul OPCO 2026
 canonical: "/simulateur-opco/"
 ogImage: "/assets/images/logo-agence-sauvage.svg"
+ogImageSource: images/og/simulateur-opco-source.jpg
+ogImageAlt: "Aperçu du simulateur : champ de recherche entreprise et carte résultat avec budget chiffré."
 faq:
   - question: "Qu'est-ce qu'un OPCO et qui finance la formation de mon entreprise ?"
     answer: |

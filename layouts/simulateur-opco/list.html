@@ -1,18 +1,5 @@
 {{ define "head" }}
   {{ partial "schema/simulateur-opco.html" . }}
-  {{ $ogSrc := resources.Get "images/og/simulateur-opco-source.jpg" }}
-  {{ $og := $ogSrc.Resize "1200x630 webp q80" }}
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Simulateur Budget OPCO 2026 — TPE/PME">
-  <meta property="og:description" content="{{ .Params.description }}">
-  <meta property="og:url" content="{{ .Permalink }}">
-  <meta property="og:locale" content="fr_FR">
-  <meta property="og:image" content="{{ $og.Permalink }}">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Aperçu du simulateur : champ de recherche entreprise et carte résultat avec budget chiffré.">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="{{ $og.Permalink }}">
 {{ end }}
 
 {{ define "main" }}

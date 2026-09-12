@@ -8,7 +8,18 @@
 {{ $description := .Description | default .Summary | default .Site.Params.description | truncate 160 }}
 {{ with .Params.seo_description }}{{ $description = . }}{{ end }}
 {{ $image := .Params.image | default .Site.Params.defaultImage }}
-{{ $imageAlt := .Params.imageAlt | default $title }}
+{{ $imageAlt := .Params.ogImageAlt | default .Params.imageAlt | default $title }}
+{{/* Image OG, source unique. Une page peut donner une source a redimensionner via
+     ogImageSource ; sinon .Params.image ; sinon l'image par defaut du site.
+     Les layouts ne doivent plus emettre og:image, sinon la premiere balise gagne
+     et l'image specifique est ignoree (cas du hub simulateur, 2026-09-12). */}}
+{{ $ogImage := "" }}
+{{ with .Params.ogImageSource }}
+  {{ with resources.Get . }}
+    {{ $ogImage = (.Resize "1200x630 webp q80").Permalink }}
+  {{ end }}
+{{ end }}
+{{ if not $ogImage }}{{ with $image }}{{ $ogImage = . | absURL }}{{ end }}{{ end }}
 {{ $keywords := .Params.keywords | default .Params.tags | default .Site.Params.keywords }}
 {{ $author := .Params.author | default .Site.Params.defaultAuthor.name }}
 {{ $canonical := .Params.canonical | default .Permalink }}
@@ -63,18 +74,18 @@
 {{ else }}
 <meta property="og:type" content="website">
 {{ end }}
-{{ if $image }}
-<meta property="og:image" content="{{ $image | absURL }}">
+{{ if $ogImage }}
+<meta property="og:image" content="{{ $ogImage }}">
 <meta property="og:image:alt" content="{{ $imageAlt }}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 {{ end }}
 {{/* Twitter Card */}}
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="{{ .Params.twitter_card | default "summary_large_image" }}">
 <meta name="twitter:title" content="{{ $title }}">
 <meta name="twitter:description" content="{{ $description }}">
-{{ if $image }}
-<meta name="twitter:image" content="{{ $image | absURL }}">
+{{ if $ogImage }}
+<meta name="twitter:image" content="{{ $ogImage }}">
 {{ end }}
 {{/* Article spécifique */}}
 {{ if and (eq .Section "blog") .IsPage }}
