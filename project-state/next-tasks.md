@@ -1,6 +1,6 @@
 # Next Tasks — Refonte lagencesauvage.com
 
-## Prochaine session — après l'audit SEO et GEO du 12 septembre
+## Prochaine session : écrire l'article, après l'audit du 12 septembre
 
 **Contexte** : audit complet livré (`audit-seo-geo-2026-09.md`). Le diagnostic d'août est confirmé par trois
 chemins : profil de liens, absence des SERP commerciales, fréquence de crawl. La technique est saine, il n'y
