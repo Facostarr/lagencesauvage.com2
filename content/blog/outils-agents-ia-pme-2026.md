@@ -99,6 +99,8 @@ Le tableau suivant résume les trois familles selon ce qui compte vraiment pour 
 
 C'est la ligne du tableau qui répond le plus souvent au besoin que nous rencontrons. Les deux autres existent pour les situations qui la dépassent réellement, pas par principe de sophistication.
 
+Une nuance sur la deuxième ligne, qui revient souvent en atelier. Les frameworks servent à **construire** un agent, et cela demande effectivement un prestataire technique. Mais l'outil d'Anthropic bâti sur ces mêmes capacités se **pilote**, lui, sans écrire de code, à condition de tenir [les quatre gestes que nous décrivons ici](/blog/claude-code-sans-coder-quatre-gestes/). Construire et piloter ne demandent pas le même profil.
+
 ## Comment on choisit le bon outil pour vous
 
 Vous n'avez pas à trancher seul entre ces trois familles. C'est un travail de cadrage que nous faisons avec chaque client, en trois étapes.

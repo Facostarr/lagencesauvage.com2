@@ -163,6 +163,8 @@ Anthropic a par ailleurs doublé les limites d'usage de Cowork du 5 juin au 5 ao
 
 Claude Cowork est simple à prendre en main, que ce soit via l'application de bureau, le web ou le mobile. Mais tirer le maximum de ses capacités demande une approche structurée.
 
+Et si le choix entre Cowork et Claude Code n'est pas encore tranché chez vous, sachez que les deux se distinguent moins par leur puissance que par la façon de les piloter. Nous avons détaillé ce partage, et les quatre gestes qui rendent le second utilisable sans écrire une ligne de code, dans [Claude Code sans coder](/blog/claude-code-sans-coder-quatre-gestes/).
+
 ### Les 3 étapes d'un déploiement réussi
 
 1. **Identifier vos workflows à fort ROI** : commencez par les tâches répétitives qui consomment le plus de temps. Le tri de documents, la génération de rapports et la rédaction de réponses types sont les candidats naturels
