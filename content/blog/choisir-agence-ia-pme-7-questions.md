@@ -20,7 +20,7 @@ expertise: "Fondateur L'Agence Sauvage, spécialiste du déploiement de projets 
 
 # Image & Affichage
 image: "/assets/images/blog/choisir-agence-ia-pme-7-questions.webp"
-imageAlt: "Devis papier ouvert à sa dernière page sur le bureau d'un dirigeant, lunettes de lecture posées dessus, stylo bouché et tampon fermé à côté, la ligne de signature restée vide"
+imageAlt: "Dirigeant de PME comparant quatre propositions d'agences sur son ordinateur portable, le curseur sur celle qu'il retient, un devis papier et ses lunettes posés à côté"
 emoji: ""
 
 # Options
