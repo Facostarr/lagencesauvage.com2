@@ -101,9 +101,10 @@ diluerait les trois articles existants.
 - Sources autorisées : Bpifrance Le Lab, France Num, INSEE, entreprises.gouv.fr, travail-emploi.gouv.fr,
   McKinsey, Gartner, plus les données déjà publiées par l'agence. **Interdit** : toute agence concurrente,
   toute page d'accueil, tout chiffre non sourcé. Section « Sources et références » obligatoire.
-- **CTA** : un seul, en fin d'article. ⚠️ **À trancher avec Franck avant écriture** : `/diagnostic/` vend
-  cinq jours d'immersion, ce qui est lourd pour un lecteur en phase de comparaison. C'est la décision
-  « point d'entrée léger » restée ouverte dans `status.md`.
+- **CTA** : un seul, en fin d'article, vers **`https://calendly.com/franck-lagencesauvage/30min`**.
+  Tranché par Franck le 12/09. `/diagnostic/` est écarté : il vend cinq jours d'immersion, trop lourd pour
+  un lecteur en phase de comparaison. Calendly est déjà le CTA de l'étude d'août, l'article-parent de
+  celui-ci, donc la convention est cohérente et non inventée. Lien externe, pas de `nofollow`.
 
 ## Maillage
 

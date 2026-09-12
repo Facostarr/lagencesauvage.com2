@@ -89,7 +89,10 @@ d'URL et tout suivi de rang visent donc la forme `www`, quelle que soit celle qu
   confondue avec l'installation du projet tiers. Cette offre peut tenir debout, mais alors construite sur de
   vrais prospects et sous un autre nom que Hermes. Et la page elle-même n'a toujours pas de porte de sortie.
 
-- Point d'entrée léger sur le site : `/contact/` redirige en 301 vers `/diagnostic/`, qui vend cinq jours d'immersion. Un lecteur d'article qui veut juste échanger n'a rien à cliquer, et deux articles contournent déjà par Calendly. À trancher : page de contact courte, ou Calendly assumé.
+- ~~Point d'entrée léger sur le site.~~ **Tranché le 2026-09-12 : Calendly assumé.** Le CTA des articles de
+  blog pointe vers `https://calendly.com/franck-lagencesauvage/30min`, ce que faisaient déjà l'étude d'août
+  et l'article Hermes. Pas de page de contact courte à créer. Ce qui reste ouvert et distinct : la
+  redirection 301 de `/contact/` vers `/diagnostic/`, et les huit liens internes qui la traversent encore.
 - Cron GEO : 0,63 € par requête après allègement contre 1,10 € avant, la cible n'est pas atteinte parce que Grok n'a pas de variante non-reasoning. À trancher : run mensuel restreint aux requêtes `discovery`, ou abandon.
 
 ## Où est le reste
