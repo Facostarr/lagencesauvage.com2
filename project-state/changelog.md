@@ -1,5 +1,68 @@
 # Changelog — Refonte lagencesauvage.com
 
+## 2026-09-12 (soir) — Audit SEO et GEO complet, et ce qu'il a corrigé
+
+**Demande** : un état des lieux global. Positions, forces, faiblesses, tout ce qu'un audit SEO et GEO
+contient. Franck a validé la recharge DataForSEO, un run GEO frais et un rapport en page web.
+
+**La recharge n'a pas eu lieu et n'était pas nécessaire.** DataForSEO facture à l'appel : l'aperçu de
+backlinks a coûté 0,098 $ et l'analyse concurrentielle 0,015 $, sur un solde de 1 $ qui était intact.
+L'audit complet est donc revenu à 0,11 $, solde restant 0,89 $. L'arbitrage du matin (ne recharger qu'au
+lancement du link prospecting) tient sans changement.
+
+**Résultat principal, et il ne porte pas sur les balises.** Sur un trimestre les impressions font +152 %
+et les clics +69 %, donc le CTR tombe de 1,44 à 0,96 % et la position moyenne recule de 7,35 à 9,13.
+Le site est affiché de plus en plus souvent, de plus en plus bas. Le balayage des 91 pages du build ne
+fournit aucune explication : zéro titre manquant, trop long ou dupliqué, zéro `H1` absent, zéro JSON-LD
+invalide, zéro image sans `alt`, zéro lien interne cassé, résultats enrichis en PASS partout. Le diagnostic
+d'août, l'autorité et non la technique, se trouve confirmé par trois chemins indépendants : 28 des 32
+domaines référents non-spam ont une autorité nulle, ASV est absent des deux SERP commerciales testées,
+et Googlebot ne visite les pages profondes que tous les 26 à 70 jours.
+
+**Deux pièges de mesure trouvés en chemin, les deux faussaient la lecture.** Vingt-deux requêtes du gabarit
+`<mot> claude pme|tpe` (onze préfixes croisés avec deux suffixes, combinatoire complète) font 1 578
+impressions et zéro clic, 100 % France, 100 % desktop, sur 64 jours, plusieurs en position 1 à 1,5. Aucune
+audience humaine ne se comporte ainsi : c'est un outil automatisé qui interroge Google, et il faisait croire
+à une demande de formation Claude en tête de SERP. Second piège, Google indexe les ancres de section comme
+des pages : 52 ancres, 8 614 impressions, un seul clic sur tout le site, dont 5 362 impressions pour les
+quatre ancres d'Hermes. Un comptage naïf annonçait 130 pages dont 80 sans clic, la réalité est 78 pages
+dont une trentaine.
+
+**Erreur de méthode, corrigée avant de conclure.** Le premier balayage annonçait 91 pages sans canonical
+ni JSON-LD, et 91 pages orphelines. Absurde, et c'est ce qui a sauvé le rapport. Le build est minifié et
+Hugo retire les guillemets des attributs, donc une regex écrite sur `rel="canonical"` ne matche rien et
+rend zéro au lieu d'une erreur. Réécrit avec `html.parser`. Leçon en tête de `lessons.md`.
+
+**Deuxième correction assumée** : le run GEO avait été annoncé à 4,40 € sur la base du run du 21 août, il
+en a coûté 7,49 €, à configuration identique. ChatGPT passe de 0 à 3,14 € et devient le premier poste.
+
+**GEO, la donnée la plus utile de la journée.** Score de découverte 2,9 sur 100, contre 1,2 le 21 août.
+Sur les 489 citations émises par les quatre moteurs pendant le run, ASV en capte trois. Mais le croisement
+entre les domaines cités par les modèles et le SERP Google sur « agence ia paris » fait ressortir les mêmes
+acteurs des deux côtés : Stema Partners, Koïno, Juwa, La Fabrique du Net. C'est la liste de concurrents qui
+manquait au contexte OpenSEO, fondée sur des mesures et non sur une intuition.
+
+**Trois correctifs poussés en production.** Le titre de l'accueil cible désormais « agence IA pour PME »,
+l'expression que personne ne portait : 768 impressions sur six mois pour 7 clics, partagées entre l'accueil
+(position 4,9, qui convertit) et un article de blog (position 18,9, qui ne convertit pas mais rafle la
+majorité des impressions). « Automatisation » sort du titre sans rien coûter, puisque les 126 requêtes
+contenant « automatis » font 2 610 impressions et zéro clic. Effet de bord réparé au passage : `.Site.Title`
+alimentait aussi `og:site_name`, le `WebSite.name` du JSON-LD et le flux RSS, qui annonçaient donc un titre
+de page en guise de nom d'entreprise. Enfin, une phrase du CTA de l'article de déploiement pointe vers
+l'accueil avec l'ancre « agence IA pour PME ».
+
+**Le recrawl des six pages du simulateur est fait**, et c'est Claude qui l'a fait, depuis le navigateur de
+Franck où sa session Search Console est ouverte. L'API d'inspection est en lecture seule et l'Indexing API
+de Google ne couvre que les offres d'emploi et les événements : il n'y a pas d'autre voie que l'interface.
+Deux obstacles notés pour la prochaine fois : l'URL d'inspection directe renvoie un 404, et l'application ne
+réinspecte pas une seconde URL dans le même onglet, il en faut un neuf à chaque fois. Vérifier l'URL affichée
+dans le panneau avant chaque clic n'est pas une précaution théorique : la deuxième tentative portait encore
+sur Atlas alors que Syntec avait été saisie.
+
+**Correction ailleurs** : Ahrefs ne répond plus du tout, Domain Rating gratuit compris. La note qui
+annonçait le contraire est corrigée dans `status.md` et `lessons.md`.
+
+
 ## 2026-09-12 (fin de journée) — Première session sur données GSC : Hermes tranché, titres du simulateur, Open Graph
 
 **Demande** : trancher le sujet Hermes, puis sortir les requêtes en approche du cluster simulateur.

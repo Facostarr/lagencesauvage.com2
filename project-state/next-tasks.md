@@ -26,6 +26,11 @@ interne depuis l'article de déploiement est posé.
   51,7 % de CTR en position 1,3 avant le changement de titre. Si ça baisse, c'est le titre qu'il faut revoir.
 
 ### Décisions et chantiers ouverts, par ordre de rendement
+- [ ] **Mailler l'article du 11/09** (`claude-code-sans-coder-quatre-gestes`). Il est indexé et propre, mais
+  ne reçoit qu'un lien entrant, celui de la page liste. Google ne lui connaît aucune URL référente. Les
+  candidats naturels existent déjà : `art-du-prompt`, `claude-cowork-pme-cas-usage-mars-2026`,
+  `outils-agents-ia-pme-2026`. Sans ça il partira avec le handicap des neuf articles sous-maillés, et la
+  fréquence de crawl suit le maillage.
 - [ ] **Remplir la section concurrents du contexte OpenSEO.** La liste existe enfin, recoupée entre SERP
   Google et citations LLM : Stema Partners, Koïno, Juwa, La Fabrique du Net. C'est elle qui conditionne le
   link prospecting, donc la seule dépense DataForSEO qui se justifie. Gratuit.

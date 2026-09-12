@@ -7,6 +7,15 @@ Rapport lisible : https://claude.ai/code/artifact/26738818-bdb3-4714-b657-0451de
 à 1 000 lignes), balayage du build local (91 pages), DataForSEO via OpenSEO, GEO Citation Tracker.
 **Coût** : 0,11 $ de DataForSEO et 7,49 € pour le run GEO. Solde DataForSEO restant : 0,89 $.
 
+⚠️ **Limite de périmètre.** Les fenêtres Search Console s'arrêtent au 9 septembre, pour laisser passer le
+délai de consolidation. L'article `claude-code-sans-coder-quatre-gestes`, publié le 11 septembre, est donc
+**présent dans le balayage technique des 91 pages mais absent de toutes les données de performance**.
+Aucune conclusion de ce rapport ne porte sur lui. Son état a été vérifié à part : indexé, crawlé le jour
+même de sa publication, résultats enrichis en PASS. En revanche il ne reçoit qu'un seul lien entrant,
+celui de la page liste `/blog/`, et aucun lien éditorial depuis un autre article : Google confirme
+« aucune URL référente ». C'est le cas type des neuf articles sous-maillés décrits plus bas, et le
+handicap est réel puisque la fréquence de crawl suit le maillage.
+
 ## Le résultat en une phrase
 
 La visibilité croît vite, la fréquentation ne suit plus, et la cause n'est pas technique.
