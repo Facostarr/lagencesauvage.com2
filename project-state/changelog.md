@@ -1,6 +1,6 @@
 # Changelog — Refonte lagencesauvage.com
 
-## 2026-09-12 (nuit) — Thème du prochain article, tranché puis attaqué à cinq modèles
+## 2026-09-12 (nuit) : thème du prochain article, tranché puis attaqué à cinq modèles
 
 **Demande** : trouver le thème du prochain article, avec deux objectifs au choix, reproduire la visibilité
 d'Hermes ou devenir légitime sur les requêtes « agence ia ».
