@@ -25,12 +25,22 @@ interne depuis l'article de déploiement est posé.
 - [ ] **Requête de marque, à surveiller comme témoin de non-régression.** « l'agence sauvage » faisait
   51,7 % de CTR en position 1,3 avant le changement de titre. Si ça baisse, c'est le titre qu'il faut revoir.
 
+### La prochaine session : écrire l'article
+- [ ] **Écrire « Quelle agence IA choisir pour une PME : les 7 questions à poser avant de signer »**, en
+  session neuve, avec `brief-article-choisir-agence-ia.md` comme seule entrée. Le brief est en version 2,
+  consolidée après attaque par GLM 5.3 et Grok 4.6, et il se suffit à lui-même.
+- [ ] **Une décision à prendre avant d'écrire** : quel CTA en fin d'article. `/diagnostic/` vend cinq jours
+  d'immersion, ce qui est lourd pour un lecteur en phase de comparaison. C'est la décision « point d'entrée
+  léger » restée ouverte dans `status.md`, et elle bloque la dernière ligne de l'article.
+- [ ] À la publication : poser les trois liens entrants prévus au brief, **et demander l'indexation le jour
+  même**. L'article du 11/09 a été crawlé le jour de sa publication, contre 26 à 70 jours pour une page
+  profonde laissée seule.
+
 ### Décisions et chantiers ouverts, par ordre de rendement
-- [ ] **Mailler l'article du 11/09** (`claude-code-sans-coder-quatre-gestes`). Il est indexé et propre, mais
-  ne reçoit qu'un lien entrant, celui de la page liste. Google ne lui connaît aucune URL référente. Les
-  candidats naturels existent déjà : `art-du-prompt`, `claude-cowork-pme-cas-usage-mars-2026`,
-  `outils-agents-ia-pme-2026`. Sans ça il partira avec le handicap des neuf articles sous-maillés, et la
-  fréquence de crawl suit le maillage.
+- [x] ~~**Mailler l'article du 11/09**~~ **Fait le 12/09** : deux liens éditoriaux depuis
+  `claude-cowork-pme-cas-usage-mars-2026` et `outils-agents-ia-pme-2026`, il passe de un à trois liens
+  entrants. `art-du-prompt` écarté, le lien y aurait été forcé. Les deux articles modifiés ont été soumis
+  au recrawl le jour même.
 - [ ] **Remplir la section concurrents du contexte OpenSEO.** La liste existe enfin, recoupée entre SERP
   Google et citations LLM : Stema Partners, Koïno, Juwa, La Fabrique du Net. C'est elle qui conditionne le
   link prospecting, donc la seule dépense DataForSEO qui se justifie. Gratuit.

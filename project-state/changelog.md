@@ -1,5 +1,52 @@
 # Changelog — Refonte lagencesauvage.com
 
+## 2026-09-12 (nuit) — Thème du prochain article, tranché puis attaqué à cinq modèles
+
+**Demande** : trouver le thème du prochain article, avec deux objectifs au choix, reproduire la visibilité
+d'Hermes ou devenir légitime sur les requêtes « agence ia ».
+
+**Les trois premiers modèles ont rejeté les deux objectifs**, à l'unanimité (GLM 5.3, DeepSeek v4.1,
+Qwen 3.8 Max, 0,056 $). Reproduire Hermes est un piège, et DeepSeek apporte l'argument que les autres n'ont
+pas eu : ce trafic ne fait pas que ne pas convertir, il **fausse le signal d'entité**, Google associant le
+site à « hermes agent » plutôt qu'à « agence IA ». Gagner « agence ia » en tête de SERP est hors d'atteinte
+à cette autorité. Les trois convergent vers le même troisième objectif, les requêtes commerciales où le site
+est déjà présent sans article dédié.
+
+**Le désaccord entre eux portait sur l'ordre de deux thèmes, et il a été tranché par une vérification
+qu'aucun ne pouvait faire** : le thème financement OPCO entre en collision frontale avec trois articles
+publiés et avec le simulateur. Le thème « quelle agence choisir » est libre.
+
+**Le brief a ensuite été attaqué par GLM 5.3 et Grok 4.6** (0,065 $), et ils ont trouvé quatre défauts réels,
+dont deux que je n'aurais pas vus seul :
+
+- **La requête que le brief prenait pour KPI est déjà tenue par un autre article du site.**
+  « Quelle agence choisir pour déployer un agent ia dans une PME », position 4,7, est captée par
+  `agent-ia-operationnel-pme-guide-deploiement`. La viser, ou mettre « déployer un agent » dans le titre,
+  aurait cannibalisé une page déjà bien placée. Corrigé : le nouvel article vise le volume
+  (« agence ia pme », 401 impressions, position 11,8), pas cette requête.
+- **Le KPI était statistiquement invalide** : 35 impressions sur 90 jours, soit 0,4 par jour, où une position
+  moyenne est du bruit. Remplacé par un panier de quatre requêtes pondéré par impressions.
+- **Le compte des liens sortants était faux**, sept annoncés pour six réels.
+- **L'angle et le plan se contredisaient** : le corps interdit de se mettre en avant, mais deux sections
+  reposent sur des faits propres à l'agence. C'est le point sur lequel les deux ont le plus insisté. Réglé
+  par une règle de troisième personne avec une exception unique, écrite mot à mot dans le brief.
+
+Sur le calendrier de mesure, les deux ont divergé, l'un voulant J+84 pour couvrir le pire cas de crawl,
+l'autre gardant J+56. Les deux relevés sont conservés, seul celui de J+84 tranche.
+
+**Maillage de l'article du 11 septembre.** Il ne recevait qu'un lien, celui de la page liste, et Google ne
+lui connaissait aucune URL référente. Deux liens éditoriaux posés là où le lecteur est déjà sur le sujet,
+depuis l'article Cowork et depuis l'article sur les familles d'outils. `art-du-prompt`, que j'avais proposé,
+a été écarté : le lien y aurait été forcé. Les deux articles modifiés ont été soumis au recrawl, sans quoi
+Google aurait mis jusqu'à 70 jours à voir le nouveau maillage.
+
+**Piège de mesure, encore un.** Le `grep -n '[tirets]'` que le CLAUDE.md recommande pour contrôler les
+tirets cadratins **surestime sur tout texte français accentué** : la classe est évaluée octet par octet dans
+ce Git Bash, et `œ`, `é`, `à` partagent des octets avec `—`. Cinq occurrences annoncées sur le brief, une
+seule vraie. C'est le symétrique de la leçon du matin sur le build minifié, où le motif rendait zéro au lieu
+d'une erreur. Les deux sont désormais sous la même règle dans `lessons.md`.
+
+
 ## 2026-09-12 (soir) — Audit SEO et GEO complet, et ce qu'il a corrigé
 
 **Demande** : un état des lieux global. Positions, forces, faiblesses, tout ce qu'un audit SEO et GEO

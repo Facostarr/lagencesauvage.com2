@@ -1,110 +1,142 @@
 # Brief : « Quelle agence IA choisir pour une PME »
 
-Issu de l'audit du 12/09 (`audit-seo-geo-2026-09.md`) et du challenge à trois modèles
-(GLM 5.3, DeepSeek v4.1, Qwen 3.8 Max, verdict unanime, coût 0,056 $).
-**Statut : brief validé sur le thème, texte non écrit, non publié.**
+**Version 2, consolidée après challenge.** Thème tranché par GLM 5.3, DeepSeek v4.1 et Qwen 3.8 Max
+(verdict unanime). Brief lui-même attaqué par GLM 5.3 et Grok 4.6, qui ont trouvé quatre défauts réels.
+Coût total des cinq consultations : 0,12 $.
+**Statut : brief prêt à exécuter, texte non écrit, non publié.**
 
-## Pourquoi cet article et pas un autre
+## Pourquoi ce thème
 
-Les trois modèles ont rejeté les deux objectifs initiaux. Reproduire la visibilité d'Hermes est un piège :
-le trafic ne convertit pas, et il **fausse le signal d'entité**, Google associant désormais le site à
-« hermes agent » plutôt qu'à « agence IA ». Gagner les requêtes « agence ia » en tête de SERP est hors
-d'atteinte : rang de domaine 18, 28 des 32 domaines référents à autorité nulle, SERP tenue par des annuaires.
+Les trois premiers modèles ont rejeté les deux objectifs initiaux. Reproduire la visibilité d'Hermes est un
+piège : le trafic ne convertit pas et il fausse le signal d'entité, Google associant le site à « hermes
+agent » plutôt qu'à « agence IA ». Gagner « agence ia » en tête de SERP est hors d'atteinte : rang de
+domaine 18, 28 des 32 domaines référents à autorité nulle, SERP tenue par des annuaires.
 
-Ce qui reste, et que les trois ont désigné indépendamment : **les requêtes conversationnelles commerciales
-où le site est déjà classé sans article dédié.**
+Reste ce que les trois ont désigné indépendamment : les requêtes commerciales où le site est déjà présent
+sans article dédié. **Ce thème ne rouvre pas la production d'articles neufs suspendue le 21 août**, puisqu'il
+vise des requêtes à demande existante.
 
-| Requête | Position actuelle | Impressions (90 j) |
-|---|---|---|
-| quelle agence choisir pour déployer un agent ia dans une PME | **4,7** | 35 |
-| cherche cabinet pour déployer copilotes ia opérationnels | **7,4** | 25 |
-| meilleure agence agents ia en france pour une pme | 13,6 | 25 |
-| agence ia pme | 11,8 | 401 (6 mois) |
-| agence ia pour pme | 14,5 | 367 (6 mois) |
-
-Le calcul qui justifie l'effort : passer de la position 4,7 à 3 fait passer le CTR de 0,77 % à 6,22 %,
-d'après la distribution mesurée sur le site lui-même.
-
-**Ce thème ne viole pas la suspension des articles neufs** décidée le 21 août : il vise des requêtes où le
-site a déjà de la demande et un rang, ce qui est exactement le périmètre autorisé. Les trois modèles y ont
-convergé sans connaître cette règle.
-
-**Collisions vérifiées sur les 32 articles : aucune.** Le thème financement OPCO, proposé en second par les
-trois, a lui été écarté pour cette raison précise : il entre en collision frontale avec
+**Collisions vérifiées sur les 32 articles : aucune** sur « choisir une agence ». Le thème financement OPCO,
+proposé en second par les trois modèles, a été écarté pour collision frontale avec
 `dispositifs-opco-2026-financer-formation-ia-pme`, `financer-ia-pme-aides-subventions-2026` et
-`choisir-organisme-formation-ia-qualiopi`, plus le simulateur lui-même.
+`choisir-organisme-formation-ia-qualiopi`, plus le simulateur.
+
+## ⚠️ Ce que le challenge a corrigé, à lire avant d'écrire
+
+**1. La requête que je visais est déjà tenue par un autre article du site.**
+« Quelle agence choisir pour déployer un agent ia dans une PME », position 4,7, est captée par
+`/blog/agent-ia-operationnel-pme-guide-deploiement/`. Viser cette requête, ou mettre « déployer un agent IA »
+dans le titre, créerait une cannibalisation avec un article qui est déjà bien placé. **Le nouvel article ne
+vise donc pas cette requête.** Il vise le volume, là où personne n'est bien placé.
+
+**2. Le KPI initial était statistiquement invalide.** 35 impressions sur 90 jours, soit 0,4 par jour : à ce
+volume une position moyenne Search Console est du bruit, et un passage de 4,7 à 2,9 serait indiscernable
+d'une fluctuation. Le vrai volume est ailleurs.
+
+**3. Le compte des liens sortants était faux** (« sept appuis » pour six réels, la section 3 n'en ayant aucun).
+
+**4. L'angle et le plan se contredisaient** : le corps interdit de se mettre en avant, mais les sections 1 et
+6 reposent sur des faits propres à l'agence. Sans règle explicite, l'auteur improvise. La règle est posée
+plus bas, c'est le point sur lequel GLM et Grok ont le plus insisté.
 
 ## Titre
 
 > **Quelle agence IA choisir pour une PME : les 7 questions à poser avant de signer**
 
-Contient l'expression cible et reprend la formulation réelle des requêtes. Les sept questions doivent être
-sept vraies questions, pas un compte décoratif : si l'écriture n'en produit que six qui tiennent, le titre
-dit six.
+Il porte « agence IA » et « PME », les termes des requêtes à volume. Il ne porte **pas** « déployer un
+agent », volontairement, pour ne pas concurrencer l'article de déploiement. Les sept questions doivent être
+sept vraies questions : si l'écriture n'en produit que six qui tiennent, le titre dit six.
 
-## L'actif différenciant, à ne pas rater
+## Requêtes visées et KPI
 
-C'est le point que les trois modèles n'ont pas vu, faute de connaître le site.
+**Cible principale, celle qui porte le volume :**
 
-L'agence a publié en août **« Personne n'est leader : ce que les IA citent vraiment quand on cherche une
-agence »**, première étude data-first du blog, où les agences sont comptées mais jamais nommées et où l'ASV
-publie ses propres chiffres, y compris mauvais. Et l'audit du 12/09 vient de mesurer que sur 489 citations
-émises par quatre modèles sur des requêtes de type « quelle agence IA pour PME », le site en capte trois.
+| Requête | Position | Impressions (6 mois) |
+|---|---|---|
+| agence ia pme | 11,8 | 401 |
+| agence ia pour pme | 14,5 | 367 |
+| agence intelligence artificielle pme | 15,4 | 41 |
+| meilleure agence agents ia en france pour une pme | 13,6 | 25 |
 
-**Aucune agence française ne publie ses propres chiffres de visibilité quand ils sont mauvais.** C'est la
-seule chose que ce guide peut dire et que ses concurrents ne peuvent pas copier. Elle règle en prime la
-contrainte « zéro invention » : les chiffres viennent d'une étude déjà publiée et sourcée.
+**Hors cible, à ne pas viser** : « quelle agence choisir pour déployer un agent ia dans une PME » (tenue par
+l'article de déploiement) et tout ce qui contient « déployer », « copilote » ou « cabinet ».
 
-## Angle
+Distribution du CTR mesurée sur le site : positions 1-3 = 6,22 %, 3-5 = 1,84 %, 5-10 = 0,77 %,
+10-20 = **0,17 %**. Les requêtes cibles sont toutes dans la bande à 0,17 %, donc tout gain de rang compte.
 
-Un guide de décision pour un dirigeant qui cherche un prestataire, écrit par un prestataire qui assume de
-l'être et qui ne se met pas en avant dans le corps. La contrainte qui interdit de citer un concurrent
-devient un atout : elle force le format « critères », celui que les modèles recopient.
+## Règle de personne, à appliquer sans exception
 
-Ton : vouvoiement, sobre, aucune promesse commerciale dans le corps. Un seul CTA, en fin d'article.
+C'est le point qui a le plus inquiété les deux modèles. Sans lui, l'article devient un publireportage ou une
+coquille vide.
 
-## Plan proposé, une question par section
+- **Corps à la troisième personne.** Interdits : « nous », « notre agence », « notre offre », tout
+  comparatif implicite, toute promesse commerciale.
+- **L'étude d'août se cite comme n'importe quelle source** : par son titre, sa date et un chiffre publié,
+  avec un lien. Pas comme un exploit maison.
+- **Exception unique, une seule phrase, en section 6** : « L'Agence Sauvage n'est pas certifiée Qualiopi ;
+  les formations passent par des organismes partenaires. » Rien d'autre sur l'agence avant le CTA final.
 
-Chaque question doit être posable telle quelle à un prestataire, et la réponse attendue doit être vérifiable
-par le lecteur. Les articles existants servent d'appui, ce qui construit le maillage sortant.
+## Plan, une question par section
 
-1. **L'agence publie-t-elle ses propres résultats, y compris mauvais ?** Appui : l'étude d'août.
-2. **Qui fait le travail, et avec quel outil ?** Les trois familles d'outils, leur coût de mise en œuvre.
-   Appui : `outils-agents-ia-pme-2026`.
-3. **Que se passe-t-il le jour où vous arrêtez ?** Réversibilité, propriété des données, dépendance.
-4. **Qui valide ce que l'agent fait ?** La validation humaine sur les actions à conséquence.
-   Appui : `gouvernance-agents-ia-pme-2026`.
-5. **Comment le résultat se mesure-t-il, et à partir de quand ?** Appui : `pourquoi-projet-ia-cale-avant-la-production`.
-6. **La prestation est-elle finançable, et par quel dispositif ?** Dire clairement que l'agence n'est pas
-   certifiée Qualiopi et forme via des organismes partenaires. Appui : `dispositifs-opco-2026-...` et le simulateur.
-7. **Combien de temps avant le premier résultat utilisable ?** Appui : `agent-ia-operationnel-pme-guide-deploiement`.
+| # | Question | Appui interne | Longueur |
+|---|---|---|---|
+| 1 | L'agence publie-t-elle ses propres résultats, y compris mauvais ? | `etude-citations-ia-agences-pme-2026` | normale |
+| 2 | Qui fait le travail, et avec quel outil ? | `outils-agents-ia-pme-2026` | normale |
+| 3 | Que se passe-t-il le jour où vous arrêtez ? | **aucun, assumé** | normale |
+| 4 | Qui valide ce que l'agent fait ? | `gouvernance-agents-ia-pme-2026` | normale |
+| 5 | Comment le résultat se mesure-t-il, et à partir de quand ? | `pourquoi-projet-ia-cale-avant-la-production` | normale |
+| 6 | La prestation est-elle finançable, et par quel dispositif ? | `dispositifs-opco-2026-financer-formation-ia-pme` | **80 à 120 mots**, pas plus |
+| 7 | Combien de temps avant le premier résultat utilisable ? | `agent-ia-operationnel-pme-guide-deploiement` | normale |
 
-## Sources autorisées
+**Section 3** : pas de lien interne, sources externes seulement. Ne pas en forcer un.
+**Section 6** : volontairement courte, avec un lien. Un développement y recréerait le thème OPCO écarté et
+diluerait les trois articles existants.
+**Six liens sortants internes, pas sept.**
 
-Études et institutions publiques : Bpifrance Le Lab, France Num, INSEE, entreprises.gouv.fr, travail-emploi.gouv.fr,
-McKinsey, Gartner. Plus les données propres déjà publiées par l'agence.
-**Interdit** : toute agence concurrente comme source, toute page d'accueil, tout chiffre non sourcé.
-Section « Sources et références » obligatoire en fin d'article.
+## Pack auteur
+
+- **Longueur cible : 2 400 à 2 800 mots.** Médiane du blog : 2 557 mots sur 32 articles.
+- Sections 2, 3, 4 et 7 relèvent du raisonnement opérationnel : elles n'ont pas besoin de chiffre. **Si un
+  chiffre apparaît, il porte une source publique en lien.**
+- Sources autorisées : Bpifrance Le Lab, France Num, INSEE, entreprises.gouv.fr, travail-emploi.gouv.fr,
+  McKinsey, Gartner, plus les données déjà publiées par l'agence. **Interdit** : toute agence concurrente,
+  toute page d'accueil, tout chiffre non sourcé. Section « Sources et références » obligatoire.
+- **CTA** : un seul, en fin d'article. ⚠️ **À trancher avec Franck avant écriture** : `/diagnostic/` vend
+  cinq jours d'immersion, ce qui est lourd pour un lecteur en phase de comparaison. C'est la décision
+  « point d'entrée léger » restée ouverte dans `status.md`.
 
 ## Maillage
 
-**Entrant, à poser à la publication** (l'audit a montré que neuf articles sur 32 reçoivent moins de trois
-liens, et qu'un article non maillé est crawlé lentement) : depuis `etude-citations-ia-agences-pme-2026`,
-`agent-ia-operationnel-pme-guide-deploiement` et la page d'accueil.
-**Sortant** : les sept appuis ci-dessus.
+**Sortant** : les six appuis du tableau.
+**Entrant, posé par celui qui publie, pas par l'auteur** : depuis `etude-citations-ia-agences-pme-2026`,
+depuis `agent-ia-operationnel-pme-guide-deploiement` et depuis la page d'accueil. L'audit du 12/09 a montré
+qu'un article non maillé est crawlé lentement, et neuf articles sur 32 reçoivent moins de trois liens.
+**Demander l'indexation dans Search Console le jour de la publication** : l'article du 11/09 a été crawlé
+le jour même, contre 26 à 70 jours pour une page profonde laissée seule.
 
-## Ce qu'on mesure, et ce qu'on ne mesure pas
+## Mesure
 
-Ni les impressions, ni les clics. Les trois modèles insistent : cet article ne réparera pas le rang de
-domaine 18.
+Deux relevés, pas un. Les deux modèles ont divergé sur le calendrier, l'un voulant J+84 pour couvrir le pire
+cas de crawl, l'autre gardant J+56. Les deux sont conservés.
 
-Deux indicateurs seulement, à **J+56** parce que le crawl des pages profondes prend 26 à 70 jours :
+- **J+56** : relevé indicatif. Aucune conclusion d'échec à ce stade.
+- **J+84** : relevé qui tranche.
 
-1. **Position sur « quelle agence choisir pour déployer un agent ia dans une PME »**. Elle est à 4,7.
-   Passer sous 3 est le seul gain qui change le rendement.
-2. **Citations LLM**, en rejouant le protocole des 7 requêtes de découverte sur 4 moteurs (~7,50 €).
-   Point de départ : 3 citations sur 489, score 2,9/100. Une progression vers 5 à 7 vaut succès.
+**Indicateur 1** : position moyenne sur le panier des quatre requêtes cibles, pondérée par impressions.
+Départ : entre 11,8 et 15,4. Franchir la barre des 10 fait passer le CTR de 0,17 % à 0,77 %, le franchir
+jusqu'à 5 le fait passer à 1,84 %.
+**Indicateur 2** : citations LLM, en rejouant les sept requêtes de découverte du GEO Citation Tracker sur
+quatre moteurs (~7,50 €, compter 11 minutes). Départ : 3 citations sur 489, score 2,9/100. Viser 5 à 7.
 
-**Signal d'échec commun aux trois modèles** : si à J+56 la position n'a pas bougé de 4,7, le blocage est
-l'autorité et non le contenu. Aucun article supplémentaire n'y changera rien, et il faudra passer aux liens
-entrants réels. Ne rien conclure avant J+56.
+Les sept requêtes du protocole, à rejouer à l'identique :
+1. Quelle est la meilleure agence IA pour PME en France en 2026 ?
+2. Quelle agence IA choisir pour automatiser une petite entreprise sans equipe technique ?
+3. Quelle agence IA recommander a Paris pour une PME ?
+4. Quelle agence IA pragmatique pour une PME qui veut des resultats concrets, pas de la hype ?
+5. Quelles sont les meilleures agences d'automatisation IA en France ?
+6. A qui confier la transformation IA d'une TPE ou PME en France ?
+7. Quelle agence IA pour automatiser une PME avec un petit budget ?
+
+**Signal d'échec, à J+84 seulement** : si le panier n'a pas progressé et que les citations stagnent à 3, le
+blocage est l'autorité et non le contenu. Aucun article supplémentaire n'y changera rien, et il faudra
+passer aux liens entrants réels. Ne pas réécrire l'article dans ce cas.
