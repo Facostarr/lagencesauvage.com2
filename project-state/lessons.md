@@ -1,5 +1,40 @@
 # Lessons Learned — Refonte lagencesauvage.com
 
+## Une clé présente dans un `.env` n'est pas une valeur renseignée (2026-09-12, transverse)
+
+**Problème.** Pour savoir si OpenSEO pouvait se connecter à Search Console, j'ai listé les noms de
+variables du `.env` et conclu que le client OAuth Google était configuré, puisque `GOOGLE_CLIENT_ID` et
+`GOOGLE_CLIENT_SECRET` y figuraient. J'ai annoncé à Franck qu'il n'y avait qu'une URI de redirection à
+corriger. Les trois variables étaient en réalité **vides**, des placeholders d'installation. Une demi-heure
+perdue sur une mauvaise piste, et une consigne fausse donnée à quelqu'un qui l'a suivie.
+
+**Solution.** Mesurer la longueur de la valeur, jamais la présence de la clé, et vérifier séparément ce
+que le processus voit vraiment, qui peut différer du fichier : côté fichier
+`awk -F= '/^NOM=/{v=$0; sub(/^[^=]*=/,"",v); print length(v)}' .env`, côté conteneur
+`docker exec <conteneur> printenv NOM`. Aucune des deux n'affiche le secret.
+
+**Règle.** Un `grep` de noms de variables répond à « la clé existe », jamais à « la valeur est
+renseignée ». Tant que la longueur n'a pas été mesurée des deux côtés, l'état de la configuration est
+inconnu, pas bon.
+
+## Une erreur de schéma MCP illisible n'est pas la preuve d'un bug (2026-09-12, transverse)
+
+**Problème.** Deux outils MCP d'OpenSEO échouaient sur
+`Structured content does not match the tool's output schema: data must NOT have additional properties`.
+Le serveur répondait pourtant `200`. J'en ai déduit un bug de schéma de sortie côté OpenSEO, et je l'ai
+écrit dans la documentation du projet. C'était faux : le serveur renvoyait une erreur métier
+« GSC non connecté », dont la forme ne validait pas le schéma déclaré, et le client MCP la rejetait avant
+de me la montrer. Une fois la propriété rattachée, les deux outils ont fonctionné sans rien changer
+d'autre.
+
+**Solution.** Quand un outil MCP échoue sur la validation de sa sortie, traiter cela comme
+« réponse illisible » et non comme « outil cassé », puis chercher la cause côté état plutôt que côté
+code. Un autre outil de la même famille qui rend une erreur propre est un indice trompeur, pas une preuve.
+
+**Règle.** Ne jamais inscrire « bug de l'outil » dans la documentation d'un projet tant que la prémisse
+fonctionnelle n'a pas été satisfaite. Ici, il suffisait de connecter la source avant de conclure.
+
+
 ## Bot Fight Mode répond avant Cloudflare Access et casse tout client non navigateur (2026-09-12, transverse)
 
 **Problème.** Un serveur MCP publié sur `seo.lagencesauvage.com` via le tunnel cloudflared, protégé par

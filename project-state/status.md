@@ -25,13 +25,18 @@ Trois sources, aucune ne couvre les autres.
 
 | Outil | Où | Ce qu'il voit |
 |---|---|---|
-| Search Console | via `gsc_pull.py` sur vps1-prod | Ce sur quoi le site est déjà classé. Aveugle sur le reste. |
+| Search Console | connectée nativement à OpenSEO + `gsc_pull.py` sur vps1-prod | Ce sur quoi le site est déjà classé. Aveugle sur le reste. Lisible par MCP depuis le 2026-09-12, sans crédit. |
 | GEO Citation Tracker | `/opt/geo-citation-tracker`, vps1-prod | Citations du site dans les réponses des LLM. Cron en pause. |
 | OpenSEO | `/opt/open-seo`, vps1-prod, depuis le 2026-09-12 | Backlinks, keyword gap concurrentiel, rank tracking, SERP. |
 
 OpenSEO est self-hébergé et pilotable par MCP depuis Claude Code. Son installation, ses pièges
 d'exploitation et son modèle de coût vivent dans `project-state/openseo.md`, pas ici.
 Le plan Ahrefs connecté reste limité : seul le Domain Rating en sort.
+
+**Le domaine canonique est `www`.** Vérifié le 2026-09-12 par l'API d'inspection d'URL :
+`https://www.lagencesauvage.com/` est indexée, l'apex renvoie « Page with redirect », et une URL apex
+profonde comme `https://lagencesauvage.com/simulateur-opco/` est inconnue de Google. Toute inspection
+d'URL et tout suivi de rang visent donc la forme `www`, quelle que soit celle qu'affiche l'outil.
 
 ## Ouvert
 
@@ -40,7 +45,7 @@ Le plan Ahrefs connecté reste limité : seul le Domain Rating en sort.
 - Search Console : soumettre `/blog/etude-citations-ia-agences-pme-2026/`, `/blog/ai-act-2-aout-2026-obligations-pme/`, et demander le recrawl de `hermes-agent-ia-autonome-dirigeant-tpme` (titre modifié le 2026-08-20), `ai-act-formation` et `agent-ia-definition` (corrigés le 2026-07-29).
 - Notion : supprimer les entrées de test restantes (5 leads de debug sur la base simulateur, plus « Test / beforbiz@gmail.com »).
 - Rotation de la clé n8n : voir la dette ci-dessous.
-- **DataForSEO** : le compte tourne sur le crédit de bienvenue de 1 $. De quoi valider la chaîne, pas de quoi mener un audit ni monter un rank tracker. La recharge minimum est de 50 $, en pay-as-you-go sans abonnement. Décision à prendre après les premiers appels réels.
+- **DataForSEO** : solde de 1 $, intact, rien n'a été consommé. Arbitrage rendu le 2026-09-12, **pas de recharge pour l'instant**. Search Console couvre gratuitement le chantier courant, et ce que les 50 $ achètent vraiment, backlinks et link prospecting, attend deux préalables : une liste de concurrents, et l'arbitrage sur le trafic Hermes. À recharger au lancement du link prospecting, pas avant.
 
 ### Dettes
 
@@ -57,6 +62,14 @@ Le plan Ahrefs connecté reste limité : seul le Domain Rating en sort.
 - **Bot Fight Mode est désactivé** sur la zone Cloudflare `lagencesauvage.com` depuis le 2026-09-12. L'arbitrage tenait à un état vérifié ce jour-là : le site vitrine est sur Vercel en DNS-only, et les seuls hostnames proxifiés, `seo.` et `crm.`, sont derrière Cloudflare Access. Ajouter un hostname proxifié sans Access invaliderait ce raisonnement.
 
 ## Décisions en attente
+
+- **Trafic Hermes, la décision qui commande le reste.** Sur trois mois, l'article
+  `hermes-agent-ia-autonome-dirigeant-tpme` pèse 28 160 impressions sur la seule requête « hermes agent »,
+  en position 8,4 pour 138 clics, plus « hermes ia », « hermes ai », « hermes agent mistral ». Ces requêtes
+  cherchent le modèle Hermes, pas une agence IA. Même dérive sur le second poste de trafic, classé sur
+  « karpathy » et « andrej karpathy ». À trancher : assumer cette audience et lui donner une porte de
+  sortie, ou cesser d'y investir. Tant que ce n'est pas tranché, monter ces pages au-dessus de la falaise
+  du rang 5 ne ferait que multiplier un trafic hors cible.
 
 - Point d'entrée léger sur le site : `/contact/` redirige en 301 vers `/diagnostic/`, qui vend cinq jours d'immersion. Un lecteur d'article qui veut juste échanger n'a rien à cliquer, et deux articles contournent déjà par Calendly. À trancher : page de contact courte, ou Calendly assumé.
 - Cron GEO : 0,63 € par requête après allègement contre 1,10 € avant, la cible n'est pas atteinte parce que Grok n'a pas de variante non-reasoning. À trancher : run mensuel restreint aux requêtes `discovery`, ou abandon.

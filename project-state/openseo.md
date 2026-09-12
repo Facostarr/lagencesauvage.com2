@@ -94,6 +94,44 @@ A noter : la ligne `keyword-research` du releve d'arbitrage (`.claude/skills/REA
 est caduque depuis cette installation. Son motif de suppression etait l'absence d'outils de volume
 de recherche dans le projet, ce qui n'est plus vrai.
 
+## Etat verifie le 2026-09-12
+
+Projet OpenSEO du site : `lagencesauvage.com`, id `d9e754a1-004c-45fa-b412-d6a1fbe6fa16`, marche France
+(locationCode 2250) en `fr`. Contexte relisible et editable sur `.../settings/context`.
+
+**Search Console est connectee en natif** depuis le 2026-09-12 : propriete `sc-domain:lagencesauvage.com`,
+compte `franck@lagencesauvage.com`, scope `webmasters.readonly`, lecture seule.
+`get_search_console_performance` et `inspect_urls` fonctionnent et ne consomment aucun credit.
+
+**Le client OAuth a du etre cree de zero.** Les trois variables `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET` et
+`BETTER_AUTH_SECRET` etaient bien presentes dans le `.env` mais **vides** : des placeholders jamais remplis a
+l'installation. Le client cree est un identifiant OAuth de type **Application Web**, dans le projet Google Cloud
+`n8n API` (numero 834058153902), celui qui porte deja le client Desktop du GEO tracker. Le reutiliser evitait de
+reactiver l'API Search Console et de reconfigurer l'ecran de consentement, deja en Interne, ce qui rend les
+refresh tokens durables. Le client Desktop existant n'etait pas reutilisable : Google refuse une URI `https://`
+sur ce type. URI de redirection exacte, sans slash final :
+`https://seo.lagencesauvage.com/api/gsc/oauth/callback`, a placer dans « URI de redirection autorises » et
+surtout pas dans « Origines JavaScript autorisees », qui rejette tout chemin. Les comptes de service sont
+bloques par une org policy, l'OAuth utilisateur est la seule voie. Deux scripts d'aide vivent maintenant dans
+`/opt/open-seo/` : `set-google-client.sh` (saisie masquee) et `import-google-client.sh` (lit le JSON telecharge
+depuis Google, ecrit le `.env`, supprime le fichier et redemarre).
+
+**Piege de diagnostic a ne pas repeter.** Avant la connexion, `get_search_console_performance` et `inspect_urls`
+echouaient sur `Structured content does not match the tool's output schema`. J'en avais conclu a un bug de schema
+d'OpenSEO : c'etait faux. C'est simplement ainsi que remonte l'erreur « GSC non connecte » pour ces deux outils,
+le client MCP rejetant la charge utile avant de l'afficher. Une fois la propriete rattachee, les deux marchent.
+`get_search_opportunities` rendait au contraire une erreur lisible, ce qui rendait la comparaison trompeuse.
+
+**Le domaine canonique est `www`.** Verifie par `inspect_urls` : `https://www.lagencesauvage.com/` est indexee,
+l'apex renvoie « Page with redirect », et `https://lagencesauvage.com/simulateur-opco/` est litteralement
+« unknown to Google ». Toute inspection d'URL et tout rank tracking doivent passer par la forme `www`. OpenSEO
+normalise pourtant les URL des pages cles sur le domaine du projet et retire le `www` au stockage : elles
+s'affichent en apex, c'est un artefact, il faut prefixer au moment de l'appel.
+
+**GA4 ne sera jamais connecte**, le site mesure avec Plausible. `get_search_opportunities` croise GSC et GA4 et
+refuse de tourner sans les deux, alors que son perimetre, les pages en position 4 a 20, est exactement celui du
+chantier courant.
+
 ## Ce que ca ne fait pas
 
 C'est un instrument de mesure, pas un levier d'acquisition. D'apres le diagnostic d'aout 2026,

@@ -1,26 +1,48 @@
 # Next Tasks — Refonte lagencesauvage.com
 
-## Session 2026-09-12 — OpenSEO self-hébergé
+## Session 2026-09-12 (suite) — Search Console connectée, place à la donnée
 
-**Contexte** : instance opérationnelle sur `vps1-prod`, MCP connecté, 9 skills `openseo-*` installées.
-Exploitation et pièges dans `openseo.md`. Rien de tout cela ne fait venir un visiteur : ce qui suit
-sert le chantier prioritaire déjà identifié le 2026-08-21, remonter les pages qui ont de la demande
-au-dessus de la falaise du rang 5.
+**Contexte** : le contexte projet OpenSEO est rempli (4 sections, 28 pages clés, contraintes d'outillage)
+et **Search Console est connectée en natif**, propriété `sc-domain:lagencesauvage.com`, lisible par MCP
+sans consommer de crédit. Procédure et pièges dans `openseo.md`, arbitrages dans `status.md`.
+Tout ce qui suit est gratuit : rien n'appelle DataForSEO.
 
-### Immédiat
-- [ ] **Rouvrir une session** dans ce projet pour que les 46 outils MCP soient chargés. Le serveur a été déclaré en cours de session, il n'est connecté qu'au démarrage suivant.
-- [ ] **`openseo-seo-project-setup`** : remplir le contexte projet (positionnement, concurrents, pages clés). Les outils de contexte sont gratuits, aucun crédit consommé.
-- [ ] **Brancher le rank tracking sur le simulateur OPCO**, pas sur le blog. Les requêtes d'outil déjà mesurées en position 5 à 10 (« simulateur akto » 330 impressions pos 7,4, « calculette akto » 174, « opco hcr » 160, « budget opco » 76) sont exactement ce qu'un rank tracker sert à surveiller au quotidien. Estimer le coût avec `estimate_rank_tracker_cost` **avant** de créer le tracker.
-- [ ] **`openseo-link-prospecting`** sur l'étude « Personne n'est leader » : c'est l'actif d'autorité le plus récent et le déficit de backlinks est le vrai goulot. Croiser avec les domaines qui citent déjà ASV (findskill.ai, nextbrain.be, paulantoinetual.fr, datamarketingparis.com, zevra.tech).
+### Prochaine session, sur données GSC
+- [ ] **Trancher le sujet Hermes, avant tout le reste.** 28 160 impressions sur « hermes agent » en
+  position 8,4, plus « hermes ia », « hermes ai », « hermes agent mistral » : ces gens cherchent le modèle
+  Hermes. Même dérive sur le second article, classé sur « karpathy ». Décider si on assume cette audience
+  en lui donnant une porte de sortie, ou si on cesse d'y investir. Cette décision commande le chantier
+  « falaise du rang 5 », puisqu'elle dit si monter ces pages a un sens.
+- [ ] **Sortir les requêtes en approche du cluster simulateur** avec
+  `get_search_console_performance` en croisant `query` et `page`, filtré sur `/simulateur-opco/`.
+  GSC ne sait pas filtrer par position, donc trier côté client sur les positions 4 à 10. C'est la liste
+  qui sert de base au travail de titres, et elle remplace l'export manuel.
+- [ ] **Réécrire les titres et descriptions** des pages du cluster simulateur qui ressortent de ce tri.
+  Seul levier démontré à ce jour : `art-du-prompt` est passé de 0,77 à 1,11 % de CTR par ce seul moyen.
+- [ ] **Contrôler l'indexation des pages clés** avec `inspect_urls`, **en `www`**, dix URL par appel.
+  L'apex est inconnu de Google, une inspection sur l'apex ne prouve rien.
+- [ ] **Mesurer l'effet du correctif Hermes à J+30** : le titre a été modifié le 20 août, l'échéance
+  tombe vers le 20 septembre. Se lit maintenant directement dans GSC, sans rejouer `gsc_deep.py`.
 
-### Décision à prendre
-- [ ] **Recharger DataForSEO ou pas.** Le solde est de 1 $, le crédit de bienvenue. Assez pour quelques appels de validation, pas pour un audit ni un rank tracker qui tourne. Recharge minimum 50 $, sans abonnement. À trancher après les premiers appels réels, pas avant. Surveiller la consommation avec la commande de solde donnée dans `openseo.md`, qui est gratuite.
+### En attente d'une décision de Franck
+- [ ] **Recharge DataForSEO à 50 $ : écartée pour l'instant** (2026-09-12). À reprendre au lancement du
+  link prospecting, qui est le seul usage qui la justifie vraiment.
+- [ ] **Rank tracker** : `create_rank_tracker` est bloqué par le classifieur d'auto-mode. Chiffrage
+  indicatif à partir des prix publics DataForSEO : 15 mots-clés en hebdomadaire coûtent environ 0,13 $
+  par mois, 0,88 $ en quotidien. Ce n'est pas ce poste qui pèse.
+- [ ] **Concurrents** : section laissée volontairement vide. À remplir le jour où le link prospecting
+  démarre, c'est elle qui l'alimente.
 
 ### Devenu actionnable
-- [ ] **Arbitrage des skills tierces** (`.claude/skills/README-arbitrage.md`, dressé le 2026-08-04, jamais appliqué). Sa ligne `keyword-research` est caduque : le motif de suppression était l'absence d'outils de volume de recherche dans le projet. Les 9 skills OpenSEO sont préfixées donc il n'y a pas de collision immédiate, mais deux jeux de skills SEO cohabitent désormais et le doublon est réel.
+- [ ] **Arbitrage des skills tierces** (`.claude/skills/README-arbitrage.md`, dressé le 2026-08-04, jamais
+  appliqué). Sa ligne `keyword-research` est caduque depuis l'installation d'OpenSEO. Deux jeux de skills
+  SEO cohabitent, le doublon est réel même si le préfixe évite la collision de déclencheurs.
 
 ### À ne pas oublier
-- [ ] Le préfixe `openseo-` est appliqué à la main sur les 9 skills. **Il est à remettre après chaque mise à jour** depuis le dépôt amont.
+- [ ] Le préfixe `openseo-` est appliqué à la main sur les 9 skills. **À remettre après chaque mise à jour**
+  depuis le dépôt amont.
+- [ ] Google Analytics ne sera jamais connecté (le site mesure avec Plausible), donc
+  `get_search_opportunities` restera inutilisable, malgré un périmètre qui colle au chantier.
 
 
 ## Session 2026-08-21 — Diagnostic perf blog, correctif Hermes, étude data-first

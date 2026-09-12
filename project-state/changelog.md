@@ -1,5 +1,40 @@
 # Changelog — Refonte lagencesauvage.com
 
+## 2026-09-12 (suite) — Contexte projet OpenSEO et connexion Search Console
+
+**Demande** : remplir le contexte projet OpenSEO, première tâche du backlog ouvert le matin même.
+
+**Fait.** Aucun projet n'existait dans l'instance, il a fallu le créer (`lagencesauvage.com`,
+id `d9e754a1-004c-45fa-b412-d6a1fbe6fa16`, France 2250 en `fr`). Les quatre sections de prose ont été
+écrites à partir du repo, des skills de marque et du diagnostic d'août, plus une section libre sur les
+contraintes d'outillage, 28 pages clés et deux entrées au journal de recherche. Concurrents laissés vides
+sur décision de Franck. Zéro crédit DataForSEO consommé, solde vérifié à 1 $ en fin de session.
+
+**Search Console connectée en natif**, ce qui n'était pas prévu au départ. Le blocage n'était pas celui
+annoncé : les trois variables `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET` et `BETTER_AUTH_SECRET` étaient
+présentes dans le `.env` mais **vides**. Un identifiant OAuth de type Application Web a été créé dans le
+projet Google Cloud `n8n API` (834058153902), celui qui portait déjà le client Desktop du GEO tracker, ce
+qui évitait de réactiver l'API Search Console et de reconfigurer un écran de consentement déjà en Interne.
+Le client Desktop existant n'était pas réutilisable, Google refusant une URI `https://` sur ce type.
+Propriété rattachée : `sc-domain:lagencesauvage.com`, compte `franck@lagencesauvage.com`, lecture seule.
+Deux scripts d'aide déposés dans `/opt/open-seo/` pour que le secret ne transite ni par la ligne de
+commande ni par l'historique : `set-google-client.sh` et `import-google-client.sh`.
+
+**Un diagnostic faux, corrigé.** Les outils `get_search_console_performance` et `inspect_urls` échouaient
+sur une erreur de schéma de sortie. J'en avais conclu à un bug d'OpenSEO et je l'avais écrit dans
+`openseo.md`. C'était faux : c'est ainsi que remonte l'erreur « GSC non connecté » pour ces deux outils,
+le client MCP rejetant la charge utile avant de l'afficher. La note a été réécrite.
+
+**Deux constats sortis des premières données, tous deux vérifiés.** Le domaine canonique est `www`, l'apex
+redirige et ses URL profondes sont inconnues de Google. Et le premier poste de trafic du site se classe sur
+des requêtes qui cherchent le modèle Hermes, pas une agence IA, ce qui remet en cause l'idée de le pousser
+au-dessus de la falaise du rang 5. Décision portée dans `status.md`.
+
+**Recharge DataForSEO écartée pour l'instant** : Search Console couvre gratuitement le chantier courant,
+et les 50 $ n'achètent utilement que le link prospecting, qui attend la liste de concurrents et l'arbitrage
+Hermes.
+
+
 ## 2026-09-12 — OpenSEO self-hébergé : instrument de mesure backlinks et keyword gap
 
 **Demande** : mettre en place `every-app/open-seo` pour faire venir du monde sur le site, l'outillage
